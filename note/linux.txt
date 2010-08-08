@@ -1,0 +1,9 @@
+1 /bin/sh ./script.sh
+  以这种方式执行不需要script.sh文件具有可执行权限
+2 进程间采用内存保护技术，不会因为一个应用程序的崩溃而导致整个系统的崩溃。
+3 安装和登录命令：login、 shutdown、 halt、 reboot 、mount、umount 、chsh
+  文件处理命令：file、 mkdir、 grep、dd、 find、 mv 、ls 、diff、 cat、 ln
+  系统管理相关命令： df、 top、 free、 quota 、at、 lp、 adduser、 groupadd kill、 crontab、   tar、 unzip、 gunzip 、last
+  网络操作命令：ifconfig、 ip 、ping 、 netstat 、telnet、 ftp、 route、 rlogin rcp 、finger   、mail 、nslookup
+  系统安全相关命令： passwd 、su、 umask 、chgrp、 chmod、chown、chattr、sudo、 pswho
+4 dir_color
