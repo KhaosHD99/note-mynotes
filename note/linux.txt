@@ -7,3 +7,4 @@
   网络操作命令：ifconfig、 ip 、ping 、 netstat 、telnet、 ftp、 route、 rlogin rcp 、finger   、mail 、nslookup
   系统安全相关命令： passwd 、su、 umask 、chgrp、 chmod、chown、chattr、sudo、 pswho
 4 dir_color
+5 编译内核
