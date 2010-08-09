@@ -8,3 +8,5 @@
   系统安全相关命令： passwd 、su、 umask 、chgrp、 chmod、chown、chattr、sudo、 pswho
 4 dir_color
 5 编译内核
+6 在 Linux 的世界中，絕大部分的設定檔都是以 ASCII 的純文字形態存在
+7 vim 编辑器 操作不同
