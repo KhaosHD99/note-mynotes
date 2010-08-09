@@ -1,1 +1,2 @@
 1 cn99 网易？
+2 gcc 编译c文件 printf问题
