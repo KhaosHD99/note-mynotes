@@ -54,6 +54,58 @@
    `long a,b;if(a==b) printf("a=%ld,b=%ld",a,b); 
 16 gcc 编译器对<stdlib>,<iostream>,no such file
 17 用gcc编译的时候要加上-g参数，才能用gdb的list功能
+18 
+   Andre wrote:
+
+   > Hi all,
+   > 
+   > Can someone point out what is wrong with this tiny piece of code? I'm
+   > compiling it with "g++ ./Main.cpp", and get the error message "error:
+   > request for member 'konnect' in 'theSocket', which is of non-class
+   > type 'Socket ()()'"
+
+   The error message is surprisingly accurate.
+
+   > Thanks in advance,
+   > 
+   > Andre
+   > #####################################
+   > class Socket
+   > {
+   > public:
+   > void konnect(){};
+   > };
+   > 
+   > int main(int argc, char ** argv)
+   > {
+   > Socket theSocket();
+
+   This declares theSocket as an uninitialized variable of function type:
+
+   Socket () ( void )
+
+
+   You might want to say
+
+   Socket theSocket;
+
+   instead.
+
+   > 
+   > theSocket.konnect();
+
+   A function has no members.
+
+   > 
+   > return 0;
+   > }
+   > #####################################
+
+
+   Best
+
+   Kai-Uwe Bux
+
   
 
   
