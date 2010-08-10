@@ -1,2 +1,3 @@
 1 cn99 网易？
 2 gcc 编译c文件 printf问题
+3 linux 硬盘分区

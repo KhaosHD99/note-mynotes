@@ -10,3 +10,5 @@
 5 编译内核
 6 在 Linux 的世界中，絕大部分的設定檔都是以 ASCII 的純文字形態存在
 7 vim 编辑器 操作不同
+8 Linux Native（根分区和Linux Swap（数据交换区）
+9 Linux应安装在硬盘分区的最后一个扩展分区
