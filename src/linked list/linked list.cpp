@@ -125,36 +125,7 @@ int length(list *l)
   // return i;
 }
 
-void QuickSort(int *pData,int left,int right)
-{
-    int i,j,middle,iTemp;
-    middle=pData[(left+right)/2];
-    middle=pData[(rand()%(right-left+1))+left]; 
-    do
-    {
-       while((pData[i]<middle)&&(i<right))
-          i++;
-       while((pData[j]>middle) && (j>left))
-          j--; 
-       if(i<=j)
-       { 
-          iTemp=pData[j];
-          pData[j]=pData[i];
-          pData[i]=iTemp;
-          i++;           
-          j--;       
-       }
-    }while(i<=j);
-         
-    if(left<j)
-    {
-       QuickSort(pData,left,j);
-    }
-    if(right>i)
-    {
-       QuickSort(pData,i,right);
-    }                           
-}
+
 
 void Option()
 {
@@ -199,8 +170,8 @@ int main()
 		   case 4: SearchSpecElement(l);
                    system("pause");break;
            
-           case 5: QuickSort();
-                   system("pause");break;
+       //    case 5: QuickSort();
+      //             system("pause");break;
 		   case 0: i=0; break;
 		}
    }
