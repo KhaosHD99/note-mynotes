@@ -3,3 +3,6 @@
 3 linux 硬盘分区
 4 重启samba服务器
 5 root 登入 samba
+6 linux 退格
+7 linux fflush
+8 makefile 中的.o的作用

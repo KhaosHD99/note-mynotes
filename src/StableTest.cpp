@@ -2,13 +2,20 @@
 #include<stdlib.h>
 #include<iostream>
 #include<string.h>
-#define MAXLEN 10
 using namespace std;
+
+int num = 0;
+
+typedef struct myint
+{  
+   int value;                                   
+   int tag;                              
+}myint;
 
 typedef struct listnode
 {  
-   int data;                                   
-   struct listnode *next;                                 
+   myint data;                                   
+   listnode *next;                                 
 }listnode;
 
 typedef struct list
@@ -17,7 +24,6 @@ typedef struct list
    listnode *tail;    
 }list;
 
-int num = 0;
 
 listnode *GetPreviousNode(listnode *ref,listnode *target)          //get the previous pointer 
 {
@@ -36,13 +42,13 @@ listnode *GetPreviousNode(listnode *ref,listnode *target)          //get the pre
    return target;
 }
 
-list *AddElement(list *l,int x)
+list *AddElement(list *l,myint mi)
 {
    if(l == NULL)
       l = new list();
    listnode *node = new listnode();
    
-   node->data = x;
+   node->data = mi;
    node->next = NULL;
    
    if(l->head == NULL)
@@ -58,53 +64,13 @@ list *AddElement(list *l,int x)
       return l;
 }
 
-void DeleteSpecElement(list *l)
-{
-   if(l == NULL)
-   {
-      return ;
-      printf("\n\t\t The list is empty!!!");
-   }
-   
-   listnode *p = l -> head;
-      int i  = p->data;
-      l->head = p->next;
-      free(p);
-      p = NULL;
-      cout << "Deleted Element is: " << i <<endl;   
-}
-
-void SearchSpecElement(list *l)
-{
-   if(l == NULL)
-   {
-      return ;
-      printf("\n\t\t The list is empty!!!");
-   }
-   listnode *p = l->head;
-   int x ; 
-   int squ = 0; 
-   printf("\n\t\t Enter an integer element you want to search£º");
-   scanf("%d",&x);
-   
-   while(1)
-   {
-      squ++; 
-      if(p->data == x)
-      {
-         cout << ("\t\t  The element's sequence you want to search is£º") << squ << endl;
-         break;
-      }
-      p = p->next;
-   }
-}
-
 listnode *Partition(listnode *low,listnode *high)
 {
-   int key = low->data;
+   int key = low->data.value;
+   int tagKey = low->data.tag;
    while(low != high)
    {
-      while(low != high && high->data >= key)
+      while(low != high && high->data.value >= key)
       {
          high = GetPreviousNode(low,high);
       }
@@ -114,7 +80,7 @@ listnode *Partition(listnode *low,listnode *high)
          low = low->next;
       }
    
-      while(low != high && low->data < key)
+      while(low != high && low->data.value < key)
       {
          low = low->next;                
       }
@@ -124,7 +90,8 @@ listnode *Partition(listnode *low,listnode *high)
          high = GetPreviousNode(low,high);
       }  
    }
-   low->data = key;
+   low->data.value = key;
+   low->data.tag = tagKey;
    return low;   
 }
 
@@ -143,13 +110,13 @@ void QuickSort(list *l,listnode *low,listnode *high)
       listnode *p = l->head;
       while(p)
       {
-         cout << "\t\t " << p->data << endl;
+         cout << "\t\t " << p->data.value << "  " << p->data.tag << endl;
          p = p->next;       
       }
       // fflush(stdin);
-      cout << "low is: " << low->data << endl; 
-	  cout << "high is: " << high->data << endl; 
-	  cout << "pos is: " << pos->data << endl; 
+      //cout << "low is: " << low->data << endl;
+	  //cout << "high is: " << high->data << endl;
+	  //cout << "pos is: " << pos->data << endl;
       getchar();
       if(pos != low) 
          QuickSort(l,low,GetPreviousNode(l->head,pos));
@@ -158,7 +125,8 @@ void QuickSort(list *l,listnode *low,listnode *high)
    }
 }
 
-void ShowList(list *l)
+
+void ShowListWithTag(list *l)
 {
    if(l == NULL)
    {
@@ -169,41 +137,21 @@ void ShowList(list *l)
    cout << "\n\t\t linked list is:" << endl;
    while(p)
    {
-      cout << "\n\t\t " << p->data << endl;
-      p = p->next;        
-   }
-}
-
-int length(list *l)
-{  
-   if(l == NULL)
-   {
-      return 0;
-      cout << ("\t\t The list is empty!!!") << endl;
-   }
-   
-   int len = 0;
-   listnode *p = l->head;
-   while(p)
-   {
-      len++;
+      cout << "\n\t\t " << p->data.value << "  " << p->data.tag << endl;
       p = p->next;
    }
-   return len;
 }
 
 void Option()
 {
     // system("cls");
-     printf("\n\t\t                    linked list\n");
+     printf("\n\t\t                    stable list\n");
      printf("\n\t\t***********************************************");
      printf("\n\t\t*          1--------Add element               *");
      printf("\n\t\t*          2--------Delete element            *");
-     printf("\n\t\t*          3--------Search element            *");
-     printf("\n\t\t*          4--------Quick sort                *");
-     printf("\n\t\t*          5--------Show length               *");
-     printf("\n\t\t*          6--------Show list                 *");
-     printf("\n\t\t*          0------------Exit                  *");
+     printf("\n\t\t*          3--------Quick sort                *");
+     printf("\n\t\t*          4--------Show list with tag        *");
+	 printf("\n\t\t*          0------------Exit                  *");
      printf("\n\t\t***********************************************");
      printf("\n\n\t\t Please select :  ");
 }
@@ -216,11 +164,23 @@ int main()
    list *l = NULL; 
 
    //Add the test data
-   int array[] = {5,42,12,53,32,0,65,-61,24,72,10,12},k;
+   int array[] = {5,42,12,53,32,0,65,-61,24,72,10,12},k,tag = 1;     
+   //int array[] = {5,42,12,53,12,0,65,-61,24,72,10,32},k,tag = 1;
+   myint mi;
    for(k = 0;k < 12;k++)
    {
-      l = AddElement(l,array[k]);
+      mi.value = array[k];
+	  if(array[k] == 12)
+	  {
+	  	mi.tag = tag;
+		tag++;
+	  }
+	  else
+	  	mi.tag = 0;
+      l = AddElement(l,mi);
    }
+
+   
    cout << "\n\nFor convenience,array{5,42,12,53,32,0,65,-61,24,72,10,12} has been added to the list" << endl;
  
    while (i)
@@ -232,19 +192,18 @@ int main()
 		   case 1: int x ; 
                    printf("\n\t\t Please Enter an integer£º");
                    scanf("%d",&x);
-		   	       l = AddElement(l,x);
+				   myint mi;
+				   mi.value = x;
+				   mi.tag = 0;
+		   	       l = AddElement(l,mi);
                 //  system("pause");
 				   break;
                    
-		   case 2: ShowList(l); 
+		   case 2: ShowListWithTag(l); 
                //    system("pause");
 				   break;
                    
-		   case 3: SearchSpecElement(l);
-                //   system("pause");
-				   break;
-           
-           case 4: if(l != NULL)
+		   case 3: if(l != NULL)
                    {
                       num = 0; 
                       listnode *low = l->head;
@@ -258,14 +217,10 @@ int main()
                  //  system("pause");
 				   break;
                    
-           case 5: cout << "\t\t the list length is: " << length(l) << endl;
+           case 4: ShowListWithTag(l);
                   // system("pause");
 				   break;
-                   
-           case 6: ShowList(l);
-                  // system("pause");
-				   break;
-                   
+				  
            case 0: i=0;
 		           break;
 
@@ -276,3 +231,4 @@ int main()
 		}
    }
 }
+
