@@ -12,12 +12,27 @@ typedef struct listnode
 
 typedef struct
 {
-   listnode *head;       
+   listnode *head;   
+   listnode *tail;    
 }list;
 
-void IniList()                                            
-{  
-   list *l = NULL;           
+int num = 0;
+
+listnode *GetPreviousNode(listnode *ref,listnode *target)          //get the previous pointer 
+{
+   if(ref == target)
+      return NULL; 
+   while(1)
+   {
+      if(ref->next == target)
+      {
+         target = ref;
+         ref = NULL;
+         break;         
+      }
+      ref = ref->next;
+   }
+   return target;
 }
 
 list *AddElement(list *l)
@@ -35,6 +50,7 @@ list *AddElement(list *l)
    if(l->head == NULL)
       {
          l->head = node;
+         l->tail = node;
       }
       else
       {
@@ -44,11 +60,6 @@ list *AddElement(list *l)
       return l;
 }
 
-list *AddElementToSpecPos(list *l)
-{
-        
-}
-
 void DeleteSpecElement(list *l)
 {
    if(l == NULL)
@@ -56,19 +67,13 @@ void DeleteSpecElement(list *l)
       return ;
       printf("\n\t\t The list is empty!!!");
    }
-   listnode *p = l->head;
-   int x ; 
-   printf("\n\t\t Enter an integer element you want to delete：");
-   scanf("%d",&x);
    
-   while(1)
-   {
-      if(p->data == x)
-      {
-           
-      }
-      p = p->next;
-   }
+   listnode *p = l -> head;
+      int i  = p->data;
+      l->head = p->next;
+      free(p);
+      p = NULL;
+      cout << "Deleted Element is: " << i <<endl;   
 }
 
 void SearchSpecElement(list *l)
@@ -96,10 +101,72 @@ void SearchSpecElement(list *l)
    }
 }
 
+listnode *Partition(listnode *low,listnode *high)
+{
+   int key = low->data;
+   while(low != high)
+   {
+      while(low != high && high->data >= key)
+      {
+         high = GetPreviousNode(low,high);
+      }
+      if(low != high)
+      {
+         low->data = high->data;
+         low = low->next;
+      }
+   
+      while(low != high && low->data < key)
+      {
+         low = low->next;                
+      }
+      if(low != high)
+      {
+         high->data = low->data;
+         high = GetPreviousNode(low,high);
+      }  
+   }
+   low->data = key;
+   return low;   
+}
+
+void QuickSort(list *l,listnode *low,listnode *high)
+{
+   if(l == NULL || low == NULL || high == NULL)
+      return ;
+      
+   listnode *pos = NULL;
+   int k;
+   if(low != high)
+   {
+      pos = Partition(low,high);
+      num++;
+      printf("第%d趟排序结果是：\n",num);
+      listnode *p = l->head;
+      while(p)
+      {
+         cout << "\t\t " << p->data << endl;
+         p = p->next;       
+      }
+      //cout << "low:" << low->data << endl;
+      //cout << "high" << high->data << endl;
+      //cout << "pos" << pos->data << endl;  
+      fflush(stdin);
+      getchar();
+      if(pos != low) 
+         QuickSort(l,low,GetPreviousNode(l->head,pos));
+      if(pos != high)
+         QuickSort(l,pos->next,high);      
+   }
+}
+
 void ShowList(list *l)
 {
    if(l == NULL)
-      return;
+   {
+      return ;
+      printf("\n\t\t The list is empty!!!");
+   }
    listnode *p = l->head;
    cout << "\n\t\t linked list is:" << endl;
    while(p)
@@ -111,21 +178,21 @@ void ShowList(list *l)
 
 int length(list *l)
 {  
-  // if(q == NULL)
-  //    return -1;
- //  int i = 0;
+   if(l == NULL)
+   {
+      return 0;
+      cout << ("\t\t The list is empty!!!") << endl;
+   }
    
-  // queuenode *p = q->front;
-  // while(p)
-  // {
-    //  i++;
-  //    p = p->next;       
-  // }
-  // k=q->rear-q->front;
-  // return i;
+   int len = 0;
+   listnode *p = l->head;
+   while(p)
+   {
+      len++;
+      p = p->next;
+   }
+   return len;
 }
-
-
 
 void Option()
 {
@@ -133,11 +200,11 @@ void Option()
      printf("\n\t\t                    linked list\n");
      printf("\n\t\t***********************************************");
      printf("\n\t\t*          1--------Add element               *");
-     printf("\n\t\t*          2--------Add element to spec pos   *");
-     printf("\n\t\t*          3--------Delete spec element       *");
-     printf("\n\t\t*          4--------Search element            *");
-     printf("\n\t\t*          5--------Quick sort                *");
-     printf("\n\t\t*          5--------Show all elements         *");
+     printf("\n\t\t*          2--------Delete element            *");
+     printf("\n\t\t*          3--------Search element            *");
+     printf("\n\t\t*          4--------Quick sort                *");
+     printf("\n\t\t*          5--------Show length               *");
+     printf("\n\t\t*          6--------Show list                 *");
      printf("\n\t\t*          0------------Exit                  *");
      printf("\n\t\t***********************************************");
      printf("\n\n\t\t Please select :  ");
@@ -148,10 +215,8 @@ int main()
    int i=1;
    int choice;
    
-   //IniList();
    list *l = NULL; 
-  // TestClass testClass;
-   
+ 
    while (i)
    { 	
 		Option();
@@ -161,18 +226,32 @@ int main()
 		   case 1: l = AddElement(l);
                    system("pause");break;
                    
-		   case 2: AddElement(l); 
+		   case 2: ShowList(l); 
                    system("pause");break;
                    
-		   case 3: ShowList(l); 
-                   system("pause");break;
-                   
-		   case 4: SearchSpecElement(l);
+		   case 3: SearchSpecElement(l);
                    system("pause");break;
            
-       //    case 5: QuickSort();
-      //             system("pause");break;
-		   case 0: i=0; break;
+           case 4: if(l != NULL)
+                   {
+                      num = 0; 
+                      listnode *low = l->head;
+                      listnode *high = l->tail;
+                      QuickSort(l,low,high);
+                   }
+                   else
+                   {
+                      cout << "the list is empty" << endl;    
+                   }
+                   system("pause");break;
+                   
+           case 5: cout << "\t\t the list length is: " << length(l) << endl;
+                   system("pause");break;
+                   
+           case 6: ShowList(l);
+                   system("pause");break;
+                   
+           case 0: i=0; break;
 		}
    }
 }

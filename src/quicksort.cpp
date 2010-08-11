@@ -3,12 +3,13 @@
 #include<iostream>
 using namespace std;
 
-int r[5] = {5,10,9,6,7};
+int r[5] = {10,5,9,6,7};
 int num = 0;
 
 int Partition(int i,int j)
 {
    int temp = r[i];
+   
    
    while(i < j && r[j] >= temp)
       j--;
@@ -37,7 +38,7 @@ void QuickSort(int low,int high)
    {
       pos = Partition(low,high);
       num++;
-      printf("第%d趟排序结果为",num);  
+      printf("第%d趟排序结果为\n",num);
       for(k=0;k<5;k++)
          cout << r[k] <<endl;
       getchar();
@@ -48,6 +49,10 @@ void QuickSort(int low,int high)
 
 int main()
 {
-   
+   int i = 0;
+   cout << "The source list is: " << endl;
+   for(i = 0;i < 5;i++)
+      cout << r[i] << endl;
+   getchar();
    QuickSort(0,4);  
 }
