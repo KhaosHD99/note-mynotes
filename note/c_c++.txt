@@ -105,7 +105,9 @@
    Best
 
    Kai-Uwe Bux
-
+19 class CTest
+   {
+   };
   
 
   
