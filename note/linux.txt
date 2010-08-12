@@ -12,3 +12,5 @@
 7 vim 编辑器 操作不同
 8 Linux Native（根分区和Linux Swap（数据交换区）
 9 Linux应安装在硬盘分区的最后一个扩展分区
+10 cp -a
+11 ctr+Backspace

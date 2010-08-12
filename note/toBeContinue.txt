@@ -3,6 +3,9 @@
 3 linux 硬盘分区
 4 重启samba服务器
 5 root 登入 samba
-6 linux 退格
-7 linux fflush
-8 makefile 中的.o的作用
+6 cls pause comman not found
+7 typedef
+8 linux 编码问题
+9 source insight utf-8
+10 g++同时编译多个
+11 Clock skew detected.your build may be incomplete
