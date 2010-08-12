@@ -1,15 +1,18 @@
 #ifndef CDIVIDER_DEF
 #define CDIVIDER_DEF
 
-class CDivider()
+class CDivider
 {
     
     public:
-      CDivider(const char* filename, const char*savepath, int ucount){};	
+		
+      CDivider(char *filename);	
+      void ShowTest();
+	  void Divide();
 
-      fun1(....);
-      fun2(....);
-
+	private:
+	  char *filename;
+      int i;
 };
 
 #endif

@@ -2,13 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-using namespace std;
-
-#define MAX_PATH 260
+#include "CDivider.cpp"
+using namespace std; 
+//#define MAX_PATH 260
 
 void Option()
 {
-    // system("cls");
      printf("\n\t\t                    udfile\n");
      printf("\n\t\t***********************************************");
      printf("\n\t\t*           1--------Divide                   *");
@@ -50,11 +49,8 @@ void Divide()
       printf("Openfile error!\n");
 	  exit(1);
    }
-
-  // while((ch = getc(fp)) != EOF)
-	//  putchar(ch);
-
-   
+   // while((ch = getc(fp)) != EOF)
+   //  putchar(ch);
    unsigned long file_size = 5;
    unsigned long FILE_SIZE = file_size;
    char* data_block = new char[file_size];
@@ -72,9 +68,7 @@ void Divide()
 	  printf("\n read_element_num is: %d \n",read_element_num);
 	  exit(1);
    }
-   	  
-	   
-   // snprintf(split_file,MAX_PATH,"%s%04d",dest_file,count++);
+  // snprintf(split_file,MAX_PATH,"%s%04d",dest_file,count++);
    dst_file = fopen("divide01","wb");
 	  if(dst_file == NULL)
 	  {
@@ -84,13 +78,25 @@ void Divide()
 	  }
 	  fwrite(data_block,file_size,1,dst_file);
 	  fclose(dst_file);
-	   
 }
 
-int main(int argc,char**argv)
+
+const char *GetFliename()
+{
+   const char *pname = "filename";
+   return pname;
+}
+
+int main()
 {  
+   // const char *filename = GetFliename();
+    char filename[] = "testfile";
+    CDivider cdivider(filename);
+	cdivider.Divide();
+	
    // OpenFile();
-   Divide();
+     //Divide();
+     
 	/*   int i=1;
 	   int choice;
 	   
