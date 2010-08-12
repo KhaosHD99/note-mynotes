@@ -11,3 +11,4 @@
 11 Clock skew detected.your build may be incomplete
 12 linux 清空流
 13 makefile中的.o
+14 fopen() wb wt

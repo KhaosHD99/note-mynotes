@@ -1,0 +1,71 @@
+一.在linux下实现一个文件分割合成应用程序，如下：
+1. 实现分割类
+//将filename文件分割长ucount>1块子文件(filename-i)，并存储于savepath文件夹下；
+//同时打印分割过程以及分割后的文件信息（文件名/文件大小/文件创建日期）
+class CDivider()
+{
+    
+    public:
+      CDivider(const char* filename, const char*savepath, int ucount){};	
+
+      fun1(....);
+      fun2(....);
+
+};
+
+2. 现实合并类
+//将path文件夹下，命名规则为filename-i（i>=0）的所有文件依次合并为filename
+class CUniter()
+{
+   public:
+	CUniter(const char* savepath, const char*filename)
+
+      fun1(....);
+      fun2(....);
+
+}
+
+
+3.主函数main()
+{
+     do   
+      {   
+          do{   
+             printf("1      分割         \n\t");   
+             printf("2      合并         \n\t");   
+             printf("3      退出         \n\t");   
+          }while(xxxx);   
+    
+         n = atoi(p);   
+         switch(n){   
+             case 1:   
+		分割  
+               break;   
+             case 2:   
+		合并
+                 break;   
+             case 3:   
+                     exit(1);   
+                 break;   
+         }   
+      }while(n != 3);   
+}
+
+二.实现过程中，源码/函数需增加注释说明
+如:
+/******************************************************************************
+* 函数名: divider
+* 参数输入：const char* filename， 要分割的目标文件，.......
+* 参数返回：int, 返回分割结果，小于0为结果异常，大于0表示分割后的文件总数
+*******************************************************************************/
+int divider(const char* filename, const char*savepath, int ucount)
+{
+    do
+	{
+                             	//......
+    }while(true)
+
+
+   ..........................
+}
+
