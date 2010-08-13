@@ -12,3 +12,8 @@
 12 linux 清空流
 13 makefile中的.o
 14 fopen() wb wt
+15 const 传入参数
+16 取得文件大小
+17 显式分配内存
+18 case crossed
+19 通过scanf()内存分配的位置
