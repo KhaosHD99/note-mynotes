@@ -18,3 +18,8 @@
 18 case crossed
 19 通过scanf()内存分配的位置
 20 ./configure make makeinstall diy  
+21 配置是否允许远程登录
+22 自动编译未生成的目标文件
+23 makefile 依赖文件？
+24 信号量
+  
