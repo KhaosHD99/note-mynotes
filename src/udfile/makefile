@@ -7,23 +7,24 @@
 
 BINDIR= bin
 #INCDIR= inc
-#SRCDIR= src
-#OBJDIR= obj
+SRCDIR= src
+OBJDIR= obj
 #CC=gcc
 CXX=g++
 #CFLAG += -I inc
+CXXFLAG = -c
 #LINK = g++ -g -Wl --hash-style=sysv
 
 #TARGET = test
-#OBJ = Main.o \
-#			NetClass.o \
-			
+OBJ = CDivider.o \
+			CUniter.o 
 			
 # -lFnVpu 
 #all: $(TARGET)
 #$(TARGET): LinkedList.cpp
-divuniter : main.cpp 
-	$(CXX) main.cpp -o $(BINDIR)/DivUniter
+divuniter : CDivider.o CUniter.o
+#	$(CXX) CDivider.cpp -o CDivider
+	$(CXX) $(SRCDIR)/main.cpp $(OBJDIR)/*.o -o $(BINDIR)/DivUniter
 #$(OBJDIR)/%.d: $(SRCDIR)/%.cpp
 #	$(CXX) -MM $(CPPFLAGS) $< > $@.temp;
 #	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.temp > $@;
@@ -31,11 +32,11 @@ divuniter : main.cpp
 
 #sinclude $(OBJ:.o=.d) 
 
-#%.o: $(SRCDIR)/%.cpp
-#	$(CXX)  $(CFLAG) -g -c -o2 $< -o $(OBJDIR)/$@
+CDivider.o : $(SRCDIR)/CDivider.cpp
+	$(CXX) $(SRCDIR)/CDivider.cpp $(CXXFLAG) -o $(OBJDIR)/CDivider.o
 
-#%.o: $(SRCDIR)/%.c 
-#	$(CC)   $(CFLAG) -g -c -o2 $< -o $(OBJDIR)/$@
+CUniter.o : $(SRCDIR)/CUniter.cpp 
+	$(CXX) $(SRCDIR)/CUniter.cpp $(CXXFLAG) -o $(OBJDIR)/CUniter.o
 
 #.PHONY: clean
 #clean:
