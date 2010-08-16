@@ -17,3 +17,4 @@
 17 显式分配内存
 18 case crossed
 19 通过scanf()内存分配的位置
+20 ./configure make makeinstall diy  
