@@ -22,4 +22,22 @@
 22 自动编译未生成的目标文件
 23 makefile 依赖文件？
 24 信号量
-  
+25 foreign
+26 头文件 重复引用
+27 $< $
+28 通配符 %
+29 支持制作PC信息文件
+30 configure.in ac_config_files
+31 工程目录结构
+32 当前lenny架构体系 arm板
+33 有名管道
+34 信号量
+35 c/c++ （原始）类型 函数 参考
+36 sem_init
+37 线程销毁 join
+38 mkfifo
+39 -lpthread
+40 PV原子操作 
+41 sem_t
+42 函数顺序
+43 清屏
