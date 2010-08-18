@@ -14,3 +14,4 @@
 9 Linux应安装在硬盘分区的最后一个扩展分区
 10 cp -a
 11 ctr+Backspace
+12 用autotools生成的makefile报错:missing separator，其实是makefile.am中missing separator
