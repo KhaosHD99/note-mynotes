@@ -14,10 +14,10 @@ void* Producer_thread(void *data)
    {
 	  sleep(PRODUCER_SLEEP);
 	  
-	  in = in % BUFFER_SIZE;
-	  CProdCons.pc_buffer->writepos = in;
-	  Write(CProdCons.pc_buffer, 1);
-	  ++in;
+	  CProdCons.in = CProdCons.in % BUFFER_SIZE;
+	  CProdCons.pc_buffer->writepos = CProdCons.in;
+	  CProdCons.Write(CProdCons.pc_buffer, 1);
+	  ++CProdCons.in;
    }
 
    return NULL;
@@ -29,12 +29,12 @@ void* Consumer_thread(void *data)
    {
 	  sleep(CONSUMER_SLEEP);
 
-	  out = out % BUFFER_SIZE;
-	  CProdCons.pc_buffer->readpos = out;
-	  Read(CProdCons.pc_buffer);
-	  printf("consumer in %d. like: \n", out);
-	  ShowBuffer();
-	  ++out;
+	  CProdCons.out = CProdCons.out % BUFFER_SIZE;
+	  CProdCons.pc_buffer->readpos = CProdCons.out;
+	  CProdCons.Read(CProdCons.pc_buffer);
+	  printf("consumer in %d. like: \n", CProdCons.out);
+	  CProdCons.ShowBuffer();
+	  ++CProdCons.out;
    }
  
    return NULL;
@@ -49,7 +49,7 @@ int main(void)
 	pthread_t pConsumer;
 	int ret;
 
-	cProdCons.Init();
+	CProdCons.Init();
 
 	//Create the producer thread
 	ret = pthread_create(&pProducer, NULL, Producer_thread, NULL);

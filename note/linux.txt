@@ -15,3 +15,4 @@
 10 cp -a
 11 ctr+Backspace
 12 用autotools生成的makefile报错:missing separator，其实是makefile.am中missing separator
+13 makefile.am中的subdirs是指要生成makefile的子目录
