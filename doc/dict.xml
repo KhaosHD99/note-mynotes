@@ -1,0 +1,269 @@
+<wordbook><item>    <word>algorithm</word>
+    <trans><![CDATA[n. 算法，运算法则]]></trans>
+    <phonetic><![CDATA[['ælɡəriðəm]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>incorporated</word>
+    <trans><![CDATA[adj. 合并的；组成法人组织的 
+v. 合并；包含；组成公司（incorporate的过去分词）]]></trans>
+    <phonetic><![CDATA[[in'kɔ:pəreitid]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>concat</word>
+    <trans><![CDATA[n. 合并多个数组；合并多个字符串]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>vector</word>
+    <trans><![CDATA[n. 矢量；带菌者；航线
+ 
+ vt. 用无线电导航]]></trans>
+    <phonetic><![CDATA[['vektə]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>arithmetic</word>
+    <trans><![CDATA[n. 算术，算法]]></trans>
+    <phonetic><![CDATA[[ə'riθmətik, ,æriθ'metik]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>assignment</word>
+    <trans><![CDATA[n. 分配；任务；作业；功课]]></trans>
+    <phonetic><![CDATA[[ə'sainmənt]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>evaluate</word>
+    <trans><![CDATA[vt. 评价；估价；求…的值 
+vi. 评价；估价]]></trans>
+    <phonetic><![CDATA[[i'væljueit]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>precedence</word>
+    <trans><![CDATA[n. 优先；居先]]></trans>
+    <phonetic><![CDATA[['presidəns, pri'si:-]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>precedent</word>
+    <trans><![CDATA[n. 先例；前例 
+adj. 在前的；在先的]]></trans>
+    <phonetic><![CDATA[[pri'si:dənt, 'presi-]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>unary</word>
+    <trans><![CDATA[adj. [数]一元的]]></trans>
+    <phonetic><![CDATA[['ju:nəri]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>多态</word>
+    <trans><![CDATA[polymorphic polymorphic]]></trans>
+    <phonetic><![CDATA[[duō tài]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>assert</word>
+    <trans><![CDATA[vt. 维护，坚持；断言；主张；声称]]></trans>
+    <phonetic><![CDATA[[ə'sə:t]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>violation</word>
+    <trans><![CDATA[n. 违反；妨碍，侵害；违背；强奸]]></trans>
+    <phonetic><![CDATA[[,vaiə'leiʃən]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>explicit</word>
+    <trans><![CDATA[adj. 明确的；清楚的；直率的；详述的]]></trans>
+    <phonetic><![CDATA[[ik'splisit]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>metric</word>
+    <trans><![CDATA[adj. 公制的；米制的；公尺的 
+n. 度量标准]]></trans>
+    <phonetic><![CDATA[['metrik]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>ejaculate</word>
+    <trans><![CDATA[vt. 突然说出；射出 
+vi. 射精；射出液体 
+n. 一次射出的精液]]></trans>
+    <phonetic><![CDATA[[i'dʒækjuleit, i'dʒækjulət, -leit]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>endian</word>
+    <trans><![CDATA[n. 字节存储次序，元组排列顺序]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>suffix</word>
+    <trans><![CDATA[vt. 添后缀 
+n. [语]后缀；下标]]></trans>
+    <phonetic><![CDATA[['sʌfiks, sə'fiks]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>prefix</word>
+    <trans><![CDATA[n. 前缀 
+vt. 加前缀；将某事物加在前面]]></trans>
+    <phonetic><![CDATA[[,pri:'fiks, 'pri:fiks]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>preorder</word>
+    <trans><![CDATA[vt. 预订 
+n. [计]前序]]></trans>
+    <phonetic><![CDATA[[pri:'ɔ:də]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>inorder</word>
+    <trans><![CDATA[n. 中根次序]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>postorder</word>
+    <trans><![CDATA[n. 后根次序；后缀次序]]></trans>
+    <phonetic><![CDATA[[,pəust'ɔ:də]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>operand</word>
+    <trans><![CDATA[n. [计]操作数；[数]运算对象]]></trans>
+    <phonetic><![CDATA[['ɔpərænd, ,ɔpə'rænd]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>traverse</word>
+    <trans><![CDATA[n. 穿过；横贯；横木 
+vt. 穿过；反对；详细研究；在…来回移动 
+vi. 横越；旋转；来回移动 
+adj. 横贯的]]></trans>
+    <phonetic><![CDATA[['trævəs, -və:s, trə'və:s, træ-]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>hug</word>
+    <trans><![CDATA[vt. 拥抱；紧抱；抱有，坚持 
+vi. 拥抱；紧抱在一起；挤在一起 
+n. 拥抱；紧抱；固执]]></trans>
+    <phonetic><![CDATA[[hʌɡ]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>lungs</word>
+    <trans><![CDATA[n. 肺（lung的复数形式）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>embrace</word>
+    <trans><![CDATA[vt. 拥抱；信奉，皈依；包含 
+vi. 拥抱 
+n. 拥抱]]></trans>
+    <phonetic><![CDATA[[im'breis]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>manipulation</word>
+    <trans><![CDATA[n. 操纵；操作；处理；篡改]]></trans>
+    <phonetic><![CDATA[[mə,nipju'leiʃən]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>performance analysis</word>
+    <trans><![CDATA[技术性能分析 
+Performance Analysis: 性能分析|工作绩效分析|绩效分析 
+performance test analysis: 效能测试分析|性能测试分析 
+operational performance-analysis language: 操作性能分析语言]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>consult</word>
+    <trans><![CDATA[vt. 查阅；商量；向…请教 
+vi. 请教；商议；当顾问]]></trans>
+    <phonetic><![CDATA[[kɔn'sʌlt, 'kɔnsʌlt]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>synopsis</word>
+    <trans><![CDATA[n. 概要，大纲]]></trans>
+    <phonetic><![CDATA[[si'nɔpsis]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>quit</word>
+    <trans><![CDATA[vt. 离开；放弃；停止；使…解除 
+vi. 离开；辞职；停止 
+n. 离开；退出 
+adj. 摆脱了…的；已经了结的]]></trans>
+    <phonetic><![CDATA[[kwit]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>notable</word>
+    <trans><![CDATA[adj. 值得注意的，显著的；著名的 
+n. 名人，显要人物]]></trans>
+    <phonetic><![CDATA[['nəutəbl]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>递归</word>
+    <trans><![CDATA[recursion recursion 
+{数} recurrence]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>嵌套</word>
+    <trans><![CDATA[nest nest 
+ nesting nesting 
+ nestification nestification]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>senior</word>
+    <trans><![CDATA[adj. 高级的；年长的；地位较高的；年资较深的，资格较老的 
+n. 上司；较年长者；毕业班学生]]></trans>
+    <phonetic><![CDATA[['si:njə]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>major</word>
+    <trans><![CDATA[adj. 主要的；重要的；主修的；较多的 
+n. 成年人；主修科目；陆军少校 
+vi. 主修]]></trans>
+    <phonetic><![CDATA[['meidʒə]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>junior</word>
+    <trans><![CDATA[adj. 年少的；后进的；下级的 
+n. 年少者，晚辈；地位较低者；大学三年级学生]]></trans>
+    <phonetic><![CDATA[['dʒu:njə]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>insight</word>
+    <trans><![CDATA[n. 洞察力；洞悉]]></trans>
+    <phonetic><![CDATA[['insait]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>skew</word>
+    <trans><![CDATA[n. 斜交；歪斜 
+adj. 斜交的；歪斜的]]></trans>
+    <phonetic><![CDATA[[skju:]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>zombie</word>
+    <trans><![CDATA[n. 行尸走肉；蛇神；木讷呆板的人]]></trans>
+    <phonetic><![CDATA[['zɔmbi]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>chase</word>
+    <trans><![CDATA[vt. 追逐；追捕；试图赢得；雕镂 
+vi. 追逐；追赶；奔跑 
+n. 追逐；追赶；追击]]></trans>
+    <phonetic><![CDATA[[tʃeis]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>chasecam n/off</word>
+    <trans><![CDATA[chasecam n/off: 第三人称视角 开/关 
+chasecam :on/off: 第三人称视角 开/关]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>lawn</word>
+    <trans><![CDATA[n. 草地；草坪]]></trans>
+    <phonetic><![CDATA[[lɔ:n]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>bowl</word>
+    <trans><![CDATA[n. 碗；木球；大酒杯 
+vi. 玩保龄球；滑动；平稳快速移动 
+vt. 投球；旋转；平稳快速移动]]></trans>
+    <phonetic><![CDATA[[bəul]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>disregard</word>
+    <trans><![CDATA[vt. 忽视；不理；漠视；不顾 
+n. 忽视；不尊重]]></trans>
+    <phonetic><![CDATA[[disri'ɡɑ:d]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>squash</word>
+    <trans><![CDATA[vt. 镇压；把…压扁；[口]使沉默 
+vi. 受挤压；发出挤压声；挤入 
+n. 挤压；咯吱声；壁球；南瓜属植物；（英）果汁饮料]]></trans>
+    <phonetic><![CDATA[[skwɔʃ, skwɔ:ʃ]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>shin</word>
+    <trans><![CDATA[n. 胫骨 
+vt. 爬；攀 
+vi. 攀；快步走]]></trans>
+    <phonetic><![CDATA[[ʃin]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>peas</word>
+    <trans><![CDATA[n. 豌豆（pea的复数）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+</item><item>    <word>maritime</word>
+    <trans><![CDATA[adj. 海的；海事的；沿海的；海员的]]></trans>
+    <phonetic><![CDATA[['mæritaim]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>positive</word>
+    <trans><![CDATA[n. 正数；正片 
+adj. 积极的；正的，阳性的；确定的，肯定的；实际的，真实的；绝对的 
+positive: 正片|正的，积极的|正的 
+positive ion: 正离子|阳离子|释义：阳离子,正离子 
+positive jurisprudence: 实证法学|实在法学]]></trans>
+    <phonetic><![CDATA[['pɔzətiv, -zi-]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>occasion</word>
+    <trans><![CDATA[n. 时机，机会；场合；理由 
+vt. 引起，惹起]]></trans>
+    <phonetic><![CDATA[[ə'keiʒən, əu-]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>bootstrap</word>
+    <trans><![CDATA[n. [计]引导程序，辅助程序；解靴带 
+bootstrap: 自举|辅助程序，自举电路|引导程序，引导指令，辅助程序，[台]启动程式 
+Bootstrap Protocol: 引导协议|自举协议|自引导协议 
+bootstrap dynamics: 靴袢动力学]]></trans>
+    <phonetic><![CDATA[['bu:tstræp]]]></phonetic>
+    <tags></tags>
+</item><item>    <word>concise</word>
+    <trans><![CDATA[adj. 简明的，简洁的]]></trans>
+    <phonetic><![CDATA[[kən'sais]]]></phonetic>
+    <tags></tags>
+</item></wordbook>
