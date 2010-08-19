@@ -48,3 +48,6 @@
 48 线程调用 类的成员函数
 49 线程函数是否适合做类的成员函数
 50 makefile.am 库文件编译时加入需要的头文件
+51 has modification time in the futrue /clock skew detect
+52 没有僵尸进程？
+53 fork 返回值 子进程id            over
