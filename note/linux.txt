@@ -17,3 +17,11 @@
 12 用autotools生成的makefile报错:missing separator，其实是makefile.am中missing separator
 13 makefile.am中的subdirs是指要生成makefile的子目录
 14 fork return nonzero value is subProcess's PID
+15 /boot/grub/menu.lst下设置分辨率
+   Colors ( depth)- 640x480- 800x600- 1024x768- 1280x1024- 1600x1200|
+    -------------------+---------+-----------+-----------+-------------+--------------|
+   256    ( 8 bit) |   769         771          773              775           796    |
+   32,768 (15 bit) |   784         787          790              793           797    |
+   65,536 (16 bit) |   785         788          791              794           798    |
+   16.8M (24 bit)  |   786         789          792              795           799    |
+
