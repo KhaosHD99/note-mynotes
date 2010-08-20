@@ -51,3 +51,4 @@
 51 has modification time in the futrue /clock skew detect
 52 没有僵尸进程？
 53 fork 返回值 子进程id            over
+54 syslog LOG_INFO LOG_EMERG
