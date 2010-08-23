@@ -53,3 +53,5 @@
 53 fork 返回值 子进程id            over
 54 syslog LOG_INFO LOG_EMERG
 55 vi to vim
+56 指针字符串分配内存问题
+57 client 莫名终结
