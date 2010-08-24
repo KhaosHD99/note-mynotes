@@ -4,12 +4,7 @@
 #include "unistd.h"
 #include <stdlib.h>
 #include <string.h>
-
-void Operation(int sig,siginfo_t * info, void * myact) 
-{ 
-   printf("recive signal %d\n", sig);
-   exit(1);
-}
+#include "COperation.hpp"
 
 int main(int argc, char**argv) 
 {
@@ -32,7 +27,7 @@ int main(int argc, char**argv)
 	 { 
 	    printf("waiting for signal\n");
 	    sleep(2);
-		kill(getpid(),888);
+		kill(getpid(),18);
 	 }
 }
 
