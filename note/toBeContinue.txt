@@ -56,3 +56,7 @@
 56 指针字符串分配内存问题
 57 client 莫名终结
 58 目录结构
+59 multiple defination extern 
+60 可执行文件输出 特定文件夹
+61 头文件 类
+62 包含多个库文件的Makefile.am
