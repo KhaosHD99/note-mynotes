@@ -1,0 +1,25 @@
+GTK+2.6安装笔记2009-06-24 15:131、GTK+2.6及相关源码包的下载！ 　　
+ftp://ftp.gtk.org里面有绝大多数的软件包！下载吧！我在安装时就象在WINDOWS里一样什么都用最新的！呵呵。。。如下： 　　
+atk-1.9.0.tar.bz2、tiff-v3.6.1.tar.z、pkgconfig-0.15.0.tar.gz、libpng-1.2.8.tar.bz2、jpegsrc.v6b.tar.gz 　　glib-2.6.4.tar.bz2、gtk+-2.6.6.tar.bz2、pango-1.8.1.tar.bz2、freetype-2.1.8.tar.bz2 　　fontconfig-2.3.1.tar.gz 　　
+
+二、源码包的安装及次序： 　　
+a、首先安装pkgconfig 　　./configure --prefix=/usr && 　　make && 　　make install 　　把下     面的话加到你的系统或用户设置文件中： 　　export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig 　 最好/sbin/ldconfig一下,以后每安一个软件就/sbin/ldconfig一下,保险点. 　　
+
+b、安装glib2.4 　　./configure --prefix=/usr && 　　make && 　　make install 　　    /sbin/ldconfig 　　
+
+c、安装atk1.9 　　./configure --prefix=/usr && 　　make && 　　make install 　　    /sbin/ldconfig 　　
+
+d、安装freetype-2.1.8 　　./configure --prefix=/usr && 　　make && 　　make install 　　    /sbin/ldconfig 　　
+
+e、安装pango 1.8.1 　　export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig 　　    ./configure --prefix=/usr --sysconfdir=/etc && 　　make && 　　make install 　　    /sbin/ldconfig 　　
+
+f、安装libpng-1.2.8 　　make prefix=/usr \ 　　ZLIBINC=/usr/include ZLIBLIB=/usr/lib -f       scripts/makefile.linux && 　　make prefix=/usr install -f scripts/makefile.linux 　　    /sbin/ldconfig 　　
+
+g、安装libtiff(就是tiff) 　　./configure --prefix=/usr --noninteractive \ 　　--with-      DIR_MAN=/usr/share/man && 　　make && 　　make install 　　/sbin/ldconfig 　　
+
+h、安装libjpeg(就是jpegsrv) 　　./configure --enable-static --enable-shared --prefix=/usr       && make && 　　make install 　　/sbin/ldconfig 　　
+
+i、安装fontconfig-2.2.2 　　./configure --sysconfdir=/etc --prefix=/usr --      mandir=/usr/share/man &&make &&make install 　　/sbin/ldconfig 　　
+
+j、安装gtk2.6.6 　　./configure --prefix=/usr --sysconfdir=/etc && 　　make && 　　make       install /sbin/ldconfig 
+

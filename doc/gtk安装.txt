@@ -1,0 +1,30 @@
+一、 所需的源码包 
+1. GNU make 工具 
+2. GNU gettext 软件包（当系统上没有 gettext() 函数的时候需要） 
+3. GNU libiconv 库（当系统上没有 iconv() 函数的时候需要） 
+4. fontconfig库 fontconfig 是提供系统范围内字体设置，定制和允许应用程序访问的函数库。 
+5. FreeType库 GTK+(基于DirectFB)的字体绘制是通过pango+freetype+fontconfig三者协作来完成的，   其中，fontconfig负责字体的管理和配置，freetype负责单个字符的绘制，pango则完成对文字的排版   布局。Freetype是一个操作字体的函数库，它不但可以处理点阵字体，也可以处理多种矢量字体，包   括truetype字体，为上层应用程序提供了一个统一的调用接口。 
+6. libpng库 libpng软件包包含 libpng 库，这些库被其他程序用于读写png文件。PNG 库是用来创立和操作PNG 格式的图形文件.PNG 格式是设计来替代GIF,它对于更小范围的TIFF(标记图象文件格式)来说, 有了很多的进步和拓展并且减少了关于专利权的麻烦. 
+7. jpegsrc库 能够使用JPEG算法压缩文件。 
+8. tiff库 tiff库被很多程序用于读写tiff文件。 
+9.pkg-   config 工具 pkgconfig 包括 pkg-config 程序，用来在编译脚本中向编译器传递头文件包含路径或   库文件路径。 对于支持 pkg-config 工具的 GTK+ 及其依赖库来说，库的头文件的搜索路径的设置变成了对 .pc 文件搜索路径的设置。.pc 文件的搜索路径是通过环境变量 PKG_CONFIG_PATH 来设置的，pkg-config 将按照设置路径的先后顺序进行搜索，直到找到指定的 .pc 文件为止。 
+10. GLib 库 GLib是GTK+和GNOME工程的基础底层核心程序库，创建 GDK 和 GTK 应用程序时该库可提供许多有用的定义和函数，是一个综合用途的实用的轻量级的C程序库，它提供C语言的常用的数据结构的定义、相关的处理函数，有趣而实用的宏，可移植的封装和一些运行时机能，如事件循环、线程、动态调用、对象系统等的API。 
+11. ATK 库 ATK 包包含了 ATK 库。ATK是可访问性工具箱（Accessibility Toolkit）的简称。ATK 为所有的GTK2程序提供了解决 Accessibility 需求的框架。 
+12. Cairo 库 Cairo，是一个跨平台的开放源代码的矢量图形函数库，可以提供高质量的显示和打印输出。Cairo提供一个稳定的用户层API，它可以提供现代化的图形处理管理能力，如绘制和填充，映射转换，合成（注意，是合成）与改变alpha半透明图像，高真文本显示等等。能够在不同的媒体上实现相同的输出。 
+13. Pango 库 Pango 库提供了底层的文本编排绘制生成函数, 一套生成整段文本布局的高层函数和帮助编辑多国文本的函数。 
+14. GTK+ 库 其中前五项一般比较新的Linux版本中，系统都会自带。需要注意的一个问题是如果GTK的安装路径为/opt/gtk时，在PKG_CONFIG_PATH中除了要添加/opt/gtk/lib/pkgconfig之外，还有加上/usr/lib/pkgconfig。因为安装在系统的库其.pc文件都在/usr/lib/pkgconfig中，想要在安装GTK时用到这些系统自带的库时，必须把路径设置清楚。 在收集安装GTK所需的源码包时最重要，也是最容易忽略的一个问题就是各个包之间版本的匹配问题。我在安装GTK就忽略了这个问题，结果走了很多弯路。解决这个问题最简单的办法就是登陆GTK+ 的网站":ftp://ftp.gtk.org/pub/gtk，在上面下载各种源码包。在这个站点上，每个GTK版本兼容的源码包都放在一个文件夹下。例如我选择安装GTK v2.6，只要在ftp://ftp.gtk.org/pub/gtk/v2.6中下载各个包即可。不过选择V2.6的朋友要严重注意一个问题，支持GTK V2.6的pango包有两个版本－1.8.0、1.8.1，1.8.0是一个失败的版本，如果选择它，在安装GTK时就会死活找不到pango库。我当时就是这个版本的受害者，花了很长时间也无法在安装GTK时连接pango库，后来在网上看到一个老外说这个版本有bug，只能使用1.8.1版本。妈的！这不坑人吗！ 根据依赖关系的要求，库的安装要按照这样的先后顺序进行：GLib、Atk、Cairo、Pango、Gtk+。
+
+二、 设置 主要包括对LD_LIBRARY_PATH和PKG_CONFIG_PATH的设置，具体如下： > export LD_LIBRARY_PATH=/opt/gtk/lib:$LD_LIBRARY_PATH > export PKG_CONFIG_PATH=/opt/gtk/lib/pkgconfig:$PKG_CONFIG_PATH 注意，如果想要使用系统中已有的fontconfig、FreeType等库，需要加上系统原有的库： > export LD_LIBRARY_PATH=/usr/lib > export LD_LIBRARY_PATH=/opt/gtk/lib:$LD_LIBRARY_PATH > export PKG_CONFIG_PATH=/usr/lib/pkgconfig > export PKG_CONFIG_PATH=/usr/X11R6 /lib/pkgconfig:$PKG_CONFIG_PATH > export PKG_CONFIG_PATH=/opt/gtk/lib/pkgconfig:$PKG_CONFIG_PATH 容易被人忽略的一点是LD_LIBRARY_PATH和PKG_CONFIG_PATH这两个环境变量只对当前的终端窗口有效。如果到了没有进行上述设置的终端窗口中，pkg-config 将找不到新安装库的.pc 文件、从而可能使后面进行的安装无法进行。(自己犯的一个简单却造成严重后果的错误，吐血提醒大家哦) 三、 源码包的安装 我安装的GTK版本为v2.6，
+用到的源码包包括：
+
+jpegsrc.v6b.tar.gz、libpng-1.2.8.tar.bz2、tiff-v3.6.1.tar.gz、pkgconfig-0.15.0.tar.gz、glib-2.6.6.tar.bz2、atk-1.9.0.tar.bz2、cairo-1.2.4.tar.gz、pango-1.8.1.tar.bz2、gtk+-2.6.9.tar.bz2。把它们都放在root的主目录下。 将 GTK+ 及其依赖库设置安装到同一个目录/opt/gtk下、而不是每一个库占用一个不同的目录，可以给以后的库的设置带来方便。而且，在将来不再需要这个版本的 GTK+ 及其依赖库的时候可以通过删除这个目录将它们简单地去除。
+
+1． 安装pkgconfig > tar zxvf pkgconfig-0.15.0.tar.gz > cd /root/pkgconfig-0.15.0 > ./configure > make > make install 每个过程结束后，都可以用用 echo $? 检查是否执行安装成功。如果输出是 0，说明配置成功；0 之外的数字说明配置失败。在 Linux 系统上，可以用这个方法检查一个命令或程序在其结束后返回给系统的值是多少。一般 0 代表成功，非 0 表示程序异常退出。 
+2．安装glib > tar zjvf glib-2.6.6.tar.bz2 > cd /root/ glib-2.6.6 >./configure --prefix=/opt/gtk >make >make install 
+3．安装atk > tar zjvf atk-1.9.0.tar.bz2 > cd /root/ atk-1.9.0 >./configure --prefix=/opt/gtk >make >make install 
+4.安装cairo > tar zxvf cairo-1.2.4.tar.gz > cd /root/ cairo-1.2.4 >./configure --prefix=/opt/gtk --with-x --enable-win32=no >make >make install 
+5.安装Pango > tar zxvf cairo-1.2.4.tar.gz > cd /root/ cairo-1.2.4 >./configure --prefix=/opt/gtk --libdir=/opt/gtk/lib --with-x >make >make install 
+6．安装libpng > tar zjvf libpng-1.2.8.tar.bz2 > cd /root/ libpng-1.2.8 > make prefix=/opt/gtk \ZLIBINC=/opt/gtk/include ZLIBLIB=/opt/gtk/lib -f scripts/makefile.linux >make prefix=/opt/gtk install -f scripts/makefile.linux 
+7．安装libtiff(就是tiff) > tar zxvf tiff-v3.6.1.tar.gz > cd /root/ tiff-v3.6.1 > ./configure --prefix=/opt/gtk --noninteractive \ --with-DIR_MAN=/opt/gtk/share/man > make > make install 
+8．安装libjpeg(就是jpegsrv) > tar zxvf jpegsrc.v6b.tar.gz > cd /root/jpeg-6b > ./configure --enable-static --enable-shared --prefix=/opt/gtk > make > make install 注：jpeg默认不share library，因此要手工指定--enable-shared，一般安装lib时这一点都是要注意的。 
+10．安装gtk > tar zjvf gtk+-2.6.9.tar.bz2 > cd /root/ gtk+-2.6.9 > ./configure --prefix=/opt/gtk --with-x --without-libjpeg > make > make install 四、 检验是否正确安装GTK 为了检验是否正确安装GTK，利用GTK编写一个简单的程序，这个程序创建 200x200 大小的窗口。
