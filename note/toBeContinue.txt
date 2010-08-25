@@ -60,3 +60,7 @@
 60 可执行文件输出 特定文件夹
 61 头文件 类
 62 包含多个库文件的Makefile.am
+63 编译安装
+64 安装到自定义目录
+65 apt-get install libglib2.0-dev
+   apt-get install libgtk2.0-dev
