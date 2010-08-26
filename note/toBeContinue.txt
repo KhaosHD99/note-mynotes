@@ -2,7 +2,7 @@
 2 gcc 编译c文件 printf问题
 3 linux 硬盘分区
 4 重启samba服务器
-5 root 登入 samba
+5 root 登入 samba                       
 6 cls pause comman not found
 7 typedef                                             over
 8 linux 编码问题 颜色
