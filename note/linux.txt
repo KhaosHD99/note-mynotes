@@ -28,3 +28,6 @@
 17 apt-get install libglib2.0-dev
    apt-get install libgtk2.0-dev
 18 export DISPLAY=:0.0
+19 ./configure --without-libtiff --x-includes=/usr/X11R6/includes --x-         libraries=/usr/X11R6/lib
+20 pkg-config --modversion gtk+-2.0
+21 apt-get install libxml2-dev

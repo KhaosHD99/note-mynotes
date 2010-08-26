@@ -43,7 +43,7 @@
 43 清屏
 44 sh脚本
 45 makefile.am includes 分行
-46 Makefile.am 静态库 动态库
+46 Makefile.am 静态库 动态库                          
 47 sourceInsight 单实例
 48 线程调用 类的成员函数
 49 线程函数是否适合做类的成员函数
@@ -64,3 +64,5 @@
 64 安装到自定义目录
 65 apt-get install libglib2.0-dev
    apt-get install libgtk2.0-dev
+66 perl -MCPAN -e shell   
+   install XML::Parser 
