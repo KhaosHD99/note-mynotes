@@ -33,4 +33,4 @@
 21 apt-get install libxml2-dev
 22 apt-get update --fix-missing
 23 apt-get install glade
-24 X resolution /etc/X11/xorg.conf
+24 X resolution /etc/X11/xorg.conf depth 24
