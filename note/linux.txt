@@ -31,3 +31,6 @@
 19 ./configure --without-libtiff --x-includes=/usr/X11R6/includes --x-         libraries=/usr/X11R6/lib
 20 pkg-config --modversion gtk+-2.0
 21 apt-get install libxml2-dev
+22 apt-get update --fix-missing
+23 apt-get install glade
+24 X resolution /etc/X11/xorg.conf
