@@ -66,3 +66,5 @@
    apt-get install libgtk2.0-dev
 66 perl -MCPAN -e shell   
    install XML::Parser 
+67 user not authorized to run the x server
+68 
