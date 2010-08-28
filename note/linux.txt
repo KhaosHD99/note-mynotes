@@ -36,3 +36,4 @@
 24 X resolution /etc/X11/xorg.conf depth 24
 25/etc/resolv.conf dns
 26 build-essential
+27 apt-get install x-window-system-core
