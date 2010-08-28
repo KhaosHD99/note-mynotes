@@ -34,3 +34,5 @@
 22 apt-get update --fix-missing
 23 apt-get install glade
 24 X resolution /etc/X11/xorg.conf depth 24
+25/etc/resolv.conf dns
+26 build-essential
