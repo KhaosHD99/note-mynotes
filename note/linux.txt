@@ -38,3 +38,4 @@
 26 build-essential
 27 apt-get install x-window-system-core
 28 debian-based system : ubuntus
+29 etc/profile export LS_OPTIONS='--color=auto'
