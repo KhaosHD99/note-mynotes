@@ -67,4 +67,9 @@
 66 perl -MCPAN -e shell   
    install XML::Parser 
 67 user not authorized to run the x server
-68 
+68 glade3 信号
+69 父子窗口 popup
+70 单实例
+71 POPUP
+72 gtk_widget_destory    GTK_WIDGET    
+73 
