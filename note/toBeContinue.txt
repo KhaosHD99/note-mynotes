@@ -72,4 +72,4 @@
 70 µ¥ÊµÀý
 71 POPUP
 72 gtk_widget_destory    GTK_WIDGET    
-73 
+73 ¼æÈÝÐÔ
