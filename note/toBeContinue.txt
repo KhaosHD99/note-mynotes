@@ -73,3 +73,4 @@
 71 POPUP
 72 gtk_widget_destory    GTK_WIDGET    
 73 ºÊ»›–‘
+74 get all header
