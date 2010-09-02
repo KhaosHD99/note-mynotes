@@ -74,4 +74,7 @@
 72 gtk_widget_destory    GTK_WIDGET    
 73 兼容性
 74 get all header
-75 对象链接及嵌入（OLE）技术 构建库
+75 对象链接及嵌入（OLE）技术 构建库.
+76 多国语言 辅助 glade
+77 联系人固话，手提电话
+78 number类型
