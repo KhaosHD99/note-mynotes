@@ -80,3 +80,5 @@
 78 number类型
 79 文本转整形  ansi码
 80 vcf
+81 多个号码
+82 用char代替string
