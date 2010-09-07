@@ -59,7 +59,7 @@
 59 multiple defination extern 
 60 可执行文件输出 特定文件夹
 61 头文件 类
-62 包含多个库文件的Makefile.am
+62 包含多个库文件的Makefile.am                 ？？？
 63 编译安装
 64 安装到自定义目录
 65 apt-get install libglib2.0-dev
@@ -82,3 +82,9 @@
 80 vcf
 81 多个号码
 82 用char代替string
+83 mediafileinfo g_list_append
+84 sourceinsight 检测结构
+85 index 必须 有序 连续
+86 lp_config_new(path) path is curent shell-based,not the main-based
+87 类？ 函数？
+88 g_list_append GList
