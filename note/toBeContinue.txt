@@ -81,7 +81,7 @@
 79 文本转整形  ansi码
 80 vcf
 81 多个号码
-82 用char代替string
+82 用char代替string   库不必引用多余的头文件
 83 mediafileinfo g_list_append
 84 sourceinsight 检测结构
 85 index 必须 有序 连续
