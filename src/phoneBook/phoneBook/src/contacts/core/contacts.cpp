@@ -10,10 +10,11 @@
     	
 	}
 	
-	//static CContactsManager *CContactsManager::get_instance()
-   // {
-  //  	return (new CContactsManager);
-   // }
+	CContactsManager *CContactsManager::get_instance()
+	{
+		contacts_instance = new CContactsManager;
+    	return contacts_instance;
+	}
 	 	
 	int CContactsManager::get_contact_count()
     {	

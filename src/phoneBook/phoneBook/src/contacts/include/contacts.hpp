@@ -156,11 +156,8 @@ class CContactsManager
 	    void uninit();
  
 	public:
-	 	static CContactsManager *get_instance()
-		{
-		    contacts_instance = new CContactsManager;
-		    return contacts_instance;
-		}
+	 	static CContactsManager *get_instance();
+		
 	 	int get_contact_count();						 
 	 	int get_contact_by_index(Contact *contact,	int index);					 
 	 	int get_contact_by_name(Contact **contact,	const char *szname);		 
