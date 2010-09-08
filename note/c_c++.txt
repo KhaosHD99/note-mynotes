@@ -110,7 +110,87 @@
    };
 20 gcc -I
 21 返回值 生存期
+22 #ifdef __cplusplus extern "C" { #endif 的解释 (2009-04-25 22:26:06)转载
+标签：c语言杂谈	
+ 
+时常在cpp的代码之中看到这样的代码:
+#ifdef __cplusplus
+extern "C" {
+#endif
+//一段代码
+#ifdef __cplusplus
+}
+#endif
+　　
+    这样的代码到底是什么意思呢？首先，__cplusplus是cpp中的自定义宏，那么定义了这个宏的话表示这是一段cpp的代码，也就是说，上面的代码的含义是:如果这是一段cpp的代码，那么加入extern "C"{和}处理其中的代码。
+　　要明白为何使用extern "C"，还得从cpp中对函数的重载处理开始说起。在c++中，为了支持重载机制，在编译生成的汇编码中，要对函数的名字进行一些处理，加入比如函数的返回类型等等.而在C中，只是简单的函数名字而已，不会加入其他的信息.也就是说:C++和C对产生的函数名字的处理是不一样的. 目的就是主要实现C与C++的相互调用问题。
+ 
+c.h的实现
+#ifndef _c_h_
+#define _c_h_
+#ifdef __cplusplus
+extern "C" {
+#endif
+void C_fun();
+#ifdef __cplusplus
+}
+#endif
+#endif
+-----------------------------------
+c.c的实现
+＃include "c.h"
+void C_fun()
+{
+}
+------------------------------------
+在cpp.cpp中调用c.c中的C_test()
+cpp.cpp的实现
+＃include "c.h"
+int main()
+{
+     C_fun()
+}
+其中__cplusplus是C++编译器的保留宏定义．就是说C++编译器认为这个宏已经定义了．
+所以关键是extern "C" {}
+extern "C"是告诉Ｃ＋＋编译器件括号里的东东是按照C的obj文件格式编译的，要连接的话按照C的命名规则去找．
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+那么C中是如何调用C++中的函数cpp_fun()呢？
+因为先有C后有C++, 所以只能从C++的代码中考虑了．
+加入C++中的函数或变量有可能被Ｃ中的文件掉用，则应该这样写，也是用extern "C"{}
+不过是代码中要加，头文件也要加，因为可能是C++中也调用
+--------------------------------------
+cpp.h的实现
+#ifndef _c_h_
+#define _c_h_
+#ifdef __cplusplus
+extern "C" {
+#endif
+void CPP_fun();
+#ifdef __cplusplus
+}
+#endif
+#endif
+.-------------------------------------------
+Cpp.cpp的实现
+extern "C" {    //告诉C+++编译器,扩号里按照C的命名规则编译
+void CPP_fun()
+{
+     .....
+}
+ 
+ 
+总结
+　　C和C++对函数的处理方式是不同的.extern "C"是使C++能够调用C写作的库文件的一个手段，如果要对编译器提示使用C的方式来处理函数的话，那么就要使用extern "C"来说明。
   
-
-  
-  
+23 makefile.am for .so
+   LDFLAGS=-fPIC -shared
+   moduledir=$(prefix)/lib
+   module_PROGRAMS=CProdCons.so
+   CProdCons_so_SOURCES=CProdCons.cpp
+   CProdCons_so_LDFLAGS=-module
+   INCLUDES=-I../include
+24 makefile.am for .a
+   noinst_LIBRARIES=libCProdCons.a
+   libCProdCons_a_SOURCES = CProdCons.cpp
+   INCLUDES=-I../include
+   
