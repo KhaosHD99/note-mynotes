@@ -2,6 +2,11 @@
 #define CONTACTS_DEF
 
 #include "lpconfig.h"
+#ifdef HAVE_GLIB
+#include <glib.h>
+#else
+#include "uglib.h"
+#endif
 
 #define MAX_CONTACT_COUNT	1000
 #define MAX_CALLLOG_COUNT	50
@@ -65,7 +70,7 @@ typedef struct stEmail
 typedef struct stContact
 {
 	Name name;
-	GroupTpye type;						//组别
+	GroupTpye type;					                   //组别
 	Phone phones[MAX_PHONE_COUNT];
 	Email emails[MAX_EMAIL_COUNT];
 	char szvoip[MAX_VOIP_LEN];
@@ -148,7 +153,8 @@ class CContactsManager
 	private:
 		LpConfig *contacts_lpconfig;
 	 	int curCount;
-	 	Contact **contact_buf;													//动态数组
+	 	Contact **contact_buf;
+		GList *contactLink;
 	 	static CContactsManager *contacts_instance;
  	 
 	private:
@@ -157,8 +163,11 @@ class CContactsManager
  
 	public:
 	 	static CContactsManager *get_instance();
-		
-	 	int get_contact_count();						 
+		void contacts_read(LpConfig *config);
+		Contact* mcallitem_new_from_config_file(LpConfig *config, int index);
+		int write_mcall_item(LpConfig *config, Contact *item, int index);
+   		int save_mcall_configs(LpConfig *config);
+		int get_contact_count();						 
 	 	int get_contact_by_index(Contact *contact,	int index);					 
 	 	int get_contact_by_name(Contact **contact,	const char *szname);		 
 	 	int get_contact_by_letter(Contact **contact, const char *szletter);		 
@@ -171,12 +180,17 @@ class CContactsManager
 	 	int add_contact_by_index(Contact *contact, int index);
 	 	int delete_contact_by_index(int index);
 	 	int delete_contact_all();
+		int delete_mcallink();
 	 	//sort
 	 	void sort_by_name();													 						
 	 	void sort_by_letter();		 
 	 
 	 	int save_file();	
 		void test();
+
+		const gchar* __grouptype_enum_to_str(int enum_val);
+		const gchar* __phonetype_enum_to_str(int enum_val);
+		const gchar* __emailtype_enum_to_str(int enum_val);
  };
 
 #endif
