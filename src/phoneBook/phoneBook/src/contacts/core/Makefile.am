@@ -7,4 +7,5 @@
    module_PROGRAMS=contacts.so
    contacts_so_SOURCES=contacts.cpp
    contacts_so_LDFLAGS=-module
+   contacts_so_LDADD=../../../lib/liblinconfig.a
    INCLUDES=-I../../../include -I../include

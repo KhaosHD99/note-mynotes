@@ -39,3 +39,4 @@
 27 apt-get install x-window-system-core
 28 debian-based system : ubuntus
 29 etc/profile export LS_OPTIONS='--color=auto'
+30 Makefile.am中的subdirs 分编译的先后顺序

@@ -94,3 +94,11 @@
 92 .so
 93 需要指出的是：共享库必须被安装，所以不允许使用 `noinst_LTLIBRARIES'和`check_LTLIBRARIES'
 94 浪费了好些时间，竟然so不允许使用noinst：  而且生成以后放在了.libs的隐藏文件夹里面，太龌龊   了.
+95 头文件包含头文件 位置
+96 utf-8 安装目录
+97 svn for linux
+98 ultraedit
+99 file 命令
+100 防止头文件重复引用
+101 cout printf
+102 memset  枚举 _non
