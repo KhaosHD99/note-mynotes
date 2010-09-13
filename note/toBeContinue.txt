@@ -102,3 +102,10 @@
 100 防止头文件重复引用
 101 cout printf
 102 memset  枚举 _non
+103 判断内存区域都为0
+104 strcmp
+105 while(item->phones[i].szphone[0] != '\0')
+106 枚举转字符.
+107 首字母
+108 by name family name, given name
+109 把类屏蔽
