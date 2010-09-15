@@ -291,6 +291,7 @@ int CContactsManager::sync_contact_config()
 	int i;
 	int counts;
 	int writeindex = 0;
+	char section[30];
 
 	if(contacts_lpconfig == NULL)
 	{
@@ -305,6 +306,7 @@ int CContactsManager::sync_contact_config()
 	}
 	
 	counts = get_contact_buf_count();
+	cout << "\nbuf len: " << counts << endl;
 
 	if(counts <= 0)
 	{
@@ -313,12 +315,25 @@ int CContactsManager::sync_contact_config()
 	}
 	
 	for(i = 0; i < counts; i++)
-	{
 		write_contact_item(contact_buf[i], i);
+
+    
+	cout << "\n index: " << i << endl;
+	sprintf(section, "contact_%i", i);
+	while(i < MAX_CONTACT_COUNT)
+	{
+	    if(lp_config_has_section(contacts_lpconfig, section))
+	    {
+			lp_config_clean_section(contacts_lpconfig, section);
+            cout << "\nclear index: " << i << endl;
+		}
+		
+		i++;
 	}
 	
 	return lp_config_sync(contacts_lpconfig);
 }
+
 
 int CContactsManager::get_contact_buf_count()
 {	
@@ -456,31 +471,33 @@ int CContactsManager::update_contact_by_index(Contact *contact, int index)
 {
 	int len;
 	Contact *_contact;
-	
-    read_contact();
-    if(contact_buf == NULL)
-		return -1;
 
 	len = get_contact_count();
 	if(index >= len)
 		return -1;
 	
 	_contact = contact_buf[index];
-    strcpy(_contact->name.szfamily_name, contact->name.szfamily_name);
+
+	//name, group
+	strcpy(_contact->name.szfamily_name, contact->name.szfamily_name);
 	strcpy(_contact->name.szgiven_name, contact->name.szgiven_name);
 	_contact->type = contact->type;
+
+	//phone
 	for(int i=0; i<MAX_PHONE_COUNT; i++)
 	{
         strcpy(_contact->phones[i].szphone, contact->phones[i].szphone);
 		_contact->phones[i].type = contact->phones[i].type;
 	}
 
+    //email
 	for(int i=0; i<MAX_EMAIL_COUNT; i++)
 	{
 		strcpy(_contact->emails[i].szemail, contact->emails[i].szemail);
     	_contact->emails[i].type = contact->emails[i].type;
 	}
-	
+
+	//im, voip, address
 	strcpy(_contact->szim, contact->szim);
 	strcpy(_contact->szvoip, contact->szvoip);
 	strcpy(_contact->szaddress, contact->szaddress);
@@ -514,7 +531,31 @@ int CContactsManager::add_contact_by_index(Contact *contact, int index)
 
 int CContactsManager::delete_contact_by_index(int index)
 {
+	int section_index;
+	int len;
+
+	len = get_contact_count();
+	cout << "len: " << len << endl;
+	if(len == 0)
+		return -1;
+
+	if(len <= index)
+		return -1;
+
+    while(1)
+    {
+    	if(index + 1 == len)
+    	{
+			contact_buf[index] = NULL;
+	        cout << "index: " << index << endl;		
+    		break;
+		}    
+		contact_buf[index] = contact_buf[index + 1];
+        index++;
+    }
 	
+	//sync
+	sync_contact_config();
 }
 
 int CContactsManager::delete_contact_all()
