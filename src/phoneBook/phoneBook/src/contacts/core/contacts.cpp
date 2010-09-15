@@ -469,10 +469,18 @@ int CContactsManager::update_contact_by_index(Contact *contact, int index)
     strcpy(_contact->name.szfamily_name, contact->name.szfamily_name);
 	strcpy(_contact->name.szgiven_name, contact->name.szgiven_name);
 	_contact->type = contact->type;
-	strcpy(_contact->emails[0].szemail, contact->emails[0].szemail);
-    _contact->emails[0].type = contact->emails[0].type;
-	strcpy(_contact->phones[0].szphone, contact->phones[0].szphone);
-	_contact->phones[0].type = contact->phones[0].type;
+	for(int i=0; i<MAX_PHONE_COUNT; i++)
+	{
+        strcpy(_contact->phones[i].szphone, contact->phones[i].szphone);
+		_contact->phones[i].type = contact->phones[i].type;
+	}
+
+	for(int i=0; i<MAX_EMAIL_COUNT; i++)
+	{
+		strcpy(_contact->emails[i].szemail, contact->emails[i].szemail);
+    	_contact->emails[i].type = contact->emails[i].type;
+	}
+	
 	strcpy(_contact->szim, contact->szim);
 	strcpy(_contact->szvoip, contact->szvoip);
 	strcpy(_contact->szaddress, contact->szaddress);

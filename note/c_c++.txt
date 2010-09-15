@@ -193,4 +193,7 @@ void CPP_fun()
    noinst_LIBRARIES=libCProdCons.a
    libCProdCons_a_SOURCES = CProdCons.cpp
    INCLUDES=-I../include
-   
+25 const char* 赋值给 char*
+26 当一个char字符的地址赋给指针后，要加\0才是字符串
+27 拷贝一份字符串来做strtok操作避免原来的受到更改
+28 int a[10] = {0};   或者   char a[10] = {0};   //将数组每一项初始化为0

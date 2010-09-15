@@ -109,3 +109,35 @@
 107 首字母
 108 by name family name, given name
 109 把类屏蔽
+110 ui调用问题 枚举类型可见性
+111 phone,email字符串 验证
+112 family name given name
+113 顺序不一致 read_contact
+114 读写模式 每次写一个 每次循环重新写入
+115 strtok 
+    const char* 直接赋值
+    segmentation
+116 http://hi.baidu.com/%F2%DF%F2%D1%B7%C9%B9%FD%BC%D0%D6%F1%CC%D2/blog/item/f618c9ed626262db2f2e21c3.html
+117 get_section 内存
+118 数组声明，申请内存与初始化分离
+119 /*const char *split = "n";
+	const char *test = "elonyuercfggjhyj";
+	char *part_str;
+	
+	cout << "test: " << test << endl;
+	
+    char *test2 =(char *)malloc(sizeof(test)); 
+	cout << "sizeof test: " << sizeof(test) << endl;
+	strcpy(test2, test);
+    cout << "test2" << test2 << endl;
+
+	part_str = strtok (test2, split); 
+
+	cout << "part_str: " << part_str << endl;
+	cout << "test: " << test << endl;
+    cout << "test2: " << test2 << endl;*/不越界的问题
+
+120 while(item->phones[phone_count].szphone[0] != '\0')
+    asc2 0 \0
+121 UI调用时不一定把contact结构体都初始化 phone email
+    
