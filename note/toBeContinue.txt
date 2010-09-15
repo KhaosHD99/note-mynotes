@@ -137,7 +137,8 @@
 	cout << "test: " << test << endl;
     cout << "test2: " << test2 << endl;*/不越界的问题
 
-120 while(item->phones[phone_count].szphone[0] != '\0')
+120 while(item->phones[phone_count].szphone[0] != '\0')                    over
     asc2 0 \0
 121 UI调用时不一定把contact结构体都初始化 phone email
+122 数组相互赋值
     
