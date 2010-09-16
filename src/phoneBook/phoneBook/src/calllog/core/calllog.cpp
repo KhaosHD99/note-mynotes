@@ -253,48 +253,46 @@ int CCalllogManager::read_calllog()
 
 int CCalllogManager::write_calllog_item(CallLog *item, int index, int status_index)
 {
-	gchar key[50];
+	gchar section_index[50];
 	char str[10]; 	
 
-	sprintf(str,"%i", index);
-	strcpy(key,CLOG_CALLLOG_INDEX);
-	strcat(key,str);
-	sprintf(key,"calllog_%i",index);
+    sprintf(section_index, "%s%i", CLOG_CALLLOG_INDEX, index);
 
-	printf("write_calllog_item  :%s\n",key);
-
-	//判读日志类型，分类写入配置文件中
+	//status, status_index, szremote
 	if(item->status == CL_MISSED)
 	{
-		lp_config_set_string(calllog_lpconfig, key, CLOG_STATUS,__clstatus_enum_to_str(item->status));
-		lp_config_set_int(calllog_lpconfig, key, CLOG_MISSED_INDEX,status_index);
-		lp_config_set_string(calllog_lpconfig, key, CLOG_REMOTE_FROM, item->szremote);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_STATUS, __clstatus_enum_to_str(item->status));
+		lp_config_set_int(calllog_lpconfig, section_index, CLOG_MISSED_INDEX, status_index);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_REMOTE_FROM, item->szremote);
 	}
 	else if(item->status == CL_RECEIVED)
 	{
-		lp_config_set_string(calllog_lpconfig, key, CLOG_STATUS,__clstatus_enum_to_str(item->status));
-		lp_config_set_int(calllog_lpconfig, key, CLOG_RECEIVED_INDEX,status_index);
-		lp_config_set_string(calllog_lpconfig, key, CLOG_REMOTE_FROM, item->szremote);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_STATUS, __clstatus_enum_to_str(item->status));
+		lp_config_set_int(calllog_lpconfig, section_index, CLOG_RECEIVED_INDEX, status_index);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_REMOTE_FROM, item->szremote);
 	}
 	else if(item->status == CL_DIALED)
 	{
-		lp_config_set_string(calllog_lpconfig, key, CLOG_STATUS,__clstatus_enum_to_str(item->status));
-		lp_config_set_int(calllog_lpconfig, key, CLOG_DIALED_INDEX,status_index);
-		lp_config_set_string(calllog_lpconfig, key, CLOG_REMOTE_TO, item->szremote);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_STATUS, __clstatus_enum_to_str(item->status));
+		lp_config_set_int(calllog_lpconfig, section_index, CLOG_DIALED_INDEX, status_index);
+		lp_config_set_string(calllog_lpconfig, section_index, CLOG_REMOTE_TO, item->szremote);
 	}
 
-	//将时间合成
-	char buff[100] = "";
+	//time
+	char datetime[64] = "";
 
-	sprintf(buff, "%s-%s-%s %s:%s:%s",item->date.year,item->date.month,item->date.day,item->date.hour,item->date.minute,item->date.second); //产生"123" 
-
-	printf("start_date    :%s\n", buff);
+	sprintf(datetime, "%s-%s-%s %s:%s:%s",
+		    item->date.year, item->date.month,
+		    item->date.day, item->date.hour,
+		    item->date.minute, item->date.second);
+ 
+	printf("start_date    :%s\n", datetime);
 	
-	lp_config_set_string(calllog_lpconfig, key, CLOG_START_DATE, buff);
+	lp_config_set_string(calllog_lpconfig, section_index, CLOG_START_DATE, datetime);
 
-	lp_config_set_int(calllog_lpconfig, key, CLOG_DURATION,item->date.duration);
+	lp_config_set_int(calllog_lpconfig, section_index, CLOG_DURATION,item->date.duration);
 				
-	//同步回配置文件
+	//sync
 	return lp_config_sync(calllog_lpconfig);
 }
 
