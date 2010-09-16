@@ -19,7 +19,7 @@ CContactsManager::~CContactsManager()
 void CContactsManager::init()
 {
     char pathname[64];
-	contact_buf = new Contact*[MAX_CONTACT_COUNT];;
+	contact_buf = new Contact*[MAX_CONTACT_COUNT];
 	
 	sprintf(pathname, "%s", "Contacts.cfg");
 	contacts_lpconfig = lp_config_new(pathname); 
@@ -51,60 +51,13 @@ CContactsManager *CContactsManager::get_instance()
 	return contacts_instance;
 }
 
-void CContactsManager::test()
+void CContactsManager::test(char **p)
 {
-    const char *tmp;
-	int phone_count;
-	gchar phone_index[20];
-	gchar section_index[50];
-	char *part_str;
-	const char *split = "x"; 
-
-    sprintf(section_index,"contact_%i",1);
-	
-	phone_count = lp_config_get_int(contacts_lpconfig,section_index,"phonecount",NULL);	
-	for(int i=0; i<phone_count; i++)
-    {
-        sprintf(phone_index,"phone_%d",i + 1);
-    	tmp = lp_config_get_string(contacts_lpconfig,section_index,phone_index,NULL);
-        char *tmpcopy = (char *)malloc(sizeof(tmp));
-
-		//strcpy(tmpcopy, tmp);
-		cout << "phone tmp: " << tmp << endl;
-
-		char *str;
-		strcmp(str, tmp);
-		part_str = strtok ((char *)tmp, split); 
-		if(__phonetype_str_to_enum((const char*)part_str) != NULL)
-		{
-			//contact->phones[i].type = __phonetype_str_to_enum((const char*)part_str);
-		}
-		
-		//szphone
-		part_str = strtok(NULL,split);
-		if((const char*)part_str != NULL)
-		{
-			//strcpy(contact->phones[i].szphone, (const char*)part_str);
-		}
-	}
+    char *str = "elonjie";
+	*p = str;
 }
 
-void CContactsManager::read_contact()
-{
-	Contact *contact = new Contact;
-	//contact_buf = new Contact*[MAX_CONTACT_COUNT];
-	
-	if(contacts_lpconfig == NULL)
-	{
-		g_error("_LpConfig = (null)");
-		return ;
-	}
-	for (int i=0; (contact = get_section_from_config_file(i)) != NULL; i++)
-	{
-	    contact_buf[i] = contact;
-	}
-}
-
+//basic
 Contact* CContactsManager::get_section_from_config_file(int index)
 {
     Contact *contact;
@@ -208,6 +161,22 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 	return contact;
 }
 
+void CContactsManager::read_contact()
+{
+	Contact *contact = new Contact;
+	//contact_buf = new Contact*[MAX_CONTACT_COUNT];
+	
+	if(contacts_lpconfig == NULL)
+	{
+		g_error("_LpConfig = (null)");
+		return ;
+	}
+	for (int i=0; (contact = get_section_from_config_file(i)) != NULL; i++)
+	{
+	    contact_buf[i] = contact;
+	}
+}
+
 int CContactsManager::write_contact_item(Contact *item, int index)
 {
     gchar section[50];
@@ -299,42 +268,35 @@ int CContactsManager::sync_contact_config()
 		return -1;
 	}
 
-	if(contact_buf== NULL)
+	if(contact_buf == NULL)
 	{
 		g_error("no contact_buf, save contact error!");
 		return -1;
 	}
 	
 	counts = get_contact_buf_count();
-	cout << "\nbuf len: " << counts << endl;
-
-	if(counts <= 0)
-	{
-		g_warning("empty mcall link!");
-		return -1;
-	}
-	
+    cout << "\nbuf count: " << counts << endl;
+	//write item
 	for(i = 0; i < counts; i++)
 		write_contact_item(contact_buf[i], i);
 
-    
-	cout << "\n index: " << i << endl;
-	sprintf(section, "contact_%i", i);
+	
+    //clear
 	while(i < MAX_CONTACT_COUNT)
 	{
+	    sprintf(section, "contact_%i", i);
 	    if(lp_config_has_section(contacts_lpconfig, section))
 	    {
 			lp_config_clean_section(contacts_lpconfig, section);
             cout << "\nclear index: " << i << endl;
 		}
-		
 		i++;
 	}
 	
 	return lp_config_sync(contacts_lpconfig);
 }
 
-
+//CRUD
 int CContactsManager::get_contact_buf_count()
 {	
     curCount= 0;
@@ -424,8 +386,6 @@ int CContactsManager::get_contact_by_letter(Contact **contact, const char *szlet
 	 	   *contact = _contact;
 		   return i;
 	 	}
-		else
-		   cout << "not same:" << endl;
     }
 
     return -1;
@@ -457,14 +417,31 @@ int CContactsManager::get_contact_by_phone(Contact **contact,	const char *szphon
             	*contact = _contact;
 				return i;
 	 	    }
-			else
-			{
-				cout << "not same"<< endl;
-			}
 		}
 	}
 
     return -1;
+}
+
+int CContactsManager::add_contact(Contact *contact)
+{
+	int section_index;
+	int len;
+	
+	read_contact();
+	section_index = get_contact_count();
+	
+	//write
+	len = get_contact_buf_count();
+	contact_buf[len] = contact;
+
+	//sync
+	sync_contact_config();
+}
+
+int CContactsManager::add_contact_by_index(Contact *contact, int index)
+{
+	
 }
 
 int CContactsManager::update_contact_by_index(Contact *contact, int index)
@@ -508,34 +485,12 @@ int CContactsManager::update_contact_by_index(Contact *contact, int index)
     return 0;
 }
 
-int CContactsManager::add_contact(Contact *contact)
-{
-	int section_index;
-	int len;
-	
-	read_contact();
-	section_index = get_contact_count();
-	
-	//write
-	len = get_contact_buf_count();
-	contact_buf[len] = contact;
-
-	//sync
-	sync_contact_config();
-}
-
-int CContactsManager::add_contact_by_index(Contact *contact, int index)
-{
-	
-}
-
 int CContactsManager::delete_contact_by_index(int index)
 {
 	int section_index;
 	int len;
 
 	len = get_contact_count();
-	cout << "len: " << len << endl;
 	if(len == 0)
 		return -1;
 
@@ -547,8 +502,7 @@ int CContactsManager::delete_contact_by_index(int index)
     	if(index + 1 == len)
     	{
 			contact_buf[index] = NULL;
-	        cout << "index: " << index << endl;		
-    		break;
+	        break;
 		}    
 		contact_buf[index] = contact_buf[index + 1];
         index++;
@@ -560,7 +514,19 @@ int CContactsManager::delete_contact_by_index(int index)
 
 int CContactsManager::delete_contact_all()
 {
-	
+	int section_index;
+	int len;
+
+	len = get_contact_count();
+	cout << "len: " << len <<endl;
+	if(len == 0)
+		return -1;
+
+    for(int i = 0; i < len; i++)
+    	contact_buf[i] = NULL;
+
+	//sync
+	sync_contact_config();
 }
 
 //help
@@ -585,12 +551,36 @@ void CContactsManager::sort_by_name()
 
 void CContactsManager::sort_by_letter()		
 {
+    int len;
+	int tmp_buf_index = 0;
+	const char letter_set[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m'
+		                      ,'n','o','p','q','r','s','t','u','v','w','x','y','z'};
 	
-}
+	Contact **contact_tmp_buf = new Contact*[MAX_CONTACT_COUNT];
+	
+    len = get_contact_count();
+	if(len <= 0)
+		return;
+	
+    for(int letter_index = 0;letter_index < 26; letter_index++)
+    {
+        const char cmp_letter[] = {letter_set[letter_index], '\0'};
+		for(int i = 0;i < len; i++)
+		{
+			const char initial_letter[] = {contact_buf[i]->name.szfamily_name[0], '\0'};
+			if(strcmp(cmp_letter, initial_letter) == 0)
+			{
+			 	contact_tmp_buf[tmp_buf_index] = contact_buf[i];
+	            tmp_buf_index++;
+			}
+		}
+    }
 
-int CContactsManager::save_file()
-{
-	
+	for(int i = 0; i < len; i++)
+		contact_buf[i] = contact_tmp_buf[i];
+  
+    //sync
+   	sync_contact_config();
 }
 
 //enum
@@ -746,60 +736,4 @@ EMailType CContactsManager::__emailtype_str_to_enum(const gchar *enum_str)
 	g_warning("Invalid emailtype enum value %s", enum_str);
 	return (EMailType)-1;
 }
-/*int CContactsManager::save_mcall_configs(LpConfig *config)
-   { 
-	int i;
-	int counts;
-	int writeindex = 0;
-
-	if(config == NULL)
-	{
-		g_error("_LpConfig = (null)");
-		return -1;
-	}
-
-	if(contactLink== NULL)
-	{
-		g_error("no mcall links, save mcalls error!");
-		return -1;
-	}
-	
-	counts = g_list_length(contactLink);
-
-	if(counts <= 0)
-	{
-		g_warning("empty mcall link!");
-		return -1;
-	}
-		
-	for(i = 0; i < counts; i++)
-	{
-		write_mcall_item(config, (Contact *)g_list_nth_data(contactLink, i), i);
-	}
-	return lp_config_sync(config);
-}
-
-   int CContactsManager::delete_mcallink()
-{
-	int i = 0;
-	int counts = 0;
-	if(contactLink == NULL)
-    {
-		g_error("no mcall links");
-		return -1;
-	}
-	else
-	{
-		counts = g_list_length(contactLink);
-		for(i = 0; i < counts; i++)
-		{
-			g_message("delete mcall items : %d", i);
-			g_free((Contact *)g_list_nth_data(contactLink, i));
-		}
-		g_list_free(contactLink);
-		contactLink = NULL;
-	}
-}
-*/
-		
 
