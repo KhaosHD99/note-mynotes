@@ -280,7 +280,6 @@ int CContactsManager::sync_contact_config()
 	for(i = 0; i < counts; i++)
 		write_contact_item(contact_buf[i], i);
 
-	
     //clear
 	while(i < MAX_CONTACT_COUNT)
 	{
@@ -427,12 +426,10 @@ int CContactsManager::add_contact(Contact *contact)
 {
 	int section_index;
 	int len;
-	
-	read_contact();
-	section_index = get_contact_count();
+
+	len = get_contact_count();
 	
 	//write
-	len = get_contact_buf_count();
 	contact_buf[len] = contact;
 
 	//sync

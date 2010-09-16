@@ -17,7 +17,7 @@ void CCalllogManager::init()
 
 	init_log(&calllog_missed);
 	init_log(&calllog_received);
-	init_log(&calllog_dailed);
+	init_log(&calllog_dialed);
 }
 
 void CCalllogManager::init_log(CallLog_Info *calllog_info)
@@ -35,7 +35,7 @@ void CCalllogManager::uninit()
 {
 	uninit_log(&calllog_missed);
 	uninit_log(&calllog_received);
-	uninit_log(&calllog_dailed);
+	uninit_log(&calllog_dialed);
 	
 	//destory
 	lp_config_destroy(calllog_lpconfig);
@@ -72,14 +72,17 @@ void CCalllogManager::test()
 
 CallLog* CCalllogManager::get_section_from_config_file(int index)
 {
-	gint calllogindex=-1,statusIndex=-1,duration=-1;
-	const gchar *tmp;
+	gint calllogindex = -1, 
+		 statusIndex = -1, 
+		 duration = -1;
+	const gchar *tmp = NULL;
+	gchar *tmpcpy;
 	gchar section_index[50];
 	CallLog *calllog;
 	 	
 	sprintf(section_index, "%s%i", CLOG_CALLLOG_INDEX, index);
 	
-	//check
+	//check status
 	if (!lp_config_has_section(calllog_lpconfig, section_index))
 	{
 		g_error("find %s error\r\n", section_index);
@@ -94,7 +97,7 @@ CallLog* CCalllogManager::get_section_from_config_file(int index)
 	if(tmp != NULL && __clstatus_str_to_enum(tmp) != CL_NON)
 		calllog->status = __clstatus_str_to_enum(tmp);
 
-	//判断日志类型，从配置文件中读出相应的数据
+	//missed, received, dailed
 	if(calllog->status == CL_NON)           
 	{
 		free(calllog);
@@ -102,120 +105,92 @@ CallLog* CCalllogManager::get_section_from_config_file(int index)
 	}
 	else if(calllog->status == CL_MISSED)
 	{
-		statusIndex = lp_config_get_int(calllog_lpconfig,section_index,CLOG_MISSED_INDEX,NULL);
+	    //status_index, remote
+		statusIndex = lp_config_get_int(calllog_lpconfig, section_index, CLOG_MISSED_INDEX, NULL);
 		if(statusIndex != -1)
 		{
 			calllog->status_index = statusIndex;
 			statusIndex = -1;
 		}
-		tmp = lp_config_get_string(calllog_lpconfig,section_index,CLOG_REMOTE_FROM,NULL);
+		
+		tmp = lp_config_get_string(calllog_lpconfig, section_index, CLOG_REMOTE_FROM, NULL);
 		if(tmp != NULL)
 			strcpy(calllog->szremote, tmp);
 	}
 	else if(calllog->status == CL_RECEIVED)
 	{
-		statusIndex = lp_config_get_int(calllog_lpconfig,section_index,CLOG_RECEIVED_INDEX,NULL);
+	    //status_index, remote
+		statusIndex = lp_config_get_int(calllog_lpconfig, section_index, CLOG_RECEIVED_INDEX, NULL);
 		if(statusIndex != -1)
 		{
 			calllog->status_index = statusIndex;
 			statusIndex = -1;
 		}
-		tmp = lp_config_get_string(calllog_lpconfig,section_index,CLOG_REMOTE_FROM,NULL);
+		
+		tmp = lp_config_get_string(calllog_lpconfig, section_index, CLOG_REMOTE_FROM, NULL);
 		if(tmp != NULL)
 			strcpy(calllog->szremote, tmp);
 	}
 	else if(calllog->status == CL_DIALED)
 	{
-		statusIndex = lp_config_get_int(calllog_lpconfig,section_index,CLOG_DIALED_INDEX,NULL);
-		if(statusIndex != -1)
+	    //status_index, remote
+		statusIndex = lp_config_get_int(calllog_lpconfig, section_index, CLOG_DIALED_INDEX, NULL);
+		if(statusIndex != -1) 
 		{
 			calllog->status_index = statusIndex;
 			statusIndex = -1;
 		}
-		tmp = lp_config_get_string(calllog_lpconfig,section_index,CLOG_REMOTE_TO,NULL);
+		
+		tmp = lp_config_get_string(calllog_lpconfig,section_index, CLOG_REMOTE_TO, NULL);
 		if(tmp != NULL)
 			strcpy(calllog->szremote, tmp);
 	}	
-	
-	tmp = lp_config_get_string(calllog_lpconfig,section_index,CLOG_START_DATE,NULL);
 
-	//将const gchar 类型的时间数据放到char 中，便于分割
-	char buff[100];	
-	for(int i=0; tmp[i]!= '\0'; i++)
-	{
-		buff[i] = tmp[i];
-	}
-	printf("start_date :%s\n",buff);
+	//date
+	tmp = lp_config_get_string(calllog_lpconfig, section_index, CLOG_START_DATE, NULL);
+    tmpcpy = (char*)malloc(strlen(tmp)); 
+	strcpy(tmpcpy, tmp);
 	
-	//先将时间分割成两段,例如:2010-8-11 14:48:33   --> 2010-8-11和14:48:33
-    char *p,*q;	
-	p = strtok(buff, " ");
-	q = strtok(NULL, "");
+    char *p_date, *p_time;	
+	p_date = strtok(tmpcpy, " ");
+	p_time = strtok(NULL, "");
 	
-	if(p) 
+	if(p_date) 
 	{
-		printf("first: %s\n", p);	
+		p_date = strtok(p_date, "-");
+		strcpy(calllog->date.year, p_date);
 		
-		p = strtok(p,"-");
-		strcpy(calllog->date.year, p);
-		printf("calllog->date.year: %s\n", calllog->date.year);
+		p_date = strtok(NULL, "-");
+		strcpy(calllog->date.month, p_date);
 		
-		p = strtok(NULL,"-");
-		strcpy(calllog->date.month, p);
-		printf("calllog->date.month: %s\n", p);
-		
-		p = strtok(NULL,"-");
-		strcpy(calllog->date.day, p);
-		printf("calllog->date.day: %s\n", p);
+		p_date = strtok(NULL, "-");
+		strcpy(calllog->date.day, p_date);
 	}	
-	else
-	{	
-		free(calllog);
-		return NULL;
-	}
-	if(q) 
-	{
-		printf("second: %s\n", q);	
-		
-		q = strtok(q,":");
-		strcpy(calllog->date.hour,q);
-		printf("calllog->date.hour: %s\n", calllog->date.hour);
-		
-		q = strtok(NULL,":");
-		strcpy(calllog->date.minute,q);
-		printf("calllog->date.minute: %s\n", calllog->date.minute);
-		
-		q = strtok(NULL,":");
-		strcpy(calllog->date.second,q);
-		printf("calllog->date.second: %s\n", calllog->date.second);	
-
-	}
-	else
-	{	
-		free(calllog);
-		return NULL;
-	}
 	
-	duration = lp_config_get_int(calllog_lpconfig,section_index,CLOG_DURATION,NULL);
-	if(duration == -1)
+	if(p_time) 
 	{
-		free(calllog);
-		return NULL;
-	}
-	calllog->date.duration = duration;
+		p_time = strtok(p_time, ":");
+		strcpy(calllog->date.hour, p_time);
 		
-	g_message("status       : %s", __clstatus_enum_to_str(calllog->status));
-	g_message("status_index : %d", calllog->status_index);
-	g_message("szremote     : %s", calllog->szremote);
-	g_message("start_date   : %s", tmp);
-	g_message("duration     : %d", calllog->date.duration);
-	printf("\n\n");
+		p_time = strtok(NULL, ":");
+		strcpy(calllog->date.minute, p_time);
+		
+	    p_time = strtok(NULL, ":");
+		strcpy(calllog->date.second, p_time);
+		//printf("calllog->date.second: %s\n", calllog->date.second);	
+	}
 
+	//duration
+	duration = lp_config_get_int(calllog_lpconfig, section_index, CLOG_DURATION, NULL);
+	if(duration > 0)
+		calllog->date.duration = duration;
+	
 	return calllog;
 }
 
 int CCalllogManager::read_calllog()
 {
+    //int all_count = 0, miss_count = 0, receive_count = 0, dail_count = 0;
 	CallLog *calllog = new CallLog;	
 	
 	if(calllog_lpconfig == NULL)
@@ -224,31 +199,33 @@ int CCalllogManager::read_calllog()
 		return NULL;
 	}
 	
-	for (int i=0;(calllog = get_section_from_config_file(i)) != NULL;i++)
+	for (int i=0; (calllog = get_section_from_config_file(i)) != NULL; i++)
 	{
 		if(calllog->status == CL_MISSED)
 		{
 			calllog_missed.status = CL_MISSED;
-			calllog_missed.calllog_buf[miss_count] = calllog;
-			calllog_missed.count = ++miss_count;
-			//printf("calllog_missed.status    :%d \n",calllog_missed.status);
+			calllog_missed.calllog_buf[calllog_missed.count] = calllog;
+			calllog_missed.count++;
 		}
+		
 		if(calllog->status == CL_RECEIVED)
 		{
 			calllog_received.status = CL_RECEIVED;
-			calllog_received.calllog_buf[receive_count] = calllog;
-			calllog_received.count = ++receive_count;
-			//printf("calllog_received.status    :%d \n",calllog_received.status);
+			calllog_received.calllog_buf[calllog_received.count] = calllog;
+			calllog_received.count++;
 		}
+		
 		if(calllog->status == CL_DIALED)
 		{
-			calllog_dailed.status = CL_DIALED;
-			calllog_dailed.calllog_buf[dail_count] = calllog;
-			calllog_dailed.count = ++dail_count;
-			//printf("calllog_dailed.status    :%d \n",calllog_dailed.status);
+			calllog_dialed.status = CL_DIALED;
+			calllog_dialed.calllog_buf[calllog_dialed.count] = calllog;
+			calllog_dialed.count++;
 		}
-		all_count++;
     }
+
+	cout << "calllog_missed.count: " << calllog_missed.count << endl;
+	cout << "calllog_received.count: " << calllog_received.count << endl;
+	cout << "calllog_dailed.count: " << calllog_dialed.count << endl;
 }
 
 int CCalllogManager::write_calllog_item(CallLog *item, int index, int status_index)
@@ -281,86 +258,162 @@ int CCalllogManager::write_calllog_item(CallLog *item, int index, int status_ind
 	//time
 	char datetime[64] = "";
 
-	sprintf(datetime, "%s-%s-%s %s:%s:%s",
-		    item->date.year, item->date.month,
-		    item->date.day, item->date.hour,
-		    item->date.minute, item->date.second);
+	sprintf(datetime, "%s-%s-%s %s:%s:%s", item->date.year, item->date.month,
+		                                   item->date.day, item->date.hour, 
+		                                   item->date.minute, item->date.second);
  
-	printf("start_date    :%s\n", datetime);
-	
 	lp_config_set_string(calllog_lpconfig, section_index, CLOG_START_DATE, datetime);
 
-	lp_config_set_int(calllog_lpconfig, section_index, CLOG_DURATION,item->date.duration);
-				
-	//sync
-	return lp_config_sync(calllog_lpconfig);
+	//duration
+    lp_config_set_int(calllog_lpconfig, section_index, CLOG_DURATION, item->date.duration);
+
+	return 0;
 }
 
-int CCalllogManager::sync_contact_config()
+int CCalllogManager::sync_calllog_config()
 {
-    
-	//sync
+    int writeindex = 0;
+	char section[30];
+
+	if(calllog_lpconfig == NULL)
+	{
+		g_error("_LpConfig = (null)");
+		return -1;
+	}
+
+    cout << "\nlen: " << get_calllog_buf_count()<< endl;
 	
+	for(int i = 0; i < calllog_missed.count; i++)
+		write_calllog_item(calllog_missed.calllog_buf[i], i, i);
+
+	for(int i = 0; i < calllog_received.count; i++)
+		write_calllog_item(calllog_received.calllog_buf[i], i + calllog_missed.count, i);
+	
+	for(int i = 0; i < calllog_dialed.count; i++)
+		write_calllog_item(calllog_dialed.calllog_buf[i], i + calllog_received.count, i);
+
+	//clear
+	for(int i = get_calllog_buf_count(); i < MAX_CALLLOG_COUNT; i++)
+	{
+	    sprintf(section, "%s%i", CLOG_CALLLOG_INDEX, i);
+	    if(lp_config_has_section(calllog_lpconfig, section))
+	    {
+			lp_config_clean_section(calllog_lpconfig, section);
+            cout << "\nclear index: " << i << endl;
+		}
+	}
+	
+	//sync
+	return lp_config_sync(calllog_lpconfig);
 }
 
 //CRUD
 int CCalllogManager::get_calllog_count()
 {	
-	printf("all_count  : %d",all_count);
-	if(all_count == 0)
-	{
-		//load_calllog_from_file();		
-	}
-    return all_count;
+	read_calllog();
+	
+    return calllog_missed.count + calllog_received.count + calllog_dialed.count;
 }
+
+int CCalllogManager::get_calllog_buf_count()
+{	
+    int i;
+	calllog_missed.count = 0;
+	calllog_received.count = 0;
+	calllog_dialed.count = 0;
+
+	i = 0;
+    while(calllog_missed.calllog_buf[i++] != NULL)
+    {
+		calllog_missed.count++;
+		cout << "\ncalllog_missed: " << calllog_missed.count<< endl;
+    }    
+    i = 0;
+	while(calllog_received.calllog_buf[i++] != NULL)
+	{
+		calllog_received.count++;
+		cout << "\ncalllog_received: " << calllog_received.count << endl;
+	}
+    i = 0;
+	while(calllog_dialed.calllog_buf[i++] != NULL)
+	{
+		calllog_dialed.count++;
+		
+		if(calllog_dialed.calllog_buf[0] == NULL)
+			cout << "\n==" << endl;
+		else
+			cout << "\n!= " << endl;
+		cout << "\ncalllog_dialed: " << calllog_dialed.count << endl;
+	}
+	cout << "\nlen: " << calllog_missed.count + calllog_received.count + calllog_dialed.count<< endl;
+    return calllog_missed.count + calllog_received.count + calllog_dialed.count;
+}
+
 
 int CCalllogManager::get_calllog_count_by_type(CLSTATUS status)
 {
+    read_calllog();
 	if(status == CL_MISSED)
-	{	
-		return miss_count;
-	}
+		return calllog_missed.count;
+	
 	if(status == CL_RECEIVED)
-	{			
-		return receive_count;
-	}
+		return calllog_received.count;
+	
 	if(status == CL_DIALED)
-	{			
-		return dail_count;
-	}
+		return calllog_dialed.count;
+	
+	return 0;
 }
 
 int CCalllogManager::get_calllog_by_index(CLSTATUS status,int index, CallLog *calllog)
 {
-
+	
 }
 
 int CCalllogManager::add_calllog(CLSTATUS status, CallLog *calllog)
 {
-	int section_index,result = -1;
-	//先取得配置文件的长度
-	if(all_count == 0)
-	{
-		read_calllog();
-	}
-	section_index = all_count;//g_list_length(gcalllogLink); 
-	printf("section_index       :%d \n",section_index);	
-		
-	//写入配置文件中
+	int len;
+	int i = 0;
+	
+	len = get_calllog_count();
+	cout << "\nlen: " << len << endl;
+	
 	if(status == CL_MISSED)
-	{			
-		result = write_calllog_item(calllog, section_index, miss_count++); 
+	{
+	    while(1)
+	    {
+	        if(calllog_missed.calllog_buf[i] == NULL)
+	        {
+	            cout << "\ni: " << i << endl;
+			    calllog_missed.calllog_buf[i] = calllog;
+				break;
+	        }
+			i++;
+		}
+	   //calllog_missed.calllog_buf[2] = calllog;
+		cout << "\nadd CL_MISSED: " << endl;
+		if(calllog_missed.calllog_buf[i] == NULL)
+			cout << "\n== " << endl;
+		else
+			cout << "\n!= " << endl;
 	}
 	if(status == CL_RECEIVED)
-	{			
-		result = write_calllog_item(calllog, section_index, receive_count++);
+	{
+		while(calllog_received.calllog_buf[i++] == NULL)
+			calllog_received.calllog_buf[--i] = calllog;
+		cout << "\nCL_RECEIVED: " << endl;
 	}
 	if(status == CL_DIALED)
-	{			
-		result = write_calllog_item(calllog, section_index, dail_count++);
+	{
+	    while(calllog_dialed.calllog_buf[i++] == NULL)
+			calllog_dialed.calllog_buf[--i] = calllog;
+		cout << "\nCL_DIALED: " << endl;
 	}
+	//sync
+    sync_calllog_config();
+	
     //result = write_calllog_item(calllog_lpconfig, calllog, section_index, ); 
-	printf("result              :%d \n",result);
+	/*printf("result: %d \n",result);
 
 	if(result == 0)
 	{	
@@ -389,12 +442,12 @@ int CCalllogManager::add_calllog(CLSTATUS status, CallLog *calllog)
 		printf("Successful write calllog section !\n");
 	}
 	else
-		printf("Failed to write calllog section !\n");
+		printf("Failed to write calllog section !\n");*/
 }
 
 int CCalllogManager::delete_calllog_by_index(CLSTATUS status, int index)
 {
-	gchar section_title[64];
+	/*gchar section_title[64];
 	char str[10];
 
 	if(status == CL_MISSED)
@@ -493,7 +546,7 @@ int CCalllogManager::delete_calllog_by_index(CLSTATUS status, int index)
 			printf("Successful write calllog section : %d !\n",i);
 		else
 			printf("Failed to write calllog section  : %d !\n",i);
-	}
+	}*/
 }
 
 int CCalllogManager::delete_calllog_by_status(CLSTATUS status)
