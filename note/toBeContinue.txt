@@ -107,13 +107,13 @@
 105 while(item->phones[i].szphone[0] != '\0')
 106 枚举转字符.
 107 首字母
-108 by name family name, given name
-109 把类屏蔽
+108 by name family name, given name                                    ***
+109 把类屏蔽                                                           ***
 110 ui调用问题 枚举类型可见性
 111 phone,email字符串 验证
 112 family name given name
 113 顺序不一致 read_contact
-114 读写模式 每次写一个 每次循环重新写入
+114 读写模式 每次写一个 每次循环重新写入                               over
 115 strtok 
     const char* 直接赋值
     segmentation
@@ -140,5 +140,24 @@
 120 while(item->phones[phone_count].szphone[0] != '\0')                    over
     asc2 0 \0
 121 UI调用时不一定把contact结构体都初始化 phone email
-122 数组相互赋值
-123 
+122 锁
+123 取得的对象是存在于链表中的
+124 index 宏
+125 phone eamil 类型 枚举
+126 不要index
+123 时间输入
+124 lp_config具体返回信息1 时间输入
+125 lp_config具体返回信息
+126 calllog 无数据输入 异常
+127 修改calllog:
+  1)多此一举的//int all_count, miss_count, receive_count, dail_count;
+  2)sprintf
+  3)
+128 add: add到链表的item是原始数据                                          ****
+    get: 取得的是链表的数据                                                 ****
+189 中文排序
+190 结构体中的某些属性不允许填充
+191 范型编程和操作符重载
+192 名字是否存在
+193 属性
+194 验证输入
