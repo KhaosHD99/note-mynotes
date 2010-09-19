@@ -161,3 +161,25 @@
 192 名字是否存在
 193 属性
 194 验证输入
+195 整理文档
+196 source insight, 记事本保存为ansi格式时，中文用的是iso8859, 英文用的时asc2
+    
+    source insight: asc2, iso8859
+    vim: asc2, utf-8
+    ultraedit: asc2, iso8859, utf-8
+    
+    vim不支持iso8859
+    iso8859 ？
+    
+197 命令输入 简化 快捷 自适应
+198 文件命名规范
+199 CR/LF, with CRLF line terminators
+    当with CRLF line terminators时，source insight可以认utf-8的英文
+    当without CRLF line terminators(with BOM)时，source insight不认utf-8的英文 
+    bom
+    with bom
+    换行符
+
+200 utf-16
+201 转无bom uft-8还是asc2?
+202 配置文件的生成格式 与 main函数所在文件的编码有关？
