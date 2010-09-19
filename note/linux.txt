@@ -24,7 +24,7 @@
    32,768 (15 bit) |   784         787          790              793           797    |
    65,536 (16 bit) |   785         788          791              794           798    |
    16.8M (24 bit)  |   786         789          792              795           799    |
-16 gcc test.c 每o test `pkg-config --每cflags 每libs gtk+-2.0`
+16 gcc test.c 每o test `pkg-config --cflags --libs gtk+-2.0 libglade-2.0` -export-dynamic
 17 apt-get install libglib2.0-dev
    apt-get install libgtk2.0-dev
 18 export DISPLAY=:0.0
