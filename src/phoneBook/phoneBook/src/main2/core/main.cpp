@@ -2,9 +2,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
-
 #include "lpconfig.h"
 #include "contacts.hpp"
+#include "calllog.hpp"
 #include "iostream"
 using namespace std;
 
@@ -12,10 +12,36 @@ using namespace std;
 
 int main()//²âÊÔmain º¯Êý
 {   
-    CContactsManager *manager = CContactsManager::get_instance();
+    //CContactsManager *manager = CContactsManager::get_instance();
+    CCalllogManager *manager = CCalllogManager::get_instance();
 
-    
+	//add calllog
+    CallLog *calllog = new CallLog;
+	
+	calllog->status = CL_DIALED;
+	const char *str = "8";
+	const char *str2 = "31325203";
+	
+	strcpy(calllog->szremote, str2); 
+	strcpy(calllog->date.year, str); 
+    strcpy(calllog->date.month, str);
+    strcpy(calllog->date.day, str);
+    strcpy(calllog->date.hour, str);
+    strcpy(calllog->date.minute,str);
+    strcpy(calllog->date.second, str);
 
+	manager->add_calllog(CL_DIALED, calllog);
+	manager->add_calllog(CL_MISSED, calllog);
+	manager->add_calllog(CL_DIALED, calllog);
+	manager->add_calllog(CL_RECEIVED, calllog);
+
+	//manager->delete_calllog_by_status(CL_DIALED);
+	//manager->delete_calllog_by_status(CL_MISSED);
+	//manager->delete_calllog_by_index(CL_MISSED, 0);
+	
+	//manager->delete_contact_all();
+    //manager->delete_contact_by_index(0);
+    //manager->sort_by_letter();
     //manager->read_contact();
 	//manager->get_section_from_config_file(0);
 	//manager->test();
@@ -26,10 +52,10 @@ int main()//²âÊÔmain º¯Êý
     
 	//find
     /*Contact *contact = new Contact;
-	//int ret = manager->get_contact_by_name(&contact, "chen");
+	int ret = manager->get_contact_by_name(&contact, "li");
 	//int ret = manager->get_contact_by_phone(&contact, "135399858");
 	//int ret = manager->get_contact_by_letter(&contact, "x");
-	int ret = manager->get_contact_by_index(&contact, 0);
+	//int ret = manager->get_contact_by_index(&contact, 0);
     if(ret == -1)
 		cout << "\ncan not find any thing " << endl; 
 	else
@@ -39,16 +65,18 @@ int main()//²âÊÔmain º¯Êý
 	}*/
     
 	//add contact
-   /* Contact *section = new Contact;
+    /*Contact *section = new Contact;
 	memset(section, 0, sizeof(Contact));
 
 	strcpy(section->name.szfamily_name,"xu");
-	strcpy(section->name.szgiven_name,"jie");
+	strcpy(section->name.szgiven_name,"zhenjie");
 
 	section->phones[0].type = PT_HOME;
 	strcpy(section->phones[0].szphone, "31325201");
 	section->phones[1].type = PT_MOBILE;
 	strcpy(section->phones[1].szphone, "13539982758");
+	section->phones[2].type = PT_WORK;
+	strcpy(section->phones[2].szphone, "12345678");
 
 	section->emails[0].type = EMT_WORK;
 	strcpy(section->emails[0].szemail, "xujiekoo@qq.com");
@@ -59,20 +87,23 @@ int main()//²âÊÔmain º¯Êý
 	strcpy(section->szim,"466795229");
 	strcpy(section->szaddress,"yuexu");
 
-    manager->add_contact(section);*/
+    manager->add_contact(section);
+	manager->add_contact(section);
+	manager->add_contact(section);*/
+	//manager->add_contact(section);
 
     //update
-    Contact *section = new Contact;
+    /*Contact *section = new Contact;
 	memset(section, 0, sizeof(Contact));
 
-	strcpy(section->name.szfamily_name,"cai");
-	strcpy(section->name.szgiven_name,"chaoxi");
+	strcpy(section->name.szfamily_name,"wu");
+	strcpy(section->name.szgiven_name,"yaoquan");
 
 	section->phones[0].type = PT_HOME;
 	strcpy(section->phones[0].szphone, "31325201");
 	section->phones[1].type = PT_MOBILE;
 	strcpy(section->phones[1].szphone, "13539982758");
-
+    
 	section->emails[0].type = EMT_WORK;
 	strcpy(section->emails[0].szemail, "xujiekoo@qq.com");
     section->emails[1].type = EMT_HOME;
@@ -82,9 +113,9 @@ int main()//²âÊÔmain º¯Êý
 	strcpy(section->szim,"466795229");
 	strcpy(section->szaddress,"yuexu");
 
-    int ret = manager->update_contact_by_index(section, 1);
+    int ret = manager->update_contact_by_index(section, 2);
 	if(ret == -1)
-		printf("fail");
+		printf("fail");*/
 	//show
 	//manager->Show_contact_buf();
 
