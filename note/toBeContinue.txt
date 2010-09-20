@@ -183,3 +183,11 @@
 200 utf-16
 201 转无bom uft-8还是asc2?
 202 配置文件的生成格式 与 main函数所在文件的编码有关？
+203 gettext
+204 Pango
+205 pc文件 pkg-config?
+206 tlib rootfs?
+207 osd
+208 xgettext -k_ -o main.po list_test.c
+209 little endian
+210 http://blog.chinaunix.net/u1/52350/showart_557916.html
