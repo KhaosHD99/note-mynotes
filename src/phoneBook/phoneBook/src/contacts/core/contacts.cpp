@@ -21,7 +21,7 @@ void CContactsManager::init()
     char pathname[64];
 	contact_buf = new Contact*[MAX_CONTACT_COUNT];
 	
-	sprintf(pathname, "%s", "Contacts.cfg");
+	sprintf(pathname, "%s", CONTACT_PATHNAME);
 	contacts_lpconfig = lp_config_new(pathname); 
 	
 	for(int i = 0; i < MAX_CONTACT_COUNT; i++)
@@ -34,7 +34,7 @@ void CContactsManager::uninit()
 {
 	lp_config_destroy(contacts_lpconfig);
 
-	for(int i = 0; i < curCount;	i++)
+	for(int i = 0; i < get_contact_buf_count();	i++)
 		{
 			delete contact_buf[i];
 			contact_buf[i] = NULL;
@@ -51,12 +51,6 @@ CContactsManager *CContactsManager::get_instance()
 	return contacts_instance;
 }
 
-void CContactsManager::test(char **p)
-{
-    char *str = "elonjie";
-	*p = str;
-}
-
 //basic
 Contact* CContactsManager::get_section_from_config_file(int index)
 {
@@ -71,7 +65,7 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 	char *part_str;
 	const char * split = ":"; 
 	
-	sprintf(section_index,"contact_%i",index);
+	sprintf(section_index, "%s%i", CONTACT_INDEX_PREFIX, index);
 
 	if (!lp_config_has_section(contacts_lpconfig, section_index))
 	{
@@ -82,25 +76,25 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 	memset(contact, 0, sizeof(Contact));
 
 	//name, group
-	tmp = lp_config_get_string(contacts_lpconfig,section_index,"family_name",NULL);
+	tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_FAMILY_NAME, NULL);
     if(tmp != NULL && strlen(tmp) <= MAX_NAME_LEN)
 		strcpy(contact->name.szfamily_name, tmp);
 
-	tmp = lp_config_get_string(contacts_lpconfig,section_index,"given_name",NULL);
+	tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_GIVEN_NAME, NULL);
 	if(tmp != NULL && strlen(tmp) <= MAX_NAME_LEN)
 		strcpy(contact->name.szgiven_name, tmp);
 
-    tmp = lp_config_get_string(contacts_lpconfig,section_index,"group",NULL);
+    tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_GROUP, NULL);
 	if(tmp != NULL)
 		contact->type = __grouptype_str_to_enum(tmp);
 
     //phone
-    phone_count = lp_config_get_int(contacts_lpconfig,section_index,"phonecount",NULL);
-    
+    phone_count = lp_config_get_int(contacts_lpconfig, section_index, CONTACT_PHONE_COUNT, NULL);
+ 
     for(int i=0; i<phone_count; i++)
     {
-        sprintf(phone_index,"phone_%d",i + 1);
-    	tmp = lp_config_get_string(contacts_lpconfig,section_index,phone_index,NULL);
+        sprintf(phone_index,"%s%d", PHONE_INDEX_PREFIX, i + 1);
+    	tmp = lp_config_get_string(contacts_lpconfig,section_index,phone_index, NULL);
         tmpcpy = (char *)malloc(strlen(tmp));
 		strcpy(tmpcpy, tmp);
 	    //cout << "phone tmp: " << tmp << endl;
@@ -123,12 +117,12 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 	}
     
 	//email
-	email_count = lp_config_get_int(contacts_lpconfig,section_index,"phonecount",NULL);
+	email_count = lp_config_get_int(contacts_lpconfig, section_index, CONTACT_EMAIL_COUNT, NULL);
  
 	for(int j=0;j<email_count;j++)
     {
-        sprintf(email_index,"email_%d",j + 1);
-    	tmp = lp_config_get_string(contacts_lpconfig,section_index,email_index,NULL);
+        sprintf(email_index,"%s%d", EMAIL_INDEX_PREFIX, j + 1);
+    	tmp = lp_config_get_string(contacts_lpconfig,section_index,email_index, NULL);
         tmpcpy = (char *)malloc(strlen(tmp));
 		strcpy(tmpcpy, tmp);
 
@@ -146,15 +140,15 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 	}
 
 	//voip, im, address
-	tmp = lp_config_get_string(contacts_lpconfig,section_index,"voip",NULL);
+	tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_VOIP, NULL);
 	if(tmp != NULL && strlen(tmp) <= MAX_VOIP_LEN)
 		strcpy(contact->szvoip, tmp);
 	
-	tmp = lp_config_get_string(contacts_lpconfig,section_index,"im",NULL);
+	tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_IM, NULL);
 	if(tmp != NULL && strlen(tmp) <= MAX_IM_LEN)
 		strcpy(contact->szim, tmp);
 
-	tmp = lp_config_get_string(contacts_lpconfig,section_index,"address",NULL);
+	tmp = lp_config_get_string(contacts_lpconfig, section_index, CONTACT_ADDRESS, NULL);
 	if(tmp != NULL && strlen(tmp) <= MAX_ADDRESS_LEN)
 		strcpy(contact->szaddress, tmp);
 	
@@ -164,11 +158,10 @@ Contact* CContactsManager::get_section_from_config_file(int index)
 void CContactsManager::read_contact()
 {
 	Contact *contact = new Contact;
-	//contact_buf = new Contact*[MAX_CONTACT_COUNT];
 	
 	if(contacts_lpconfig == NULL)
 	{
-		g_error("_LpConfig = (null)");
+		g_error("contacts_lpconfig = (null)");
 		return ;
 	}
 	for (int i=0; (contact = get_section_from_config_file(i)) != NULL; i++)
@@ -190,12 +183,12 @@ int CContactsManager::write_contact_item(Contact *item, int index)
 	gchar *tmp;
 	int a = 5;
     
-	sprintf(section,"contact_%i",index);
+	sprintf(section,"%s%i", CONTACT_INDEX_PREFIX, index);
 
 	//name, group
-    lp_config_set_string(contacts_lpconfig, section, "family_name",item->name.szfamily_name);
-    lp_config_set_string(contacts_lpconfig, section, "given_name", item->name.szgiven_name);
-    lp_config_set_string(contacts_lpconfig, section, "group", __grouptype_enum_to_str(item->type));
+    lp_config_set_string(contacts_lpconfig, section, CONTACT_FAMILY_NAME, item->name.szfamily_name);
+    lp_config_set_string(contacts_lpconfig, section, CONTACT_GIVEN_NAME, item->name.szgiven_name);
+    lp_config_set_string(contacts_lpconfig, section, CONTACT_GROUP, __grouptype_enum_to_str(item->type));
 
     //phone
     phone_count = 0;
@@ -207,11 +200,11 @@ int CContactsManager::write_contact_item(Contact *item, int index)
 	      break;
     }
 	
-    lp_config_set_int(contacts_lpconfig, section, "phonecount", phone_count);
+    lp_config_set_int(contacts_lpconfig, section, CONTACT_PHONE_COUNT, phone_count);
 			             
 	for(int i=0; i<phone_count; i++)
 	{
-	    sprintf(phone_index,"phone_%d",i + 1);
+	    sprintf(phone_index,"%s%d", PHONE_INDEX_PREFIX, i + 1);
 		if(__phonetype_enum_to_str(item->phones[i].type) != NULL)
 			sprintf(phone_mix_info, "%s:%s", 
 			        __phonetype_enum_to_str(item->phones[i].type), 
@@ -231,11 +224,11 @@ int CContactsManager::write_contact_item(Contact *item, int index)
 	      break;
     }
 	
-    lp_config_set_int(contacts_lpconfig, section, "emailcount", email_count);
+    lp_config_set_int(contacts_lpconfig, section, CONTACT_EMAIL_COUNT, email_count);
 			             
-	for(int i=0;i<email_count;i++)
+	for(int i=0; i<email_count; i++)
 	{
-	    sprintf(email_index,"email_%d",i + 1);
+	    sprintf(email_index,"%s%d", EMAIL_INDEX_PREFIX, i + 1);
 		if(__emailtype_enum_to_str(item->emails[i].type) != NULL)
 			sprintf(email_mix_info, "%s:%s", 
 			        __emailtype_enum_to_str(item->emails[i].type), 
@@ -247,9 +240,9 @@ int CContactsManager::write_contact_item(Contact *item, int index)
     }
 	
 	//voip, im, address
-    lp_config_set_string(contacts_lpconfig, section, "voip", item->szvoip);
-	lp_config_set_string(contacts_lpconfig, section, "im", item->szim);
-	lp_config_set_string(contacts_lpconfig, section, "address", item->szaddress);
+    lp_config_set_string(contacts_lpconfig, section, CONTACT_VOIP, item->szvoip);
+	lp_config_set_string(contacts_lpconfig, section, CONTACT_IM, item->szim);
+	lp_config_set_string(contacts_lpconfig, section, CONTACT_ADDRESS, item->szaddress);
 
 	//lp_config_sync(contacts_lpconfig);
 	return 0;
@@ -257,14 +250,12 @@ int CContactsManager::write_contact_item(Contact *item, int index)
 
 int CContactsManager::sync_contact_config()
 { 
-	int i;
-	int counts;
-	int writeindex = 0;
+    int writeindex = 0;
 	char section[30];
 
 	if(contacts_lpconfig == NULL)
 	{
-		g_error("_LpConfig = (null)");
+		g_error("contacts_lpconfig = (null)");
 		return -1;
 	}
 
@@ -273,53 +264,39 @@ int CContactsManager::sync_contact_config()
 		g_error("no contact_buf, save contact error!");
 		return -1;
 	}
-	
-	counts = get_contact_buf_count();
-    cout << "\nbuf count: " << counts << endl;
-	//write item
-	for(i = 0; i < counts; i++)
-		write_contact_item(contact_buf[i], i);
 
     //clear
-	while(i < MAX_CONTACT_COUNT)
+	for(int i = 0; i < MAX_CONTACT_COUNT; i++)
 	{
-	    sprintf(section, "contact_%i", i);
+	    sprintf(section, "%s%i", CONTACT_INDEX_PREFIX, i);
 	    if(lp_config_has_section(contacts_lpconfig, section))
-	    {
-			lp_config_clean_section(contacts_lpconfig, section);
-            cout << "\nclear index: " << i << endl;
-		}
-		i++;
-	}
+	    	lp_config_clean_section(contacts_lpconfig, section);
+    }
 	
+	get_contact_buf_count();
+		
+	//write item
+	for(int i = 0; i < buf_count; i++)
+		write_contact_item(contact_buf[i], i);
+
 	return lp_config_sync(contacts_lpconfig);
 }
 
 //CRUD
 int CContactsManager::get_contact_buf_count()
 {	
-    curCount= 0;
+    update_buf_count();
 	
-    for(int i=0;contact_buf[i] != NULL;i++)
-	{
-		curCount++;
-	}
-	
-	return curCount;
+	return buf_count;
 }
 
 
 int CContactsManager::get_contact_count()
 {	
-    curCount= 0;
-
-	read_contact();
-    for(int i=0;contact_buf[i] != NULL;i++)
-	{
-		curCount++;
-	}
+    read_contact();
+    update_buf_count();
 	
-	return curCount;
+	return buf_count;
 }
 
 int CContactsManager::get_contact_by_index(Contact **contact, int index)
@@ -405,9 +382,9 @@ int CContactsManager::get_contact_by_phone(Contact **contact,	const char *szphon
 	len = get_contact_count();
 	for(int i = 0;i < len; i++)
 	{
-	    sprintf(section_index,"contact_%i",i);
+	    sprintf(section_index,"%s%i", CONTACT_INDEX_PREFIX, i);
     	_contact = contact_buf[i];
-        phone_count = lp_config_get_int(contacts_lpconfig,section_index,"phonecount",NULL);
+        phone_count = lp_config_get_int(contacts_lpconfig, section_index, CONTACT_PHONE_COUNT, NULL);
 
 		for(int j = 0; j < phone_count; j++)
 		{
@@ -430,7 +407,28 @@ int CContactsManager::add_contact(Contact *contact)
 	len = get_contact_count();
 	
 	//write
-	contact_buf[len] = contact;
+	contact_buf[len] = new Contact;
+
+	strcpy(contact_buf[len]->name.szfamily_name, contact->name.szfamily_name);
+
+	strcpy(contact_buf[len]->name.szgiven_name, contact->name.szgiven_name);
+	contact_buf[len]->type = contact->type;
+
+	for(int i = 0; i < MAX_PHONE_COUNT; i++)
+	{
+		strcpy(contact_buf[len]->phones[i].szphone, contact->phones[i].szphone);
+		contact_buf[len]->phones[i].type = contact->phones[i].type;
+	}
+
+	for(int i = 0; i < MAX_EMAIL_COUNT; i++)
+	{
+		strcpy(contact_buf[len]->emails[i].szemail, contact->emails[i].szemail);
+    	contact_buf[len]->emails[i].type = contact->emails[i].type;
+	}
+	
+	strcpy(contact_buf[len]->szvoip, contact->szvoip);
+	strcpy(contact_buf[len]->szim, contact->szim);
+	strcpy(contact_buf[len]->szaddress, contact->szaddress);
 
 	//sync
 	sync_contact_config();
@@ -498,6 +496,7 @@ int CContactsManager::delete_contact_by_index(int index)
     {
     	if(index + 1 == len)
     	{
+    	    delete(contact_buf[index]);
 			contact_buf[index] = NULL;
 	        break;
 		}    
@@ -515,7 +514,6 @@ int CContactsManager::delete_contact_all()
 	int len;
 
 	len = get_contact_count();
-	cout << "len: " << len <<endl;
 	if(len == 0)
 		return -1;
 
@@ -524,14 +522,6 @@ int CContactsManager::delete_contact_all()
 
 	//sync
 	sync_contact_config();
-}
-
-//help
-void CContactsManager::Show_contact_buf()
-{
-    read_contact();
-	for(int i=0;contact_buf[i] != NULL;i++)
-		cout << "show " << i << ": " << contact_buf[i]->name.szfamily_name << endl;
 }
 
 //validate
@@ -580,31 +570,42 @@ void CContactsManager::sort_by_letter()
    	sync_contact_config();
 }
 
+//help
+void CContactsManager::update_buf_count()
+{
+	buf_count = 0;
+	
+    for(int i=0; contact_buf[i] != NULL; i++)
+	{
+		buf_count++;
+	}
+}
+
 //enum
 const gchar* CContactsManager::__grouptype_enum_to_str(int enum_val)
 {
 	switch(enum_val)
 	{
 		case GT_FAMILY:
-			return "GT_FAMILY";
+			return GT_FAMILY_STR;
 			break;
 		case GT_RELATIVES:
-			return "GT_RELATIVES";
+			return GT_RELATIVES_STR;
 			break;
 		case GT_COLLEAGUES:
-			return "GT_COLLEAGUES";
+			return GT_COLLEAGUES_STR;
 			break;
 		case GT_FRIENDS:
-			return "GT_FRIENDS";
+			return GT_FRIENDS_STR;
 			break;
 		case GT_MANUFACTURERS:
-			return "GT_MANUFACTURERS";
+			return GT_MANUFACTURERS_STR;
 			break;
 		case GT_OTHER:
-			return "GT_OTHER";
+			return GT_OTHER_STR;
 			break;
 		case GT_CUSTOM:
-			return "GT_CUSTOM";
+			return GT_CUSTOM_STR;
 			break;
 	}
 	g_warning("Invalid grouptype enum value.");
@@ -616,25 +617,25 @@ const gchar* CContactsManager::__phonetype_enum_to_str(int enum_val)
 	switch(enum_val)
 	{
 	    case PT_HOME:
-			return "PT_HOME";
+			return PT_HOME_STR;
 			break;
 		case PT_MOBILE:
-			return "PT_MOBILE";
+			return PT_MOBILE_STR;
 			break;
 		case PT_WORK:
-			return "PT_WORK";
+			return PT_WORK_STR;
 			break;
 		case PT_WORK_FAX:
-			return "PT_WORK_FAX";
+			return PT_WORK_FAX_STR;
 			break;
 		case PT_HOME_FAX:
-			return "PT_HOME_FAX";
+			return PT_HOME_FAX_STR;
 			break;
 		case PT_OTHER:
-			return "PT_OTHER";
+			return PT_OTHER_STR;
 			break;
 		case PT_CUSTOM:
-			return "PT_CUSTOM";
+			return PT_CUSTOM_STR;
 			break;
 		}
 		g_warning("Invalid phonetype enum value.");
@@ -646,16 +647,16 @@ const gchar* CContactsManager::__emailtype_enum_to_str(int enum_val)
 	switch(enum_val)
 	{
 	    case EMT_HOME:
-			return "EMT_HOME";
+			return EMT_HOME_STR;
 			break;
 		case EMT_WORK:
-			return "EMT_WORK";
+			return EMT_WORK_STR;
 			break;
 		case EMT_OTHER:
-			return "EMT_OTHER";
+			return EMT_OTHER_STR;
 			break;
 		case EMT_CUSTOM:
-			return "EMT_CUSTOM";
+			return EMT_CUSTOM_STR;
 			break;
 	}
 	g_warning("Invalid emailtype enum value.");
@@ -664,25 +665,25 @@ const gchar* CContactsManager::__emailtype_enum_to_str(int enum_val)
 
 GroupType CContactsManager::__grouptype_str_to_enum(const gchar *enum_str)
 {
-	if(strcmp(enum_str, "GT_FAMILY") == 0)
+	if(strcmp(enum_str, GT_FAMILY_STR) == 0)
 		 return GT_FAMILY;
   
-	if(strcmp(enum_str, "GT_RELATIVES") == 0)
+	if(strcmp(enum_str, GT_RELATIVES_STR) == 0)
 		 return GT_RELATIVES;
   
-	if(strcmp(enum_str, "GT_COLLEAGUES") == 0)
+	if(strcmp(enum_str, GT_COLLEAGUES_STR) == 0)
 		  return GT_COLLEAGUES;
   
-	if(strcmp(enum_str, "GT_FRIENDS") == 0)
+	if(strcmp(enum_str, GT_FRIENDS_STR) == 0)
 		  return GT_FRIENDS;
      
-	if(strcmp(enum_str, "GT_MANUFACTURERS") == 0)
+	if(strcmp(enum_str, GT_MANUFACTURERS_STR) == 0)
 		  return GT_MANUFACTURERS;
 
-	if(strcmp(enum_str, "GT_OTHER") == 0)
+	if(strcmp(enum_str, GT_OTHER_STR) == 0)
 		  return GT_OTHER;
 
-	if(strcmp(enum_str, "GT_CUSTOM") == 0)
+	if(strcmp(enum_str, GT_CUSTOM_STR) == 0)
 		  return GT_CUSTOM;
 	
 	g_warning("Invalid grouptype enum value %s", enum_str);
@@ -691,25 +692,25 @@ GroupType CContactsManager::__grouptype_str_to_enum(const gchar *enum_str)
 
 PhoneType CContactsManager::__phonetype_str_to_enum(const gchar *enum_str)
 {
-	if(strcmp(enum_str, "PT_HOME") == 0)
+	if(strcmp(enum_str, PT_HOME_STR) == 0)
 		return PT_HOME;
 
-	if(strcmp(enum_str, "PT_MOBILE") == 0)
+	if(strcmp(enum_str, PT_MOBILE_STR) == 0)
 		return PT_MOBILE;
 
-	if(strcmp(enum_str, "PT_WORK") == 0)
+	if(strcmp(enum_str, PT_WORK_STR) == 0)
 		return PT_WORK;
 
-	if(strcmp(enum_str, "PT_WORK_FAX") == 0)
+	if(strcmp(enum_str, PT_WORK_FAX_STR) == 0)
 		return PT_WORK_FAX;
 
-	if(strcmp(enum_str, "PT_HOME_FAX") == 0)
+	if(strcmp(enum_str, PT_HOME_FAX_STR) == 0)
 		return PT_HOME_FAX;
 	
-	if(strcmp(enum_str, "PT_OTHER") == 0)
+	if(strcmp(enum_str, PT_OTHER_STR) == 0)
 		return PT_OTHER;
 	
-	if(strcmp(enum_str, "PT_CUSTOM") == 0)
+	if(strcmp(enum_str, PT_CUSTOM_STR) == 0)
 		return PT_CUSTOM;
 	
 	g_warning("Invalid phonetype enum value %s", enum_str);
@@ -718,19 +719,18 @@ PhoneType CContactsManager::__phonetype_str_to_enum(const gchar *enum_str)
 
 EMailType CContactsManager::__emailtype_str_to_enum(const gchar *enum_str)
 {
-	if(strcmp(enum_str, "EMT_HOME") == 0)
+	if(strcmp(enum_str, EMT_HOME_STR) == 0)
 		return EMT_HOME;
 
-	if(strcmp(enum_str, "EMT_WORK") == 0)
+	if(strcmp(enum_str, EMT_WORK_STR) == 0)
 		return EMT_WORK;
 
-	if(strcmp(enum_str, "EMT_OTHER") == 0)
+	if(strcmp(enum_str, EMT_OTHER_STR) == 0)
 		return EMT_OTHER;
 
-	if(strcmp(enum_str, "EMT_CUSTOM") == 0);
+	if(strcmp(enum_str, EMT_CUSTOM_STR) == 0);
 		return EMT_CUSTOM;
 	
 	g_warning("Invalid emailtype enum value %s", enum_str);
 	return (EMailType)-1;
 }
-
