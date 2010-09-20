@@ -40,3 +40,4 @@
 28 debian-based system : ubuntus
 29 etc/profile export LS_OPTIONS='--color=auto'
 30 Makefile.am中的subdirs 分编译的先后顺序
+31 gtk只认utf8编
