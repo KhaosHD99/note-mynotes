@@ -193,3 +193,6 @@
 210 http://blog.chinaunix.net/u1/52350/showart_557916.html
 211 没有_()不能生成po?
 212 要装simsun.ttc字体 root才可以？
+213 aptitude
+214 list_item_data_key
+215 g_locale_to_utf8()
