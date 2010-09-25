@@ -43,3 +43,4 @@
 31 gtk只认utf8编
 32 fc-list | grep -i sun查看是否已安装宋体
 33 装完字体后，给所有用户权限
+34 gtk-builder-convert *.glade *.xml
