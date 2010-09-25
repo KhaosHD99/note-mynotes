@@ -171,7 +171,7 @@
     vim不支持iso8859
     iso8859 ？
     
-197 命令输入 简化 快捷 自适应
+197 命令输入 简化 快捷 自适应                                    ***
 198 文件命名规范
 199 CR/LF, with CRLF line terminators
     当with CRLF line terminators时，source insight可以认utf-8的英文
@@ -196,3 +196,10 @@
 213 aptitude
 214 list_item_data_key
 215 g_locale_to_utf8()
+216 尽量不用cout, cint
+217 ltib
+218 ibm pc
+219 48 目录结构
+220 export dynamic
+221 could not find the signal handler
+    c/cpp?

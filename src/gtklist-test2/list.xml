@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--Generated with glade3 3.4.5 on Sat Sep 25 11:57:24 2010 -->
+<interface>
+  <object class="GtkWindow" id="window1">
+    <property name="default_width">250</property>
+    <property name="default_height">200</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_NOTIFICATION</property>
+    <child>
+      <object class="GtkScrolledWindow" id="scrolledwindow1">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+        <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+        <child>
+          <object class="GtkViewport" id="viewport1">
+            <property name="visible">True</property>
+            <property name="resize_mode">GTK_RESIZE_QUEUE</property>
+            <child>
+              <object class="GtkList" id="list1">
+                <property name="visible">True</property>
+                <property name="selection_mode">GTK_SELECTION_SINGLE</property>
+                <signal handler="on_list1_select_child" name="select_child"/>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
