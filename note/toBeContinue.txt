@@ -214,3 +214,4 @@
 230 合并模块
 231 extern c                                        **
 232 始终要用回g++?
+233 http://cle.linux.org.tw/xcin/i18n/pc2000/p5/
