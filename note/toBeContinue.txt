@@ -160,7 +160,7 @@
 191 范型编程和操作符重载
 192 名字是否存在
 193 属性
-194 验证输入
+194 验证输入                                                                ****
 195 整理文档
 196 source insight, 记事本保存为ansi格式时，中文用的是iso8859, 英文用的时asc2
     
@@ -171,7 +171,7 @@
     vim不支持iso8859
     iso8859 ？
     
-197 命令输入 简化 快捷 自适应                                    ***
+197 命令输入 简化 快捷 自适应                                                ***
 198 文件命名规范
 199 CR/LF, with CRLF line terminators
     当with CRLF line terminators时，source insight可以认utf-8的英文
@@ -203,3 +203,14 @@
 220 export dynamic
 221 could not find the signal handler
     c/cpp?
+222 G_MODULE_EXPORT 
+223 make install
+224 单实例
+225 函数注释
+226 count 问题
+227 内存分配大小规范
+228 c/c++ new malloc 规范
+229 锁
+230 合并模块
+231 extern c
+232 始终要用回g++?
