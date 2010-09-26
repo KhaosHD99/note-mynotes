@@ -196,21 +196,21 @@
 213 aptitude
 214 list_item_data_key
 215 g_locale_to_utf8()
-216 尽量不用cout, cint
+216 尽量不用cout, cint                                              over
 217 ltib
 218 ibm pc
 219 48 目录结构
 220 export dynamic
-221 could not find the signal handler
-    c/cpp?
+221 could not find the signal handler                                over
+      c/cpp?
 222 G_MODULE_EXPORT 
 223 make install
 224 单实例
 225 函数注释
-226 count 问题
+226 count 问题                                                    ****
 227 内存分配大小规范
 228 c/c++ new malloc 规范
-229 锁
+229 锁                                                          *****
 230 合并模块
-231 extern c
+231 extern c                                        **
 232 始终要用回g++?
