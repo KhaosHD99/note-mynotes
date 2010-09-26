@@ -44,3 +44,6 @@
 32 fc-list | grep -i sun查看是否已安装宋体
 33 装完字体后，给所有用户权限
 34 gtk-builder-convert *.glade *.xml
+35 If you get "Gtk-WARNING **: Could not find signal handler..." and your handlers are inside *.cpp file, add to their    declaration: 
+   extern "C" .............. . 
+   Otherwise exported names are "decorated", which is C++'s default.
