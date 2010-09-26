@@ -171,7 +171,7 @@
     vim不支持iso8859
     iso8859 ？
     
-197 命令输入 简化 快捷 自适应                                                ***
+197 命令输入 简化 快捷 自适应                                                over
 198 文件命名规范
 199 CR/LF, with CRLF line terminators
     当with CRLF line terminators时，source insight可以认utf-8的英文
