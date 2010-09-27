@@ -215,3 +215,8 @@
 231 extern c                                        **
 232 始终要用回g++?
 233 http://cle.linux.org.tw/xcin/i18n/pc2000/p5/
+234 strcpy 越界不报错&&运行正确
+235 so so.0 so.00
+236 目录结构 解决方案
+237 libtool
+238 PKG_CHECK_MODULES
