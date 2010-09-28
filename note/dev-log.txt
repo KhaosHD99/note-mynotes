@@ -4,5 +4,5 @@
 09.28: 1)an breakthrough in libtool
        2)ld.so.conf£¬ldconfig
        3)generate pc file by autotools
-
+       4)use glade(v3.66) test in gtk(2.12)
 09.29  

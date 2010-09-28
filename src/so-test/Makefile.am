@@ -1,5 +1,0 @@
-AUTOMAKE_OPTIONS=foreign
-INCLUDES=-Iinclude
-SUBDIRS=lib core
-
-DEFS+=-D_GNU_SOURCE
