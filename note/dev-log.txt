@@ -1,3 +1,8 @@
 2010
-09.27: 初窥pkg-config;对autotools的动态库的生成一知半解;
-09.28: libtool有突破,原来so是这样用的，嘿嘿；
+09.27: 1)early peep pkg-config; executable load share lib by absolute path, not appoint a             lib file
+
+09.28: 1)an breakthrough in libtool
+       2)ld.so.conf，ldconfig
+       3)generate pc file by autotools
+
+09.29  

@@ -199,7 +199,7 @@
 216 尽量不用cout, cint                                              over
 217 ltib
 218 ibm pc
-219 48 目录结构
+219 48 目录结0
 220 export dynamic
 221 could not find the signal handler                                over
       c/cpp?
@@ -245,5 +245,7 @@
        pthread_mutex_unlock(&command_mutex);
        // showInfo("unlock command mutext...\r\n");
     }
-
+244 profile 全局设置 root 无效？
+245 not found libglade  没有也能编译？
+    `pkg-config --cflags --libs gtk+-2.0 `
 		
