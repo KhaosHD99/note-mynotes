@@ -222,3 +222,28 @@
 240 安装libtool                                                  over
 241 安装时需要把某些必要文件拷贝到安装目录
 242 1301
+243 static pthread_mutex_t command_mutex;
+    void init_command_mutex()
+    {
+        static int init_flag = 0;
+         if(init_flag == 0) 
+         {
+            pthread_mutex_init(&command_mutex, NULL);
+            showInfo("init linphone mutext...\r\n");
+          init_flag = 1;
+         }
+    }
+
+    void lock_command_mutex()
+    {
+       pthread_mutex_lock(&command_mutex);
+       // showInfo("lock command mutext...\r\n");
+    }
+
+    void unlock_command_mutex()
+    {
+       pthread_mutex_unlock(&command_mutex);
+       // showInfo("unlock command mutext...\r\n");
+    }
+
+		
