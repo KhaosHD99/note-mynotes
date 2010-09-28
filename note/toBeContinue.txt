@@ -248,4 +248,4 @@
 244 profile 全局设置 root 无效？
 245 not found libglade  没有也能编译？
     `pkg-config --cflags --libs gtk+-2.0 `
-		
+246 升级到2.16
