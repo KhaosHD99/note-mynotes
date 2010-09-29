@@ -160,7 +160,7 @@
 191 范型编程和操作符重载
 192 名字是否存在
 193 属性
-194 验证输入                                                                ****
+194 验证输入                                                                ************
 195 整理文档
 196 source insight, 记事本保存为ansi格式时，中文用的是iso8859, 英文用的时asc2
     
@@ -197,7 +197,7 @@
 214 list_item_data_key
 215 g_locale_to_utf8()
 216 尽量不用cout, cint                                              over
-217 ltib
+217 ltib                                                                 *******
 218 ibm pc
 219 48 目录结0
 220 export dynamic
@@ -207,12 +207,12 @@
 223 make install
 224 单实例
 225 函数注释
-226 count 问题                                                    ****
+226 count 问题                                                     ****
 227 内存分配大小规范                                               over
 228 c/c++ new malloc 规范                                         over
 229 锁                                                          *****
 230 合并模块   提供c接口                                        ******
-231 extern c                                              **
+231 extern c                                                     ****
 232 始终要用回g++?
 234 strcpy 越界不报错&&运行正确
 235 so so.0 so.00
@@ -230,7 +230,7 @@
          {
             pthread_mutex_init(&command_mutex, NULL);
             showInfo("init linphone mutext...\r\n");
-          init_flag = 1;
+            init_flag = 1;
          }
     }
 
@@ -249,3 +249,14 @@
 245 not found libglade  没有也能编译？
     `pkg-config --cflags --libs gtk+-2.0 `
 246 升级到2.16
+247 memcpy();                                                      
+248 LogMsg
+249 snprintf()
+250 wins 带密码命令url
+251 锁 改名                                           over
+252 传入指针 判断所指是否为空
+253 sd 卡 刷系统
+254 pkg-config 安装头文件                                    *****
+255 读取时 上锁
+256 calllog 时间操作问题
+257 http://hi.baidu.com/beibeiboo/blog/item/22b606d95397aae038012f68.html
