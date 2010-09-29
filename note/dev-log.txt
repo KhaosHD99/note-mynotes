@@ -5,4 +5,9 @@
        2)ld.so.conf£¬ldconfig
        3)generate pc file by autotools
        4)use glade(v3.66) test in gtk(2.12)
-09.29  
+
+09.29  1)optimize the code
+       2)modify the "count" mode
+       3)add mutex lock
+       4)simply validation
+       5)reach to spec
