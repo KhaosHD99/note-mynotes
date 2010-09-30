@@ -260,3 +260,9 @@
 255 读取时 上锁
 256 calllog 时间操作问题
 257 http://hi.baidu.com/beibeiboo/blog/item/22b606d95397aae038012f68.html
+258 c不能调用cpp中的printf, 不能包含头文件iostream？
+259 warning: no newline at end of file
+260 初始化 buffer                                                    over
+261 dlsym
+262 即使c++头文件已经 extern, 具体函数实现还需要？
+263 -L      LDFLAGS
