@@ -18,6 +18,7 @@
 13 makefile.am中的subdirs是指要生成makefile的子目录
 14 fork return nonzero value is subProcess's PID
 15 /boot/grub/menu.lst下设置分辨率
+   kernel: .....    vga=791
    Colors ( depth)- 640x480- 800x600- 1024x768- 1280x1024- 1600x1200|
     -------------------+---------+-----------+-----------+-------------+--------------|
    256    ( 8 bit) |   769         771          773              775           796    |
@@ -44,6 +45,14 @@
 32 fc-list | grep -i sun查看是否已安装宋体
 33 装完字体后，给所有用户权限
 34 gtk-builder-convert *.glade *.xml
-35 If you get "Gtk-WARNING **: Could not find signal handler..." and your handlers are    inside *.cpp file, add to their    declaration: 
+35 If you get "Gtk-WARNING **: Could not find signal handler..." and your handlers are          inside *.cpp file, add to their    declaration: 
    extern "C" .............. . 
    Otherwise exported names are "decorated", which is C++'s default.
+36 c/c++相互调用本质上就是用extern "C"屏蔽c++编译器生成的用来区分重载函数的符号
+37 autotools中的configure.in的项目名称与Makefile.am中的可执行文件名称不要冲突
+38 iface eth0 inet static
+   auto eht0
+   
+   gateway
+   address
+   netmask
