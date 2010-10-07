@@ -267,3 +267,7 @@
 262 即使c++头文件已经 extern, 具体函数实现还需要？
 263 -L      LDFLAGS
 264 脚本反馈
+265 not a dynamic executable
+266 autotools clear after make, make clear
+267 _ldadd 位置敏感？
+268 -soname

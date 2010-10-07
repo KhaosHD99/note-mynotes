@@ -1,9 +1,11 @@
 2010
+09.26  1)c++ call gtk;could not find the signal handler
+
 09.27: 1)early peep pkg-config; executable load share lib by absolute path, not appoint a             lib file
 
 09.28: 1)an breakthrough in libtool
        2)ld.so.conf£¬ldconfig
-       3)generate pc file by autotools
+       3)generate pc file use autotools
        4)use glade(v3.66) test in gtk(2.12)
 
 09.29  1)optimize the code
@@ -11,3 +13,10 @@
        3)add mutex lock
        4)simply validation
        5)reach to spec
+       6)c call c++
+
+09.30  1)c call c++ with class
+       2)c call c++ with class and autotools
+
+10.07  1)autotools _LDADD _LDFLAGS
+       2)clear after make 
