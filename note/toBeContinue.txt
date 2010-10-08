@@ -264,10 +264,21 @@
 259 warning: no newline at end of file
 260 初始化 buffer                                                    over
 261 dlsym
-262 即使c++头文件已经 extern, 具体函数实现还需要？
+262 即使c++头文件已经 extern, 具体函数实现还需要？具体函数实现文件不应该包含头文件定义  over
 263 -L      LDFLAGS
 264 脚本反馈
 265 not a dynamic executable
 266 autotools clear after make, make clear
 267 _ldadd 位置敏感？
 268 -soname
+267 install header
+267 compile with the installed lib use pkgconfig 
+268 linconfig link so
+269 rz
+270 #if 0
+    #endif
+271 ldd cheat me; after install ldd is change!!!!kao 
+272 不要加ranlib
+273 configure.in 配置依赖的库
+274 确保结构体每一个字节为0?
+275 checkmoudule >=
