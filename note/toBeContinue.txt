@@ -274,11 +274,12 @@
 267 install header
 267 compile with the installed lib use pkgconfig 
 268 linconfig link so
-269 rz
-270 #if 0
-    #endif
+269 rz                                                                               over
+270 #if 0                                                                           
+    #endif                                                                           over
 271 ldd cheat me; after install ldd is change!!!!kao 
 272 不要加ranlib
 273 configure.in 配置依赖的库
 274 确保结构体每一个字节为0?
 275 checkmoudule >=
+276 ldconfig: /opt/lib/liblinconfig.so.0 is not a symbolic link

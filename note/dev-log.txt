@@ -22,5 +22,8 @@
        2)clear after make 
 
 10.08  1)configure.in configure the dynamic lib 
-       2)c call c++ header spec
+       2)c call c++ header skill
        3)conver to c interface
+       4)link third party lib use pkg-config
+       5)how executable know where the lib is it 
+       6)autotools version 
