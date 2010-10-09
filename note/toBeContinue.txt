@@ -220,9 +220,9 @@
 238 PKG_CHECK_MODULES                                              
 239 http://www.360doc.com/content/10/0324/17/155970_20098170.shtml
 240 安装libtool                                                  over
-241 安装时需要把某些必要文件拷贝到安装目录
+241 安装时需要把某些必要文件拷贝到安装目录 key
 242 1301
-243 static pthread_mutex_t command_mutex;
+243 static pthread_mutex_t command_mutex;                                       over
     void init_command_mutex()
     {
         static int init_flag = 0;
@@ -283,3 +283,6 @@
 274 确保结构体每一个字节为0?
 275 checkmoudule >=
 276 ldconfig: /opt/lib/liblinconfig.so.0 is not a symbolic link
+277 库路径查找顺续
+278 glade hbox
+279 g_object_unref

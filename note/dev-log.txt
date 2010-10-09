@@ -26,4 +26,6 @@
        3)conver to c interface
        4)link third party lib use pkg-config
        5)how executable know where the lib is it 
-       6)autotools version 
+       6)autotools version
+
+10.09  1)fnwindow(window manage);gtk base control
