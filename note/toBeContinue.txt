@@ -286,3 +286,5 @@
 277 库路径查找顺续
 278 glade hbox
 279 g_object_unref
+280 gtk_widget_hide 从下到上？
+281 popup才能hide?   popup与toplevel的区别
