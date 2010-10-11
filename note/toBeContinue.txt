@@ -284,7 +284,9 @@
 275 checkmoudule >=                                                                **
 276 ldconfig: /opt/lib/liblinconfig.so.0 is not a symbolic link
 277 库路径查找顺续                                                                 *
-278 glade hbox
+278 gtk compatible:
+    hbox,vbox
+    filechooser
 279 g_object_unref
 280 gtk_widget_hide 从下到上？                                                        over
 281 popup才能hide?   popup与toplevel的区别                                          *        282 规范 运行信息打印，返回值
@@ -306,3 +308,6 @@ gcc: -ldl: linker input file unused because linking not done
 gcc: -lglib-2.0: linker input file unused because linking not done 
 
 288 cflags libs
+289 电话簿窗口的大小为:(600*450), 其实坐标为(200, 0)
+290 文件搜索，题目，
+291 realized，实例化
