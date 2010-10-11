@@ -30,6 +30,8 @@
 
 10.09  1)fnwindow(window manage);gtk base control
 
-10.10  1)wm
+10.10  1)wm(gen child)
 
-10.11  1)wm;autotools config gtk lib
+10.11  1)wm(window stack;karmen)
+       2)autotools config gtk lib
+       3)glade control test 
