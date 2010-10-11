@@ -268,7 +268,7 @@
 263 -L      LDFLAGS
 264 脚本反馈
 265 not a dynamic executable
-266 autotools clear after make, make clear
+266 autotools clear after make, make clean                                           over
 267 _ldadd 位置敏感？
 268 -soname
 267 install header
@@ -277,14 +277,32 @@
 269 rz                                                                               over
 270 #if 0                                                                           
     #endif                                                                           over
-271 ldd cheat me; after install ldd is change!!!!kao 
-272 不要加ranlib
+271 ldd cheat me; after install ldd is change!!!!kao                    
+272 不要加ranlib(静态库)                            
 273 configure.in 配置依赖的库
 274 确保结构体每一个字节为0?
-275 checkmoudule >=
+275 checkmoudule >=                                                                **
 276 ldconfig: /opt/lib/liblinconfig.so.0 is not a symbolic link
-277 库路径查找顺续
+277 库路径查找顺续                                                                 *
 278 glade hbox
 279 g_object_unref
-280 gtk_widget_hide 从下到上？
-281 popup才能hide?   popup与toplevel的区别
+280 gtk_widget_hide 从下到上？                                                        over
+281 popup才能hide?   popup与toplevel的区别                                          *        282 规范 运行信息打印，返回值
+283 builder的释放时机问题
+284 automake option foreign
+285 不存在需要引用某个库的库                                                         *
+286 configure.in配置gtk库                                                            *
+287 gcc: -lgtk-x11-2.0: linker input file unused because linking not done
+gcc: -lgdk-x11-2.0: linker input file unused because linking not done
+gcc: -latk-1.0: linker input file unused because linking not done
+gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done
+gcc: -lm: linker input file unused because linking not done
+gcc: -lpangocairo-1.0: linker input file unused because linking not done
+gcc: -lpango-1.0: linker input file unused because linking not done
+gcc: -lcairo: linker input file unused because linking not done
+gcc: -lgobject-2.0: linker input file unused because linking not done
+gcc: -lgmodule-2.0: linker input file unused because linking not done
+gcc: -ldl: linker input file unused because linking not done
+gcc: -lglib-2.0: linker input file unused because linking not done 
+
+288 cflags libs
