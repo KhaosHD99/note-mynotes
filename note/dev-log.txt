@@ -29,3 +29,7 @@
        6)autotools version
 
 10.09  1)fnwindow(window manage);gtk base control
+
+10.10  1)wm
+
+10.11  1)wm;autotools config gtk lib
