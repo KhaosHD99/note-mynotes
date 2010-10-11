@@ -6,7 +6,7 @@
 6 cls pause comman not found
 7 typedef                                             over
 8 linux 编码问题 颜色
-9 source insight utf-8
+9 source insight utf-8                                                    over
 10 g++同时编译多个
 11 Clock skew detected.your build may be incomplete
 12 linux 清空流
@@ -42,17 +42,17 @@
 42 函数顺序
 43 清屏
 44 sh脚本
-45 makefile.am includes 分行
-46 Makefile.am 静态库 动态库                          
-47 sourceInsight 单实例
+45 makefile.am includes 分行                                                 
+46 Makefile.am 静态库 动态库                                                   over
+47 sourceInsight 单实例                                                        over
 48 线程调用 类的成员函数
 49 线程函数是否适合做类的成员函数
-50 makefile.am 库文件编译时加入需要的头文件                        over
+50 makefile.am 库文件编译时加入需要的头文件                                   over
 51 has modification time in the futrue /clock skew detect
 52 没有僵尸进程？
-53 fork 返回值 子进程id            over
+53 fork 返回值 子进程id                                                       over
 54 syslog LOG_INFO LOG_EMERG
-55 vi to vim
+55 vi to vim                                                                  over
 56 指针字符串分配内存问题
 57 client 莫名终结
 58 目录结构
@@ -69,50 +69,50 @@
 67 user not authorized to run the x server
 68 glade3 信号
 69 父子窗口 popup
-70 单实例
-71 POPUP
-72 gtk_widget_destory    GTK_WIDGET    
-73 兼容性
-74 get all header
-75 对象链接及嵌入（OLE）技术 构建库.
-76 多国语言 辅助 glade
-77 联系人固话，手提电话
-78 number类型
-79 文本转整形  ansi码
+70 单实例   
+71 POPUP                
+72 gtk_widget_destory    GTK_WIDGET        
+73 兼容性                                                         
+74 get all header                                   
+75 对象链接及嵌入（OLE）技术 构建库.                                         
+76 多国语言 辅助 glade                                                           
+77 联系人固话，手提电话                                                          over
+78 number类型                                                                    over
+79 文本转整形  ansi码                                                            over
 80 vcf
-81 多个号码                              一定要
-82 用char代替string
-83 mediafileinfo g_list_append
-84 sourceinsight 检测结构
-85 index 必须 有序 连续
+81 多个号码                              一定要                                  over
+82 用char代替string                                                              over
+83 mediafileinfo g_list_append                                                   over
+84 sourceinsight 检测结构                                                        over
+85 index 必须 有序 连续                                                          over
 86 lp_config_new(path) path is curent shell-based,not the main-based
-87 类？ 函数？
-88 g_list_append GList
-89 extern c
-90 库 （函数，类）
-91 头文件 ifdef  
-92 .so
+87 类？ 函数？                                                                   over
+88 g_list_append GList                                                           over
+89 extern c                                                                      over
+90 库 （函数，类）                                                               over
+91 头文件 ifdef                                                                 over
+92 .so                                                                          over
 93 需要指出的是：共享库必须被安装，所以不允许使用 `noinst_LTLIBRARIES'和`check_LTLIBRARIES'
-94 浪费了好些时间，竟然so不允许使用noinst：  而且生成以后放在了.libs的隐藏文件夹里面，太龌龊   了.
-95 头文件包含头文件 位置
-96 utf-8 安装目录
-97 svn for linux
-98 ultraedit
-99 file 命令
-100 防止头文件重复引用
+94 浪费了好些时间，竟然so不允许使用noinst：  而且生成以后放在了.libs的隐藏文件夹里面，太龌龊    了.
+95 头文件包含头文件 位置                                                    
+96 utf-8 安装目录                                                       
+97 svn client for linux                                                    over
+98 ultraedit                                                             over
+99 file 命令                                                            over
+100 防止头文件重复引用                                                 over
 101 cout printf
 102 memset  枚举 _non
-103 判断内存区域都为0
+103 判断内存区域都为0                                                 over
 104 strcmp
 105 while(item->phones[i].szphone[0] != '\0')
 106 枚举转字符.
 107 首字母
 108 by name family name, given name                                    ***
-109 把类屏蔽                                                           ***
+109 把类屏蔽                                                           over
 110 ui调用问题 枚举类型可见性
 111 phone,email字符串 验证
 112 family name given name
-113 顺序不一致 read_contact
+113 顺序不一致 read_contact                                            over
 114 读写模式 每次写一个 每次循环重新写入                               over
 115 strtok 
     const char* 直接赋值
@@ -139,9 +139,9 @@
 
 120 while(item->phones[phone_count].szphone[0] != '\0')                    over
     asc2 0 \0
-121 UI调用时不一定把contact结构体都初始化 phone email
-122 锁
-123 取得的对象是存在于链表中的
+121 UI调用时不一定把contact结构体都初始化 phone email                          over
+122 锁                                                                         over
+123 取得的对象是存在于链表中的                                                over
 124 index 宏
 125 phone eamil 类型 枚举
 126 不要index
@@ -155,13 +155,13 @@
   3)
 128 add: add到链表的item是原始数据                                          ****
     get: 取得的是链表的数据                                                 ****
-189 中文排序
+189 中文排序                                                                ***
 190 结构体中的某些属性不允许填充
 191 范型编程和操作符重载
 192 名字是否存在
-193 属性
+193 属性机制
 194 验证输入                                                                ************
-195 整理文档
+195 整理文档                                                                 ****
 196 source insight, 记事本保存为ansi格式时，中文用的是iso8859, 英文用的时asc2
     
     source insight: asc2, iso8859
@@ -181,32 +181,32 @@
     换行符
 
 200 utf-16
-201 转无bom uft-8还是asc2?
+201 转无bom uft-8还是asc2?                                                   over
 202 配置文件的生成格式 与 main函数所在文件的编码有关？
 203 gettext
 204 Pango
-205 pc文件 pkg-config?
-206 tlib rootfs?
-207 osd
+205 pc文件 pkg-config?                                                     over
+206 ltib rootfs?
+207 osd                                                                   over
 208 xgettext -k_ -o main.po list_test.c
 209 little endian
 210 http://blog.chinaunix.net/u1/52350/showart_557916.html
-211 没有_()不能生成po?
-212 要装simsun.ttc字体 root才可以？
+211 没有_()不能生成po?                                                     over
+212 要装simsun.ttc字体 root才可以？                                       over
 213 aptitude
 214 list_item_data_key
 215 g_locale_to_utf8()
-216 尽量不用cout, cint                                              over
+216 尽量不用cout, cint                                                    over
 217 ltib                                                                 *******
-218 ibm pc
+218 ibm pc                                                                over
 219 48 目录结0
 220 export dynamic
-221 could not find the signal handler                                over
+221 could not find the signal handler                                     over
       c/cpp?
 222 G_MODULE_EXPORT 
-223 make install
-224 单实例
-225 函数注释
+223 make install                                                         over
+224 单实例                                                               over
+225 函数注释                                                              over
 226 count 问题                                                     ****
 227 内存分配大小规范                                               over
 228 c/c++ new malloc 规范                                         over
@@ -309,5 +309,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
 288 cflags libs
 289 电话簿窗口的大小为:(600*450), 其实坐标为(200, 0)
-290 文件搜索，题目，
+290 linux 文件搜索，题目，
 291 realized，实例化

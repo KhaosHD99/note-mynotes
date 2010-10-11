@@ -14,5 +14,10 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="liststore1"/>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name gchar1 -->
+      <column type="gchar"/>
+    </columns>
+  </object>
 </interface>
