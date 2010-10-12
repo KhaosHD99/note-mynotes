@@ -34,4 +34,6 @@
 
 10.11  1)wm(window stack;karmen)
        2)autotools config gtk lib
-       3)glade control test 
+       3)glade control test(tree_view) 
+
+10.12  1)icon_view
