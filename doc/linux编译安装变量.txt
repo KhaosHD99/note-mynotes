@@ -1,0 +1,84 @@
+安装目录变量
+在Makefile中，安装目录同样需要使用变量来指定，这样就可以很方便的修改文件的安装路径。安装目录的标准命名下边将一一介绍。这些变量基于标准的文件系统结构，这些变量的变种在SVR4、4.4BSD、Linux、Ultrix v4以及其它现代操作系统中都有使用。
+安装者希望在调用make是改变这些值，（例如 make prefix=/usr install）,或者在配置时改变这些值（例如 configure –prefix=/usr）。GNU包不会对在该系统上这些变量适合于哪些值做任何猜想，或者说GNU包不会猜测这些包应该被安装到哪里是更合适的：GNU包使用缺省的特定设置是为了以便于所有的GNU包行为一致，它允许安装者做任何自己想要的布局。
+以下所罗列的两个变量是指定安装文件的根目录。所有其它安装目录都是它们的子目录。注意：文件不能直接安装在这两个目录下。
+prefix
+这个变量（通常作为实际文件安装目录的父目录，可以理解为其它实际文件安装目录的前缀）用于构造下列（除这两个安装根目录以外的其它目录变量）变量的缺省值。变量“prefix”缺省值是“/usr/local”。创建完整的GNU系统时，变量prefix的缺省值是空值，“/usr”是“/”的符号连接符文件。（如果使用“Autoconf”工具，它应该写成“@prefix@”）。注意：当更改了变量“prefix”以后重新执行“make install”，不会导致可执行程序（终极目标）的重建。
+exec_prefix
+这个前缀用于构造下列变量的缺省值。变量“exec_prefix”缺省值是“$(prefix)”（如果使用“Autoconf”工具，它应该写为“@exec_prefix@”）。通常，“$(exec_prefix)”目录中的子目录下存放和机器相关文件（例如可执行文件和例程库）。“$(prefix)”目录的子目录存放通用的一般文件。同样：改变“exec_prefix”的值之后执行“make install”，不会重建可执行程序（终极目标）。
+文件（包括可执行程序、说明文档等）的安装目录：
+bindir
+用于安装一般用户可运行的可执行程序。通常它的值为：“/usr/local/bin”，使用时应写为：“$(exec_prefix)/bin”。（使用“Autoconf”工具时，应该为“@bindir@”）
+sbindir
+安装可在shell中直接调用执行的程序。这些命令仅对系统管理员有用（系统管理工具）。通常它的值为：“/usr/local/sbin”，要求在使用时应写为：“$(exec_prefix)/sbin”。（使用“Autoconf”工具时，应该为“@sbindir@”）
+libexecdir
+用于安装那些通常不是由用户直接使用，而是由其它程序调用的可执行程序。通常它的值为：“/usr/local/libexec”，要求在使用时应写为：“$(exec_prefix)/libexec”。（使用“Autoconf”工具时，应该为“@libexecdir@”）
+程序执行时使用的数据文件可从以下两个方面来分类：
+1.        是否可由程序更改。分为两类：程序可修改和不可修改的文件（虽然用户可编辑其中某些文件）。
+2.        是否和体系结构相关。分为两类：体系结构无关文件，可被所有类型的机器共享；体系结构相关文件，仅可被相同类型机器、操作系统共享；其它的就是那些不能被任何两个机器共享的文件。
+这样就存在六种不同的可能。除编译生成的目标文件（.o文件）和库文件以外，不推荐使用那些和特定机器体系结构相关的文件，使用和体系无关的数据文件更加简洁，而且，它的实现也并不非常困难。
+在Makefile中应该使用以下变量为不同类型的文件指定对应的安装目录：
+`datarootdir' 
+The root of the directory tree for read-only architecture-independent data files. This should normally be /usr/local/share, but write it as $(prefix)/share. (If you are using Autoconf, write it as `@datarootdir@'.) `datadir''s default value is based on this variable; so are `infodir', `mandir', and others. 
+Datarootdir
+      机器体系结构无关的只读数据文件的根目录。通常它的值为：“/usr/local/share”，使用时应写为：“$(prefix)/share”。（使用“Autoconf”工具时，应该为“@datarootdir@”）。‘datadir’的缺省值是基于这个变量的，`infodir', `mandir'等其它变量的值也是如此。
+datadir
+用于安装和机器体系结构无关的只读数据文件。通常它的值与’datarootdir’一样，但是我们使用两个变量是为了用户能够移动一些程序特定的文件而不修改如man 文件、info文件的路径。通常它的值为：“/usr/local/share”，使用时应写为：“$(prefix)/share”。（使用“Autoconf”工具时，应该为“@datadir@”）。“$(infodir)”和“$(includedir)”作为例外情况，参考后续对它们的详细描述。
+Datadir的定义对所有包都一样，因此你应该安装你的数据在它的子目录下。大部分包安装它们的数据在如此目录下：$(datadir)/package-name/.
+sysconfdir
+用于安装从属于特定机器的只读数据文件，包括：主机配置文件、邮件服务、网络配置文件、“/etc/passwd”文件等。所有该目录下的文件都应该是普通文本文件（可识别的“ASCII”码文本文件）。通常它的值为：“/usr/local/etc”，在使用时应写为：“$(prefix)/etc”。（使用“Autoconf”工具时，应该为“@sysconfdir@”）。
+不要将可执行文件安装在这个目录下（可执行文件的安装目录应该是“$(libexecdir)”或者“$(sbindir)”）。也不要在这个目录下安装那些需要更改的文件（系统的配置文件等）。这些文件应该安装在目录“$(localstatedir)”下。
+sharedstatedir
+用于安装那些可由程序运行时修改的文件，这些文件与体系结构无关。通常它的值为：“/usr/local/com”，要求在使用时应写为：“$(prefix)/com”。（使用“Autoconf”工具时，应该为“@sharedstatedir@”）
+localstatedir
+用于安装那些可由程序运行时修改的文件，但这些文件和体系结构相关。用户没有必要通过直接修改这些文件来配置软件包，对于不同的配置文件，将它们放在“$(datadir)”或者“$(sysconfdir)”目录中。“$(localstatedir)”值通常为：“/usr/local/var”，在使用时应写为：“$(prefix)/var”。（使用“Autoconf”工具时，应该为“@localstatedir@”）
+libdir
+用于存放编译后的目标文件（.o）文件库文件（文档文件或者执行的共享库文件）。不要在此目录下安装可执行文件（可执行文件应该安装在目录“$(libexecdir)”下）。变量libdir值通常为：“/usr/local/lib”，使用时应写为：“$(exec_prefix)/lib”。（使用“Autoconf”工具时，应该为“@libdir@”）
+infodir
+用于安装软件包的 Info 文件。它的缺省值为：“/usr/local/info”，使用时应写为：“$(prefix)/info”。（使用“Autoconf”工具时，应该为“@infodir@”）
+lispdir
+用于安装软件包的Emacs Lisp 文件的目录。它的缺省值为：“/usr/local/share/emacs/site-lisp”，使用时应写为：“$(prefix)/share/emacs/site-lisp”。当使用Autoconf工具时，应将写为“@lispdir@”。为了保证“@lispdir@”能够正常工作，需要在“configure.in”文件中包含如下部分：
+ 
+lispdir='${datadir}/emacs/site-lisp'
+AC_SUBST(lispdir)
+ 
+includedir
+用于安装用户程序源代码使用“#include”包含的头文件。它的缺省值为：“/usr/local/include”，使用时应写为：“$(prefix)/include”。（使用“Autoconf”工具时，应该为“@includedir@”）。
+ 
+除gcc外的大多数编译器不会在目录“/usr/local/include”中搜寻头文件，因此这种方式只适用gcc编译器。这一点应该不是一个问题，因为很多情况下一些库需要gcc才能工作。对那些依靠其它编译器的库文件，需要将头文件安装在两个地方，一个由变量“includedir”指定，另一个由变量“oldincludedir”指定。
+
+ 
+
+oldincludedir
+它所指定的目录也同样用于安装头文件，这些头文件用于非gcc的编译器。它的缺省值为：“/usr/include”。（使用“Autoconf”工具时，应该为“@oldincludedir@”）。
+ 
+Makefile在安装头文件时，需要判断变量“oldincludedir”的值是否为空。如果为空，就不使用它进行头文件的安装（一般是安装完成“/usr/local/include”下的头文件之后才安装此目录下的头文件）。
+ 
+一个软件包的安装不能替换该目录下已经存在的头文件，除非是同一个软件包（重新使用相同的软件包在此目录下安装头文件）。例如，软件包“Foo”需要在“oldincludedir”指定的目录下安装一个头文件“foo.h”时，可安装的条件为：1. 目录“$(oldincludedir)”目录下不存在头文件“foo.h”；2. 已经存在头文件“foo.h”，存在的头文件“foo.h”是之前软件包“Foo”安装的。
+ 
+检查头文件“foo.h”是否来自于软件包Foo，需要在头文件的注释中包含一个“magic”字符串，使用命令“grep”来在该文件中查找这个magic。
+`docdir' 
+The directory for installing documentation files (other than Info) for this package. By default, it should be /usr/local/share/doc/yourpkg, but it should be written as $(datarootdir)/doc/yourpkg. (If you are using Autoconf, write it as `@docdir@'.) The yourpkg subdirectory, which may include a version number, prevents collisions among files with common names, such as README. 
+这个目录安装除了Info外的该包提供的文档，它的缺省值/usr/local/share/doc/yourpkg，使用时应写为：“$(datarootdir)/doc/yourpkg”。（使用“Autoconf”工具时，应该为“@docdir@”）。Yourpkg子目录可能包括版本号，为了阻止具有相同文件名字的文件冲突，例如README。
+`infodir' 
+The directory for installing the Info files for this package. By default, it should be, but it should be written as (If you are using Autoconf, write it as `@infodir@'.) infodir is separate from docdir for compatibility with existing practice. 
+这个目录安装该包的info文件。它的缺省值是：/usr/local/share/info, 使用时应写成：$(datarootdir)/info.（使用“Autoconf”工具时，应该为“@infodir@”）.infodir从docdir中单独分离出来为了兼容已经存在的practice。
+`htmldir' 
+`dvidir' 
+`pdfdir' 
+`psdir' 
+Directories for installing documentation files in the particular format. (It is not required to support documentation in all these formats.) They should all be set to $(docdir) by default. (If you are using Autoconf, write them as `@htmldir@', `@dvidir@', etc.) Packages which supply several translations of their documentation should install them in `$(htmldir)/'ll, `$(pdfdir)/'ll, etc. where ll is a locale abbreviation such as `en' or `pt_BR'. 
+这些目录用于安装特定格式的文档（并不要求支持所有这些格式的文档）。缺省值应该设置为：$(docdir)（使用“Autoconf”工具时，应该为“@htmldir @”等）。
+`libdir' 
+The directory for object files and libraries of object code. Do not install executables here, they probably ought to go in $(libexecdir) instead. The value of libdir should normally be /usr/local/lib, but write it as $(exec_prefix)/lib. (If you are using Autoconf, write it as `@libdir@'.) 
+`lispdir' 
+The directory for installing any Emacs Lisp files in this package. By default, it should be /usr/local/share/emacs/site-lisp, but it should be written as $(datarootdir)/emacs/site-lisp. 
+If you are using Autoconf, write the default as `@lispdir@'. In order to make `@lispdir@' work, you need the following lines in your configure.in file: 
+          lispdir='${datarootdir}/emacs/site-lisp'
+          AC_SUBST(lispdir)
+     
+ 
+`localedir' 
+The directory for installing locale-specific message catalogs for this package. By default, it should be /usr/local/share/locale, but it should be written as $(datarootdir)/locale. (If you are using Autoconf, write it as `@localedir@'.) This directory usually has a subdirectory per locale. 
+这个目录安装该包用于本地特定消息的目录。缺省值是：/usr/local/share/locale， 但是应该写成：`@localedir@'。这个目录常常对每个locale（本地化）都有一个子目录。
+

@@ -253,12 +253,12 @@
 248 LogMsg
 249 snprintf()
 250 wins 带密码命令url
-251 锁 改名                                           over
+251 锁 改名                                                                   over
 252 传入指针 判断所指是否为空
-253 sd 卡 刷系统
-254 pkg-config 安装头文件                                    *****
-255 读取时 上锁
-256 calllog 时间操作问题
+253 sd 卡 刷系统                                                             
+254 pkg-config 安装头文件                                                     ***
+255 读取时 上锁                                                                over
+256 calllog 时间操作问题                                                       ***
 257 http://hi.baidu.com/beibeiboo/blog/item/22b606d95397aae038012f68.html
 258 c不能调用cpp中的printf, 不能包含头文件iostream？
 259 warning: no newline at end of file
@@ -267,9 +267,9 @@
 262 即使c++头文件已经 extern, 具体函数实现还需要？具体函数实现文件不应该包含头文件定义  over
 263 -L      LDFLAGS
 264 脚本反馈
-265 not a dynamic executable
+265 not a dynamic executable                                                         
 266 autotools clear after make, make clean                                           over
-267 _ldadd 位置敏感？
+267 _ldadd 位置敏感？                                                                
 268 -soname
 267 install header
 267 compile with the installed lib use pkgconfig 
@@ -311,3 +311,4 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 289 电话簿窗口的大小为:(600*450), 其实坐标为(200, 0)
 290 linux 文件搜索，题目，
 291 realized，实例化
+1012 No swap file, use memory only
