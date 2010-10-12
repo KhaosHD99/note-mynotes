@@ -1,0 +1,47 @@
+1、普通的库可能需要使用@LIBOBJS@，而libtool库必须是使用 @LTLIBOBJS@。必须这样做是因为libtool所操作的目标文件 并不仅仅是`.o'。libtool手册包含了关于这个问题的细节。
+2、享库必须被安装，所以不允许使用 `noinst_LTLIBRARIES'和`check_LTLIBRARIES'。
+3、Automake生成分离的install-data和install-exec目标， 如果安装器（installer）在共享的目录结构中为多个机器进行安装，这些目标 允许与机器独立的部分仅仅被安装一次。目标install依赖于这两个目标。
+   Automake还生成一个uninstall目标，一个 installdirs目标，和一个install-strip目标。
+   通过定义目标install-exec-local，或者目标install-data-local 就可以扩展这一机制。如果这些目标存在，它们将在运行`make install'时运行。
+   使用标准目录前缀`data'、`info'、`man'、 `include'、`oldinclude'、`pkgdata'或者 `pkginclude'的变量（例如，`data_DATA'）将由 `install-data'安装。    
+   使用标准目录前缀`bin'、`sbin'、`libexec'、 `sysconf'、`localstate'、`lib'或者 `pkglib'的变量（例如，`bin_PROGRAMS'）将由 `install-exec'安装。
+   任何使用了含有`exec'的用户定义目录前缀的变量（例如，`myexecbin_PROGRAMS'） 将由`install-exec'安装。所有使用其它用户定义的前缀的变量将由`install-data'安装。
+    Automake在所有的install规则中生成对变量`DESTDIR'的支持； 参见GNU编码标准中的`Makefile惯例'节。
+
+    Makefile.am 里添加
+    xxxxdir=
+    xxxx_DATA=
+    或者
+    xxxx_PROGRAMS=
+
+4、关于pc.in的Version,好像只可以用@VERSION@变量，VERSION值取决写configure.in的AC_INIT或者AM_INIT_AUTOMAKE
+
+关于使用libtool的动态库版本控制：
+     通过 在libxxx_la_LDFLAGS 上增加 -release [version] -version-info [current:revision:age] （current>=age）,则产生库
+     libxxx-[version].so.[current-age].[age].[revision]
+
+     对于current、revision、age三个参数值的变化规则如下    
+     1. Start with version information of ‘0:0:0’ for each libtool library. 
+        (任何library的最开始version information 都为 0:0:0)
+     2. Update the version information only immediately before a public release of your software.
+	More frequent updates are unnecessary, and only guarantee that the current interface number gets larger faster.
+     3. If the library source code has changed at all since the last update, then increment revision (‘c:r:a’ becomes ‘c:r + 1:a’). 
+        (如果library的代码出现任何改变，则revision+1, c:r+1:a)
+     4. If any interfaces have been added, removed, or changed since the last update, increment current, and set revision to 0.
+        (如果任意interfaces 有添加、删除、改变的话, current+1 并且 revision = 0)
+     5. If any interfaces have been added since the last public release, then increment age.
+        (如果任意interfaces 添加, age + 1, current+1, revision = 0)
+     6. If any interfaces have been removed since the last public release, then set age to 0.
+        (如果任意interfaces 删除, age = 0, current+1, revision = 0)
+
+     补充：如果出现如果任意interfaces 改变的话，age不变,current+1, revision = 0
+
+     interface的定义:
+     Interfaces for libraries may be any of the following (and more):
+     ? global variables: both names and types
+     ? global functions: argument types and number, return types, and function names
+     ? standard input, standard output, standard error, and file formats
+     ? sockets, pipes, and other inter-process communication protocol formats
+    Note that static functions do not count as interfaces, because they are not directly available to the user of the library.
+    (跟用户接口有关的所有变量、函数等，但跟用户接口无关的（如内部实现用的静态函数）并不算interfaces)
+    
