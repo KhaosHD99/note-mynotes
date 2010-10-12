@@ -377,151 +377,6 @@ static void label_set_func (GtkTreeViewColumn *tree_column,
 		stock_item_info_free(info);
 }
 
-GtkWidget* do_stock_browser ()
-{  
-	  if(!window)
-	  {
-		    GtkWidget *frame;
-		    GtkWidget *vbox;
-		    GtkWidget *hbox;
-		    GtkWidget *sw;
-		    GtkWidget *treeview;
-		    GtkWidget *align;
-		    GtkTreeModel *model;
-		    GtkCellRenderer *cell_renderer;
-		    StockItemDisplay *display;
-		    GtkTreeSelection *selection;
-		    GtkTreeViewColumn *column;
-		
-		    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-		    //gtk_window_set_screen (GTK_WINDOW (window),
-				     //gtk_widget_get_screen (do_widget));
-		    gtk_window_set_title (GTK_WINDOW (window), "Stock Icons and Items");
-		    gtk_window_set_default_size (GTK_WINDOW (window), -1, 500);
-		
-		    g_signal_connect (window, "destroy", G_CALLBACK (gtk_widget_destroyed), &window);
-		    gtk_container_set_border_width (GTK_CONTAINER (window), 8);
-		
-		    hbox = gtk_hbox_new (FALSE, 8);
-		    gtk_container_add (GTK_CONTAINER (window), hbox);
-		
-		    sw = gtk_scrolled_window_new (NULL, NULL);
-		    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw),
-		                                    GTK_POLICY_NEVER,
-		                                    GTK_POLICY_AUTOMATIC);
-		    gtk_box_pack_start (GTK_BOX (hbox), sw, FALSE, FALSE, 0);
-		
-		    model = create_model ();
-		    
-		    treeview = gtk_tree_view_new_with_model (model);
-		
-		    g_object_unref (model);
-		
-		    gtk_container_add (GTK_CONTAINER (sw), treeview);
-		    
-		    column = gtk_tree_view_column_new ();
-		    gtk_tree_view_column_set_title (column, "Macro");
-		
-		    cell_renderer = gtk_cell_renderer_pixbuf_new ();
-		    gtk_tree_view_column_pack_start (column,
-					       cell_renderer,
-					       FALSE);
-		    gtk_tree_view_column_set_attributes (column, cell_renderer,
-						   "stock_id", 1, NULL);
-		    cell_renderer = gtk_cell_renderer_text_new ();
-		    gtk_tree_view_column_pack_start (column,
-					       cell_renderer,
-					       TRUE);
-		    gtk_tree_view_column_set_cell_data_func (column, cell_renderer,
-						       macro_set_func_text, NULL, NULL);
-		
-		    gtk_tree_view_append_column (GTK_TREE_VIEW (treeview),
-					   column);
-		
-		    cell_renderer = gtk_cell_renderer_text_new ();
-		    gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview),
-		                                                -1,
-		                                                "Label",
-		                                                cell_renderer,
-		                                                label_set_func,
-		                                                NULL,
-		                                                NULL);
-		
-		    cell_renderer = gtk_cell_renderer_text_new ();
-		    gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview),
-		                                                -1,
-		                                                "Accel",
-		                                                cell_renderer,
-		                                                accel_set_func,
-		                                                NULL,
-		                                                NULL);
-		
-		    cell_renderer = gtk_cell_renderer_text_new ();
-		    gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview),
-		                                                -1,
-		                                                "ID",
-		                                                cell_renderer,
-		                                                id_set_func,
-		                                                NULL,
-		                                                NULL);
-		    
-		    align = gtk_alignment_new (0.5, 0.0, 0.0, 0.0);
-		    gtk_box_pack_end (GTK_BOX (hbox), align, FALSE, FALSE, 0);
-		    
-		    frame = gtk_frame_new ("Selected Item");
-		    gtk_container_add (GTK_CONTAINER (align), frame);
-		
-		    vbox = gtk_vbox_new (FALSE, 8);
-		    gtk_container_set_border_width (GTK_CONTAINER (vbox), 4);
-		    gtk_container_add (GTK_CONTAINER (frame), vbox);
-		
-		    display = g_new (StockItemDisplay, 1);
-		    g_object_set_data_full (G_OBJECT (treeview),
-		                            "stock-display",
-		                            display,
-		                            g_free); /* free display with treeview */
-		    
-		    display->type_label = gtk_label_new (NULL);
-		    display->macro_label = gtk_label_new (NULL);
-		    display->id_label = gtk_label_new (NULL);
-		    display->label_accel_label = gtk_label_new (NULL);
-		    display->icon_image = gtk_image_new_from_pixbuf (NULL); /* empty image */
-		
-		    gtk_box_pack_start (GTK_BOX (vbox), display->type_label,
-		                        FALSE, FALSE, 0);
-		
-		    gtk_box_pack_start (GTK_BOX (vbox), display->icon_image,
-		                        FALSE, FALSE, 0);
-		    
-		    gtk_box_pack_start (GTK_BOX (vbox), display->label_accel_label,
-		                        FALSE, FALSE, 0);
-		    gtk_box_pack_start (GTK_BOX (vbox), display->macro_label,
-		                        FALSE, FALSE, 0);
-		    gtk_box_pack_start (GTK_BOX (vbox), display->id_label,
-		                        FALSE, FALSE, 0);
-		
-		    selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
-		    gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
-		    
-		    g_signal_connect (selection,
-													"changed",
-													G_CALLBACK (selection_changed),
-													NULL);
-	  }
-		
-		if (!GTK_WIDGET_VISIBLE (window))
-	  {
-	      gtk_widget_show_all (window);
-	  }
-		else
-	  {	 
-		    gtk_widget_destroy(window);
-		    window = NULL;
-	  }
-		
-		return window;
-}
-
 int main(int argc, char *argv[])
 {
 		gtk_init(&argc, &argv);
@@ -567,25 +422,31 @@ int main(int argc, char *argv[])
 		
 		    gtk_container_add (GTK_CONTAINER (sw), treeview);
 		    
+		    //column
 		    column = gtk_tree_view_column_new ();
 		    gtk_tree_view_column_set_title (column, "Macro");
-		
+		    
+		    //pixbuf cell renderer
 		    cell_renderer = gtk_cell_renderer_pixbuf_new ();
-		    gtk_tree_view_column_pack_start (column,
-					       												 cell_renderer,
-					       												 FALSE);
+		    gtk_tree_view_column_pack_start(column,
+					       												cell_renderer,
+					       												FALSE);			
 		    gtk_tree_view_column_set_attributes (column, cell_renderer,
 						  															 "stock_id", 1, NULL);
+		    
+		    //text cell renderer
 		    cell_renderer = gtk_cell_renderer_text_new ();
 		    gtk_tree_view_column_pack_start (column,
 					       												 cell_renderer,
 					       												 TRUE);
+		    
+		    //set cell data
 		    gtk_tree_view_column_set_cell_data_func (column, cell_renderer,
-						       macro_set_func_text, NULL, NULL);
-		
+				                              		       macro_set_func_text, NULL, NULL);
 		    gtk_tree_view_append_column (GTK_TREE_VIEW (treeview),
 					   												 column);
-		
+		    
+		    //column "label"
 		    cell_renderer = gtk_cell_renderer_text_new();
 		    gtk_tree_view_insert_column_with_data_func(GTK_TREE_VIEW (treeview),
 	                                                 -1,
@@ -594,7 +455,8 @@ int main(int argc, char *argv[])
 	                                                 label_set_func,
 	                                                 NULL,
 	                                                 NULL);
-		
+		   
+		    //column "accel"
 		    cell_renderer = gtk_cell_renderer_text_new();
 		    gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview),
 		                                                -1,
@@ -603,9 +465,10 @@ int main(int argc, char *argv[])
 		                                                accel_set_func,
 		                                                NULL,
 		                                                NULL);
-		
-		    cell_renderer = gtk_cell_renderer_text_new ();
-		    gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview),
+		   
+		    //column "id"
+		    cell_renderer = gtk_cell_renderer_text_new();
+		    gtk_tree_view_insert_column_with_data_func(GTK_TREE_VIEW (treeview),
 		                                                -1,
 		                                                "ID",
 		                                                cell_renderer,
@@ -637,10 +500,8 @@ int main(int argc, char *argv[])
 		
 		    gtk_box_pack_start (GTK_BOX (vbox), display->type_label,
 		                        FALSE, FALSE, 0);
-		
 		    gtk_box_pack_start (GTK_BOX (vbox), display->icon_image,
 		                        FALSE, FALSE, 0);
-		    
 		    gtk_box_pack_start (GTK_BOX (vbox), display->label_accel_label,
 		                        FALSE, FALSE, 0);
 		    gtk_box_pack_start (GTK_BOX (vbox), display->macro_label,
