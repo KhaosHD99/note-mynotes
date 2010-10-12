@@ -275,7 +275,7 @@
 267 compile with the installed lib use pkgconfig 
 268 linconfig link so
 269 rz                                                                               over
-270 #if 0                                                                           
+270 #if 0                                                                   
     #endif                                                                           over
 271 ldd cheat me; after install ldd is change!!!!kao                    
 272 ²»Òª¼Óranlib(¾²Ì¬¿â)                            
