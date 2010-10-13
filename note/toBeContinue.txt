@@ -312,3 +312,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 290 linux 文件搜索，题目，
 291 realized，实例化
 1012 No swap file, use memory only
+1013 release memory
+     gtk_image_new_from_pixbuf
+     gdk_pixbuf_new_from_file
+     assert
