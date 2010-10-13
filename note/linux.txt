@@ -59,3 +59,4 @@
    netmask
 39 find / -name file
    grep string -i -r file/dir
+40 printf add \n
