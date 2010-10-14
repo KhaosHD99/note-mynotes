@@ -88,21 +88,21 @@ static void fill_store(GtkListStore *store)
 	      
 	        //ignore hidden files that start with a '.'
 		      if (name[0] != '.')
-			    {
-						  path = g_build_filename (parent, name, NULL);
-					    is_dir = g_file_test (path, G_FILE_TEST_IS_DIR);
-						  display_name = g_filename_to_utf8 (name, -1, NULL, NULL, NULL);
-					    
-						  gtk_list_store_append (store, &iter);
-						  gtk_list_store_set (store, &iter,
-														      COL_PATH, path,
-														      COL_DISPLAY_NAME, display_name,
-														      COL_IS_DIRECTORY, is_dir,
-														      COL_PIXBUF, is_dir ? folder_pixbuf : file_pixbuf,
-														      -1);
-						  g_free (path);
-						  g_free (display_name);
-					}
+			  {
+				  path = g_build_filename (parent, name, NULL);
+			      is_dir = g_file_test (path, G_FILE_TEST_IS_DIR);
+				  display_name = g_filename_to_utf8 (name, -1, NULL, NULL, NULL);
+			    
+				  gtk_list_store_append (store, &iter);
+				  gtk_list_store_set (store, &iter,
+								      COL_PATH, path,
+								      COL_DISPLAY_NAME, display_name,
+								      COL_IS_DIRECTORY, is_dir,
+								      COL_PIXBUF, is_dir ? folder_pixbuf : file_pixbuf,
+								      -1);
+				  g_free (path);
+				  g_free (display_name);
+		       }
 		
 		      name = g_dir_read_name (dir);      
 	  }
@@ -299,7 +299,7 @@ int main(int argc, char *argv[])
 					  liststore = create_store();
 					  fill_store (liststore);
 				
-				    //binding data to icon_view
+				      //binding data to icon_view
 					  icon_view = gtk_icon_view_new_with_model(GTK_TREE_MODEL(liststore));
 					  gtk_icon_view_set_selection_mode(GTK_ICON_VIEW(icon_view),
 									    											 GTK_SELECTION_MULTIPLE);
