@@ -316,3 +316,15 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      gtk_image_new_from_pixbuf
      gdk_pixbuf_new_from_file
      assert
+1014 liststore customType                                                  over
+     add index;add img to contact                                       *
+     contact showlist sync with buf                                     **
+     name style deference 
+     not use gchar                                                     *
+     add to window stack                                               ***
+     glade£ºliststore column
+     gtk_container_add(GTK_CONTAINER(sw), treeview);
+     pack_start
+     click X not release mem? 
+     destroyed reload                                                  **
+     gtk_box_pack_end: assertion `child->parent == NULL' failed
