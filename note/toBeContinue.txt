@@ -307,7 +307,7 @@ gcc: -lgmodule-2.0: linker input file unused because linking not done
 gcc: -ldl: linker input file unused because linking not done
 gcc: -lglib-2.0: linker input file unused because linking not done 
 
-288 cflags libs
+288 cflags libs configure.in                                               *****        
 289 电话簿窗口的大小为:(600*450), 其实坐标为(200, 0)
 290 linux 文件搜索，题目，
 291 realized，实例化
@@ -322,9 +322,17 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      name style deference 
      not use gchar                                                     *
      add to window stack                                               ***
-     glade：liststore column
+     glade：liststore column                                   **
      gtk_container_add(GTK_CONTAINER(sw), treeview);
      pack_start
      click X not release mem? 
      destroyed reload                                                  **
      gtk_box_pack_end: assertion `child->parent == NULL' failed
+
+1015 LogMsg
+     glade layout
+     resource file install path:$(prefix)/...         
+     so.0.0.0; so.0.1.0;                                                       **
+     Makefile.am INCLUDE will flush the origin
+     windowstact into lib
+     g_object_unref (tree_model);

@@ -60,3 +60,4 @@
 39 find / -name file
    grep string -i -r file/dir
 40 printf add \n
+41 top layer Makefile.am: "export INCLUDES" will be global 
