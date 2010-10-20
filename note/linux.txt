@@ -61,3 +61,20 @@
    grep string -i -r file/dir
 40 printf add \n
 41 top layer Makefile.am: "export INCLUDES" will be global 
+42 gbk
+   1)表示繁体字和简体字
+   2)只表示中文
+
+   gb2312
+   1)只能表示简体字
+   2)只表示中文   
+   
+   Unicode：
+   1)不兼容任何编码
+   2)定长编码
+
+   utf:  
+   1)兼容iso8859-1
+         不定长编码(1~6)
+
+43 若LC_COLLATE为"POSIX"或"C"，则strcoll()与strcmp()作用完全相同
