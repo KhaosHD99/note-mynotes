@@ -43,10 +43,16 @@
 10.14  1)UI design used glade
        2)i want to beat some one who is like a fly
 
-10.15  1)separate project to two project:lib and bin; insulate the effection of libtools on           ltib
-       2)so.0.0.0 maybe is not standard dynamic lib; libtool help the executable found the            dynamic lib; when you do not use the libtool,must set the os lib path manually; 
+10.15  1)separate project to two project:lib and executable; insulate the effection of          libtools on ltib
+       2)so.0.0.0 maybe is not standard dynamic lib? libtool help the executable found the            dynamic lib; when you do not use the libtool,must set the os lib path manually; 
                 
 10.18  1)chinese sort
        2)sync contact list
 
 10.19  1)don't dead on a tree
+       2)wm:destroy a window and show again(builder)
+       3)window stack; gtk event(glade):user data 
+
+10.20  1)modify calllog api
+       2)calllog UI
+       3)name spec

@@ -317,31 +317,35 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      gdk_pixbuf_new_from_file
      assert
 1014 liststore customType                                                  over
-     add index;add img to contact                                       *
-     contact showlist sync with buf                                     **
+     add index;add img to contact                                       over
+     contact showlist sync with buf                                     over
      name style deference 
-     not use gchar                                                     *
-     add to window stack                                                 ***
-     glade£ºliststore column                                   **
+     not use gchar                                                         
+     add to window stack                                                 over
+     glade£ºliststore column                                              *
      gtk_container_add(GTK_CONTAINER(sw), treeview);
      pack_start
      click X not release mem? 
-     destroyed reload                                                  **
+     destroyed reload                                                  over
      gtk_box_pack_end: assertion `child->parent == NULL' failed
 
 1015 LogMsg
      glade layout
-     resource file install path:$(prefix)/...         
-     so.0.0.0; so.0.1.0;                                                       **
+     resource file install path:$(prefix)/...                                  **     
+     so.0.0.0; so.0.1.0;                                                       
      Makefile.am INCLUDE will flush the origin
      windowstact into lib
      g_object_unref (tree_model);
      
 1018 contactlist name
-     qsort strcoll
-     some problem on delete
+     qsort strcoll                  
+     some problem on delete                                                   *
      enter chinese
-     
+     sort                                                                   ***
 1019 configure.in cflags libs                                         
      require third party lib indirectory                               
-     wm£ºafter destroy, show again                              ***
+     wm£ºafter destroy, show again                              over
+     so hard link;symbol link
+
+10.20
+     
