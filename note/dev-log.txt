@@ -56,4 +56,4 @@
 10.20  1)modify calllog api
        2)calllog UI
        3)name spec
-       4)encoding; utf chinese sort;
+       4)encoding; char set; utf chinese sort;
