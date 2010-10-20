@@ -321,7 +321,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      contact showlist sync with buf                                     **
      name style deference 
      not use gchar                                                     *
-     add to window stack                                               ***
+     add to window stack                                                 ***
      glade£ºliststore column                                   **
      gtk_container_add(GTK_CONTAINER(sw), treeview);
      pack_start
@@ -336,3 +336,12 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      Makefile.am INCLUDE will flush the origin
      windowstact into lib
      g_object_unref (tree_model);
+     
+1018 contactlist name
+     qsort strcoll
+     some problem on delete
+     enter chinese
+     
+1019 configure.in cflags libs                                         
+     require third party lib indirectory                               
+     wm£ºafter destroy, show again                              ***
