@@ -49,19 +49,19 @@ static GtkListStore *create_store (void)
 {
 	  GtkListStore *store;
 	  store = gtk_list_store_new (NUM_COLS,
-													      G_TYPE_STRING, 
-													      G_TYPE_STRING, 
-													      GDK_TYPE_PIXBUF,
-													      G_TYPE_BOOLEAN);
+								  G_TYPE_STRING, 
+							      G_TYPE_STRING, 
+							      GDK_TYPE_PIXBUF,
+							      G_TYPE_BOOLEAN);
 	
 	  /* Set sort column and function */ 
 	  gtk_tree_sortable_set_default_sort_func (GTK_TREE_SORTABLE (store),
-																					   sort_func,
-																					   NULL, NULL);
+											   sort_func,
+											   NULL, NULL);
 																					   
 	  gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
-																					GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID,
-																					GTK_SORT_ASCENDING);
+											GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID,
+											GTK_SORT_ASCENDING);
 	
 	  return store;
 }
@@ -87,22 +87,22 @@ static void fill_store(GtkListStore *store)
 	      gboolean is_dir;
 	      
 	        //ignore hidden files that start with a '.'
-		      if (name[0] != '.')
-			  {
-				  path = g_build_filename (parent, name, NULL);
-			      is_dir = g_file_test (path, G_FILE_TEST_IS_DIR);
-				  display_name = g_filename_to_utf8 (name, -1, NULL, NULL, NULL);
-			    
-				  gtk_list_store_append (store, &iter);
-				  gtk_list_store_set (store, &iter,
-								      COL_PATH, path,
-								      COL_DISPLAY_NAME, display_name,
-								      COL_IS_DIRECTORY, is_dir,
-								      COL_PIXBUF, is_dir ? folder_pixbuf : file_pixbuf,
-								      -1);
-				  g_free (path);
-				  g_free (display_name);
-		       }
+	      if (name[0] != '.')
+		  {
+			  path = g_build_filename (parent, name, NULL);
+		      is_dir = g_file_test (path, G_FILE_TEST_IS_DIR);
+			  display_name = g_filename_to_utf8 (name, -1, NULL, NULL, NULL);
+		    
+			  gtk_list_store_append (store, &iter);
+			  gtk_list_store_set (store, &iter,
+							      COL_PATH, path,
+							      COL_DISPLAY_NAME, display_name,
+							      COL_IS_DIRECTORY, is_dir,
+							      COL_PIXBUF, is_dir ? folder_pixbuf : file_pixbuf,
+							      -1);
+			  g_free (path);
+			  g_free (display_name);
+	       }
 		
 		      name = g_dir_read_name (dir);      
 	  }
@@ -118,14 +118,14 @@ static gint sort_func(GtkTreeModel *model,
 	  int ret;
 	
 	  gtk_tree_model_get (model, a,
-									      COL_IS_DIRECTORY, &is_dir_a,
-									      COL_DISPLAY_NAME, &name_a,
-									      -1);
+					      COL_IS_DIRECTORY, &is_dir_a,
+					      COL_DISPLAY_NAME, &name_a,
+					      -1);
 	
 	  gtk_tree_model_get (model, b,
-									      COL_IS_DIRECTORY, &is_dir_b,
-									      COL_DISPLAY_NAME, &name_b,
-									      -1);
+					      COL_IS_DIRECTORY, &is_dir_b,
+					      COL_DISPLAY_NAME, &name_b,
+					      -1);
 	
 	  if (!is_dir_a && is_dir_b)
 	    	ret = 1;
@@ -152,7 +152,7 @@ static void item_activated (GtkIconView *icon_view,
 	  store = GTK_LIST_STORE (user_data);
 	
 	  gtk_tree_model_get_iter (GTK_TREE_MODEL (store),
-				   									 &iter, tree_path);
+				   			   &iter, tree_path);
 	  gtk_tree_model_get (GTK_TREE_MODEL (store), &iter,
 									      COL_PATH, &path,
 									      COL_IS_DIRECTORY, &is_dir,
@@ -175,9 +175,9 @@ static void item_activated (GtkIconView *icon_view,
 }
 
 static void up_clicked (GtkToolItem *item,
-	    									gpointer     user_data)
+	    				  gpointer    user_data)
 {
-		GtkListStore *store;
+	  GtkListStore *store;
 	  gchar *dir_name;
 	
 	  store = GTK_LIST_STORE (user_data);

@@ -46,3 +46,7 @@
 10.15  1)separate project to two project:lib and bin; insulate the effection of libtools on           ltib
        2)so.0.0.0 maybe is not standard dynamic lib; libtool help the executable found the            dynamic lib; when you do not use the libtool,must set the os lib path manually; 
                 
+10.18  1)chinese sort
+       2)sync contact list
+
+10.19  1)don't dead on a tree
