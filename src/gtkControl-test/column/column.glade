@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<interface>
+  <!-- interface-requires gtk+ 2.12 -->
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name gchar1 -->
+      <column type="gchar"/>
+      <!-- column-name gchar2 -->
+      <column type="gchar"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="window_contact">
+    <property name="width_request">600</property>
+    <property name="height_request">450</property>
+    <child>
+      <object class="GtkFixed" id="fixed5">
+        <property name="width_request">600</property>
+        <property name="height_request">450</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkVBox" id="vbox1">
+            <property name="width_request">600</property>
+            <property name="height_request">450</property>
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkFixed" id="fixed7">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkScrolledWindow" id="scrolledwindow3">
+                    <property name="width_request">560</property>
+                    <property name="height_request">380</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">never</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <child>
+                      <object class="GtkTreeView" id="treeview_list">
+                        <property name="width_request">325</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">liststore1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">20</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="fixed8">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkButton" id="button_dial">
+                    <property name="label" translatable="yes">&#x62E8;&#x53F7;</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">40</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">50</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button_editer">
+                    <property name="label" translatable="yes">&#x7F16;&#x8F91;</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">40</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">180</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button_addcontact1">
+                    <property name="label" translatable="yes">&#x6DFB;&#x52A0;</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">40</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">310</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button_delete">
+                    <property name="label" translatable="yes">&#x5220;&#x9664;</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">40</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">440</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
