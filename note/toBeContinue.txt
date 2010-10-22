@@ -374,4 +374,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
       4）UTF-8：编码是六个字节“EF BB BF E4 B8 A5”，前三个字节“EF BB BF”表示这是UTF-8编         码，后三个“E4B8A5”就是“严”的具体编码，它的存储顺序与编码顺序是一致的。
 
+10.21 Non-ISO extended-ASCII C program text, with CRLF, NEL line terminators
+      cross compile
+      qsort size too big? will get error when use pointer array?
+      gtk_ini() will insulate the locale ? setlocale(LC_ALL, "C");
+      input chinese 
       

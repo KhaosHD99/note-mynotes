@@ -57,3 +57,5 @@
        2)calllog UI
        3)name spec
        4)encoding; char set; utf chinese sort;
+
+10.21  1)sort: setlocale
