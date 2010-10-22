@@ -58,4 +58,10 @@
        3)name spec
        4)encoding; char set; utf chinese sort;
 
-10.21  1)sort: setlocale
+10.21  1)sort: setlocale qsort
+
+10.22  1)calllog sort(chinese string and integer); 
+       2)string and other data type formating each other;
+       3)get system time; time storage type and UI show mode
+       4)i am very stupid;a logical fault waist me three hours!fuck
+       
