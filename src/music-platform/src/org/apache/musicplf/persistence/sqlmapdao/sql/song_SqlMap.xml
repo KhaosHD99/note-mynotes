@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="song" >
+  <resultMap id="songResult" class="org.apache.musicplf.domain.Song">
+    <result column="song.id" property="id" jdbcType="INTEGER" />
+    <result column="song.sng_name" property="sngName" jdbcType="VARCHAR" />
+    <result column="album.abm_name" property="albumName" jdbcType="VARCHAR" />
+    <result column="category.name" property="categoryName" jdbcType="VARCHAR" />
+    <result column="artist.art_name" property="artistName" jdbcType="VARCHAR" />
+    <result column="song.price" property="price" jdbcType="INTEGER" />
+    <result column="song.shelvesDate" property="shelvesdate" jdbcType="DATE" />
+    <result column="song.clicks" property="clicks" jdbcType="INTEGER" />
+  </resultMap>
+  
+  
+  
+  <resultMap id="songResultWithBLOBs" class="org.apache.musicplf.domain.SongWithBLOBs" extends="songResult" >
+    <result column="song.songFile" property="songFile" jdbcType="LONGVARBINARY" />
+  </resultMap>
+
+  
+  
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  
+  <insert id="insertSongWithBLOBs" parameterClass="org.apache.musicplf.domain.SongWithBLOBs">
+    insert into song (song.sng_name,song.price,song.songFile,song.shelvesDate)
+    values (#sngName#,#price#,#songFile#,#shelvesdate#)
+  </insert>
+  
+  <select id="getSongById" resultMap="songResult" parameterClass="INTEGER">
+    select song.id,song.sng_name,album.abm_name,category.name,artist.art_name,song.price,song.shelvesDate,song.clicks
+    from song 
+    left outer join category on song.category_id=category.id
+    left outer join artist on song.artist_id=artist.id
+    left outer join album on song.album_id=album.id
+    where song.id = #value#
+  </select>
+  
+  <select id="getSongListByCategoryId" resultMap="songResult" parameterClass="INTEGER">
+    select song.id,song.sng_name,album.abm_name,category.name,artist.art_name,song.price,song.shelvesDate,song.clicks
+    from song 
+    inner join category on song.category_id=category.id 
+    left outer join artist on song.artist_id=artist.id
+    left outer join album on song.album_id=album.id
+    where category.id = #value#
+  </select>
+  
+  <select id="getSongOrderByClicks" resultMap="songResult">
+    select song.id,song.sng_name,album.abm_name,category.name,artist.art_name,song.price,song.shelvesDate,song.clicks
+    from song 
+    inner join category on song.category_id=category.id 
+    left outer join artist on song.artist_id=artist.id
+    left outer join album on song.album_id=album.id
+    order by clicks desc
+  </select>
+  
+  <select id="searchSongList" resultMap="songResult">
+    select song.id,song.sng_name,album.abm_name,category.name,artist.art_name,song.price,song.shelvesDate,song.clicks
+    from song 
+    left outer join category on song.category_id=category.id
+    left outer join artist on song.artist_id=artist.id
+    left outer join album on song.album_id=album.id
+    <dynamic prepend="WHERE">
+      <iterate property="keywordList" open="" close="" conjunction="OR">
+        lower(sng_name) like #keywordList[]# 
+      </iterate>
+    </dynamic>
+  </select>
+  
+ 
+  
+</sqlMap>
