@@ -64,4 +64,9 @@
        2)string and other data type formating each other;
        3)get system time; time storage type and UI show mode
        4)i am very stupid;a logical fault waist me three hours!fuck
+
+10.23  1)the sequence of the executable find the dynamic lib
+       2)set the dynamic lib path to executable
+       3)locale-gen charset
+       4)svn: change the file directory 
        

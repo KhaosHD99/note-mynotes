@@ -1,48 +1,48 @@
 1 cn99 网易？
-2 gcc 编译c文件 printf问题
+2 gcc 编译c文件 printf问题                                               over
 3 linux 硬盘分区
-4 重启samba服务器
-5 root 登入 samba                       
+4 重启samba服务器                                                        *
+5 root 登入 samba                                                       
 6 cls pause comman not found
-7 typedef                                             over
-8 linux 编码问题 颜色
+7 typedef                                                                over
+8 linux 编码问题 颜色                                                   
 9 source insight utf-8                                                    over
-10 g++同时编译多个
-11 Clock skew detected.your build may be incomplete
+10 g++同时编译多个                                                      over
+11 Clock skew detected.your build may be incomplete                       
 12 linux 清空流
-13 makefile中的.o
-14 fopen() wb wt
-15 const 传入参数
-16 取得文件大小
-17 显式分配内存
-18 case crossed
-19 通过scanf()内存分配的位置
-20 ./configure make makeinstall diy  
-21 配置是否允许远程登录
-22 自动编译未生成的目标文件
-23 makefile 依赖文件？
-24 信号量
-25 foreign
-26 头文件 重复引用
-27 $< $
-28 通配符 %
-29 支持制作PC信息文件
+13 makefile中的.o                                                      
+14 fopen() wb wt                                                       
+15 const 传入参数                                                       
+16 取得文件大小                                                           
+17 显式分配内存                                                                              
+18 case crossed                                                        
+19 通过scanf()内存分配的位置                                        
+20 ./configure make makeinstall diy                                       
+21 配置是否允许远程登录                                                         
+22 自动编译未生成的目标文件                                              
+23 makefile 依赖文件？                                                  
+24 信号量                              
+25 foreign           
+26 头文件 重复引用                                                       over
+27 $< $                       
+28 通配符 %                                                               over
+29 支持制作PC信息文件						over
 30 configure.in ac_config_files
-31 工程目录结构
-32 当前lenny架构体系 arm板
-33 有名管道
-34 信号量
-35 c/c++ （原始）类型 函数 参考
+31 工程目录结构                      
+32 当前lenny架构体系 arm板                                     
+33 有名管道                                                            
+34 信号量                                                     
+35 c/c++ （原始）类型 函数 参考                                           
 36 sem_init
 37 线程销毁 join
 38 mkfifo
-39 -lpthread
-40 PV原子操作 
+39 -lpthread									
+40 PV原子操作  								
 41 sem_t
 42 函数顺序
 43 清屏
 44 sh脚本
-45 makefile.am includes 分行                                                 
+45 makefile.am includes 分行                                                 over            
 46 Makefile.am 静态库 动态库                                                   over
 47 sourceInsight 单实例                                                        over
 48 线程调用 类的成员函数
@@ -57,13 +57,13 @@
 57 client 莫名终结
 58 目录结构
 59 multiple defination extern 
-60 可执行文件输出 特定文件夹
+60 可执行文件输出 特定文件夹                                                   over
 61 头文件 类
 62 包含多个库文件的Makefile.am                 ？？？        \\\\\\\\\\\\
 63 编译安装
-64 安装到自定义目录
-65 apt-get install libglib2.0-dev
-   apt-get install libgtk2.0-dev
+64 安装到自定义目录                                                           over
+65 apt-get install libglib2.0-dev                                            over
+   apt-get install libgtk2.0-dev  						over
 66 perl -MCPAN -e shell   
    install XML::Parser 
 67 user not authorized to run the x server
@@ -137,7 +137,7 @@
 	cout << "test: " << test << endl;
     cout << "test2: " << test2 << endl;*/不越界的问题
 
-120 while(item->phones[phone_count].szphone[0] != '\0')                    over
+120 while(item->phones[phone_count].szphone[0] != '\0')                         over
     asc2 0 \0
 121 UI调用时不一定把contact结构体都初始化 phone email                          over
 122 锁                                                                         over
@@ -153,15 +153,15 @@
   1)多此一举的//int all_count, miss_count, receive_count, dail_count;
   2)sprintf
   3)
-128 add: add到链表的item是原始数据                                          ****
-    get: 取得的是链表的数据                                                 ****
-189 中文排序                                                                ***
+128 add: add到链表的item是原始数据                                          over
+    get: 取得的是链表的数据                                                 over
+189 中文排序                                                                over
 190 结构体中的某些属性不允许填充
 191 范型编程和操作符重载
 192 名字是否存在
 193 属性机制
-194 验证输入                                                                ************
-195 整理文档                                                                 ****
+194 验证输入                                                                 **
+195 整理文档                                                                 **
 196 source insight, 记事本保存为ansi格式时，中文用的是iso8859, 英文用的时asc2
     
     source insight: asc2, iso8859
@@ -192,27 +192,27 @@
 209 little endian
 210 http://blog.chinaunix.net/u1/52350/showart_557916.html
 211 没有_()不能生成po?                                                     over
-212 要装simsun.ttc字体 root才可以？                                       over
+212 要装simsun.ttc字体 root才可以？                                        over
 213 aptitude
 214 list_item_data_key
 215 g_locale_to_utf8()
-216 尽量不用cout, cint                                                    over
-217 ltib                                                                 *******
-218 ibm pc                                                                over
+216 尽量不用cout, cint                                                     over
+217 ltib                                                                    *
+218 ibm pc                                                                 over
 219 48 目录结0
 220 export dynamic
-221 could not find the signal handler                                     over
+221 could not find the signal handler                                      over
       c/cpp?
 222 G_MODULE_EXPORT 
-223 make install                                                         over
-224 单实例                                                               over
+223 make install                                                          over
+224 单实例                                                                over
 225 函数注释                                                              over
-226 count 问题                                                     ****
-227 内存分配大小规范                                               over
-228 c/c++ new malloc 规范                                         over
-229 锁                                                          *****
-230 合并模块   提供c接口     只提供一个库                        ******
-231 extern c                                                     ****
+226 count 问题                                                              over
+227 内存分配大小规范                                                       over
+228 c/c++ new malloc 规范                                                      over
+229 锁                                                                      over
+230 合并模块   提供c接口     只提供一个库                                over
+231 extern c                                                              over
 232 始终要用回g++?
 234 strcpy 越界不报错&&运行正确
 235 so so.0 so.00
@@ -253,16 +253,16 @@
 248 LogMsg
 249 snprintf()
 250 wins 带密码命令url
-251 锁 改名                                                                   over
+251 锁 改名                                                                    over
 252 传入指针 判断所指是否为空
 253 sd 卡 刷系统                                                             
-254 pkg-config 安装头文件                                                     ***
+254 pkg-config 安装头文件                                                      over
 255 读取时 上锁                                                                over
-256 calllog 时间操作问题                                                       ***
+256 calllog 时间操作问题                                                       over
 257 http://hi.baidu.com/beibeiboo/blog/item/22b606d95397aae038012f68.html
 258 c不能调用cpp中的printf, 不能包含头文件iostream？
 259 warning: no newline at end of file
-260 初始化 buffer                                                    over
+260 初始化 buffer                                                                 over
 261 dlsym
 262 即使c++头文件已经 extern, 具体函数实现还需要？具体函数实现文件不应该包含头文件定义  over
 263 -L      LDFLAGS
@@ -281,18 +281,18 @@
 272 不要加ranlib(静态库)                            
 273 configure.in 配置依赖的库
 274 确保结构体每一个字节为0?
-275 checkmoudule >=                                                                **
+275 checkmoudule >=                                                                *
 276 ldconfig: /opt/lib/liblinconfig.so.0 is not a symbolic link
-277 库路径查找顺续                                                                 *
+277 库路径查找顺续                                                                 over
 278 gtk compatible:
     hbox,vbox
     filechooser
 279 g_object_unref
-280 gtk_widget_hide 从下到上？                                                        over
+280 gtk_widget_hide 从下到上？         no                                            over
 281 popup才能hide?   popup与toplevel的区别                                          *        282 规范 运行信息打印，返回值
 283 builder的释放时机问题
 284 automake option foreign                                                
-285 存在需要引用某个库的库                                                          *
+285 存在需要引用某个库的库                                                          over
 286 configure.in配置gtk库                                                            *
 287 gcc: -lgtk-x11-2.0: linker input file unused because linking not done
 gcc: -lgdk-x11-2.0: linker input file unused because linking not done
@@ -307,7 +307,7 @@ gcc: -lgmodule-2.0: linker input file unused because linking not done
 gcc: -ldl: linker input file unused because linking not done
 gcc: -lglib-2.0: linker input file unused because linking not done 
 
-288 cflags libs configure.in                                               *       
+288 cflags libs configure.in ldflags                                               *       
 289 电话簿窗口的大小为:(600*450), 其实坐标为(200, 0)
 290 linux 文件搜索，题目，
 291 realized，实例化
@@ -343,7 +343,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      enter chinese
      sort                                                                     **
 1019 configure.in cflags libs                                         
-     require third party lib indirectory                               
+     require third party lib indirectory                                      *
      wm：after destroy, show again                                        over
      so hard link;symbol link
 
@@ -380,9 +380,19 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       gtk_ini() will insulate the locale ? setlocale(LC_ALL, "C");
       input chinese 
       
-10.22 ld_library_path             
+10.22 ld_library_path                                                            over
       sprintf to snprintf                                                        *
       error log                                                                  *
       lock test:double lock
 
-                     
+10.23 编译目标代码时指定的动态库搜索路径；                                       *
+      环境变量LD_LIBRARY_PATH指定的动态库搜索路径；
+      gettext                                                                   **
+      EDT date	
+      D_GNU_SOURCE   soname
+      fnPhonebook_LDFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
+      fnPhonebook_CFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
+      svn: change the file directory 
+      /etc/locale-gen 
+      color in vim
+      $HOME/.profile /root/.profile not work in root user
