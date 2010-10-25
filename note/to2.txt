@@ -1,2 +1,10 @@
 1 hard link
 10.25 check is debbug or release
+      code manage        
+      c99
+      long long ºÊ»›
+
+      long long test = 8888888888467LL;
+	printf("size: %lld\n", test);
+
+      delete func
