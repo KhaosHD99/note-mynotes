@@ -69,4 +69,7 @@
        2)set the dynamic lib path to executable
        3)locale-gen charset
        4)svn: change the file directory 
-       
+       5)bashrc: interative, non-login
+         profile: interative, login
+
+10.24  1)file system change to readonly; fsck
