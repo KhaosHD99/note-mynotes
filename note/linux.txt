@@ -97,3 +97,7 @@
 
 1023
    1 date +%T -s 13:07:00
+   2 fnPhonebook_LDFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
+     fnPhonebook_CFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
+   3 profile 是交互式、login 方式进入 bash 运行的
+     bashrc 是交互式 non-login 方式进入 bash 运行的

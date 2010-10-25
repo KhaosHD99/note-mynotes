@@ -388,11 +388,18 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 10.23 编译目标代码时指定的动态库搜索路径；                                       *
       环境变量LD_LIBRARY_PATH指定的动态库搜索路径；
       gettext                                                                   **
-      EDT date	
+      EDT date	                                    
       D_GNU_SOURCE   soname
-      fnPhonebook_LDFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
-      fnPhonebook_CFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
-      svn: change the file directory 
-      /etc/locale-gen 
-      color in vim
-      $HOME/.profile /root/.profile not work in root user
+      fnPhonebook_LDFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib                 
+      fnPhonebook_CFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib                 
+      svn: change the file directory                                              over
+      /etc/locale-gen                                                            
+      color in vim                                                                 
+      $HOME/.profile /root/.profile not work in root user                         over             coding specification                                                        **
+                                                 
+10.24 fsck -y
+      LF/CR; LF; CR
+      int test_comp(const void *p, const void *q)
+      {
+	return (*(int *)p - *(int *)q);
+      }
