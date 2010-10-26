@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<interface>
+  <!-- interface-requires gtk+ 2.12 -->
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window1">
+    <property name="width_request">600</property>
+    <property name="height_request">450</property>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkComboBox" id="combobox1">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">165</property>
+            <property name="y">104</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
