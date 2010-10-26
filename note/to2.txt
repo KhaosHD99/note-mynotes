@@ -16,7 +16,7 @@
 	int ret = -1;
 	for(int i=0;i<m_numbers.m_nMemberNum;i++)
 	{
-		const char firstChar = m_pMembers[i].cName[0];
+		const char firstChar = m_pMembers[i].cName[0];	
 		if(firstChar == name)
 		{
 			*m = m_pMembers[i];
@@ -27,3 +27,12 @@
 	RETURN:
 	return ret;
 }*/
+
+10.26 add detail  
+      add stranger to contact                                           over                 
+      after add contact, detect the calllog             
+      after delete contact, detect the calllog
+      sync calllog list                                                 over
+      return value
+      异常处理技巧
+      combobox
