@@ -107,7 +107,7 @@
 105 while(item->phones[i].szphone[0] != '\0')
 106 枚举转字符.
 107 首字母
-108 by name family name, given name                                    ***
+108 by name family name, given name                                    **
 109 把类屏蔽                                                           over
 110 ui调用问题 枚举类型可见性
 111 phone,email字符串 验证
@@ -339,9 +339,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
 1018 contactlist name
      qsort strcoll                  
-     some problem on delete                                                   **
+     some problem on delete                                                   over
      enter chinese
-     sort                                                                     **
+     sort                                                                     over
 1019 configure.in cflags libs                                         
      require third party lib indirectory                                      *
      wm：after destroy, show again                                        over
@@ -403,3 +403,13 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       {
 	return (*(int *)p - *(int *)q);
       }
+10.25 check is debbug or release                                     
+      code manage                                         
+      c99                          
+      long long 兼容            
+
+      long long test = 8888888888467LL;                                 over
+	printf("size: %lld\n", test);
+
+      delete func                                                     over
+      multi email, phone num        

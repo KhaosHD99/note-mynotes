@@ -101,3 +101,7 @@
      fnPhonebook_CFLAGS=-Wl,-rpath,/home/elon/opt/x86-usr/lib
    3 profile 是交互式、login 方式进入 bash 运行的
      bashrc 是交互式 non-login 方式进入 bash 运行的
+
+1025
+   1 long long lg=8888...88LL
+     lld%
