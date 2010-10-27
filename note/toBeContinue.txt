@@ -413,3 +413,18 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
       delete func                                                     over
       multi email, phone num        
+
+10.26 add detail                
+      add stranger to contact                                           over                 
+      after add contact, detect the calllog             
+      after delete contact, detect the calllog
+      sync calllog list                                                 over
+      return value
+      异常处理技巧
+      combobox 
+
+10.27 gtk 资源释放
+      enum value
+      treeview selection
+      group
+      verify
