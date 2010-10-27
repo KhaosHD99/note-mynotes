@@ -3,18 +3,20 @@
 
 GtkBuilder *builder;
 
+GtkWidget *combo;
 GtkListStore *store;
 GtkTreeModel *tree_model;
 
+ enum 
+ {
+ 	TEXT_COL,
+ 
+   PIXBUF_COL
+   //TEXT_COL
+ };
 
-enum 
-{
-  PIXBUF_COL,
-  TEXT_COL
-};
-
-static gchar *
-strip_underscore (const gchar *text)
+#if 0
+static gchar *strip_underscore (const gchar *text)
 {
   gchar *p, *q;
   gchar *result;
@@ -35,67 +37,63 @@ strip_underscore (const gchar *text)
   return result;
 }
 
-static GtkTreeModel *
-create_stock_icon_store (void)
+static GtkTreeModel *create_stock_icon_store (void)
 {
-  gchar *stock_id[6] = {
-    GTK_STOCK_DIALOG_WARNING,
-    GTK_STOCK_STOP,
-    GTK_STOCK_NEW,
-    GTK_STOCK_CLEAR,
-    NULL,
-    GTK_STOCK_OPEN    
-  };
+	gchar *stock_id[6] = { GTK_STOCK_DIALOG_WARNING,
+						   GTK_STOCK_STOP,
+						   GTK_STOCK_NEW,
+						   GTK_STOCK_CLEAR,
+						   NULL,
+						   GTK_STOCK_OPEN };
+    
+	GtkStockItem item;
+	GdkPixbuf *pixbuf;
+	GtkWidget *cellview;
+	GtkTreeIter iter;
+	GtkListStore *store;
+	gchar *label;
+	gint i;
 
-  GtkStockItem item;
-  GdkPixbuf *pixbuf;
-  GtkWidget *cellview;
-  GtkTreeIter iter;
-  GtkListStore *store;
-  gchar *label;
-  gint i;
+	cellview = gtk_cell_view_new ();
 
-  cellview = gtk_cell_view_new ();
-  
-  store = gtk_list_store_new (2, GDK_TYPE_PIXBUF, G_TYPE_STRING);
+	store = gtk_list_store_new (2, GDK_TYPE_PIXBUF, G_TYPE_STRING);
 
-  for (i = 0; i < G_N_ELEMENTS (stock_id); i++)
-    {
-      if (stock_id[i])
+	for (i = 0; i < G_N_ELEMENTS (stock_id); i++)
 	{
-	  pixbuf = gtk_widget_render_icon (cellview, stock_id[i],
-					   GTK_ICON_SIZE_BUTTON, NULL);
-	  gtk_stock_lookup (stock_id[i], &item);
-	  label = strip_underscore (item.label);
-	  gtk_list_store_append (store, &iter);
-	  gtk_list_store_set (store, &iter,
-			      PIXBUF_COL, pixbuf,
-			      TEXT_COL, label,
-			      -1);
-	  g_object_unref (pixbuf);
-	  g_free (label);
+		if (stock_id[i])
+		{
+			pixbuf = gtk_widget_render_icon (cellview, stock_id[i],
+						                     GTK_ICON_SIZE_BUTTON, NULL);
+			gtk_stock_lookup (stock_id[i], &item);
+			label = strip_underscore (item.label);
+			gtk_list_store_append (store, &iter);
+			gtk_list_store_set (store, &iter,
+						        PIXBUF_COL, pixbuf,
+						        TEXT_COL, label,
+						        -1);
+			g_object_unref (pixbuf);
+			g_free (label);
+		}
+		else
+		{
+		gtk_list_store_append (store, &iter);
+		gtk_list_store_set (store, &iter,
+					        PIXBUF_COL, NULL,
+					        TEXT_COL, "separator",
+					        -1);
+		}
 	}
-      else
-	{
-	  gtk_list_store_append (store, &iter);
-	  gtk_list_store_set (store, &iter,
-			      PIXBUF_COL, NULL,
-			      TEXT_COL, "separator",
-			      -1);
-	}
-    }
 
-  gtk_widget_destroy (cellview);
-  
-  return GTK_TREE_MODEL (store);
+	gtk_widget_destroy (cellview);
+
+	return GTK_TREE_MODEL (store);
 }
 
 /* A GtkCellLayoutDataFunc that demonstrates how one can control
  * sensitivity of rows. This particular function does nothing 
  * useful and just makes the second row insensitive.
  */
-static void
-set_sensitive (GtkCellLayout   *cell_layout,
+static void set_sensitive (GtkCellLayout   *cell_layout,
 		       GtkCellRenderer *cell,
 		       GtkTreeModel    *tree_model,
 		       GtkTreeIter     *iter,
@@ -117,8 +115,7 @@ set_sensitive (GtkCellLayout   *cell_layout,
  * rendered as separators. This particular function does nothing 
  * useful and just turns the fourth row into a separator.
  */
-static gboolean
-is_separator (GtkTreeModel *model,
+static gboolean is_separator (GtkTreeModel *model,
 	      GtkTreeIter  *iter,
 	      gpointer      data)
 {
@@ -132,8 +129,7 @@ is_separator (GtkTreeModel *model,
   return result;
 }
 
-static GtkTreeModel *
-create_capital_store (void)
+static GtkTreeModel *create_capital_store (void)
 {
   struct {
     gchar *group;
@@ -221,8 +217,7 @@ create_capital_store (void)
   	return GTK_TREE_MODEL (store);
 }
 
-static void
-is_capital_sensitive (GtkCellLayout   *cell_layout,
+static void is_capital_sensitive (GtkCellLayout   *cell_layout,
 		      GtkCellRenderer *cell,
 		      GtkTreeModel    *tree_model,
 		      GtkTreeIter     *iter,
@@ -235,8 +230,7 @@ is_capital_sensitive (GtkCellLayout   *cell_layout,
 	g_object_set (cell, "sensitive", sensitive, NULL);
 }
 
-static void
-fill_combo_entry (GtkWidget *entry)
+static void fill_combo_entry (GtkWidget *entry)
 {
 	gtk_combo_box_append_text (GTK_COMBO_BOX (entry), "One");
 	gtk_combo_box_append_text (GTK_COMBO_BOX (entry), "Two");
@@ -442,13 +436,22 @@ GtkWidget *do_combobox (GtkWidget *do_widget)
 
   return window;
 }
+#endif
 
 
+void on_button_clicked(GtkWidget *gtklist, gpointer user_data)
+{
+	GtkTreeModel *model = gtk_combo_box_get_model(combo);
+	GtkTreeIter iter;
+	gchar *active;
+	gtk_combo_box_get_active_iter(combo, &iter);
+	gtk_tree_model_get(model, &iter,
+					   0, &active,
+					   -1);
 
-
-
-
-
+    printf("active: %s\n", active);
+	//gtk_label_set_text(label, active);
+}
 
 static GtkListStore* create_store(void)
 {
@@ -460,7 +463,34 @@ static GtkListStore* create_store(void)
 
 static GtkTreeModel* fill_store(GtkListStore *store)
 {
-    #if 1
+	GtkTreeIter iter;
+	gchar *label = "test";
+	
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter,
+				        TEXT_COL, label,
+				        -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter,
+				        TEXT_COL, "test2",
+				        -1);
+	
+//	g_free (label);
+	
+	
+    #if 0
+    char *label;
+    
+	
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter,
+				        0, "test",
+				        -1);
+	//g_object_unref (pixbuf);
+    #endif
+	
+    #if 0
     int i;
 	//printf("count: %d\n", get_contact_count());
   //  for(i = 0; i < get_contact_count(); i++)
@@ -485,22 +515,22 @@ static void set_text (GtkTreeViewColumn *tree_column,
 				      GtkTreeModel      *model,
 				      GtkTreeIter       *iter,
 				      gpointer           data)
-{
+{   
+	
     #if 0
-	char *given_name;
-	char *family_name;
-	char strCombine[64];
-
+	char *testStr;
+	//char *family_name;
+	//char strCombine[64];
+	
 	gtk_tree_model_get(model, iter,
-	                   0, &family_name,
+	                   0, &testStr,
 	                   -1);
 	
-	sprintf(strCombine, "%s%s", family_name, given_name);
-
+	//sprintf(strCombine, "%s%s", family_name, given_name);
 	g_object_set(GTK_CELL_RENDERER(cell),
-                 "text", strCombine,
+                 "text", testStr,
                  NULL);
-
+	
     #endif
 }
 
@@ -509,71 +539,89 @@ int main(int argc, char *argv[])
 	gtk_init(&argc, &argv);
 	
 	static GtkWidget *window = NULL;
-	GtkWidget *vbox, *frame, *box, *combo, *entry;
-	GtkTreeModel *model;
+	//GtkWidget *vbox, *frame, *box, *entry;
+	GtkTreeModel *tree_model;
+	GtkListStore *store;
 	GtkCellRenderer *renderer;
 	GtkTreePath *path;
 	GtkTreeIter iter;
 
 	if (!window)
 	{
-		window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	    builder = gtk_builder_new();
+	    gtk_builder_add_from_file(builder, "combobox.glade", NULL);
 	
-		gtk_window_set_title(GTK_WINDOW (window), "Combo boxes");
+		//window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+		window = GTK_WIDGET(gtk_builder_get_object(builder, "window1"));
+	    
+		//gtk_window_set_title(GTK_WINDOW (window), "Combo boxes");
 
-		g_signal_connect (window, "destroy",
+		/*g_signal_connect (window, "destroy",
 						  G_CALLBACK (gtk_widget_destroyed),
-						  &window);
+						  &window);*/
 
-		gtk_container_set_border_width (GTK_CONTAINER (window), 10);
+		//gtk_container_set_border_width (GTK_CONTAINER (window), 10);
 
-		vbox = gtk_vbox_new (FALSE, 2);
-		gtk_container_add (GTK_CONTAINER (window), vbox);
+		//vbox = gtk_vbox_new (FALSE, 2);
+		//gtk_container_add (GTK_CONTAINER (window), vbox);
 
         #if 1
 		/* A combobox demonstrating cell renderers, separators and
 		*	insensitive rows 
 		*/
-		frame = gtk_frame_new ("Some stock icons");
-		gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
+		//frame = gtk_frame_new ("Some stock icons");
+		//gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
 
-		box = gtk_vbox_new (FALSE, 0);
-		gtk_container_set_border_width (GTK_CONTAINER (box), 5);
-		gtk_container_add (GTK_CONTAINER (frame), box);
+		//box = gtk_vbox_new (FALSE, 0);
+		//gtk_container_set_border_width (GTK_CONTAINER (box), 5);
+		//gtk_container_add (GTK_CONTAINER (frame), box);
 
-		model = create_stock_icon_store ();
-		combo = gtk_combo_box_new_with_model(model);
-		g_object_unref (model);
-		gtk_container_add (GTK_CONTAINER (box), combo);
+		//tree_model = create_stock_icon_store ();
+		store = create_store();
+	    tree_model = fill_store(store);
 
-		renderer = gtk_cell_renderer_pixbuf_new ();
+		combo = GTK_WIDGET(gtk_builder_get_object(builder, "combobox1"));
+		gtk_combo_box_set_model (combo, tree_model);
+		//combo = gtk_combo_box_new_with_model(model);
+		g_object_unref (tree_model);
+		//gtk_container_add (GTK_CONTAINER (box), combo);
+		//gtk_container_add (GTK_CONTAINER (window), combo);
+		
+        //icon
+		/*renderer = gtk_cell_renderer_pixbuf_new ();
 		gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo), renderer, FALSE);
 		gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (combo), renderer,
 										"pixbuf", PIXBUF_COL, 
 										NULL);
-
+        
 		gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (combo),
 											renderer,
 											set_sensitive,
-											NULL, NULL);
+											NULL, NULL);*/
 
+		//text
 		renderer = gtk_cell_renderer_text_new ();
 		gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo), renderer, TRUE);
 		gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (combo), renderer,
 										"text", TEXT_COL,
 										NULL);
-
-		gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (combo),
+		
+		/*gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (combo),
 											renderer,
 											set_sensitive,
-											NULL, NULL);
-
-		gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (combo), 
-			                                  is_separator, NULL, NULL);
-
+											NULL, NULL);*/
+		
+		/*gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (combo),
+											renderer,
+											set_text,
+											NULL, NULL);*/
+		
+	//	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (combo), 
+	//		                                  is_separator, NULL, NULL);
+		
 		gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
         #endif
-
+		
         #if 0
 		/* A combobox demonstrating trees.
 		*/
@@ -679,6 +727,7 @@ int main(int argc, char *argv[])
 	
     gtk_widget_show_all(window);
     #endif
+	gtk_builder_connect_signals(builder, NULL);
 
 	gtk_main();
     

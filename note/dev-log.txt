@@ -73,3 +73,10 @@
          profile: interative, login
 
 10.24  1)file system change to readonly; fsck
+
+10.25  1)
+
+10.26  1)combobox
+
+10.27  1)combobox
+       2)dialog

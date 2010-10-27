@@ -11,12 +11,27 @@
         <child>
           <object class="GtkComboBox" id="combobox1">
             <property name="width_request">100</property>
-            <property name="height_request">80</property>
+            <property name="height_request">30</property>
             <property name="visible">True</property>
           </object>
           <packing>
-            <property name="x">165</property>
-            <property name="y">104</property>
+            <property name="x">117</property>
+            <property name="y">170</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button1">
+            <property name="label" translatable="yes">button</property>
+            <property name="width_request">82</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_button_clicked"/>
+          </object>
+          <packing>
+            <property name="x">264</property>
+            <property name="y">201</property>
           </packing>
         </child>
       </object>
