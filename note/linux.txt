@@ -105,3 +105,5 @@
 1025
    1 long long lg=8888...88LL
      lld%
+
+10.28 每gtk_builder_get_object一次，就实例化多一个 
