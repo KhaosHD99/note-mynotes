@@ -424,7 +424,17 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       combobox 
 
 10.27 gtk ×ÊÔ´ÊÍ·Å
-      enum value
+      enum value                                                         over
       treeview selection
-      group
+      group                                                              
       verify
+      version incompatible
+      display resource config file
+	
+10.28  notebook currentPage
+       memory or signal remains                                          over
+       static func
+       builder manage
+       combobox multi input
+       g_object_unref(tree_model);
+       
