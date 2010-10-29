@@ -4,6 +4,11 @@
 #include <locale.h> 
 #include <gtk/gtk.h>
 
+int comp(const void *p, const void *q)
+{
+	return (*(int *)p - *(int *)q);
+}
+
 int main(void)
 {
     #if 0
@@ -56,7 +61,9 @@ int main(void)
 		  else 
 		  	printf("%s\n",contact_name[i]);
 	  }
-#else
+#endif
+
+#if 1
 	const int MAX_NAME_LEN=12;
 	int buf_count = 4;
 	char **contact_name = new char*[buf_count];
@@ -70,7 +77,7 @@ int main(void)
 	sprintf(contact_name[2], "%s", "c");
 	sprintf(contact_name[3], "%s", "d");
 	
-	qsort(contact_name, buf_count, MAX_NAME_LEN, (__compar_fn_t)strcoll);
+	qsort(contact_name, buf_count, MAX_NAME_LEN, (__compar_fn_t)comp);
 	for(int i = 0; i < buf_count; i++)
 	{
 		printf("%s\r\n", contact_name[i]);
