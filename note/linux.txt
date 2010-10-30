@@ -26,20 +26,26 @@
    65,536 (16 bit) |   785         788          791              794           798    |
    16.8M (24 bit)  |   786         789          792              795           799    |
 16 gcc test.c –o test `pkg-config --cflags --libs gtk+-2.0 libglade-2.0` -export-dynamic
-17 apt-get install openSSH-server
-   apt-get install libglib2.0-dev
+17 apt-get install samba
+   apt-get install openSSH-server
+   apt-get install build-essential
+   apt-get install libtool
+   
+   apt-get install x-window-system-core
    apt-get install libgtk2.0-dev
+   apt-get install glade
+
 18 export DISPLAY=:0.0
 19 ./configure --without-libtiff --x-includes=/usr/X11R6/includes --x-            libraries=/usr/X11R6/lib
 20 pkg-config --modversion gtk+-2.0
-21 apt-get install libxml2-dev
+21 
 22 apt-get update --fix-missing
-23 apt-get install glade
+23 
 24 X resolution /etc/X11/xorg.conf depth 24
    Virtual 800 450
 25/etc/resolv.conf dns
 26 build-essential
-27 apt-get install x-window-system-core
+27 
 28 debian-based system : ubuntus
 29 etc/profile export LS_OPTIONS='--color=auto'
 30 Makefile.am中的subdirs 分编译的先后顺序
