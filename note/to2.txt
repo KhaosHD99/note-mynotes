@@ -41,8 +41,10 @@
       resource file deploy
       ld_path
       display resource configure file 
-      release            
+      release gtk      
+      windowstack	     
 
 10.30 loopback
+      phone type
 
       
