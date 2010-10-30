@@ -26,7 +26,8 @@
    65,536 (16 bit) |   785         788          791              794           798    |
    16.8M (24 bit)  |   786         789          792              795           799    |
 16 gcc test.c –o test `pkg-config --cflags --libs gtk+-2.0 libglade-2.0` -export-dynamic
-17 apt-get install libglib2.0-dev
+17 apt-get install openSSH-server
+   apt-get install libglib2.0-dev
    apt-get install libgtk2.0-dev
 18 export DISPLAY=:0.0
 19 ./configure --without-libtiff --x-includes=/usr/X11R6/includes --x-            libraries=/usr/X11R6/lib
@@ -104,6 +105,12 @@
 
 1025
    1 long long lg=8888...88LL
+<<<<<<< .mine
      lld%
 
-10.28 每gtk_builder_get_object一次，就实例化多一个 
+1028 apt-get install gtk2.0-examples=======
+     lld%
+
+10.28 每gtk_builder_get_object一次，就实例化多一个 >>>>>>> .r271
+   
+10.29 debian /etc/init.d/samba restart
