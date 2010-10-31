@@ -46,5 +46,11 @@
 
 10.30 loopback
       phone type
-
-      
+    
+10.31 phone index and phone 一一对应
+      == NULL ? ""
+      phonenum store release
+      go back to privious position (source insight)
+      get phonenum by index
+      get model from combo / get from liststore
+      gtk_tree_model(liststore)
