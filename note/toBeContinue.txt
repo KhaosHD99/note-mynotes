@@ -437,4 +437,11 @@ gcc: -lglib-2.0: linker input file unused because linking not done
        builder manage
        combobox multi input
        g_object_unref(tree_model);
-       
+
+10.29 window stack
+      resource       
+      regular expression validate
+      liststore /free
+      set run lib path
+      g_object_unref (tree_model);
+      
