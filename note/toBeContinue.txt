@@ -438,10 +438,28 @@ gcc: -lglib-2.0: linker input file unused because linking not done
        combobox multi input
        g_object_unref(tree_model);
 
-10.29 window stack
-      resource       
-      regular expression validate
-      liststore /free
-      set run lib path
-      g_object_unref (tree_model);
-      
+10.29 window stack                                                     **
+      resource deploy                                                  **       
+      regular expression validate                                           
+      liststore /free              
+      set run lib path                                 
+      g_object_unref (tree_model);                                          over
+      ld_path                                    
+      display resource configure file                                   ** 
+	
+10.30 loopback                                                                              
+      phone type                                                           *
+      email type                                                            
+    
+10.31 phone index and phone 一一对应                                       over
+      == NULL ? ""                                           
+      phonenum store release                                               *                             
+      go back to privious position (source insight)                         
+      get phonenum by index                                                 over             
+      get model from combo /get from liststore                              over
+      gtk_tree_model(liststore)                                             over                         
+
+11.01 blank validate
+      focus hold on(delete ...)
+      实习报告
+      cppunit xunit cunit
