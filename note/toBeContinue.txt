@@ -463,3 +463,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       focus hold on(delete ...)
       实习报告
       cppunit xunit cunit
+      
+      根据《需求分析说明书》编写《确认测试计划》，
+        根据《概要设计说明书》编写《集成测试计划》，
+     根据《详细设计说明书》编写《单元测试计划》
