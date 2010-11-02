@@ -120,3 +120,9 @@
 10.28 每gtk_builder_get_object一次，就实例化多一个 >>>>>>> .r271
    
 10.29 debian /etc/init.d/samba restart
+                         smbd
+
+11.02 const char *home = getenv("HOME");
+      
+      imgdir=$(datadir)/img
+      img_DATA=$(top_srcdir)/src/phonebook/img/*
