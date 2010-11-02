@@ -469,5 +469,4 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       根据《详细设计说明书》编写《单元测试计划》
 
 11.02 call event handler                                                   over
-      know how to use window stack                                                                         
-       
+      know how to use window stack                               
