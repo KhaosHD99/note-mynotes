@@ -411,24 +411,24 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       long long test = 8888888888467LL;                                 over
 	printf("size: %lld\n", test);
 
-      delete func                                                     over
+      delete func                                                       over
       multi email, phone num        
 
-10.26 add detail                
+10.26 add detail                                                           
       add stranger to contact                                           over                 
       after add contact, detect the calllog             
       after delete contact, detect the calllog
       sync calllog list                                                 over
-      return value
-      异常处理技巧
-      combobox 
+      return value                                                      
+      异常处理技巧 
+      combobox                                                            over
 
 10.27 gtk 资源释放
       enum value                                                         over
       treeview selection
       group                                                              
       verify
-      version incompatible
+      version incompatible                                                 
       display resource config file
 	
 10.28  notebook currentPage
@@ -438,32 +438,36 @@ gcc: -lglib-2.0: linker input file unused because linking not done
        combobox multi input
        g_object_unref(tree_model);
 
-10.29 window stack                                                     **
-      resource deploy                                                  **       
+10.29 window stack                                                         *
+      resource deploy                                                     **       
       regular expression validate                                           
       liststore /free              
       set run lib path                                 
-      g_object_unref (tree_model);                                          over
+      g_object_unref (tree_model);                                        over
       ld_path                                    
-      display resource configure file                                   ** 
+      display resource configure file                                      ** 
 	
 10.30 loopback                                                                              
-      phone type                                                           *
+      phone type                                                           **
       email type                                                            
     
 10.31 phone index and phone 一一对应                                       over
-      == NULL ? ""                                           
-      phonenum store release                                               *                             
-      go back to privious position (source insight)                         
+      == NULL ? ""                                                                       
+      phonenum store release                                               *                             m0
+      go back to privious position (source insight)               
       get phonenum by index                                                 over             
       get model from combo /get from liststore                              over
       gtk_tree_model(liststore)                                             over                         
 
-11.01 blank validate
-      focus hold on(delete ...)
+11.01 blank validate                                                        
+      focus hold on(delete ...)        
       实习报告
       cppunit xunit cunit
-      
+            
       根据《需求分析说明书》编写《确认测试计划》，
-        根据《概要设计说明书》编写《集成测试计划》，
-     根据《详细设计说明书》编写《单元测试计划》
+      根据《概要设计说明书》编写《集成测试计划》，
+      根据《详细设计说明书》编写《单元测试计划》
+
+11.02 call event handler                                                   over
+      know how to use window stack                                                                         
+       
