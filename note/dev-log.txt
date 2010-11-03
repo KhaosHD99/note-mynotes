@@ -74,14 +74,30 @@
 
 10.24  1)file system change to readonly; fsck
 
-10.25  1)
+10.25  1)optimize code;
+       2)large integer
+       3)
 
 10.26  1)combobox
+       2)basic operate
 
 10.27  1)combobox
        2)dialog
 
-10.28
+10.28  
 
 10.29
 
+10.30
+
+10.31
+
+11.01
+
+11.02  1)deploy resource file 
+
+
+11.03  1)add resource config file
+       2)multi input arounded
+       3)–Ï’ÚΩ‹
+       4)

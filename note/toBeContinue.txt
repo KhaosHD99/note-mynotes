@@ -412,7 +412,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 	printf("size: %lld\n", test);
 
       delete func                                                       over
-      multi email, phone num        
+      multi email, phone num                                            over
 
 10.26 add detail                                                           
       add stranger to contact                                           over                 
@@ -471,7 +471,13 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 11.02 call event handler                                                   over
       know how to use window stack                                                       
 
-11.03 assert
-      msglog
-      g_convert realese
-      reset
+11.03 assert                                                                
+      msglog                                                                **               
+      g_convert realese                                                 
+      reset                 
+      group manage                                                          *
+      validate(regular exepress)                                             **
+      contact buf add phonecount emailcount
+      set active
+      input chinese                                                          ***
+      remove avatar
