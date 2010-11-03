@@ -452,7 +452,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       email type                                                            
     
 10.31 phone index and phone 一一对应                                       over
-      == NULL ? ""                                                                       
+      == NULL ? ""                                                          *             
       release resource                                                       **              
       go back to privious position (source insight)               
       get phonenum by index                                                 over             
@@ -481,3 +481,4 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       set active
       input chinese                                                          ***
       remove avatar
+      window single instance 
