@@ -1,0 +1,8 @@
+<!– XmlConfig.xml –> 
+<?xml version="1.0" encoding="GB2312" ?>
+<Config>
+    <Author>elon</Author>
+    <Site>elonjie.com</Site>
+    <Desc>tinyxml</Desc>
+</Config>
+
