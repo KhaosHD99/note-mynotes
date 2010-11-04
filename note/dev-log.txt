@@ -92,18 +92,24 @@
 
 10.31
 
-11.01  1)
+11.01  1)multi input
+       2)
         
-
 11.02  1)deploy resource file 
 
 
 11.03  1)add resource config file
        2)multi input arounded
-       3)
+       3)liststore 
        4)
 
 11.04 1)add more window frame
       2)document
       3)validade
       4)some bug 
+      5)tinyxml
+      6)reset
+      7)encoding convert
+
+11.05 1)
+      2)

@@ -423,7 +423,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       异常处理技巧 
       combobox                                                            over
 
-10.27 gtk 资源释放
+10.27 gtk 资源释放                                                       **
       enum value                                                         over
       treeview selection
       group                                                              
@@ -492,3 +492,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       messagedialog save error                                                over
       intermittent edit contact error
       C++ 读取 xml
+      doxygen
+
