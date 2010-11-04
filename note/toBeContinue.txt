@@ -448,12 +448,12 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       display resource configure file                                      over 
 	
 10.30 loopback                                                                              
-      phone type                                                           **
+      phone type                                                            **
       email type                                                            
     
-10.31 phone index and phone 一一对应                                       over
-      == NULL ? ""                                                          *             
-      release resource                                                       **              
+10.31 phone index and phone 一一对应                                        over
+      a == NULL ? ""                                                        over             
+      release resource(liststore)                                            **
       go back to privious position (source insight)               
       get phonenum by index                                                 over             
       get model from combo /get from liststore                              over
@@ -471,14 +471,24 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 11.02 call event handler                                                   over
       know how to use window stack                                                       
 
-11.03 assert                                                                
-      msglog                                                                **               
-      g_convert realese                                                 
-      reset                 
-      group manage                                                          *
+11.03 assert                                                                 
+      msglog                                                                 **              
+      g_convert realese                                                      
+      reset                      				             **
+      group manage                                                           **
       validate(regular exepress)                                             **
-      contact buf add phonecount emailcount
-      set active
-      input chinese                                                          ***
-      remove avatar
-      window single instance 
+      contact buf add phonecount emailcount                                  over
+      set active                                      
+      input chinese                                                          over
+      remove avatar                                  
+      window single instance                                                  *
+                                                       
+11.04 注释                                                                   
+      按两下才能退出                                                         over
+      other frame                                                            over
+      incoming UI                                                             
+      contact.cfg 导致崩溃                                                     *
+      Contact同步Calllog
+      messagedialog save error                                                over
+      intermittent edit contact error
+      C++ 读取 xml
