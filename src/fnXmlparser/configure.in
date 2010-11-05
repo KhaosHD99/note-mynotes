@@ -1,0 +1,71 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.61)
+AC_INIT(fnxmlparser, 0.0.0.1, wyqscnu@163.com)
+AC_CONFIG_SRCDIR([src/test/main.cpp])
+AC_CONFIG_HEADER([config.h])
+AM_INIT_AUTOMAKE(foreign)
+
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+
+# Checks for libraries.
+# FIXME : Replace 'main' with a function in '-lpthread'
+AC_CHECK_LIB([pthread], [pthread_rwlock_init])
+
+# AC_PROG_RANLIB
+# AC_PROG_RANLIB     ### Added if static libary used
+AC_PROG_LIBTOOL      ### Added if dynamic libary used
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([stdlib.h string.h sys/time.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_HEADER_TIME
+
+# Checks for library functions.
+AC_CHECK_FUNCS([gettimeofday memset])
+
+
+# 生成XXX.pc 所需的环境变量,AC_OUTPUT由XXX.pc.in导入,由根目录下的Makefile.am指定安装
+#
+
+PACKAGE=fnxmlparser
+dnl Source packaging numbers
+AC_MSG_NOTICE([$PACKAGE_NAME-$PACKAGE_VERSION           A xmlparser library for telephony application.])
+
+LIBFNXMLPARSER_MAJOR_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f1)
+LIBFNXMLPARSER_MINOR_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f2)
+LIBFNXMLPARSER_MICRO_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f3)
+LIBFNXMLPARSER_EXTRA_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f4)
+LIBFNXMLPARSER_VERSION=${LIBFNXMLPARSER_MAJOR_VERSION}.${LIBFNXMLPARSER_MINOR_VERSION}.${LIBFNXMLPARSER_MICRO_VERSION}
+
+if test -n "$LIBFNXMLPARSER_EXTRA_VERSION" ; then
+	LIBFNXMLPARSER_VERSION="${LIBFNXMLPARSER_VERSION}.${LIBFNXMLPARSER_EXTRA_VERSION}"
+fi
+
+LIBFNXMLPARSER_SO_VERSION=$LIBFNXMLPARSER_MAJOR_VERSION:$LIBFNXMLPARSER_MINOR_VERSION:$LIBFNXMLPARSER_MICRO_VERSION
+AC_SUBST(LIBFNXMLPARSER_SO_VERSION, $LIBFNXMLPARSER_SO_VERSION)
+
+AC_MSG_NOTICE([LIBFNXMLPARSER_VER : "$LIBFNXMLPARSER_VERSION"])
+AC_SUBST(LIBFNXMLPARSER_VERSION)
+
+dnl initialize pkg-config so that we can use it within if else fi statements.
+PKG_PROG_PKG_CONFIG()
+
+if test "x${prefix}" = "xNONE"; then
+  package_prefix=${ac_default_prefix}
+else
+  package_prefix=${prefix}
+fi
+
+#end XXX.PC
+
+AC_OUTPUT([Makefile
+					fnxmlparser.pc
+					src/lib/Makefile
+					src/test/Makefile])

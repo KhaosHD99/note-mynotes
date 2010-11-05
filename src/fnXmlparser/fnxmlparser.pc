@@ -1,0 +1,14 @@
+# autoconfSamp pkg-config source file
+#
+prefix=/home/yaoquan/opt/x86-usr
+
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/fnxmlparser
+
+Name: fnxmlparser
+Description: libfnxmlparser is xmlparser file library
+Version: 0.0.0.1
+Requires: 
+Libs: -L${exec_prefix}/lib -lfnxmlparser
+Cflags: -I${includedir}
