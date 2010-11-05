@@ -409,7 +409,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       long long 兼容            
 
       long long test = 8888888888467LL;                                 over
-	printf("size: %lld\n", test);
+      printf("size: %lld\n", test);
 
       delete func                                                       over
       multi email, phone num                                            over
@@ -438,7 +438,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
        combobox multi input
        g_object_unref(tree_model);
 
-10.29 window stack                                                         over
+10.29 window stack                                                         *
       resource deploy                                                      *
       regular expression validate                                           
       liststore /free              
@@ -468,7 +468,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       根据《概要设计说明书》编写《集成测试计划》，
       根据《详细设计说明书》编写《单元测试计划》
 
-11.02 call event handler                                                   over
+11.02 call event handler                                                    over
       know how to use window stack                                                       
 
 11.03 assert                                                                 
@@ -487,10 +487,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       按两下才能退出                                                         over
       other frame                                                            over
       incoming UI                                                             
-      contact.cfg 导致崩溃                                                     *
+      contact.cfg 导致崩溃                                                    **
       Contact同步Calllog
       messagedialog save error                                                over
       intermittent edit contact error
       C++ 读取 xml
       doxygen
-
+      
+11.05 appfile                                                                 over
+      edit contact error                                                       **
+      Contact structure phonecount                   
+                               

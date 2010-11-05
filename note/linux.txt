@@ -126,3 +126,5 @@
       
       imgdir=$(datadir)/img
       img_DATA=$(top_srcdir)/src/phonebook/img/*
+
+11.05 aptitude
