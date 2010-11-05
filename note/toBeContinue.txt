@@ -497,4 +497,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 11.05 appfile                                                                 over
       edit contact error                                                       **
       Contact structure phonecount                   
-                               
+      cario
+      __LINE__, __FILE__
