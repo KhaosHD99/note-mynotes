@@ -1,0 +1,14 @@
+# autoconfSamp pkg-config source file
+#
+prefix=@prefix@
+
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@/fnadvertisemen
+
+Name: fnadvertisemen
+Description: libfnadvertisemen is advertisemen play skin library
+Version: @LIBFNADVERTISEMENSKIN_VERSION@
+Requires:
+Libs: -L@libdir@ -lfnadvertisemen
+Cflags: -I${includedir}
