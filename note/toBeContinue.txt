@@ -499,3 +499,11 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       Contact structure phonecount                   
       cario
       __LINE__, __FILE__
+
+11.06 check for GTK2...no
+      ##__VA_ARGS__
+      $CFLAGS $CPPFLAGS $LIBS                                                    **
+      link
+      
+      CFLAGS="$CFLAGS `pkg-config --cflags --libs gtk+-2.0` -export-dynamic"
+      CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0` -export-dynamic"             **
