@@ -1,0 +1,13 @@
+1: build X86
+
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig/:/usr/share/pkgconfig
+
+gcc -o tut tut.c $(pkg-config --cflags --libs gtk+-2.0 gmodule-2.0)
+
+2: build arm
+
+export PKG_CONFIG_PATH=/home/yaoquan/opt/arm-usr/lib/pkgconfig/:/usr/share/pkgconfig
+
+arm-none-linux-gnueabi-gcc -o tut tut.c $(pkg-config --cflags --libs gtk+-2.0 gmodule-2.0) -lX11 -lXext -lXrender -lXrandr -lz -lpng12 -lpixman-1 -lexpat -lxcb-xlib -lxcb -lXau
+
+

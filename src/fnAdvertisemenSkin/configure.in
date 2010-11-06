@@ -1,0 +1,94 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.61)
+AC_INIT(libfnAdvertisemenSkin, 0.1.0, wyqscnu@163.com)
+AC_CONFIG_SRCDIR([src/lib/fnAdvertisemenSkin.c])
+AC_CONFIG_HEADER([config.h])
+AM_INIT_AUTOMAKE(libfnAdvertisemenSkin, 1.0)
+
+# Checks for programs.
+AC_PROG_CXX
+
+AC_CHECK_LIB([pthread], [pthread_rwlock_init])
+
+# Checks for libraries.
+AC_PROG_LIBTOOL
+
+# Checks for header files.
+AC_HEADER_DIRENT
+AC_HEADER_STDC
+AC_CHECK_HEADERS([arpa/inet.h fcntl.h netinet/in.h stdlib.h string.h sys/ioctl.h sys/param.h sys/socket.h termios.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_CONST
+
+# Checks for library functions.
+AC_FUNC_CLOSEDIR_VOID
+AC_FUNC_LSTAT
+AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK
+AC_FUNC_STAT
+AC_CHECK_FUNCS([memset mkdir strstr])
+
+PACKAGE=libfnadvertisemenskin
+dnl Source packaging numbers
+AC_MSG_NOTICE([$PACKAGE_NAME-$PACKAGE_VERSION           A skin library for advertisemen application.])
+
+LIBFNADVERTISEMENSKIN_MAJOR_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f1)
+LIBFNADVERTISEMENSKIN_MINOR_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f2)
+LIBFNADVERTISEMENSKIN_MICRO_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f3)
+LIBFNADVERTISEMENSKIN_EXTRA_VERSION=$(echo $PACKAGE_VERSION | cut -d. -f4)
+LIBFNADVERTISEMENSKIN_VERSION=${LIBFNADVERTISEMENSKIN_MAJOR_VERSION}.${LIBFNADVERTISEMENSKIN_MINOR_VERSION}.${LIBFNADVERTISEMENSKIN_MICRO_VERSION}
+
+if test -n "$LIBFNADVERTISEMENSKIN_EXTRA_VERSION" ; then
+  LIBFNADVERTISEMENSKIN_VERSION="${LIBFNADVERTISEMENSKIN_VERSION}.${LIBFNADVERTISEMENSKIN_EXTRA_VERSION}"
+fi
+
+LIBFNADVERTISEMENSKIN_SO_VERSION=$LIBFNADVERTISEMENSKIN_MAJOR_VERSION:$LIBFNADVERTISEMENSKIN_MINOR_VERSION:$LIBFNADVERTISEMENSKIN_MICRO_VERSION
+AC_SUBST(LIBFNADVERTISEMENSKIN_SO_VERSION, $LIBFNADVERTISEMENSKIN_SO_VERSION)
+
+AC_MSG_NOTICE([LIBFNADVERTISEMENSKIN_VER : "$LIBFNADVERTISEMENSKIN_VERSION"])
+AC_SUBST(LIBFNADVERTISEMENSKIN_VERSION)
+
+
+
+
+#PKG_CHECK_MODULES(GTK2, [GTK2], found=yes, found=no)
+#if test x$found = xyes ; then
+#  LIBS="$LIBS `pkg-config --libs gtk+-2.0 gthread-2.0`"
+#  CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0 gthread-2.0`"
+#  CPPCFLAGS="$CPPCFLAGS $CFLAGS"
+#else
+#  AC_MSG_NOTICE([Could not find GTK2 DEFINES])
+	LIBS="$LIBS `pkg-config --libs gtk+-2.0 gthread-2.0`"
+	CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0 gthread-2.0`"
+	CPPCFLAGS="$CPPCFLAGS $CFLAGS"
+#fi
+
+PKG_CHECK_MODULES(JPEG, [JPEG], found=yes, found=no)
+if test x$found = xyes ; then
+  CFLAGS="$CFLAGS $JPEG_CFLAGS"
+  LIBS="$LIBS $JPEG_LIBS"
+	CPPCFLAGS="$CPPCFLAGS $CFLAGS"
+else
+  AC_MSG_NOTICE([Could not find JPEG DEFINES])
+fi
+
+
+#LIBS="$LIBS `pkg-config --libs gtk+-2.0` $X11_LIBS"
+#CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0`"
+
+AC_MSG_NOTICE([FOUND CFLAGS DEFINES : "$CFLAGS"])
+
+AC_MSG_NOTICE([FOUND CPPFLAGS DEFINES : "$CPPFLAGS"])
+
+AC_MSG_NOTICE([FOUND LIBS DEFINES : "$LIBS"])
+
+AC_OUTPUT([Makefile
+					fnadvertisemenskin.pc
+					src/lib/Makefile
+					src/test/Makefile])
+
+
+

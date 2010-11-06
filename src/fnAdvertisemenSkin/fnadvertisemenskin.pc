@@ -1,0 +1,14 @@
+# autoconfSamp pkg-config source file
+#
+prefix=/home/yaoquan/opt/x86-usr
+
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/fnadvertisemen
+
+Name: fnadvertisemen
+Description: libfnadvertisemen is advertisemen play skin library
+Version: 0.1.0
+Requires:
+Libs: -L${exec_prefix}/lib -lfnadvertisemen
+Cflags: -I${includedir}

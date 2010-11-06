@@ -1,0 +1,272 @@
+/* Compile me with: 
+*   gcc -o tut tut.c $(pkg-config --cflags --libs gtk+-2.0 gmodule-2.0) 
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <gtk/gtk.h> 
+#include "fnAdverPlayer.h"
+
+static GtkWidget *mainfixed;
+static GtkWidget *datelabel, *timelabel;
+
+static ADVER_IMAGE_INFO ad_images[MAX_ADVER_AREAS];
+ 
+int init_adver_image_info(GtkBuilder *builder);
+
+int read_desktop_widgets(GtkBuilder *builder);
+int init_desktop_widgets();
+
+
+int main( int argc, char **argv ) 
+{ 
+	GtkBuilder *builder; 
+	GtkWidget  *mainwindow;
+
+	GError     *error = NULL; 
+	
+	/* Init GTK+ */
+	gtk_init( &argc, &argv ); 
+	 
+	/* Create new GtkBuilder object */
+	builder = gtk_builder_new(); 
+	/* Load UI from file. If error occurs, report it and quit application. 
+	* Replace "tut.glade" with your saved project. */
+	if( ! gtk_builder_add_from_file( builder, "fnfixedwindow.glade", &error ) ) 
+	{ //fnfixedwindow.glade	//fnstanderwindow
+		g_warning( "%s", error->message ); 
+		g_free( error ); 
+		return( 1 ); 
+	} 
+	 
+	/* Get main window pointer from UI */
+	mainwindow = GTK_WIDGET( gtk_builder_get_object( builder, "mainwindow" ) ); 
+	
+	read_desktop_widgets(builder);
+	init_desktop_widgets();
+
+	/* Connect signals */
+	gtk_builder_connect_signals( builder, NULL ); 
+	 
+	/* Destroy builder, since we don't need it anymore */
+	g_object_unref( G_OBJECT( builder ) ); 
+	
+	
+	/* Show window. All other widgets are automatically shown by GtkBuilder */
+	gtk_widget_show( mainwindow ); 
+	 
+	/* Start main loop */
+	gtk_main(); 
+	 
+	return( 0 ); 
+}
+
+int init_adver_image_info(GtkBuilder *builder)
+{
+	if(!builder)
+	{
+		g_warning("gtkbuilder null");
+		return -1;
+	}
+	
+	g_print("start %s\r\n", __FUNCTION__);
+
+	int i = 0;
+	memset(&ad_images, 0, sizeof(ad_images));
+
+	for(i = 0; i < MAX_ADVER_AREAS; i++)
+	{
+		memcpy(&ad_images[i].area_def_info, &area_def_info[i], sizeof(AREA_DEF_INOF));
+		ad_images[i].ad_image = GTK_IMAGE( gtk_builder_get_object(builder, ad_images[i].area_def_info.widget_name));
+
+		if(!ad_images[i].ad_image)
+		{
+			g_warning("gtkbuilder get [%s] null", ad_images[i].area_def_info.widget_name);
+		}
+		else
+			g_message("gtkbuilder get [%s : %08x]",
+					ad_images[i].area_def_info.widget_name,
+					ad_images[i].ad_image);
+	}
+
+	return 0;
+}
+
+
+int read_desktop_widgets(GtkBuilder *builder)
+{
+	if(!builder)
+	{
+		g_warning("gtkbuilder null");
+		return -1;
+	}
+
+	init_adver_image_info(builder);
+
+	mainfixed = GTK_WIDGET( gtk_builder_get_object( builder, "mainfixed"));
+	if(!mainfixed)
+	{
+		g_warning("gtkbuilder get main fixed null");
+	}
+
+	datelabel = GTK_WIDGET( gtk_builder_get_object( builder, "datelabel")); 
+	if(!datelabel)
+	{
+		g_warning("gtkbuilder get date label null");
+	}
+
+	timelabel = GTK_WIDGET( gtk_builder_get_object( builder, "timelabel"));
+	if(!timelabel)
+	{
+		g_warning("gtkbuilder get time label null");
+	}
+	
+	return 0;
+}
+
+gint run_fish (gpointer data);
+gint RepaintClock (gpointer data);
+
+int init_desktop_widgets()
+{
+	//date label
+	if(!datelabel)
+	{
+		g_warning("datelabe null");
+	}
+	else
+	{
+		gchar text[64];
+		gchar markup[128];
+		//GdkColor color;
+		/*
+		GTK_JUSTIFY_LEFT
+		GTK_JUSTIFY_RIGHT
+		GTK_JUSTIFY_CENTER
+		GTK_JUSTIFY_FILL
+		*/
+		gtk_label_set_line_wrap (GTK_LABEL(datelabel), TRUE);
+		gtk_label_set_justify(GTK_LABEL(datelabel), GTK_JUSTIFY_CENTER);
+
+		sprintf(text, "%s", gtk_label_get_text(GTK_LABEL(datelabel)));
+
+		sprintf(markup, "<span foreground='red' font_desc='22'>%s</span>", text);
+		//标签，不可使用set_text
+		gtk_label_set_markup(GTK_LABEL(datelabel), markup);
+	}
+
+	//time label
+	if(!timelabel)
+	{
+		g_warning("timelabel null");
+	}
+	else
+	{
+		gchar text[64];
+		gchar markup[128];
+		//GdkColor color;
+		/*
+		GTK_JUSTIFY_LEFT
+		GTK_JUSTIFY_RIGHT
+		GTK_JUSTIFY_CENTER
+		GTK_JUSTIFY_FILL
+		*/
+		gtk_label_set_line_wrap (GTK_LABEL(timelabel), TRUE);
+		gtk_label_set_justify(GTK_LABEL(timelabel), GTK_JUSTIFY_CENTER);
+
+		sprintf(text, "%s", gtk_label_get_text(GTK_LABEL(timelabel)));
+
+		sprintf(markup, "<span foreground='yellow' font_desc='16'>%s</span>", text);
+		//标签，不可使用set_text
+		gtk_label_set_markup(GTK_LABEL(timelabel), markup);
+
+		gtk_timeout_add (10, run_fish, NULL);
+		gtk_timeout_add (1000, RepaintClock, timelabel);
+
+	}
+
+	return 0;
+}
+
+gint run_fish (gpointer data)
+{
+	static int x = 40;
+	static int y = 170;
+	
+	x++;
+	y++;
+	x = (x%750);
+	y = (y%450);
+
+	if(mainfixed && timelabel)
+		gtk_fixed_move (GTK_FIXED (mainfixed), timelabel, x, y); 
+	return TRUE;
+}
+
+gint RepaintClock (gpointer data)
+{
+    time_t now;
+	gchar buf[24];
+	gchar markup[128];
+    struct tm *now_tm;
+
+    GtkWidget*	drawing_entry = (GtkWidget *) data;
+
+	time (&now);
+
+    /* --- Convert time --- */
+    now_tm = localtime (&now);
+	gint year	= now_tm->tm_year;
+	gint month	= now_tm->tm_mon;
+	gint day	= now_tm->tm_mday;
+	gint second = now_tm->tm_sec;
+	gint minute = now_tm->tm_min;
+	gint hour = now_tm->tm_hour;
+/*
+	if(second%2)
+		sprintf(buf,"鏃堕棿:%04d-%02d-%02d %02d : %02d :%02d",
+			year+1900,
+			month+1,
+			day,
+			hour,
+			minute,
+			second);
+	else
+		sprintf(buf,"鏃堕棿:%04d-%02d-%02d %02d : %02d  %02d",
+			year+1900,
+			month+1,
+			day,
+			hour,
+			minute,
+			second);
+*/
+	if(second%2)
+		sprintf(buf,"%02d:%02d", hour, minute);
+	else
+		sprintf(buf,"%02d %02d", hour, minute);
+
+	sprintf(markup, "<span foreground='yellow' font_desc='16'>%s</span>", buf);
+	//标签，不可使用set_text
+	gtk_label_set_markup(GTK_LABEL(drawing_entry), markup);
+
+//	gtk_label_set_text(GTK_LABEL(drawing_entry),buf);
+
+	static gint runtime = 0;
+	int i = 0;
+	char name[12];
+	if(runtime++ % 3 == 0)
+	{
+		static int index = 0;
+		index++;
+		for(i = 0; i < MAX_ADVER_AREAS; i++)
+		{
+			//
+			sprintf(name, "./images/image_%d_%d.jpg", i+1, index%3);
+			g_print("chang pic : %s\r\n", name);
+			if(ad_images[i].ad_image)
+				gtk_image_set_from_file(ad_images[i].ad_image, name);
+		}		
+	}
+
+    return (TRUE);
+}

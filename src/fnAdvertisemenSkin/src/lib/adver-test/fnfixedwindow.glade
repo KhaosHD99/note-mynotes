@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<interface>
+  <!-- interface-requires gtk+ 2.12 -->
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="mainwindow">
+    <property name="width_request">800</property>
+    <property name="height_request">480</property>
+    <property name="resizable">False</property>
+    <property name="default_width">800</property>
+    <property name="default_height">480</property>
+    <property name="destroy_with_parent">True</property>
+    <child>
+      <object class="GtkFixed" id="mainfixed">
+        <property name="width_request">800</property>
+        <property name="height_request">480</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkImage" id="image5">
+            <property name="width_request">800</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x5E7F;&#x544A;&#x516D;&#x533A;</property>
+          </object>
+          <packing>
+            <property name="y">450</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="realtimelabel">
+            <property name="width_request">800</property>
+            <property name="height_request">60</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">realtime-label</property>
+            <property name="wrap">True</property>
+            <property name="wrap_mode">char</property>
+          </object>
+          <packing>
+            <property name="y">450</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="image1">
+            <property name="width_request">200</property>
+            <property name="height_request">108</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x5E7F;&#x544A;&#x4E00;&#x533A;</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="image2">
+            <property name="width_request">200</property>
+            <property name="height_request">216</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x5E7F;&#x544A;&#x4E8C;&#x533A;</property>
+          </object>
+          <packing>
+            <property name="y">108</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="image3">
+            <property name="width_request">200</property>
+            <property name="height_request">126</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x5E7F;&#x544A;&#x4E09;&#x533A;</property>
+          </object>
+          <packing>
+            <property name="y">324</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="image4">
+            <property name="width_request">600</property>
+            <property name="height_request">450</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x5E7F;&#x544A;&#x56DB;&#x533A;</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="datelabel">
+            <property name="width_request">199</property>
+            <property name="height_request">37</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x65E5;&#x671F;&#x63A7;&#x4EF6;</property>
+            <property name="label" translatable="yes">10&#x5E74;09&#x6708;09&#x65E5;</property>
+            <property name="wrap">True</property>
+            <property name="wrap_mode">char</property>
+          </object>
+          <packing>
+            <property name="y">358</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="timelabel">
+            <property name="width_request">199</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="tooltip_text" translatable="yes">&#x65F6;&#x95F4;&#x63A7;&#x4EF6;</property>
+            <property name="label" translatable="yes">12:00</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">21</property>
+            <property name="y">412</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
