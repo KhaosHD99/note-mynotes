@@ -128,3 +128,17 @@
       img_DATA=$(top_srcdir)/src/phonebook/img/*
 
 11.05 aptitude
+
+11.06 #PKG_CHECK_MODULES(GTK2, [GTK2], found=yes, found=no)
+   #if test x$found = xyes ; then
+   #  CFLAGS="$CFLAGS $GTK2_CFLAGS"
+   #  LIBS="$LIBS $GTK2_LIBS"
+   #else
+   #  AC_MSG_NOTICE([Could not find GTK2 DEFINES])
+   # LIBS="$LIBS `pkg-config --libs gtk+-2.0`"
+   # CFLAGS="$CFLAGS `pkg-config --cflags --libs gtk+-2.0` -export-dynamic"
+   #fi
+
+   pc file pass args to configure.in 
+   ##_ multi args
+	
