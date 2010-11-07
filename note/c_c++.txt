@@ -215,3 +215,13 @@ void CPP_fun()
         int tm_isdst 日光节约时间的旗标 
 
 10.27 如果枚举没有初始化, 即省掉"=整型常数"时, 则从第一个标识符开始, 顺 　　次赋给标识符0,       1, 2, ...。但当枚举中的某个成员赋值后, 其后的成员按依次 　　加1的规则确定其值
+
+11.07 while(item->phones[phone_count].szphone[0] != '\0')
+      {
+		phone_count++;
+		if(phone_count == MAX_PHONE_COUNT)
+      		break;
+      }
+      
+      __LINE__, __FILE__ ##__VA_ARGS__ very useful
+      
