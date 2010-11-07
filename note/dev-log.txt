@@ -116,4 +116,6 @@
 
 11.06 1)pkg-config(check module)(configure.in)
       2)LogMsg
-      3)      
+      3)
+
+11.07 1)pkgconfig        
