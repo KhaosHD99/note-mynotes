@@ -478,32 +478,34 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       group manage                                                           **
       validate(regular exepress)                                             **
       contact buf add phonecount emailcount                                  over
-      set active                                      
+      set active                                                              ?
       input chinese                                                          over
-      remove avatar                                  
+      remove avatar                                                          over 
       window single instance                                                  *
                                                        
-11.04 注释                                                                   
+11.04 注释                                                                      
       按两下才能退出                                                         over
       other frame                                                            over
       incoming UI                                                             
       contact.cfg 导致崩溃                                                    **
       Contact同步Calllog
       messagedialog save error                                                over
-      intermittent edit contact error
+      intermittent edit contact error                                         ?
       C++ 读取 xml
       doxygen
       
 11.05 appfile                                                                 over
-      edit contact error                                                       **
-      Contact structure phonecount                   
-      cario
-      __LINE__, __FILE__
-
+      edit contact error                                                      over
+      Contact structure phonecount                                            over
+      cario                                                                   
+      	 
 11.06 check for GTK2...no
       ##__VA_ARGS__
-      $CFLAGS $CPPFLAGS $LIBS                                                    **
-      link
+      $CFLAGS $CPPFLAGS $LIBS  fnPhonebook                                        **
+      link    
       
       CFLAGS="$CFLAGS `pkg-config --cflags --libs gtk+-2.0` -export-dynamic"
       CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0` -export-dynamic"             **
+
+11.07 index count and phonenum count
+       
