@@ -118,4 +118,10 @@
       2)LogMsg
       3)
 
-11.07 1)pkgconfig        
+11.07 1)pkgconfig
+      2)autotools(INCLUDES)
+        how configure find pc file and get define/macro         
+
+11.08 1)libxml2 basic CURD
+      2)cairo
+            
