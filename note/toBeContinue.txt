@@ -506,12 +506,12 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       
       CFLAGS="$CFLAGS `pkg-config --cflags --libs gtk+-2.0` -export-dynamic"
       CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0` -export-dynamic"             **
-
+      
 11.07 index count and phonenum count
       -no-undefined -version-info $(LIBFNXMLPARSER_SO_VERSION)
       debian sudo
       Makefile.am CURRENTPATH top_srcdir                                          ?
-
+      
       gtkContact.c:1163: warning: passing argument 1 of ¡®gtk_combo_box_set_model¡¯ from           incompatible pointer type
    
       gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done
