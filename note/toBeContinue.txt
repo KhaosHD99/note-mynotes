@@ -511,7 +511,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       -no-undefined -version-info $(LIBFNXMLPARSER_SO_VERSION)
       debian sudo
       Makefile.am CURRENTPATH top_srcdir                                          ?
-      
+      	
       gtkContact.c:1163: warning: passing argument 1 of ¡®gtk_combo_box_set_model¡¯ from           incompatible pointer type
    
       gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done
@@ -523,3 +523,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       allows entity references
       makefile.am DEFS
       autotools cpp and c change each other
+
+11.09 cairo_surface_destroy
+      cairo_stroke
+      cairo_destroy      
