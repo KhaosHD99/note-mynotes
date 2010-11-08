@@ -510,10 +510,16 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 11.07 index count and phonenum count
       -no-undefined -version-info $(LIBFNXMLPARSER_SO_VERSION)
       debian sudo
-      Makefile.am CURRENTPATH top_srcdir
+      Makefile.am CURRENTPATH top_srcdir                                          ?
 
       gtkContact.c:1163: warning: passing argument 1 of ¡®gtk_combo_box_set_model¡¯ from           incompatible pointer type
    
       gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done
      
+11.08 XML_ELEMENT_NODE = 1
+      XML_ATTRIBUTE_NODE = 2
+      XML_TEXT_NODE = 3
       
+      allows entity references
+      makefile.am DEFS
+      autotools cpp and c change each other
