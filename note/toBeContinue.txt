@@ -322,7 +322,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      name style deference 
      not use gchar                                                         
      add to window stack                                                 over
-     glade£ºliststore column                                              **
+     glade£ºliststore column                                              
      gtk_container_add(GTK_CONTAINER(sw), treeview);
      pack_start
      click X not release mem? 
@@ -395,7 +395,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       svn: change the file directory                                              over
       /etc/locale-gen                                                            
       color in vim                                                                 
-      $HOME/.profile /root/.profile not work in root user                         over             coding specification                                                        **
+      $HOME/.profile /root/.profile not work in root user                         over             coding specification                                                        ***
                                                  
 10.24 fsck -y
       LF/CR; LF; CR
@@ -527,3 +527,33 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 11.09 cairo_surface_destroy
       cairo_stroke
       cairo_destroy      
+      
+      typedef struct Expose_Fun
+      {
+	 guint interval;			//for g_timeout_add(guint interval, ...)
+	 gboolean (*expose_event_fun)(GtkWidget *widget, 
+                                      GdkEventExpose *event,                                                                       gpointerdata); 
+      }Expose_Fun;
+
+      GDK_BUTTON_PRESS_MASK
+      GDK_BUTTON_RELEASE_MASK
+      modify detect(pb)
+      #define AFX_XMLNODE_H__62C0DE1E_9243_4DEE_AD79_20259B577A39__INCLUDED_
+      XMLInitLib
+      goto RETURN
+      StrToLower(encoding)
+      TrimSpace
+      struct stat statdata = {0};
+
+      if(!cText)
+      {
+         return NULL;
+      }
+      if(!cText[0])
+      {
+         return NULL;
+      }
+
+      xml encoding                                                             
+      text node?                                                               over
+       
