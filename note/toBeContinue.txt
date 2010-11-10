@@ -532,7 +532,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       {
 	 guint interval;			//for g_timeout_add(guint interval, ...)
 	 gboolean (*expose_event_fun)(GtkWidget *widget, 
-                                      GdkEventExpose *event,                                                                       gpointerdata); 
+                                      GdkEventExpose *event,                                                                                         	 gpointerdata); 
       }Expose_Fun;
 
       GDK_BUTTON_PRESS_MASK
@@ -568,4 +568,4 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 	   FNDWORD dwActList[1];
       };
       
-      chinese input
+      chinese input sougu
