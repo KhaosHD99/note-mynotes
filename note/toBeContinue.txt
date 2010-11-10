@@ -556,4 +556,16 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
       xml encoding                                                             
       text node?                                                               over
-       
+
+11.10 nOffset = nNum * sizeof(TERMINAL_ACT_INFO) + 4;
+      m_pStateActList[0][0] = (FN_STATE_ACT_LIST*)(g_PlaySchemeBuf + nOffset);
+      window type      
+      m_pStateActList[3][FN_STATE_NUM] = NULL;                                      ?   
+      节目列表 逻辑判断最大充许值(24 * 60 * 60) / 5
+      
+      struct TIME_SECTION_INFO
+      {
+	   FNDWORD dwActList[1];
+      };
+      
+      chinese input
