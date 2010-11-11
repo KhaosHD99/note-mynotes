@@ -567,5 +567,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       {
 	   FNDWORD dwActList[1];
       };
-      
+       
       chinese input sougu
+
+11.11 expire time
+      if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec)              ||(adverObjs[i].currentEndTime < 1))
+      
+      state
+      Major Display Area Num
+      use enum not define 
+      void *doPlayTimethd(void *pData)
+      intermittent segmentation fault
