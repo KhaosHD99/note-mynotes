@@ -578,3 +578,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       use enum not define 
       void *doPlayTimethd(void *pData)
       intermittent segmentation fault
+
+11.12 multi thread class new
+      file type actAdOnLine
+      state
+
+1114 完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，它只检查程序功能是否按照需求规格说明书的规定正常使用
