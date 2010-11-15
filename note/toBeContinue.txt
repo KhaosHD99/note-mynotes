@@ -541,8 +541,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       #define AFX_XMLNODE_H__62C0DE1E_9243_4DEE_AD79_20259B577A39__INCLUDED_
       XMLInitLib
       goto RETURN
-      StrToLower(encoding)
-      TrimSpace
+      StrToLower(encoding)                                                        **
+      TrimSpace                                                                   **
       struct stat statdata = {0};
 
       if(!cText)
@@ -561,13 +561,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       m_pStateActList[0][0] = (FN_STATE_ACT_LIST*)(g_PlaySchemeBuf + nOffset);
       window type      
       m_pStateActList[3][FN_STATE_NUM] = NULL;                                      ?   
-      节目列表 逻辑判断最大充许值(24 * 60 * 60) / 5
+      
+      节目列表 逻辑判断最大允许值(24 * 60 * 60) / 5
       
       struct TIME_SECTION_INFO
       {
 	   FNDWORD dwActList[1];
       };
-       
+      
       chinese input sougu
 
 11.11 expire time
@@ -583,4 +584,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       file type actAdOnLine
       state
 
-1114 完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，它只检查程序功能是否按照需求规格说明书的规定正常使用
+1114 完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，它只检查程序功能是否按照     需求规格说明书的规定正常使用
+
+1115 add a thread to change state
+     check is it '\0'
+     init args
+     
