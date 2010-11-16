@@ -483,23 +483,23 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       remove avatar                                                          over 
       window single instance                                                  *
                                                        
-11.04 注释                                                                      
+11.04 注释                                                                    *
       按两下才能退出                                                         over
       other frame                                                            over
-      incoming UI                                                             
+      incoming UI                                                             **             
       contact.cfg 导致崩溃                                                    **
-      Contact同步Calllog
+      Contact同步Calllog                                                      **
       messagedialog save error                                                over
       intermittent edit contact error                                         ?
-      C++ 读取 xml
-      doxygen
+      C++ 读取 xml                                                            over
+      doxygen                                                                  
       
 11.05 appfile                                                                 over
       edit contact error                                                      over
       Contact structure phonecount                                            over
       cario                                                                   
       	 
-11.06 check for GTK2...no
+11.06 check for GTK2...no                                                        over
       ##__VA_ARGS__
       $CFLAGS $CPPFLAGS $LIBS  fnPhonebook                                        **
       link    
@@ -514,7 +514,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       	
       gtkContact.c:1163: warning: passing argument 1 of ‘gtk_combo_box_set_model’ from           incompatible pointer type
    
-      gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done
+      gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done      *
      
 11.08 XML_ELEMENT_NODE = 1
       XML_ATTRIBUTE_NODE = 2
@@ -589,4 +589,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 1115 add a thread to change state
      check is it '\0'
      init args
-     
+     img path 
+
+1116 specification                                                             **
+     resolve warning                                                                    *
