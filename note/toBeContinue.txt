@@ -512,8 +512,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       debian sudo
       Makefile.am CURRENTPATH top_srcdir                                          ?
       	
-      gtkContact.c:1163: warning: passing argument 1 of ¡®gtk_combo_box_set_model¡¯ from           incompatible pointer type
-   
+      gtkContact.c:1163: warning: passing argument 1 of ¡®
+      gtk_combo_box_set_mod el¡¯ from                                                             incompatible pointer type                                                    over            
       gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done      *
      
 11.08 XML_ELEMENT_NODE = 1
@@ -591,5 +591,10 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      init args
      img path 
 
-1116 specification                                                             **
-     resolve warning                                                                    *
+1116 specification                                                                 **
+     resolve warning                                                               over
+     incoming to missed or received                                                **
+     name showStyle                                                                 
+     double click: edit                                                             
+     combobox active                                                                *
+     calllog show design
