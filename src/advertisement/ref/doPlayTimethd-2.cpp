@@ -1,10 +1,10 @@
 #define MAJOR_DISPLAY_AREA_NUM 4
-////////////////////////////////////////////////////////////////
+
 //界面表播放流程
 void doPlayTimethd()
 {
-  //
-	if (phoneState < 0)	//话机状态有效
+    //话机状态有效
+	if (phoneState < 0)	
 	{
 		error;
 	}
@@ -17,7 +17,7 @@ void doPlayTimethd()
 			time(&timep);
 			p = localtime(&timep);
 			//检测主区域播放权限
-			if((i + 1) == MAJOR_DISPLAY_AREA_NUM)	//主区域
+			if((i + 1) == MAJOR_DISPLAY_AREA_NUM)
 			{
 				if(phoneState == 应用状态 || 流媒体状态 || 视频互通状态)
 				{
@@ -91,7 +91,6 @@ void *AdvertisementMan::playerTimeThread(void *pData)
 	return NULL;
 }
 
-
 void AdvertisementMan::doplayerTimethd()
 {
 	int i , j;
@@ -124,7 +123,8 @@ void AdvertisementMan::doplayerTimethd()
 					//读取在代码里的图片
 					showDebug("打开default 图片.\n");
 					int nLen = sizeof(cDefaultJPEG);
-					for (i = 0; i< adverCount; i++)//指广告区域数量
+					//指广告区域数量
+					for (i = 0; i< adverCount; i++)
 					{
 						if (adverObjs[i].wnd->bgDefaultImg->loadXMLImage(cDefaultJPEG, 
 							nLen, 
@@ -183,7 +183,7 @@ void AdvertisementMan::doplayerTimethd()
 					}
 					continue;
 				}
-
+				
 				//让出主窗口和音频播放
 				if (i == 0)
 				{
@@ -233,7 +233,7 @@ void AdvertisementMan::doplayerTimethd()
 
 				//待机类广告播放
 				adverObjs[i].currentEndTime--;
-
+				
 				if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec) ||
 					(adverObjs[i].currentEndTime < 1))
 				{
@@ -272,7 +272,7 @@ void AdvertisementMan::doplayerTimethd()
 					}
 
 					adverObjs[i].currentEndTime = adverObjs[i].actInfo.PlayTime;
-
+					
 					//如果是响铃状态，把广告音频去掉
 					if (cPhoneState.uCurMajorState & FNC_STATE_CONN
 						|| cPhoneState.uCurMajorState & FNC_STATE_OFFHOOK
