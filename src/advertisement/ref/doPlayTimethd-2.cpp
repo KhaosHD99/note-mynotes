@@ -96,14 +96,14 @@ void AdvertisementMan::doplayerTimethd()
 	int i , j;
 	time_t  timep;
 	struct  tm  *p;
-
+	
 	char *pImage = NULL;
-
+	
 	struct timeval tv;
 	struct timezone tz;
 	timespec sp;
 	int nYieldArea[4] = {0};
-
+	
 	while(playTimeRunSign)
 	{
 		memset(nYieldArea, 0, sizeof(nYieldArea)); 
