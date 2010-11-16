@@ -488,7 +488,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       other frame                                                            over
       incoming UI                                                             **             
       contact.cfg 导致崩溃                                                    **
-      Contact同步Calllog                                                      **
+      Contact同步Calllog                                                      over
       messagedialog save error                                                over
       intermittent edit contact error                                         ?
       C++ 读取 xml                                                            over
@@ -600,3 +600,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      calllog show design
      mainfile id
      play time who control
+     ='\0' sure nothing ?
+     unique name                                                                        **
