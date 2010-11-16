@@ -598,3 +598,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      double click: edit                                                             
      combobox active                                                                *
      calllog show design
+     mainfile id
+     play time who control
