@@ -124,4 +124,27 @@
 
 11.08 1)libxml2 basic CURD
       2)cairo
-            
+
+11.09 1)cario
+
+
+11.10 1)put xmllib to prj
+      2)too nervous, under a lot of pressure
+
+11.11 1)advertisemt main control 
+
+11.12 1)advertisement
+      2)go home
+      3)movie
+
+11.13 1)come back from home 
+      2)try wifi transfer file 
+      3)wath movie(liu de hua) 
+
+11.14 1)watch movie
+
+11.15 1)advertisement            
+
+11.16 1)phonebook specification(lin wei ye) 
+      2)phonebook
+      3)nervous 
