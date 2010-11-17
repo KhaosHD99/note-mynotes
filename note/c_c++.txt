@@ -226,3 +226,6 @@ void CPP_fun()
       __LINE__, __FILE__ ##__VA_ARGS__ very useful
 
 11.09 function daclare: args can add data type prefix     
+
+11.17 sprintf(str, "%i", index);
+      str ÓÃ×Ö·ûÊý×é

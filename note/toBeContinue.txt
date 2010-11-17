@@ -453,7 +453,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
     
 10.31 phone index and phone 一一对应                                        over
       a == NULL ? ""                                                        over             
-      release resource(liststore)                                            **
+      release resource(liststore)                                            ***
       go back to privious position (source insight)               
       get phonenum by index                                                 over             
       get model from combo /get from liststore                              over
@@ -595,21 +595,21 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      resolve warning                                                               over
      incoming to missed or received                                                **
      name showStyle                                                                * 
-     double click: edit                                                             
+     double click: edit                                                             over                                                     
      combobox active                                                                *
-     calllog show design
-     mainfile id
-     play time who control
-     ='\0' sure nothing ?
+     calllog show design                                                            over
+     mainfile id                                                                    over
+     play time who control                                                          over
+     ='\0' sure nothing ?                                                          
      unique name                                                                   over
      
 1117 unique name(judge by full_name)
-     转义字符          
+     转义字符                                                                      *      
      .gtkrc-2.0_medium:9: Unable to locate image file in pixmap_path:                           "images/pc_main_bg_imag.jpg"
      
-     lpconfig file last line
+     lpconfig file last line                                                        *
 
-     not real time change                                                        over
+     not real time change                                                           over
      
      release xml resource
      multi select
@@ -619,3 +619,6 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
      FNC_STATE_STREAMING_MEDIA
      
+     pb skin path
+     g_free
+     column width                                                                   *
