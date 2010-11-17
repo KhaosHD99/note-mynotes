@@ -84,7 +84,9 @@
 10.27  1)combobox
        2)dialog
 
-10.28  
+10.28  1)notebook
+       2)builder
+
 
 10.29
 
@@ -136,15 +138,19 @@
 11.12 1)advertisement
       2)go home
       3)movie
-
+	
 11.13 1)come back from home 
       2)try wifi transfer file 
       3)wath movie(liu de hua) 
-
+	
 11.14 1)watch movie
-
+	
 11.15 1)advertisement            
-
+	
 11.16 1)phonebook specification(lin wei ye) 
       2)phonebook
       3)nervous 
+	
+11.17 1)phonebook commonphone
+      2)phonebook specification
+      3)adver main control 
