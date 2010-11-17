@@ -1,92 +1,284 @@
-#define MAJOR_DISPLAY_AREA_NUM 4
+#include "PlayHead.h"
+#include "Advertisement.h"
+#include "TimeListResolver.hpp"
+#include "jpegDec.h"
+#include "jpegEnc.h"
+#include "AppConfigDef.h"
+#include "PlayerReceiver.h"
 
-//界面表播放流程
-void doPlayTimethd()
+char cDefaultJPEG[] = 
 {
-    //话机状态有效
-	if (phoneState < 0)	
+	#include "defaultJPEG.txt"
+};
+
+//******************************广告窗口************************//
+AdvertisementWnd::AdvertisementWnd(int x, int y, int width, int height):GuiWnd(x, y, width, height)
+{
+	bgDefaultImg = new TJpegXMLImage(this, 0, 0);
+	bgImage = new TJpegBgImage(this, 0, 0);
+	//this->setColor(RGB565(0, 0, 1));
+	this->show();
+}
+
+AdvertisementWnd::~AdvertisementWnd()
+{
+
+}
+
+//******************************广告区域************************//
+Advertisement::Advertisement()
+{
+	currentProgramID = 0;
+	memset(&actInfo, 0, sizeof(actInfo));
+}
+
+Advertisement::~Advertisement()
+{
+	wnd->close();				//关闭窗口
+	delete []imageBuf;
+	imageBuf = NULL;
+}
+
+bool Advertisement::init(int x, int y, int width, int height, int wintype)
+{
+	this->windowType = wintype;
+	currentEndTime = 0;
+	this->x = x;
+	this->y = y;
+	this->width = width;
+	this->height = height;
+	imageBufIsDirty = false;
+	wnd = new AdvertisementWnd(x, y, width, height);
+	wnd->bgImage->width = width;
+	wnd->bgImage->height = height;
+
+	if (!wnd)
 	{
-		error;
+		showWarning("init Advertisement error.\n");
+		return false;
 	}
-	else
+	imageBuf = new unsigned short[width * height + 8];
+	if (!imageBuf)
 	{
-		//加载每一个区域
-		for(i = 0; i < MAX_ADVER_AREAS; i++)
+		showWarning("alloc imageBuf memory error.\r\n");
+	}
+	return true;
+}
+
+AdvertisementMan *AdvertisementMan::instance = NULL;
+bool AdvertisementMan::bReadPlayFile = false;
+bool AdvertisementMan::bReadDefaultJpeg = false;
+
+bool AdvertisementMan::initInstance(int adCount, Area *areas)
+{
+	if (instance == NULL)
+	{
+		instance = new AdvertisementMan(adCount, areas);
+		if (!instance)
 		{
-			//获取系统当前时间
-			time(&timep);
-			p = localtime(&timep);
-			//检测主区域播放权限
-			if((i + 1) == MAJOR_DISPLAY_AREA_NUM)
-			{
-				if(phoneState == 应用状态 || 流媒体状态 || 视频互通状态)
-				{
-					if(actInfo.filetype == actAdOnLine)
-						chang to actFtJpeg;
-					if(actInfo.filetype == actFtH264 &&
-						actInfo.szMainFileName[0] != 0)
-					{
-						if(停止主区播放)
-							chang to actFtJpeg;
-					}
-					
-					continue;
-				}
-			}
-			
-			//播放区域倒计时
-			//adverObjs[i].currentEndTime--;
-			
-			//播放完毕或者刚开始播放时，读取下一个播放内容并播放
-			if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec) ||
-				(adverObjs[i].currentEndTime < 1))
-			{
-
-				//处于视频互通、摘机、振铃、应用、流媒体时，不播放音乐
-				if(phoneState == FNC_STATE_CONN 
-						|| FNC_STATE_OFFHOOK || FNC_STATE_RING || FNC_STATE_APP || FNCOM_STATE_STREAMING_MEDIA)
-
-				{
-					//不放音乐
-					adverObjs[i].actInfo.szMusicFileName[0] = 0;
-				}
-				
-				if (actInfo.filetype == actAdOnLine)//在线广告
-				{
-					//加载在线广告，激活流媒体应用
-					.....
-				}
-						
-				if (actInfo.filetype == actFtJpeg)
-				{
-					
-				
-				}
-			
-				if (actInfo.filetype == actFtH264)
-				{
-	
-						if(actInfo.szMainFileName[0] != 0)
-							//播放音视频
-						else
-							//播放视频
-				}
-			}	
+			return false;
 		}
 	}
+	return true;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////
-原播放程序控制逻辑
-///////////////////////////////////////////////////////////////////////////////////////////////
+
+bool AdvertisementMan::uninitInstance()
+{
+	delete instance;
+	instance = NULL;
+	return true;
+}
+
+AdvertisementMan *AdvertisementMan::getInstance()
+{
+	return instance;
+}
+
+AdvertisementMan::AdvertisementMan(int adCount, Area *areas)
+{
+	m_nNotice = 0;
+	adverObjs = NULL;
+	pthread_mutex_init (&m_mutex, NULL);               //初始化锁
+	phoneState = -1;
+	m_mediaCall.mCallPlayArea = AREA_A;
+	m_mediaCall.mCallPlayType = PIC_ONLY;
+	m_mediaCall.mCallState = ACTION_STOP;
+
+	this->adverCount = adCount;
+	adverObjs = new Advertisement[adCount];
+	
+	CMediaPlayerMng::initInstance(PlayerRect(areas[0].x, areas[0].y, areas[0].width, areas[0].height),
+		PlayerRect(areas[2].x, areas[2].y, areas[2].width, areas[2].height),CAdvPlayClient::getInstance()->getVialSys(), FN_ADVPLAY_MODULE_ID);
+
+	for (int i = 0; i < adCount; i++)
+	{
+		// 初始化adver
+		adverObjs[i].init(areas[i].x, areas[i].y, areas[i].width, areas[i].height, i);
+	}
+}
+
+AdvertisementMan::~AdvertisementMan()
+{
+	CMediaPlayerMng::uninitInstance();
+	pthread_mutex_destroy(&m_mutex);
+	delete []adverObjs;
+	adverObjs = NULL;
+}
+
+bool AdvertisementMan::setPhoneState(int state, unsigned int majorState, unsigned int minorState)
+{
+	int nRet = 0;
+	showInfo("处理状态.广告状态：[%d] 主状态：[%08X]\n",state, majorState);
+	pthread_mutex_lock(&m_mutex);
+	if (cPhoneState.uCurMajorState == majorState)
+	{
+		pthread_mutex_unlock(&m_mutex);
+		showInfo("处理状态失败，状态和现有状态相同 %08X.\n", cPhoneState.uCurMajorState);
+		return true;
+	}
+	phoneState = state;
+	
+	//if (!CMediaPlayerMng::getInstance()->stopMajorVNAply(FN_ADVPLAY_MODULE_ID))
+	//{
+	//	showWarning("关闭主播放区音视频失败.\n");
+	//}
+	cPhoneState.uCurMajorState = majorState;
+	//cPhoneState.uCurMinorState = minorState;
+	stopMajorPlayer();
+	
+	//关闭彩call 
+	m_mediaCall.mCallState = ACTION_STOP;
+	
+	for (int i = 0; i < adverCount; i++)
+	{
+		adverObjs[i].currentEndTime = 0;
+	}
+
+	if (majorState & FNC_STATE_RING)
+	{
+		showDebug("开始处理来电...\n");
+
+		LOCALAPPCONFIG *localConfig = new LOCALAPPCONFIG;
+		
+		nRet = readAppConfig(localConfig, sizeof(LOCALAPPCONFIG));
+		if (nRet != 0)
+		{
+			showWarning("读取系统配置失败.\n");
+		}
+		char ringFile[64] = {0};
+		sprintf(ringFile, "%s", localConfig->szRingFile);
+		//调整音量为响铃音量
+		CMediaPlayerMng::getInstance()->setVolumeValue(localConfig->nRingVolumn, localConfig->nRingVolumn);
+
+		delete localConfig;
+		CMediaPlayerMng::getInstance()->startAply(ringFile, FN_ADVPLAY_MODULE_ID);
+		AudioType = 2;
+		showInfo("------------------------------------startAply来电铃声.\n");
+	}
+	pthread_mutex_unlock(&m_mutex);
+	m_nNotice = 1;
+	sem_post(&timeSem);
+	return true;
+}
+
+bool AdvertisementMan::mediaCallNotic(MediaCall mCall)
+{
+	pthread_mutex_lock(&m_mutex);
+	m_mediaCall = mCall;
+
+	for (int i = 0; i < adverCount; i++)
+	{
+		adverObjs[i].currentEndTime += 1;
+	}
+	if (mCall.mCallState == 0)
+	{
+		adverObjs[mCall.mCallPlayArea].currentEndTime = 0;
+	}
+	pthread_mutex_unlock(&m_mutex);
+	sem_post(&timeSem);
+	return true;
+}
+
+bool AdvertisementMan::disposeF2()
+{
+	if (!(cPhoneState.uCurMajorState & ~(FNC_STATE_NORMAL | FNC_STATE_ONHOOK)))
+	{
+		if (adverObjs[0].actInfo.szAddImageFileName[0] != 0)
+		{
+			adverObjs[0].wnd->bgImage->loadBgImage(adverObjs[0].actInfo.szAddImageFileName, adverObjs[0].width, adverObjs[0].height);
+			//CMediaPlayerMng::getInstance()->stopMajorVNAply(FN_ADVPLAY_MODULE_ID);
+			stopMajorPlayer();
+			adverObjs[0].wnd->show();
+			adverObjs[0].actInfo.szAddImageFileName[0] = 0;
+		}
+		return true;
+	}
+	return false;
+}
+
+bool AdvertisementMan::stopMajorPlayer()
+{
+	showInfo("当前节目类型 majorVideoType %d AudioType %d\r\n", majorVideoType, AudioType);
+	if (majorVideoType == 1 && AudioType == 1)
+	{
+		if(!CMediaPlayerMng::getInstance()->stopMajorVNAply(FN_ADVPLAY_MODULE_ID))
+		{
+			showWarning("关闭主播放区音视频失败.(音视频同步播放)\n");
+			return false;
+		}
+		majorVideoType = 0;
+		AudioType = 0;
+		showWarning("关闭主播放区音视频成功.(音视频同步播放)\n");
+	}
+	else if (majorVideoType == 2 && AudioType == 2)
+	{
+		if(!CMediaPlayerMng::getInstance()->stopMajorVPly(FN_ADVPLAY_MODULE_ID))
+		{
+			showWarning("关闭主播放区视频失败.(音视频异步播放)\n");
+			return false;
+		}
+		showWarning("关闭主播放区视频成功.(音视频异步播放)\n");
+		if(!CMediaPlayerMng::getInstance()->stopAply(FN_ADVPLAY_MODULE_ID))
+		{
+			showWarning("关闭主播放区音频失败.(音视频异步播放)\n");
+			return false;
+		}
+		showWarning("关闭主播放区音频成功.(音视频异步播放)\n");
+		majorVideoType = 0;
+		AudioType = 0;
+	}
+	else if (majorVideoType == 2 && AudioType == 0)
+	{
+		if(!CMediaPlayerMng::getInstance()->stopMajorVPly(FN_ADVPLAY_MODULE_ID))
+		{
+			showWarning("关闭主播放区音视频失败.(单视频播放)\n");
+			return false;
+		}
+		showWarning("关闭主播放区音视频成功.(单视频播放)\n");
+		majorVideoType = 0;
+	}
+	else if (majorVideoType == 0 && AudioType == 2)
+	{
+		if(!CMediaPlayerMng::getInstance()->stopAply(FN_ADVPLAY_MODULE_ID))
+		{
+			showWarning("关闭主播放区音视频失败.(单音频播放)\n");
+			return false;
+		}
+		showWarning("关闭主播放区音视频成功.(单音频播放)\n");
+		AudioType = 0;
+	}
+	return true;
+}
+
 //这个线程是一秒钟一次的
 void *AdvertisementMan::playerTimeThread(void *pData)
-{	
+{
 	AdvertisementMan *pObj = (AdvertisementMan*)pData;
 	sem_init(&pObj->timeSem, 0, 0);
 	pObj->playTimeRunSign = 1;
-	
+
 	pObj->doplayerTimethd();
-	
+
 	sem_destroy(&pObj->timeSem);
 	return NULL;
 }
@@ -96,20 +288,20 @@ void AdvertisementMan::doplayerTimethd()
 	int i , j;
 	time_t  timep;
 	struct  tm  *p;
-	
+
 	char *pImage = NULL;
-	
+
 	struct timeval tv;
 	struct timezone tz;
 	timespec sp;
 	int nYieldArea[4] = {0};
-	
+
 	while(playTimeRunSign)
 	{
 		memset(nYieldArea, 0, sizeof(nYieldArea)); 
 		if(m_nNotice)
 		{
-			showInfo("广告状态 %d 处理.\n", phoneState);			
+			showInfo("广告状态 %d 处理.\n", phoneState);
 		}
 		gettimeofday (&tv , &tz);
 		pthread_mutex_lock(&m_mutex);
@@ -123,8 +315,7 @@ void AdvertisementMan::doplayerTimethd()
 					//读取在代码里的图片
 					showDebug("打开default 图片.\n");
 					int nLen = sizeof(cDefaultJPEG);
-					//指广告区域数量
-					for (i = 0; i< adverCount; i++)
+					for (i = 0; i< adverCount; i++)//指广告区域数量
 					{
 						if (adverObjs[i].wnd->bgDefaultImg->loadXMLImage(cDefaultJPEG, 
 							nLen, 
@@ -183,7 +374,7 @@ void AdvertisementMan::doplayerTimethd()
 					}
 					continue;
 				}
-				
+
 				//让出主窗口和音频播放
 				if (i == 0)
 				{
@@ -233,7 +424,7 @@ void AdvertisementMan::doplayerTimethd()
 
 				//待机类广告播放
 				adverObjs[i].currentEndTime--;
-				
+
 				if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec) ||
 					(adverObjs[i].currentEndTime < 1))
 				{
@@ -270,7 +461,7 @@ void AdvertisementMan::doplayerTimethd()
 					{
 						continue;
 					}
-
+					
 					adverObjs[i].currentEndTime = adverObjs[i].actInfo.PlayTime;
 					
 					//如果是响铃状态，把广告音频去掉
@@ -367,8 +558,8 @@ void AdvertisementMan::doplayerTimethd()
 								showInfo("-------------------------------enter startMajorVNAply i:[%d].\n", i);
 								//带音频的视频播放
 								if (!CMediaPlayerMng::getInstance()->startMajorVNAply(
-									adverObjs[i].actInfo.szMainFileName, 
-									adverObjs[i].actInfo.szMusicFileName, 
+									adverObjs[i].actInfo.szMainFileName,
+									adverObjs[i].actInfo.szMusicFileName,
 									FN_ADVPLAY_MODULE_ID))
 								{
 									showWarning("打开带音频的视频播放失败.\n");
@@ -419,20 +610,15 @@ void AdvertisementMan::doplayerTimethd()
 				adverObjs[j].wnd->hide();
 			}
 		}
-
+		
 CONTINUE:
 		pthread_mutex_unlock(&m_mutex);
-
+		
 		m_nNotice = 0;
-
+		
 		sp.tv_nsec = tv.tv_usec * 1000;
 		sp.tv_sec = tv.tv_sec + 1;
 		sem_timedwait(&timeSem, &sp);
 	}
 }
-
-
-
-
-
 

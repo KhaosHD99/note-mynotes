@@ -472,9 +472,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       know how to use window stack                                                       
 
 11.03 assert                                                                 
-      msglog                                                                 **              
+      msglog                                                                 *            
       g_convert realese                                                      
-      reset                      				             **
+      reset                      				             *
       group manage                                                           **
       validate(regular exepress)                                             **
       contact buf add phonecount emailcount                                  over
@@ -487,7 +487,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       按两下才能退出                                                         over
       other frame                                                            over
       incoming UI                                                             **             
-      contact.cfg 导致崩溃                                                    **
+      contact.cfg 导致崩溃                                                    ***
       Contact同步Calllog                                                      over
       messagedialog save error                                                over
       intermittent edit contact error                                         ?
@@ -571,34 +571,51 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       
       chinese input sougu
 
-11.11 expire time
-      if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec)              ||(adverObjs[i].currentEndTime < 1))
+1111 expire time
+     if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec)              ||(adverObjs[i].currentEndTime < 1))
       
-      state
-      Major Display Area Num
-      use enum not define 
-      void *doPlayTimethd(void *pData)
-      intermittent segmentation fault
-
-11.12 multi thread class new
-      file type actAdOnLine
-      state
-
-1114 完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，它只检查程序功能是否按照     需求规格说明书的规定正常使用
-
+     state
+     Major Display Area Num
+     use enum not define 
+     void *doPlayTimethd(void *pData)
+     intermittent segmentation fault
+     
+1112 multi thread class new
+     file type actAdOnLine
+     state
+     
+1114 完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，它只检查程序功能是否按照       需求规格说明书的规定正常使用
+     
 1115 add a thread to change state
      check is it '\0'
      init args
      img path 
-
+     
 1116 specification                                                                 **
      resolve warning                                                               over
      incoming to missed or received                                                **
-     name showStyle                                                                 
+     name showStyle                                                                * 
      double click: edit                                                             
      combobox active                                                                *
      calllog show design
      mainfile id
      play time who control
      ='\0' sure nothing ?
-     unique name                                                                        **
+     unique name                                                                   over
+     
+1117 unique name(judge by full_name)
+     转义字符          
+     .gtkrc-2.0_medium:9: Unable to locate image file in pixmap_path:                           "images/pc_main_bg_imag.jpg"
+     
+     lpconfig file last line
+
+     not real time change                                                        over
+     
+     release xml resource
+     multi select
+     thread safe
+     word 图片 紧凑
+     stop major player
+     
+     FNC_STATE_STREAMING_MEDIA
+     
