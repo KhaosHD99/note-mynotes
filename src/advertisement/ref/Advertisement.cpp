@@ -276,9 +276,9 @@ void *AdvertisementMan::playerTimeThread(void *pData)
 	AdvertisementMan *pObj = (AdvertisementMan*)pData;
 	sem_init(&pObj->timeSem, 0, 0);
 	pObj->playTimeRunSign = 1;
-
+	
 	pObj->doplayerTimethd();
-
+	
 	sem_destroy(&pObj->timeSem);
 	return NULL;
 }
