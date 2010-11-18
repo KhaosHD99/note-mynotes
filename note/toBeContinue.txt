@@ -620,19 +620,19 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      FNC_STATE_STREAMING_MEDIA
      
      pb skin path
-     g_free
+     g_free                                                                           
      column width                                                                     **
           
-1118 excess one row                                                                   
-     pointer write spec                                                                                                                                
-     Check Max contact; Max calllog                                                  
-     calllog: phonetype   quickdial: phonetype                                        
-     get_contact_count critical error                                                **
-     sync quick dial                                                                 *
-     two quicklist sync                                                              * 
-     file type:  online 264 jpg
+1118 excess one row                                                                   over                                                       
+     pointer write spec                                                                                                                          
+     Check Max contact; Max calllog                                                   **
+     calllog: phonetype   quickdial: phonetype                                        **                                        
+     get_contact_count critical error                                                 **
+     sync quick dial                                                                  over
+     two quicklist sync                                                               over
+     file type:  online 264 jpg                                                                  
      
      no such lock  
      no such sleep
                    
-     
+     change class instance mode
