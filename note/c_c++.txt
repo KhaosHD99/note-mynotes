@@ -225,7 +225,11 @@ void CPP_fun()
       
       __LINE__, __FILE__ ##__VA_ARGS__ very useful
 
-11.09 function daclare: args can add data type prefix     
+11.09 function daclare: args can add daype prefix     
 
 11.17 sprintf(str, "%i", index);
       str 用字符数组
+
+11.18 实例化一个类， 如果申请动态内存，要手动释放（new)
+      如果采用值类型的方法实例化类，就自动释放资源
+      
