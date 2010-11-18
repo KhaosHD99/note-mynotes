@@ -596,14 +596,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      incoming to missed or received                                                **
      name showStyle                                                                * 
      double click: edit                                                             over                                                     
-     combobox active                                                                *
+     combobox active                                                                **
      calllog show design                                                            over
      mainfile id                                                                    over
      play time who control                                                          over
      ='\0' sure nothing ?                                                          
-     unique name                                                                   over
+     unique name                                                                    over
      
-1117 unique name(judge by full_name)
+1117 unique name(judge by full_name)                                               *
      ×ªÒå×Ö·û                                                                      *      
      .gtkrc-2.0_medium:9: Unable to locate image file in pixmap_path:                           "images/pc_main_bg_imag.jpg"
      
@@ -611,7 +611,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
      not real time change                                                           over
      
-     release xml resource
+     release xml resource                                                            *
      multi select
      thread safe
      word Í¼Æ¬ ½ô´Õ
@@ -621,4 +621,18 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
      pb skin path
      g_free
-     column width                                                                   *
+     column width                                                                     **
+          
+1118 excess one row                                                                   
+     pointer write spec                                                                                                                                
+     Check Max contact; Max calllog                                                  
+     calllog: phonetype   quickdial: phonetype                                        
+     get_contact_count critical error                                                **
+     sync quick dial                                                                 *
+     two quicklist sync                                                              * 
+     file type:  online 264 jpg
+     
+     no such lock  
+     no such sleep
+                   
+     
