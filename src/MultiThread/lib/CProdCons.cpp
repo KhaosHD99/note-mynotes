@@ -15,8 +15,8 @@ CProdCons :: CProdCons()
 void CProdCons :: Init()
 {
    //Init the  semaphore
-    int ini1 = sem_init(&pc_buffer->empty_sem, 0, BUFFER_SIZE); 
-	int ini2 = sem_init(&pc_buffer->full_sem, 0, 0);  
+    int ini1 = sem_init(&pc_buffer->empty_sem, 0, BUFFER_SIZE);
+	int ini2 = sem_init(&pc_buffer->full_sem, 0, 0);
 	if(ini1 || ini2 != 0)
 	{
 	   printf("cond init failed \n");

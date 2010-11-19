@@ -185,7 +185,7 @@ bool AdvertisementMan::mediaCallNotic(MediaCall mCall)
 {
 	pthread_mutex_lock(&m_mutex);
 	m_mediaCall = mCall;
-
+	
 	for (int i = 0; i < adverCount; i++)
 	{
 		adverObjs[i].currentEndTime += 1;
@@ -272,7 +272,7 @@ bool AdvertisementMan::stopMajorPlayer()
 
 //这个线程是一秒钟一次的
 void *AdvertisementMan::playerTimeThread(void *pData)
-{
+{	
 	AdvertisementMan *pObj = (AdvertisementMan*)pData;
 	sem_init(&pObj->timeSem, 0, 0);
 	pObj->playTimeRunSign = 1;
