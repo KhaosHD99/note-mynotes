@@ -635,4 +635,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      no such lock  
      no such sleep
                    
-     change class instance mode
+     change class instance mode                                                      **
+
+1119 ifndef(row_count)
+     constructor private: can not instance not only ref type but also value type
+     img null
+     value type can not be single instance
+     sem_timedwait    sem_post   runsign 
+     #include <semaphore.h> timeval
+     ¸ñÊ½»¯×Ö·û
+     
+     

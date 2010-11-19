@@ -6,7 +6,6 @@
 #include "Config.h"
 #include "AppIMediaPlayerMng.h"
 
-
 const int phoneStateNum			= 7;
 
 
@@ -43,7 +42,7 @@ class Advertisement
 		int x, y;
 		int width, height;
 		int windowType;
-		pthread_t adPthreadID;				//线程ID
+		pthread_t adPthreadID;			//线程ID
 
 		AdvertisementWnd *wnd;				//图片显示窗口
 		unsigned short *imageBuf;
@@ -59,7 +58,6 @@ class Advertisement
 
 		bool init(int x, int y, int width, int height, int wintype);
 };
-
 
 struct CPhoneState
 {
