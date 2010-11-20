@@ -639,14 +639,17 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      constructor private: can not create instance not only ref type but also value type       
      img null                                                                                over
      value type can not be single instance                                                   over                                    
-     sem_timedwait    sem_post   runsign                                                     over                                              
+     sem_timedwait    sem_post   runsign                                                     over                                                                                                                     
      #include <semaphore.h> timeval                                                          over
      ¸ñÊ½»¯×Ö·û                                                                              over                                                           
-     class conding style                                                                     
+     class conding style                                                                         
      real time get state!!!                                                                  over
      
 1120 return value spec
      goto
      show date style
      open what headerfile 
-	
+     	
+     change endtime
+     add scroll text
+     
