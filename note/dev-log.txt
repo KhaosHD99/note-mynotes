@@ -158,4 +158,6 @@
 11.18 1)phonebook quickdial: add del
       2)adver main control
       3)must clear thinking per 
-	  
+      
+11.19 1)must know what exactly need to do
+      2)

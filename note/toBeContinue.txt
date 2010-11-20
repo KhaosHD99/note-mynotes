@@ -604,7 +604,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      unique name                                                                    over
      
 1117 unique name(judge by full_name)                                               *
-     转义字符                                                                      *      
+     转义字符                                                                        over
      .gtkrc-2.0_medium:9: Unable to locate image file in pixmap_path:                           "images/pc_main_bg_imag.jpg"
      
      lpconfig file last line                                                        *
@@ -624,25 +624,24 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      column width                                                                     **
           
 1118 excess one row                                                                   over                                                       
-     pointer write spec                                                                                                                          
+     pointer write spec                                                               **                 
      Check Max contact; Max calllog                                                   **
      calllog: phonetype   quickdial: phonetype                                        **                                        
      get_contact_count critical error                                                 **
      sync quick dial                                                                  over
      two quicklist sync                                                               over
      file type:  online 264 jpg                                                                  
-     
-     no such lock  
-     no such sleep
-                   
-     change class instance mode                                                      **
+     no such lock                                                                      
+     no such sleep                                                                        
+     change class instance mode                                                        **
 
-1119 ifndef(row_count)
-     constructor private: can not instance not only ref type but also value type
-     img null
-     value type can not be single instance
-     sem_timedwait    sem_post   runsign 
-     #include <semaphore.h> timeval
-     格式化字符
+1119 ifndef(row_count)                                                                 over
+     constructor private: can not instance not only ref type but also value type       
+     img null                                                                          over
+     value type can not be single instance                                             ?                                    
+     sem_timedwait    sem_post   runsign                                               *                                               
+     #include <semaphore.h> timeval                                                    
+     格式化字符                                                                        over                                                           class conding style
+     real time get state!!!                                                            
      
-     
+	
