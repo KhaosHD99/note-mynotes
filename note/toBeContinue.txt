@@ -619,29 +619,34 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
      FNC_STATE_STREAMING_MEDIA
      
-     pb skin path
-     g_free                                                                           
+     pb skin path									
+     g_free                                                                           **
      column width                                                                     **
           
 1118 excess one row                                                                   over                                                       
-     pointer write spec                                                               **                 
-     Check Max contact; Max calllog                                                   **
-     calllog: phonetype   quickdial: phonetype                                        **                                        
-     get_contact_count critical error                                                 **
-     sync quick dial                                                                  over
-     two quicklist sync                                                               over
-     file type:  online 264 jpg                                                                  
-     no such lock                                                                      
-     no such sleep                                                                        
-     change class instance mode                                                        **
-
-1119 ifndef(row_count)                                                                 over
-     constructor private: can not instance not only ref type but also value type       
-     img null                                                                          over
-     value type can not be single instance                                             ?                                    
-     sem_timedwait    sem_post   runsign                                               *                                               
-     #include <semaphore.h> timeval                                                    
-     格式化字符                                                                        over                                                           class conding style
-     real time get state!!!                                                            
+     pointer write spec                                                                      **                 
+     Check Max contact; Max calllog                                                          over
+     calllog: phonetype   quickdial: phonetype                                               **                                        
+     get_contact_count critical error                                                        **
+     sync quick dial with contact                                                            **
+     two quicklist sync                                                                      over
+     file type:  online 264 jpg                                                              over
+     no such lock                                                                      	     over
+     no such sleep             						                     over
+     change class instance mode                                                              **
+											     
+1119 ifndef(row_count)                                                                       over
+     constructor private: can not create instance not only ref type but also value type       
+     img null                                                                                over
+     value type can not be single instance                                                   over                                    
+     sem_timedwait    sem_post   runsign                                                     over                                              
+     #include <semaphore.h> timeval                                                          over
+     格式化字符                                                                              over                                                           
+     class conding style                                                                     
+     real time get state!!!                                                                  over
      
+1120 return value spec
+     goto
+     show date style
+     open what headerfile 
 	

@@ -158,6 +158,12 @@
 11.18 1)phonebook quickdial: add del
       2)adver main control
       3)must clear thinking per 
-      
+      	
 11.19 1)must know what exactly need to do
-      2)
+      2)semaphore timedwait
+	
+11.20 1)semaphore timewait
+      2)pb: autotools can not compile mixed c && c++
+	    can i replace the pb UI code from c to c++ for resource auto realese
+      3)pb: Max count		 
+
