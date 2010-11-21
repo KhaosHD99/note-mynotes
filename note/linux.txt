@@ -141,4 +141,5 @@
 	
    pc file pass args to configure.in 
    ##_ multi args
-	
+
+11.21 apt-get install lrzsz 	
