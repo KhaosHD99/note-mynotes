@@ -645,11 +645,13 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      class conding style                                                                         
      real time get state!!!                                                                  over
      
-1120 return value spec
-     goto
-     show date style
-     open what headerfile 
+1120 return value spec                                                                       **
+     goto                                                                                        *
+     show date style                                                                          
+     open what headerfile                                                                    
      	
      change endtime
      add scroll text
      
+1121 struct size align on mem  
+     check pointer is NULL                          
