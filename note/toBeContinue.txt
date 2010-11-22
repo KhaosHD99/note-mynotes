@@ -611,7 +611,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
      not real time change                                                           over
      
-     release xml resource                                                            *
+     release xml resource                                                            **
      multi select
      thread safe
      word 图片 紧凑
@@ -623,7 +623,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      g_free                                                                           **
      column width                                                                     **
           
-1118 excess one row                                                                   over                                                       
+1118 excess one row                                                                   over                               
      pointer write spec                                                                      **                 
      Check Max contact; Max calllog                                                          over
      calllog: phonetype   quickdial: phonetype                                               **                                        
@@ -646,12 +646,24 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      real time get state!!!                                                                  over
      
 1120 return value spec                                                                       **
-     goto                                                                                        *
-     show date style                                                                          
+     goto                                                                                    *
+     show date style                                                                         
      open what headerfile                                                                    
-     	
-     change endtime
-     add scroll text
-     
-1121 struct size align on mem  
-     check pointer is NULL                          
+     change endtime                                                                          over
+     add scroll text(roll text store)                                                        **
+     											     
+1121 struct size align on mem                                                                *
+     check pointer is NULL                                                                   *
+												
+1122 merge xmlparser and adver to a prj                                                      over
+     adver: video                                                                      	     **
+     adver: doc                                                                              **
+     pb:    src                                                                              ***
+     pb:    doc                                                                              **
+     特效：垂帘时间                                                                                     
+     init first less 2 sec                                                                   over                             gtk_list_store_set_valist: assertion `VALID_ITER (iter, list_store)' failed             *
+     on_button_save_account_focus_in_event						     
+     dialog bk_color; fix size; rm lamp     							     				
+     no select                                                                               over
+     free builder									     
+     config file                                                                             **	     	
