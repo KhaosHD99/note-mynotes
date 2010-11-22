@@ -662,7 +662,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      pb:    doc                                                                              **
      特效：垂帘时间                                                                                     
      init first less 2 sec                                                                   over                             gtk_list_store_set_valist: assertion `VALID_ITER (iter, list_store)' failed             *
-     on_button_save_account_focus_in_event						     
+     on_button_save_account_focus_in_event	                                             					     
      dialog bk_color; fix size; rm lamp     							     				
      no select                                                                               over
      free builder									     
