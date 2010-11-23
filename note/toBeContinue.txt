@@ -641,8 +641,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      value type can not be single instance                                                   over                                    
      sem_timedwait    sem_post   runsign                                                     over                                                                                                                     
      #include <semaphore.h> timeval                                                          over
-     格式化字符                                                                              over                                                           
-     class conding style                                                                         
+     格式化字符                                                                              over                        
+     class conding style 
      real time get state!!!                                                                  over
      
 1120 return value spec                                                                       **
@@ -652,7 +652,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      change endtime                                                                          over
      add scroll text(roll text store)                                                        **
      											     
-1121 struct size align on mem                                                                *
+1121 struct size align on mem                                                                over
      check pointer is NULL                                                                   *
 												
 1122 merge xmlparser and adver to a prj                                                      over
@@ -662,8 +662,17 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      pb:    doc                                                                              **
      特效：垂帘时间                                                                                     
      init first less 2 sec                                                                   over                             gtk_list_store_set_valist: assertion `VALID_ITER (iter, list_store)' failed             *
-     on_button_save_account_focus_in_event	                                             					     
+     on_button_save_account_focus_in_event	                                             					
      dialog bk_color; fix size; rm lamp     							     				
      no select                                                                               over
      free builder									     
-     config file                                                                             **	     	
+     config file                                                                             **	      	
+     												
+1123 key button event                                                                        *
+     play pos                                                                                over
+     
+     
+     
+     
+     
+     
