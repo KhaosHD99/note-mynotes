@@ -167,3 +167,13 @@
 	    can i replace the pb UI code from c to c++ for resource auto realese
       3)pb: Max count		 
 
+11.21 1)football(jiaxin, zhaoli, zhiyong, souyi, haiwu)
+      2)
+
+11.22 1)pb: key event; phonum selector
+      2)adver
+
+11.23 1)main control logical error(key:new fish)
+      2)read time list error(key: read_pos)
+      3)debug on board(no feel exciting i thought before(lack cross compile))
+       
