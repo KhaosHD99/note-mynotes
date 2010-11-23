@@ -461,18 +461,18 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
 11.01 blank validate                                                        
       focus hold on(delete ...)        
-      实习报告
-      cppunit xunit cunit
+      实习报告                                                              over
+      cppunit xunit cunit                                                   **
             
       根据《需求分析说明书》编写《确认测试计划》，
       根据《概要设计说明书》编写《集成测试计划》，
       根据《详细设计说明书》编写《单元测试计划》
 
 11.02 call event handler                                                    over
-      know how to use window stack                                                       
+      know how to use window stack                                          over                                             
 
 11.03 assert                                                                 
-      msglog                                                                 *            
+      msglog                                                                 over           
       g_convert realese                                                      
       reset                      				             *
       group manage                                                           **
@@ -481,12 +481,12 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       set active                                                              ?
       input chinese                                                          over
       remove avatar                                                          over 
-      window single instance                                                  *
+      window single instance                                                  **
                                                        
 11.04 注释                                                                    *
       按两下才能退出                                                         over
       other frame                                                            over
-      incoming UI                                                             **             
+      incoming UI                                                            over
       contact.cfg 导致崩溃                                                    ***
       Contact同步Calllog                                                      over
       messagedialog save error                                                over
@@ -541,8 +541,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       #define AFX_XMLNODE_H__62C0DE1E_9243_4DEE_AD79_20259B577A39__INCLUDED_
       XMLInitLib
       goto RETURN
-      StrToLower(encoding)                                                        **
-      TrimSpace                                                                   **
+      StrToLower(encoding)                                                        *
+      TrimSpace                                                                   *
       struct stat statdata = {0};
 
       if(!cText)
@@ -555,12 +555,12 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       }
 
       xml encoding                                                             
-      text node?                                                               over
+      text node?                                                                 over
 
-11.10 nOffset = nNum * sizeof(TERMINAL_ACT_INFO) + 4;
-      m_pStateActList[0][0] = (FN_STATE_ACT_LIST*)(g_PlaySchemeBuf + nOffset);
-      window type      
-      m_pStateActList[3][FN_STATE_NUM] = NULL;                                      ?   
+11.10 nOffset = nNum * sizeof(TERMINAL_ACT_INFO) + 4;                            *
+      m_pStateActList[0][0] = (FN_STATE_ACT_LIST*)(g_PlaySchemeBuf + nOffset);   *
+      window type                                                                over
+      m_pStateActList[3][FN_STATE_NUM] = NULL;                                   over   
       
       节目列表 逻辑判断最大允许值(24 * 60 * 60) / 5
       
@@ -571,14 +571,16 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       
       chinese input sougu
 
-1111 expire time
-     if ((adverObjs[i].actInfo.endTime < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec)              ||(adverObjs[i].currentEndTime < 1))
+1111 expire time                                                                 over
+     if ((adverObjs[i].actInfo.endTime 
+     < p->tm_hour * 3600 + p->tm_min * 60 +  p->tm_sec)          
+     ||(adverObjs[i].currentEndTime < 1))                                        over
       
      state
-     Major Display Area Num
-     use enum not define 
-     void *doPlayTimethd(void *pData)
-     intermittent segmentation fault
+     Major Display Area Num                                                      over
+     use enum not define                                                         over
+     void *doPlayTimethd(void *pData)                                            over
+     intermittent segmentation fault                                             *
      
 1112 multi thread class new
      file type actAdOnLine
@@ -591,7 +593,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      init args
      img path 
      
-1116 specification                                                                 **
+1116 specification                                                                 over
      resolve warning                                                               over
      incoming to missed or received                                                **
      name showStyle                                                                * 
@@ -603,15 +605,15 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      ='\0' sure nothing ?                                                          
      unique name                                                                    over
      
-1117 unique name(judge by full_name)                                               *
-     转义字符                                                                        over
+1117 unique name(judge by full_name)                                                *
+     转义字符                                                                       over
      .gtkrc-2.0_medium:9: Unable to locate image file in pixmap_path:                           "images/pc_main_bg_imag.jpg"
      
      lpconfig file last line                                                        *
 
      not real time change                                                           over
      
-     release xml resource                                                            **
+     release xml resource                                                            over
      multi select
      thread safe
      word 图片 紧凑
@@ -654,25 +656,19 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      											     
 1121 struct size align on mem                                                                over
      check pointer is NULL                                                                   *
-												
+											     
 1122 merge xmlparser and adver to a prj                                                      over
-     adver: video                                                                      	     **
+     adver: video                                                                      	     over
      adver: doc                                                                              **
      pb:    src                                                                              ***
      pb:    doc                                                                              **
      特效：垂帘时间                                                                                     
-     init first less 2 sec                                                                   over                             gtk_list_store_set_valist: assertion `VALID_ITER (iter, list_store)' failed             *
-     on_button_save_account_focus_in_event	                                             					
-     dialog bk_color; fix size; rm lamp     							     				
+     init first less 2 sec                                                                   over                                       gtk_list_store_set_valist: assertion `VALID_ITER (iter, list_store)' failed                  *
+     on_button_save_account_focus_in_event	                                             over                          				
+     dialog bk_color; fix size; rm lamp     						          				
      no select                                                                               over
-     free builder									     
-     config file                                                                             **	      	
-     												
+     free builder, gtkwidget			                                                     						 
+     config file                                                                             **	
+     xmlFreeDoc    free(szOut);                                                              over                                                     					                      							
 1123 key button event                                                                        *
      play pos                                                                                over
-     
-     
-     
-     
-     
-     
