@@ -177,3 +177,5 @@
       2)read time list error(key: read_pos)
       3)debug on board(no feel exciting i thought before(lack cross compile))
        
+11.24 1)adver
+      2)pb
