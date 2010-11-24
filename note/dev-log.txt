@@ -179,3 +179,5 @@
        
 11.24 1)adver
       2)pb
+      3)gcc main.c -I/opt/include -L/opt/lib -lcunit
+      
