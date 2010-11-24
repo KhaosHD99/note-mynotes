@@ -505,16 +505,16 @@ gcc: -lglib-2.0: linker input file unused because linking not done
       link    
       
       CFLAGS="$CFLAGS `pkg-config --cflags --libs gtk+-2.0` -export-dynamic"
-      CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0` -export-dynamic"             **
-      
+      CFLAGS="$CFLAGS `pkg-config --cflags gtk+-2.0` -export-dynamic"   
+      gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done      ***
+          
 11.07 index count and phonenum count
       -no-undefined -version-info $(LIBFNXMLPARSER_SO_VERSION)
       debian sudo
       Makefile.am CURRENTPATH top_srcdir                                          ?
-      	
       gtkContact.c:1163: warning: passing argument 1 of ¡®
       gtk_combo_box_set_mod el¡¯ from                                                             incompatible pointer type                                                    over            
-      gcc: -lgdk_pixbuf-2.0: linker input file unused because linking not done      *
+      
      
 11.08 XML_ELEMENT_NODE = 1
       XML_ATTRIBUTE_NODE = 2
@@ -630,7 +630,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      Check Max contact; Max calllog                                                          over
      calllog: phonetype   quickdial: phonetype                                               **                                        
      get_contact_count critical error                                                        **
-     sync quick dial with contact                                                            **
+     sync quickdial/blacklist with contact                                                   **
      two quicklist sync                                                                      over
      file type:  online 264 jpg                                                              over
      no such lock                                                                      	     over
@@ -668,7 +668,15 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      dialog bk_color; fix size; rm lamp     						          				
      no select                                                                               over
      free builder, gtkwidget			                                                     						 
-     config file                                                                             **	
-     xmlFreeDoc    free(szOut);                                                              over                                                     					                      							
-1123 key button event                                                                        *
+     config file                                                                             **
+     xmlFreeDoc    free(szOut);                                                              over                                                       					                      						
+1123 key button event                                                                        over
      play pos                                                                                over
+     												
+1124 change img                                                                              over
+     release instance                                                                         ?
+     "12593" 
+     max quickdial blacklist control  
+     col enum 
+     do not use install temporary
+     
