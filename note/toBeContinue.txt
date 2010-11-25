@@ -673,10 +673,10 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 1123 key button event                                                                        over
      play pos                                                                                over
      												
-1124 change img                                                                              over
+1124 change img                                                                        over
      release instance                                                                         ?
-     "12593" 
-     max quickdial blacklist control  
+     "12593"
+     max quickdial blacklist control
      col enum 
      do not use install temporary
      
