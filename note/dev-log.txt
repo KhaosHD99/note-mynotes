@@ -180,7 +180,8 @@
 11.24 1)adver
       2)pb
       3)gcc main.c -I/opt/include -L/opt/lib -lcunit
-      4)cunit
-
+      4)doc
+      5)cunit
+	
 11.25 1)doc
-      2)     
+      2)r360
