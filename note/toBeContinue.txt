@@ -680,3 +680,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      col enum 
      do not use install temporary
      
+1125 change state externally
+     interface dot not depend on another interface
+     thumbs.db
+     video with music                                                                       ? 
+	
