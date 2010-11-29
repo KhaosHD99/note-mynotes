@@ -693,3 +693,5 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      glib-2.0 2.16.6
      glibc libc
      go througt wall
+     debian 505 link webkit error                                                              ?
+     list now running serve
