@@ -1,0 +1,8 @@
+xv6cx5Qn3cC4
+
+peanut: elonjie 
+        7AIUHWK4
+
+source list: deb ftp://ftp.tw.debian.org/debian/ lenny main
+
+             deb http://mirrors.cn99.com/debian lenny main

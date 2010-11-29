@@ -686,3 +686,10 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      video with music                                                                       ? 
      
 1128 <regex.h>
+
+1129 extension "RANDR" missing on display "10.10.100.216:0.0"
+     No protocol specified
+     glib 1.2.10
+     glib-2.0 2.16.6
+     glibc libc
+     go througt wall
