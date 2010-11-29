@@ -697,4 +697,14 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      list now running serve
      samba powerboot
      dpkg 
-
+     source list use each other                                                                ?
+     ip dif when i login every time
+     cancel screen saver
+ 
+1130 dpkg: error processing /var/cache/apt/archives/libc-bin_2.11.1-0ubuntu7.5_i386.deb (--unpack):
+     trying to overwrite `/usr/sbin/update-locale', which is also in package locales
+     dpkg-deb: subprocess paste killed by signal (Broken pipe)
+     Errors were encountered while processing:
+     /var/cache/apt/archives/libc-bin_2.11.1-0ubuntu7.5_i386.deb
+    
+     
