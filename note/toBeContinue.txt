@@ -695,3 +695,6 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      go througt wall
      debian 505 link webkit error                                                              ?
      list now running serve
+     samba powerboot
+     dpkg 
+
