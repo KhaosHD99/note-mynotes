@@ -53,3 +53,6 @@
       get phonenum by index
       get model from combo / get from liststore
       gtk_tree_model(liststore)
+
+11.30 widget position point
+      webkit_web_view_stop_loading	
