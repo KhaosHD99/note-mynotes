@@ -751,4 +751,11 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      tea
      ¼Æ»®
      gantt
-     
+     dhclient3
+     su -
+     interface
+     ubuntu could not get lock
+     ubuntu ifup ifdown
+     mount                                                                                               *
+     ubuntu network can not out; samba          
+                                                                                 
