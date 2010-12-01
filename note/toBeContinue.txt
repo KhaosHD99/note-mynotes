@@ -707,4 +707,27 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      Errors were encountered while processing:
      /var/cache/apt/archives/libc-bin_2.11.1-0ubuntu7.5_i386.deb
     
+     statu button 
+     no such device
+     couldn't read interface file
+     undefined reference to `webkit_web_view_get_uri'
+     mtu
+     webkit_web_frame_get_uri
+     gtk_container_get_focus_child
      
+     only new webview hava ready event 
+     tar cover    
+     stop button                                                      ?
+     http://burtonini.com/bzr/
+     check sensitive
+
+     If you want the position of a widget relative to its parent, you should use widget->allocation.x and widget-     >allocation.y.
+     If you want the position of a window relative to the X root window, you should use gdk_window_get_geometry()      gdk_window_get_position() or gdk_window_get_origin().
+     If you want to get the position of the window (including the WM decorations), you should use      gdk_window_get_root_origin().
+     Last but not least, if you want to get a Window Manager frame position, you should use      gdk_window_get_deskrelative_origin().
+     Your choice of Window Manager will have an effect of the results of the above functions. You should keep this in         mind when writing your application. This is dependant upon how the Window Managers manage the decorations that they      add around windows.
+
+     position type
+
+     Obtains the location of the mouse pointer in widget coordinates. Widget coordinates are a bit odd; for historical      reasons, they are defined as widget->window coordinates for widgets that are not GTK_NO_WINDOW widgets, and are      relative to widget->allocation.x, widget->allocation.y for widgets that are GTK_NO_WINDOW widgets. 
+
