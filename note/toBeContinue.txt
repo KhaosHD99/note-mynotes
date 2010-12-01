@@ -721,13 +721,34 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      http://burtonini.com/bzr/
      check sensitive
 
-     If you want the position of a widget relative to its parent, you should use widget->allocation.x and widget-     >allocation.y.
-     If you want the position of a window relative to the X root window, you should use gdk_window_get_geometry()      gdk_window_get_position() or gdk_window_get_origin().
-     If you want to get the position of the window (including the WM decorations), you should use      gdk_window_get_root_origin().
-     Last but not least, if you want to get a Window Manager frame position, you should use      gdk_window_get_deskrelative_origin().
+     If you want the position of a widget relative to its parent, you should use widget->allocation.x and widget-          >allocation.y.
+     If you want the position of a window relative to the X root window, you should use gdk_window_get_geometry()           gdk_window_get_position() or gdk_window_get_origin().
+     If you want to get the position of the window (including the WM decorations), you should use           gdk_window_get_root_origin().
+     Last but not least, if you want to get a Window Manager frame position, you should use           gdk_window_get_deskrelative_origin().
      Your choice of Window Manager will have an effect of the results of the above functions. You should keep this in         mind when writing your application. This is dependant upon how the Window Managers manage the decorations that they      add around windows.
 
      position type
 
      Obtains the location of the mouse pointer in widget coordinates. Widget coordinates are a bit odd; for historical      reasons, they are defined as widget->window coordinates for widgets that are not GTK_NO_WINDOW widgets, and are      relative to widget->allocation.x, widget->allocation.y for widgets that are GTK_NO_WINDOW widgets. 
 
+    webkit_web_view_stop_loading
+
+    lsa
+    avc1
+    sdl
+     
+1201 RFC
+     mail list 
+     APP_ONE
+     APP_TWO  
+     -Wall
+     RTTI
+     大多都主张在设计和开发中明智地使用虚拟成员函数，而不用 RTTI 机制。但是，在很多情况下，虚拟函数无法克服本身的局限
+     
+     Coding Convert; operator
+     promter
+     毕业生登记表和就业推荐表
+     tea
+     计划
+     gantt
+     
