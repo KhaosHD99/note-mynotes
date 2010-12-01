@@ -142,4 +142,10 @@
    pc file pass args to configure.in 
    ##_ multi args
 
-11.21 apt-get install lrzsz 	
+11.21 apt-get install lrzsz
+      couldn't read interface file: interface wrong
+         
+1201 offline mode of firefox is ridiculous 
+     client session is ridiculous(samba)
+     net use * /del
+     

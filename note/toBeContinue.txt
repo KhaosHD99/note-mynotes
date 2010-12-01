@@ -709,7 +709,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
     
      statu button 
      no such device
-     couldn't read interface file
+     couldn't read interface file                                                                                       over
      undefined reference to `webkit_web_view_get_uri'
      mtu
      webkit_web_frame_get_uri
@@ -747,15 +747,25 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
      Coding Convert; operator
      promter
-     毕业生登记表和就业推荐表
+     毕业生登记表和就业推荐表                                                                          
      tea
      计划
      gantt
      dhclient3
-     su -
-     interface
-     ubuntu could not get lock
-     ubuntu ifup ifdown
-     mount                                                                                               *
-     ubuntu network can not out; samba          
-                                                                                 
+     su -                                              
+     interface                                                                                                                     
+     ubuntu could not get lock                                                                                  **                   *
+     ubuntu ifup ifdown                                                                                                             
+     mount                                                                                                                         *
+     ubuntu network can not out; samba                                                                                       
+     vi copy paste      
+     ping domain name; ping xxx.com (ip) : did it already get something outside                                **
+     tty7 pts/0
+
+1202 adduser useradd
+     netbios  
+     cmd net
+ 
+
+     
+                                                 
