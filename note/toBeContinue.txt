@@ -757,15 +757,34 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      ubuntu could not get lock                                                                                  **                   *
      ubuntu ifup ifdown                                                                                                             
      mount                                                                                                                         *
-     ubuntu network can not out; samba                                                                                       
+     ubuntu network can not out; samba                                                                                        
      vi copy paste      
      ping domain name; ping xxx.com (ip) : did it already get something outside                                **
      tty7 pts/0
-
+     
 1202 adduser useradd
      netbios  
      cmd net
- 
+     week * (en)
+     No protocol specified
+     ubuntu runlevel
+     prompter: frame     
+     实现接口函数
+     regex except
+     相片                                                                                                      **
+     gtk_widget_set_allocation gtk_fixed_move                                                                  over
+     size
+     //xorg
+     #include <X11/Xlib.h>
+     #include <X11/Xutil.h>
+     gdk_threads_enter gdk_threads_init
+     auxiliary                                    ***
+
+1203 
+
 
      
+
+
+
                                                  
