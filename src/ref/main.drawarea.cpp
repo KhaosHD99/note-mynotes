@@ -98,7 +98,8 @@ int main(int argc, char *argv[])
 	if(XInitThreads () == 0)
 		printf(" XInitThreads err\n");
 
-	if(!g_thread_supported()) g_thread_init(NULL);
+	if(!g_thread_supported()) 
+		g_thread_init(NULL);
 	gdk_threads_init();
 	  
 	gtk_init(&argc, &argv);
