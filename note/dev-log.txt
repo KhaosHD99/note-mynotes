@@ -187,7 +187,10 @@
       2)r360
 
 
-1201 1 too many meeting 
-     2 vailsys
-     3 ubuntu samba; network
-     4 prompter
+1201 1) too many meeting 
+     2) vailsys
+     3) ubuntu samba; network
+     4) prompter
+       
+1202 1)prompter(rp:gtk allocation;ubuntu libtool;linkage c)
+     2)
