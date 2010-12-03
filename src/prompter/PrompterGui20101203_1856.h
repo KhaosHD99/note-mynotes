@@ -7,13 +7,20 @@
 
 typedef enum ST_PP
 {
-	ON_HOOK,	//待机
-	OFF_HOOK,	//拨号... + 号码
-	RINGING,	//来电... + 号码
-	CONNECT,	//通话中... + 号码
-	UNCATCH_PHONE_MESSAGE,	//未接来电
-	UNCATCH_SMS_MESSAGE,		//为查看短信
-	UNCATCH_EMAIL_MESSAGE,	//未查看邮件
+	ON_HOOK,	
+		//待机
+	OFF_HOOK,	
+	//拨号... + 号码
+	RINGING,	
+	//来电... + 号码
+	CONNECT,	
+	//通话中... + 号码
+	UNCATCH_PHONE_MESSAGE,	
+	//未接来电
+	UNCATCH_SMS_MESSAGE,		
+	//为查看短信
+	UNCATCH_EMAIL_MESSAGE,	
+	//未查看邮件
 	OTHER_MESSAGE
 }ST_PP;
 
