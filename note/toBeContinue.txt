@@ -801,8 +801,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      fix sized
      ch to utf
      promptergui
-     uncatch stack
-     bg
+     uncatch stack                                                                                       **
+     bg                                                                                                       **
      get state
      init state
      save thread                                                                                             **
@@ -811,3 +811,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      validate state convert                                                                                  **
      #define %s
      get date()
+     linconfig save format
+     common thread modify widget
+     fifo
+     
