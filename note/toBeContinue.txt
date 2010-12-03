@@ -792,12 +792,22 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      gtk_box_pack_end ()
      invalid unclassed pointer 
      Increases the reference count of object
-
+     prompter show hide dispear
+     gtk_label_set_markup ()
      
-
-
+     Pango Text Attribute Markup Language
+     "<span foreground='red' underline='double' underline_color='blue' font_desc='32'>label for test!</span>");
      
-
-
-
-                                                 
+     fix sized
+     ch to utf
+     promptergui
+     uncatch stack
+     bg
+     get state
+     init state
+     save thread                                                                                             **
+     
+     case
+     validate state convert                                                                                  **
+     #define %s
+     get date()
