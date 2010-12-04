@@ -810,8 +810,22 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      case
      validate state convert                                                                                  **
      #define %s
+<<<<<<< .mine
+     get date()
+
+1204 clear msg stack
+     format timer
+     new line                                                                                                         **
+     time style logic                                                                                        **
+     %02d
+     label position
+     --
+     size request
+     g_thread_init
+     label
+     set size request/ size request=======
      get date()
      linconfig save format
      common thread modify widget
      fifo
-     
+     >>>>>>> .r381
