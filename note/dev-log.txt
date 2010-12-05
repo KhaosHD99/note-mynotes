@@ -194,3 +194,13 @@
        
 1202 1)prompter(rp:gtk allocation;ubuntu libtool;linkage c)
      2)
+
+1203 1)prompter: subvert my own label manage design; add timeout
+
+1204 1)promptermsg stack
+     2)go home
+    
+1205 1)some one like a fly all night with do nothing, i want to beat him
+     2)fool route config
+     3)promter: new line ;string cut
+	
