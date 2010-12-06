@@ -809,9 +809,9 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
      case
      validate state convert                                                                                  **
-     #define %s
-<<<<<<< .mine
-     get date()
+     #define %s													
+<<<<<<< .mine													
+     get date()                                                                                                  over
 
 1204 clear msg stack
      format timer
@@ -832,4 +832,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
 1205 pppoe
      arithmetic operator array
-    
+     
+1206 why get time change?
+     new char init value
+     week 
