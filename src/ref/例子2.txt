@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include "CodeConvert.hpp"
+#include "LogMsg.hpp"
+#include "Vial.hpp"
+#include "AbstractModule.hpp"
+
+
+class MyModule : public AbstractModule
+{
+private:
+VialSystem *vialSys;
+public:
+void run();
+virtual bool localInit();
+virtual bool onExit();
+virtual bool OnReceive(Vial *vial);
+public:
+MyModule(VialSystem *vialSys);
+};
+
+
+MyModule::MyModule(VialSystem *vialSys)
+: AbstractModule(vialSys)
+{
+this->vialSys = vialSys;
+}
+
+
+void MyModule::run()
+{
+vialSys->run();
+}
+
+
+bool MyModule::localInit()
+{
+showInfo("localInit\n");
+return false;
+}
+
+
+bool MyModule::onExit()
+{
+showInfo("onExit\n");
+return false;
+}
+
+
+bool MyModule::OnReceive(Vial *vial)
+{
+if (AbstractModule::OnReceive(vial))
+return true;
+
+switch (vial->vialType)
+{
+}
+}
+
+
+int main()
+{
+VialSystem vialSys(FN_TEST_MODULE_ID);
+MyModule myModule(&vialSys);
+myModule.init();
+myModule.run();
+
+return 0;
+}
+
