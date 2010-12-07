@@ -1,0 +1,23 @@
+#define CONTACT_NAME_MAX_LEN 64
+1. 拨号时，根据拨出的号码查找联系人；若查找成功，则向提示窗(prompterModule)发送
+struct ContactPrompterVial : public Vial
+{
+	char szContactName[CONTACT_NAME_MAX_LEN];
+	char szPhoneNum[PHONE_DAIL_MAX_LEN];	//与拨出或来电号码一致
+  VIAL_CONSTRUCTOR(StateChangeVial);                                                                              
+};
+//17951 020 34450620 # 123, 能智能地分析出34453620
+2. 来电时，根据来电号码查找联系人；若查找成功，则向提示窗(prompterModule)发送ContactPrompterVial
+
+
+3. 未接来电，若有未接来电，则定时向提示窗(prompterModule)发送为查看来电信息
+struct UnCatchPhonePrompterVial : public Vial
+{
+	char szContactName[CONTACT_NAME_MAX_LEN];
+	char szPhoneNum[PHONE_DAIL_MAX_LEN];	//与拨出或来电号码一致
+  VIAL_CONSTRUCTOR(StateChangeVial);                                                                              
+};
+
+4. 在电话部来，拨出电话时
+//由电话簿模块向中心发；由中心向PhoneIntf发。
+struct PhoneDialCmdVial

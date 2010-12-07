@@ -835,4 +835,20 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      
 1206 why get time change?
      new char init value
-     week 
+     week  
+     combo entry                                                                                                 **
+
+1207 prompter segmentation fault                                                                                 **
+     foo                 
+     make install                    
+     -Wl,--rpath -Wl,/opt/fn3/mx515_lucid_Compile/lib                                  
+     linux svn      												*     
+     CCST
+     id
+     prefix replaced 												?**
+     .libs/XXX.lai
+
+
+
+	
+ 
