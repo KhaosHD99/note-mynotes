@@ -844,11 +844,35 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      -Wl,--rpath -Wl,/opt/fn3/mx515_lucid_Compile/lib                                  
      linux svn      												*     
      CCST
-     id
+     id                            
      prefix replaced 												?**
-     .libs/XXX.lai
+     .libs/XXX.lai .libs/XXX.la                                                                                  *
+     make install DEST                                                                                    
+     pc.in $() @@
+     wrong pkgconfig path can also get cflag and libs                    ???????????????
+     
+     indirect lib ref                                                                                              ?*
+     liblinconfig.so.0, needed by /home/elon/opt/x86-usr/lib/libfnphonebook.so     
+     
+     泉哥  15:31:17
+     PKG_CHECK_MODULES(FNGTKAPPLICATIONDEF, fnGtkApplicationDef)
+     CFLAGS="$CFLAGS $FNGTKAPPLICATIONDEF_CFLAGS"
+     LIBS="$LIBS $FNGTKAPPLICATIONDEF_LIBS"
 
 
+#include "fnGtkApplicationDef.h"
 
+//电话簿
+init_client(window, PHONEBOOK_ID);//gtk_main()前执行，window为主窗口
+泉哥  16:35:41
+广告播放程序加入
+PKG_CHECK_MODULES(PROMPTERMODULE, promptermodule)
+CFLAGS="$CFLAGS $PROMPTERMODULE_CFLAGS"
+LIBS="$LIBS $PROMPTERMODULE_LIBS"
+
+泉哥  19:02:08
+/home/yaoquan/yaoquan_48/bin
+
+	
 	
  
