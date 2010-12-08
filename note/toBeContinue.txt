@@ -849,7 +849,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      .libs/XXX.lai .libs/XXX.la                                                                                  *
      make install DEST                                                                                    
      pc.in $() @@
-     wrong pkgconfig path can also get cflag and libs                                             ???????????????
+     wrong pkgconfig path can also get cflag and libs                                 myfault!!(pc file in that path            ???????????????
      
      indirect lib ref                                                                                              ?*
      liblinconfig.so.0, needed by /home/elon/opt/x86-usr/lib/libfnphonebook.so     
@@ -873,4 +873,37 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      sda1 SMP
      unknown filesystem type 'smbfs'
      nifs-3g
- 
+
+1208 mount -o nolock 10.10.200.48:/opt/nfs/rootfs/home/yaoquan ./yaoquan_48
+     export LD_LIBRARY_PATH=./:/home/huarun/lib:/home/yaoquan/yaoquan_48/lib:/usr/lib
+     
+     on board
+     10.10.200.48:/opt/nfs/rootfs/home/yaoquan on /home/yaoquan/yaoquan_48 type nfs (rw,nolock,addr=10.10.200.48)
+     10.10.200.48:/opt/fn3/rootfs/home/huarun on /home/huarun/48 type nfs (rw,nolock,addr=10.10.200.48)
+
+     //10.10.100.102/workfor48 on /home/jeffsu/work type cifs (rw,mand,nosuid,nodev,user=jeffsu)     
+
+     installed executable ref lib change                                                   ?????????
+     
+     pc file require                                                                                       **
+     where is update prompter def
+
+     cp mod change    
+     
+     virtual
+    
+     ModuleID VailTypeUID  
+
+     #undef VIAL_LIST
+     
+     browser phonecfg stream vcon 
+      
+     VIAL_CONSTRUCTOR(UnCatchPhonePrompterVial);
+     
+     #define is crazy!!!!!!!!!!!!!!!!!!
+     #undef
+   
+     memcpy(vial->mark, anotherVial->mark,	
+     vial->vialLen-((int)vial->mark - (int)vial));	
+     
+     
