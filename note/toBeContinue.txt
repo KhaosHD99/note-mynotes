@@ -910,7 +910,13 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      polymorphic
      ¶¯Ì¬Áª±à
      mount.nfs: mount to NFS server '192.168.0.88' failed: RPC Error: Program not registered
+     mount -t cifs -ousername="elon",password="en" //192.168.0.89/elon /mnt/89/
      sudo apt-get install smbfs
+<<<<<<< .mine
+
+1209 cifs samba
+     
+	=======
 
 1209 vial sys is private
      why can mounted by everyby
@@ -926,3 +932,4 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      adver: logical judgement 											**
      #include "MessageQueue.h"
      
+>>>>>>> .r394
