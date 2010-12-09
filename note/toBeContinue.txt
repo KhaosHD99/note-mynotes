@@ -883,53 +883,55 @@ gcc: -lglib-2.0: linker input file unused because linking not done
 
      //10.10.100.102/workfor48 on /home/jeffsu/work type cifs (rw,mand,nosuid,nodev,user=jeffsu)     
 
-     installed executable ref lib change                                                   ?????????
+     installed executable ref lib change                                                                         ?????????
      
-     pc file require                                                                                       **
+     pc file require                                                                                                   **
      where is update prompter def
 
-     cp mod change    
+     cp mod change                                                                                                     *   
      
-     virtual
+     virtual             
     
-     ModuleID VailTypeUID  
-
-     #undef VIAL_LIST
-     
+     ModuleID VailTypeUID                                                  				              over
+     #undef VIAL_LIST											              over     
      browser phonecfg stream vcon 
       
      VIAL_CONSTRUCTOR(UnCatchPhonePrompterVial);
      
      #define is crazy!!!!!!!!!!!!!!!!!!
      #undef
-   
+   	
      memcpy(vial->mark, anotherVial->mark,	                                                                       *
      vial->vialLen-((int)vial->mark - (int)vial));	
      
      avc h264
-     polymorphic
-     动态联编
+     polymorphic											               *
+     动态联编    											               *
      mount.nfs: mount to NFS server '192.168.0.88' failed: RPC Error: Program not registered
      mount -t cifs -ousername="elon",password="en" //192.168.0.89/elon /mnt/89/
      sudo apt-get install smbfs
-<<<<<<< .mine
 
 1209 cifs samba
-     
-	=======
-
-1209 vial sys is private
-     why can mounted by everyby
+     vial sys is private
+     why can mounted by everyby                                                                                        
      if (AbstractModule::OnReceive(vial))
      {
 		showInfo("%s onReceive , return true\n", __CLASS__);
 		return true;
      }
      
-     what does "make install" do: symbol link 					?????????????????????????
+     what does "make install" do: symbol link 				                         	?????????????????????????
 
-     cut debug info
+     cut debug info           
      adver: logical judgement 											**
      #include "MessageQueue.h"
-     
->>>>>>> .r394
+
+     -rwxrwSrwx 1 root root 6 2010-12-07 10:33 test.txt
+     mount window(cifs) permission limit on mounter
+     linux service; nfs
+     /etc/exports
+     要使用 NFS 作为客户机，客户机机器必须要运行 rpc.statd 和 portmap 进程
+	192.168.0.100:/opt/files  /mnt  nfs  rw  0  0
+     1001                                                                                                               over
+      
+     test 48nfs permission
