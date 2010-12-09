@@ -911,4 +911,18 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      ¶¯Ì¬Áª±à
      mount.nfs: mount to NFS server '192.168.0.88' failed: RPC Error: Program not registered
      sudo apt-get install smbfs
-	
+
+1209 vial sys is private
+     why can mounted by everyby
+     if (AbstractModule::OnReceive(vial))
+     {
+		showInfo("%s onReceive , return true\n", __CLASS__);
+		return true;
+     }
+     
+     what does "make install" do: symbol link 					?????????????????????????
+
+     cut debug info
+     adver: logical judgement 											**
+     #include "MessageQueue.h"
+     
