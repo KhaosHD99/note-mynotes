@@ -148,4 +148,17 @@
 1201 offline mode of firefox is ridiculous 
      client session is ridiculous(samba)
      net use * /del
+
+1209 利用CIFS和NFS共享文件实际涉及到两次的文件系统转换。客户端从服务器端申请一个文件时，服务器端首先从本地读出文件（本地文件系统格式），并以          NFS/CIFS的格式封装成IP报文并发送给客户端。客户端收到IP报文以后，把文件存储与本地磁盘中（本地文件系统格式）
      
+     （1）CIFS面向网络连接的共享协议，对网络传输的可靠性要求高，常使用TCP/IP；NFS是独立于传输的，可使用TCP或UDP；
+     （2）NFS缺点之一，是要求client必须安装专用软件；而CIFS集成在OS 内部，无需额外添加软件；
+     （3）NFS属无状态协议，而CIFS属有状态协议；NFS受故障影响小，可以自恢复交互过程，CIFS不行；从传输效率上看，CIFS优于NFS，没用太多冗余信息传送
+     （4）两协议都需要文件格式转换，NFS保留了unix的文件格式特性，如所有人、组等等；CIFS则完全按照win的风格来作。
+     
+      NFS在文件传送或信息传送过程中依赖于RPC协议
+
+      Sun 公司需要解决的根本问题是如何将几台 UNIX 机器连接在一起，从而构成一个无缝的分布式工作环境，而不需要重新编写 UNIX 文件系统的语义，同时也	      不用添 太多分布式文件系统特有的数据结构
+
+      apt-get install nfs-kernel-server
+      

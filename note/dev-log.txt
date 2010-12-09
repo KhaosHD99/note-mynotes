@@ -209,7 +209,16 @@
      3)combobox_entry
      4)ultraedit high light
      
-1207 1)
-	     
+1207 1)cross compile pb and adver
+     
+1208 1)realize the file, prj and compile struct on 48
+     2)begin realize how the vailsys implement
 
-1208 1)
+1209 1)communication: adver
+     
+
+
+
+
+
+
