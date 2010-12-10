@@ -932,6 +932,39 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      /etc/exports
      要使用 NFS 作为客户机，客户机机器必须要运行 rpc.statd 和 portmap 进程
 	192.168.0.100:/opt/files  /mnt  nfs  rw  0  0
-     1001                                                                                                               over
-      
+     1001                                                                                                               over 
      test 48nfs permission
+     
+1210 cc has its own mouduleID
+     NovaWM: Another window manager is already running on that display.
+  
+	
+     33:
+     proc on /proc type proc (rw,noexec,nosuid,nodev)
+     none on /sys type sysfs (rw,noexec,nosuid,nodev)
+     none on /dev type tmpfs (rw,mode=0755)
+     none on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)
+     none on /dev/shm type tmpfs (rw,nosuid,nodev)
+     none on /var/run type tmpfs (rw,nosuid,mode=0755)
+     none on /var/lock type tmpfs (rw,noexec,nosuid,nodev)
+none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
+      
+     48 nfs exports
+     /opt/nfs/home         *(rw,sync,no_root_squash,no_subtree_check)
+     	  
+     
+     /usr/include/sys/types.h:typedef unsigned int uint;
+     /opt/fn3/mx515_lucid_Compile/usr/include/sys/types.h:153: note: previous declaration of 'uint' was here
+     
+     -I/opt/fn3/mx515_lucid_Compile/usr/include
+     
+     src/phonebook/.deps/gtkCalllog.Po
+     .deps
+     Xlib:  extension "RANDR" missing on display "10.10.100.216:0.0".
+     pb: cflag libs critical collapse								**
+
+     don't write on mount device !!!!!!!!!!!!!!!!!!!!!!!!
+
+     跟目录mount到rootfs??????????????????????
+    
+     c/c++ call function 

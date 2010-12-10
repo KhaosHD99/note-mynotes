@@ -216,9 +216,10 @@
 
 1209 1)communication: adver
      
-
-
-
+1210 1)adver logical judge
+     2)pb sys/types.h conflict
+     3)pb cflag collapse
+     4)don't write to nfs server 
 
 
 
