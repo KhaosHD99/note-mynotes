@@ -962,9 +962,14 @@ none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
      .deps
      Xlib:  extension "RANDR" missing on display "10.10.100.216:0.0".
      pb: cflag libs critical collapse								**
-
+     
      don't write on mount device !!!!!!!!!!!!!!!!!!!!!!!!
-
+     
      ¸úÄ¿Â¼mountµ½rootfs??????????????????????
-    
-     c/c++ call function 
+     
+     c/c++ function declare
+  
+     vi color
+     extern rootwindow 
+
+1211 
