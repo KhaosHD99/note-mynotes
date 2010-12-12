@@ -973,3 +973,8 @@ none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
      extern rootwindow 
 
 1211 
+
+1212 eva wine
+     
+     error: expected `}' at end of input
+     __cplusplus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
