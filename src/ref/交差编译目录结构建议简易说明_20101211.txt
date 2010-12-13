@@ -1,0 +1,34 @@
+在48服务器上交叉编译时，目录结构说明
+1: SDKDIR是目标平台开发目录
+SDKDIR=/opt/fn3/mx515_lucid_dev
+
+2:release
+发布或较为稳定，长时间不需要更新的程序或库安装目录
+configure 的with-install-extern-dir参数为: Fn/release
+
+make install DESTDIR=/opt/nfs/home 时，目标文件将被拷贝到
+/opt/fn3/mx515_lucid_dev/usr/Fn/release
+
+3:debug
+配合其他开发者集体调试时，程序或库的安装目录
+configure 的with-install-extern-dir参数为: Fn/debug
+
+make install DESTDIR=/opt/nfs/home 时，目标文件将被拷贝到
+/opt/fn3/mx515_lucid_dev/usr/Fn/debug
+
+
+4:local_debug
+开发着自己调试时，程序或库的安装目录
+configure 的with-install-extern-dir参数为: Fn/debug/$USER
+
+make install DESTDIR=/opt/nfs/home 时，目标文件将被拷贝到
+/opt/fn3/mx515_lucid_dev/usr/Fn/debug/$USER
+
+
+5:48服务器产生的目录依次为：
+/opt/fn3/mx515_lucid_dev
+------------------------/usr/Fn/release : relase目录
+------------------------/usr/Fn/debug   : 集体联调目录
+------------------------/usr/Fn/debug/$USER : 个人调试目录
+
+
