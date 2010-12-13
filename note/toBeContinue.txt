@@ -978,3 +978,52 @@ none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
      
      error: expected `}' at end of input
      __cplusplus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
+
+
+1213 明日必须先实现该功能，否则无法打电话！！
+
+0.广告窗口要监听Enter键：
+1.待机状态，按Enter向中心发出摘机消息；
+  话机由待机状态转入摘机拨号状态。
+  (注: 由于现话机使用3G模块，故该功能仅PSTN有效；若使用3G模块，则只能从电话部播出)
+2.来电时，按Enter向中心发出摘机消息；
+  话机由振铃状态转入摘机接听状态。
+
+
+上述两个Vail现实现第二个。
+
+何桂：实现广告窗口监听Enter键、实现振铃时settop
+！
+野竹  21:50:41
+实现广告窗口监听Enter键、实现振铃时settop
+！可在虚拟机下实现！
+
+振杰：明早必须实现电话部及上述两个vail！
+
+
+待机中要做节面，工作量有点多，实现完电话部拨号有空再做；
+
+振铃那个必须优先做 
+泉哥 22:30:12 
+都通过广告模块实现;
+振铃Entern向何桂提供， void adver_enter_ringing_pickup()函数发生摘机接听消息 
+泉哥 22:30:55 
+拨号UI何桂有空就要何桂实现 
+
+resource file file struct 											*****
+phonebook combo 
+ 
+messagestack                                                                                     **
+
+la libdependence 
+rm la compile pass
+strcasecmp
+
+pb statechangeVial                                                                               **
+uncatch: count isread                                                                            **
+
+phonebook skin                                                                                   **
+
+all dial on pb                                                                                   **
+
+duration
