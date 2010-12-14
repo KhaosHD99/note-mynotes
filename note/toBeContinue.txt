@@ -967,17 +967,73 @@ none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
      
      跟目录mount到rootfs??????????????????????
      
-     c/c++ function declare
+     c/c++ function declare                                                                   *********************
   
      vi color
      extern rootwindow 
 
-1211 
+<<<<<<< .mine
+1211 link
+     la; lai
+     
+     库中库
+     checking for PHONEBOOK... configure: error: Package requirements (fnphonebook >= 0.1.0) were not met:
+Package linconfig was not found in the pkg-config search path.
+Perhaps you should add the directory containing `linconfig.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'linconfig', required by 'fnphonebook', not found
 
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+     
+=======
+1211 
+     
 1212 eva wine
      
      error: expected `}' at end of input
      __cplusplus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
+<<<<<<< .mine
+>>>>>>> .r401
+     
+1213 off_hook ringing adver on top
+     X&
+     source /etc/profile
+     
+     DEBUG ClientMessage()
+     DEBUG ClientMessage(), on [WM_FN_QUICK_WINDOW] window id [6291459 : 1 : adveritsement]
+     ---------------------------map shortcut_key window : 6291459, name adveritsement
+     
+     Mx515程序目录结构
+     a．release
+    
+     资源文件目录漏了配置文件和广告文件目录，以下一个为准:
+     b．资源文件
+/usr/Fn/release/share
+_____________________/data                
+___________________________/localfile        [本地广告文件目录]
+__________________________________/annex
+__________________________________/audio
+__________________________________/image
+__________________________________/scheme
+__________________________________/sys
+__________________________________/video
+
+/usr/Fn/release/share/data/appfile			[话机配置、皮肤文件目录]
+__________________________________/config
+___________________________________/ring
+___________________________________/skin
+
+   
+
+     quota check
+     securt crt tab menu  
+    
+     vial->code-'0'
+     
+     initializer-string for array of chars is too long
+     Validate_input name exist
+   =======
 
 
 1213 明日必须先实现该功能，否则无法打电话！！
@@ -1013,7 +1069,7 @@ none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
 resource file file struct 											*****
 phonebook combo 
  
-messagestack                                                                                     **
+messagestack                                                                                     over
 
 la libdependence 
 rm la compile pass
@@ -1023,7 +1079,64 @@ pb statechangeVial                                                              
 uncatch: count isread                                                                            **
 
 phonebook skin                                                                                   **
+pb update                         								**
 
-all dial on pb                                                                                   **
+all dial on pb                                                                                  ***
 
 duration
+>>>>>>> .r403
+
+1214 if (AbstractModule::OnReceive(vial))
+     {
+	showInfo("%s onReceive , return true\n", __CLASS__);
+	return true;
+     }
+
+     vial = VialFactory_Phonebook::createVialByCopy(inputVial);
+     if (vial == NULL)
+     {
+		showWarning("Vial is NULL\n");
+		delete vial;
+		return false;
+     }
+     vial is null
+     
+     class struct declare
+     	
+     phonebook receive statechangvial, ring                                                              *
+     
+     (fnphonebook:16736): Gtk-CRITICAL **: gtk_button_set_focus_on_click: assertion `GTK_IS_BUTTON (button)' failed  
+     
+     gtk_tree_model_get
+     
+     3 area no adver											**
+     only onhook has video       									**
+     													
+     after send dial vial  phonenum buf                                                               		*
+     
+     get_window_out_stack ret : 0                                                                        *
+     	
+     column enum     
+     																
+     yj													 *
+       
+     debugconfig shell
+     	
+     pb: prompt msg                                             					*
+     	
+     lib need lib											*
+     
+     promter show; time        										***
+    
+     adver sound 
+
+     /usr/bin/install: cannot stat `.libs/libfnxmlparser.lai': No such file or directory
+
+     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libfnadvertisementskin.la' was moved.
+     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVpu.la' was moved.
+     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVideoIO.la' was moved.
+     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libVial.la' was moved.
+          
+     xmlparser emerge 				               					 **     
+     
+     
