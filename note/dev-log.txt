@@ -221,5 +221,12 @@
      3)pb cflag collapse
      4)don't write to nfs server 
 
+<<<<<<< .mine
+1213 1)use cc; artificialUart; phoneIntf
+     2)
+     3)
+      
+=======
 1213 1)dao mu bi ji song   
+>>>>>>> .r403
 
