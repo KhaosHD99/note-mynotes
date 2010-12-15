@@ -1136,15 +1136,15 @@ duration
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVpu.la' was moved.
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVideoIO.la' was moved.
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/deb ug/lib/libVial.la' was moved.
-          
+     																	     
      xmlparser emerge 				               					        over
-     
+     			
 1215 adver top video
      set foucus back to phonebook   
      fopen
      Roll Text xmlconifg file                                          
      pb normal exit 
-     
+     refresh timelist buf												*
      
      
      
