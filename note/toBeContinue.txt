@@ -1112,13 +1112,13 @@ duration
      3 area no adver											**
      only onhook has video       									**
      													
-     after send dial vial  phonenum buf                                                               		*
+     after send dial vial  phonenum buf                                                        		*
      
      get_window_out_stack ret : 0                                                                        *
      	
-     column enum     
+     column enum                                                                                         *    
      																
-     yj													 *
+     yj 												 *
        
      debugconfig shell
      	
@@ -1126,17 +1126,26 @@ duration
      	
      lib need lib											*
      
-     promter show; time        										***
-    
+     promter show; time        										over
+     
      adver sound 
-
+     
      /usr/bin/install: cannot stat `.libs/libfnxmlparser.lai': No such file or directory
 
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libfnadvertisementskin.la' was moved.
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVpu.la' was moved.
      libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libFnVideoIO.la' was moved.
-     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libVial.la' was moved.
+     libtool: link: warning: library `/opt/fn3/mx515_lucid_dev/usr/Fn/deb ug/lib/libVial.la' was moved.
           
-     xmlparser emerge 				               					 **     
+     xmlparser emerge 				               					        over
+     
+1215 adver top video
+     set foucus back to phonebook   
+     fopen
+     Roll Text xmlconifg file                                          
+     pb normal exit 
+     
+     
+     
      
      
