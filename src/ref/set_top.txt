@@ -1,0 +1,50 @@
+int set_window_top()
+{
+	printf("----------------------------------\n");
+	if(gtk_remap(window) == 0)
+	{
+		printf("------ set_window_top successfull !------\n");
+		return 0;
+	}
+	else
+	{
+		printf("------ set_window_top failed !------\n");
+		return -1;
+	}
+	
+}
+
+static void remap(Display *display, Window win)
+{
+	if(display != NULL)
+	{
+		XMapRaised(display, win);
+		XFlush(display);
+	}
+	printf("remap on window_id : %d\r\n", win);
+}
+
+static int gtk_remap(GtkWidget *window)
+{
+	if(window)
+	{
+		//取得窗口相关的X11 Display
+		//Display *display;
+		Window xWindow = GDK_WINDOW_XID(window->window);
+
+		Display *g_display = get_display();
+		if ( g_display == NULL )
+		{
+			printf("Cannot connect to X server \n");
+			return -1;
+		}
+		else
+		{
+			//printf("connect to Xserver on XWindow %d\r\n", xWindow);
+			remap(g_display , xWindow);
+			return 0;
+		}
+	}
+	printf("%s : widget null\r\n", __FUNCTION__);
+	return -1;
+}
