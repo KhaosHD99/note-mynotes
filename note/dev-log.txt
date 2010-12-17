@@ -229,4 +229,15 @@
 =======
 1213 1)dao mu bi ji song   
 >>>>>>> .r403
-
+     
+1215 adver: only paly video when onhook
+     
+1216 xmlparser roll text
+     pb: logic after receive vial;contact prompter vial;
+     while can not write fifo subbdenly
+          
+1217 prompter: correct the logic of receive
+     pb: calllog; dial from calllog; utf;
+     adver: can not play video from conn to onhook
+     
+     
