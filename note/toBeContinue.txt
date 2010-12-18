@@ -1139,13 +1139,44 @@ duration
      																	     
      xmlparser emerge 				               					        over
      			
-1215 adver top video
-     set foucus back to phonebook   
-     fopen
-     Roll Text xmlconifg file                                          
+1215 adver top video											*			
+     set foucus back to phonebook   									*
+     fopen												
+     Roll Text xmlconifg file                   							over                                      
      pb normal exit 
-     refresh timelist buf												*
+     refresh timelist buf												     *
+
+1216 roll text adver class;only 5 area has it
+     pb process;monitor dial? 
+     nCallType
+     if vial NULL
+     strcpy max len or real size 
+     PhoneCode.cPhoneCode[PhoneCode.nCodelen]= '\0';
+     pb: calllog
+     phonecode strcpy strncpy; strncpy(PhoneCode.cPhoneCode, vial->cPhoneCode, VIAL_PHONECODE_LEN - 1);
+     logmsg
+     ringing to dailing?
+     fixg?
+     stateinfo.message[]= '\0';                                                                              **
+     promter send dial to pb? no    									     over
+     WARNING: AdverModule.cpp(96) Can not distiguish vial           
+     video_stop over !											     
+     ¶Î´íÎó
+     
+1217 normal :3 9 B
+             3 9 b 5 12
+     history sync											    over
+     ctr S
+     utf												     ov
+     vpu						
+     unknow add to contact										    
+     pb: set top: history dial; after dial destroy it;valide								
+     pb: send contact; uncatch
+     adver play again?									    
+     adver no video after conn
      
      
+          
+
      
      
