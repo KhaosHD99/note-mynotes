@@ -1170,15 +1170,23 @@ duration
      utf												     ov
      vpu						
      unknow add to contact	                                                                            over
-     pb: set top: history dial; after dial destroy it;valide phonenum							
-     pb: send contact; uncatch
+     pb: set top: history dial; after dial destroy it;valide phonenum					    **		
+     pb: send contact; uncatch										    **
      adver play again?							    
      adver no video after conn                                                                             over
      
 1218 dialog destory showtop                                                                                over
      blacklist common: dial
-     
+     dependency_libs=' -L/opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib -lModuleDef      /opt/fn3/mx515_lucid_dev/usr/Fn/debug/lib/libVial.la -lpthread'
           
-
-     
-     
+1219 ln
+     opposite hang up: state change
+     (fnphonebook:5582): Gtk-CRITICAL **: gtk_list_store_append: assertion `GTK_IS_LIST_STORE (list_store)' failed
+     (fnphonebook:5582): Gtk-CRITICAL **: gtk_list_store_set_valist: assertion `GTK_IS_LIST_STORE (list_store)' failed
+     dialog size bg     										   
+     set somebody top											   **
+     seg fault												   **
+     send vial 		
+     make -> make install
+     pb seg fault										**
+  
