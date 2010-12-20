@@ -1184,9 +1184,27 @@ duration
      (fnphonebook:5582): Gtk-CRITICAL **: gtk_list_store_append: assertion `GTK_IS_LIST_STORE (list_store)' failed
      (fnphonebook:5582): Gtk-CRITICAL **: gtk_list_store_set_valist: assertion `GTK_IS_LIST_STORE (list_store)' failed
      dialog size bg     										   
-     set somebody top											   **
-     seg fault												   **
+     set somebody top											   over
+     seg fault							 					   **
      send vial 		
      make -> make install
      pb seg fault										**
-  
+     mv libfnadvertisementskin fn******skin    ???
+     adver paly a night
+     µç»°±¾
+     pb black color
+     
+     xset s off
+     xset -dpms 
+     											
+1220 (fnphonebook:6157): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+      DEBUG: gtkPhonenumSelector.c(33) Destory Window: window_calllog                                         ***
+      validate										
+      send vial //memset(&contact_prompter_vial, 0, sizeof(ContactPrompterVial));   !!!!!!!!!!!!!!
+      send dial vali												
+      is_callin													*
+      dialog bg          										       over
+      change blacklist, quickdial store struct       								*
+      gtk_combo_box_get_active_text										
+      add focus in/out event(button bg)
+      row active dial
