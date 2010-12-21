@@ -1204,7 +1204,16 @@ duration
       send dial vali												
       is_callin													*
       dialog bg          										       over
-      change blacklist, quickdial store struct       								*
-      gtk_combo_box_get_active_text										
+      change blacklist, quickdial store struct     								*
+      gtk_combo_box_get_active_text									
       add focus in/out event(button bg)
       row active dial
+      dialog text focus
+
+1221 dialog
+     combobox del 
+     combo change 
+     char curren_tmp_buf[128] = {0};
+	
+     
+     
