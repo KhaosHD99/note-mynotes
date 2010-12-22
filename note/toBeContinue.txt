@@ -1215,5 +1215,16 @@ duration
      combo change 
      char curren_tmp_buf[128] = {0};
 	
+1222 same contact name											       
+     modify detect
+     "Add XXX" prompt text										       over	
+     save: forgot a char											**
      
+     INFO: gtkContact.c(1732) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Put Contact Window Into Stack Suc
+     *** glibc detected *** ./fnphonebook: free(): invalid next size (fast): 0x00188fa8 ***                  ??????
+     
+     incompatible implicit declaration of built-in function 'memset'
+     v4l2
+     sync wait													**
+     xml prompt msg											        **
      
