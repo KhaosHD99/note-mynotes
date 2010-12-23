@@ -1227,4 +1227,20 @@ duration
      v4l2
      sync wait													**
      xml prompt msg											        **
+     这里要注意，idle任务并不是一个独立的线程或者进程，而在是主线程中执行的。所谓空闲是指，当main loop没有其它消息要处理     ，而且没有更高优先级的工作要做时，就认为处于空闲状态。 
+	
+1223 size and layout   												**
+     pthread_exit												over
+     pthread arg type			                                                                        
+     int ,pointer??
+     set focus back to combo entry                                 						over
+     set top after close(progress)
+     Prompter Module: get prompter state         								**
+     lose focus, only keep root window
+     color key
+     fnphonebook:8279): Gtk-CRITICAL **: gtk_button_set_focus_on_click: assertion `GTK_IS_BUTTON (button)' failed
+     pb: seg fault
+    
+     
+     
      

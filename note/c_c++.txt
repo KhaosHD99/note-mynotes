@@ -249,4 +249,8 @@ void CPP_fun()
    	 %g              自动选择合适的表示法 
 	━━━━━━━━━━━━━━━━━━━━━━━━
 
-12.08
+12.23  int myint;
+       char ch[] = "88";
+	
+       sscanf(ch, "%05d", &myint);
+       printf("int: %05d\n", myint);
