@@ -1147,10 +1147,10 @@ duration
      refresh timelist buf												     *
 
 1216 roll text adver class;only 5 area has it
-     pb process;monitor dial? 
+     pb process;monitor dial? 										    over
      nCallType
-     if vial NULL
-     strcpy max len or real size 
+     if vial NULL    											    
+     strcpy max len or real size                                                                             
      PhoneCode.cPhoneCode[PhoneCode.nCodelen]= '\0';
      pb: calllog
      phonecode strcpy strncpy; strncpy(PhoneCode.cPhoneCode, vial->cPhoneCode, VIAL_PHONECODE_LEN - 1);
@@ -1191,12 +1191,10 @@ duration
      pb seg fault										**
      mv libfnadvertisementskin fn******skin    ???
      adver paly a night
-     µç»°±¾
-     pb black color
-     
-     xset s off
+     pb black color												*
+     xset s off													*
      xset -dpms 
-     											
+      									
 1220 (fnphonebook:6157): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
       DEBUG: gtkPhonenumSelector.c(33) Destory Window: window_calllog                                         ***
       validate										
@@ -1209,20 +1207,18 @@ duration
       add focus in/out event(button bg)
       row active dial
       dialog text focus
-
+      
 1221 dialog
      combobox del 
      combo change 
      char curren_tmp_buf[128] = {0};
 	
 1222 same contact name											       
-     modify detect
+     modify detect											       	
      "Add XXX" prompt text										       over	
-     save: forgot a char											**
-     
-     INFO: gtkContact.c(1732) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Put Contact Window Into Stack Suc
-     *** glibc detected *** ./fnphonebook: free(): invalid next size (fast): 0x00188fa8 ***                  ??????
-     
+     save: forgot a char										       over
+     INFO: gtkContact.c(1732) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Put Contact Window Into Stack Suc    over    
+     *** glibc detected *** ./fnphonebook: free(): invalid next size (fast): 0x00188fa8 ***                     ?*
      incompatible implicit declaration of built-in function 'memset'
      v4l2
      sync wait													**
@@ -1241,6 +1237,17 @@ duration
      fnphonebook:8279): Gtk-CRITICAL **: gtk_button_set_focus_on_click: assertion `GTK_IS_BUTTON (button)' failed
      pb: seg fault
     
-     
-     
+1224 multi declare; extern enum															
+     gtkwidget base class event	                                            										
+     gtkbin	    												
+     add to contact      
+     know about gtk_get_focus can not work on it's child !!
+     gtk_container_get_focus_child: wrong 											**
+     window stack hide show???????????????????    //gtk_widget_hide(GTK_WIDGET(window_info.window));		
+     WIDGET_REALIZED_FOR_EVENT 											over
+     set/get lose mode()                      
+     edit mode group     											**
+     mouse does not trigger popup											*?  
+     dialog and combo make the wm stupid
+     symbol link													 
      

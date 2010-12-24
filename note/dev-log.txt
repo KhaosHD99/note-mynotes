@@ -201,7 +201,7 @@
      2)go home
     
 1205 1)some one like a fly all night with do nothing, i want to beat him
-     2)fool route config
+     2)go to huagu's home: fool route config
      3)promter: new line ;string cut
 	
 1206 1)prompter: line wrap; add bg img
@@ -221,23 +221,55 @@
      3)pb cflag collapse
      4)don't write to nfs server 
 
+1211 
+
+1212 
+     
+     
+	
 <<<<<<< .mine
 1213 1)use cc; artificialUart; phoneIntf
      2)
      3)
       
 =======
-1213 1)dao mu bi ji song   
+1213 1)dao mu bi ji song                                                                                                             over
 >>>>>>> .r403
      
-1215 adver: only paly video when onhook
-     
-1216 xmlparser roll text
+1215 adver: only paly video when onhook                                                                                                                
+1216 a very gloomy day!!
+     xmlparser roll text                                                                              
      pb: logic after receive vial;contact prompter vial;
-     while can not write fifo subbdenly
+     while can not write fifo subbdenly!!!!!!!!!!!not my fault!!!!!!!!!!!!!fuck!!!!
           
 1217 prompter: correct the logic of receive
      pb: calllog; dial from calllog; utf;
      adver: can not play video from conn to onhook
+
+1218 set parent top when window is destory
+
+1219 know initiately the link and la file
+     what did "make" do when make install
+
+1220 I get sick  
+     I forgot the eletive course
+     dialog 
+     change blacklist, quickdial store struct
+     complete add focus in/out event(button bg)
      
+1221 hg told me stupid with sarcastic tone unintentionally 
+     pb: dialog, combo
+     
+1222 pb: comboEntry
+     
+1223 gtk async wait
+     know about how to deliver value on multi thread 
+     know about gtk main loop
+     
+1224 destroy all window except root window when top window lose focus
+     know initiately remap 
+     
+     
+ 
+
      
