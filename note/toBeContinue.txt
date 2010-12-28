@@ -1208,10 +1208,10 @@ duration
       row active dial
       dialog text focus
       
-1221 dialog
-     combobox del 
-     combo change 
-     char curren_tmp_buf[128] = {0};
+1221 dialog													over
+     combobox del 												**
+     combo change 												over
+     char curren_tmp_buf[128] = {0};										over
 	
 1222 same contact name											        *
      modify detect												**
@@ -1225,13 +1225,13 @@ duration
      xml prompt msg											        **
      这里要注意，idle任务并不是一个独立的线程或者进程，而在是主线程中执行的。所谓空闲是指，当main loop没有其它消息要处理     ，而且没有更高优先级的工作要做时，就认为处于空闲状态。 
 	
-1223 size and layout   												**
+1223 size and layout   												*
      pthread_exit												over
      pthread arg type			                                                                        
      int ,pointer??
      set focus back to combo entry                                 						over
      set top after close(progress)
-     Prompter Module: get prompter state         								**
+     Prompter Module: get prompter state         								over
      lose focus, only keep root window                                                                          over
      color key
      fnphonebook:8279): Gtk-CRITICAL **: gtk_button_set_focus_on_click: assertion `GTK_IS_BUTTON (button)' failed
@@ -1246,7 +1246,8 @@ duration
      set/get lose mode()                      
      edit mode group     													
      mouse not trigger popup											*?  
-     dialog and combo make the wm stupid									
+     dialog and combo make the wm stupid	
+									
 1224 multi declare; extern enum															
      gtkwidget base class event	                                            										
      gtkbin	    												
@@ -1265,10 +1266,25 @@ duration
      can't not grab back focus intermittently								       *
      after remap: position	                 						               *
      Uncatch; real time read file; process(diff app) protect; remove after is readed;a msg for a type;	       	
-     read "from file"											       **
-     blacklist;quickdial										       **
+     read "from file"											       over
+     blacklist;quickdial										        **
      cc simulator 											       **
-     file lock; fcntl.h;lseek											
-     destory lpconfig instance
+     file lock; fcntl.h;lseek;SEEK_SET;O_APPEND									*
+     destory lpconfig instance when read the file again								over		     														
+1228 timing shutdown												*
+     adver/web music 	/demand doc 									        **
+     timelist design doc         										**
+     phonenum validate												**
+     ipu transparent												
+     func pass variable												*	
+     包括嵌入式系统模块（SOMs）、单板计算机（SBC）、工控板（IPC)
+     combo store revolution(remove convenient; get last iter; realese resourse; reduce the "index" in combo store) ***
+     x86 board volt												
+     year-end report												
+     PhoneType												        *
+     Group Add    											        **
+     
+1229   
+     
      
      

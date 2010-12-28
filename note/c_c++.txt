@@ -254,3 +254,129 @@ void CPP_fun()
 	
        sscanf(ch, "%05d", &myint);
        printf("int: %05d\n", myint);
+
+1228  int open(char * filename, int flags)
+      int open(char * filename, int flags, int mode)
+      include: <fcntl.h>
+      flags = bitwise | or of any of the following:
+             O_RDONLY        Only read operations permitted
+             O_WRONLY        Only write operations permitted
+             O_RDWR          Read and Write operations both permitted
+             O_NONBLOCK      Non-blocking, applies to open operation only
+             O_APPEND        All writes go to end of file
+             O_CREAT         Create file if it doesn't already exist
+             O_TRUNC         Delete existing contents of file
+             O_EXCL          Open fails if file already exists
+             O_SHLOCK        Get a "shared lock" on the file
+             O_EXLOCK        Get an "exclusive lock" on the file
+             O_DIRECT        Try to avoid all caching of operations
+             O_FSYNC         All writes immediately effective, no buffering
+             O_NOFOLLOW      If file is symbolic link, open it, don't follow it
+      mode required if file is created, ignored otherwise.
+           mode specifies the protection bits, e.g. 0644 = rw-r--r--
+      returns <0 for error, or integer file descriptor.
+
+
+  int close(int fd)
+      include: <unistd.h>
+      fd = file descriptor as returned by open
+      returns <0 for error, 0 for success.
+
+
+  int read(int fd, void * ptr, int numbytes)
+      include: <unistd.h>
+      fd = file descriptor as returned by open
+      ptr = address in memory where data is to be stored;
+            may be a pointer of any type.
+      numbytes = number of bytes to attempt to read
+      returns <0 for error, 0 for end-of-file,
+              or number of bytes successfully read.
+              (for a non-blocking interactive file, that may be zero).
+
+
+  int write(int fd, void * ptr, int numbytes)
+      include: <unistd.h>
+      fd = file descriptor as returned by open
+      ptr = address in memory where data already is;
+            may be a pointer of any type.
+      numbytes = number of bytes to attempt to write
+      returns <=0 for error,
+              or number of bytes successfully written.
+              (for a non-blocking file, that may be less than the number attempted
+               without any errors having occurred).
+
+
+  int lseek(int fd, int position, int startpoint)
+      include: <unistd.h>
+      Sets the file position effective for the next read or write operation.
+      fd = file descriptor as returned by open
+      position = position within file:
+            number of bytes between startpoint and the desired position, may be negative.
+      startpoint = location in file that position is relative to, one of:
+             SEEK_SET        Position is number of bytes from beginning of file
+             SEEK_END        Position is number of bytes after end of file
+             SEEK_CUR        Position is number of bytes after current position
+      returns <0 for error,
+              or resulting file position relative to beginning of file.
+      Moving beyond the end of the file is permitted; the file is extended in length
+      only if a write occurs beyond the current end of file. Moveing before the
+      beginning of a file is not permitted. A write operation after a move only
+      overwrites the number of bytes actually written.
+
+
+  int stat(char * file, struct stat * info)
+      include: <sys/types.h>
+      include: <sys/stat.h>
+      Finds information about a file.
+      file = The name (or path) for the file.
+      info = A pointer to an uninitialised stat structure.
+            Even in C++, the type must be "struct stat *" because of the name clash.
+            Information about the file is stored in the info object.
+      returns <0 for error (including file does not exist),
+              or 0  for success.
+      The useful fields of a stat object are as follows. All have types that behave like
+      ints, although they may be 16, 32, or 64 bits long.
+             st_size              size in bytes
+             st_ino               inode number
+             st_mode              protection or mode (see below)
+             st_nlink             number of hard links
+             st_uid               file's owner's identification number
+             st_gid               file's group identification number
+             st_birthtime         date and time of file creation (see below)
+             st_mtime             date and time of last modification (see below)
+             st_atime             date and time of last access (see below)
+      All times are stored as time_t values, as described here.
+      Mode and Protection. st_mode is the logical-or of a number of bits each representing
+      different properties. The named constants for these bits, and their values in octal are:
+             S_ISUID   0004000    set user id on execution
+             S_IRUSR   0000400    protection: readable by owner
+             S_IWUSR   0000200                writable by owner
+             S_IXUSR   0000100                executable by owner
+             S_IRGRP   0000040                readable by group
+             S_IWGRP   0000020                writable by group
+             S_IXGRP   0000010                executable by group
+             S_IROTH   0000004                readable by all
+             S_IWOTH   0000002                writable by all
+             S_IXOTH   0000001                executable by all
+      Four bits of the mode give the file type. The mask for type is S_IFMT = 0170000
+          if (mode & S_IFMT) is S_IFREG = 0100000,  type = perfectly ordinary file
+          if (mode & S_IFMT) is S_IFDIR = 0040000,  type = directory
+          if (mode & S_IFMT) is S_IFLNK = 0120000,  type = symbolic link
+          if (mode & S_IFMT) is S_IFIFO = 0010000,  type = named pipe
+          if (mode & S_IFMT) is S_IFSOCK = 0140000,  type = named socket
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+File Mode or Protection Bits
+A file's mode or protection is usually specified visually by 9 characters, for example rw-r--r-- or rwxr-x--x. Each of the letters are (nearly always) 'r' for read permitted, 'w' for write permitted, or 'x' for execute permitted. 
+
+The letters always appear in groups of three. Within a group, the order is always 'rwx'. The first group of three indicate operations permitted to the owner of the file; the second group of three indicates operations permitted to other users in the same group as the owner; the third group of three indicates operations permitted to all users who can access the file. 
+
+If the file is a directory, 'x' means that files in the directory may be accessed if referred to directly by name, but wildcard substitutions ('*') and ls operations will not be permitted. 
+
+Modes are usually represented inside programs by a sequence of three octal digits. each octal digit represents one of the groups of three characters, 4 for 'r' plus 2 for 'w' plus 1 for 'x'. In C and C++ programs remember that numbers with leading zeros are always assumed to be in octal, so the mode 0751 represents rwxr-x--x. 
