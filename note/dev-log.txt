@@ -115,6 +115,7 @@
 
 11.05 1)deploy
       2)main menu
+      3)borrow hg money
 
 11.06 1)pkg-config(check module)(configure.in)
       2)LogMsg
