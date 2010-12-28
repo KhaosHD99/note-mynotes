@@ -162,3 +162,6 @@
 
       apt-get install nfs-kernel-server
       
+
+1228 YAFFS 是基于日志的文件系统，提供磨损平衡和掉电恢复的健壮性
+     YAFFS中，文件是以固定大小的数据块进行存储的
