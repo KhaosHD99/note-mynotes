@@ -269,8 +269,9 @@
      
 1224 destroy all window except root window when top window lose focus
      know initiately remap 
-     
-     
- 
 
+1225 order tq2440
      
+1228 today I got the tq2440!!!!!!!!!!!
+	 
+        
