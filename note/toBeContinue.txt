@@ -1171,7 +1171,7 @@ duration
      vpu						
      unknow add to contact	                                                                            over
      pb: set top: history dial; after dial destroy it;valide phonenum					    **		
-     pb: send contact; uncatch										    **
+     pb: send contact; uncatch										    ***
      adver play again?							    
      adver no video after conn                                                                             over
      
@@ -1209,7 +1209,7 @@ duration
       dialog text focus
       
 1221 dialog													over
-     combobox del 												**
+     combobox del 												over
      combo change 												over
      char curren_tmp_buf[128] = {0};										over
 	
@@ -1271,23 +1271,36 @@ duration
      cc simulator 											       **
      file lock; fcntl.h;lseek;SEEK_SET;O_APPEND									*
      destory lpconfig instance when read the file again								over		     														
-1228 timing shutdown												*
+1228 timing shutdown										*
      adver/web music 	/demand doc 									        **
      timelist design doc         										**
-     phonenum validate												**
+     phonenum validate/email Validate(regex)            							**
      ipu transparent												
      func pass variable												*	
      包括嵌入式系统模块（SOMs）、单板计算机（SBC）、工控板（IPC)
-     combo store revolution(remove convenient; get last iter; realese resourse; reduce the "index" in combo store) ***
-     x86 board volt												
+     combo store revolution(remove convenient; get last iter; realese resourse; reduce the "index" in combo store) over
+     x86 board volt											
      year-end report												
-     PhoneType												        *
+     PhoneType											                *
      Group Add    											        **
+<<<<<<< .mine
+     	
+1229 optimize pb api(goto revolution, diff of var declare pos;thread lock, lock conflict)					
+     try lock/work on other thread ?								               ** 
+     add to contact real time fresh								royov prompter from fnadver skin to fnadver									*  
+     time-list exception(Act list is empty)							  *
+          
+1230 gtkdestory recuise
+     only onhook play music 											over
+     vpu													
+     adver: area 3 no adver 											over
+     adver: area revolution; standard dir structure           !
+      
+     
+=======
      都江堰操作系统
      dnw     
      change bmp or wav to *.c array file
 
-1229   
-     
-     
+>>>>>>> .r426
      
