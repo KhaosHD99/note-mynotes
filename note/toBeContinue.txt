@@ -1290,17 +1290,29 @@ duration
      add to contact real time fresh								royov prompter from fnadver skin to fnadver									*  
      time-list exception(Act list is empty)							  *
           
-1230 gtkdestory recuise
-     only onhook play music 											over
-     vpu													
+1230 gtkdestory recuise											    
+     only onhook and main area play music                						over
+     vpu(visual;vetor)											
      adver: area 3 no adver 											over
-     adver: area revolution; standard dir structure           !
-      
-     
-=======
+     adver: area revolution; standard dir structure                                                           !
+     fake cc
      都江堰操作系统
      dnw     
      change bmp or wav to *.c array file
+     	
+1231 real time stop music 											ov
+     move prompter to fnadver											**
+     browser sync wait
+     normal logic												**
+     (fnphonebook:7451): GLib-GObject-WARNING **: invalid cast from `(null)' to `GtkProgressBar'
+     (fnphonebook:7451): Gtk-CRITICAL **: gtk_progress_bar_get_fraction: assertion `GTK_IS_PROGRESS_BAR (pbar)' 
+     failed
+     (fnphonebook:10691): Gtk-CRITICAL **: gtk_list_store_append: assertion `GTK_IS_LIST_STORE (list_store)' failed
+     sync wait ui pos	
+     too fast too exit subthread or gtk main loop ??????
+     strlen '\0'												**
+     Draw Area Exception; no music skin error;
+     logmsg: __FUNCTION__     
 
->>>>>>> .r426
+     
      
