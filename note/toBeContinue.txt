@@ -1326,3 +1326,9 @@ duration
      
 >>>>>>> .r428
      
+
+
+0104 gconf-editor
+     gconftool-2 -s --type bool /apps/metacity/general/compositing_manager true  
+     # or
+     metacity -c
