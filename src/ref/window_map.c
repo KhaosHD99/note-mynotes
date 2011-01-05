@@ -7,7 +7,7 @@ static int ismapped(Display *display, Window client)
 
 	if (XGetWindowAttributes(display, client, &attr))
 		rval = attr.map_state != IsUnmapped;
-
+	
 	return rval;
 }
 
