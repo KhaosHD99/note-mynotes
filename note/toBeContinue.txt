@@ -1,3 +1,4 @@
+-------------------------------------------------- 2010 -------------------------------------------------------
 1 cn99 网易？
 2 gcc 编译c文件 printf问题                                               over
 3 linux 硬盘分区
@@ -1248,15 +1249,15 @@ duration
      mouse not trigger popup											*?  
      dialog and combo make the wm stupid	
 									
-1224 multi declare; extern enum															
-     gtkwidget base class event	                                            										
-     gtkbin	    												
-     add to contact	         										over     
+1224 multi declare; extern enum											*													
+     gtkwidget base class event                                            								
+     gtkbin	   											
+     add to contact	         										over
     know about gtk_get_focus can not work on it's child !!
-     gtk_container_get_focus_child: wrong 									**
+     gtk_container_get_focus_child: wrong 	         							**
      window stack hide show???????????????????    //gtk_widget_hide(GTK_WIDGET(window_info.window));		
      WIDGET_REALIZED_FOR_EVENT 											over
-     set/get lose mode()                      
+     set/get lose mode()                
      edit mode group     											**
      mouse does not trigger popup										*?  
      dialog and combo make the wm stupid									
@@ -1285,11 +1286,12 @@ duration
      Group Add    											        **
 <<<<<<< .mine
      	
-1229 optimize pb api(goto revolution, diff of var declare pos;thread lock, lock conflict)					
+1229 optimize pb api(goto revolution, diff of var declare pos;thread lock, lock conflict)
      try lock/work on other thread ?								               ** 
-     add to contact real time fresh								royov prompter from fnadver skin to fnadver									*  
-     time-list exception(Act list is empty)							  *
-          
+     add to contact real time fresh								
+     royov prompter from      fnadver skin to fnadver									                 *  
+     time-list exception(Act list is empty)							                over
+            
 1230 gtkdestory recuise											    
      only onhook and main area play music                						over
      vpu(visual;vetor)											
@@ -1318,17 +1320,89 @@ duration
      failed
      (fnphonebook:10691): Gtk-CRITICAL **: gtk_list_store_append: assertion `GTK_IS_LIST_STORE (list_store)' failed
      sync wait ui pos	
-     too fast too exit subthread or gtk main loop ??????
-     strlen '\0'												**
+     gtk: too fast too exit subthread or gtk main loop ??????							**
+     strlen '\0'											**
      Draw Area Exception; no music skin error;
      logmsg: __FUNCTION__     
-
-     
->>>>>>> .r428
      
 
+<<<<<<< .mine
+----------------------------------------------------- 2011 -----------------------------------------------------
 
-0104 gconf-editor
+0104 ringring music												 *
+     ps	                										     *****
+     Metacity
+     its alpha channel drawn
+     GdkRgbDither
+     drawable depth; alpha_threshold
+     gdk_pixbuf_new_from_file
+     gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, &bitmap, 128);	// alpha小于128认为透明
+
+
+
+
+
+     	
+     ---------------- mail --------------------          
+     On Mon, Nov 11, 2002 at 12:13:21AM -0500, Michael Rothwell wrote:
+> 
+> Follow-up:
+> 
+> mask = gdk_pixmap_new(widget->window,childMapSize.X,childMapSize.Y,1);
+> 				
+> 				gdk_pixbuf_render_to_drawable_alpha(pixbuf,mask,
+>                0,0,0,0,childMapSize.X,childMapSize.Y,
+>                GDK_PIXBUF_ALPHA_BILEVEL,
+>                1,GDK_RGB_DITHER_NORMAL,0,0);
+> 
+> Gdk-WARNING **: The gdk_draw_*_image require the drawable argument to
+> have a specified colormap. All windows have a colormap,
+> however, pixmaps only have colormap by default if they
+> were created with a non-NULL window argument. Otherwise
+> a colormap must be set on them with gdk_drawable_set_colormap
+> 
+> ... I created the pixmap with a non-NULL window argument (inside an 
+> expose handler). Yet...
+
+The message is slightly inaccurate, in that providing a window only
+works if you're creating a pixmap with the same depth as the window.
+In this case you're creating a bitmap (depth = 1).
+
+Bitmaps don't really have colormaps, they are just whatever color you
+draw them with. (You can't gdk_draw_pixmap() a bitmap to a drawable,
+because the bitmap depth doesn't match the drawable depth; instead you
+can say draw a rectangle with the bitmap as clip mask, which ends up
+having the rectangle color. Well, you can gdk_draw_pixmap one bitmap
+to another bitmap, but in that case the result is still a "colorless"
+mask.)
+
+To get a bitmap matching a pixbuf's alpha channel, you'd normally use
+gdk_pixbuf_render_threshold_alpha() instead of
+render_to_drawable_alpha().
+
+render_to_drawable_alpha could probably do something where it makes
+all pixels over a certain intensity be "on" (I think gdkrgb already
+does that), and this could even not bother requiring a colormap.  But
+it doesn't work that way right now.
+
+Havoc
+
+
+     gconf-editor
      gconftool-2 -s --type bool /apps/metacity/general/compositing_manager true  
      # or
      metacity -c
+
+     
+0105 gdm 
+     xueche												***
+     shengben												**
+     ps  												
+     
+     Failed to load theme "Clearlooks": Failed to find a valid file for theme Clearlooks
+     ubuntu runlevel
+     
+     
+     
+
+
