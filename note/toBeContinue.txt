@@ -1296,21 +1296,16 @@ duration
      only onhook and main area play music                						over
      vpu(visual;vetor)											
      adver: area 3 no adver 											over
-<<<<<<< .mine
      adver: area revolution; standard dir structure           !
      fake cc
-=======
      adver: area revolution; standard dir structure                                                           !
      fake cc
->>>>>>> .r428
      都江堰操作系统
      dnw     
      change bmp or wav to *.c array file
-<<<<<<< .mine
+
      block 735 is bad
      
-=======
-     	
 1231 real time stop music 											ov
      move prompter to fnadver											**
      browser sync wait
@@ -1325,12 +1320,10 @@ duration
      Draw Area Exception; no music skin error;
      logmsg: __FUNCTION__     
      
-
-<<<<<<< .mine
 ----------------------------------------------------- 2011 -----------------------------------------------------
 
 0104 ringring music												 *
-     ps	                										     *****
+     ps	                										     over
      Metacity
      its alpha channel drawn
      GdkRgbDither
@@ -1403,6 +1396,26 @@ Havoc
      ubuntu runlevel
      
      
+     	...	intltool
+     apt-get install libcanberra-gtk-dev
+     apt-get install libgconf2-dev
+                zenity
+                gnome-doc-utils
      
+0106 g_assert
+     gconf
+     search engine regex
+     adver logic: one area not fresh 
+     g_main_loop_quit(loop)
+     
+0107 MBR													*
+     webview get page original size
+     calendar; calculator; alarm clock     
+     Epiphany
+     color key
+     
+     
+
+
 
 
