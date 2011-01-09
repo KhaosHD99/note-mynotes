@@ -165,3 +165,42 @@
 
 1228 YAFFS 是基于日志的文件系统，提供磨损平衡和掉电恢复的健壮性
      YAFFS中，文件是以固定大小的数据块进行存储的
+
+--------------------------------------------------- 2011 -----------------------------------------------------------
+
+0108 fedora network config: /etc/sysconfig/network-scripts/ifcfg-eth0
+     DEVICE=eth0HWADDR=xx:xx:xx:xx:xx:xx    //MAC地址
+     BOOTPROTO=noneNETMASK=255.255.255.0       //子网掩码
+     IPADDR=172.17.x.x                 //IP地址
+          ONBOOT=yes
+     USERCTL=no
+     PEERDNS=yes
+     IPV6INIT=no
+     NM_CONTROLLED=yes
+     GATEWAY=172.17.x.254          //默认网关
+     TYPE=Ethernet
+     添加DNS只要在末尾添加这句
+     DNS1＝     218.85.157.99
+     DNS2＝202.101.98.55
+     
+
+0109 apt-get install nfs-client
+     intr -- 当服务器宕机或者无法到达时，允许中断NFS请求。 
+     nfsvers=2或者nfsvers=3 -- 指定使用那个版本的NFS协议。 
+     nolock -- 禁用文件锁。这个设置在连接到一个旧版本的NFS服务器时偶尔会用到。 
+     noexec -- 防止执行被挂接的系统上的二进制文件。这在系统通过NFS挂接一个包含有不兼容的二进制文件     的非     linux系统时是很有用的。 
+     nosuid -- 禁用"设置用户标志位"（set-user-identifier）或者"设置组标志位"（set-group-identifie		r）。	这样防止远程用户运行setuid程序获得更高权限。 
+	rsize=8192和wsize=8192 -- 通过设定大的同时传输的数据块大小(bytes)，以提高NFS读写的速度。改	变这些值	时要当心，一些旧的linux内核和网卡在大的块大小不能正常工作。 
+	tcp -- 指定NFS使用TCP协议mount，替换UDP。 
+
+     apt-get smbfs
+
+APT-RPM project is a port of Debian's APT tools to a RPM based distribution (Conectiva, Red Hat, SuSE, ALT-Linux, etc). APT is an advanced package management utility front-end which allows you to easily perform package installation, upgrading and removal.
+
+Dependencies are automatically handled, so if you try to install a package that needs others to be installed, it will download all needed packages and install them.
+
+
+
+
+
+       
