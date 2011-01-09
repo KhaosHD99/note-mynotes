@@ -1306,16 +1306,16 @@ duration
 
      block 735 is bad
      
-1231 real time stop music 											ov
-     move prompter to fnadver											**
+1231 real time stop music 									ov
+     move prompter to fnadver									**
      browser sync wait
-     normal logic												**
+     normal logic											**
      (fnphonebook:7451): GLib-GObject-WARNING **: invalid cast from `(null)' to `GtkProgressBar'
      (fnphonebook:7451): Gtk-CRITICAL **: gtk_progress_bar_get_fraction: assertion `GTK_IS_PROGRESS_BAR (pbar)' 
      failed
      (fnphonebook:10691): Gtk-CRITICAL **: gtk_list_store_append: assertion `GTK_IS_LIST_STORE (list_store)' failed
      sync wait ui pos	
-     gtk: too fast too exit subthread or gtk main loop ??????							**
+     gtk: too fast too exit subthread or gtk main loop ??????						**
      strlen '\0'											**
      Draw Area Exception; no music skin error;
      logmsg: __FUNCTION__     
@@ -1414,8 +1414,81 @@ Havoc
      Epiphany
      color key
      
-     
+0108 IPC                 												over
+     make kpkg
+     apt and dpkg not the same?
+     install kernel-package
+     mkinitrd/ initrd kernel_image										           *
+
+----------------- step ----------------
+     make config/make menuconfig/make xconfig
+     make-kpkg clean 
+     make-kpkg --revision=mykernel.1.0 --initrd kernel_image
+-----------------      
 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------
+I just upgraded my Debian5 workstation to 2.6.31. While doing so I stumbled over this:
 
+cc -m32 -Wall -Wmissing-declarations -Wmissing-prototypes -O3 -I../../include -I../../arch/x86/include -U_FORTIFY_SOURCE lguest.c -o lguest
+lguest.c:21:25: error: sys/eventfd.h: No such file or directory
+lguest.c: In function ‘create_thread’:
+lguest.c:1021: warning: implicit declaration of function ‘eventfd’
+make: *** [lguest] Error 1
+
+This is apparenty due to the old libc-dev package that Lenny comes with. Since libc isn’t exactly a good candidate for a selective upgrade I helped myself with simply editing Documentation/lguest/Makefile and changing:
+
+all: lguest
+
+to
+
+all:
+
+So lguest wont be build anymore. After that make-kpkg binary-arch worked as usual.
+I’m also happy to report that my rr232x-linux patch still works on 2.6.31. 
+-------------------------------------------------------------------------------------------------------------------------------
+
+//////////////
+---------------------------------------------------------------------------------------------------
+修改debian/ruleset/misc/version_vars.mk文件
+sss
+UTS_RELEASE_HEADER=$(call doit,if [ -f include/linux/utsrelease.h ]; then \
+                                                           echo include/linux/utsrelease.h; \
+                                                    else \
+                                                           echo include/linux/version.h ; \
+                                                    fi)
+                                             改成
+UTS_RELEASE_HEADER=$(call doit,if [ -f include/generated/utsrelease.h ]; then \
+                                                           echo include/generated/utsrelease.h; \
+                                                    else \
+                                                           echo include/generated/version.h ; \
+                                                    fi)
+---------------------------------------------------------------------------------------------------------
+
+
+ifup: a shell or a executable
+service network restart
+
+why not share the source list between ubuntu and debian								????
+wget														*	
+firewall autorun 			
+iptables 													*
+icmp 														over
+
+if-pre-up.d; /var/run/ifstate
+linux中ifconfig eth0 up和ifup eth0
+
+ifconfig eth0 192.168.0.93 netmask 255.255.255.0 up
+add default gw 192.168.0.1
+
+dhcp linux                      
+no_subtree_check
+
+cifs permission deny
+
+vmlinux: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped
+
+sysfs;tmpfs; /dev/root;
+
+yum groupinstall "Development Tools" 
