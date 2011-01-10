@@ -1481,14 +1481,16 @@ linux÷–ifconfig eth0 up∫Õifup eth0
 
 ifconfig eth0 192.168.0.93 netmask 255.255.255.0 up
 add default gw 192.168.0.1
-
 dhcp linux                      
 no_subtree_check
-
 cifs permission deny
-
 vmlinux: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped
-
 sysfs;tmpfs; /dev/root;
-
 yum groupinstall "Development Tools" 
+
+
+0110 adapt size 												** 
+     .deps													* 
+     widget size
+     
+
