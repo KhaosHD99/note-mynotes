@@ -1389,9 +1389,8 @@ Havoc
      
 0105 gdm 
      xueche												***
-     shengben												**
-     ps  												
-     
+     shengben												over
+     ps													over  		
      Failed to load theme "Clearlooks": Failed to find a valid file for theme Clearlooks
      ubuntu runlevel
      
@@ -1492,5 +1491,10 @@ yum groupinstall "Development Tools"
 0110 adapt size 												** 
      .deps													* 
      widget size
+   
+0111 
+     optimize adver and pb       
+     gtk_widget_realize(window)
      
 
+     word link to img
