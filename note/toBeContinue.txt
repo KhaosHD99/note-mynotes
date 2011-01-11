@@ -1488,13 +1488,14 @@ sysfs;tmpfs; /dev/root;
 yum groupinstall "Development Tools" 
 
 
-0110 adapt size 												** 
-     .deps													* 
+0110 adapt size 										** 
+     .deps													
      widget size
-   
-0111 
-     optimize adver and pb       
-     gtk_widget_realize(window)
      
-
+     MTD;rootfs;ramfs
+     
+0111 optimize adver and pb       
+     gtk_widget_realize(window)
      word link to img
+     alsa;color key
+     
