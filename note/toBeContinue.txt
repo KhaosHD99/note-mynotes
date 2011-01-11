@@ -1498,4 +1498,9 @@ yum groupinstall "Development Tools"
      gtk_widget_realize(window)
      word link to img
      alsa;color key
+     ./; .; sh;source
+     MPLL 
+     sbin
+     ./arm-linux-gcc: line 3: exec: arm-none-linux-gnueabi-gcc: not found
+     arm-none-linux-gnueabi-gcc
      
