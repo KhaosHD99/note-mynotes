@@ -1504,3 +1504,5 @@ yum groupinstall "Development Tools"
      ./arm-linux-gcc: line 3: exec: arm-none-linux-gnueabi-gcc: not found
      arm-none-linux-gnueabi-gcc
      
+0112 make ...config										*
+     binutils; 
