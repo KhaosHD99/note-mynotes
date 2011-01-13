@@ -1504,5 +1504,25 @@ yum groupinstall "Development Tools"
      ./arm-linux-gcc: line 3: exec: arm-none-linux-gnueabi-gcc: not found
      arm-none-linux-gnueabi-gcc
      
+<<<<<<< .mine
+
+     word link to img
+
+0112 ps single layer
+     can not show table?
+     gtk_widget_shape_combine_mask;evenbox combine mask
+     scale image 
+     destroy; nest; gdk destroy											**
+     remove table;
+     get focus at same time											over
+     focus move sequence											*
+     key_press_event intercept									??
+     
+0113 chnal icon focus
+     gtk_image_clear
+     img scale spec
+     struct def: interface file && stardar header file
+     xml: no such attr
+     event share											      *=======
 0112 make ...config										*
-     binutils; 
+     binutils; >>>>>>> .r443
