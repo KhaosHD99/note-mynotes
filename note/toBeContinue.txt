@@ -1525,4 +1525,22 @@ yum groupinstall "Development Tools"
      xml: no such attr
      event share											      *=======
 0112 make ...config										*
-     binutils; >>>>>>> .r443
+     tils; >>>>>>> .r443
+
+0113  
+
+0114 adver xml: act num											*
+     xmlnode type
+     stdio: printf
+     multiple definition of `PLAYLIST_LIST'							*
+     only list or only channel
+     orthogonal list
+     
+0117 enter_notify_event
+     leave_notify_event
+     layout info
+     gtk_widget_set_events
+     //gtk_widget_realize(window);
+     press event
+      
+     
