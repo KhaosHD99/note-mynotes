@@ -1532,7 +1532,7 @@ yum groupinstall "Development Tools"
 0114 adver xml: act num											*
      xmlnode type
      stdio: printf
-     multiple definition of `PLAYLIST_LIST'							*
+     multiple definition of `PLAYLIST_LIST'							* 
      only list or only channel
      orthogonal list
      
@@ -1543,4 +1543,85 @@ yum groupinstall "Development Tools"
      //gtk_widget_realize(window);
      press event
       
+0118 simulator for arm								                       **
+     Linux lucid48 2.6.32-24-generic-pae #43-Ubuntu SMP Thu Sep 16 15:30:27 UTC 2010 armv7l GNU/Linux
+     time make -j4
+     
+     real    0m33.618s
+     user    1m5.392s
+     sys     0m1.872s    
+     
+     playlist struct
+     xml chinese
+     xml: id; list num											*
+    
+/*********************************
+struct ChanlInfo
+{
+	//节目基本信息
+	int chanl_id;
+	char name[256];
+	char mms_uri[256];
+	char action_img[256];
+	char normal_img[256];
+	...
+};
+
+struct ChanlNode
+{
+	//parent与pre互斥
+	struct ListNode *parent;
+	//半十字链表操作
+	//pre / next 可视为纵向前后节点
+	struct ChanlNode *pre;
+  struct ChanlNode *next;
+	struct ChanlInfo info;
+};
+
+struct ListNodeInfo
+{
+	//节点基本信息；
+	int node_id;
+	char name[256];
+	char action_img[256];
+	char normal_img[256];
+};
+
+struct ListNode{
+	//半十字链表操作
+	//pre / next 可视为纵向前后节点
+	struct ListNode *pre;
+  struct ListNode *next;
+  //child 可视为横向子类表延伸节点, child与chanl互斥
+	struct ListNode *child;
+	struct ChanlInfo *chanl;
+	
+	struct ListNodeInfo nodeInfo;
+};
+
+struct ListNode listRoot;
+***********************************/
+
+
+
+Processor       : ARMv7 Processor rev 5 (v7l)
+BogoMIPS        : 799.53
+Features        : swp half thumb fastmult vfp edsp neon vfpv3
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x2
+CPU part        : 0xc08
+CPU revision    : 5
+
+Hardware        : Freescale MX51 Babbage Board
+Revision        : 51130
+Serial          : 0000000000000000
+
+
+not mount ?
+     
+0119 draw text
+     gdk_window_set_back_pixmap
+     
+     
      
