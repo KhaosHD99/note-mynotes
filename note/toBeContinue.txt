@@ -1623,5 +1623,46 @@ not mount ?
 0119 draw text
      gdk_window_set_back_pixmap
      
+0120 src file spec 
+     ring
+     linux multi job!!!!!!!!!!!!!!!!!!!!!!!! 
+    
+0121 appDef										*
+     symbol lookup error; undefined symbol						
+     prompter: no logmsg
+     #AUTOMAKE_OPTIONS=foreign!!!!!!!!!!!!!!!!!!!!!!!!!!
+     implement a lib func, can not declare a func in that lib!!!!!!!!!!!!!!!!!!!!
      
+     const char buildTimeString[] = "fnAdvertisementSkin Build: " __TIME__ " " __DATE__;
+     showInfo("\r\n\n**************************** %s ***************************\r\n\n", buildTimeString);
      
+     gtk_container_forall ()£» gtk_container_foreach()
+     
+     browser: direct key change focus
+     
+      
+     typedef enum
+{
+  GTK_MOVEMENT_LOGICAL_POSITIONS, /* move by forw/back graphemes */
+  GTK_MOVEMENT_VISUAL_POSITIONS,  /* move by left/right graphemes */
+  GTK_MOVEMENT_WORDS,             /* move by forward/back words */
+  GTK_MOVEMENT_DISPLAY_LINES,     /* move up/down lines (wrapped lines) */
+  GTK_MOVEMENT_DISPLAY_LINE_ENDS, /* move to either end of a line */
+  GTK_MOVEMENT_PARAGRAPHS,        /* move up/down paragraphs (newline-ended lines) */
+  GTK_MOVEMENT_PARAGRAPH_ENDS,    /* move to either end of a paragraph */
+  GTK_MOVEMENT_PAGES,             /* move by pages */
+  GTK_MOVEMENT_BUFFER_ENDS,       /* move to ends of the buffer */
+  GTK_MOVEMENT_HORIZONTAL_PAGES   /* move horizontally by pages */
+} GtkMovementStep;
+
+typedef enum
+{
+  GTK_SCROLL_STEPS,
+  GTK_SCROLL_PAGES,
+  GTK_SCROLL_ENDS,
+  GTK_SCROLL_HORIZONTAL_STEPS,
+  GTK_SCROLL_HORIZONTAL_PAGES,
+  GTK_SCROLL_HORIZONTAL_ENDS
+} GtkScrollStep;
+
+step == GTK_MOVEMENT_VISUAL_POSITIONS || step == GTK_MOVEMENT_DISPLAY_LINES || step == GTK_MOVEMENT_PAGES || step == GTK_MOVEMENT_BUFFER_ENDS' failed
