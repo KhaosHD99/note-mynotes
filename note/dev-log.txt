@@ -289,5 +289,51 @@
      chao bang hand in my ps homework      
      
 0106 I dream liangpeijun before dawn
-     	
+
+0107 
+
+0108 compile and update linux kernel on deb manager
+     
+
+0109
+
+0110
+
+0111 tv ui
+     tv ui effect drawing doc
+     
+
+0112 tv ui design doc
+     gtk scale img
+
+0113 tv ui design doc
+
+
+0114 how to desigh the tvplaylist struct
+     i call my sister afternoon for asking the winner vacation
+
+0115 landlord
+     go home
+     have dinner with biao uncle
+     
+0116 biao uncle have a rest, i go to hua gu's home and buy the sound box and vga cable and forgot buy voice      cable
+
+0117 tv ui: main window
+     evenbox: cursor hold
+     my sister call me for the annoy of traffic jam     
+
+0118 cai ye rebuild 48
+     we can compile the arm exe on x86 arm simulator instead cross compile
+     compile libpb
+     discuss with yq how to desigh the tvplaylist struct  
+     read tvplaylist from xml and build link list
+     grab as much as resource to run, key£ºmake -j4  
+     bolin, chaobang go home
+           
+   
+0119 try to render gtkimage for the effect of active;
+     try to write some text on gtkimage
+     compile pb, prompter, adver
+       
+
 

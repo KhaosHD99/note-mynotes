@@ -1403,9 +1403,9 @@ Havoc
      
 0106 g_assert
      gconf
-     search engine regex
+     search engine regex							*
      adver logic: one area not fresh 
-     g_main_loop_quit(loop)
+     g_main_loop_quit(loop)							
      
 0107 MBR													*
      webview get page original size
@@ -1622,6 +1622,9 @@ not mount ?
      
 0119 draw text
      gdk_window_set_back_pixmap
+     wubi										*
+     majiang										*
+     dahuashai										*
      
 0120 src file spec 
      ring
@@ -1633,6 +1636,9 @@ not mount ?
      #AUTOMAKE_OPTIONS=foreign!!!!!!!!!!!!!!!!!!!!!!!!!!
      implement a lib func, can not declare a func in that lib!!!!!!!!!!!!!!!!!!!!
      
+<<<<<<< .mine
+     
+     =======
      const char buildTimeString[] = "fnAdvertisementSkin Build: " __TIME__ " " __DATE__;
      showInfo("\r\n\n**************************** %s ***************************\r\n\n", buildTimeString);
      
@@ -1650,7 +1656,8 @@ not mount ?
   GTK_MOVEMENT_DISPLAY_LINE_ENDS, /* move to either end of a line */
   GTK_MOVEMENT_PARAGRAPHS,        /* move up/down paragraphs (newline-ended lines) */
   GTK_MOVEMENT_PARAGRAPH_ENDS,    /* move to either end of a paragraph */
-  GTK_MOVEMENT_PAGES,             /* move by pages */
+  GTK_MOVEMENT_PAGES,             /* 
+move by pages */
   GTK_MOVEMENT_BUFFER_ENDS,       /* move to ends of the buffer */
   GTK_MOVEMENT_HORIZONTAL_PAGES   /* move horizontally by pages */
 } GtkMovementStep;
@@ -1665,4 +1672,29 @@ typedef enum
   GTK_SCROLL_HORIZONTAL_ENDS
 } GtkScrollStep;
 
-step == GTK_MOVEMENT_VISUAL_POSITIONS || step == GTK_MOVEMENT_DISPLAY_LINES || step == GTK_MOVEMENT_PAGES || step == GTK_MOVEMENT_BUFFER_ENDS' failed
+step == GTK_MOVEMENT_VISUAL_POSITIONS || step == GTK_MOVEMENT_DISPLAY_LINES || step == GTK_MOVEMENT_PAGES || step == GTK_MOVEMENT_BUFFER_ENDS' failed>>>>>>> .r451
+
+Note: GdkEvent is an union
+
+/************************************* /
+guint keyval = GDK_Page_Down;
+
+         GdkKeymapKey* keys;
+         gint n_keys;
+         gdk_keymap_get_entries_for_keyval(gdk_keymap_get_default(),
+                                           keyval,
+                                           &keys,
+                                           &n_keys);
+	// Note: GdkEvent is an union
+         GdkEvent* event = gdk_event_new(GDK_KEY_PRESS);
+         ((GdkEventKey*)event)->window =
+                              <YOUR TREEVIEW>get_window()->gobj();
+         ((GdkEventKey*)event)->send_event = TRUE;
+         ((GdkEventKey*)event)->time = GDK_CURRENT_TIME;
+         ((GdkEventKey*)event)->state = GDK_KEY_PRESS_MASK;
+         ((GdkEventKey*)event)->keyval = keyval;
+         ((GdkEventKey*)event)->hardware_keycode = keys[0].keycode;
+         ((GdkEventKey*)event)->group = keys[0].group;
+
+         gdk_event_put(event);
+/*************************************************
