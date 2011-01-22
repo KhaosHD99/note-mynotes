@@ -1698,3 +1698,16 @@ guint keyval = GDK_Page_Down;
 
          gdk_event_put(event);
 /*************************************************
+
+0122 WebKitHitTestResult
+     gtk_container_set_focus_chain() 
+     c: share func without extern among file, share global var with extern among file
+     
+     XK_F5   :       WEBAPPLICTION_ID
+     Window manager error: Unable to open X display
+     adver register 								*
+     
+     ajust
+     
+     
+     
