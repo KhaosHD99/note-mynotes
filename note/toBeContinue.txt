@@ -1702,12 +1702,26 @@ guint keyval = GDK_Page_Down;
 0122 WebKitHitTestResult
      gtk_container_set_focus_chain() 
      c: share func without extern among file, share global var with extern among file
-     
      XK_F5   :       WEBAPPLICTION_ID
      Window manager error: Unable to open X display
      adver register 								*
      
      ajust
      
+0124 申请格式正规点，补充工作期间的事迹、开发内容				                               *
+     set_window_top();
+     gtkmenu
+     static GtkWidget *window = NULL;
+     gtk_window_set_screen (GTK_WINDOW (window), gtk_widget_get_screen (do_widget));
+     static GtkWidget *create_menu (gint     depth,
+     			            gboolean tearoff)
+     is_callout
+     contact prompter
+     gtk_window_resize，在窗口初始化是只允许初始化一次！
+     app_two_CFLAGS = -DAPP_TWO
+     g++ main.c `pkg-config --cflags --libs gtk+-2.0 promptermodule fnphonebook`
+     c, cpp daclare, define
+     static web page/jingzhun mainpage										**
+     gtk_menu_set_active(menu, 1);
      
      
