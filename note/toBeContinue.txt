@@ -1706,7 +1706,6 @@ guint keyval = GDK_Page_Down;
      XK_F5   :       WEBAPPLICTION_ID
      Window manager error: Unable to open X display
      adver register 								*
-     
      ajust
      
 0124 申请格式正规点，补充工作期间的事迹、开发内容				                               *
@@ -1719,16 +1718,39 @@ guint keyval = GDK_Page_Down;
      is_callout
      contact prompter
      gtk_window_resize，在窗口初始化是只允许初始化一次！
-     app_two_CFLAGS = -DAPP_TWO
+     app _two_CFLAGS = -DAPP_TWO
      g++ main.c `pkg-config --cflags --libs gtk+-2.0 promptermodule fnphonebook`
      c, cpp daclare, define
      static web page/jingzhun mainpage										**
      gtk_menu_set_active(menu, 1);
-     
-     email													**
-     
+
+0125 email													**
      webkit_web_view_mark_text_matches     
      pkg-config --modversion webkit-1.0: 1.2.5
-     
      treestore liststore treemodel 
      
+0126 pb: user ctr											**
+     double free or corruption
+     gtk_notebook_insert_page; append     
+     
+0127 adver: ring sound										   	**
+     pb: ring add num
+     !!!!!!!!    alloc memory and assign
+     gtk_widget_render_icon
+     gtk_tree_view_column_set_attributes 
+     bubble sort
+     not rigorous enough
+     
+0128 column width											over
+     GtkCellRendererText
+     static func						
+     gtkmenu focus/select					                                       **
+     video_play((const char*)localconfig.RingFile, IMAGE, localconfig.AdVolumn);
+     gtkmenu: have parent 
+     
+0129 gtkmenu: key move menuitem										**
+     
+     
+     
+
+             
