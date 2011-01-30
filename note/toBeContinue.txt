@@ -1749,8 +1749,18 @@ guint keyval = GDK_Page_Down;
      gtkmenu: have parent 
      
 0129 gtkmenu: key move menuitem										**
+     notebook tab label 										*      
+     source insight page positon reverse
+     widget pos solution     
+     clear store after cancle						
+     exception handling is important 									!!!
      
+0130 rm *.svn* * -r -f
+     extern enum 											*
+     key: expand tree											**
+	
+     *** glibc detected *** ./tvphonebook: free(): invalid next size (fast): 0x00054ea0 *** 		**
      
      
 
-             
+    
