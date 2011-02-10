@@ -1758,9 +1758,37 @@ guint keyval = GDK_Page_Down;
 0130 rm *.svn* * -r -f
      extern enum 											*
      key: expand tree											**
-	
-     *** glibc detected *** ./tvphonebook: free(): invalid next size (fast): 0x00054ea0 *** 		**
+          	
+     *** glibc detected *** ./tvphonebook: free(): invalid next size (fast): 0x00054ea0 *** 		***
      
+0210 fill_contact_store(store_contact);
+     realize
+     map												*
+     gtk_widget_destroy NULL
+     widget = NULL;
+     error: unterminated argument list invoking macro "g_signal_connect"
+     eventbox clicked
+     qemu: uncaught target signal 6 (Aborted) - core dumped
+     just delete number										        **
      
+     ------------------
+     checking for ADVERTISEMENTSKIN... configure: error: Package requirements (fnadvertisementskin) were not met:
 
+Package PROMPTERMODULE was not found in the pkg-config search path.
+Perhaps you should add the directory containing `PROMPTERMODULE.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'PROMPTERMODULE', required by 'fnadvertisementskin', not found
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables ADVERTISEMENTSKIN_CFLAGS
+and ADVERTISEMENTSKIN_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+     
+-------------------
+qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+
+0211  
+     
     
