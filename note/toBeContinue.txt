@@ -1854,4 +1854,7 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      tvpb: expand contact after delete num								**
      regex												->   
      wifi ui
-      
+     INFO: PrompterModule.cpp(85) ------------------------------ Get in OnReceive ----------------------------- 
+     INFO: PrompterModule.cpp(93) OnReceive XXXXXXXXXXXXXXXXXXXXXX  AbstractModule::OnReceive(vial) Return False           XXXXXXXXXXXXXXXXXXXXX										
+
+	
