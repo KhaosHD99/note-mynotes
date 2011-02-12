@@ -1757,9 +1757,8 @@ guint keyval = GDK_Page_Down;
      
 0130 rm *.svn* * -r -f
      extern enum 											*
-     key: expand tree											**
-          	
-     *** glibc detected *** ./tvphonebook: free(): invalid next size (fast): 0x00054ea0 *** 		***
+     key: expand tree											over
+     *** glibc detected *** ./tvphonebook: free(): invalid next size (fast): 0x00054ea0 *** 		over
      
 0210 fill_contact_store(store_contact);
      realize
@@ -1784,11 +1783,75 @@ installed software in a non-standard prefix.
 
 Alternatively, you may set the environment variables ADVERTISEMENTSKIN_CFLAGS
 and ADVERTISEMENTSKIN_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-     
--------------------
+See the pkg-config man page for more details.								    over
+     		
+-------------------											
 qemu: uncaught target signal 11 (Segmentation fault) - core dumped
-
-0211  
      
-    
+0211 pb: vial												    **
+     msg dialog												    over
+     edit mode->cancel error										    *
+     pb: active->expand											    over
+     pkg-config Require											    *over   
+     initiative	hand 											    *
+     
+-------------------------
+当glibc detected *** free(): invalid next size (normal)出现
+[ 2009年5月27日 星期三 ] shanghui Yes 113 No 126 
+ 
+ 是内存泄露的问题。 
+（1）一般是free了没有分配的内存
+（2）还有就是分配了内存忘记释放也有可能会出现这样的问题。 
+（3）最后查出来是数组循环的时候越界了 ， 写到了其他的内存里面， 然后一free那个区域就出现了这样的问题。
+
+是有allocate引起的，一个debug的方法是把你怀疑的矩阵（比如释放了就会报内存错误）定义成静态的，这样如果出现越界，会报段错误。依次检查是否你的数组真的越界了。
+--------------------------- 
+ 
+     cross border
+     tmpcpy = new char[strlen(tmp) + 1]; strtok
+     
+-------------- conference -------------
+     ffmpeg
+     gstreamer		
+     x264			
+     DTMF					
+     AAC 				
+     codec							
+         
+0212 strlen not contain "\0"										*
+     Log file												**
+     simulate ring num											**
+     xorg												*
+     但是在X的server/client模型中恰好相反，这里面server仅仅负责鼠标、键盘、显卡、显示器这些输入输出部件，而x-client却是负责处理数据的
+     　由于x-server负责鼠标、键盘、显卡、显示器这些输入输出部件，你必须在安装好以后，告诉x-server你当前系统使用的是什	     么样的鼠标、键盘、显卡、显示器。由于当前硬件厂商众多，所以不要指望x-server自动识别出所有需要的参数，通常你需要编辑一	    下/etc/X11/xorg.conf这个文件来提示它一下。现在你应该知道为什么论坛上总有人在买了USB鼠标以后相互讨论如何修改    xorg.conf     了。
+     														
+     *** stack smashing detected ***: ./fnphonebook terminated							
+     Aborted												
+     calllog sync contact    										over
+     get contact by num: logic error									over
+-------------------
+     struct
+     {
+	int nPhoneMode;
+	int nCallType;
+	int nCodelen;
+	char cPhoneCode[VIAL_PHONECODE_LEN];
+     }PhoneCode;
+     declare or define?	    
+--------------------
+     
+     state vial first or callercode vial???
+     tv: pb send vial to tvphone         								**
+     pb lib: add interface: delete num by contact index;delete the      				
+     sizeof char array: the value is the real size						        over
+     delele tree view child item: get something bad			
+     gtk_tree_model_iter_parent											
+     tv and phone pb id											over
+     tvpb: layout
+     xorg.conf		     
+     relievo effect											**
+     tvpb: voip num											**
+     tvpb: expand contact after delete num								**
+     regex												->   
+     wifi ui
+      
