@@ -1790,7 +1790,7 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      
 0211 pb: vial												    **
      msg dialog												    over
-     edit mode->cancel error										    *
+     edit mode->cancel error										    **
      pb: active->expand											    over
      pkg-config Require											    *over   
      initiative	hand 											    *
@@ -1840,15 +1840,15 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      declare or define?	    
 --------------------
      
-     state vial first or callercode vial???
-     tv: pb send vial to tvphone         								**
+     state vial first or callercode vial???							
+     tv: pb send vial to tvphone         								***
      pb lib: add interface: delete num by contact index;delete the      				
      sizeof char array: the value is the real size						        over
-     delele tree view child item: get something bad			
-     gtk_tree_model_iter_parent											
+     delele tree view child item: get something bad							over	
+     gtk_tree_model_iter_parent										over	
      tv and phone pb id											over
      tvpb: layout
-     xorg.conf		     
+     xorg.conf		     							
      relievo effect											**
      tvpb: voip num											**
      tvpb: expand contact after delete num								**
@@ -1856,5 +1856,117 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      wifi ui
      INFO: PrompterModule.cpp(85) ------------------------------ Get in OnReceive ----------------------------- 
      INFO: PrompterModule.cpp(93) OnReceive XXXXXXXXXXXXXXXXXXXXXX  AbstractModule::OnReceive(vial) Return False           XXXXXXXXXXXXXXXXXXXXX										
+		
+0214 fnpb: prompter contact vial									**
+     network-manager -> /lib/init/upstart-job*
+     install libiw-dev; libnss-ldap     
+     gtkmm												
+     dial fail; focus on treeview									over
+     pb: duration											over
+     bz2; gz		
+     localization： image button									***
+								
+0215 fnpb: duration			
+     fnpb: UI revolution										**
+     触摸屏：电阻屏											
+     img name												**
+     get img original size
+     img: contact calllog cancel; buttons（add contact）						**
+     change the theme real time										**     
+     tvpb: mounse event											**
+     memset char array
+     tvpb: confuse by the chile iter index when edit contact						**
+     													
+0216 add duration show											over
+     modigy calllog type show										**
+     由于电话簿显示内容有限，当采用满屏模式时为避免出现 空洞 ，建议部分区域用于显示广告咨询等；		**  
+     互联网二级菜单包括有浏览网页和邮件服务，进入此两项应用时，建议停止视频播放				**
+     http://113.108.154.60/tvemail/index4.htm								**
+     webview get is full screen? 									**	
+     pb<->prompter:dial;receive;missed									***
+     multi focus											**
+     pb dial contact: not num, is name									**
+     pb: dial notify vial not over but already find contact						over
+     ctr+s												*
+     send vial for loop  											
+     strncpy strcpy: will they cpy '\0' to the end??? strcpy will; strncpy not				over
+     phonenum_info.nCallType										*
+     struct declare def											over
+     build time												over
+     on_vial_dial_notify, phoneCode: 4 -> 12341234123412341234, CodeLen: 20                             over
+		
+******************************************								
+     pb: dialing->onhook				
+     (fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+DEBUG: calllog.c(582) --------- Can not get Contact From Number: 12341234, Len: 8-----------
 
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnphonebook:9953): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+INFO: contact.cpp(663) ----------------- Contact Count: 3 --------------------
+DEBUG: calllog.c(582) --------- Can not get Contact From Number: 未知, Len: 6-----------     
+***********************************************     
+     
+const char buildTimeString[] = "LibPrompterModule Build: " __TIME__ " " __DATE__;   				over
+prompterL: unknow call												over
+tv webservice video play 											*
+uncatch phone: prompt; and remove after user read it;								over
+regex 														->
 	
+0217 prompt uncatch phone											over
+     free localtime												*
+     after delete focus												over
+     pb: modify detect												*
+     multi focus												->
+     mouse event												over
+     localization： img button 											->
+     absolute path												*
+     tvbrowser video player											**
+     put text on img												**
+     automake option												*
+     prompt msg
+     fn prefix													**	
+     function para name spec											*
+     argv													over
+     function para: char; const char										*
+     gdk_widget_destroy(pixbuf);
+     pango
+      
+0218 localization: put text on img										-》	
+     assert				
+     IPS硬屏 VA软屏	
+      tv read playlist error: simp										*
+     too more free          
+
+     
