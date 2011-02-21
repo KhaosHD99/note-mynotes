@@ -383,3 +383,6 @@
      fixed two cellphone took me 60 and  
           
 0214 
+     
+0219 strncpy, goto, assert, switch, is important
+      
