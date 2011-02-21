@@ -1869,21 +1869,21 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
 0215 fnpb: duration			
      fnpb: UI revolution										**
      触摸屏：电阻屏											
-     img name												**
-     get img original size
-     img: contact calllog cancel; buttons（add contact）						**
-     change the theme real time										**     
-     tvpb: mounse event											**
-     memset char array
-     tvpb: confuse by the chile iter index when edit contact						**
+     tvpb: img name											over
+     get img original size										
+     img: contact calllog cancel; buttons（add contact）						over
+     change the theme real time										**   
+     tvpb: mounse event											over
+     memset char array											over
+     tvpb: confuse by the child iter index when edit contact						**
      													
 0216 add duration show											over
      modigy calllog type show										**
      由于电话簿显示内容有限，当采用满屏模式时为避免出现 空洞 ，建议部分区域用于显示广告咨询等；		**  
      互联网二级菜单包括有浏览网页和邮件服务，进入此两项应用时，建议停止视频播放				**
      http://113.108.154.60/tvemail/index4.htm								**
-     webview get is full screen? 									**	
-     pb<->prompter:dial;receive;missed									***
+     webview get is full screen? 									**
+     pb<->prompter:dial;receive;missed									over
      multi focus											**
      pb dial contact: not num, is name									**
      pb: dial notify vial not over but already find contact						over
@@ -1953,7 +1953,7 @@ regex 														->
      localization： img button 											->
      absolute path												*
      tvbrowser video player											**
-     put text on img												**
+     put text on img												over
      automake option												*
      prompt msg
      fn prefix													**	
@@ -1962,11 +1962,61 @@ regex 														->
      function para: char; const char										*
      gdk_widget_destroy(pixbuf);
      pango
-      
-0218 localization: put text on img										-》	
-     assert				
-     IPS硬屏 VA软屏	
-      tv read playlist error: simp										*
-     too more free          
+     
+0218 localization: put text on img										over	
+     assert													
+     IPS硬屏 VA软屏												
+     tv read playlist error: simp										over
+     too more free												over	
+     adver: ring sound test 											**
+     
+0219 pb: ring->onhook												over
+     (fnphonebook:6015): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
 
+     (fnphonebook:6015): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)'      failed
+
+     (fnphonebook:6015): Gtk-CRITICAL **: gtk_tree_view_set_model: assertion `GTK_IS_TREE_VIEW (tree_view)' failed
+*************************
+     compile Warning
+*****************
+     adver: ring->onhook											
+
+DEBUG: fnAdvertisementSkin.cpp(1335) on_window_focus_out_event !
+************* pthread_join Audio we
+========================== AudioThread end =========================  
+************* pthread_join Audio end
+DEBUG: fnAdverVideo.cpp(204) player->Stop() ! 
+DEBUG: fnAdverVideo.cpp(206) video_stop over !
+     
+     put text on img: text size											*
+     video play test												**
+     variable undefine ref???											*
+     pb: addto Contact												->
+     regex 													->	
+     Init, destroy widget and clear store									over
+     Prompter: localization; optimize languega addition								**
+     real time change theme											**
+     pango_font_description_from_string
+     zh_CN; US\TW\HK\CN\JP\KR											
+     coding spec: int validate_locale(char *local_para) 							*
+     new char()     												*
+     
+0221 cl key													-》
+     webview get is full screen? 										-》
+     prompter localization: get a obstruct									over
+     pb localization: contact detail										over
+     my localization: feasibility(no);lib; adverskin; get text							**
+     tv browser(navigation page; video; style)									**
+     wifi UI													**
+     tv app; joint Debugging											**	***************
+     libm.so.6 => /lib/tls/i686/cmov/libm.so.6 (0x00a47000)
+     libc.so.6 => /lib/tls/i686/cmov/libc.so.6 (0x0048c000)     							
+     uncatch 0 													**
+     add to contact->cancel
+     printf color log						
+     pb: calllog->main, focus											**
+     wireless.h: dynamic gen???											*
+     .o static or dyn          
+     Unsupported ioctl: cmd=0x8b01						
+     	
      
