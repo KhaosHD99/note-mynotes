@@ -2011,12 +2011,16 @@ DEBUG: fnAdverVideo.cpp(206) video_stop over !
      tv app; joint Debugging											**	***************
      libm.so.6 => /lib/tls/i686/cmov/libm.so.6 (0x00a47000)
      libc.so.6 => /lib/tls/i686/cmov/libc.so.6 (0x0048c000)     							
-     uncatch 0 													**
-     add to contact->cancel
-     printf color log						
+     uncatch 0 													over
+     add to contact->cancel											
+     printf color log												
      pb: calllog->main, focus											**
      wireless.h: dynamic gen???											*
      .o static or dyn          
      Unsupported ioctl: cmd=0x8b01						
-     	
+     ---------------- write err, state 3 len 2304 err -77
+          
+     
+     
+     
      
