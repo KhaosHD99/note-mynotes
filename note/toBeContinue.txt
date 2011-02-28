@@ -1847,24 +1847,24 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      delele tree view child item: get something bad							over	
      gtk_tree_model_iter_parent										over	
      tv and phone pb id											over
-     tvpb: layout
-     xorg.conf		     							
+     tvpb: layout																		
+     xorg.conf		     										
      relievo effect											**
      tvpb: voip num											**
      tvpb: expand contact after delete num								**
-     regex												->   
+     regex												->
      wifi ui
      INFO: PrompterModule.cpp(85) ------------------------------ Get in OnReceive ----------------------------- 
      INFO: PrompterModule.cpp(93) OnReceive XXXXXXXXXXXXXXXXXXXXXX  AbstractModule::OnReceive(vial) Return False           XXXXXXXXXXXXXXXXXXXXX										
-		
-0214 fnpb: prompter contact vial									**
-     network-manager -> /lib/init/upstart-job*
-     install libiw-dev; libnss-ldap     
+													
+0214 fnpb: prompter contact vial									over
+     network-manager -> /lib/init/upstart-job*								
+     install libiw-dev; libnss-ldap     								
      gtkmm												
      dial fail; focus on treeview									over
      pb: duration											over
-     bz2; gz		
-     localization： image button									***
+     bz2; gz												
+     localization： image button									over
 								
 0215 fnpb: duration			
      fnpb: UI revolution										**
@@ -1879,7 +1879,7 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped
      													
 0216 add duration show											over
      modigy calllog type show										**
-     由于电话簿显示内容有限，当采用满屏模式时为避免出现 空洞 ，建议部分区域用于显示广告咨询等；		**  
+     由于电话簿显示内容有限，当采用满屏模式时为避免出现空洞 ，建议部分区域用于显示广告咨询等；		**  
      互联网二级菜单包括有浏览网页和邮件服务，进入此两项应用时，建议停止视频播放				**
      http://113.108.154.60/tvemail/index4.htm								**
      webview get is full screen? 									**
@@ -2008,7 +2008,7 @@ DEBUG: fnAdverVideo.cpp(206) video_stop over !
      my localization: feasibility(no);lib; adverskin; get text							**
      tv browser(navigation page; video; style)									**
      wifi UI													**
-     tv app; joint Debugging											**	***************
+     tv app joint Debugging											******************
      libm.so.6 => /lib/tls/i686/cmov/libm.so.6 (0x00a47000)
      libc.so.6 => /lib/tls/i686/cmov/libc.so.6 (0x0048c000)     							
      uncatch 0 													over
@@ -2019,8 +2019,199 @@ DEBUG: fnAdverVideo.cpp(206) video_stop over !
      .o static or dyn          
      Unsupported ioctl: cmd=0x8b01						
      ---------------- write err, state 3 len 2304 err -77
-          
+     
+0222 set afa; cl key												->
+     wireless UI												
+     stop video; who use video											->
+     browser status show											**
+     sdio     
+***********************
+wlan0     AR6000 802.11g  ESSID:"finephon"  
+          Mode:Managed  Frequency:2.437 GHz  Access Point: 00:1D:0F:80:3E:24   
+          Bit Rate=54 Mb/s   Tx-Power=16 dBm   Sensitivity=0/3  
+          Retry:on   
+          Encryption key:C5C3-484E-C6BA-E3A2-AAED-1118-C735-64E6-CD0A-869F-7BC3-B7F4-F73F-9A6C-4A6A-5866   Security mode:open								
+          Power Management:off
+          Link Quality:41/94  Signal level:-54 dBm  Noise level:-96 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:1  Invalid misc:0   Missed beacon:0
+************************
+     name spec     												*
+     freehand conn; off hook conn										**    
+     adver prompter zhe dang; font color									
+     tvphonebook: confirm button; main cancel button(web service); argc; 					over
+     calllog type show												over
+     word rar	  												over
+     
+********************************************
+tvpb: contact detail -> main menu
+DEBUG: main.c(176) ---------------- Get in destroy_widget, Destroy Widget: GtkArrow ------------------
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(176) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(176) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(176) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fntvphonebook:6089): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+
+*******************************************
+     
+     modify detect												->
+     put text on img: text pos, size     									**
      
      
+0223 browser: book mark; input box										**	     webservice img path; hide -> show; mail -> back								**
+     can I stop other app video											
+     single focus												**
+************************************************
+     2011.02.23 电视机问题集
+1. 
+   主菜单 --> 二级菜单
+   (欠隐藏)   (欠隐藏)
+
+2. 点击流媒体时，hide/show视频窗口，置顶。
+
+3. 浏览器，欠输入框
+   
+4. 浏览器，播放视频。
+   方法一，通过vail传递参数由媒体服务播放，hide/show视频窗口，置顶；
+   方法二，通过响应式vail，要求媒体服务暂停播放-->媒体服务向"来者"发回暂停结果-->若暂停成功则浏览器播放，若暂停失败则报错；
+  
+著:
+   以上两种方法，在多种上层应用间协商播放视频时，都出现累赘，繁琐；
+   现播放器不兼容多应用播放，且出现播放失效，主要表现在视频互通完成后,与媒体播放出现冲撞，导致严重异常；
+   														
+5. 网络浏览菜单，进入上网和邮箱，都会出现窗口隐藏，没有进入网页！						**
+   														
+6. 电话簿，电话部在随意点击时，出现崩溃退出！									**
+			
+7. 电话互通挂机(收到cc的挂机消息后或主动按钮挂机)，应用需等待800ms才能返回；
+   媒体服务在收到cc的挂机消息后，需等待1s才能播放上一次的节目			
+*************************************************			
      
+   web_service text file; title; progress									**       
+   adver: offhook music(bussiness ctr, logic ctr) ; can not change pic; ring: set somebody top; timer don't work *
+   prompter : zhe dang											->  	
+   resource file put to release											**
+   
+0224 prompter bg			
+     adver roll text; real time; mem leak									***
+     browse: main page, stream media page; email page: back; audio or video
+     //获得浏览器主页,返回NULL表示异常
+    const char *get_browser_url();			
+   泉哥  10:47:40
+	const char *get_netvideo_server_url();
+     //获得浏览器主页,返回NULL表示异常
+     **************************** LibPrompterModule Build: 18:24:59 Feb 23 2011 ***************************
+     			
+     adver , phoneconfiger volume										**
+     getenv				
+     free; const char; char											
+     theme;ui rev												**         minitor escape; email frame										**
+     if();   not report syntex Err******************************!!!!!!!!!!     
+     g_connect: return					
      
+0225 char* to const char* will it free the heap									*
+     adver mms													*
+     window level manage											**
+     regex													->
+     prinf implement												*
+     dialog WM 													*
+     theme;ui rev												->
+     static extern												
+     prompter videoconn												**
+     Hifi													*	     VialSys: on_receive, OnReceive										over
+     dialog lose focus												**
+     pb Enter: dial												**
+     off hook music												*
+     														
+     ***********************************	
+     pb: calllog vial												***   
+     *** glibc detected *** ./fnPhonebook: munmap_chunk(): invalid pointer: 0x00014d95 ***
+     malloc Struct
+     ***********************************										
+     
+     treeview scroll window											**
+     browser home												over
+     auto add http  												
+     webservice: frame; web page size；full window；collapse							->
+     pb: multi select（delete)				
+     unify all app window size      										**
+     
+0226 link list													!**
+     if(p->calllog); if(!(p->calllog))										over
+     prompter mem leak?													
+*****************************     
+     (fnTVPhonebook:6111): Gtk-CRITICAL **: gtk_tree_store_get_value: assertion `VALID_ITER (iter, tree_store)' failed
+
+(fnTVPhonebook:6111): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.24.1/gobject/gtype.c:4177: type id `0' is invalid
+
+(fnTVPhonebook:6111): GLib-GObject-WARNING **: can't peek value table for type `<invalid>' which is not currently referenced
+*********************************     				
+     point array sort												**
+     adver vail segament fault
+     markup = new; markup = new
+     clear calllog 				
+
+0227 coding spec												*
+     commit to svn  													
+     pb!!!!!!!													
+     
+     **************************** LibPrompterModule Build: 16:33:57 Feb 26 2011 ***************************
+     
+     DEBUG: Prompter.cpp(249) --------------------- Get in create_prompter_gtkarea ------------------
+     *** glibc detected *** ./test_prompter: corrupted double-linked list: 0x00119050 ***
+     adver
+     libpb													**
+     get_locale_text  
+     memcpy sizeof												*
+     return const value; static full
+********************************************************
+WARNING: calllog.cpp(107) lock_mutex XXXXXXXXXXXXXXXXXXXXX Lock Mutex Fail!!
+INFO: PhonebookModule.cpp(587) ---------- Begin Time: 31369, End Time: 0, Status: 2 ------------
+INFO: PhonebookModule.cpp(114) ----------------------------------- Received Vial -----------------------------------
+INFO: PhonebookModule.cpp(133) OnReceive, Get StateChangeVial
+INFO: PhonebookModule.cpp(359) PhonebookModule::on_on_hook, Curren State: ON_HOOK, Hang Up From Novideo Conn
+INFO: PhonebookModule.cpp(361) --------------- Set Call Duration After NOVIDEO_CONN -------------------
+INFO: PhonebookModule.cpp(369) ---------- Begin Time: 31369, End Time: 31370, Status: 2 ------------
+INFO: calllog.cpp(805) --------------- Get in set_call_duration -----------------
+INFO: calllog.cpp(825) ------- Status: 2, Count: 50 --------
+DEBUG: calllog.cpp(947) Get in update_calllog_by_index
+INFO: calllog.c(688) ---------------- Calllog Count: 50 ----------------
+Segmentation fault
+*******************************************************     
+
+0228 calllog del lock
+     webservice Ui: bg, status, tooltips								**
+     社会实践
+     calllog_lpconfig									**
+     dialog style
+     *** glibc detected *** ./fnTVPhonebook: double free or corruption (fasttop): 0x2d849468 ***
+     Aborted					
+     release													****
+     http://；https												**
+     continue video
+     strtok
+     				
+     tmpcpy = new char*(strlen(tmp)); 
+     
+     信号强度接收方：
+     2. 提示窗模块
+     4. 广告模块
+     
+     point NULL: Value?				
+     snprintf(fixed_uri, 255, "http://%s", uri);	
+     stop vedio item												**
+     Resource temporarily unavailable					
+     libpb: calllog sort						->
+     get_locale_text							->              
+     
+     		
