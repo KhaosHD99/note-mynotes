@@ -2203,16 +2203,160 @@ Segmentation fault
      				
      tmpcpy = new char*(strlen(tmp)); 
      
-     信号强度接收方：
-     2. 提示窗模块
-     4. 广告模块
+     信号强度接收方：									**
+     2. 提示窗模块			
+     4. 广告模块				
      
-     point NULL: Value?				
-     snprintf(fixed_uri, 255, "http://%s", uri);	
+     point NULL: Value?												
+     snprintf(fixed_uri, 255, "http://%s", uri);								
      stop vedio item												**
-     Resource temporarily unavailable					
-     libpb: calllog sort						->
-     get_locale_text							->              
-     pb: scroll;ui sync								->
-     how to create const char						
+     Resource temporarily unavailable								
+     libpb: calllog sort									over
+     get_locale_text										over              
+     pb: scroll;ui sync								   		over
+     how to create const char									
+     pb: bg											
      		
+0301 /* init threads */
+     g_thread_init(NULL);
+     gdk_threads_init();
+     
+     multi delete									
+     single focus									->
+     button add to contact: search from contact						over
+     (fnPhonebook:5977): Gtk-CRITICAL **: gtk_tree_store_clear: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+     INFO: main.c(341) focus_in_event: contact
+     browser: button pos				
+     tooltip
+     gtkwindow max mix： gtk_window_fullscreen， full sc,back button;
+     prompter: thread protect				
+     
+     gtk_tool_item_set_tooltip_text (item, "Show on vertical palettes only");
+     email 		***
+     zoom 		***
+     spinner
+     fnpb: escape: window level								**
+     pb: calllog active dial;
+
+*****************************************
+     pb win level 2						
+     (fnPhonebook:6298): Gtk-CRITICAL **: gtk_tree_store_clear: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+     INFO: main.c(371) focus_in_event: contact		
+     			
+     (fnPhonebook:6298): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     reg_to_wm : phonebook     		
+************************************     
+     get ui_text segment fault			*
+     strcpy \0     		
+
+****************************************
+     char ui_text[256];		
+     memset(ui_text, 0, sizeof(ui_text));
+     printf
+***************************
+     prompter signal quality			
+     static same func can exist on file
+     	
+0302 bookmark: create; modify; delete; zoom; no title and uri						**
+     adver set top			
+     adver collapse			
+     dialog style				
+     assert !!				
+     regex 			->
+     scale web page
+     toolbar popup menu !!  		
+     
+0303 sent contact to tvdialer
+     multi del                                     ->	
+     treeview icon				   		
+     favorite window modal		           **			
+     bookmark drag				   				
+     gtk_window_set_modal: assertion `GTK_IS_WINDOW (window)' failed
+     static func				
+     altium designer
+     show_confirm_window		
+      
+0304 adver: read play list realtime;								        ***
+     pb: calllog icon					 					
+     adver play music: sem_post(&(adverManager->time_sem));					        **
+     gtk_tree_view_column_pack_start multi cell renderer
+     xinit												
+     vialtype 												**
+     adver can't read xml file										
+     strdup												
+     calllog icon 											over
+     web_service: default full_screen						
+     curor event;
+     browser: modal; lose focus; down load								
+     add bookmark: default enter									*
+     gdk_window_set_back_pixmap: assertion `GDK_IS_WINDOW (window)' failed
+       
+0305 
+2. 网页浏览											
+   网页放大缩小键处理异常，在浏览网页时由全屏转为缩小时，再点击全屏按钮，失效。			
+   网页要全屏，在点击左上角时，会击中后面的window窗口						
+   												
+3. 电话部													
+   编辑无效													
+   删除不方便													
+   操作反应迟钝，亟需优化											
+   modal											
+   set focus back to list and select one item							
+   email escape											
+   window level manage										***
+   browser maxmize, and minimize; escape not mini								
+   zoom icon											*
+   dialog bg											*
+   
+*********************************
+pb: edit->save suc	
+			
+NFO: contact.c(369) -------------------------- Contact Count: 3 --------------------------
+INFO: main.c(525) PAGE_CONTACT
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(180) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(180) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(180) ---------------- Get in destroy_widget, Destroy Widget: GtkArrow ------------------
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(180) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+DEBUG: main.c(180) ---------------- Get in destroy_widget, Destroy Widget: (null) ------------------
+
+(fnTVPhonebook:7090): Gtk-CRITICAL **: gtk_widget_destroy: assertion `GTK_IS_WIDGET (widget)' failed
+INFO: calllog.c(579) ---------------- Calllog Count: 18 ----------------
+***********************************
+										   					
+grab focus when show contact detail page
+
+单科成绩*这科学分/总学分
+				
+0307 GTK_IS_WIDGET		
+     广告节目(电话机)												over
+     1.资源文件存放说明												
+     2.广告节目XML文件手工修改说明															
+     email escape												over										
+     window stack												
+     single focusgtk_container_set_focus_chain 									over
+     wm modal													*	
+     adver music; read file error resolution; 									**	
+     static extern													
+     adver realtime update timelist										**
+     adver timepos; file type validate;area num validate  							**
+     adver: if stream, music? ; filetype spec			
+     word line space								
+      
+     		
+     	
+     	
+           
