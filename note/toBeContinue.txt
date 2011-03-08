@@ -2355,8 +2355,18 @@ grab focus when show contact detail page
      adver timepos; file type validate;area num validate  							**
      adver: if stream, music? ; filetype spec			
      word line space								
-      
-     		
+     
+0308 pb: multi delete												**
+     treeview drag								
+     unsigned; strcpy: add '\0' to the end? memory test
+     show msg resolution							
+     pb: phonenum validate should not depend on entry								**
+     pb: window level												**
+     MSG_CONTACT_EXIST
+     tvpb: ui
+     
+     
+          
      	
      	
            
