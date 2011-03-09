@@ -2361,12 +2361,23 @@ grab focus when show contact detail page
      unsigned; strcpy: add '\0' to the end? memory test
      show msg resolution							
      pb: phonenum validate should not depend on entry								**
-     pb: window level												**
+     pb: window level												over
      MSG_CONTACT_EXIST
      tvpb: ui
      
+0309 browser uri entry active: status show; bookmark!!!!!!! 							over
+     fnWebService: browser.c:933: bookmark_active_event: Assertion `((void *)0) != element' failed.Aborted	over	
+     test is so import
+     treeview select one item
+     multiple definition of `PAGE_INFO'					
+     pb: page stack; add to contact text				
+     (fnPhonebook:6882): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     adver: ringing video											**
+     img text size	 												
+     send contact to tvdialer											**
+     clear svn
+     validate email         	
+     voip regex
+     c func share
      
-          
-     	
-     	
-           
+     

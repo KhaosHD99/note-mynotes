@@ -382,3 +382,13 @@ The letters always appear in groups of three. Within a group, the order is alway
 If the file is a directory, 'x' means that files in the directory may be accessed if referred to directly by name, but wildcard substitutions ('*') and ls operations will not be permitted. 
 
 Modes are usually represented inside programs by a sequence of three octal digits. each octal digit represents one of the groups of three characters, 4 for 'r' plus 2 for 'w' plus 1 for 'x'. In C and C++ programs remember that numbers with leading zeros are always assumed to be in octal, so the mode 0751 represents rwxr-x--x. 
+
+
+0309 
+     1) static与extern永不相容
+     2) static修 饰的全局变量声明与定义同时进行
+     3) static修饰全局变量的作用域 只能是本身的编译单元
+     4) 正是因为static有以上的特性，所以一般定义static全局变量时，都把它放在原文件中而不是头文件，这样就不会给其他模块造     成不必要的信息污染
+     5)
+      
+     
