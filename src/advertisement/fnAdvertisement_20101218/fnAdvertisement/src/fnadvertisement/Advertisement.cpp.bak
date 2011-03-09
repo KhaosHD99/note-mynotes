@@ -1,0 +1,433 @@
+﻿/*
+* Copyright 广州泛网视讯有限公司
+* All rights reserved.
+* 
+* 文件名称：Advertisement.cpp
+* 
+* 摘    要：对时间表的读取与分析
+* 
+* 作    者：吴耀泉
+*
+* 修改者:   徐镇杰
+* 
+* 最后修改日期：2010年11月11日
+*/
+#include "Advertisement.hpp"
+
+const char ROLL_TEXT[ROLL_TEXT_COUNT][128] = 
+{
+	"珠江经济台24周年台庆",
+	"粤韵珠江中国广播最有价值声音",
+	"风华正茂廿四载 声音铸造力量 创新成就未来"
+};
+/* ************************************************************************************************
+                                                                            Advertisement
+**************************************************************************************************/
+Advertisement::Advertisement()
+{
+	init_advertisement();
+}
+
+Advertisement::~Advertisement()
+{
+	
+}
+
+void Advertisement::init_advertisement()
+{	
+	currentEndTime = 0;
+	memset(&actInfo, 0, sizeof(ACTINFO_AND_STOPTIME));
+}
+
+/* ************************************************************************************************
+                                                                 Advertisement Manager
+**************************************************************************************************/
+AdverManager::AdverManager()
+{
+	init_adver_manager();
+}
+
+AdverManager::~AdverManager()
+{
+    pthread_mutex_destroy(&mutex);
+	uninit_adver_manager();
+}
+
+void AdverManager::init_adver_manager()
+{	
+    phoneState = CCST::ON_HOOK;
+	phoneStateDirty = -1;
+    
+	adverObjs = new Advertisement*[MAX_ADVER_AREAS];
+	for(int i = 0; i < MAX_ADVER_AREAS; i++)
+		adverObjs[i] = new Advertisement;
+	
+    cur_play_type = (FileSwitch)-1;
+	pthread_mutex_init (&mutex, NULL);
+}
+
+void AdverManager::uninit_adver_manager()
+{
+	for(int i = 0; i < MAX_ADVER_AREAS; i++)
+	{
+		if(adverObjs[i])
+			delete(adverObjs[i]);
+		adverObjs[i] = NULL;
+	}
+	delete adverObjs;
+	adverObjs = NULL;
+}
+
+/* ************************************************************************************************
+				                           			       Single Instance
+**************************************************************************************************/
+AdverManager* AdverManager::adver_manager_instance = NULL;
+AdverManager* AdverManager::get_instance()
+{
+	if(!adver_manager_instance)
+		adver_manager_instance = new AdverManager;
+	
+	return adver_manager_instance;
+}
+
+FileSwitch AdverManager::get_current_play_type()
+{
+	return cur_play_type;
+}
+
+/* ************************************************************************************************
+                  Desc:  Play Adver Thread
+**************************************************************************************************/
+void* AdverManager::play_adver_thread(void *p_data)
+{
+    sem_init(&timeSem, 0, 0);
+	run_sign = 1;
+	play_adver();
+}
+
+void AdverManager::play_adver()
+{
+    struct timeval tv;
+	timespec sp;
+	char img_path[128];
+	char video_path[128];
+	
+	#if 1
+	/* Play Adver Loop */
+    while(run_sign)
+    {
+	    gettimeofday (&tv , NULL);
+		
+		/* 检测话机状态是否有改变*/
+		
+  		if(phoneStateDirty != phoneState)
+  		{
+			phoneStateDirty = phoneState;
+			
+			for(int i = 0; i < MAX_ADVER_AREAS; i++)
+				memset(adverObjs[i], 0, sizeof(Advertisement));
+		}
+		
+		/* 检测话机状态是否有改变*/
+		
+		/* Validate Phone State*/
+		pthread_mutex_lock(&mutex);
+		if(phoneState < 0)
+		{
+			showDebug("Invalid Phone State\n");
+			return;
+        }
+		else
+		{
+		    showDebug("Phonee State: %s\n", state_enum_to_str(phoneState));
+			gettimeofday (&tv , NULL);
+			
+			/* Area Loop */
+			for(int i = 0; i < MAX_ADVER_AREAS; i++)
+			{
+	            //初始化adver 对象
+				if(adverObjs[i]->actInfo.szActName == 0)
+					is_new_fish = YES;
+				else
+					is_new_fish = NO;
+				
+				/* Get System Time*/
+				time_t timep;
+				struct tm *t;
+				
+				time(&timep);
+				t = localtime(&timep);
+				if (t == NULL)
+				{
+					showWarning("Get time error\n");
+					return;
+				}
+				int systime = (3600 * t->tm_hour + 60 * t->tm_min + t->tm_sec);
+
+				adverObjs[i]->currentEndTime--;
+				showDebug("Phone Area: %s, Adver Main File: %s: Current End Time: %d\n", area_enum_to_str(i), 
+				                                                                         adverObjs[i]->actInfo.szMainFileName,
+				 												                         adverObjs[i]->currentEndTime);
+				
+                /* ************************************************************************************************
+                                                                                                各区 实时处理
+				**************************************************************************************************/
+				if((i + 1) == MAJOR_DISPLAY_AREA_NUM)
+				{	
+					if(phoneState == CCST::VIDEO_CONN)
+					{
+						showDebug("Stop Main Area\n");
+						is_main_area_available = NO;
+					}
+					else
+						is_main_area_available = YES;
+				}
+
+				#if 1
+				if((i + 1) == MAJOR_DISPLAY_AREA_NUM 
+					&& phoneState != CCST::ON_HOOK
+					&& (get_current_play_type() == actFtH264))
+				{
+					is_has_change_privi = YES;
+				}
+				else
+					is_has_change_privi = NO;
+				#endif
+				
+				if(phoneState == CCST::DIALING|| 
+				   phoneState == CCST::RINGING || 
+				   phoneState == CCST::NOVIDEO_CONN || 
+				   phoneState == CCST::VIDEO_CONN)
+				{
+					adverObjs[i]->actInfo.szMusicFileName[0] = 0;
+					showDebug("Do Not Play Music\n");
+				}
+				
+				/* ************************************************************************************************
+                                                                                                  各区 广告切换
+				**************************************************************************************************/
+				if ((adverObjs[i]->actInfo.endTime < systime) || 
+					(adverObjs[i]->currentEndTime < PLAY_ADVER_EXPIRE_TIME) ||
+					is_new_fish == YES 
+					|| is_has_change_privi == YES
+					)
+				{	
+					showDebug("Get in change \n");
+					#if 0
+					if (!GetActName::get_instance()->get_current_act_name(i, phoneState, &(adverObjs[i]->actInfo)))
+					{
+						showWarning("Get Act Error\n");
+						continue;
+					}
+					#endif
+					
+					#if 1
+					while(1)
+					{
+						if (!GetActName::get_instance()->get_current_act_name(i, phoneState, &(adverObjs[i]->actInfo)))
+						{
+							showWarning("Get Act Error\n");
+							continue;
+						}
+						
+						if(phoneState != CCST::ON_HOOK && 
+						   adverObjs[i]->actInfo.filetype == actFtH264)
+							continue;
+						else	
+							break;
+					}
+					#endif
+					
+					adverObjs[i]->currentEndTime = adverObjs[i]->actInfo.PlayTime;
+					showDebug("getActName FILE: %s\n", adverObjs[i]->actInfo.szMainFileName);
+					
+					#if 1
+					/*Main Area */
+					if((i + 1) == MAJOR_DISPLAY_AREA_NUM && is_main_area_available == YES)
+					{		
+						if(phoneState == CCST::ON_HOOK ||
+						   phoneState == CCST::DIALING ||
+						   phoneState == CCST::RINGING ||
+						   phoneState == CCST::NOVIDEO_CONN)
+						{	
+							if(adverObjs[i]->actInfo.filetype == actAdOnLine)
+							{
+							    showDebug("Main area is actAdOnLine \n");
+							}
+							if(adverObjs[i]->actInfo.filetype == actFtJpeg)
+							{
+								sprintf(img_path, "%s%s", IMAGE_PATH_PREFIX, adverObjs[i]->actInfo.szMainFileName);
+	                            change_area_player_info(i, img_path, IMAGE, NULL, adverObjs[i]->actInfo.PlayTime * 1000);
+								showDebug("Main area is actFtJpeg: %s \n", img_path);
+							}
+							
+							if(adverObjs[i]->actInfo.filetype == actFtH264 &&
+							   adverObjs[i]->actInfo.szMainFileName[0] != 0)
+							{	
+							 	sprintf(video_path, "%s%s", VIDEO_PATH_PREFIX, adverObjs[i]->actInfo.szMainFileName);
+								change_area_player_info(i, 
+														video_path, 
+														VIDEO, 
+														NULL, 
+														adverObjs[i]->actInfo.PlayTime * 1000);
+								showDebug("Main area is H264: %s\n", video_path);
+							}
+	                        continue;
+						}
+					}
+					
+					//Roll Text
+					if((i + 1) == ROLL_TEXT_AREA_NUM)
+					{		
+						static int sign = 0;
+						
+						//chang to actFtJpeg
+						if(adverObjs[i]->actInfo.filetype == actFtJpeg)
+						{
+							sprintf(img_path, "%s%s", IMAGE_PATH_PREFIX, adverObjs[i]->actInfo.szMainFileName);
+                      change_area_player_info(i, 
+											img_path, 
+											IMAGE, 
+											//"珠江经济台24周年台庆",
+											ROLL_TEXT[sign], 
+											adverObjs[i]->actInfo.PlayTime * 1000);
+							
+							sign++;
+						  if(sign == 3)
+						  	sign = 0;
+						}
+            continue;
+					}
+					
+					//Adver Online
+					if (adverObjs[i]->actInfo.filetype == actAdOnLine)
+					{
+						showDebug("Act Online\n");
+					}
+					
+					if (adverObjs[i]->actInfo.filetype == actFtJpeg)
+					{	
+					    sprintf(img_path, "%s%s", IMAGE_PATH_PREFIX, adverObjs[i]->actInfo.szMainFileName);
+					    change_area_player_info(i, 
+												img_path, 
+												IMAGE, 
+												NULL, 
+												adverObjs[i]->actInfo.PlayTime * 1000);
+	                  	showDebug("actFtJpeg: %s\n", img_path);
+					}
+					
+					if (adverObjs[i]->actInfo.filetype == actFtH264)
+					{	
+					    showDebug("actFtH264\n");
+					
+						if(adverObjs[i]->actInfo.szMainFileName[0] != 0)
+						{
+							showDebug("Video with Music\n");
+						}
+						else
+						{
+							showDebug("Video Only\n");
+						}
+					}
+					#endif
+				}	
+				
+			}
+			/* End Area Loop */
+		}
+		/* End Validate Phone State*/
+		pthread_mutex_unlock(&mutex);
+		
+		printf("\n");
+	    sp.tv_sec = tv.tv_sec + 1;
+		sp.tv_nsec = tv.tv_usec * 1000;
+		sem_timedwait(&timeSem, &sp);
+	}
+	/* End Play Adver Loop */
+	#endif
+}
+
+/* ************************************************************************************************
+				                                     Simulate Change State
+**************************************************************************************************/
+void *AdverManager::simulateChangeState(void *pData)
+{
+    #if 0
+    int i = 0;
+    int state[5];
+	
+	state[0] = FNC_STATE_RING;
+	state[1] = FNC_STATE_OFFHOOK;
+	state[2] = FNC_STATE_ONHOOK;
+	state[3] = FNC_STATE_APP;
+	state[4] = FNC_STATE_CONN;
+	
+    while(1)
+    {
+		usleep(2000 * 1000);
+		
+		pthread_mutex_lock(&mutex);
+        phoneState = state[i];
+        if(i == 4)
+			i = 0;
+		
+		i++;
+		pthread_mutex_unlock(&mutex);
+
+		sem_post(&timeSem);
+	}
+	#endif
+}
+
+/* ************************************************************************************************
+				                                        enum
+**************************************************************************************************/
+const char* AdverManager::state_enum_to_str(int enum_val)
+{
+    switch(enum_val)
+	{
+	    case CCST::ON_HOOK:
+			return "ON_HOOK";
+			break;
+		case CCST::DIALING:
+			return "DIALING";
+			break;
+		case CCST::RINGING:
+			return "RINGING";
+			break;
+		case CCST::NOVIDEO_CONN:
+			return "NOVIDEO_CONN";
+			break;
+		case CCST::VIDEO_CONN:
+			return "VIDEO_CONN";
+			break;
+	}
+	showWarning("Invalid Stete Type Enum Value.\n");
+	
+	return "NULL";
+}
+const char* AdverManager::area_enum_to_str(int enum_val)
+{
+	switch(enum_val)
+	{
+		case PLAY_AREA_1:
+			return "PLAY_AREA_1";
+			break;
+		case PLAY_AREA_2:
+			return "PLAY_AREA_2";
+			break;
+		case PLAY_AREA_3:
+			return "PLAY_AREA_3";
+			break;
+		case PLAY_AREA_4:
+			return "PLAY_AREA_4";
+			break;
+		case PLAY_AREA_5:
+			return "PLAY_AREA_5";
+			break;
+	}
+	showWarning("Invalid Area Type Enum Value.\n");
+	
+	return "NULL";
+}
+
