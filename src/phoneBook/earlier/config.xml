@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<common-config>
-	<prompt-message>
-		<message name="100001001" value="300001001" />
-		<message name="100001002" value="300001002" />
-		<message name="100001003" value="300001003" />
-		<message name="100001004" value="300001004" />
-	</prompt-message>
-</common-config>
