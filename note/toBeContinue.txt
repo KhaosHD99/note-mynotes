@@ -2209,7 +2209,7 @@ Segmentation fault
      
      point NULL: Value?												
      snprintf(fixed_uri, 255, "http://%s", uri);								
-     stop vedio item												**
+     stop vedio item										over
      Resource temporarily unavailable								
      libpb: calllog sort									over
      get_locale_text										over              
@@ -2303,12 +2303,12 @@ Segmentation fault
    modal											
    set focus back to list and select one item							
    email escape											
-   window level manage										***
+   window level manage										over
    browser maxmize, and minimize; escape not mini								
    zoom icon											*
    dialog bg											*
    
-*********************************
+*********************************								over
 pb: edit->save suc	
 			
 NFO: contact.c(369) -------------------------- Contact Count: 3 --------------------------
@@ -2353,14 +2353,14 @@ grab focus when show contact detail page
      static extern													
      adver realtime update timelist										**
      adver timepos; file type validate;area num validate  							**
-     adver: if stream, music? ; filetype spec			
-     word line space								
-     
-0308 pb: multi delete												**
-     treeview drag								
-     unsigned; strcpy: add '\0' to the end? memory test
-     show msg resolution							
-     pb: phonenum validate should not depend on entry								**
+     adver: if stream, music? ; filetype spec										
+     word line space									
+     						
+0308 pb: multi delete												over
+     treeview drag												
+     unsigned; strcpy: add '\0' to the end? memory test								*
+     show msg resolution											**
+     pb: phonenum validate should not depend on entry								over
      pb: window level												over
      MSG_CONTACT_EXIST
      tvpb: ui
@@ -2371,13 +2371,55 @@ grab focus when show contact detail page
      treeview select one item
      multiple definition of `PAGE_INFO'					
      pb: page stack; add to contact text				
-     (fnPhonebook:6882): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     (fnPhonebook:6882): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: asser     `GTK_IS_IMAGE (image)' failed
      adver: ringing video											**
      img text size	 												
      send contact to tvdialer											**
-     clear svn
+     clear svn													
      validate email         	
-     voip regex
-     c func share
+     voip regex													
+     c func share												
+     pb: after dialog set back the focus it should be								over 														
+0310 vm wifi test												
+     adver onhook video, prompter: can not received vial, label cover                                       ?????	
+     const char *, assignment											*
+     incompatible implicit declaration of built-in function 'memset'						
+     internationalization    											->
+          
+*****************************************************************************************
+------------------------------ Get in OnReceive ----------------------------- 
+INFO: PrompterModule.cpp(88) Get StateChangeVial
+WARNING: PrompterModule.cpp(123) Get in on_vial_state_chang!, Current State: RINGING
+INFO: PrompterModule.cpp(221) -------- Get in on_ringing ---------
+WARNING: PrompterModule.cpp(243) on_ringing : 8 : 87654321
+DEBUG: Prompter.cpp(281) Get in update_prompter_info
+DEBUG: Prompter.cpp(381) change_widget_by_state PP_RINGING: 87654321
+DEBUG: PrompterInterface.cpp(28) end ------- update_prompter_info -------
+
+(fnAdvertisement:5596): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+========================== AudioThread end =========================  
+
+(fnAdvertisement:5596): Pango-CRITICAL **: pango_layout_get_text: assertion `PANGO_IS_LAYOUT (layout)' failed
+
+(fnAdvertisement:5596): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+*** glibc detected *** ./fnAdvertisement: corrupted double-linked list: 0x0058dc10 ***
+Aborted
+**************************************************************************************************
+
+     gtk thread protect at timeout_add
+     pb: phonenum validate											**
+     prompter pressure test											**
+     gpio
+     test_promptermodule_LDFLAGS=-D_GNU_SOURCE -L$(top_srcdir)/src/lib/.libs -lpromptermodule -lstdc++
+     搜索引擎分为全文搜索引擎、目录索引、元搜索引擎
+     'XInitThreads' was not declared in this scope
+     adver: main code file change to "C"
+     pb combo: select item set focus									**	
+     error: expected specifier-qualifier-list before	struct; struct test					*
+     jvm implement lan
+     adver revolution											**
+     
+     
+     
      
      
