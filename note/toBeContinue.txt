@@ -2409,15 +2409,138 @@ Aborted
      gtk thread protect at timeout_add
      pb: phonenum validate											**
      prompter pressure test											**
-     gpio
+     gpio											
      test_promptermodule_LDFLAGS=-D_GNU_SOURCE -L$(top_srcdir)/src/lib/.libs -lpromptermodule -lstdc++
      搜索引擎分为全文搜索引擎、目录索引、元搜索引擎
-     'XInitThreads' was not declared in this scope
+     'XInitThreads' was not declared in this scope								over
      adver: main code file change to "C"
      pb combo: select item set focus									**	
      error: expected specifier-qualifier-list before	struct; struct test					*
      jvm implement lan
      adver revolution											**
+     
+0311 add gthread
+
+********************************
+     Initializes GDK so that it can be used from multiple threads in conjunction with gdk_threads_enter() and   gdk_threads_leave(). g_thread_init() must be called previous to this function. 
+This call must be made before any use of the main loop from GTK+; to be safe, call it before gtk_init(). 
+*************************************				
+     
+     wlan0     Link encap:Ethernet  HWaddr c8:3a:35:ce:15:ea  
+          inet addr:10.10.188.191  Bcast:10.10.255.255  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+     	
+     ps daemon
+     wicd ui manager     
+     Wpa_gui; nmbd; Wired Equivalent Privacy; 
+     
+     lspci -v | less; lsusb
+     ipv6; ipv4; MTU
+     modprobe -l ath*
+
+***********************************************************
+mkdir -p /var/run/wpa_supplicant
+rmmod ar6000.ko
+insmod ar6000.ko
+sleep 1
+ifconfig wlan0 up 192.168.3.33 netmask 255.255.255.0
+sleep 1
+wpa_supplicant -B -iwlan0 -c /root/wifi_tools/tkip.conf 
+
+
+route -n
+echo ""
+route del default	
+route add default gw 192.168.3.198 wlan0	
+echo ""						
+route -n		
+**************************************************************
+     
+auto wireless0
+iface wireless0 inet static
+      wireless-key 1234567890
+      wireless-channel 6
+      wireless-mode ad-hoc
+      wireless-essid 'Wireless Connection'
+      address 192.168.0.2
+      gateway 192.168.0.1
+      netmask 255.255.255.0
+      
+      dhcpcd
+
+*****************************************
+How did you try changing the ESSID?
+
+Does the ESSID in the iwconfig output look like the one set in the router?
+
+Without WPA, you can explicitly setting the parameters like so (look at the iwconfig man page for details on WPA):
+
+iwconfig wlan0 essid xxxx channel x key s:xxxx
+(replace the xs with your actual values---note the "s:" in the key--required for text (ascii) keys)
+
+Then
+dhcpcd wlan0
+to connect
+**********************************            
+
+
+*****************************************************
+Thank you pixellany!
+
+Now my Wlan works fine.
+
+I tried to change the essid like so:
+# iwconfig essid "myessid" channel 11
+
+# dhcpcd wlan0
+I got no lease, instead I got an IPv4 adress.
+
+# ping 192.168.2.1
+PING 192.168.2.1 (192.168.2.1) 56(84) bytes of data.
+64 bytes from 192.168.2.2: icmp_seq=1 ttl=64 time=1.55 ms
+64 bytes from 192.168.2.2: icmp_seq=2 ttl=64 time=26.5 ms
+
+The ping looked strange because I received data form 192.168.2.2 instead of 192.168.2.1.
+
+I did the follwing:
+
+1. I unpluged the Lan cable
+2. rebooted
+3. turned of the eth1
+# ifconfig eth1 down
+4. killed wpa_supplicant and dhcpcd
+5. restarted wpa_supplicant and dhcpcd
+# wpa_supplicant -i wlan0 -c /etc/wpa_supplincant/ -Dwext -d
+# dhcpcd wlan0 -L
+
+I'm not sure what the problem was, but this worked for me.
+
+Clementis
+**********************************************************************
+
+0314 pb collapse???????????????????????????????????????????						**
+     
+**********************************
+     1.优化电话机广告播放										**
+     2.电话机广告，增加左右音量设置；									**
+     3.电视机流媒体，增加左右音量设置									  
+     4.电话机广告，处理重播键										  
+     5.电视机拨号器界面											  
+     6.wifi管理器											**
+     7.电话机话机配置											
+     8.电话簿优化(电视机、电话机)									**
+*******************************************************************     
+     ERROR: Module ar6000 does not exist in /proc/modules						
+     perror			
+     static inline const iwlist_cmd *							**
+     pb: calllog prompt strategy							**
+     iwlist_cmds[i].cmd != NULL struct test						
+     static const struct iwlist_entry iwlist_cmds[] = 					
+     fgets
      
      
      
