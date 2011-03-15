@@ -2518,7 +2518,6 @@ I did the follwing:
 # dhcpcd wlan0 -L
 
 I'm not sure what the problem was, but this worked for me.
-
 Clementis
 **********************************************************************
 
@@ -2537,11 +2536,20 @@ Clementis
      ERROR: Module ar6000 does not exist in /proc/modules						
      perror			
      static inline const iwlist_cmd *							**
-     pb: calllog prompt strategy							**
+     pb: calllog prompt strategy	 						**
      iwlist_cmds[i].cmd != NULL struct test						
      static const struct iwlist_entry iwlist_cmds[] = 					
      fgets
      
+0315 /* Avoid "Unused parameter" warning */
+     args = args; 
+     count = count;
+     
+     combox icon
+     fix image												*
+     combo text middle
+     
+     Interface doesn't support wireless statistic collection
      
      
      
