@@ -2538,10 +2538,10 @@ Clementis
      static inline const iwlist_cmd *							**
      pb: calllog prompt strategy	 						**
      iwlist_cmds[i].cmd != NULL struct test						
-     static const struct iwlist_entry iwlist_cmds[] = 					
+     static const struc	t iwlist_entry iwlist_cmds[] = 					
      fgets
      
-0315 /* Avoid "Unused parameter" warning */
+0315 //* Avoid "Unused parameter" warning */
      args = args; 
      count = count;
      
@@ -2551,6 +2551,34 @@ Clementis
      
      Interface doesn't support wireless statistic collection
      
+0316 rmmod ar6000.ko
+     insmod ar6000.ko
      
+     insmod: error insting 'ar6000.ko': -1 Invalid module format
+     aptitude install
+     modprobe 
+     
+     deb http://backports.debian.org/debian-backports lenny-backports main contrib non-free
+     rolltext; realize	res											**
+     vail sys use												
+     xml realize	res											**
+     
+0317 iwconfig wlan0 mode Managed!!!!
+     
+     auto eth0
+     iface eth0 inet dhcp
+     memset((char *) info, 0, sizeof(struct wireless_info));
+     pb: collapse												**
+     <linux/types.h>
+     Authentication Suites (1) : PSK			
+     Gdk:ERROR:/build/buildd/gtk+2.0-2.20.1/gdk/gdkregion-generic.c:1108:miUnionNonO: assertion failed: (y1 < y2)
+Aborted						
+     
+0318 can not modify the member of class outside
+     aver timelist								
+     pb: collapse£º STATE_INFO										***!!!!
+     browser stop video;sy f										**
+     WARNING: WebServiceModule.cpp(13) VialSys Null
+     Segmentation fault
      
      
