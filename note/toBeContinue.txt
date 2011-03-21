@@ -2578,7 +2578,17 @@ Aborted
      aver timelist								
      pb: collapse： STATE_INFO										***!!!!
      browser stop video;sy f										**
-     WARNING: WebServiceModule.cpp(13) VialSys Null
+     WARNING: WebServiceModule.cpp(13) VialSys Null							over
      Segmentation fault
      
+0319 WARNING: WebServiceModule.cpp(13) VialSys Null							over
+     g_thread
+     adver: async 											**
+     
+     webkit/gtk+ thread system not initiated bug 
+     討厭的是，Webkit/Gtk+用Glib這裡的bug沒有fix。
+     唯一的workaround是在每一個Webkit/Gtk+程式都加上這一行：
+     g_thread_init (NULL);
+     強迫將thread啟動，如此可以避免前述的bug.
+     找到這個workaround也花了很多時間... 
      
