@@ -2602,8 +2602,9 @@ Aborted
      the mean of "allow hot plug"!!!!									
      ctrl_interface=/var/run/wpa_supplicant								*
      fgets
-     asc2: 31325 => hex: 3331-3332-35
-     /sbin/ifup
-     
-     
-     
+     asc2: 31325 => hex: 3331-3332-35									
+     /sbin/ifup												
+     how to set wep key via iwconfig									*
+     iwconfig key switch!!!!!!!!!
+       		
+0323
