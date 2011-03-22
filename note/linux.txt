@@ -680,10 +680,24 @@ wpa_supplicant supports X.509 certificates in PEM and DER formats. User certific
 If the user certificate and private key is received in PKCS#12/PFX format, they need to be converted to suitable PEM/DER format for wpa_supplicant. This can be done, e.g., with following commands: 
 
 # convert client certificate and private key to PEM format
-openssl pkcs12 -in example.pfx -out user.pem -clcerts
+openssl pkcs134-in example.pfx -out user.pem -clcerts
 # convert CA certificate (if included in PFX file) to PEM format
 openssl pkcs12 -in example.pfx -out ca.pem -cacerts -nokeys
 	
 *******************************************************************************
 					End
 *******************************************************************************
+
+0322
+WEP:
+     ctrl_interface=/var/run/wpa_supplicant
+     network=
+     {
+        ssid="Elon-AP"
+        	key_mgmt=NONE
+        	wep_key0="31325"
+     }
+     
+WPA: 
+     
+     
