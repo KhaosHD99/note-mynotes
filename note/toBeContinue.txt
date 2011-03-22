@@ -2581,7 +2581,7 @@ Aborted
      WARNING: WebServiceModule.cpp(13) VialSys Null							over
      Segmentation fault
      
-0319 WARNING: WebServiceModule.cpp(13) VialSys Null							over
+0321 WARNING: WebServiceModule.cpp(13) VialSys Null							over
      g_thread
      adver: async 											**
      
@@ -2589,6 +2589,21 @@ Aborted
      討厭的是，Webkit/Gtk+用Glib這裡的bug沒有fix。
      唯一的workaround是在每一個Webkit/Gtk+程式都加上這一行：
      g_thread_init (NULL);
-     強迫將thread啟動，如此可以避免前述的bug.
+     強迫將thread啟動，如此	
+     可以避免前述的bug.
      找到這個workaround也花了很多時間... 
+     		
+0322 prom	pter timer										over
+     adver status											**
+     pb: collapse											**
+     fnWebService: focus in loop									**
+     operator time test											over
+     davicom 9102-base PCI Fast Ethernet Adapter								
+     the mean of "allow hot plug"!!!!									
+     ctrl_interface=/var/run/wpa_supplicant								*
+     fgets
+     asc2: 31325 => hex: 3331-3332-35
+     /sbin/ifup
+     
+     
      
