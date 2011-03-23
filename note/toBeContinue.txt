@@ -2592,6 +2592,20 @@ Aborted
      強迫將thread啟動，如此	
      可以避免前述的bug.
      找到這個workaround也花了很多時間... 
+<<<<<<< .mine
+     
+     apt-get aptitude
+     ics is already bound by another device
+
+     sudo apt-get build-essential
+wget http://www.ralinktech.com.tw/data/drivers/2007_1220_RT2870_Linux_STA_v1.2.1.0.tar.bz2
+tar -xvzf 2007_1220 <press_Tab_it_will_fill_in> 
+cd 2007_1220 <Press_Tab>
+sudo make
+sudo make install
+sudo cp RT2870STA.dat  /etc/Wireless/RT2870STA/RT2870STA.dat
+sudo modprobe rt2870sta
+       =======
      		
 0322 prom	pter timer										over
      adver status											**
@@ -2607,4 +2621,4 @@ Aborted
      how to set wep key via iwconfig									*
      iwconfig key switch!!!!!!!!!
        		
-0323
+0323>>>>>>> .r488
