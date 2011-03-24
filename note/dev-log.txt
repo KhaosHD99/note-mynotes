@@ -403,21 +403,28 @@
 
 0305 buy pc for my dad
 
-0312 go wankelong with my sister: buy some thing
+0306 kick ball
+
+0311 i afraid yq give the wireless manager work to hg
+
+0312 the first double dayoffs this lunar year 
+     go wankelong with my sister: buy some thing
      
-0313 
+0313 go back to school 
 	
 0317 begin fixed the adver collapse when change state(just webkit problem)
 	
 0318 catch the cause of "0317" 
 	
-0319 go home and buy wife cake
+0319 double dayoffs
+     go home and buy wife cake
 
 0320 put the poineer dvd driver to dad's pc
      deposit 200 for lottery
      
 0321 gdk_threads_enter does not worked on webkit !!!
-     
+     the diff of Infrastructure and adhoc
+
 0322 I can linked to ap that used third party soft on lenny
      wpa_supplicant just for wpa auth
      
