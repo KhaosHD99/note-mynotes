@@ -2641,4 +2641,4 @@ sudo modprobe rt2870sta
      今天完成
      adver focus in video not stop
      >/dev/null 2>1&     										**
-     
+    
