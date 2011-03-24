@@ -2621,7 +2621,6 @@ sudo modprobe rt2870sta
      how to set wep key via iwconfig									*
      iwconfig key switch!!!!!!!!!
        		
-<<<<<<< .mine
 0323 kill -9 does not work				
      browser can not focus in when			
      char email_tmp_buf[128] = {0};									
@@ -2636,16 +2635,10 @@ sudo modprobe rt2870sta
 0324 adver: memory leak											**
      wireless man: focus chain										
      browser： search entry; bookmark menu icon		              					
-     gtk_box test											over
+     gtk_box test												     over
      班主任-廖老师(928491480)  10:37:30									
      所有同学的实习日志必须写到第5周，共5周以上
      今天完成
      adver focus in video not stop
      >/dev/null 2>1&     										**
      
-
-
-
-     =======
-0323>>>>>>> .r488
->>>>>>> .r492
