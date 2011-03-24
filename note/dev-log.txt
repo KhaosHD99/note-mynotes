@@ -394,9 +394,11 @@
      go to fa home,play doudizhu just few turn
 
 0227 overtime; chen zong buy us lunch
+     
+0228 solved a gtk multi thread problem on pb!!!!
 
 0301 jiru gone 
-
+     
 0302 eat porridge with hg
 
 0305 buy pc for my dad
@@ -404,6 +406,27 @@
 0312 go wankelong with my sister: buy some thing
      
 0313 
+	
+0317 begin fixed the adver collapse when change state(just webkit problem)
+	
+0318 catch the cause of "0317" 
+	
+0319 go home and buy wife cake
 
-0318
+0320 put the poineer dvd driver to dad's pc
+     deposit 200 for lottery
      
+0321 gdk_threads_enter does not worked on webkit !!!
+     
+0322 I can linked to ap that used third party soft on lenny
+     wpa_supplicant just for wpa auth
+     
+   
+0323 adver collapse on 36 again !!!!!!, i can not catch th at! 
+
+0324 the cause is the fuck webkit again and again!!!!!!!!!!!!(0323)
+          
+      
+     
+
+
