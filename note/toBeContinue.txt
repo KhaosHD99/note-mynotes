@@ -2613,7 +2613,7 @@ sudo modprobe rt2870sta
      fnWebService: focus in loop									**
      operator time test											over
      davicom 9102-base PCI Fast Ethernet Adapter								
-     the mean of "allow hot plug"!!!!									
+   nof "allow hot plug"!!!!									
      ctrl_interface=/var/run/wpa_supplicant								*
      fgets
      asc2: 31325 => hex: 3331-3332-35									
@@ -2621,4 +2621,31 @@ sudo modprobe rt2870sta
      how to set wep key via iwconfig									*
      iwconfig key switch!!!!!!!!!
        		
+<<<<<<< .mine
+0323 kill -9 does not work				
+     browser can not focus in when			
+     char email_tmp_buf[128] = {0};									
+     adver: absolute path; seg fault; thread concert; state: can not receive vial			***
+     char array init; static var and static func							*
+     WARNING: PrompterModule.cpp(248) ---------- on_ringing: Unknow Caller Phonenum -------------	**
+     get_prompter_state
+     c coding revolution (key: static, extern)  !!!!!!!!!!!!!!						*
+     g_object_unref
+     
+          	
+0324 adver: memory leak											**
+     wireless man: focus chain										
+     browser： search entry; bookmark menu icon		              					
+     gtk_box test											over
+     班主任-廖老师(928491480)  10:37:30									
+     所有同学的实习日志必须写到第5周，共5周以上
+     今天完成
+     adver focus in video not stop
+     >/dev/null 2>1&     										**
+     
+
+
+
+     =======
 0323>>>>>>> .r488
+>>>>>>> .r492
