@@ -432,8 +432,11 @@
 0323 adver collapse on 36 again !!!!!!, i can not catch th at! 
 
 0324 the cause is the fuck webkit again and again!!!!!!!!!!!!(0323)
-          
-      
+     
+0325 read and write file 
+     wireless manager ui
+     control the gateway that can test the wlan0
+     
      
 
 
