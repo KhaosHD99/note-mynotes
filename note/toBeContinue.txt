@@ -2677,4 +2677,53 @@ bind(s, (struct sockaddr*)&ip6addr, sizeof ip6addr);
       iw_in_addr	
       phone: browser toolbar show and hide; button revolution
       arp 
+     
+0328 adver: collapse when after a long time test							**
+     browser toolbar: hide show, change to eventbox							**
+     browser web page auto fix										**
+     browser focus swich 										**
+     can i get the video status?
+     main_window_focus_in_event
+     
+     1.	广告播放器
+解决异常崩溃的问题，以及整理源码（清除不必要的注释），同时验证广告节目表是否符合业务需求；
+(镇杰、何桂周三前完全)
+重新制作一份可全覆盖测试实例的标准样本节目表，并全测试；
+编写节目表制作说明书，讨论节目排播、下载等事宜；
+(镇杰周五前完全)
+音量控制；
+紧待机状态及窗口处于顶级下可使用特效；
+(何桂周五前完全)
+
+2.	话机配置
+修正音量控制；
+修正网络控制；（PPPoE、DHCP、Static）
+话机配置库增加软件、硬件版本字段；
+提供标准的铃声文件。
+（何桂周三前完成）
+后期增加多国语言控制。
+3.	浏览器
+主页为浏览器主页
+紧允许键盘操作（方向键、Tab），满足易操作性；
+工具栏（主页、前进、后去、暂停、刷新、收藏夹（页面存储）、快捷键显示/隐藏）
+支持视频播放功能
+（镇杰下周三前完成）
+
+4.	网络点播（浏览器）			
+主页为视频电话主页				
+基于浏览器的网络点播；				
+简化浏览器导航功能、增加视频URI收藏功能；	
+（镇杰下周五前完成）				
+5.	电话簿				
+优化电话簿列显、增加、删除等灵活、简易性
+（镇杰4月7号前）。
+      	
+      adver: Timelist error tolerance				
+      c func declare sequence										*
       
+     tui jian biao
+     scp -r 10.10.200.48:/home/xuzhenjie ./
+           
+
+
+     
