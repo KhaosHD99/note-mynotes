@@ -2723,7 +2723,18 @@ bind(s, (struct sockaddr*)&ip6addr, sizeof ip6addr);
       
      tui jian biao
      scp -r 10.10.200.48:/home/xuzhenjie ./
+
+0329 why i add the eventbox to the box then the image is invisible?
+     adver  
            
-
-
+     gdk_display_warp_pointer
+     gtk_widget_set_has_tooltip 
+      gtk_widget_set_tooltip_markup 
      
+     search key: gnome widget  position
+     browser: when toolbar show, set the focus to it
+     gtk window: always at top and can not get focus
+     i know what is popup
+     
+     
+      

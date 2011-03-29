@@ -708,4 +708,21 @@ WPA:
      
      
      
-     
+0329 
+
+How could I get any widgets position?
+As Tim Janik pointed out, there are different cases, and each case requires a different solution.
+If you want the position of a widget relative to its parent, you should use widget->allocation.x and widget->allocation.y.
+
+If you want the position of a window relative to the X root window, you should use gdk_window_get_geometry() gdk_window_get_position() or gdk_window_get_origin().
+
+If you want to get the position of the window (including the WM decorations), you should use gdk_window_get_root_origin().
+
+Last but not least, if you want to get a Window Manager frame position, you should use gdk_window_get_deskrelative_origin().
+
+Your choice of Window Manager will have an effect of the results of the above functions. You should keep this in mind when writing your application. This is dependant upon how the Window Managers manage the decorations that they add around windows.
+
+
+
+gdk_window_get_origin: position of X?
+	
