@@ -2729,12 +2729,111 @@ bind(s, (struct sockaddr*)&ip6addr, sizeof ip6addr);
            
      gdk_display_warp_pointer
      gtk_widget_set_has_tooltip 
-      gtk_widget_set_tooltip_markup 
-     
-     search key: gnome widget  position
+     gtk_widget_set_tooltip_markup      h key: gnome widget  position
      browser: when toolbar show, set the focus to it
      gtk window: always at top and can not get focus
      i know what is popup
      
+0330 
+******************************************
+adver: playlist doc, rolltext doc; change music; Test Timepos; Area Test	5>4;playlist update; no main file and      no url; ADDIMAGEFILEID, PHONECODE;	no any suitable type£¨state and time secion)>endless loop; same ActId validate; adver change state act realtime switch; time section overlap							
+ ******************************************
+     gcc -DHAVE_CONFIG_H										
+     EPSINON												*
+     suffix video type											**
+     dump												
+     c: bool												
+     TSK_sleep(2); TSK_yield();										
+     word navi
+     importtant log > file
+     syslog test;
+     static TimeListResolver *instance;
+     why gcc need declare func in autotool env?
      
-      
+     /home/xuzhenjie/prj/advertisement/fnadvertisement/src/include/TimeListResolver.hpp:17: warning: extended      initializer lists only available with -std=c++0x or -std=gnu++0x
+     					
+     adver: play type sequese?	
+     
+**************************************
+     time_t timep;
+     struct tm *t;
+     time(&timep);
+     t = gmtime(&timep);
+     
+     struct tm *local;
+     time_t t;
+     
+	t = time(NULL);
+	local = localtime(&t);
+
+	sprintf(date, "%då¹?dæœ?dæ—?, local->tm_year + 1900,
+						 			 local->tm_mon + 1,
+						 		 	 local->tm_mday,
+						 			 local->tm_hour,
+						 			 local->tm_min,
+						 			 local->tm_sec);
+**************************************
+     
+     pNextPos = (TIME_SECTION_INFO*)((char*)(state_act_list->SectionList) + POffSet);
+     
+0331 EOF test
+     WARNING: PlayAct.cpp(458) ************* Time Section: 1 Error!!! *************
+     WARNING: TimeListResolver.cpp(36) ************ Window 2 Get Act Error,State: 0 ************
+     WARNING: Advertisement.cpp(207) ************** Get Act Error ****************
+     
+     <TIMEPOS ENDTIME="86400">			
+						<PROGRAMLIST>
+						    <PROGRAM ACTID="100003003"/>
+						    <PROGRAM ACTID="100003008"/>
+							<PROGRAM ACTID="100003006"/>
+						</PROGRAMLIST>			
+					</TIMEPOS>
+     
+     
+     adver: modify the get systime method
+     
+     ******************************************
+     adver: playlist doc, rolltext doc; change music; Test Timepos; Area
+ Test	5>4;playlist update; no main           file and      no url; ADDIMAGEFILEID, PHONECODE;	no any suitable type£¨state and time secion)>endless loop;         same ActId validate; adver change state act realtime switch; time section overlap; adver: state serial num				
+******************************************
+
+0401 
+
+adver: 
+(fnAdvertisement:31014): GLib-CRITICAL **: g_source_remove: assertion `tag > 0' failed
+(fnAdvertisement:31014): GLib-CRITICAL **: g_source_remove: assertion `tag > 0' failed
+(fnAdvertisement:31014): GLib-CRITICAL **: g_source_remove: assertion `tag > 0' failed
+    
+if sscanf fail will modify the target var?
+rcsys
+libxml get attribute error -> seg fault?
+	
+1 pb: collapse??? log: Bus error!!!										**
+2 pb: contact active dial				
+3 pb: uncatch phone msg remove; main page text: "cancel"->""quit" 
+4 pb: critical problem on dial: no anything send to phoneintf
+5 (fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+(fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
+
+
+test report 
+   
+1 adver: *** glibc detected *** ./fnAdvertisement: double free or corruption(!prev): 0x000e3800 ***		**
+2 adver: when is offhook, send dial via pb									**
+3 call initiactive: can not know is conn!!!; 
+4 no echo voice via free hand; 
+5 after pb send phone dial on offhook status, busy voise is still warning and can not dial out; 
+6 terminal conn each other: pstn to 3G?	
+
+word table: bg													over
+		
+
+
