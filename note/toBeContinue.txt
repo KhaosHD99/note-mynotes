@@ -2809,10 +2809,11 @@ rcsys
 libxml get attribute error -> seg fault?
 	
 1 pb: collapse??? log: Bus error!!!										**
-2 pb: contact active dial				
-3 pb: uncatch phone msg remove; main page text: "cancel"->""quit" 
-4 pb: critical problem on dial: no anything send to phoneintf
+2 pb: contact active dial											over
+3 pb: uncatch phone msg remove; main page text: "cancel"->""quit" 						
+4 pb: critical problem on dial: no anything send to phoneintf							
 5 (fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_append: assertion `GTK_IS_TREE_STORE (tree_store)' failed
+
 
 (fnPhonebook:9850): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `GTK_IS_TREE_STORE (tree_store)' failed
 
@@ -2828,12 +2829,32 @@ test report
    
 1 adver: *** glibc detected *** ./fnAdvertisement: double free or corruption(!prev): 0x000e3800 ***		**
 2 adver: when is offhook, send dial via pb									**
-3 call initiactive: can not know is conn!!!; 
-4 no echo voice via free hand; 
-5 after pb send phone dial on offhook status, busy voise is still warning and can not dial out; 
-6 terminal conn each other: pstn to 3G?	
-
+3 call initiactive: can not know is conn!!!; 									over
+4 no echo voice via free hand; 											over
+5 after pb send phone dial on offhook status, busy voise is still warning and can not dial out; 		over
+6 terminal conn each other: pstn to 3G?										over
+														
 word table: bg													over
-		
 
-
+0402 adver lib test										**
+     pb: main page focus pos; focus chain							**
+     make install: shell									*
+     cpu perform thread          								
+     singgle instance										
+     pb: remove uncathc msg: gtk expose  func; pb focus switch;add to contact text;contact detail button      /|\    
+     wm can not show pb
+     pb, webservice coding revolution
+     strcmp arg NULL;
+     
+     
+WARNING: contact.c(1145) phonenum_selection_changed, Get Active Phonenum Iter Fail!!!!!!!!!!
+(fnPhonebook:23744): Gtk-CRITICAL **: gtk_list_store_remove: assertion `VALID_ITER (iter, list_store)' failed
+ERROR: contact.c(1153) ************** phonenum_selection_changed, Phonenum:Fail **************
+     
+     GTK_IS_WIDGET can't not validate gtk store??								over
+     
+     pb: no input method show
+     
+     phonebrowser: escape
+     
+     
