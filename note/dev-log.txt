@@ -436,7 +436,21 @@
 0325 read and write file 
      wireless manager ui
      control the gateway that can test the wlan0
+
+0403 
+     go home at 17:00+
+
+0404 at home 
+
+0405 at home; go to school at 19:00+
+
+0406 phone browser
        
-0408 overtime     
+0407 phone browser(focus switch)
 
+0408 phone browser(focus switch)
+     phone pb 
 
+0409 overtime after 3.12
+     plan to buy desk
+     
