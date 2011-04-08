@@ -2857,4 +2857,69 @@ ERROR: contact.c(1153) ************** phonenum_selection_changed, Phonenum:Fail 
      
      phonebrowser: escape
      
+0406 gtkmenu 													
+     rolltext specification;											**
+     word file store  												**
      
+*********** browser endless loop *****
+DEBUG: main.c(541) Get in focus_out_event, Widget: GtkEventBox, gtk_widget_is_focus(): 0
+INFO: main.c(425) Get in focus_in_event
+DEBUG: main.c(541) Get in focus_out_event, Widget: GtkEventBox, gtk_widget_is_focus(): 1
+INFO: main.c(425) Get in focus_in_event
+et in focus_in_event, user_data: addto_bookmark
+INFO: main.c(567) Get in focus_in_event, user_data: addto_bookmark
+INFO: main.c(567) Get in focus_in_event, user_data: quit
+
+browser: dialog bg; focus out from entry; no cursor at first
+
+**************** adver      										over
+DEBUG: fnAdvertisementSkin.cpp(1110) on_expose_event() ++++++++++++++++++++++++++++++++++++++++++++! 
+INFO: fnAdvertisementSkin.cpp(767) change_adver_area_info() successful !
+DEBUG: Advertisement.cpp(248) State: ON_HOOK, Area: PLAY_AREA_4, MainFile: 300004001.jpg, FileType: LOCAL_IMAGE, MusicFile: None, URL: 0, EndTime: 20
+INFO: XMLParser.cpp(62) xmlFreeDoc
+Segmentation fault
+         
+     gw config file
+     libxml2 get attribute seg fault										over
+     char ui_text[128] = {0}: test
+     
+0407     
+     pb combo: focus switch; contact detail ui frame
+     web_service: g_signal_connect(G_OBJECT(eventbox), "button_press_event",
+		  G_CALLBACK(browser_eventbox_click), "favorite_cancel");
+     
+     gtk: focus in/out widget revolution									***  
+     adver: playlist test											**
+     
+     制作一份覆盖所有状态的节目，图片、音频、视频等资源必须足够丰富！
+     
+     补充测试各种状态下，广告状态逻辑是否正常、播放的内容是否与时间表指定的播放内容一致！以Excel表记录所有测试例子及      测试结果。
+     
+     gtkcontainer get next child
+     
+     how did gtk default event pass
+     treeview select the first item
+     
+     rigorous and efficient
+     
+     after g_list_alloc get back error?????????     
+     
+0408 
+     *********** phone browser ****
+     video demand; load page error and refresh; progress show: cover completely; cursor not move; lose focus:      	     howcursor do; web page width
+     *********************************
+        
+     pb; combo direction key event
+     uri or url						
+     be going to change the video lib			
+     mbr   						
+     sd flash
+     snprintf strncpy \0; stack smashing detected
+     
+     ****************** Begin Revolution **************
+     g_signal_connect(G_OBJECT(eventbox_cancel), "enter_notify_event",
+	              G_CALLBACK(focus_in_event), "cancel");
+     ****************** End Revolution **************
+     
+     remove x Cursor
+     											->
