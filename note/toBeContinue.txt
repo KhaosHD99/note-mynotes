@@ -2923,3 +2923,11 @@ Segmentation fault
      
      remove x Cursor
      											->
+     char buf3[5];
+　　const char * str = "Test";
+　　strncpy(buf3, str, strlen(str)); // Wrong, buf may not
+    null-terminated, // potential buffer-overflow
+　　strncpy(buf3, str, strlen(str)+1); // Wrong, potential
+    buffer-overflow. //No difference with using strcpy.
+    
+0409
