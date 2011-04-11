@@ -2924,10 +2924,56 @@ Segmentation fault
      remove x Cursor
      											->
      char buf3[5];
-　　const char * str = "Test";
-　　strncpy(buf3, str, strlen(str)); // Wrong, buf may not
-    null-terminated, // potential buffer-overflow
-　　strncpy(buf3, str, strlen(str)+1); // Wrong, potential
-    buffer-overflow. //No difference with using strcpy.
-    
-0409
+　　 const char * str = "Test";
+　　 strncpy(buf3, str, strlen(str)); // Wrong, buf may not
+     null-terminated, // potential buffer-overflow
+　　 strncpy(buf3, str, strlen(str)+1); // Wrong, potential
+     buffer-overflow. //No difference with using strcpy.
+        
+0409 how can i write the args pointer safely???     
+     pb: how focus switch to pop up button
+     strncpy revolution     				**
+     compile test: gcc .cpp;g++ .c
+	
+     ******************** Revolution ********************
+     if(GTK_IS_WIDGET(image_tmp))
+	gtk_widget_destroy(image_tmp);
+     if(user_data && 0 == strcmp(user_data, "dial"))
+     **************************************************
+     
+     focus_out;focus-out
+     
+0411 pb: combo popup focus; detail btn     								->
+     pb: confirm eventbox; 
+     
+**********************************
+     INFO: PhonebookManager.cpp(418) Not Any UI Text Name: TEXT_CONTACT_INFO
+     ERROR: contact.c(1960) ************* Get Text Error ***************			
+	(fnPhonebook:14670): Gtk-WARNING **: Attempting to add a widget with type GtkLabel to a GtkFrame, but as a GtkBin subclass a GtkFrame can only contain one widget at a time; it already contains a widget of type GtkTable
+*****************************     
+     
+     tvpb: collapse again and again   ********					
+     aes256ctr     								
+     cacth cast error avoid seg fal									*	
+     adver: audio and video; volume ajust not work								
+     
+*********************** Revolution ********************		
+     use send tab event replace to current solu			
+     focus swich solu change again!!!!!				
+*******************************************************		
+     #define GDK_KP_Multiply 0xffaa
+     #define GDK_F7 0xffc4
+     #define GDK_F8 0xffc5
+     	 
+     seg fault; sys log
+												***
+******************* Revolution	******************
+   tvpb->		
+**************************************************
+     phone browser:  lose focus
+     
+0412 
+          
+     
+     
+     
