@@ -396,7 +396,7 @@
 0227 overtime; chen zong buy us lunch
      
 0228 solved a gtk multi thread problem on pb!!!!
-
+     
 0301 jiru gone 
      
 0302 eat porridge with hg
@@ -437,20 +437,29 @@
      wireless manager ui
      control the gateway that can test the wlan0
 
+0402
+
 0403 
-     go home at 17:00+
+     go home at 17:00+;
 
-0404 at home 
-
-0405 at home; go to school at 19:00+
-
+0404 at home; copy some sng to the tf card of my mum
+     
+0405 at home; go to school at 19:00+, my sister
+     
 0406 phone browser
        
 0407 phone browser(focus switch)
 
 0408 phone browser(focus switch)
      phone pb 
-
-0409 overtime after 3.12
+     
+0409 the first overtime after 3.12
      plan to buy desk
+     
+0410 go furniture shop buy desk and cabinet with father 
+     
+0411 the gtk focus switch lost me lot of time
+     the tvpb collapse again!!!!!!
+     I lock the lock wrong at dark env£¬ call hl help me
+     
      

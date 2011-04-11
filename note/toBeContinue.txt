@@ -2944,7 +2944,7 @@ Segmentation fault
      focus_out;focus-out
      
 0411 pb: combo popup focus; detail btn     								->
-     pb: confirm eventbox; 
+     pb: confirm eventbox; remove uncathc msg								->
      
 **********************************
      INFO: PhonebookManager.cpp(418) Not Any UI Text Name: TEXT_CONTACT_INFO
