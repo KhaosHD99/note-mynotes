@@ -2972,8 +2972,17 @@ Segmentation fault
 **************************************************
      phone browser:  lose focus
      
-0412 
-          
+0412 tvpb: clear detail store; dial num * #; return and release; enter notify grab focus
+     g_object_unref (store_calllog);
+     why reg the focus in event to window , press event not work
+     syslog test		
      
+     ******************** revolution **************
+      snprintf 	     strncpy
+      stable test
+      不可省略第三个参数"%s"，隐患是，如果src中包含%，会引发core。 
+     *****************************************
      
+     how can i write the outside buf safely
+     syslog
      
