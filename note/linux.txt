@@ -722,7 +722,5 @@ Last but not least, if you want to get a Window Manager frame position, you shou
 
 Your choice of Window Manager will have an effect of the results of the above functions. You should keep this in mind when writing your application. This is dependant upon how the Window Managers manage the decorations that they add around windows.
 
-
-
 gdk_window_get_origin: position of X?
 	
