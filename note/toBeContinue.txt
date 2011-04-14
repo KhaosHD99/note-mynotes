@@ -1,4 +1,4 @@
--------------------------------------------------- 2010 -------------------------------------------------------
+
 1 cn99 网易？
 2 gcc 编译c文件 printf问题                                               over
 3 linux 硬盘分区
@@ -2984,5 +2984,60 @@ Segmentation fault
      *****************************************
      
      how can i write the outside buf safely
-     syslog
+     syslog											**
      
+0413 tvpb: delete convinence
+     fnBrowser: delete bookmark real time refresh; button press;					over
+     
+************************ Revolution ************************
+     gboolean focus_in_event, enter notify 
+     enter notify grab focus
+**********************************
+     
+     playlist.xml: ASCII text, with CRLF line terminators
+
+*******************************************
+	adver playlist Parse: can not exit when playlist is wrong
+	xml coding test
+*********************************************
+     
+     tvpb collapse agani!!!!
+     ##__VA_ARGS__ fmt
+     auto clean log
+     
+     no warning no error
+     phone pb: add calllog to contact
+     
+     adver: can not play video 
+     
+0414  
+      ---------------------------apply for shortcut_key window : 6291464, application :5 , name phonebook
+      ---------------------------Remove for shortcut_key window : 6291464, application :5 , name phonebook
+      DEBUG ClientMessage(), on [WM_FN_QUICK_WINDOW] window id [06291464 : 5 : 65473 : phonebook]
+      
+      redirec            
+             
+      ./fnPhonebook >phonebook_log
+      Resource temporarily unavailable
+      are redirec update for a while? 
+      clear the file 
+      perror("")
+      pointer NULL to NULL
+      如果对一个程序中的print等输出进行重定向，则应该在printf后面加下输出的刷新fflush(stdout),不然输出不会马上写入到       重定向的文件里，因为重定向后输出只有满4K之后才会写入一次文件中
+      
+      would it flush the stdout when collapse								*
+      window stack apply to web service 								*
+      													
+      phone pb: theme, wm can not call pb back; after dial hide or set sm top						*
+      
+ 
+
+
+
+
+
+0415
+
+
+      
+      
