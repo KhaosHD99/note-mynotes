@@ -3028,16 +3028,21 @@ Segmentation fault
       would it flush the stdout when collapse								*
       window stack apply to web service 								*
       													
-      phone pb: theme, wm can not call pb back; after dial hide or set sm top						*
+      phone pb: theme, wm can not call pb back; after dial hide or set sm top				*
       
- 
-
-
-
-
-
-0415
-
-
+0415  browser: lose no modal effect
+      *************      
+      pb: try is the gtk main loop out; combo down direct don't change store; clear email store af quit calllog            pg; Input Method; add contact same family name err; if family name or given name; pb button scale as screen         ** 
+      *************
+      wm: first click parent, gtk_window_set_transient_for						
+      scale the text on image										over
+      no assert		**										
+      grep: filter by file name 									
+      why wm only can't show tvpb      									*
+      double click "dial"										**
+      tvpb: focus sequence										**									
       
-      
+      (fnPhonebook:14239): Gtk-WARNING **: Attempting to add a widget with type GtkLabel to a GtkFrame, but as a           GtkBin subclass a GtkFrame can only contain one widget at a time; it already contains a widget of type       GtkTable
+	 
+      0 buf %s 
+                 
