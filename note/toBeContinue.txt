@@ -3046,3 +3046,13 @@ Segmentation fault
 	 
       0 buf %s 
                  
+0418 malloc array test
+     pb, prompter: contact name show or not, press event
+     adver: Ui block
+     dynamic array
+     void qsort(int a[],int low,int high), a array as args						*
+     
+     
+     
+     
+     
