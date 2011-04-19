@@ -3052,7 +3052,25 @@ Segmentation fault
      dynamic array
      void qsort(int a[],int low,int high), a array as args						*
      
+0419 adver Mainfile add suffix; how can i handle when Parse Playlist Fail
+     browser: set volumn
+     sscanf negative
      
+     typedef struct FN_STATE_ACT_LIST
+     {		
+	FNDWORD			dwSectionCnt; 
+	TIME_SECTION_INFO	SectionList[1];
+     }FN_STATE_ACT_LIST;
      
+     sizeof(act_resource->ActList[i].sActInfo.cMusicFile)
+     syslog(LOG_CRIT, "%s(%d) [%m] %s", __FILE__, __LINE__, fmt, ##__VA_ARGS__);
      
+     ***************** revolutin *****************
+     showError syslog
+     can not write to var log
      
+     pb: del key
+     
+      
+     
+          
