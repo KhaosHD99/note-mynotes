@@ -3030,10 +3030,10 @@ Segmentation fault
       													
       phone pb: theme, wm can not call pb back; after dial hide or set sm top				*
       
-0415  browser: lose no modal effect
-      *************      
-      pb: try is the gtk main loop out; combo down direct don't change store; clear email store af quit calllog            pg; Input Method; add contact same family name err; if family name or given name; pb button scale as screen         ** 
+0415  browser: lose no modal effect; the problem at wm
       *************
+      pb: try is the gtk main loop out; combo down direct don't change store; clear email store af quit calllog            pg; Input Method; add contact same family name err; if family name or given name; pb button scale as screen          ** 		
+      *************	
       wm: first click parent, gtk_window_set_transient_for						
       scale the text on image										over
       no assert		**										
@@ -3069,8 +3069,11 @@ Segmentation fault
      showError syslog
      can not write to var log
      
-     pb: del key
-     
+0420 
+     pb: del key											over
+     test.c:12: warning: incompatible implicit declaration of built-in function 'memset'		
+     browser: two play_start
       
+     
      
           
