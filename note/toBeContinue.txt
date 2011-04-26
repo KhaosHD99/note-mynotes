@@ -2883,7 +2883,7 @@ Segmentation fault
      libxml2 get attribute seg fault										over
      char ui_text[128] = {0}: test
      
-0407     
+0407 
      pb combo: focus switch; contact detail ui frame
      web_service: g_signal_connect(G_OBJECT(eventbox), "button_press_event",
 		  G_CALLBACK(browser_eventbox_click), "favorite_cancel");
@@ -3036,13 +3036,13 @@ Segmentation fault
       *************	
       wm: first click parent, gtk_window_set_transient_for						
       scale the text on image										over
-      no assert		**										
+      no assert												**										
       grep: filter by file name 									
       why wm only can't show tvpb      									*
       double click "dial"										**
-      tvpb: focus sequence										**									
-      
-      (fnPhonebook:14239): Gtk-WARNING **: Attempting to add a widget with type GtkLabel to a GtkFrame, but as a           GtkBin subclass a GtkFrame can only contain one widget at a time; it already contains a widget of type       GtkTable
+      tvpb: focus sequence										**		
+ 	
+     (fnPhonebook:14239): Gtk-WARNING **: Attempting to add a widget with type GtkLabel to a GtkFrame, but as a           GtkBin subclass a GtkFrame can only contain one widget at a time; it already contains a widget of type       GtkTable												over
 	 
       0 buf %s 
                  
@@ -3072,8 +3072,129 @@ Segmentation fault
 0420 
      pb: del key											over
      test.c:12: warning: incompatible implicit declaration of built-in function 'memset'		
-     browser: two play_start
+     browser: two play_start										over
       
+0421 
+     (fnPhonebook:2749): GdkPixbuf-CRITICAL **: gdk_pixbuf_new: assertion `width > 0' failed
+     (fnPhonebook:2749): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_rowstride: assertion `GDK_IS_PIXBUF (pixbuf)' failed
+     (fnPhonebook:2749): GdkPixbuf-CRITICAL **: gdk_pixbuf_get_pixels: assertion `GDK_IS_PIXBUF (pixbuf)' failed
+     (fnPhonebook:2749): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `GDK_I	S_PIXBUF (src)' failed
+     ********************************
+     pblib: test ;
+     ./test_libphonebook dcalllog									
+Segmentation fault											over
+*****************************************
+     browser: auto self adapt the web page width; uniform button image 
+     adver: doc
+     webkit_web_view_get_full_content_zoom: shit
+  
+     remove timer											over													
+     player progress show
+     double float format										over
+     priority: () * / 											over
+     
+0422 
+*****
+     browser: color key test; 
+     zoom level; activate bookmark; revolution; key_release: escape
+	     
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+DEBUG: common.c(19) Get in destroy_widget, Widget: gtk-tooltip
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_window_set_screen: assertion `GTK_IS_WINDOW (window)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_entry_get_text: assertion `GTK_IS_ENTRY (entry)' failed
+
+(fnBrowser:23676): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_widget_realize: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnBrowser:23676): GLib-GObject-WARNING **: instance with invalid (NULL) class pointer
+
+(fnBrowser:23676): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_window_move: assertion `GTK_IS_WINDOW (window)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_widget_show: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_widget_event: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_widget_hide: assertion `GTK_IS_WIDGET (widget)' failed
+
+(fnBrowser:23676): GLib-GObject-WARNING **: instance with invalid (NULL) class pointer
+
+(fnBrowser:23676): GLib-GObject-CRITICAL **: g_signal_handler_disconnect: assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(fnBrowser:23676): Gtk-CRITICAL **: gtk_entry_get_text: assertion `GTK_IS_ENTRY (e ntry)' failed
+Segmentation fault
+************
+
+     adver: time section test; offset test
+     single instance											
+     international											
+     getpid()													over
+     
+     gtk event pass to father window: no									over
+     player progress bar
+     gtk_widget_modify_bg
+     
+0423 borwse web page and film at the same time
+     the func pointer
+     
+0425 pb: why wm can not control sometime
+    
+***********************************
+browser: get frame uri; uri bar
+INFO: CStreamingMedia.cpp(324) 重新请求包号 3521292 72
+reg_to_wm : browser
+reg_to_wm  ret : 1
+---------------------- buffering type[0] CurrentSize[17570] PlaySize[131072]
+---------------------- buffering type[0] CurrentSize[34146] PlaySize[131072]
+INFO: CStreamingMedia.cpp(311) 包内数据无响应,重新请求包号 3521299 2339832412 2339830400
+INFO: CStreamingMedia.cpp(315) 包内当前偏移 19381 12225 11264 11264
+
+
+WebKitNavigationResponse navigation_requested (WebKitWebView         *webView,				*
+                                                   WebKitWebFrame       *frame,
+                                                   WebKitNetworkRequest *request,
+                                                   gpointer              user_data)
+
+
+g_signal_connect (G_OBJECT (web_view), "create-web-view",
+						G_CALLBACK (create_web_view_cb), NULL);
+
+*********************************
+
+     gdk_widget_destroy(pixbuf)
+     DEBUG: fnAdvertisementSkin.cpp(617) init_client(main_window, 1, XK_F1) successful
+     
+     //1.
+     //web :
+     //	a.  http://help.phonemedia.com
+     // b.  http://main.phonemedia.com?id=1234545
+     //2.
+     //application :  http://main.phonemedia.com?url=application:phonebook|phoneconfiger|tvdailer
+     //mms, video/audio :  http://main.phonemedia.com?url=mms://
+     //file, video/audio :  http://main.phonemedia.com?url=file://
+     
+     ** Message: console message:  @1: Unsafe JavaScript attempt to access frame with URL http://www.baidu.com/ from frame with URL http://121.32.136.89:4022/logo.jpg?p=undefined|738|1280|24|738|1280. Domains, protocols and ports must match.
+     
+     chg log
+     
+     ide auto format(xml)
+     get widow size real time
+     change fnbrowser to new request mode
      
      
-          
+
+
+     
