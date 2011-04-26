@@ -3194,7 +3194,25 @@ g_signal_connect (G_OBJECT (web_view), "create-web-view",
      get widow size real time
      change fnbrowser to new request mode
      
+0426 struct offset test										over
+     identity card copy              								
+     char array, memory fixed when compile?							*     
+     optimize fake_cc 
      
-
-
+     do not show popup window to the best 							**
+     strcasecmp; how to parse passed args							*
+     phone: media and browser									**
+     check get uri interface									*
+     escapse: press or release; or press revolution							***     
+     libxml2: create if not exist(dir or file); gWarning: lpconfig.c(382)Could not write tmp/test.cfg !		**
+     get webkit focus widget
+          
+     label must on drawarea?
+     void start_km_check();
+     buffering timeout											**
+     pb: *#
+     browser: how to move the cursor						*
+     tvbrowser
+     
+     
      
