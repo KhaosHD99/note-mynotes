@@ -718,9 +718,27 @@ If you want the position of a window relative to the X root window, you should u
 
 If you want to get the position of the window (including the WM decorations), you should use gdk_window_get_root_origin().
 
-Last but not least, if you want to get a Window Manager frame position, you should use gdk_window_get_deskrelative_origin().
+Last but not least, if you want to get a 
+  Window Manager frame position, you should use gdk_window_get_deskrelative_origin().
 
 Your choice of Window Manager will have an effect of the results of the above functions. You should keep this in mind when writing your application. This is dependant upon how the Window Managers manage the decorations that they add around windows.
 
 gdk_window_get_origin: position of X?
 	
+
+
+
+
+0427
+ typedef struct 
+{
+  GdkFontType type;
+  gint ascent;
+  gint descent;
+} GdkFont;
+
+    typedef enum
+{
+  GDK_FONT_FONT,
+  GDK_FONT_FONTSET
+} GdkFontType;
