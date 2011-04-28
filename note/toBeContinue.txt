@@ -3195,16 +3195,15 @@ g_signal_connect (G_OBJECT (web_view), "create-web-view",
      change fnbrowser to new request mode
      
 0426 struct offset test										over
-     identity card copy              								
+     identity card copy              								over								
      char array, memory fixed when compile?							*     
      optimize fake_cc 
-     
-     do not show popup window to the best 							**
+     do not show popup window to the best 							*
      strcasecmp; how to parse passed args							*
      phone: media and browser									**
      check get uri interface									*
      escapse: press or release; or press revolution							***     
-     libxml2: create if not exist(dir or file); gWarning: lpconfig.c(382)Could not write tmp/test.cfg !		**
+     pb: libxml2: create if not exist(dir or file); gWarning: lpconfig.c(382)Could not write tmp/test.cfg !**
      get webkit focus widget
           
      label must on drawarea?
@@ -3214,5 +3213,45 @@ g_signal_connect (G_OBJECT (web_view), "create-web-view",
      browser: how to move the cursor						*
      tvbrowser
      
+0427 msg window -> popup window
+     
+     tvbrowser: go convert window; title; did tv brw demand?; gtk_widget_get_size_request;void fill_browser_ui (int       width, int height, int x, int y), fill_toolbar (width, height / 10, x, height * 9 / 10); image size; stop video
+    
+****************************
+    focus_in; get size request revolution								over
+*************
+    filter compile error info										over
+    error output to stardar output									over
+    web_service: email
+    g_signal_connect (G_OBJECT (web_view), "create-web-view",G_CALLBACK (create_web_view_cb), NULL); sy fal	over
+    msg window to popup window 									->**	 
+    why progress bar always on top but label can not							*
+     
+(test_libpb:27340): Pango-CRITICAL **: pango_font_map_load_fontset: assertion `fontmap != NULL' failed
+
+(test_libpb:27340): GLib-GObject-CRITICAL **: g_object_get_qdata: assertion `G_IS_OBJECT (object)' failed
+
+(test_libpb:27340): GLib-GObject-CRITICAL **: g_object_set_qdata_full: assertion `G_IS_OBJECT (object)' failed
+
+(test_libpb:27340): Pango-CRITICAL **: pango_font_map_get_shape_engine_type: assertion `PANGO_IS_FONT_MAP (fontmap)' failed
+qemu: uncaught target signal 11 (Segmentation fault) - core dumped					over
+
+0428 window dr area can not received the event
+*****************
+     WebKitNavigationResponse navigation_requested (WebKitWebView         *webView,
+                                                   WebKitWebFrame       *frame,
+                                                   WebKitNetworkRequest *request,
+                                                   gpointer              user_data)
+	return 
+****************
+     drawarea img									**
+     validate the curren uri								*!!
+     gc style black									
+     get pos and size from server							**
+     direct link email									**
+     tar shell										*
+     c++ coding spec									
      
      
+     
+    
