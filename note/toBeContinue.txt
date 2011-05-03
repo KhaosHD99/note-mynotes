@@ -3272,3 +3272,15 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped					over
      uri url 
      gtk load image
      
+0503 g_object_unref pixbuf free										over
+     
+     ***************
+     deprecated the draw area revolution; create a 0 0 0 pixbuf, but not cario surface; clean drawarea		*
+     **************	
+     
+     gtkcontainer child count										over
+     dereferencing pointer to incomplete type
+     draw on gtkImage: no
+     allow scale music playarea
+     
+      
