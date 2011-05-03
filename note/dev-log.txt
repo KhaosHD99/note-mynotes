@@ -478,8 +478,25 @@
 0422 
      
 0423 overtime
+
+
+0427 yq has not say anything with me
+
+
+0428 yq give me the pressure on browserdesktop
+     browserdesktop set the app top 
      
+<<<<<<< .mine
+0429 adjust the video pos and size; test the audio play; audio play ui layout resolution; 
+     gdk only draw when on after expose event is emmit
+     do not use the gtk bg color to the best
+     gdk draw image on drawarea
+      
+      
+     
+     
+      =======
 0424 
      
 0426 i just want to consult how to resolve the problem, but yq, ai...(key: brs focus)
-          
+          >>>>>>> .r521

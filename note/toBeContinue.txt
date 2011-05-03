@@ -3252,6 +3252,23 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped					over
      tar shell										*
      c++ coding spec									
      
+0429 cur play type
+     DEBUG: FnGstPlayer.cpp(318) ********* Err: SetVideoPos param err, Screen width[800] height[480] Pos:top[0]           left[250] width[600] height[450]
+     WARNING: fnPlayer.cpp(150) *** GstPlayer Set Video Pos() Err ***
+    	 
+     some handle after Connect Err								**
+     redraw the the drawarea text								*
+     drawarea image transparent									
+     drag the audio prompt bar
+     widget bg color?										*     
      
+     //gdk_widget_destroy(pixbuf);
      
-    
+     ***************
+     deprecated the draw area revolution 		NO NO NO
+     **************
+     
+     expose_event
+     uri url 
+     gtk load image
+     

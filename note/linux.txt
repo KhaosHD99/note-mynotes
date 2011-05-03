@@ -742,3 +742,10 @@ gdk_window_get_origin: position of X?
   GDK_FONT_FONT,
   GDK_FONT_FONTSET
 } GdkFontType;
+
+typedef enum
+{
+  GDK_RGB_DITHER_NONE,
+  GDK_RGB_DITHER_NORMAL,
+  GDK_RGB_DITHER_MAX
+} GdkRgbDither;
