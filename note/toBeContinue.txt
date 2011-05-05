@@ -3284,3 +3284,89 @@ qemu: uncaught target signal 11 (Segmentation fault) - core dumped					over
      allow scale music playarea
      at showdown service not up
       
+0504 goback
+     email
+     *******
+     key_press 	revo			->
+     ******
+     
+     VPU mutex couldn't be locked before timeout expired
+[ERR]   Error: Unable to get mutex
+[ERR]   IOSystemInit() failure.
+DEBUG: Cvpu.cpp(34) ******* Err: vpu_Init failure
+Segmentation fault
+     
+     linconfig create path if not exist
+     ********
+     avoid tab revo     ->
+     ********
+     
+     c get type **
+     
+     contact_confirm_eventbox_key_press_event 				*
+   
+    ------------------
+     tvpb: frame; 
+     is first iter						over
+      when del contact sync calllog    <->
+     ------------------
+     
+     gtk uniform userdata;
+     browser: state change, go back page?
+     
+     **************  
+     webservice: (fnWebService:8122): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     popup window no focus 										over		
+     screen convert icon										over
+	 screen convert && toolbar hide/show
+     bookmark base function
+     
+     Disguish User Data: delete ****
+     INFO: browser.c(1138) on focus_in_event, Widget: GtkEventBox
+     INFO: browser.c(1250) ----- Width: -1, Height: -1 -------
+     (fnWebService:9145): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `dest_width > 0' failed
+     (fnWebService:9145): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+     INFO: browser.c(1342) on focus_out_event, Widget: GtkEventBox 
+     INFO: browser.c(1451) ----- Width: -1, Height: -1 -------
+     (fnWebService:9145): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `dest_width > 0' failed
+     (fnWebService:9145): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+     
+     (fnWebService:10728): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     (fnWebService:11931): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
+     why the WebPage browser item disappear								**
+     favourite treeview active no editable
+     ************   
+     
+     intercept the signal if handled it
+     webservice email					*
+     
+     
+0505 get size request; real size: allocation.x, revolution						
+     resume 												over
+     leave_notify_event											over		
+     keep the demand on webpage browser									**
+     image_addto_bookmark_confirm: name specification; not the global var				*
+     netmediaservie: revolution refer to browser-desktop 						**
+     bookmark window set enter_notify_event focus							*
+     phone demand revolution change to browserdesktop demand rule 				*
+     
+     ************************
+     browserdesktop: stop the player when click the other						**
+    audio state prompt     *
+     ************************
+     
+     browser uri, get config file... 
+     play absolute pos and opposite pos									over
+     DEBUG: CVDeCoder.cpp(113) ******** Err:vpu_DecOpen failed
+     
+     how to know is gtkwidget size allocate?
+     
+     give up gtk allocation, not stable							!!!
+     keep a route of retreat is important!!!!!!!!!!
+     fnpb: button press           									**
+     
+
+     
+     
+    
+    
