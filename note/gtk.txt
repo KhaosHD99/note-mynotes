@@ -2,3 +2,17 @@
   void                g_object_unref                      (gpointer object);Decreases the reference count of object.   When its reference count drops to 0, the object is finalized (i.e. its memory is freed). 
 
 //gdk_display_warp_pointer(display, screen, x + 12, y + 12); 
+
+
+
+guint keyval = GDK_Tab;
+	GdkKeymapKey* keys;
+	gint n_keys;
+	GdkEvent* gdk_event = gdk_event_new(GDK_KEY_PRESS);
+	    	
+			((GdkEventKey*)gdk_event)->window = fixed->window;
+		    ((GdkEventKey*)gdk_event)->send_event = TRUE;
+		    ((GdkEventKey*)gdk_event)->time = GDK_CURRENT_TIME;
+		    ((GdkEventKey*)gdk_event)->state = GDK_KEY_PRESS_MASK;
+		    ((GdkEventKey*)gdk_event)->keyval = GDK_3270_BackTab;
+			gdk_event_put(gdk_event);

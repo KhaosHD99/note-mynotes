@@ -3302,13 +3302,12 @@ Segmentation fault
      ********
      
      c get type **
-     
-     contact_confirm_eventbox_key_press_event 				*
+     contact_confirm_eventbox_key_press_event 							*
    
     ------------------
      tvpb: frame; 
      is first iter						over
-      when del contact sync calllog    <->
+      when del contact sync calllog    <->								over
      ------------------
      
      gtk uniform userdata;
@@ -3318,9 +3317,8 @@ Segmentation fault
      webservice: (fnWebService:8122): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
      popup window no focus 										over		
      screen convert icon										over
-	 screen convert && toolbar hide/show
+	 screen convert && toolbar hide/show								*
      bookmark base function
-     
      Disguish User Data: delete ****
      INFO: browser.c(1138) on focus_in_event, Widget: GtkEventBox
      INFO: browser.c(1250) ----- Width: -1, Height: -1 -------
@@ -3334,39 +3332,57 @@ Segmentation fault
      (fnWebService:10728): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
      (fnWebService:11931): Gtk-CRITICAL **: gtk_image_set_from_pixbuf: assertion `GTK_IS_IMAGE (image)' failed
      why the WebPage browser item disappear								**
-     favourite treeview active no editable
-     ************   
+     favourite treeview active no editable								over
+     ************ 
      
-     intercept the signal if handled it
-     webservice email					*
+     intercept the signal if handled it									
+     webservice email											**
      
      
-0505 get size request; real size: allocation.x, revolution						
+0505 get size request; real size: allocation.x, revolution						over
      resume 												over
      leave_notify_event											over		
      keep the demand on webpage browser									**
-     image_addto_bookmark_confirm: name specification; not the global var				*
-     netmediaservie: revolution refer to browser-desktop 						**
-     bookmark window set enter_notify_event focus							*
-     phone demand revolution change to browserdesktop demand rule 				*
-     
+     image_addto_bookmark_confirm: name specification; not the global var				over
+     netmediaservie: revolution refer to browser-desktop 						over
+     bookmark window set enter_notify_event focus							over
+     phone demand revolution change to browserdesktop demand rule 					*
+     				
      ************************
-     browserdesktop: stop the player when click the other						**
-    audio state prompt     *
+     browserdesktop: stop the player when click the other						over
+     audio state prompt     										*
      ************************
      
-     browser uri, get config file... 
-     play absolute pos and opposite pos									over
+     browser uri, get config file...									over
+ 	play absolute pos and opposite pos									over
      DEBUG: CVDeCoder.cpp(113) ******** Err:vpu_DecOpen failed
      
-     how to know is gtkwidget size allocate?
+     how to know has gtkwidget size allocate?
+     give up gtk allocation, not stable									!!!
+     keep a route of retreat is important!!!!!!!!!!							
+     fnpb: button press           									over   
      
-     give up gtk allocation, not stable							!!!
-     keep a route of retreat is important!!!!!!!!!!
-     fnpb: button press           									**
-     
+0506 create_gtk_pixbuf     										over
+     showError("*********** Invalid Player Type ************\n");				        over
+     		Netmedia key move the focus								ov
+     fnbowser: vol											over
+     ---------
+     fnpb:button_press test (global); 
+     vial test
+     how to call the webservice			
+     browserdesktop get uri interface: do not hide when escape						over
+     pb: create path; mkdir(dir, 0755)
+     fwrite text mode and binary mode; fputs 		
 
+     system exec popen fork
+     pipe & shell
+     fgets
+     SUID SGID
+     gtk api offline
+     
+     -------------------
+     fnpb:WARNING: contact.c(1286) *********** phonenum_selection_changed, Get Active Phonenum Iter Fail 		************
+     (fnPhonebook:8856): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
+     -------------------
      
      
-    
-    
