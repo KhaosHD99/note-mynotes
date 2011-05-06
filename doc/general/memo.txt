@@ -6,3 +6,5 @@ peanut: elonjie
 source list: deb ftp://ftp.tw.debian.org/debian/ lenny main
 
              deb http://mirrors.cn99.com/debian lenny main
+
+061762
