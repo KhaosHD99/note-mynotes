@@ -3360,7 +3360,7 @@ Segmentation fault
      how to know has gtkwidget size allocate?
      give up gtk allocation, not stable									!!!
      keep a route of retreat is important!!!!!!!!!!							
-     fnpb: button press           									over   
+     fnpb: button press           									over   
      
 0506 create_gtk_pixbuf     										over
      showError("*********** Invalid Player Type ************\n");				        over
@@ -3384,5 +3384,46 @@ Segmentation fault
      fnpb:WARNING: contact.c(1286) *********** phonenum_selection_changed, Get Active Phonenum Iter Fail 		************
      (fnPhonebook:8856): Gtk-CRITICAL **: gtk_widget_get_name: assertion `GTK_IS_WIDGET (widget)' failed
      -------------------
+          
+0509 ---------------------- 
+     browserdesktop back										**
+     INFO: main.c(1273) on focus_out_event, Widget: GtkWindow
+     Segmentation fault											over
+     mail
+     call browser
+     play local file
+     gst state handle											**
+     -------------
+     
+     gtk-doc-tools			
+     cp create if not exist									key	
+     pb: first item check path 										over
+     sanfangxieyi											**
+     is gtkhide the same as set visible									*
+   
+----  
+   adver: playlist;adver page ??; gtk ui die									**
+-----     
+
+webservice: first focus										over  
+     can not show the toolbar when palyvivdeo
+     main.c:251: error: invalid use of void expression							over
+     where the /etc/											over
+     
+0510 esc keep showarea invisible
+     
+--------------------------
+     phone app test
+     F5
+--------------
+     player error and go back																					
+     stop counter           										*
+     webkit can't not go anywh where load error
+     fullscreen do not work										*
+     ------------
+     brwDsk:
+     add scrollbar											over
+     add loadingprogressbar
+     -----------
      
      
