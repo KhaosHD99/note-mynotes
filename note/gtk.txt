@@ -16,3 +16,8 @@ guint keyval = GDK_Tab;
 		    ((GdkEventKey*)gdk_event)->state = GDK_KEY_PRESS_MASK;
 		    ((GdkEventKey*)gdk_event)->keyval = GDK_3270_BackTab;
 			gdk_event_put(gdk_event);
+
+gdk_window_get_origin
+char varray +=
+
+
