@@ -3338,11 +3338,10 @@ Segmentation fault
      intercept the signal if handled it									
      webservice email											**
      
-     
 0505 get size request; real size: allocation.x, revolution						over
      resume 												over
      leave_notify_event											over		
-     keep the demand on webpage browser									**
+     keep the demand on webpage browser									over
      image_addto_bookmark_confirm: name specification; not the global var				over
      netmediaservie: revolution refer to browser-desktop 						over
      bookmark window set enter_notify_event focus							over
@@ -3386,44 +3385,74 @@ Segmentation fault
      -------------------
           
 0509 ---------------------- 
-     browserdesktop back										**
-     INFO: main.c(1273) on focus_out_event, Widget: GtkWindow
-     Segmentation fault											over
-     mail
+     browserdesktop back										over
+     INFO: main.c(1273) on focus_out_event, Widget: GtkWindow; Segmentation fault			over
+     mail												*
      call browser
-     play local file
-     gst state handle											**
+     play local file											*
+     gst state handle											over
      -------------
      
      gtk-doc-tools			
      cp create if not exist									key	
      pb: first item check path 										over
-     sanfangxieyi											**
+     sanfangxieyi											over
      is gtkhide the same as set visible									*
    
 ----  
    adver: playlist;adver page ??; gtk ui die									**
 -----     
-
 webservice: first focus										over  
      can not show the toolbar when palyvivdeo
      main.c:251: error: invalid use of void expression							over
      where the /etc/											over
      
-0510 esc keep showarea invisible
-     
+0510 esc keep showarea invisible									over
 --------------------------
      phone app test
-     F5
+     F5 F7
 --------------
-     player error and go back																					
-     stop counter           										*
-     webkit can't not go anywh where load error
+     player error and go back									
+     stop counter         										*
+     webkit can't not go anywh where load error								ov
      fullscreen do not work										*
      ------------
      brwDsk:
      add scrollbar											over
      add loadingprogressbar
+     ModuleID
      -----------
      
+0511 adver: playlist;adver page ??; gtk ui die						->
+     [WARN]  VPU mutex couldn't be locked before timeout expired
+     [ERR]   Error: Unable to get mutex
+     [ERR]   IOSystemInit() failure.
+     DEBUG: Cvpu.cpp(34) ******* Err: vpu_Init failure
+
+-----------         
+adver :
+stream type; parse												*
+ui die											
+Gst												
+switch among other app, area1,2 no image									*
+dynamic read playlist
+playlist revolution											**
+no filename name spec
+adver doc
+
+-------------     
      
+-----------
+brwDsk: 
+state change												**
+------------
+
+international												**
+  
+wireless manager											**
+
+v4l2 gstreamer
+scp
+sync
+mms
+ 
