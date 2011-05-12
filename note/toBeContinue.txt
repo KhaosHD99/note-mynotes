@@ -3431,15 +3431,14 @@ webservice: first focus										over
 
 -----------         
 adver :
-stream type; parse												*
-ui die											
-Gst												
+stre am type; parse												*
+ui die									
+Gst(gstreamer)												
 switch among other app, area1,2 no image									*
-dynamic read playlist
+dynamic read playlist											**
 playlist revolution											**
-no filename name spec
-adver doc
-
+no filename name spec: no
+adver doc												**						
 -------------     
      
 -----------
@@ -3455,4 +3454,44 @@ v4l2 gstreamer
 scp
 sync
 mms
- 
+
+0512 
+OnReceive return;
+-----------												
+brwDsk:													
+vol: 100												over
+first fullscreen											over
+get_player_type() == FN_PLAYER, state prompt																						
+------------
+
+/dev/sda2 on / type ext4 (rw,errors=remount-ro)
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+none on /sys type sysfs (rw,noexec,nosuid,nodev)
+none on /sys/fs/fuse/connections type fusectl (rw)
+none on /sys/kernel/debug type debugfs (rw)
+none on /sys/kernel/security type securityfs (rw)
+none on /dev type devtmpfs (rw,mode=0755)
+none on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)
+none on /dev/shm type tmpfs (rw,nosuid,nodev)
+none on /var/run type tmpfs (rw,nosuid,mode=0755)
+none on /var/lock type tmpfs (rw,noexec,nosuid,nodev)
+none on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
+/dev/sda1 on /boot type ext4 (rw)
+/dev/sda6 on /opt type ext4 (rw)
+/dev/sda5 on /home type ext4 (rw)
+nfsd on /proc/fs/nfsd type nfsd (rw)
+binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,noexec,nosuid,nodev)
+10.10.200.48:/opt/fn3/mx515_lucid_dev on /opt/fn3/mx515_lucid_work type nfs (rw,nolock,addr=10.10.200.48)
+/dev/sda5 on /opt/fn3/mx515_lucid_work/home type ext4 (rw)
+
+ERROR: TimeListResolver.cpp(89) *** sscanf(act_info->sActInfo.cVideo to int_section) Err ***
+ERROR: Advertisement.cpp(203) ********** Get Next Act Error, Area: 2, State: ON_HOOK *********
+if(0 >= sscanf((const char *)act_info->sActInfo.cVideo, "%u", &int_section))
+sscanf return val; sscanf pure char: the value keeped						**
+if(&& ||)												over
+
+repeal the FN_TYPE_BASE_VALUE
+
+
+
+  
