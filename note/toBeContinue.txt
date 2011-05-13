@@ -3458,7 +3458,7 @@ mms
 0512 
 OnReceive return;
 -----------												
-brwDsk:													
+brwDsk:												
 vol: 100												over
 first fullscreen											over
 get_player_type() == FN_PLAYER, state prompt																						
@@ -3484,8 +3484,8 @@ binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,noexec,nosuid,nodev
 10.10.200.48:/opt/fn3/mx515_lucid_dev on /opt/fn3/mx515_lucid_work type nfs (rw,nolock,addr=10.10.200.48)
 /dev/sda5 on /opt/fn3/mx515_lucid_work/home type ext4 (rw)
 
-ERROR: TimeListResolver.cpp(89) *** sscanf(act_info->sActInfo.cVideo to int_section) Err ***
-ERROR: Advertisement.cpp(203) ********** Get Next Act Error, Area: 2, State: ON_HOOK *********
+ERROR: TimeListResolver.cpp(89) *** sscanf(act_info->sActInfo.cVideo to int_section) Err ***		over
+ERROR: Advertisement.cpp(203) ********** Get Next Act Error, Area: 2, State: ON_HOOK *********		over
 if(0 >= sscanf((const char *)act_info->sActInfo.cVideo, "%u", &int_section))
 sscanf return val; sscanf pure char: the value keeped						**
 if(&& ||)												over
@@ -3493,5 +3493,32 @@ if(&& ||)												over
 repeal the FN_TYPE_BASE_VALUE
 
 
+0513 
+     reat 000000AC
+INFO: LAppConfig.cpp(1042) Get ShmId : 32769
+INFO: LAppConfig.cpp(1050) read_from_sharemem_configs
+INFO: LAppConfig.cpp(160) read_configs mark init ture!
+INFO: LAppConfig.cpp(217) UserConfig size : 2256 : 2256
+DEBUG: fn_fb_interface.c(250) color source:0x00000000,set color key:0x00000000.
+[INFO]  Product Info: i.MX51
+DEBUG: Cvpu.cpp(102) VPU firmware version: 13.4.14
+DEBUG: Cvpu.cpp(103) VPU library version: 5.1.3
+INFO: SMComm.cpp(142) comm procedure run...
+INFO: SMProtocol.cpp(61) media protocol proc run 0...
+ALSA lib conf.c:3272:(snd_config_hooks_call) Cannot open shared library libasound_module_conf_pulse.so
+ALSA lib pcm.c:2211:(snd_pcm_open_noupdate) Unknown PCM plug:dmix
+********* Err: snd_pcm_open error: No such file or directory
+MFW_GST_V4LSINK_PLUGIN 1.9.5-1 build on Nov 26 2010 00:11:04.
+Segmentation fault
 
-  
+RT2070; .dat
+LINUX_SRC = /lib/modules/$(shell uname -r)/build; what build
+LINUX_SRC_MODULE = /lib/modules/$(shell uname -r)/kernel/drivers/net/wireless/
+dmesg | grep wl
+ln; depmod modprobe; lsmod; insmod; rmmod; modinfo
+.ko
+read so
+boot kernel select
+apt-cache search kernel-headers*
+apt;aptitude search
+
