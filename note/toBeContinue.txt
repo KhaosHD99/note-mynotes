@@ -3522,5 +3522,19 @@ boot kernel select
 apt-cache search kernel-headers*
 apt;aptitude search
 
-0516
- 
+0516 
+	player white screen									*			--------								
+     brwDsktop 
+    state check, manage, test; gtk proctect alloc; local video state vial					**		
+-------     
+     class call
+     class; how to do is spec
+     STATE_INFO												ov
+     cc send statevial to netmedia;browser   									**
+     wekit utf; font											**
+     vialsys construct revolution									**
+     c: enum declare in struct 										
+     WebKitNavigationResponse navigation_requested return what?	WEBKIT_NAVIGATION_RESPONSE_IGNORE	*
+     why do not load the page; is serve take care?
+     
+     how to use ad-hoc
