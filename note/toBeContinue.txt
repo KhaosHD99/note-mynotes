@@ -3502,7 +3502,8 @@ INFO: LAppConfig.cpp(217) UserConfig size : 2256 : 2256
 DEBUG: fn_fb_interface.c(250) color source:0x00000000,set color key:0x00000000.
 [INFO]  Product Info: i.MX51
 DEBUG: Cvpu.cpp(102) VPU firmware version: 13.4.14
-DEBUG: Cvpu.cpp(103) VPU library version: 5.1.3
+DEBUG: Cvpu.cpp(103) VPU li
+brary version: 5.1.3
 INFO: SMComm.cpp(142) comm procedure run...
 INFO: SMProtocol.cpp(61) media protocol proc run 0...
 ALSA lib conf.c:3272:(snd_config_hooks_call) Cannot open shared library libasound_module_conf_pulse.so
@@ -3522,6 +3523,14 @@ boot kernel select
 apt-cache search kernel-headers*
 apt;aptitude search
 
+<<<<<<< .mine
+
+
+
+0514 error inserting 'MODULE /os/linux/rt3370sta.ko': -l Unknow Symbol in module
+     can't access tty
+     LVM£»uuid
+     initrd=======
 0516 
 	player white screen									*			--------								
      brwDsktop 
@@ -3537,4 +3546,11 @@ apt;aptitude search
      WebKitNavigationResponse navigation_requested return what?	WEBKIT_NAVIGATION_RESPONSE_IGNORE	*
      why do not load the page; is serve take care?
      
-     how to use ad-hoc
+     how to use ad-hoc>>>>>>> .r541
+     
+     libcucul0
+     APT::Cache-Limit "33554432";
+     gstreamer0.10-ffmpeg
+                   fluendo-mp3
+                   plugins-ugly     
+     		   plugins-bad
