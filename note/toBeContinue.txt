@@ -3554,3 +3554,24 @@ apt;aptitude search
                    fluendo-mp3
                    plugins-ugly     
      		   plugins-bad
+        
+0517       
+      dpkg --get-selections
+      wubi
+      ffodivx
+      audacious
+      gstreamer0.10-alsa;gstreamer0.10-ffmpeg; gstreamer0.10-tools; gstreamer0.10-nice; gstreamer0.10-	fluendo-mp3; gstreamer0.10-plugins-bad; gstreamer0.10-pulseaudio; bluez-gstreamer; libgstreamer0.10-0
+
+	libgstreamer-plugins-base0.10-0
+          
+    
+
+
+
+
+
+
+
+
+
+     
