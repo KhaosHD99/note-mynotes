@@ -3546,6 +3546,38 @@ apt;aptitude search
      WebKitNavigationResponse navigation_requested return what?	WEBKIT_NAVIGATION_RESPONSE_IGNORE	*
      why do not load the page; is serve take care?
      
+<<<<<<< .mine
+     how to use ad-hoc
+     
+0517 WEBKIT_NAVIGATION_RESPONSE_IGNORE revolution 
+     mv													!!
+     newer cc not work											**
+          
+     (fnBrowser:9404): Gtk-CRITICAL **: gtk_widget_get_visible: assertion `GTK_IS_WIDGET (widget)' failed
+     (fnBrowser:9404): Gtk-CRITICAL **: gtk_widget_is_sensitive: assertion `GTK_IS_WIDGET (widget)' failed
+     (fnBrowser:9404): Gtk-CRITICAL **: gtk_widget_is_sensitive: assertion `GTK_IS_WIDGET (widget)' failed
+     
+     INFO: main.c(716) ******** favourite_window: Can not Disguish Button: user_data: eventbox_click ***********
+     
+     return phonenum											**
+     strcmp ""
+     
+     关于催交《2011届毕业生用人单位证明》、《2011年学生质量追踪调查表》的通知
+
+各班：
+为做好2011届毕业生的就业情况调查工作，促进院系专业教学改革，现要求各班配合做好催交《2011届毕业生用人单位证明》、《2011年学生质量追踪调查表》的工作：
+1、已参加就业实习的毕业生均需在6月3日前将《2011届毕业生用人单位证明》、《2011年学生质量追踪调查表》（两表均是纸质版并盖企业公章）交到班长处；
+2、各班长在6月7日前收齐汇总两表后交系办易老师处；
+3、两表的回收属于毕业生离校必办手续之一，未及时上交者不予核发毕业证。
+以上工作十分重要，希望各班注意加强宣传，保证工作顺利进行，谢谢配合！
+
+计算机工程系
+2011-5-11
+     
+     brwDsktop email; tvmail interface									**
+          
+     
+     =======
      how to use ad-hoc>>>>>>> .r541
      
      libcucul0
@@ -3574,4 +3606,4 @@ apt;aptitude search
 
 
 
-     
+     >>>>>>> .r543
