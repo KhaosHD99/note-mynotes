@@ -20,4 +20,6 @@ guint keyval = GDK_Tab;
 gdk_window_get_origin
 char varray +=
 
-
+g_object_set(web_view,
+ 	     "full-content-zoom", TRUE,					
+             NULL);						
