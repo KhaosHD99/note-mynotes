@@ -3586,8 +3586,7 @@ apt;aptitude search
                    fluendo-mp3
                    plugins-ugly     
      		   plugins-bad
-        
-0517       
+              
       dpkg --get-selections
       wubi
       ffodivx
@@ -3607,3 +3606,29 @@ apt;aptitude search
 
 
      >>>>>>> .r543
+
+0518 (fnWirelessManager:13028): Gtk-CRITICAL **: gtk_tree_store_set_valist: assertion `VALID_ITER (iter,      tree_stor:e)' failed
+  
+     Custom Localization Revo						**
+     international			
+    
+     const char PAGE_INFO[4][128] = 
+{		
+	"PAGE_MAIN",
+	"PAGE_CONTACT",
+	"PAGE_CONTACT_DETAIL",
+	"PAGE_CALLLOG"
+};WINDOW_PAGE	
+     
+     struct StartPlayAckVial : public Vial
+{
+	int nRetCode; //0为成功， 非0为失败
+	int nVideoCnt;//视频流数量
+	int nAudioCnt;//音频流数量
+	VIAL_CONSTRUCTOR(StartPlayAckVial);
+};
+ atheros
+ can not extract
+  browserDsk: connnet msg
+  ioctl
+   
