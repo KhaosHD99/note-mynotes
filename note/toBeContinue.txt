@@ -3594,9 +3594,10 @@ apt;aptitude search
       gstreamer0.10-alsa;gstreamer0.10-ffmpeg; gstreamer0.10-tools; gstreamer0.10-nice; gstreamer0.10-	fluendo-mp3; gstreamer0.10-plugins-bad; gstreamer0.10-pulseaudio; bluez-gstreamer; libgstreamer0.10-0
 
 	libgstreamer-plugins-base0.10-0
-          
-    
-
+      
+    --disable-yasm          
+    git clone --depth 1 git://git.videolan.org/ffmpeg.git ffmpeg
+    ao: oss
 
 
 
