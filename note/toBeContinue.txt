@@ -3649,3 +3649,32 @@ apt;aptitude search
    g_object_unref (store_scan);   							**
    Group Cipher : CCMP
    
+   bad interpreter: No such file or directory£» :set ff?
+   
+---------------------- make test(mplayer, lenny, 1 cpu 2 core) -------
+j1  
+  real    9m36.958s
+  user    5m34.369s
+  sys     3m41.098s
+
+j2
+   real    5m41.241s
+   user    9m16.647s
+   sys     1m20.701s
+   
+j4
+   real    5m20.635s
+   user    6m15.503s
+   sys     3m37.394s
+   
+j8 
+   real    5m28.044s
+   user    6m50.750s
+   sys     3m21.601s
+-----------------------
+
+   cat /proc/cpuinfo | grep "processor" | wc -l
+   cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l
+cat /proc/cpuinfo | grep "cpu cores" | wc -l
+
+
