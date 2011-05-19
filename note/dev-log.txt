@@ -513,4 +513,22 @@
 
 0509 fixed the brwDsk
 
-0510
+0510 
+
+
+0513 
+     
+0514 fail the "0515"
+     
+0515 compile the wireless card driver module and install module successfully on 2.6.26 kernel, and wireless card      work(use Tenda offical driver)
+
+0516 install mplayer on ubuntu 
+     
+0517 play video and audio on ubuntu based vm use apt
+     ubuntu double click default event do not call mplayer!(maybe need UI support) 
+
+0518 compile ffmpeg and mplayer on ubuntu
+     why configure sequece affect the compile? 
+
+0519 wireless manager; why my book about shell still not receive?
+
