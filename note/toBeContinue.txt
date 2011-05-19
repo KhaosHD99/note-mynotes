@@ -3633,3 +3633,19 @@ apt;aptitude search
   browserDsk: connnet msg
   ioctl
    
+
+0519 ESSID index
+     Got AP Address: C8:3A:35:CE:15:EA
+     arp;48位以太网的地址
+     &; |=; realloc
+     format 8bit
+     stderr
+    iw_saether_ntop
+    print_scanning_info(store_scan, skfd, "wlan0", NULL, 0);
+    g_object_unref (store_contact);
+    why can auto fresh store
+    
+   Wildcard _
+   g_object_unref (store_scan);   							**
+   Group Cipher : CCMP
+   
