@@ -3678,7 +3678,8 @@ j8
 cat /proc/cpuinfo | grep "cpu cores" | wc -l
    mount tmpfs
    
-0520 grep two 
+0520 
+     grep two 
      WPA; WPA-PSK; WPA2; WPA2-PSK
      Input/output error: set key									**
      BrowserDownload											*
@@ -3708,3 +3709,16 @@ g_signal_connect; dynamic alloc userdata
  gtk_list_store_iter_is_valid; gtk_tree_store_iter_is_valid
 
 socket ip 
+initrd.img
+
+-rw-r--r-- 1 root root 1930016 2011-05-16 21:21 vmlinuz-2.6.35.9
+-rw-r--r-- 1 root root 1197950 2011-05-16 21:21 System.map-2.6.35.9
+-rw-r--r-- 1 root root  103300 2011-05-16 21:21 config-2.6.35.9
+为什么编译内核后不能制作出initrd的img文件
+如果把SCSI驱动编译近内核了，不是以modules形式存在
+在什成initrd是直接把/etc/modprobe.conf文件的alias那行注释掉 
+
+ramdisk
+yaird 
+mkinitramfs
+mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
