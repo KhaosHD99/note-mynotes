@@ -831,3 +831,37 @@ printf(“%s”,buffer);
 }
  
 
+0520 
+struct ifaddrs {
+	struct ifaddrs  *ifa_next;
+	char		*ifa_name;
+	u_int		 ifa_flags;
+	struct sockaddr	*ifa_addr;
+	struct sockaddr	*ifa_netmask;
+	struct sockaddr	*ifa_dstaddr;
+	void		*ifa_data;
+};
+struct sockaddr { 　
+			unsigned short sa_family; /* address family, AF_xxx */ 　
+　			char sa_data[14]; /* 14 bytes of protocol address */ 　
+		}; 
+
+struct sockaddr_in { 　　
+		    short int sin_family; /* Address family */ 　
+		  　unsigned short int sin_port; /* Port number */ 　
+                  　struct in_addr sin_addr; /* Internet address */ 　　
+		    unsigned char sin_zero[8]; /* Same size as struct sockaddr */ 　　
+		   };
+
+in_addr 用来表示一个32位的IPv4地址.
+in_addr_t 一般为 32位的unsigned long. 
+其中每8位代表一个IP地址位中的一个数值. 　　
+例如192.168.3.144记为0xc0a80390, 其中 c0 为192 ,a8 为 168, 03 为 3 , 90 为 144 　　
+打印的时候可以调用inet_ntoa()函数将其转换为char *类型.
+struct in_addr {
+			in_addr_t s_addr; 　　
+	       };
+int inet_addr
+hostent
+gethostaddr
+ 

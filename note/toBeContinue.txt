@@ -3655,7 +3655,7 @@ apt;aptitude search
 j1  
   real    9m36.958s
   user    5m34.369s
-  sys     3m41.098s
+  sys      3m41.098s
 
 j2
    real    5m41.241s
@@ -3676,5 +3676,35 @@ j8
    cat /proc/cpuinfo | grep "processor" | wc -l
    cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l
 cat /proc/cpuinfo | grep "cpu cores" | wc -l
+   mount tmpfs
+   
+0520 grep two 
+     WPA; WPA-PSK; WPA2; WPA2-PSK
+     Input/output error: set key									**
+     BrowserDownload											*
+     
+     auto eth2
+iface eth2 inet dhcp
+wireless-essid yo-mama
+wireless-key xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+iwioctl: cmd=0x8b25 not allowed in this mode
 
+-----------------------
+(fnWirelessManager:5475): Gtk-CRITICAL **: gtk_tree_store_get_value: assertion `VALID_ITER (iter, tree_store)' failed
+(fnWirelessManager:5475): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.24.1/gobject/gtype.c:4177: type id `0' is invalid
+(fnWirelessManager:5475): GLib-GObject-WARNING **: can't peek value table for type `<invalid>' which is not currently referenced
+Segmentation fault
+-------------------------
+
+uniform the exit: revo
+eventbox_click : revo			
+
+wireless dev not up
+hostent
+
+g_signal_connect; dynamic alloc userdata
+ 
+ gtk_list_store_iter_is_valid; gtk_tree_store_iter_is_valid
+
+socket ip 
