@@ -3524,6 +3524,12 @@ apt-cache search kernel-headers*
 apt;aptitude search
 
 <<<<<<< .mine
+0515 w32codecs
+     FATAL: Module rt2870sta not found
+     mknod
+     tmpfs
+     =======
+<<<<<<< .mine
 
 
 
@@ -3721,4 +3727,4 @@ initrd.img
 ramdisk
 yaird 
 mkinitramfs
-mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
+mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9>>>>>>> .r551
