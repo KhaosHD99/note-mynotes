@@ -532,3 +532,4 @@
 
 0519 wireless manager; why my book about shell still not receive?
 
+0523 resolve the internationalization!!!

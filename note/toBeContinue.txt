@@ -3699,13 +3699,13 @@ iwioctl: cmd=0x8b25 not allowed in this mode
 
 -----------------------
 (fnWirelessManager:5475): Gtk-CRITICAL **: gtk_tree_store_get_value: assertion `VALID_ITER (iter, tree_store)' failed
-(fnWirelessManager:5475): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.24.1/gobject/gtype.c:4177: type id `0' is invalid
+(fnWirelessManager:5475): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.241/gobject/gtype.c:4177: type id `0' is invalid
 (fnWirelessManager:5475): GLib-GObject-WARNING **: can't peek value table for type `<invalid>' which is not currently referenced
 Segmentation fault
 -------------------------
 
 uniform the exit: revo
-eventbox_click : revo			
+eventbox_click : revo			**
 
 wireless dev not up
 hostent
@@ -3714,6 +3714,25 @@ g_signal_connect; dynamic alloc userdata
  
  gtk_list_store_iter_is_valid; gtk_tree_store_iter_is_valid
 
+<<<<<<< .mine
+socket ip 
+
+0523 get local addr; dhcp;pppoe      what will hapen get static ip when is dhcp
+     ifaddrs.h
+     inet_ntoa; inet4,6
+     interface, Destination
+     
+     wireless manager: up dev		**
+     svn: revo
+     vi utf; fileencodings=us
+     
+     Locale not supported by C library.								done
+     Using the fallback 'C' locale;  LC_ALL=c??
+     
+     xgettext -k_ -o main.po test.c
+     msgfmt -o main.mo main.po
+     
+     dpkp-reconfigure locales=======
 socket ip 
 initrd.img
 
@@ -3728,3 +3747,4 @@ ramdisk
 yaird 
 mkinitramfs
 mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9>>>>>>> .r551
+>>>>>>> .r553
