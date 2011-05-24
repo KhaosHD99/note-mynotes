@@ -3717,6 +3717,21 @@ g_signal_connect; dynamic alloc userdata
 <<<<<<< .mine
 socket ip 
 
+socket ip 
+initrd.img
+
+-rw-r--r-- 1 root root 1930016 2011-05-16 21:21 vmlinuz-2.6.35.9
+-rw-r--r-- 1 root root 1197950 2011-05-16 21:21 System.map-2.6.35.9
+-rw-r--r-- 1 root root  103300 2011-05-16 21:21 config-2.6.35.9
+为什么编译内核后不能制作出initrd的img文件
+如果把SCSI驱动编译近内核了，不是以modules形式存在
+在什成initrd是直接把/etc/modprobe.conf文件的alias那行注释掉 
+
+ramdisk
+yaird 
+mkinitramfs
+mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
+
 0523 get local addr; dhcp;pppoe      what will hapen get static ip when is dhcp
      ifaddrs.h
      inet_ntoa; inet4,6
@@ -3731,20 +3746,25 @@ socket ip
      
      xgettext -k_ -o main.po test.c
      msgfmt -o main.mo main.po
-     
-     dpkp-reconfigure locales=======
-socket ip 
-initrd.img
+     dpkp-reconfigure locales
 
--rw-r--r-- 1 root root 1930016 2011-05-16 21:21 vmlinuz-2.6.35.9
--rw-r--r-- 1 root root 1197950 2011-05-16 21:21 System.map-2.6.35.9
--rw-r--r-- 1 root root  103300 2011-05-16 21:21 config-2.6.35.9
-为什么编译内核后不能制作出initrd的img文件
-如果把SCSI驱动编译近内核了，不是以modules形式存在
-在什成initrd是直接把/etc/modprobe.conf文件的alias那行注释掉 
+0524 inter revo: +libprompter						**
+     make install recurse
+     manual write make file test; shell @				**
+     word package							**
 
-ramdisk
-yaird 
-mkinitramfs
-mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9>>>>>>> .r551
->>>>>>> .r553
+     a new playlist	
+    
+install-data-local				
+#include <glib/gi18n.h>
+    
+    remove logmsg _ show_message_window_				**
+    xgettext -j							 
+
+    wireless manager single_instance_check
+    
+    brwDsk usr cosl						**
+regex ip
+vi change line
+
+    
