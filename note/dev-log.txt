@@ -532,4 +532,11 @@
 
 0519 wireless manager; why my book about shell still not receive?
 
-0523 resolve the internationalization!!!
+0523 get ip addr str by interface 
+     resolve the internationalization what is has lay on the table more than six month!!!
+
+0524 the return of yq
+     
+     
+     
+     
