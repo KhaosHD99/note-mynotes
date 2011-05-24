@@ -3730,6 +3730,12 @@ initrd.img
 ramdisk
 yaird 
 mkinitramfs
+<<<<<<< .mine
+mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
+
+<home>
+
+=======
 mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
 
 0523 get local addr; dhcp;pppoe      what will hapen get static ip when is dhcp
@@ -3767,4 +3773,4 @@ install-data-local
 regex ip
 vi change line
 
-    
+    >>>>>>> .r555
