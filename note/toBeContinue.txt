@@ -3752,7 +3752,7 @@ mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
      msgfmt -o main.mo main.po
          dpkp-reconfigure locales
 
-0524 inter revo: +libprompter						**
+0524 inter revo: +libprompter, +connect state					**
      make install recurse
      manual write make file test; shell @				**
      word package							**
@@ -3767,16 +3767,17 @@ install-data-local
 
     wireless manager single_instance_check
     
-    brwDsk usr cosl						**
+    brwDsk usr cosol						**
 regex ip
 vi change line
      
 0525 commit week log							**
+     shinfo sprintf gettext     
+     prompter ccst							**
+     _("") char or const char
+     format not a string literal and no format arguments
+     g_object_unref store; eventbox click						**
      
-
-<<<<<<< .mine
-0525 
+     mediasever go to url then play; email					**
+          
      
-=======
-
->>>>>>> .r557
