@@ -3750,7 +3750,7 @@ mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
      
      xgettext -k_ -o main.po test.c
      msgfmt -o main.mo main.po
-     dpkp-reconfigure locales
+         dpkp-reconfigure locales
 
 0524 inter revo: +libprompter						**
      make install recurse
@@ -3774,4 +3774,9 @@ vi change line
 0525 commit week log							**
      
 
+<<<<<<< .mine
+0525 
+     
+=======
 
+>>>>>>> .r557
