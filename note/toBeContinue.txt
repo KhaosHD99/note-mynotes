@@ -3781,4 +3781,34 @@ vi change line
      mediasever go to url then play; email					**
           
      modigy the pb contact add and edit mode
-     
+      
+0526 
+      browDsk----------------------------------------- 
+      show pb dialer, email, go_browser_url interface
+      before app arg the url not the same
+      buton event key: why not die?
+      local video statu msg? optimize the player
+      ------------------------------------------------
+      
+      adver---------------------
+      black screen
+      new playlist
+      Media block
+      ----------------------
+           
+      browser--------------------------
+      clean resouse file rabish
+      sawtooth	
+       第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了
+      --------------------------------
+      
+      pb-------------
+      up: go to treeview
+	gtk_container_forall; each
+      ------------------
+      X vertical
+      two widget addr is the same!!!!!!!!!!!
+      ctrl + s
+
+      pointer Set NULL!!!!!!!!!!!!!!!!
+      

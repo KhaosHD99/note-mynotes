@@ -24,4 +24,12 @@ g_object_set(web_view,
  	     "full-content-zoom", TRUE,					
              NULL);
 
-#define _(STRING) g_convert(STRING, -1, "UTF-8", "GB2312", NULL, NULL, NULL)						
+#define _(STRING) g_convert(STRING, -1, "UTF-8", "GB2312", NULL, NULL, NULL)	
+
+typedef enum {
+    WEBKIT_NAVIGATION_RESPONSE_ACCEPT,
+    WEBKIT_NAVIGATION_RESPONSE_IGNORE,
+    WEBKIT_NAVIGATION_RESPONSE_DOWNLOAD
+} WebKitNavigationResponse;
+
+					
