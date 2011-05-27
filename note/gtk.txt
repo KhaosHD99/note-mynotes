@@ -32,4 +32,12 @@ typedef enum {
     WEBKIT_NAVIGATION_RESPONSE_DOWNLOAD
 } WebKitNavigationResponse;
 
-					
+
+0527 
+     F5: ffc2
+     F6:
+     F7:
+     F8: ffc5
+     F9: ffc6
+     F10: ffc7
+     F11:				
