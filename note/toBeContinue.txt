@@ -3782,12 +3782,12 @@ vi change line
           
      modigy the pb contact add and edit mode
       
-0526 
+0526 	
       browDsk----------------------------------------- 
       show pb dialer, email, go_browser_url interface
-      before app arg the url not the same
-      buton event key: why not die?
-      local video statu msg? optimize the player
+      before app arg the url not the same		
+      buton event key: why not die?			over
+      local video statu msg? optimize the player	over
       ------------------------------------------------
       
       adver---------------------
@@ -3795,16 +3795,19 @@ vi change line
       new playlist
       Media block
       ----------------------
-           
+      
       browser--------------------------
       clean resouse file rabish
-      sawtooth	
-       第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了
+      sawtooth
+      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了
+      fixed web page size 
       --------------------------------
       
       pb-------------
       up: go to treeview
 	gtk_container_forall; each
+      set bg
+      
       ------------------
       X vertical
       two widget addr is the same!!!!!!!!!!!
@@ -3812,3 +3815,34 @@ vi change line
 
       pointer Set NULL!!!!!!!!!!!!!!!!
       
+
+0527 1、顶岗实习任务表（此表需学生确认单位后才能自动调取学生填写的任务）
+
+2、顶岗实习考核表（如果不能打印请检查 顶岗实习起止日期是否填写正确）
+
+实习结束后，打印并单位盖章，上交校内指导老师，各系收集后存档，作为顶岗实习的书面支撑材料。
+
+并确认已完成以下内容：
+
+3、在系统中完成周志的填写(15篇以上)
+
+4、在系统中完成顶岗实习报告的填写（文本文字，不要图片，报表等，不要有特殊符号；也可以上传）
+     
+     fit the key
+     set window bg
+      
+     modify tar sh
+     
+     xml comment
+     browser get state vial						**
+     
+     separate vialsys init and run
+       
+     return vial ******************; vialsys useage
+	
+     prompter dial to 3g state ; no get prompt state
+     
+     playlist video on other area
+     
+     international: lead to 
+    
