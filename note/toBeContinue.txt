@@ -3824,7 +3824,7 @@ vi change line
 
 并确认已完成以下内容：
 
-3、在系统中完成周志的填写(15篇以上)
+3、在系统中完成周志的填写(15篇以上 )
 
 4、在系统中完成顶岗实习报告的填写（文本文字，不要图片，报表等，不要有特殊符号；也可以上传）
      
@@ -3837,12 +3837,43 @@ vi change line
      browser get state vial						**
      
      separate vialsys init and run
-       
-     return vial ******************; vialsys useage
+     
+     careless: no return value!!!
+     return vial ******************; vialsys useage;VialSystem vialSys(FN_BROWSER_MODULE_ID);
 	
      prompter dial to 3g state ; no get prompt state
      
      playlist video on other area
      
      international: induce the thoughtless
-    
+     
+
+0528 reg two hot key					
+     update libpb               
+     get post vial return value
+     no phone num????????????????
+     	 
+     Vial *vial;
+	vial = VialFactory_Phonebook::createVialByCopy(inputVial);
+	if (vial == NULL)
+	{
+		showWarning("Vial is NULL\n");
+		delete vial;
+		return false;
+	}
+
+Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class function event can compile but c can not use
+     
+     modify prompter get state
+     
+     proctect return value??
+     
+     libpb,prompt unknow     !!!!
+      
+     pay attention to Warning !!!!!!!!!     
+          
+     attention to private member: can read?
+          
+     uniform prompter module state
+     
+     
