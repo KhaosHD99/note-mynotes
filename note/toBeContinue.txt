@@ -594,6 +594,65 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      init args
      img path 
      
+
+1 hard link
+10.25 check is debbug or release                                     
+      code manage                                         
+      c99                          
+      long long 兼容            
+
+      long long test = 8888888888467LL;                                 over
+	printf("size: %lld\n", test);
+
+      delete func                                                     over
+
+     multi email, phone num          
+
+     /*int phoneBook::GetMemberByNameFind(MEMBER *m,const char name)
+{
+	int ret = -1;
+	for(int i=0;i<m_numbers.m_nMemberNum;i++)
+	{
+		const char firstChar = m_pMembers[i].cName[0];	
+		if(firstChar == name)
+		{
+			*m = m_pMembers[i];
+			ret = i;
+			goto RETURN;
+		}
+	}
+	RETURN:
+	return ret;
+}*/
+
+10.26 add detail  
+      add stranger to contact                                           over                 
+      after add contact, detect the calllog             
+      after delete contact, detect the calllog
+      sync calllog list                                                 over
+      return value
+      异常处理技巧
+      combobox
+
+10.29 liststore
+      resource file deploy
+      
+      release gtk      
+      windowstack	     
+
+10.30 loopback
+      phone type
+    
+10.31 phone index and phone 一一对应
+      == NULL ? ""
+      phonenum store release
+      go back to privious position (source insight)
+      get phonenum by index
+      get model from combo / get from liststore
+      gtk_tree_model(liststore)
+
+11.30 widget position point
+      webkit_web_view_stop_loading	
 1116 specification                                                                 over
      resolve warning                                                               over
      incoming to missed or received                                                **
