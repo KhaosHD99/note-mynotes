@@ -539,4 +539,15 @@
      
      
      
-     
+0529 week log point: 1 rigorous
+                     
+                     2 see my old code
+                     3 ignore Warning
+                     4 control the progress
+                     5 careless
+                     6 learn shell step by step
+                                           
+remove Warning
+
+
+                     

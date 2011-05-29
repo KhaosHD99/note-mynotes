@@ -3921,18 +3921,38 @@ vi change line
 		return false;
 	}
 
-Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class function event can compile but c can not use
+Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class function event can compile but c can not use; gcc not undeclare
      
-     modify prompter get state
+     
+     modify prompter get state; uniform prompter module state						over
      
      proctect return value??
-     
-     libpb,prompt unknow     !!!!
-      
-     pay attention to Warning !!!!!!!!!     
           
+     libpb,prompt unknow     !!!!								**
+     
+     pay attention to Warning !!!!!!!!!   no warning no error -Wall								***
+     
      attention to private member: can read?
-          
-     uniform prompter module state
      
+0529 WARNING: AdverModule.cpp(121) ******* Can not distiguish vial				
+     browser hide when video?									
+     set model dynamic!										over
+     prompter international date			!!					***
+     pb: fixed a logic bug(key: need to continue but break)
+     vi last line
+     implicit declaration of 
      
+     CALLLOG_TYPE
+     
+     declare and define diff return val!!
+     
+     gtkwidget compare!
+     comparison of distinct pointer types lacks a cast
+     implicit declaration of function 'getpid'
+     array subscript is above array bounds
+     ;;
+     ignoring return value of 'ftruncate', declared with attribute warn_unused_result
+
+     libpb: lock_mutex!!!!!!
+     
+     黄本在1329宿舍，还没拿的同学尽快过来拿，另外，要打印的4份表和教务处上面要求写的周记，报告这些，尽量在这2天弄好
