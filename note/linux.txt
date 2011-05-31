@@ -865,3 +865,19 @@ int inet_addr
 hostent
 gethostaddr
  
+
+0531 Linphone depends on the mandatory following source packages: 
+
+     speex>=1.2.0 with libspeexdsp 
+     libosip2>=3.1.0 
+libeXosip2>=3.1.0 
+Those additional packages are recommended: 
+
+alsa-lib (libasound): the alsa library, usually present on all linux now. 
+ffmpeg (more specifically libavcodec) for video codec support 
+SDL>=1.2.9 again to video support working 
+gtk+>=2.16 for the graphical interface 
+libtheora>=1.0 to use the theora codec for an efficent video streaming 
+libreadline (makes linphonec usage easier) 
+If you use binary packages (rpm, deb) which is the easiest way to have all linphone build dependencies on a system, install the *-dev (deb) or *-devel (rpm) packages of the above mentioned source packages. 
+
