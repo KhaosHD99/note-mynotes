@@ -3993,15 +3993,24 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      scp: passwd
      
      saw tooth test
-     
+
      the same project								**
      ctr alt f5 back
-     
+      
      uniform the  stream media demand regular**
-
+     
      get screen width should get only once
      
-     image revo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+     image revo!!!!!!!!!!!!!!!!
      
+0602 browser play video back app; state change window move!!!; slave window
+     adver have not focus but play audio; seg fal; playlist update at a settle time 		 ***
+     pb: gtk widget pointer unexpect !!
      
+     WARNING: PrompterModule.cpp(16) ************ Module Intance and VialSys Null **************
+    qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+Segmentation fault
      
+     test the vialsys
+
+     vialsys rev!!
