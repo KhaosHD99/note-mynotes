@@ -3843,10 +3843,10 @@ vi change line
       
 0526 	
       browDsk----------------------------------------- 
-      show pb dialer, email, go_browser_url interface
-      before app arg the url not the same		
+      show pb dialer, email, go_browser_url interface	**
+      before app arg the url not the same		**
       buton event key: why not die?			over
-      local video statu msg? optimize the player	over
+      local video statu msg? optimize the player	ovser
       ------------------------------------------------
       
       adver---------------------
@@ -3854,11 +3854,11 @@ vi change line
       new playlist
       Media block
       ----------------------
-      
+	      
       browser--------------------------
       clean resouse file rabish
       sawtooth
-      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了
+      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了									over
       fixed web page size 
       --------------------------------
       
@@ -3900,7 +3900,7 @@ vi change line
      careless: no return value!!!
      return vial ******************; vialsys useage;VialSystem vialSys(FN_BROWSER_MODULE_ID);
 	
-     prompter dial to 3g state ; no get prompt state
+     prompter dial to 3g state ; no get prompt state							
      
      playlist video on other area
      
@@ -3934,7 +3934,7 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      
      attention to private member: can read?
      
-0529 WARNING: AdverModule.cpp(121) ******* Can not distiguish vial				
+0529 WARNING: AdverModule.cpp(121) ******* Can not distiguish vial					over
      browser hide when video?									
      set model dynamic!										over
      prompter international date			!!					***
@@ -3951,8 +3951,57 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      implicit declaration of function 'getpid'
      array subscript is above array bounds
      ;;
-     ignoring return value of 'ftruncate', declared with attribute warn_unused_result
+     ignoring return value of 'ftruncate', declared with attribute warn_unused_rsult
 
      libpb: lock_mutex!!!!!!
      
      黄本在1329宿舍，还没拿的同学尽快过来拿，另外，要打印的4份表和教务处上面要求写的周记，报告这些，尽量在这2天弄好
+     
+0530 browser--------------------------------
+     audio		**
+     icon
+       
+     --------------------------------
+     
+      tvmail; interface config file									**
+      common.h
+      get_screen_width() * 5 / 54,		
+      get_screen_width() / 27,
+  
+      http://www.phonmedia.com
+      
+      lose focus hide
+
+0531 ntpdate
+     /;d
+     integer constant is too large for 'long' type
+     
+     prompter size and widget scale; when exceed show hour			*
+     adver vedio: stop and repaly at begin					over
+     libxml2 comment								done
+     
+     
+0601 web page size; and adver res			
+     browser show pos; prompt bar; audio; how to focus on uri entry!!!!!		
+     fnBrwDsk toolbar dispear				
+     
+     focus--------
+     in: show  
+     out: hide XXXXXXX
+     --------
+     
+     scp: passwd
+     
+     saw tooth test
+     
+     the same project								**
+     ctr alt f5 back
+     
+     uniform the  stream media demand regular**
+
+     get screen width should get only once
+     
+     image revo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+     
+     
+     
