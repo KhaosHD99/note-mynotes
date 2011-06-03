@@ -3809,9 +3809,9 @@ mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
      
      xgettext -k_ -o main.po test.c
      msgfmt -o main.mo main.po
-         dpkp-reconfigure locales
+     dpkp-reconfigure locales
 
-0524 inter revo: +libprompter, +connect state					**
+0524 inter revo: +libprompter, +connect state				done
      make install recurse
      manual write make file test; shell @				**
      word package							**
@@ -3832,33 +3832,33 @@ vi change line
      
 0525 commit week log							**
      shinfo sprintf gettext     
-     prompter ccst							**
+     prompter ccst						 done
      _("") char or const char
      format not a string literal and no format arguments
      g_object_unref store; eventbox click						**
      
      mediasever go to url then play; email					**
           
-     modigy the pb contact add and edit mode
+     modify the pb contact add and edit mode
       
 0526 	
       browDsk----------------------------------------- 
       show pb dialer, email, go_browser_url interface	**
       before app arg the url not the same		**
       buton event key: why not die?			over
-      local video statu msg? optimize the player	ovser
+      local video statu msg? optimize the player	over
       ------------------------------------------------
       
       adver---------------------
       black screen
-      new playlist
-      Media block
+      new playlist					done
+      Media block					
       ----------------------
 	      
       browser--------------------------
-      clean resouse file rabish
-      sawtooth
-      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了									over
+      clean resouse file rabish		
+      sawtooth				
+      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了				over
       fixed web page size 
       --------------------------------
       
@@ -3892,17 +3892,17 @@ vi change line
       
      modify tar sh
      
-     xml comment
-     browser get state vial						**
+     xml comment							done
+     browser get state vial						over
+     separate vialsys init and run					done
      
-     separate vialsys init and run
-     
-     careless: no return value!!!
+     careless: no return value!!!					over
      return vial ******************; vialsys useage;VialSystem vialSys(FN_BROWSER_MODULE_ID);
 	
-     prompter dial to 3g state ; no get prompt state							
+     prompter dial to 3g state ; no get prompt state			done						
      
      playlist video on other area
+     
      
      international: induce the thoughtless
      
@@ -3987,30 +3987,53 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      
      focus--------
      in: show  
-     out: hide XXXXXXX
+     out: hide XXXXXXX								over
      --------
-     
      scp: passwd
      
      saw tooth test
-
-     the same project								**
+     the same project								over
      ctr alt f5 back
-      
-     uniform the  stream media demand regular**
      
-     get screen width should get only once
+     uniform the  stream media demand regular**					
      
-     image revo!!!!!!!!!!!!!!!!
+     get screen width should get only once					over
      
-0602 browser play video back app; state change window move!!!; slave window
+     image revo!!!!!!!!!!!!!!!!							over
+     
+0602 browser play video back app; state change window move!!!; slave window	
      adver have not focus but play audio; seg fal; playlist update at a settle time 		 ***
      pb: gtk widget pointer unexpect !!
      
      WARNING: PrompterModule.cpp(16) ************ Module Intance and VialSys Null **************
-    qemu: uncaught target signal 11 (Segmentation fault) - core dumped
-Segmentation fault
+     qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+     Segmentation fault										done
      
-     test the vialsys
-
+     test the vialsys							done
+     
      vialsys rev!!
+     
+0603 GDK_Tools									done
+     adver: vertical area 2 is main						**    
+     put log to whr; custom log 						*
+     brwdsk: toolbar leave notify;									
+     brw: hide toolbar when play video; connect state					
+             										
+     151.167: 42 00 01 ea 18 61
+     151.163:          ea 18 63
+     151.164: 42 00 01 ea 18 64
+     211.33:  42 00 00 ea 18 38
+
+     stop km stop								done
+     tar -C									done
+     no stream media								**
+     kill by name								over
+     pkg-shell rev													
+     ignore prj/ date dir							done
+     
+     doc							***
+     
+     got error in thread
+     
+     adver keep the member safe
+     
