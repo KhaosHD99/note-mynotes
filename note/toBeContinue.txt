@@ -594,65 +594,6 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      init args
      img path 
      
-
-1 hard link
-10.25 check is debbug or release                                     
-      code manage                                         
-      c99                          
-      long long 兼容            
-
-      long long test = 8888888888467LL;                                 over
-	printf("size: %lld\n", test);
-
-      delete func                                                     over
-
-     multi email, phone num          
-
-     /*int phoneBook::GetMemberByNameFind(MEMBER *m,const char name)
-{
-	int ret = -1;
-	for(int i=0;i<m_numbers.m_nMemberNum;i++)
-	{
-		const char firstChar = m_pMembers[i].cName[0];	
-		if(firstChar == name)
-		{
-			*m = m_pMembers[i];
-			ret = i;
-			goto RETURN;
-		}
-	}
-	RETURN:
-	return ret;
-}*/
-
-10.26 add detail  
-      add stranger to contact                                           over                 
-      after add contact, detect the calllog             
-      after delete contact, detect the calllog
-      sync calllog list                                                 over
-      return value
-      异常处理技巧
-      combobox
-
-10.29 liststore
-      resource file deploy
-      
-      release gtk      
-      windowstack	     
-
-10.30 loopback
-      phone type
-    
-10.31 phone index and phone 一一对应
-      == NULL ? ""
-      phonenum store release
-      go back to privious position (source insight)
-      get phonenum by index
-      get model from combo / get from liststore
-      gtk_tree_model(liststore)
-
-11.30 widget position point
-      webkit_web_view_stop_loading	
 1116 specification                                                                 over
      resolve warning                                                               over
      incoming to missed or received                                                **
@@ -3758,13 +3699,13 @@ iwioctl: cmd=0x8b25 not allowed in this mode
 
 -----------------------
 (fnWirelessManager:5475): Gtk-CRITICAL **: gtk_tree_store_get_value: assertion `VALID_ITER (iter, tree_store)' failed
-(fnWirelessManager:5475): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.241/gobject/gtype.c:4177: type id `0' is invalid
+(fnWirelessManager:5475): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.24.1/gobject/gtype.c:4177: type id `0' is invalid
 (fnWirelessManager:5475): GLib-GObject-WARNING **: can't peek value table for type `<invalid>' which is not currently referenced
 Segmentation fault
 -------------------------
 
 uniform the exit: revo
-eventbox_click : revo			**
+eventbox_click : revo			
 
 wireless dev not up
 hostent
@@ -3772,9 +3713,6 @@ hostent
 g_signal_connect; dynamic alloc userdata
  
  gtk_list_store_iter_is_valid; gtk_tree_store_iter_is_valid
-
-<<<<<<< .mine
-socket ip 
 
 socket ip 
 initrd.img
@@ -3789,251 +3727,8 @@ initrd.img
 ramdisk
 yaird 
 mkinitramfs
-mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
+mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9>>>>>>> .r551
 
-<home>
 
-mkinitramfs -o /boot/initrd.img-2.6.35.9 /lib/modules/2.6.35.9
-
-0523 get local addr; dhcp;pppoe      what will hapen get static ip when is dhcp
-     ifaddrs.h
-     inet_ntoa; inet4,6
-     interface, Destination
-     
-     wireless manager: up dev		**
-     svn: revo
-     vi utf; fileencodings=us
-     
-     Locale not supported by C library.								done
-     Using the fallback 'C' locale;  LC_ALL=c??
-     
-     xgettext -k_ -o main.po test.c
-     msgfmt -o main.mo main.po
-     dpkp-reconfigure locales
-
-0524 inter revo: +libprompter, +connect state				done
-     make install recurse
-     manual write make file test; shell @				**
-     word package							**
-
-     a new playlist	
-    
-install-data-local				
-#include <glib/gi18n.h>
-    
-    remove logmsg _ show_message_window_				**
-    xgettext -j							 
-
-    wireless manager single_instance_check
-    
-    brwDsk usr cosol						**
-regex ip
-vi change line
-     
-0525 commit week log							**
-     shinfo sprintf gettext     
-     prompter ccst						 done
-     _("") char or const char
-     format not a string literal and no format arguments
-     g_object_unref store; eventbox click						**
-     
-     mediasever go to url then play; email					**
-          
-     modify the pb contact add and edit mode
-      
-0526 	
-      browDsk----------------------------------------- 
-      show pb dialer, email, go_browser_url interface	**
-      before app arg the url not the same		**
-      buton event key: why not die?			over
-      local video statu msg? optimize the player	over
-      ------------------------------------------------
-      
-      adver---------------------
-      black screen
-      new playlist					done
-      Media block					
-      ----------------------
-	      
-      browser--------------------------
-      clean resouse file rabish		
-      sawtooth				
-      第二个问题是2代电话的电视播放了一段时间后就自动跳出到待机广告了				over
-      fixed web page size 
-      --------------------------------
-      
-      pb-------------
-      up: go to treeview
-	gtk_container_forall; each
-      set bg
-      
-      ------------------
-      X vertical
-      two widget addr is the same!!!!!!!!!!!
-      ctrl + s
-
-      pointer Set NULL!!!!!!!!!!!!!!!!
-      
-
-0527 1、顶岗实习任务表（此表需学生确认单位后才能自动调取学生填写的任务）
-
-2、顶岗实习考核表（如果不能打印请检查 顶岗实习起止日期是否填写正确）
-
-实习结束后，打印并单位盖章，上交校内指导老师，各系收集后存档，作为顶岗实习的书面支撑材料。
-
-并确认已完成以下内容：
-
-3、在系统中完成周志的填写(15篇以上 )
-
-4、在系统中完成顶岗实习报告的填写（文本文字，不要图片，报表等，不要有特殊符号；也可以上传）
-     
-     fit the key
-     set window bg
-      
-     modify tar sh
-     
-     xml comment							done
-     browser get state vial						over
-     separate vialsys init and run					done
-     
-     careless: no return value!!!					over
-     return vial ******************; vialsys useage;VialSystem vialSys(FN_BROWSER_MODULE_ID);
-	
-     prompter dial to 3g state ; no get prompt state			done						
-     
-     playlist video on other area
-     
-     
-     international: induce the thoughtless
-     
-
-0528 reg two hot key					
-     update libpb               
-     get post vial return value
-     no phone num????????????????
-     	 
-     Vial *vial;
-	vial = VialFactory_Phonebook::createVialByCopy(inputVial);
-	if (vial == NULL)
-	{
-		showWarning("Vial is NULL\n");
-		delete vial;
-		return false;
-	}
-
-Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class function event can compile but c can not use; gcc not undeclare
-     
-     
-     modify prompter get state; uniform prompter module state						over
-     
-     proctect return value??
-          
-     libpb,prompt unknow     !!!!								**
-     
-     pay attention to Warning !!!!!!!!!   no warning no error -Wall								***
-     
-     attention to private member: can read?
-     
-0529 WARNING: AdverModule.cpp(121) ******* Can not distiguish vial					over
-     browser hide when video?									
-     set model dynamic!										over
-     prompter international date			!!					***
-     pb: fixed a logic bug(key: need to continue but break)
-     vi last line
-     implicit declaration of 
-     
-     CALLLOG_TYPE
-     
-     declare and define diff return val!!
-     
-     gtkwidget compare!
-     comparison of distinct pointer types lacks a cast
-     implicit declaration of function 'getpid'
-     array subscript is above array bounds
-     ;;
-     ignoring return value of 'ftruncate', declared with attribute warn_unused_rsult
-
-     libpb: lock_mutex!!!!!!
-     
-     黄本在1329宿舍，还没拿的同学尽快过来拿，另外，要打印的4份表和教务处上面要求写的周记，报告这些，尽量在这2天弄好
-     
-0530 browser--------------------------------
-     audio		**
-     icon
-       
-     --------------------------------
-     
-      tvmail; interface config file									**
-      common.h
-      get_screen_width() * 5 / 54,		
-      get_screen_width() / 27,
-  
-      http://www.phonmedia.com
-      
-      lose focus hide
-
-0531 ntpdate
-     /;d
-     integer constant is too large for 'long' type
-     
-     prompter size and widget scale; when exceed show hour			*
-     adver vedio: stop and repaly at begin					over
-     libxml2 comment								done
-     
-     
-0601 web page size; and adver res			
-     browser show pos; prompt bar; audio; how to focus on uri entry!!!!!		
-     fnBrwDsk toolbar dispear				
-     
-     focus--------
-     in: show  
-     out: hide XXXXXXX								over
-     --------
-     scp: passwd
-     
-     saw tooth test
-     the same project								over
-     ctr alt f5 back
-     
-     uniform the  stream media demand regular**					
-     
-     get screen width should get only once					over
-     
-     image revo!!!!!!!!!!!!!!!!							over
-     
-0602 browser play video back app; state change window move!!!; slave window	
-     adver have not focus but play audio; seg fal; playlist update at a settle time 		 ***
-     pb: gtk widget pointer unexpect !!
-     
-     WARNING: PrompterModule.cpp(16) ************ Module Intance and VialSys Null **************
-     qemu: uncaught target signal 11 (Segmentation fault) - core dumped
-     Segmentation fault										done
-     
-     test the vialsys							done
-     
-     vialsys rev!!
-     
-0603 GDK_Tools									done
-     adver: vertical area 2 is main						**    
-     put log to whr; custom log 						*
-     brwdsk: toolbar leave notify;									
-     brw: hide toolbar when play video; connect state					
-             										
-     151.167: 42 00 01 ea 18 61
-     151.163:          ea 18 63
-     151.164: 42 00 01 ea 18 64
-     211.33:  42 00 00 ea 18 38
-
-     stop km stop								done
-     tar -C									done
-     no stream media								**
-     kill by name								over
-     pkg-shell rev													
-     ignore prj/ date dir							done
-     
-     doc							***
-     
-     got error in thread
-     
-     adver keep the member safe
-     
+工业技术 > 电工技术 > 电器
+通信 > 电话 > 电话设备的维护及测试
