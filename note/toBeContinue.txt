@@ -3952,8 +3952,8 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      vialsys rev!!
      
 0603 GDK_Tools										done
-     adver: vertical area 2 is main						**    
-     put log to whr; custom log 						*
+     adver: vertical area 2 is main							done    
+     put log to whr; custom log 							*
      brwdsk: toolbar leave notify;									
      brw: hide toolbar when play video; connect state					
              										
@@ -3961,14 +3961,13 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      151.163:          ea 18 63
      151.164: 42 00 01 ea 18 64
      211.33:  42 00 00 ea 18 38
-
-     stop km stop								done
-     -C									done
+     stop km stop								over
+     done
+     -C										done
      no stream media								**
      kill by name								over
-     pkg-shell rev													
+     pkg-shell rev												
      ignore prj/ date dir							done
-     
      doc							***
      
      got error in thread
@@ -3980,21 +3979,51 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      unite the demand regulation								**
      slim a little										*
      move the vertical scroll window bar
-      
-0607 browser play audio ui
-     word, last modify time
-     adver playlist not in sequence; update skinlib interface; adver resource			**
-     brwdsk: wm call
-     fnkey:  when play video							
-     vi: search
-     
-     the same area ID, state ID								        **
-     browser agline;  deprecate the old demand web page						**
-     pb: main menu ui										
-     
 
+0604 工业技术 > 电工技术 > 电器
+     通信 > 电话 > 电话设备的维护及测试
+      
+0607 browser play audio ui									
+     word, last modify time									done
+     adver playlist not in sequence; update skinlib interface; adver resource			**
+     brwdsk: wm call										over														
+     fnkey:  when play video									
+     vi: search											done
      
-     =======
-工业技术 > 电工技术 > 电器
-通信 > 电话 > 电话设备的维护及测试
->>>>>>> .r571
+     the same area ID, state ID								        over
+     browser agline;  deprecate the old demand web page						**
+     pb: main menu ui										done						
+0608 .file?											over
+     new vertical screen adver res								
+     command line: move quick									over
+     brwDsk: leave notify									**
+     
+     can i kown passitive or initiative focus out  						**
+     msg dialog revo? for avoid lose focus?							*
+     why fnbrowser can not auto run								*
+     fixed crystal oscillator				
+     
+     make adver member "current_state" to be safe; rational for ?
+     
+     adver: fixed logic prb; regorous to goto     
+     
+     optimize the libpb
+          
+     expressions
+     PlayAct.cpp:556: warning: comparison between signed and unsigned integer expressions
+     PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
+PlayAct.cpp:81: warning: array subscript is above array bounds
+PlayAct.cpp:81: warning: array subscript is above array bounds
+PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
+
+     release gc
+     
+     enum comparet ot int, no warning?
+     
+     tv
+     
+     pb main menu ui: the effect of focus in
+   
+     gtk_window_set_transient_for: can it know where the focus go
+     
+     
