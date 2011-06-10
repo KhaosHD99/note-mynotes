@@ -3956,11 +3956,15 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      put log to whr; custom log 							*
      brwdsk: toolbar leave notify;									
      brw: hide toolbar when play video; connect state					
-             										
-     151.167: 42 00 01 ea 18 61
+          
+     151.162:         	  18 61								
      151.163:          ea 18 63
      151.164: 42 00 01 ea 18 64
+     151.165: 42:00:01:ea:18:65
+     151.167: 42 00 01 ea 18 61
      211.33:  42 00 00 ea 18 38
+     151.133 42:00:01:ea:18:33
+     
      stop km stop								over
      done
      -C										done
@@ -4012,10 +4016,10 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      expressions
      PlayAct.cpp:556: warning: comparison between signed and unsigned integer expressions
      PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
-PlayAct.cpp:81: warning: array subscript is above array bounds
-PlayAct.cpp:81: warning: array subscript is above array bounds
-PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
-
+     PlayAct.cpp:81: warning: array subscript is above array bounds
+     PlayAct.cpp:81: warning: array subscript is above array bounds
+     PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
+     
      release gc
      
      enum comparet ot int, no warning?
@@ -4023,7 +4027,35 @@ PlayAct.cpp: In constructor 'PlayAct::PlayAct()':
      tv
      
      pb main menu ui: the effect of focus in
-   
+     
      gtk_window_set_transient_for: can it know where the focus go
+     
+0609 one black screen; two die
+     adver: always ringing							**
+     
+     load jpg; markup is null
+     
+     gobject judge								
+     
+     browser not pur full screen						*
+     x die									***
+     
+     Error for wireless request "Set Encode" (8B2A) :
+     SET failed on device wlan0 ; Input/output error.
+     
+     mac bit 
+     
+     4.5.2 广告资讯节目表规范说明
+     4.7 多媒体终端综合性应用浏览器
+     4.7.1 多媒体终端综合性应用窗口参数规范说明
+     4.8 电话机综合性浏览器
+     4.9 电视机终端综合性应用桌面
+     4.9 电话簿
+     
+0610 33 can not write log
+     adver rolltext 
+     x die
+     wpa wep
+     netmedia; home page; netmedia received vial				    		**
      
      
