@@ -4009,9 +4009,9 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      
      make adver member "current_state" to be safe; rational for ?
      
-     adver: fixed logic prb; regorous to goto     
+     adver: fixed logic prb; regorous to goto     						
      
-     optimize the libpb
+     optimize the libpb										over
           
      expressions
      PlayAct.cpp:556: warning: comparison between signed and unsigned integer expressions
@@ -4029,7 +4029,7 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
 0609 one black screen; two die							over
      adver: always ringing							over
      load jpg; markup is null
-     gobject judge								
+     gobject judge: G_IS_OBJECT							over					
      browser not pur full screen						over
      x die										over
      Error for wireless request "Set Encode" (8B2A) :
@@ -4075,7 +4075,10 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
    backtrace from your debugger if you break on the gdk_x_error() function.)
     
 0614 wm register F6 for a while don't work!! not run prg when boot   
-     scp multi							     over
+     scp multi							     				over
+     g_object_unref revo: G_IS_OBJECT judge							**
      
-     
+0615 adver die
+     is the gtk timer thread safe?
+     browser die
      
