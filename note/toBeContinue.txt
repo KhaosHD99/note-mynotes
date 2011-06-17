@@ -4082,3 +4082,35 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
      is the gtk timer thread safe?
      browser die
      
+0616 vertical: free hand ***
+     type dun hao ??
+     简单说明电话机综合性浏览器功能及技术概要，必须标明遵循《泛网多媒体终端综合性应用浏览器网页技术规范》
+     系统性能指标
+     守护程序
+     
+0617
+     AUTOMAKE_OPTIONS
+     libphonebook read file once call any function
+     top: real time
+     get app stardard output
+     
+     ht 165: phone state not change
+     database
+          
+     gb8567-88; IEEE829-1998
+     
+     theme real time change
+      
+------------------------------ memory leak------------------------------
+     focus in out release resource: gdk_pixbuf_scale_simple: memory leak!!!!!!!!!!!! no my fault			     1 do not use only a pointer to be a argc and return value in a newable func!!!!!! 					     don not direct use the return value in dynamic alloc func				!!!
+     
+     set_window_bg
+----------------------------------------------------------------------
+         
+     wireless manager
+     
+     harddisk player
+     
+     adver: play ring after boot
+      
+     
