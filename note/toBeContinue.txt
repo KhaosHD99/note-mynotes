@@ -4113,4 +4113,22 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
      
      adver: play ring after boot
       
+0618 fill widget judge(memo leak)
+     dos command 
+     release and handle the pointer if would reuse ;the mechanism of push and pop window	       **
+     
+ --------------------------- wireless Manager 
+     device is not up; when connected, but no ip addr, can it work?
+     disconnect die
+     ifconfig use dhcp; mask
+     validate ipv4 addr
+     how can i get gateway
+     add auth mode detect
+     CCMP
+  ------------------------------------------------ 
+     
+     
+     route table
+     
+     
      
