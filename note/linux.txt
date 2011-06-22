@@ -859,7 +859,7 @@ in_addr_t 一般为 32位的unsigned long.
 例如192.168.3.144记为0xc0a80390, 其中 c0 为192 ,a8 为 168, 03 为 3 , 90 为 144 　　
 打印的时候可以调用inet_ntoa()函数将其转换为char *类型.
 struct in_addr {
-			in_addr_t s_addr; 　　
+		in_addr_t s_addr; 　　
 	       };
 int inet_addr
 hostent
