@@ -4115,9 +4115,9 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
       
 0618 fill widget judge(memo leak)
      dos command 
-     release and handle the pointer if would reuse ;the mechanism of push and pop window	       **
+     release and handle the pointer if would reuse ;the mechanism of push and pop window	       ***
      
- --------------------------- wireless Manager 
+ --------------------------- wir eless Manager 
      device is not up; when connected, but no ip addr, can it work?
      disconnect die
      ifconfig use dhcp; mask
@@ -4132,6 +4132,35 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
      
 0619 winterm
      
-          
+0620 refresh_scan_result: lock
+     http://113.108.154.60/tvprogram/index.action
+     when no device de  621 brwdsk: lock if Media play module not up
+     redial
+     api: get gw by iface  
+     free gdkevent					
+     contact num
      
+------------------ wireless Manager -------------
+     void gtk_tree_path_next
      
+     doc: add international support
+     disconnect not work
+     no device detect prop
+     key index
+     
+     /sbin/wpa_supplicant
+     /var/run/wpa_supplicant
+     active: link
+----------------------     
+   
+0622 WPA-EAP, PSK
+     shell file, block comment
+     all key should allow fill  									
+     after run wpa_supplicant gw gone!									done
+     ip... validate and key validate, wpa-psk: 8~32									**
+     open and shared :  十六进制：支持10位或26位十六进制字符
+           ACSII：支持5位或13位ACSII字符   
+     
+    /etc/rc.local     
+    * not match "_"
+    WPA2
