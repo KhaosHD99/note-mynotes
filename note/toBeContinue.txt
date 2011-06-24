@@ -4164,3 +4164,36 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
     /etc/rc.local     
     * not match "_"
     WPA2
+
+0623 when wireless connect, disconnect the pppoe								
+     test case												**
+     device detect
+     shift insert; ctr insert!
+     refresh dev
+     waitpid
+     enter leave: lose focus
+    
+     excel settel row col
+     
+     ping util
+     
+     tar control dir struct     
+    
+     WARNING: main.c(476) *********** GTK_IS_WIDGET(combo_device) Fail
+      
+     redial 
+     
+0624 ***********************
+     auto get ip
+     wpa2
+     pppoe			
+     regex validate
+     ***********************
+     
+     messy code: messy essid
+     
+     prompt: show dial box
+     
+     ^((2[0-5][0-5]|1[0-9][0-9]|[0-9][0-9]|[0-9])+\.){3}+(2[0-5][0-5]|1[0-9][0-9]|[0-9][0-9]|[0-9])$
+     why \d not work
+     
