@@ -4228,3 +4228,13 @@ No working leases in persistent database - sleeping.
 ssh stop/waiting
 ssh start/running, process 8454
     
+
+0627 gtk asyc 
+     invalid use of void expression
+     do not update the user data when release
+     
+     click back window when gtk async			**
+
+     
+     
+     
