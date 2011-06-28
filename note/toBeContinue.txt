@@ -4237,4 +4237,29 @@ ssh start/running, process 8454
 
      
      
+0628 ip, netmask can not be empty
+     ------------------- wireless manager-------------
+     signal strength
+     auth mode
+     key type: ascii hex						**
+     wpa-psk: key len							**      	
+    
+     separate wireless Manager 						
+     when spec ip can spec dns
+     
+    
+     trip travel 
+     局域网中最常用的是以太网
+     
+     test new player interface; no sound							**
+     	 
+     freeze col row
+     
+     mount dir and local dir overlap
+     
+     gsm machine can not play stream;(old version)   ***
+     
+     dir size											done
+     
+     ---------- Can not Play Video As Soon As Not-ON_HOOK Change to ON_HOOK ----------
      
