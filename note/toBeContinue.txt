@@ -4244,8 +4244,8 @@ ssh start/running, process 8454
      key type: ascii hex						**
      wpa-psk: key len							**      	
     
-     separate wireless Manager 						
-     when spec ip can spec dns
+     separate wireless Manager 						**						
+     when spec ip can spec dns												
      
     
      trip travel 
@@ -4262,4 +4262,27 @@ ssh start/running, process 8454
      dir size											done
      
      ---------- Can not Play Video As Soon As Not-ON_HOOK Change to ON_HOOK ----------
+     
+
+0629 glist  
+     ht vt dir revo
+     
+     /usr/Fn/release/share/data/localfile
+     ¸ÃÎª
+     /usr/Fn/data/localfile     
+     Makefile.am recurse 
+     
+     brow prefix
+     tar sh
+     
+     update play
+     play fail not prop
+     
+     ORIGINAL_PATH=$PWD
+     cd /usr/Fn
+     mv $TARGET_PACKET $ORIGINAL_PATH
+
+     pb: del ask for rm all
+     
+     brw button image
      
