@@ -4286,3 +4286,15 @@ ssh start/running, process 8454
      
      brw button image
      
+0630 i frame
+     http://113.108.154.60/ph_moble/index.htm
+     
+     brw play video get phonecofig vol	 
+     fix the path
+     excel cell: auto fixed 
+     phoneconfig die
+     
+     video conn
+     
+     when phonecode not reached, no video conn
+     
