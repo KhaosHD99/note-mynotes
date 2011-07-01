@@ -4289,7 +4289,7 @@ ssh start/running, process 8454
 0630 i frame
      http://113.108.154.60/ph_moble/index.htm
      
-     brw play video get phonecofig vol	 
+     brw play video get phonecofig vol	 							**
      fix the path
      excel cell: auto fixed 
      phoneconfig die
@@ -4297,4 +4297,24 @@ ssh start/running, process 8454
      video conn
      
      when phonecode not reached, no video conn
+     
+0701 ------------------------------------------ pb 							
+     contact full, add validate; modify the max contact, callog count and max phonenum len; 	done
+     edit the contact's phonenum, confuse the contact 						done
+     pb: * #											done 
+     * #: dial effect										
+     caller phonecode >= 32; ==0								done			     get caller phonecode error									over
+     delete unknow num error     								over
+     data file shouldn't managed by lib								*		
+     -------------------------------------------
+      						
+     local video: ui flash
+     locale rm the locale file in en_US
+     
+     ----------------------- browserDsk top 
+     progess bar not in center									done		  
+     tv new player interface									done	
+     no hor ver											done
+     ------------------------------------------
+     
      
