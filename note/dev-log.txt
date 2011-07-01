@@ -588,7 +588,8 @@ over time
 0620 driver theory exam
 
 
-0625 graduate trip
+0625 require overtime
+     graduate trip
 
 0626 graduate edu
      
@@ -596,3 +597,7 @@ over time
                    
 0628 
      
+0701 require overtime
+     
+0702  
+   
