@@ -4304,7 +4304,7 @@ ssh start/running, process 8454
      pb: * #											done 
      * #: dial effect										
      caller phonecode >= 32; ==0								done			     get caller phonecode error									over
-     delete unknow num error     								over
+     delete unknow num 	error     								over
      data file shouldn't managed by lib								*		
      -------------------------------------------
       						
@@ -4315,6 +4315,22 @@ ssh start/running, process 8454
      progess bar not in center									done		  
      tv new player interface									done	
      no hor ver											done
+     
      ------------------------------------------
      
+0702 ------brw------
+     vol: get from config							done
+     invalid state to play video 						**
+     ----
+     
+     prompter: conn timer
+     
+     change the LANG
+     
+     http://113.108.154.60/newtv/tv-black.htm
+     http://113.108.154.60/newtv/autoindex.htm
+     
+     vi cut: dd									
+     
+     return code: specification
      
