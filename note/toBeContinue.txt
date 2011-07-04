@@ -4288,8 +4288,7 @@ ssh start/running, process 8454
      
 0630 i frame
      http://113.108.154.60/ph_moble/index.htm
-     
-     brw play video get phonecofig vol	 							**
+     brw play video get phonecofig vol	 							done
      fix the path
      excel cell: auto fixed 
      phoneconfig die
@@ -4320,7 +4319,7 @@ ssh start/running, process 8454
      
 0702 ------brw------
      vol: get from config							done
-     invalid state to play video 						**
+     invalid state to play video 						done
      ----
      
      prompter: conn timer
@@ -4333,4 +4332,26 @@ ssh start/running, process 8454
      vi cut: dd									
      
      return code: specification
+     
+0703 
+     
+0704 & priority
+     separate the wireless lib
+     collapse
+     AUTOMAKE_OPTIONS=foreign; INCLUDES=-I$(top_srcdir)/src/include: in sub dir
+     vi line head/end
+     
+     depend on a lib which is the other one depended
+     
+     inline
+     
+     do_some_thing_async ret val
+     
+     --------------- brwDsktop 
+     two step: if prefix is not same, then load
+     click tvdialer but not show
+     
+     -----------------------------
+     
+     libtools clean: clean the depen lib
      
