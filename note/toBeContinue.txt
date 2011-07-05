@@ -4355,6 +4355,21 @@ ssh start/running, process 8454
      
      libtools clean: clean the depen lib
      
-0705  
+0705 sync prog bar   
+     when essid is messy code, then the print is messy code 		**
+     wireless manager--------------					
+     passwd *								done
+     click the ap which is connected, then...				
+     gtk_entry_set_editable 						over						
+     network detail: get local mac addr					
+     wpa2					
+     local var, multi thread
+     s
+     how can i do after the dyn alloc var pass to new thread            **
      
-0706      
+     
+     -----------------------
+     
+     choose a wireless route
+     
+     browser_url: http://113.108.154.60/fp_link/index.htm
