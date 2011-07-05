@@ -226,16 +226,11 @@
 
 1212 
      
-     
-	
-<<<<<<< .mine
 1213 1)use cc; artificialUart; phoneIntf
      2)
      3)
       
-=======
 1213 1)dao mu bi ji song                                                                                                             over
->>>>>>> .r403
      
 1215 adver: only paly video when onhook                                                                                                                
 1216 a very gloomy day!!
@@ -560,44 +555,53 @@ call grandman i don go home for lunch
 over time
      
 0530 
-  
-0620
 
-0623
-     
-0531
+0601
+
+0602
+
+0603
 
 0604 go to work at noontime;
      hua gu call me to nan fang da sha for stock
      sister come back     
 
 0605 goto hua gu's store at shi xi
-     yao gu and mei gu come
+     yan gu and mei gu come
      
-<<<<<<< .mine
 0606 mum come back
          
 0607 
 
 0608 yq absent
      tx start lottery keep number 
-      
-=======
      
->>>>>>> .r586
 0620 driver theory exam
 
+0622 modify the 3's adsl acount and passwd
+     
+0623 get the adsl passwd use the tools, and fixed it
+     
+0624 fixed the other pc who can not connect to internet
+     neighbour zeng said next weekend begin drive practice
 
 0625 require overtime
      graduate trip
 
-0626 graduate edu
+0626 graduate edu meeting
      
-0627 graduate
-                   
-0628 
+0627 graduate and got certificate; grandma birthday party; 
+     
+0628 test the new play interface
      
 0701 require overtime
      
-0702  
-   
+0702 overtime 
+
+0703 at home; catch some info of sn
+     
+0704 
+     
+0705 
+
+    
