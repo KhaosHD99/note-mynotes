@@ -4359,17 +4359,44 @@ ssh start/running, process 8454
      when essid is messy code, then the print is messy code 		**
      wireless manager--------------					
      passwd *								done
-     click the ap which is connected, then...				
+     click the ap which is connected, then...				over
      gtk_entry_set_editable 						over						
      network detail: get local mac addr					
-     wpa2					
+     wpa2								done					
      local var, multi thread
-     s
      how can i do after the dyn alloc var pass to new thread            **
-     
-     
      -----------------------
      
-     choose a wireless route
+     choose a wireless route						done
      
-     browser_url: http://113.108.154.60/fp_link/index.htm
+     hor browser_url: http://113.108.154.60/fp_link/index.htm
+     
+0706 multi thread: var access; stack var, and  heap var
+     func return val: copy it?							
+     why zh_CN.UTF-8 can not show UTF chinese 				*
+     vi undo									done
+     when do some th, key event
+     tv wireless manager
+     lib interface comment
+     wireless signal quality
+     lib in lib      
+     ping util
+     wpa2 rsn
+     
+     ENOTSUP				
+     LD_RUN_PATH linking		
+     shell compare text file, block comment: : '(...)'				done
+     -lm									
+     
+     -------------------
+     brw:
+     flash					**
+     img change
+     -----------
+     
+     video connect Err show once, always?		**
+     ver brw: http://113.108.154.60/ph_link/index.htm
+     
+     why dhclient run bg
+     
+     

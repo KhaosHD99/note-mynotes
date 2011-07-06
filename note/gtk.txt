@@ -44,3 +44,7 @@ typedef enum {
      F12:    9
      
 WEBKIT_WEB_VIEW		
+  gtk_widget_get_parent
+     gtk_p	rogress_bar_set_text 
+
+ 
