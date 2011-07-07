@@ -4371,26 +4371,25 @@ ssh start/running, process 8454
      
      hor browser_url: http://113.108.154.60/fp_link/index.htm
      
-0706 multi thread: var access; stack var, and  heap var
-     func return val: copy it?							
-     why zh_CN.UTF-8 can not show UTF chinese 				*
+0706 multi thread: var access; stack var, and  heap var				
+     func return val: copy it?							done				
+     why zh_CN.UTF-8 can not show UTF chinese 					*
      vi undo									done
-     when do some th, key event
-     tv wireless manager
-     lib interface comment
-     wireless signal quality
-     lib in lib      
-     ping util
-     wpa2 rsn
-     
-     ENOTSUP				
-     LD_RUN_PATH linking		
+     when do some th, key event							
+     tv wireless manager							**
+     lib interface comment							
+     wireless signal quality							
+     lib in lib      								
+     ping util									**
+     wpa2 rsn									done
+     ENOTSUP									done
+     LD_RUN_PATH linking							done
      shell compare text file, block comment: : '(...)'				done
      -lm									
      
      -------------------
      brw:
-     flash					**
+     flash									**
      img change
      -----------
      
@@ -4399,4 +4398,30 @@ ssh start/running, process 8454
      
      why dhclient run bg
      
+0707 Group Cipher : CCMP
+     Pairwise Ciphers (1) : CCMP
+     dync lib: really dync? 
+     key index									** 
+     inline									done
      
+     6761 ?        S      0:00  \_ /bin/sh -c dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.wlan0.pid -lf /var/lib/dhcp3/dhclient.wlan0.leases wlan0
+ 6762 ?        S      0:00      \_ dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.wlan0.pid -lf /var/lib/dhcp3/dhclient.wlan0.leases wlan0
+ 6835 ?        S      0:00          \_ /bin/bash /sbin/dhclient-script
+     
+     connected: according to 							**
+     iwconfig slow 								**
+     Not use key: stop key validate
+     
+-----------------
+     ** Message: Error: Resource not found.						over
+     gstfilesrc.c(1055): gst_file_src_start ():      /GstPlayBin2:playbin0/GstURIDecodeBin:uridecodebin1/GstFileSrc:source:
+     No such file "/usr/Fn/debug/bin/mms://219.136.250.26/1001/0001/0498M"
+-------------------
+     
+    advertisement local file
+    
+    brw: internal vol bar
+    
+    prompter bar: siganl qual  
+    
+    UpdateConfigFlagVial
