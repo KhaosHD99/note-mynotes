@@ -4410,7 +4410,7 @@ ssh start/running, process 8454
      
      connected: according to 							**
      iwconfig slow 								**
-     Not use key: stop key validate
+     Not use key: stop key validate						done
      
 -----------------
      ** Message: Error: Resource not found.						over
@@ -4418,10 +4418,184 @@ ssh start/running, process 8454
      No such file "/usr/Fn/debug/bin/mms://219.136.250.26/1001/0001/0498M"
 -------------------
      
-    advertisement local file
+     advertisement local file
+     brw: international vol bar								done
+     prompter bar: siganl qual  							done
+     UpdateConfigFlagVial								done
+     	
+0708 pb: font color; size								done
+     video flash									
+     vol sync			
+     custom treeview
+     
+     
+     root@lucid-desktop:/usr/Fn/nfs_phone_qiu/data/localfile# route
+     Kernel IP routing table
+     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+     192.168.0.0     *               255.255.255.0   U     0      0        0 wlan0
+     10.10.0.0       *               255.255.0.0     U     0      0        0 eth0
+     link-local      *               255.255.0.0     U     1000   0        0 eth0
+     default         WWW-518EA1D6538 0.0.0.0         UG    0      0        0 wlan0
     
-    brw: internal vol bar
+     rsync
+     adver sygment fault 									**
+     rsync -avz --progress --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.
+
+
+     total 3161
+drwxr-xr-x 2 root    root   1024 2011-07-01 18:41 ./
+drwxr-xr-x 5 root    root   1024 2011-07-02 14:59 ../
+-rwxr-xr-x 1 jeffsu  test  76906 2011-07-01 17:46 evkey*
+-rwxr-xr-x 1 root    root 186644 2011-06-18 11:45 fnAdvertisement*
+-rwxr-xr-x 1 root    root 315771 2011-06-18 11:45 fnBrowser*
+-rwxr-xr-x 1 root    root 315837 2011-06-18 11:45 fnNetMediaPlayer*
+-rwxr-xr-x 1 root    root 334296 2011-06-18 11:45 fnPhonebook*
+-rwxr-xr-x 1 hegui   test 344345 2011-06-30 17:53 fnPhoneConfigure*
+-rw-r--r-- 1 root    root    129 2011-06-18 11:45 fn_sysinfo.sys
+-rwxr-xr-x 1 yaoquan test 663080 2011-07-02 14:04 fnVPhone*
+-rwxr-xr-x 1 root    root 276069 2011-06-18 11:45 fnWebService*
+-rwxr-xr-x 1 root    root  91622 2011-06-18 11:45 Media_Play_Module*
+-rwxr-xr-x 1 root    root 364704 2011-06-18 11:45 mini_cc*
+-rw-r--r-- 1 root    root      0 2011-06-18 11:45 no3G
+-rwxr-xr-x 1 jeffsu  test 252241 2011-07-01 17:45 phoneintf*
+-rw-r--r-- 1 yaoquan test    125 2011-06-24 10:32 phonetype
+-rw-r--r-- 1 root    root     73 2011-06-18 14:43 runpath.sh
+-rw-r--r-- 1 root    root   1122 2011-06-18 14:45 .xinitrc
+-rwxr-xr-x 1 root    root     24 2011-06-18 11:45 xset.sh*
+
+
+
+
+
+
+root@fn:/usr/Fn/release/bin# ll ../lib/
+total 24750
+drwxr-xr-x 3 root  root    5120 2011-07-01 18:09 ./
+drwxr-xr-x 5 root  root    1024 2011-07-02 14:59 ../
+-rwxr-xr-x 1 root  root 4615408 2011-06-18 11:45 libavcodec.so*
+-rwxr-xr-x 1 root  root 4615408 2011-06-18 11:45 libavcodec.so.52*
+-rwxr-xr-x 1 root  root 4615408 2011-06-18 11:45 libavcodec.so.52.72.2*
+-rwxr-xr-x 1 root  root   35020 2011-06-18 11:45 libavdevice.so*
+-rwxr-xr-x 1 root  root   35020 2011-06-18 11:45 libavdevice.so.52*
+-rwxr-xr-x 1 root  root   35020 2011-06-18 11:45 libavdevice.so.52.2.0*
+-rwxr-xr-x 1 root  root  742012 2011-06-18 11:45 libavformat.so*
+-rwxr-xr-x 1 root  root  742012 2011-06-18 11:45 libavformat.so.52*
+-rwxr-xr-x 1 root  root  742012 2011-06-18 11:45 libavformat.so.52.64.2*
+-rwxr-xr-x 1 root  root   59020 2011-06-18 11:45 libavutil.so*
+-rwxr-xr-x 1 root  root   59020 2011-06-18 11:45 libavutil.so.50*
+-rwxr-xr-x 1 root  root   59020 2011-06-18 11:45 libavutil.so.50.15.1*
+-rw-r--r-- 1 hegui test  502770 2011-06-28 13:55 libfnadvertisementskin.a
+-rwxr-xr-x 1 hegui test    2523 2011-06-28 13:55 libfnadvertisementskin.la*
+lrwxrwxrwx 1 hegui test      31 2011-07-01 18:09 libfnadvertisementskin.so -> libfnadvertisementskin.so.0.0.1*
+lrwxrwxrwx 1 hegui test      31 2011-07-01 18:09 libfnadvertisementskin.so.0 -> libfnadvertisementskin.so.0.0.1*
+-rwxr-xr-x 1 hegui test  392183 2011-06-28 13:55 libfnadvertisementskin.so.0.0.1*
+-rwxr-xr-x 1 root  root     967 2011-06-18 11:45 libFnAudioIO.la*
+-rwxr-xr-x 1 root  root   23752 2011-06-18 11:45 libFnAudioIO.so*
+-rwxr-xr-x 1 root  root   23752 2011-06-18 11:45 libFnAudioIO.so.0*
+-rwxr-xr-x 1 root  root   23752 2011-06-18 11:45 libFnAudioIO.so.0.0.0*
+-rwxr-xr-x 1 root  root     937 2011-06-18 11:45 libFnFb.la*
+-rwxr-xr-x 1 root  root   12297 2011-06-18 11:45 libFnFb.so*
+-rwxr-xr-x 1 root  root   12297 2011-06-18 11:45 libFnFb.so.0*
+-rwxr-xr-x 1 root  root   12297 2011-06-18 11:45 libFnFb.so.0.0.0*
+-rwxr-xr-x 1 root  root     979 2011-06-18 11:45 libFnGstPlayer.la*
+-rwxr-xr-x 1 root  root   46902 2011-06-18 11:45 libFnGstPlayer.so*
+-rwxr-xr-x 1 root  root   46902 2011-06-18 11:45 libFnGstPlayer.so.0*
+-rwxr-xr-x 1 root  root   46902 2011-06-18 11:45 libFnGstPlayer.so.0.0.0*
+-rwxr-xr-x 1 root  root    1426 2011-06-18 11:45 libfnGtkApplicationDef.la*
+-rwxr-xr-x 1 root  root   38419 2011-06-18 11:45 libfnGtkApplicationDef.so*
+-rwxr-xr-x 1 root  root   38419 2011-06-18 11:45 libfnGtkApplicationDef.so.0*
+-rwxr-xr-x 1 root  root   38419 2011-06-18 11:45 libfnGtkApplicationDef.so.0.0.0*
+-rwxr-xr-x 1 root  root     961 2011-06-18 11:45 libFnMpg123.la*
+-rwxr-xr-x 1 root  root    7922 2011-06-18 11:45 libFnMpg123.so*
+-rwxr-xr-x 1 root  root    7922 2011-06-18 11:45 libFnMpg123.so.0*
+-rwxr-xr-x 1 root  root    7922 2011-06-18 11:45 libFnMpg123.so.0.0.0*
+-rw-r--r-- 1 root  root  415508 2011-06-18 11:45 libfnphonebook.a
+-rwxr-xr-x 1 root  root    1052 2011-06-18 11:45 libfnphonebook.la*
+-rwxr-xr-x 1 root  root  266522 2011-06-18 11:45 libfnphonebook.so*
+-rwxr-xr-x 1 root  root  266522 2011-06-18 11:45 libfnphonebook.so.0*
+-rwxr-xr-x 1 root  root  266522 2011-06-18 11:45 libfnphonebook.so.0.1.0*
+-rwxr-xr-x 1 root  root     961 2011-06-18 11:45 libFnPlayer.la*
+-rwxr-xr-x 1 root  root  214869 2011-06-18 11:45 libFnPlayer.so*
+-rwxr-xr-x 1 root  root  214869 2011-06-18 11:45 libFnPlayer.so.0*
+-rwxr-xr-x 1 root  root  214869 2011-06-18 11:45 libFnPlayer.so.0.0.0*
+-rwxr-xr-x 1 root  root     950 2011-06-18 11:45 libfnstun.la*
+-rwxr-xr-x 1 root  root  214436 2011-06-18 11:45 libfnstun.so*
+-rwxr-xr-x 1 root  root  214436 2011-06-18 11:45 libfnstun.so.0*
+-rwxr-xr-x 1 root  root  214436 2011-06-18 11:45 libfnstun.so.0.9.6*
+-rwxr-xr-x 1 root  root     949 2011-06-18 11:45 libFnV4l2.la*
+-rwxr-xr-x 1 root  root   17082 2011-06-18 11:45 libFnV4l2.so*
+-rwxr-xr-x 1 root  root   17082 2011-06-18 11:45 libFnV4l2.so.0*
+-rwxr-xr-x 1 root  root   17082 2011-06-18 11:45 libFnV4l2.so.0.0.0*
+-rwxr-xr-x 1 root  root     998 2011-06-18 11:45 libFnVpu.la*
+-rwxr-xr-x 1 root  root  116214 2011-06-18 11:45 libFnVpu.so*
+-rwxr-xr-x 1 root  root  116214 2011-06-18 11:45 libFnVpu.so.0*
+-rwxr-xr-x 1 root  root  116214 2011-06-18 11:45 libFnVpu.so.0.0.0*
+-rwxr-xr-x 1 root  root    1016 2011-06-18 11:45 libfnwindowmanager.la*
+-rwxr-xr-x 1 root  root  598974 2011-06-18 11:45 libfnwindowmanager.so*
+-rwxr-xr-x 1 root  root  598974 2011-06-18 11:45 libfnwindowmanager.so.0*
+-rwxr-xr-x 1 root  root  598974 2011-06-18 11:45 libfnwindowmanager.so.0.0.8*
+-rwxr-xr-x 1 root  root     942 2011-06-18 11:45 libled.la*
+-rwxr-xr-x 1 root  root   12404 2011-06-18 11:45 libled.so*
+-rwxr-xr-x 1 root  root   12404 2011-06-18 11:45 libled.so.0*
+-rwxr-xr-x 1 root  root   12404 2011-06-18 11:45 libled.so.0.1.0*
+-rwxr-xr-x 1 root  root     968 2011-06-18 11:45 liblinconfig.la*
+-rwxr-xr-x 1 root  root   42673 2011-06-18 11:45 liblinconfig.so*
+-rwxr-xr-x 1 root  root   42673 2011-06-18 11:45 liblinconfig.so.0*
+-rwxr-xr-x 1 root  root   42673 2011-06-18 11:45 liblinconfig.so.0.2.0*
+-rwxr-xr-x 1 root  root     996 2011-06-18 11:45 libmessagequeue.la*
+-rwxr-xr-x 1 root  root   40997 2011-06-18 11:45 libmessagequeue.so*
+-rwxr-xr-x 1 root  root   40997 2011-06-18 11:45 libmessagequeue.so.0*
+-rwxr-xr-x 1 root  root   40997 2011-06-18 11:45 libmessagequeue.so.0.0.0*
+-rwxr-xr-x 1 root  root     996 2011-06-18 11:45 libmessagestack.la*
+-rwxr-xr-x 1 root  root   36802 2011-06-18 11:45 libmessagestack.so*
+-rwxr-xr-x 1 root  root   36802 2011-06-18 11:45 libmessagestack.so.0*
+-rwxr-xr-x 1 root  root   36802 2011-06-18 11:45 libmessagestack.so.0.1.3*
+-rw-r--r-- 1 root  root   32716 2011-06-18 11:45 libModuleDef.a
+-rw-r--r-- 1 root  root  241961 2011-06-18 11:45 libmpg123.so
+-rw-r--r-- 1 root  root  241961 2011-06-18 11:45 libmpg123.so.0
+-rwxr-xr-x 1 root  root    1046 2011-06-18 11:45 libphoneconfig.la*
+-rwxr-xr-x 1 root  root  180193 2011-06-18 11:45 libphoneconfig.so*
+-rwxr-xr-x 1 root  root  180193 2011-06-18 11:45 libphoneconfig.so.0*
+-rwxr-xr-x 1 root  root  180193 2011-06-18 11:45 libphoneconfig.so.0.1.2*
+-rw-r--r-- 1 root  root  170648 2011-06-18 11:45 libpromptermodule.a
+-rwxr-xr-x 1 root  root    1556 2011-06-18 11:45 libpromptermodule.la*
+-rwxr-xr-x 1 root  root  130569 2011-06-18 11:45 libpromptermodule.so*
+-rwxr-xr-x 1 root  root  130569 2011-06-18 11:45 libpromptermodule.so.0*
+-rwxr-xr-x 1 root  root  130569 2011-06-18 11:45 libpromptermodule.so.0.0.0*
+-rwxr-xr-x 1 root  root  132888 2011-06-18 11:45 libswscale.so*
+-rwxr-xr-x 1 root  root  132888 2011-06-18 11:45 libswscale.so.0*
+-rwxr-xr-x 1 root  root  132888 2011-06-18 11:45 libswscale.so.0.11.0*
+-rwxr-xr-x 1 root  root     948 2011-06-18 11:45 libVial.la*
+-rwxr-xr-x 1 root  root   60588 2011-06-18 11:45 libVial.so*
+-rwxr-xr-x 1 root  root   60588 2011-06-18 11:45 libVial.so.0*
+-rwxr-xr-x 1 root  root   60588 2011-06-18 11:45 libVial.so.0.1.0*
+-rwxr-xr-x 1 root  root    1059 2011-06-18 11:45 libvphonemodule.la*
+-rwxr-xr-x 1 root  root   95127 2011-06-18 11:45 libvphonemodule.so*
+-rwxr-xr-x 1 root  root   95127 2011-06-18 11:45 libvphonemodule.so.0*
+-rwxr-xr-x 1 root  root   95127 2011-06-18 11:45 libvphonemodule.so.0.0.1*
+-rw-r--r-- 1 root  root   50216 2011-06-18 11:45 libvpu.a
+drwxrwxr-x 2 root  root    1024 2011-06-18 11:45 pkgconfig/
+     
+0711 locale; prompter date							**
+     netmedia: + http prefix							**
+     Non-ASCII string at src/lib/Prompter.cpp:68.							done
+     Please specify the source encoding through --from-code.
+     Gtk-WARNING **: Failed to set text from markup due to error parsing markup: Error on line 1 char 69: Invalid         UTF-8 encoded text in name - not valid '18: \xcc\xe1\xe8*\x80E\xac*?\u000c'			done
+     18: ?‘†E
+     ?*?
+     adver roll text one color  							
+     local video: buffering										**
+     video vol
     
-    prompter bar: siganl qual  
-    
-    UpdateConfigFlagVial
+rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.
+     
+     move to release
+     can not modify LANG
+     
+     const char buildTimeString[] = "LibPrompterModule Build: " __TIME__ " " __DATE__;
+     //showInfo("\n\n******************** %s ********************\r\n\n", buildTimeString);
+
+     http://58.26.204.160/fp_link/index_en.htm  ∫·∆¡Õ¯“≥¡¥Ω”“≥
+     http://58.26.204.160/fp_phone/index_tv_en.htm  ∫·∆¡√ΩÃÂ“≥
+     http://58.26.204.160/ph_link/index_en.htm ˙∆¡Õ¯“≥¡¥Ω”“≥
+     http://58.26.204.160/ph_moble/index_en.htm ˙∆¡√ΩÃÂ“≥
