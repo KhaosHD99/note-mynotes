@@ -4588,14 +4588,30 @@ drwxrwxr-x 2 root  root    1024 2011-06-18 11:45 pkgconfig/
      video vol
     
 rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.
-     
+      
      move to release
      can not modify LANG
      
      const char buildTimeString[] = "LibPrompterModule Build: " __TIME__ " " __DATE__;
      //showInfo("\n\n******************** %s ********************\r\n\n", buildTimeString);
-
+     
      http://58.26.204.160/fp_link/index_en.htm  ºáÆÁÍøÒ³Á´½ÓÒ³
      http://58.26.204.160/fp_phone/index_tv_en.htm  ºáÆÁÃ½ÌåÒ³
      http://58.26.204.160/ph_link/index_en.htmÊúÆÁÍøÒ³Á´½ÓÒ³
      http://58.26.204.160/ph_moble/index_en.htmÊúÆÁÃ½ÌåÒ³
+     
+     rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --exclude "appconfig.dat" --exclude "phonetype" --exclude ".xinitrc" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.           
+     
+0712 ring->onhook: ring
+     http stream media
+     third party lib change inclue path; change to release
+     init is important!     
+
+0713 shell cmp
+     Open Doc /usr/Fn/data/user.data/browser/bookmark.xml Fail or Dose not Exist
+     pass machine code
+     
+     wifi: key index
+     LC_ALL; LC_CTYPE
+     
+     
