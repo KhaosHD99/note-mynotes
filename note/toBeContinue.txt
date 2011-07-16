@@ -4600,7 +4600,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      http://58.26.204.160/ph_link/index_en.htmÊúÆÁÍøÒ³Á´½ÓÒ³
      http://58.26.204.160/ph_moble/index_en.htmÊúÆÁÃ½ÌåÒ³
      
-     rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --exclude "appconfig.dat" --exclude "phonetype" --exclude ".xinitrc" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.           
+     rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --exclude "appconfig.dat" --exclude "phonetype" --exclude ".xinitrc" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.
      
 0712 ring->onhook: ring
      http stream media
@@ -4613,5 +4613,44 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      wifi: key index
      LC_ALL; LC_CTYPE
+     
+0714 remount
+     tv: rm focus!; focus_in_event enter_notify rev!!
+     install zh_CN locale 
+     mount -o remount,rw rootfs /
+     mount -o remount,ro rootfs /
+     dpkg-reconfigure locales
+     dpkg -L locale
+     aptitude -l | grep locale
+     global pointer release and reinit   
+     wireless manager config file move to user data file
+     ping util
+     
+0715 prompter hour										  done
+     LANGUAGE=zh_CN:en_US:en;locale; rolltext; /usr/share/i18n/locales; LC_ALL > LC_* >LANG						
+     after play error!!!									  done							  
+     
+     -------------- wireless manager 
+     config file move to data dir
+     when no set network sh!!			  
+     ------------------------------
+     word£» main body tab 
+     
+     always ringing			!!!
+     fixed file path resolv??									   
+     signal img disappear!!									   **
+     vi line num
+     
+0716 why after rm relocate file no ouput any more
+     how tmp size?
+     secure crt log file
+
+**********************
+     1 received state vial without sake
+     2 stop ring error
+     3 no ringing vial received after reboot app and reboot machin 
+     4 adver collapse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          
+     checknet.sh
      
      
