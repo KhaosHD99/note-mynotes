@@ -4632,7 +4632,8 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      -------------- wireless manager 
      config file move to data dir
-     when no set network sh!!			  
+     when no set network sh!!	
+     widget disable		  
      ------------------------------
      word£» main body tab 
      
@@ -4644,13 +4645,29 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
 0716 why after rm relocate file no ouput any more
      how tmp size?
      secure crt log file
-
-**********************
+     
+ **********************
      1 received state vial without sake
      2 stop ring error
      3 no ringing vial received after reboot app and reboot machin 
-     4 adver collapse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          
+     4 adver collapse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(video or gtk)          
      checknet.sh
+     raw log
      
+0718 after conn, dhcp?
+     adver playlist
+     new wireless card
+     invalid application of 'sizeof' to incomplete type 'struct proc_struct' 
+     // TODO:
+     /proc: process id? 
+     test wifi stream media
+     tv
+     defunct
+     libpb: get_calllog_by_time!!!!!!!!!!!!: input argc validate, key(count < 0)
+     
+0719 single instance: the way of get app need to optimize			**
+     
+     
+     
+
      
