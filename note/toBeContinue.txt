@@ -4165,6 +4165,11 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
           =======
     /etc/rc.local     
     * not match "_"
+<<<<<<< .mine
+    WPA2
+
+0623  	wireless card can scan when not up
+     =======
     WPA2
 
 0623 when wireless connect, disconnect the pppoe								
@@ -4670,4 +4675,4 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      
 
-     
+     >>>>>>> .r609
