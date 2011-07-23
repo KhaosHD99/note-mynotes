@@ -4292,7 +4292,7 @@ ssh start/running, process 8454
      brw button image
      
 0630 i frame
-     http://113.108.154.60/ph_moble/index.htm
+     ver http://113.108.154.60/ph_moble/index.htm
      brw play video get phonecofig vol	 							done
      fix the path
      excel cell: auto fixed 
@@ -4332,7 +4332,7 @@ ssh start/running, process 8454
      change the LANG
      
      http://113.108.154.60/newtv/tv-black.htm
-     http://113.108.154.60/newtv/autoindex.htm
+     tv url http://113.108.154.60/newtv/autoindex.htm
      
      vi cut: dd									
      
@@ -4637,8 +4637,9 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      -------------- wireless manager 
      config file move to data dir
-     when no set network sh!!	
+     when no set network sh!!			**
      widget disable		  
+     
      ------------------------------
      word； main body tab 
      
@@ -4671,8 +4672,84 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      libpb: get_calllog_by_time!!!!!!!!!!!!: input argc validate, key(count < 0)
      
 0719 single instance: the way of get app need to optimize			**
+     getcwd
+     adver collapse?
+     升级最新系统及内核的文档放在
+     10.10.200.99下面用户fn密码1234
+     今天加了wifi的工具，换了字体。rsync总大小21Mbyte大概
      
+     -------------- wireless manager 
+     show wireless card status on/off
+     ping util
+     disconnect validate
+     -------------------------------
      
-     
+0720 brwDsk--------- 
+     button init size and focus size; prompt bar pos; func: set text; enter leave notify; international vol	done
+     parse play resource type error				done
 
+     wirelsee----------
+     dhcp
+          
+     Internet Systems Consortium DHCP Client V3.1.3
+Copyright 2004-2009 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+
+can't create /var/lib/dhcp3/dhclient.leases: Read-only file system
+Listening on LPF/wlan1/08:10:75:0c:f0:ac
+Sending on   LPF/wlan1/08:10:75:0c:f0:ac
+Sending on   Socket/fallback
+
+
+
+DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+DHCPOFFER of 10.10.100.3 from 10.10.100.1
+DHCPREQUEST of 10.10.100.3 on wlan1 to 255.255.255.255 port 67
+DHCPACK of 10.10.100.3 from 10.10.100.1
+rm: cannot remove `/etc/resolv.conf.dhclient-new': Read-only file system
+/sbin/dhclient-script: line 45: /etc/resolv.conf.dhclient-new: Read-only file system
+/sbin/dhclient-script: line 45: /etc/resolv.conf.dhclient-new: Read-only file system
+chown: cannot access `/etc/resolv.conf.dhclient-new': No such file or directory
+chmod: cannot access `/etc/resolv.conf.dhclient-new': No such file or directory
+mv: cannot stat `/etc/resolv.conf.dhclient-new': No such file or directory
+rm: cannot remove `/var/lib/ntpdate/default.dhcp': Read-only file system
+can't create /var/lib/dhcp3/dhclient.leases: Read-only file system
+bound to 10.10.100.3 -- renewal in 1641 seconds.
+ 
+0722 dhcpcd
+     perror    
+     fnNetMediaPlayer: NetMediaModule.cpp(124)***** Can not distiguish vial, srcID: 65537, dstID: 65540****
+     Jul 22 13:40:16 fn fnBrowser: BrowserModule.cpp(124)***** Can not distiguish vial ****
+     
+     just after reboot: rerun suc?????????????????
+     Jul 22 13:58:23 fn fnAdvertisement: main.c(167)********** pid: 5059, fnAdvertisement Not Existed
+     
+     perror syslog
+     wait
+     
+     5001 ?        Sl     0:03              \_ ./fnNetMediaPlayer
+     5006 ?        Z      0:00                  \_ [fnNetMediaPlaye] <defunct>
+
+<<<<<<< .mine
+     Jul 22 18:11:13 fn fnNetMediaPlayer: NetMediaModule.cpp(124)***** Can not distiguish vial, srcID: 65537, dstID: 65540****
+     Jul 22 18:11:13 fn fnBrowser: BrowserModule.cpp(124)***** Can not distiguish vial ****
+
+     freopen("data.in","r",stdin);
+     freopen("data.out","w",stdout);
+     
+0723 vial src des								done
+     
+     ----------------------------------- Received Vial -----------------------------------
+     INFO: BrowserModule.cpp(168) UpdateConfigFlagVial
+          
+     (fnAdvertisement:9230): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+     (fnAdvertisement:9230): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+     
+     & use the current shell???
+     
+     00:01:25:09:3f:6e
+     
+     freopen("/var/log/syslog","a", stderr);=======
      >>>>>>> .r609
+>>>>>>> .r615
