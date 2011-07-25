@@ -4729,9 +4729,8 @@ bound to 10.10.100.3 -- renewal in 1641 seconds.
      wait
      
      5001 ?        Sl     0:03              \_ ./fnNetMediaPlayer
-     5006 ?        Z      0:00                  \_ [fnNetMediaPlaye] <defunct>
-
-<<<<<<< .mine
+     5006 ?        Z      0:00                  \_ [fnNetMediaPlaye] <defunct>				over
+      
      Jul 22 18:11:13 fn fnNetMediaPlayer: NetMediaModule.cpp(124)***** Can not distiguish vial, srcID: 65537, dstID: 65540****
      Jul 22 18:11:13 fn fnBrowser: BrowserModule.cpp(124)***** Can not distiguish vial ****
 
@@ -4743,18 +4742,45 @@ bound to 10.10.100.3 -- renewal in 1641 seconds.
      ----------------------------------- Received Vial -----------------------------------
      INFO: BrowserModule.cpp(168) UpdateConfigFlagVial
           
-     (fnAdvertisement:9230): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+     (fnAdvertisement:9230): GLib-GObject-WARNING **: invalid (NULL) pointer instance				over
      (fnAdvertisement:9230): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
      
      & use the current shell???
      
-     00:01:25:09:3f:6e
+     00:01:25:09:3f:6e												over
      
-     freopen("/var/log/syslog","a", stderr);=======
-     >>>>>>> .r609
->>>>>>> .r615
-     
+     freopen("/var/log/syslog","a", stderr);									over
+          
 0715 WPA-PSK/WPA2-PSK; WPA/WPA2
      set disable uglily
      specification return val
      
+     ERROR: main.c(165) ********** pid: 11277, fnAdvertisement Not Existed
+ERROR: main.c(168) ******* fnAdvertisement: 0 != WIFEXITED(status)
+ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
+     
+     daemon rev
+
+     boot locale; manual locale				** 
+     
+     Inconsistency detected by ld.so: dl-open.c: 221: dl_open_worker: Assertion `_dl_debug_initialize (0, args->nsid)->r_state == RT_CONSISTENT' failed!
+      
+
+
+转账批次号： 334142500 
+网银交易序号： 523198267 
+转出账户： 长城电子借记卡-6013***********7634-长城电子借记卡  
+转出账户地区： 广东（不含深圳） 
+收款人姓名： 徐武能 
+转入账户： 3326519980120335412 
+转入账户所属银行： 中国建设银行 
+转入账户开户行名称： 中国建设银行股份有限公司从化支行 
+币　　种： 人民币元 
+转账金额： 1,000.00 
+手 续 费： 0.50 
+电 汇 费： 5.00 
+备　　注： １０００ 
+收款人手机号码： 13710982830 
+汇款用途： 1000 
+执行方式： 立即执行 
+
