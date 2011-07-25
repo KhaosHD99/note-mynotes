@@ -1,0 +1,273 @@
+Enum xmlParserOption {
+    XML_PARSE_RECOVER = 1 : recover on errors
+    XML_PARSE_NOENT = 2 : substitute entities
+    XML_PARSE_DTDLOAD = 4 : load the external subset
+    XML_PARSE_DTDATTR = 8 : default DTD attributes
+    XML_PARSE_DTDVALID = 16 : validate with the DTD
+    XML_PARSE_NOERROR = 32 : suppress error reports
+    XML_PARSE_NOWARNING = 64 : suppress warning reports
+    XML_PARSE_PEDANTIC = 128 : pedantic error reporting
+    XML_PARSE_NOBLANKS = 256 : remove blank nodes
+    XML_PARSE_SAX1 = 512 : use the SAX1 interface internally
+    XML_PARSE_XINCLUDE = 1024 : Implement XInclude substitition
+    XML_PARSE_NONET = 2048 : Forbid network access
+    XML_PARSE_NODICT = 4096 : Do not reuse the context dictionnary
+    XML_PARSE_NSCLEAN = 8192 : remove redundant namespaces declarations
+    XML_PARSE_NOCDATA = 16384 : merge CDATA as text nodes
+    XML_PARSE_NOXINCNODE = 32768 : do not generate XINCLUDE START/END nodes
+    XML_PARSE_COMPACT = 65536 : compact small text nodes; no modification of the tree allowed afterwards (will possibly crash if you try to modify the tree)
+    XML_PARSE_OLD10 = 131072 : parse using XML-1.0 before update 5
+    XML_PARSE_NOBASEFIX = 262144 : do not fixup XINCLUDE xml:base uris
+    XML_PARSE_HUGE = 524288 : relax any hardcoded limit from the parser
+    XML_PARSE_OLDSAX = 1048576 : parse using SAX2 interface from before 2.7.0
+}
+
+Enum xmlElementType {
+    XML_ELEMENT_NODE = 1
+    XML_ATTRIBUTE_NODE = 2
+    XML_TEXT_NODE = 3
+    XML_CDATA_SECTION_NODE = 4
+    XML_ENTITY_REF_NODE = 5
+    XML_ENTITY_NODE = 6
+    XML_PI_NODE = 7
+    XML_COMMENT_NODE = 8
+    XML_DOCUMENT_NODE = 9
+    XML_DOCUMENT_TYPE_NODE = 10
+    XML_DOCUMENT_FRAG_NODE = 11
+    XML_NOTATION_NODE = 12
+    XML_HTML_DOCUMENT_NODE = 13
+    XML_DTD_NODE = 14
+    XML_ELEMENT_DECL = 15
+    XML_ATTRIBUTE_DECL = 16
+    XML_ENTITY_DECL = 17
+    XML_NAMESPACE_DECL = 18
+    XML_XINCLUDE_START = 19
+    XML_XINCLUDE_END = 20
+    XML_DOCB_DOCUMENT_NODE = 21
+}
+
+Structure xmlNodestruct _xmlNode
+{
+    void *	_private	: application data
+    xmlElementType	type	: type number, must be second !
+    const xmlChar *	name	: the name of the node, or the entity
+    struct _xmlNode *	children	: parent->childs link
+    struct _xmlNode *	last	: last child link
+    struct _xmlNode *	parent	: child->parent link
+    struct _xmlNode *	next	: next sibling link
+    struct _xmlNode *	prev	: previous sibling link
+    struct _xmlDoc *	doc	: the containing document End of common p
+    xmlNs *	ns	: pointer to the associated namespace
+    xmlChar *	content	: the content
+    struct _xmlAttr *	properties	: properties list
+    xmlNs *	nsDef	: namespace definitions on this node
+    void *	psvi	: for type/PSVI informations
+    unsigned short	line	: line number
+    unsigned short	extra	: extra data for XPath/XSLT
+
+}
+
+
+
+bash shell快捷键
+
+Ctrl+p重复上一次命令 
+Ctrl+a跳到第一个字符前 
+Ctrl+x同上但再按一次会从新回到原位置 
+Ctrl+b前移一个字符不删除字符情况下 
+Ctrl+h删除前一个字符 
+Ctrl+u删除提示符前的所有字符 
+Ctrl+w同上 
+Ctrl+d删除提示符后一个字符或exit或logout 
+Ctrl+e转到字符尾部 
+Ctrl+f后移一个字符 
+Ctrl+k删除提示符后全部字符 
+Ctrl+k取消 
+ctrl+r向前查找用过的命令
+Ctrl+o Ctrl+y Ctrl+i Crtl+m这4个没搞清楚怎么用
+<TAB> 命令补齐
+CTRL-I 等同于按制表符<TAB>键
+CTRL-W 不是删除光标前的所有字符, 它删除光标前的一个单词
+CTRL-P 是recall出上一个命令 <===> CTRL-N 是recall出下一个命令
+ESC-F 光标向前步进一个单词
+ESC-B 光标向后步进一个单词
+CTRL-M 等同于回车键
+CTRL-O 等同于回车键
+CTRL-V 使下一个特殊字符可以插入在当前位置, 如CTRL-V <TAB> 可以在当前位置插入一个<TAB>字符, 其ASCII是9, 否则一般情况下按<TAB>结果是命令补齐
+CTRL-C 撤消当前命令行的编辑, 另起一行.
+CTRL-S 暂时冻结当前shell的输入
+CTRL-Q 解冻
+ESC-c 使下一个单词首字母大写, 同时光标前进一个单词, 如光标停留在单词的某个字母上, 如word中的o字母上, 则o字母变大写. 而不是w
+ESC-u 使下一个单词所有字母变大写, 同时光标前进一个单词, 同上, 如光标在o字母上, 则ord变大写, w不变.
+ESC-l 同ESC-U, 但使之全变为小写. 
+把bash所有的ctrl组合键试了一遍，现总结如下(以下出现的所有键都是ctrl组合键)：
+
+1. U K Y
+U将光标（不包括）以前的字符删除
+K将光标（包括）以后的字符删除
+Y将刚才删除的字符粘出来
+
+2. D H
+D将光标处的字符删除
+H将光标前的一个字符删除
+
+3. A E
+A将光标移动到行首
+E将光标移动到行尾
+
+4. F B
+F将光标向右移动一个字符的位置
+B将光标向左移动一个字符的位置
+
+5. N P
+N下一个命令
+P上一个命令
+
+6. L
+L清屏
+
+7. R
+R搜索以前输入过的命令
+
+8. T
+T将光标处的字符和光标前一个字符替换位置
+
+基本功:
+用上下键看命令的历史
+左右键区修改内容
+tab补齐命令名字或者目录，文件名字，不是唯一的多按2次，会出来列表
+!ls 重复运行最后一条以’ls’开头的命令，如果先ls -l 然后ls -lcrt，那么!ls，相当于ls -lcrt
+ls abc.txt
+vi !$
+
+第二行的vi !$相当于vi abc.txt，!$等于上一个命令的参数， ‘$’ 是根据上下文来说的最后一行，列等。
+
+ctrl键组合
+ctrl+a:光标移到行首。
+ctrl+b:光标左移一个字母
+ctrl+c:杀死当前进程。
+ctrl+d:退出当前 Shell。
+ctrl+e:光标移到行尾。
+ctrl+h:删除光标前一个字符，同 backspace 键相同。
+ctrl+k:清除光标后至行尾的内容。
+ctrl+l:清屏，相当于clear。
+ctrl+r:搜索之前打过的命令。会有一个提示，根据你输入的关键字进行搜索bash的history
+ctrl+u: 清除光标前至行首间的所有内容。
+ctrl+w: 移除光标前的一个单词
+ctrl+t: 交换光标位置前的两个字符
+ctrl+y: 粘贴或者恢复上次的删除
+ctrl+d: 删除光标所在字母;注意和backspace以及ctrl+h的区别，这2个是删除光标前的字符
+ctrl+f: 光标右移
+ctrl+z : 把当前进程转到后台运行，使用’ fg ‘命令恢复。比如top -d1 然后ctrl+z ，到后台，然后fg,重新恢复
+esc组合
+esc+d: 删除光标后的一个词
+esc+f: 往右跳一个词
+esc+b: 往左跳一个词
+esc+t: 交换光标
+位置前的两个单词。
+
+
+
+
+iwconfig wlan0 essid "finephon" key "s:finep"finephon_aaaa
+
+
+
+
+匹配中文字符的正则表达式： [\u4e00-\u9fa5]
+评注：匹配中文还真是个头疼的事，有了这个表达式就好办了
+
+匹配双字节字符(包括汉字在内)：[^\x00-\xff]
+评注：可以用来计算字符串的长度（一个双字节字符长度计2，ASCII字符计1）
+
+匹配空白行的正则表达式：\n\s*\r
+评注：可以用来删除空白行
+
+匹配HTML标记的正则表达式：<(\S*?)[^>]*>.*?</\1>|<.*? />
+评注：网上流传的版本太糟糕，上面这个也仅仅能匹配部分，对于复杂的嵌套标记依旧无能为力
+
+匹配首尾空白字符的正则表达式：^\s*|\s*$
+评注：可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式
+
+匹配Email地址的正则表达式：\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+评注：表单验证时很实用
+
+匹配网址URL的正则表达式：[a-zA-z]+://[^\s]*
+评注：网上流传的版本功能很有限，上面这个基本可以满足需求
+
+匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+评注：表单验证时很实用
+
+匹配国内电话号码：\d{3}-\d{8}|\d{4}-\d{7}
+评注：匹配形式如 0511-4405222 或 021-87888822
+
+匹配腾讯QQ号：[1-9][0-9]{4,}
+评注：腾讯QQ号从10000开始
+
+匹配中国邮政编码：[1-9]\d{5}(?!\d)
+评注：中国邮政编码为6位数字
+
+匹配身份证：\d{15}|\d{18}
+评注：中国的身份证为15位或18位
+
+匹配ip地址：\d+\.\d+\.\d+\.\d+
+评注：提取ip地址时有用
+
+匹配特定数字：
+^[1-9]\d*$　 　 //匹配正整数
+^-[1-9]\d*$ 　 //匹配负整数
+^-?[1-9]\d*$　　 //匹配整数
+^[1-9]\d*|0$　 //匹配非负整数（正整数 + 0）
+^-[1-9]\d*|0$　　 //匹配非正整数（负整数 + 0）
+^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$　　 //匹配正浮点数
+^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$　 //匹配负浮点数
+^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$　 //匹配浮点数
+^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$　　 //匹配非负浮点数（正浮点数 + 0）
+^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$　　//匹配非正浮点数（负浮点数 + 0）
+评注：处理大量数据时有用，具体应用时注意修正
+
+匹配特定字符串：
+^[A-Za-z]+$　　//匹配由26个英文字母组成的字符串
+^[A-Z]+$　　//匹配由26个英文字母的大写组成的字符串
+^[a-z]+$　　//匹配由26个英文字母的小写组成的字符串
+^[A-Za-z0-9]+$　　//匹配由数字和26个英文字母组成的字符串
+^\w+$　　//匹配由数字、26个英文字母或者下划线组成的字符串
+评注：最基本也是最常用的一些表达式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+读了几页《Mastering Regular Expression》，有心想写一个能够匹配IP字串的正则表达式，实际尝试发现远没有自己写几行代码来判断来得容易，呵呵。
+一个IP字串，由四段组成，每一段是0～255的数字，段与段之间用小数点隔开，比如61.139.2.69就是一个合法的IP字串。
+如果正则表达式写成\d{1,3}(\.\d{1,3}){3}无疑是不负责的，因为它可以匹配300.400.555.666这样的非法IP字串。
+要匹配一个0～255之间的数，有几种匹配方式，下面是其中一种：
+匹配	正则表达式	说明
+0～9	\d	单个数字
+10～99	[1-9]\d	两位数
+100～199	1\d\d	百位为1的三位数
+200～249	2[0-4]\d	三位数，百位是2，十位是0～9
+250～255	25[0-5]	三位数，百位是2，十位是5，个位是0～5
+写成正则表达式，即：(\d|([1-9]\d)|(1\d\d)|(2[0-4]\d)|(25[0-5]))，但是这样的正则表达式在匹配254这样的字串时，会分别匹配2、5、4，得到3个匹配，达不到预期效果，正确做法是将次序颠倒为((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d)，因为在(xxx|yyy)这种匹配行为中，是从左向右搜索的。
+完整的正则表达式是：
+((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d)(\.((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d)){3}
+按：
+象061这样的高位为0的数是不能被匹配的。
+太麻烦，不如自己写一小段代码解析来得容易，呵呵
+ 
+一个完整的域名，由根域、顶级域、二级、三级……域名构成，每级域名之间用点分开，每级域名由字母、数字和减号构成（第一个字母不能是减号），不区分大小写，长度不超过63。
+很显然，单独的名字可以由正则表达式[a-zA-Z0-9][-a-zA-Z0-9]{0,62}来匹配，而完整的域名至少包括两个名字（比如google.com，由google和com构成），最后可以有一个表示根域的点（在规范中，最后有一个点的才是完整域名，但一般认为包括两个以上名字的域名也是完整域名，哪怕它后面没有点）。
+匹配完整域名的正则表达式：
+[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?

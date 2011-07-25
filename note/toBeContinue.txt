@@ -4671,7 +4671,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      defunct
      libpb: get_calllog_by_time!!!!!!!!!!!!: input argc validate, key(count < 0)
      
-0719 single instance: the way of get app need to optimize			**
+0719 single instance: the way of get app need to optimize				**
      getcwd
      adver collapse?
      升级最新系统及内核的文档放在
@@ -4679,7 +4679,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      今天加了wifi的工具，换了字体。rsync总大小21Mbyte大概
      
      -------------- wireless manager 
-     show wireless card status on/off
+     show wireless card status on/off							**
      ping util
      disconnect validate
      -------------------------------
@@ -4753,3 +4753,8 @@ bound to 10.10.100.3 -- renewal in 1641 seconds.
      freopen("/var/log/syslog","a", stderr);=======
      >>>>>>> .r609
 >>>>>>> .r615
+     
+0715 WPA-PSK/WPA2-PSK; WPA/WPA2
+     set disable uglily
+     specification return val
+     
