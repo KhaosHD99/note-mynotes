@@ -4821,5 +4821,10 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      wireless manager not stand alone(only exist as a lib)										**
           
 0729 gdk: font on image(pos)											*
-     wu bi													**
-     pb: window stack
+     wu bi													*
+     pb: window stack												done
+     skfd; iw_sockets_open
+     key_index max value     											*
+     notepad++
+     
+     
