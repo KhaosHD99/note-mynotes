@@ -4827,4 +4827,5 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      key_index max value     											*
      notepad++
      
+     after boot time
      
