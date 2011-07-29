@@ -4751,7 +4751,7 @@ bound to 10.10.100.3 -- renewal in 1641 seconds.
      
      freopen("/var/log/syslog","a", stderr);									over
           
-0715 WPA-PSK/WPA2-PSK; WPA/WPA2
+0725 WPA-PSK/WPA2-PSK; WPA/WPA2
      set disable uglily
      specification return val
      
@@ -4759,13 +4759,11 @@ bound to 10.10.100.3 -- renewal in 1641 seconds.
 ERROR: main.c(168) ******* fnAdvertisement: 0 != WIFEXITED(status)
 ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
-     daemon rev
+     daemon rev													*
 
      boot locale; manual locale				** 
      
      Inconsistency detected by ld.so: dl-open.c: 221: dl_open_worker: Assertion `_dl_debug_initialize (0, args->nsid)->r_state == RT_CONSISTENT' failed!
-      
-
 
 转账批次号： 334142500 
 网银交易序号： 523198267 
@@ -4776,7 +4774,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
 转入账户所属银行： 中国建设银行 
 转入账户开户行名称： 中国建设银行股份有限公司从化支行 
 币　　种： 人民币元 
-转账金额： 1,000.00 
+转账金额： 1,000.00 	
 手 续 费： 0.50 
 电 汇 费： 5.00 
 备　　注： １０００ 
@@ -4784,3 +4782,44 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
 汇款用途： 1000 
 执行方式： 立即执行 
 
+
+0726 shell clear line 
+     ie cmd
+     write to link file
+     printf as error ouput
+     
+     dhcpcd
+     key index
+     iface detail info; get mac 
+     
+     (fnTVWirelessManager:18021): Gtk-CRITICAL **: gtk_label_set_markup: assertion `GTK_IS_LABEL (label)' failed
+     
+     rm *.xxx -r
+     
+0727 
+          
+
+0728 adver no playlist												done
+     pb font
+     rm src/include/.svn; find . -name .svn | xargs rm -r							done
+     wireless: tab effect											done	
+     suggest parentheses around assignment used as truth value							over
+     include rev							*
+     
+     /var/lib/dhcpcd/dhcpcd.duid  /var/lib/dhcpcd/dhcpcd-wlan1.info
+     
+     eric thingking in java; eric?
+     
+     key index
+     static init
+     
+     tv dsktop: esc go to main pg??
+     cell phone dhcp 
+     
+     broDsk navi bar												**
+     leave notify rev
+     wireless manager not stand alone(only exist as a lib)										**
+          
+0729 gdk: font on image(pos)											*
+     wu bi													**
+     pb: window stack
