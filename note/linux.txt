@@ -881,3 +881,21 @@ libtheora>=1.0 to use the theora codec for an efficent video streaming
 libreadline (makes linphonec usage easier) 
 If you use binary packages (rpm, deb) which is the easiest way to have all linphone build dependencies on a system, install the *-dev (deb) or *-devel (rpm) packages of the above mentioned source packages. 
 
+
+
+
+
+
+
+
+
+
+
+#include <arpa/inet.h>
+
+const char *inet_ntop(int af, const void *restrict src,
+       char *restrict dst, socklen_t size);
+
+   
+  十六进制：支持10位或26位十六进制字符
+  ASCII：支持5位或13位ACSII字符

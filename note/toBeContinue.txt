@@ -4810,7 +4810,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      eric thingking in java; eric?
      
-     key index
+     key index validate												done
      static init
      
      tv dsktop: esc go to main pg??
@@ -4818,7 +4818,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      broDsk navi bar												**
      leave notify rev
-     wireless manager not stand alone(only exist as a lib)										**
+     wireless manager not stand alone(only exist as a lib)							
           
 0729 gdk: font on image(pos)											*
      wu bi													*
@@ -4827,5 +4827,35 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      key_index max value     											*
      notepad++
      
-     after boot time
+     after boot time											
+     
+     
+0801 new file sys: ps, reboot block
+     fnadver: doc												done
+     
+     ignoring return value of ‘fgets’, declared with attribute warn_unused_result				done
+     warning: format not a string literal and no format arguments
+     ignoring return value of 'ftruncate', declared with attribute warn_unused_result
+     warning: ignoring return value of 'write', declared with attribute warn_unused_result
+     
+     brw Video play: wrong size!!!!!!!!!!!!!!!
+                     fourth area pic flash									***
+     
+     tv navi bar; web page dial num										**
+     sawtooth
+     
+0802 rm key fn		evkey 											**
+     route -n
+     ping src													*
+     media play vol sync to phoneconfig and broadcast								done
+     //数据写入或读取时，转换为CONFIGUPDATE类型
+     
+     phoneconfig wifi												done
+     key type: asi; hex     connect depend; key index 								do
+     
+     outside web site, show dialog block and collapse
+     
+     new wireless card: can not distin open/share and wpa??							*
+     
+     locale; rolltext messy code
      
