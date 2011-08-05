@@ -4842,7 +4842,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
                      fourth area pic flash									***
      
      tv navi bar; web page dial num										**
-     sawtooth
+     sawtooth													*
      
 0802 rm key fn		evkey 											**
      route -n
@@ -4853,9 +4853,30 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      phoneconfig wifi												done
      key type: asi; hex     connect depend; key index 								do
      
-     outside web site, show dialog block and collapse
+     outside web site, show dialog block and collapse								**
      
      new wireless card: can not distin open/share and wpa??							*
      
-     locale; rolltext messy code
+     locale; rolltext messy code										**
+     
+0804 pos wrong??? pb: font 											**
+     gdk_threads_init!!!!!!!!!!!!!!  										**													
+     setlocale return val											done
+     
+     LANGUAGE locale
+     showDebug rev
+
+     sp.tv_sec = tv.tv_sec + 1;
+     sp.tv_nsec = tv.tv_usec * 1000;
+     sem_timedwait(&time_sem, &sp);
+     
+(fnBrowserDesktop:7524): Gdk-CRITICAL **: gdk_cairo_create: assertion `GDK_IS_DRAWABLE (drawable)' failed
+(fnBrowserDesktop:7524): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
+ERROR: main.c(1911) ********** pid: 7524, fnBrowserDesktop Not Existed
+
+0805 pb: tooltip											done
+     collapse propt											done
+     export the svn log
+     rm fn; ev
+     
      

@@ -271,3 +271,32 @@ iwconfig wlan0 essid "finephon" key "s:finep"finephon_aaaa
 很显然，单独的名字可以由正则表达式[a-zA-Z0-9][-a-zA-Z0-9]{0,62}来匹配，而完整的域名至少包括两个名字（比如google.com，由google和com构成），最后可以有一个表示根域的点（在规范中，最后有一个点的才是完整域名，但一般认为包括两个以上名字的域名也是完整域名，哪怕它后面没有点）。
 匹配完整域名的正则表达式：
 [a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?
+
+
+
+
+	#if 0
+	showInfo("-----\n");
+	/* Set Locale */
+	time_t rawtime;
+	struct tm * timeinfo;
+	char buffer [80];
+	struct lconv * lc;
+
+	time ( &rawtime );
+	timeinfo = localtime (&rawtime);
+	int twice = 0;
+	
+	do 
+	{		
+		showInfo("Locale is: %s\n", setlocale(LC_ALL,NULL));
+		
+		strftime (buffer,80,"%c", timeinfo);
+		showInfo("Date is: %s\n", buffer);
+		
+		lc = localeconv ();
+		showInfo("Currency symbol is: %s\n-\n", lc->currency_symbol);
+		
+		showInfo("setloale: %s\n", setlocale(LC_ALL, ""));
+	} while (!twice++);
+	#endif
