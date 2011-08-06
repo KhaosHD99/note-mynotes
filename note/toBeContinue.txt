@@ -4880,3 +4880,11 @@ ERROR: main.c(1911) ********** pid: 7524, fnBrowserDesktop Not Existed
      rm fn; ev
      
      
+
+网络下载速度为：642KByte/秒
+您的IP是：113.111.52.104
+网络类型：『ADSL·2M』
+
+
+
+http://www.baidu.com/baidu?tn=bds&cl=3&ct=2097152&si=gamersky.com&s=&word=fifa&s=on&submit=%CB%D1+%CB%F7
