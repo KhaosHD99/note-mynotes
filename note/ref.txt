@@ -300,3 +300,29 @@ iwconfig wlan0 essid "finephon" key "s:finep"finephon_aaaa
 		showInfo("setloale: %s\n", setlocale(LC_ALL, ""));
 	} while (!twice++);
 	#endif
+
+typedef long     time_t;
+
+struct timeval 
+{
+    time_t      tv_sec;     /* seconds */
+    suseconds_t tv_usec;    /* microseconds */
+};
+
+struct timespec 
+{
+
+time_t tv_sec; /* Seconds since 00:00:00 GMT, 1 January 1970 */
+
+long tv_nsec; /* Additional nanoseconds since tv_sec */
+
+} timespec_t;
+
+------------------ get the time since the Epoch
+1 time_t time ( time_t * timer );                   
+2 int gettimeofday(struct timeval *restrict tp, void *restrict tzp); 
+
+------------------- really get day time
+struct tm * localtime ( const time_t * timer );
+
+ 
