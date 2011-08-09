@@ -731,8 +731,8 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      position type
 
      Obtains the location of the mouse pointer in widget coordinates. Widget coordinates are a bit odd; for historical      reasons, they are defined as widget->window coordinates for widgets that are not GTK_NO_WINDOW widgets, and are      relative to widget->allocation.x, widget->allocation.y for widgets that are GTK_NO_WINDOW widgets. 
-
-    webkit_web_view_stop_loading
+     
+     webkit_web_view_stop_loading
 
     lsa
     avc1
@@ -3657,7 +3657,7 @@ apt;aptitude search
    
    bad interpreter: No such file or directory； :set ff?
    
----------------------- make test(mplayer, lenny, 1 cpu 2 core) -------
+---------------------- make test(mplayer, lenny, 1 cpu(AMD 4400+) 2 core) -------
 j1  
   real    9m36.958s
   user    5m34.369s
@@ -4240,8 +4240,6 @@ ssh start/running, process 8454
      
      click back window when gtk async			**
 
-     
-     
 0628 ip, netmask can not be empty
      ------------------- wireless manager-------------
      signal strength
@@ -4249,14 +4247,14 @@ ssh start/running, process 8454
      key type: ascii hex						**
      wpa-psk: key len							**      	
     
-     separate wireless Manager 						**						
+     separate wireless Manager 						over						
      when spec ip can spec dns												
      
     
      trip travel 
      局域网中最常用的是以太网
      
-     test new player interface; no sound							**
+     test new player interface; no sound							over
      	 
      freeze col row
      
@@ -4381,7 +4379,7 @@ ssh start/running, process 8454
      why zh_CN.UTF-8 can not show UTF chinese 					*
      vi undo									done
      when do some th, key event							
-     tv wireless manager							**
+     tv wireless manager							over
      lib interface comment							
      wireless signal quality							
      lib in lib      								
@@ -4394,11 +4392,11 @@ ssh start/running, process 8454
      
      -------------------
      brw:
-     flash									**
+     flash									***
      img change
      -----------
      
-     video connect Err show once, always?		**
+     video connect Err show once, always?					*
      ver brw: http://113.108.154.60/ph_link/index.htm
      
      why dhclient run bg
@@ -4406,15 +4404,15 @@ ssh start/running, process 8454
 0707 Group Cipher : CCMP
      Pairwise Ciphers (1) : CCMP
      dync lib: really dync? 
-     key index									** 
+     key index									over
      inline									done
      
      6761 ?        S      0:00  \_ /bin/sh -c dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.wlan0.pid -lf /var/lib/dhcp3/dhclient.wlan0.leases wlan0
  6762 ?        S      0:00      \_ dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.wlan0.pid -lf /var/lib/dhcp3/dhclient.wlan0.leases wlan0
  6835 ?        S      0:00          \_ /bin/bash /sbin/dhclient-script
      
-     connected: according to 							**
-     iwconfig slow 								**
+     connected: according to what?						*
+     iwconfig slow 								over
      Not use key: stop key validate						done
      
 -----------------
@@ -4581,15 +4579,15 @@ lrwxrwxrwx 1 hegui test      31 2011-07-01 18:09 libfnadvertisementskin.so.0 -> 
 -rw-r--r-- 1 root  root   50216 2011-06-18 11:45 libvpu.a
 drwxrwxr-x 2 root  root    1024 2011-06-18 11:45 pkgconfig/
      
-0711 locale; prompter date							**
-     netmedia: + http prefix							**
+0711 locale; prompter date										done
+     netmedia: + http prefix										**
      Non-ASCII string at src/lib/Prompter.cpp:68.							done
      Please specify the source encoding through --from-code.
      Gtk-WARNING **: Failed to set text from markup due to error parsing markup: Error on line 1 char 69: Invalid         UTF-8 encoded text in name - not valid '18: \xcc\xe1\xe8*\x80E\xac*?\u000c'			done
      18: ?誀E
      ?*?
      adver roll text one color  							
-     local video: buffering										**
+     local video: no buffering prompt msg								done
      video vol
     
 rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 10.10.200.99::mx5_app_p/. /usr/Fn/.
@@ -4637,7 +4635,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      -------------- wireless manager 
      config file move to data dir
-     when no set network sh!!			**
+     when no set network sh!!									**
      widget disable		  
      
      ------------------------------
@@ -4671,7 +4669,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      defunct
      libpb: get_calllog_by_time!!!!!!!!!!!!: input argc validate, key(count < 0)
      
-0719 single instance: the way of get app need to optimize				**
+0719 single instance: the way of get app need to optimize(get app name at the main argv is not suitable)	done
      getcwd
      adver collapse?
      升级最新系统及内核的文档放在
@@ -4816,7 +4814,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      tv dsktop: esc go to main pg??
      cell phone dhcp 
      
-     broDsk navi bar												**
+     broDsk navi bar												done
      leave notify rev
      wireless manager not stand alone(only exist as a lib)							
           
@@ -4824,7 +4822,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      wu bi													*
      pb: window stack												done
      skfd; iw_sockets_open
-     key_index max value     											*
+     key_index max value     											done
      notepad++
      
      after boot time											
@@ -4840,11 +4838,10 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      brw Video play: wrong size!!!!!!!!!!!!!!!
                      fourth area pic flash									***
-     
-     tv navi bar; web page dial num										**
+     tv navi bar; web page dial num										done
      sawtooth													*
      
-0802 rm key fn		evkey 											**
+0802 rm key fn		evkey 											done
      route -n
      ping src													*
      media play vol sync to phoneconfig and broadcast								done
@@ -4853,32 +4850,62 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      phoneconfig wifi												done
      key type: asi; hex     connect depend; key index 								do
      
-     outside web site, show dialog block and collapse								**
+     outside web site, show dialog block and collapse								ov
      
      new wireless card: can not distin open/share and wpa??							*
      
-     locale; rolltext messy code										**
+     locale; rolltext messy code										done
      
-0804 pos wrong??? pb: font 											**
-     gdk_threads_init!!!!!!!!!!!!!!  										**													
+0804 pos wrong??? pb: font 											done
+     gdk_threads_init!!!!!!!!!!!!!!  										*
      setlocale return val											done
      
      LANGUAGE locale
      showDebug rev
-
+     
      sp.tv_sec = tv.tv_sec + 1;
      sp.tv_nsec = tv.tv_usec * 1000;
      sem_timedwait(&time_sem, &sp);
-     
-(fnBrowserDesktop:7524): Gdk-CRITICAL **: gdk_cairo_create: assertion `GDK_IS_DRAWABLE (drawable)' failed
-(fnBrowserDesktop:7524): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
-ERROR: main.c(1911) ********** pid: 7524, fnBrowserDesktop Not Existed
+          
+     (fnBrowserDesktop:7524): Gdk-CRITICAL **: gdk_cairo_create: assertion `GDK_IS_DRAWABLE (drawable)' failed
+     (fnBrowserDesktop:7524): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
+     ERROR: main.c(1911) ********** pid: 7524, fnBrowserDesktop Not Existed
 
 0805 pb: tooltip											done
-     collapse propt											done
-     export the svn log
-     rm fn; ev
+     collapse prompt											done
+     export the svn log											done
+     rm fn; ev												
      
+<<<<<<< .mine
+     二代机界面测试											ov
+     playint video, back button										done
+     grep except Binary file
+     
+     add a receved vial type: onVialUpdateConfigFlag							done
+     can not received vail some time
+     
+     rm hide/show navi bar hot key									done
+               
+0808 -----------desktop
+     电视浏览器没有地址栏: 										no		
+     收藏夹(btn)											no																									
+     播放节目时按返回箭头会跳到主界面									done	
+     精准智能搜索输入内容后不能直接用回车键进入								over
+     ----------
+     dialog bg!	
+     no gtk proctect!!!!!!!!!!!!!!!!!!!!!!!!!!!	
+     
+     programmer exam			
+     音量控制反应缓慢；2.频繁切换电视频道会引起浏览器崩溃（一直提示重新启动）
+     
+     pb(ver): main page title; font style								done
+     img font pos
+     
+0809 prompter 	wrap line										done
+     chinese font; fc-list										*
+     libpb: new and destroy frequently when call a func is necessaly??					*
+     
+     =======
      
 
 网络下载速度为：642KByte/秒
@@ -4887,4 +4914,4 @@ ERROR: main.c(1911) ********** pid: 7524, fnBrowserDesktop Not Existed
 
 
 
-http://www.baidu.com/baidu?tn=bds&cl=3&ct=2097152&si=gamersky.com&s=&word=fifa&s=on&submit=%CB%D1+%CB%F7
+http://www.baidu.com/baidu?tn=bds&cl=3&ct=2097152&si=gamersky.com&s=&word=fifa&s=on&submit=%CB%D1+%CB%F7>>>>>>> .r627
