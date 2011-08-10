@@ -4876,7 +4876,6 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      export the svn log											done
      rm fn; ev												
      
-<<<<<<< .mine
      二代机界面测试											ov
      playint video, back button										done
      grep except Binary file
@@ -4885,7 +4884,13 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      can not received vail some time
      
      rm hide/show navi bar hot key									done
-               
+             
+     网络下载速度为：642KByte/秒
+     您的IP是：113.111.52.104
+     网络类型：『ADSL·2M』
+     
+     http://www.baidu.com/baidu?tn=bds&cl=3&ct=2097152&si=gamersky.com&s=&word=fifa&s=on&submit=%CB%D1+%CB%F7
+  
 0808 -----------desktop
      电视浏览器没有地址栏: 										no		
      收藏夹(btn)											no																									
@@ -4905,13 +4910,21 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      chinese font; fc-list										*
      libpb: new and destroy frequently when call a func is necessaly??					*
      
-     =======
+     ber browser: fourth area										**
+ 
+0810 pb: calllog time international									**
+     brw: download											*
+     1.在电视机上打开部分网页，显示乱码；但在电脑上显示是正常的。如：交旅住宿-旅行社--广之旅，其页面显示乱码。?
+     2.打开“商家优惠-超市优惠-吉之岛”。当网页还在加载时，就重新进入电视机的主页面。
+     3.关于电视机界面 鼠标右键菜单的问题:
+       a.目前，中英文版本显示的右键菜单都是英文的，要求分开中英版。
+       b.目前在电视机上右键菜单有些内容需要屏蔽掉，要求分两种情况显示不同内容：
+       1）在空白位置，右键显示：刷新、后退、前进、停止载入。   
+       2）在有链接的位置，右键显示：打开链接、刷新、后退、前进、停止载入
+     populate_popup_event										
      
-
-网络下载速度为：642KByte/秒
-您的IP是：113.111.52.104
-网络类型：『ADSL·2M』
-
-
-
-http://www.baidu.com/baidu?tn=bds&cl=3&ct=2097152&si=gamersky.com&s=&word=fifa&s=on&submit=%CB%D1+%CB%F7>>>>>>> .r627
+     vi wrap line
+     ftruncate return val
+     svn: compare two earlier version									over
+     brw: button text overborder									done
+     

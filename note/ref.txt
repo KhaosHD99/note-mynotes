@@ -326,3 +326,72 @@ long tv_nsec; /* Additional nanoseconds since tv_sec */
 struct tm * localtime ( const time_t * timer );
 
  
+
+
+
+
+#if 0
+/*********************************************************************
+****IsDigit
+****参数a:字符串的地址
+**** 判断字符串是否有纯数字字符组成
+**** 是纯数字返回1，不是纯数字返回0
+***********************************************************************/
+int is_digit(char a[])
+{	
+    int size, i;
+	
+    size = strlen(a);
+    if(size == 0) 
+		return 0;
+	
+    for(i = 0; i< size; i++)
+    {
+		if(a[i] <'0' 
+		   || a[i] > '9')
+		{	
+			return 0;
+		}	
+    }
+    return 1;
+}
+
+/*********************************************************************
+****check_proc
+****参数array:进程描述结构体指针
+**** 检测程序是否正在运行
+**** 正在运行返回1，没有运行返回0
+***********************************************************************/
+int check_proc(char* name)
+{	
+	showInfo("on %s, name: %s\n", __FUNCTION__, name);
+	DIR * dp;
+	struct dirent* dirp;
+	//struct proc_struct* tmp;
+	
+	if(NULL == name)
+	{	
+		return 0;
+	}	
+	
+	if((dp = opendir(PROC))== NULL)
+	{  	
+		showWarning("Open Dir %s Err\n", PROC);
+		return 0;
+	}
+	
+	while ((dirp = readdir(dp)) != NULL) 
+	{	
+		char data[30];
+		
+		sprintf(data, "%s", dirp->d_name);
+		if((is_digit(data)))
+		{	
+			if(strcmp(data, name) == 0)	
+				return 1;
+		}	
+	}
+	closedir(dp);
+	return 0;
+}
+#endif
