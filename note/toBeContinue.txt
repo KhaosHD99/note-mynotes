@@ -4928,3 +4928,26 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      svn: compare two earlier version									over
      brw: button text overborder									done
      
+0811 on_refresh_device; an up device resolution								**	
+     get wrong auth mode										*
+     wrong key index, status is connected but not connected in reality					over
+     AUTH_MODE_SHARE to str										done
+     dhcpcd.sh: interface wlan1 has been configured with new IP=169.254.83.115				
+     shell script #if											
+     key index must be match!!!!!!!!!
+     
+     modify collapse prompt msg										done
+     enter key: phone, tv										
+     
+     int read_buffer_configs(LOCALAPPCONFIG *UserConfig, unsigned int sizeConfig);
+     
+     save vol config file resolution
+
+
+
+     rsync -avz --progress --exclude "/proc" --exclude "/dev" --exclude "/tmp" --exclude "/sys" \
+--exclude "/var/lock" --exclude "/var/run" --exclude \
+"/lib/init/rw" --exclude "/var/log"  --exclude "/usr/Fn" \
+--exclude "rc.local" --exclude "crontab" \
+--exclude "xorg.conf" --exclude "sysconfig.dat" --exclude "appconfig.dat" --exclude "phonetype" \
+--delete 10.10.200.99::mx5_sys/. /.
