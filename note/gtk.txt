@@ -79,3 +79,6 @@ GTK_MENU_SHELL(menu)->children
 
 It is read-only, so you're only allowed to hide the widget and not
 remove to it.
+
+
+gdk_window_get_origin(eventbox_home->window, &x, &y);
