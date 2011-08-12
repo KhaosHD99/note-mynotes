@@ -3768,7 +3768,7 @@ install-data-local
 regex ip
 vi change line
      
-0525 commit week log							**
+0525 commit week log							done
      shinfo sprintf gettext     
      prompter ccst						 done
      _("") char or const char
@@ -3980,7 +3980,7 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
      
 0604 
      http://113.108.154.60/ph_moble/index.htm
-     unite the demand regulation								**
+     unite the demand regulation								done
      slim a little										*
      move the vertical scroll window bar
 
@@ -4000,9 +4000,9 @@ Vial *exchange_vial(Vial *vial, NodeID dstID) extern c:     contain c++ class fu
 0608 .file?											over
      new vertical screen adver res								
      command line: move quick									over
-     brwDsk: leave notify									**
+     brwDsk: leave notify									over
      
-     can i kown passitive or initiative focus out  						**
+     can i kown passitive or initiative focus out  						over
      msg dialog revo? for avoid lose focus?							*
      why fnbrowser can not auto run								*
      fixed crystal oscillator				
@@ -4076,7 +4076,7 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
     
 0614 wm register F6 for a while don't work!! not run prg when boot   
      scp multi							     				over
-     g_object_unref revo: G_IS_OBJECT judge							**
+     g_object_unref revo: G_IS_OBJECT judge							over
      
 0615 adver die
      is the gtk timer thread safe?
@@ -4244,8 +4244,8 @@ ssh start/running, process 8454
      ------------------- wireless manager-------------
      signal strength
      auth mode
-     key type: ascii hex						**
-     wpa-psk: key len							**      	
+     key type: ascii hex									**
+     wpa-psk: key len										**      		
     
      separate wireless Manager 						over						
      when spec ip can spec dns												
@@ -4635,7 +4635,7 @@ rsync -avz --progress --exclude "xorg.conf" --exclude "sysconfig.dat" --delete 1
      
      -------------- wireless manager 
      config file move to data dir
-     when no set network sh!!									**
+     when no set network sh!!									   over
      widget disable		  
      
      ------------------------------
@@ -4759,7 +4759,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      daemon rev													*
 
-     boot locale; manual locale				** 
+     boot locale; manual locale									over
      
      Inconsistency detected by ld.so: dl-open.c: 221: dl_open_worker: Assertion `_dl_debug_initialize (0, args->nsid)->r_state == RT_CONSISTENT' failed!
 
@@ -4908,11 +4908,10 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
 0809 prompter 	wrap line										done
      chinese font; fc-list										*
-     libpb: new and destroy frequently when call a func is necessaly??					*
-     
+     libpb: new and destroy frequently when call a func is necessaly??					*    
      ber browser: fourth area										**
  
-0810 pb: calllog time international									**
+0810 pb: calllog time international									done
      brw: download											*
      1.在电视机上打开部分网页，显示乱码；但在电脑上显示是正常的。如：交旅住宿-旅行社--广之旅，其页面显示乱码。?
      2.打开“商家优惠-超市优惠-吉之岛”。当网页还在加载时，就重新进入电视机的主页面。
@@ -4928,7 +4927,7 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      svn: compare two earlier version									over
      brw: button text overborder									done
      
-0811 on_refresh_device; an up device resolution								**	
+0811 on_refresh_device; an up device resolution								done	
      get wrong auth mode										*
      wrong key index, status is connected but not connected in reality					over
      AUTH_MODE_SHARE to str										done
@@ -4951,3 +4950,32 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
 --exclude "rc.local" --exclude "crontab" \
 --exclude "xorg.conf" --exclude "sysconfig.dat" --exclude "appconfig.dat" --exclude "phonetype" \
 --delete 10.10.200.99::mx5_sys/. /.
+     
+0812 
+     brw: --------------------
+     toolbar nomal icon color; 											done											
+     when media play, enter key; 										done
+     zoom validate;gtk_progress_set_percentage: assertion `percentage >= 0 && percentage <= 1.0';		done
+------------------
+     
+     brwDsk: change toolbar icon
+ 
+     phone: no sound												
+     resolution: server get machine info; "phonenum="conflic with "phonenum"					*
+     just save vol config file after ajust vol									done
+
+     operator "&&" using with the assersion of the var which is assignmented is dangerous !!!!!!!		*
+     if((NULL == (phonenum_point = strstr(point, phonenum_request_marks)))
+			   && (NULL == (machinecode_point = strstr(point, machinecode_request_marks))))
+			{	
+				showWarning("***** Define Key Word [%s] But No Any Field Follow\n", request_marks);
+				goto END;
+			}           
+     if((0 == test()) && test())
+     
+     wifi: hex key
+     word package
+     
+     phonenum conflict												**
+     
+      
