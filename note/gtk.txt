@@ -82,3 +82,16 @@ remove to it.
 
 
 gdk_window_get_origin(eventbox_home->window, &x, &y);
+
+
+
+GDK_INTERP_NEAREST Nearest neighbor sampling; this is the fastest and lowest quality mode. Quality is normally unacceptable when scaling down, but may be OK when scaling up.  
+GDK_INTERP_TILES This is an accurate simulation of the PostScript image operator without any interpolation enabled. Each pixel is rendered as a tiny parallelogram of solid color, the edges of which are implemented with antialiasing. It resembles nearest neighbor for enlargement, and bilinear for reduction.  
+GDK_INTERP_BILINEAR Best quality/speed balance; use this mode by default. Bilinear interpolation. For enlargement, it is equivalent to point-sampling the ideal bilinear-interpolated image. For reduction, it is equivalent to laying down small tiles and integrating over the coverage area.  
+GDK_INTERP_HYPER This is the slowest and highest quality reconstruction function. It is derived from the hyperbolic filters in Wolberg's "Digital Image Warping", and is formally defined as the hyperbolic-filter sampling the ideal hyperbolic-filter interpolated image (the filter is designed to be idempotent for 1:1 pixel mapping).  
+
+
+scaled_pixbuf = gdk_pixbuf_scale_simple(pixbuf,
+											 width,
+											 height,
+											 GDK_INTERP_NEAREST);

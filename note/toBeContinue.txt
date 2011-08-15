@@ -4976,6 +4976,9 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      wifi: hex key
      word package
      
-     phonenum conflict												**
+     phonenum conflict												done
      
-      
+0815 wifi: when set off wifi, what ip is
+     brwDsk: modify dial phonenum key work
+     saw tooth													***
+     vi roll page
