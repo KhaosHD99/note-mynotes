@@ -95,3 +95,128 @@ scaled_pixbuf = gdk_pixbuf_scale_simple(pixbuf,
 											 width,
 											 height,
 											 GDK_INTERP_NEAREST);
+
+
+
+
+
+
+
+
+
+#if 1
+gboolean set_background_pixmap(const gchar *filename, GtkWidget *widget, int width, int height)
+{	
+	GdkPixbuf *scaled_pixbuf = NULL;
+	GdkPixbuf *pbuf = NULL;
+	GdkPixmap *pixmap = NULL;
+	GdkBitmap *bitmap = NULL;
+	
+	gint img_width, img_height;
+
+	if(GTK_WIDGET_NO_WINDOW(widget))
+	{	
+		printf("**************** The widget has not window !\n");   
+		return FALSE; 
+	}
+	
+	if(!GTK_WIDGET_REALIZED(widget))
+	{
+		gtk_widget_realize(widget);
+	}
+
+	if(!filename)
+	{	
+		gdk_window_set_back_pixmap(widget->window, NULL, FALSE);
+		printf("filename NULL ! \n");  
+		return FALSE;
+	}	
+	
+	pbuf = gdk_pixbuf_new_from_file(filename, NULL);
+	if(!pbuf)
+	{
+		printf("gdk_pixbuf_new_from_file failed ! \n");  
+		return FALSE;
+	}
+	img_width = gdk_pixbuf_get_width(pbuf);
+	img_height = gdk_pixbuf_get_height(pbuf);
+	//showDebug("img_width : %d, ------- img_height : %d \n", img_width, img_height);
+	
+	gint drawable_width, drawable_height;
+	if(width<=0 || height<=0)
+	{
+		gdk_drawable_get_size(widget->window, &drawable_width, &drawable_height);
+		//showDebug("drawable_width : %d, ------- drawable_height : %d \n", drawable_width, drawable_height);	
+	}
+	else
+	{
+		drawable_width = width;
+		drawable_height = height;
+		//showDebug("width : %d, ------- height : %d \n", width, height);	
+	}
+	
+	double scale_x, scale_y;
+	if(img_width>0 && img_height>0)
+	{
+		scale_x = (double)drawable_width/img_width;
+		scale_y = (double)drawable_height/img_height;
+	}
+	else
+	{
+		scale_x = 1.0;
+		scale_y = 1.0;
+	}	
+	//showDebug("scale_x : %f, ------- scale_y : %f \n", scale_x, scale_y);	
+	
+	scaled_pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, 
+						TRUE,
+	       				gdk_pixbuf_get_bits_per_sample(pbuf), 
+	       				drawable_width, 
+	       				drawable_height);
+	gdk_pixbuf_fill(scaled_pixbuf, 0);
+	gdk_pixbuf_composite(pbuf, scaled_pixbuf,
+						 0, 0,
+						 drawable_width, drawable_height, 
+						 0, 0,
+						 scale_x, scale_y,
+						 GDK_INTERP_BILINEAR, 0xFF);
+	pixmap = gdk_pixmap_new(widget->window, drawable_width, drawable_height, -1);
+	gdk_draw_pixbuf(pixmap, NULL, scaled_pixbuf, 0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NORMAL, 1, 1);
+	
+	gdk_draw_drawable(widget->window, 
+					  widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
+					  pixmap,
+					  0, 0,
+					  0, 0,
+					  drawable_width, drawable_height);
+
+	gtk_widget_set_app_paintable(widget, TRUE);
+	gdk_pixbuf_render_pixmap_and_mask(scaled_pixbuf, &pixmap, &bitmap, 128);
+	gtk_widget_shape_combine_mask(widget, bitmap, 0, 0);
+	gdk_window_set_back_pixmap(widget->window, pixmap, FALSE);
+	gtk_widget_queue_draw(widget);
+
+	if(scaled_pixbuf)
+	{
+		gdk_pixbuf_unref(scaled_pixbuf);
+		scaled_pixbuf = NULL;
+	}
+	if(pbuf)
+	{	
+		gdk_pixbuf_unref(pbuf);
+		pbuf = NULL;
+	}	
+	if(pixmap)
+	{	
+		gdk_pixmap_unref(pixmap);
+		pixmap = NULL;
+	}	
+	if(bitmap)
+	{
+		gdk_bitmap_unref(bitmap);
+		bitmap = NULL;
+	}
+	
+	return TRUE;
+}
+#endif
