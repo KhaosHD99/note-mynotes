@@ -922,3 +922,7 @@ struct rusage {
     long   ru_nivcsw;        /* involuntary context switches */
 };
 
+disk:
+du df
+
+NAT是一种将私有(保留)地址转化为合法IP地址的转换技术

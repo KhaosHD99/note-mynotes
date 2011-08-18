@@ -4980,5 +4980,371 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
 0815 wifi: when set off wifi, what ip is
      brwDsk: modify dial phonenum key work
-     saw tooth													***
+     saw tooth													done
      vi roll page
+          
+0816 GDK_INTERP_BILINEAR											done
+     brwDsk: add refresh?											
+     brw: edit and image pop menu; 										**
+     messy code: iso-8859-1
+     get a svn 
+     apt-get source
+     Apache Portable Runtime
+     ** (fnBrowser:26641): DEBUG: NP_Initialize
+** (fnBrowser:26641): DEBUG: NP_Initialize succeeded
+** (fnBrowser:26641): DEBUG: NP_Initialize
+** (fnBrowser:26641): DEBUG: NP_Initialize succeeded
+** (fnBrowser:26641): DEBUG: NP_Initialize
+** (fnBrowser:26641): DEBUG: NP_Initialize succeeded
+** (fnBrowser:26641): DEBUG: NP_Initialize
+** (fnBrowser:26641): DEBUG: NP_Initialize succeeded
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://m.weather.com.cn/m/p2/weather1.htm?id=101280101T
+WARNING: main.c(1126) Unknow Browser Play Type :  http://m.weather.com.cn/m/p2/weather1.htm?id=101280101T
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://m.weather.com.cn/m/p2/weather1.htm?id=101280701T
+WARNING: main.c(1126) Unknow Browser Play Type :  http://m.weather.com.cn/m/p2/weather1.htm?id=101280701T
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://m.weather.com.cn/m/p2/weather1.htm?id=101280803T
+WARNING: main.c(1126) Unknow Browser Play Type :  http://m.weather.com.cn/m/p2/weather1.htm?id=101280803T
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://m.weather.com.cn/m/p2/weather1.htm?id=101281701T
+WARNING: main.c(1126) Unknow Browser Play Type :  http://m.weather.com.cn/m/p2/weather1.htm?id=101281701T
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://m.weather.com.cn/m/p2/weather1.htm?id=101281601T
+WARNING: main.c(1126) Unknow Browser Play Type :  http://m.weather.com.cn/m/p2/weather1.htm?id=101281601T
+INFO: main.c(463) ------------------- on navigation_requested -----------------------
+INFO: main.c(469) -------- Title: JUSCO|º™÷Æµ∫
+INFO: main.c(485) webkit_network_request_get_uri:  http://www.jusco.cn/GetWeather.aspx
+WARNING: main.c(1126) Unknow Browser Play Type :  http://www.jusco.cn/GetWeather.aspx
+** Message: console message: http://m.weather.com.cn/m/p2/weather1.htm?id=101280101T @67: NETWORK_ERR: XMLHttpRequest Exception 101: A network error occured in synchronous requests.
+
+
+pkg-config --modversion webkit-1.0
+1.2.5
+
+GLib: 2.24.1
+glib and glibc?
+
+apt-get install gnome-core-devel
+                libglib2.0-dev
+
+                 icu
+aptitude install libxt-dev
+aptitude install  libxslt-dev
+
+webkit, chrome, safari
+ 
+checking the GTK+ version to use... 2.0
+checking the target windowing system... x11
+checking for Hildon UI extensions... no
+checking for GLIB... yes
+checking for glib-genmarshal... /usr/bin/glib-genmarshal
+checking for glib-mkenums... /usr/bin/glib-mkenums
+checking which Unicode backend to use... icu
+checking for icu-config... /usr/bin/icu-config
+
+
+
+WebKit was configured with the following options:
+
+Build configuration:
+ Enable debugging (slow)                                  : no
+ Enable GCC build optimization                            : yes
+ Code coverage support                                    : no
+ Unicode backend                                          : icu
+ Font backend                                             : freetype
+ Optimized memory allocator                               : yes
+Features:
+ 3D Transforms                                            : no
+ 3D Canvas (WebGL)                                        : no
+ Blob support                                             : yes
+ Directory upload                                         : no
+ Fast Mobile Scrolling                                    : no
+ JIT compilation                                          : yes
+ Filters support                                          : yes
+ Geolocation support                                      : no
+ JavaScript debugger/profiler support                     : yes
+ MathML support                                           : no
+ HTML5 offline web applications support                   : yes
+ HTML5 channel messaging support                          : yes
+ HTML5 client-side session and persistent storage support : yes
+ HTML5 client-side database storage support               : yes
+ HTML5 FileSystem API support                             : no
+ HTML5 sandboxed iframe support                           : yes
+ HTML5 server-sent events support                         : yes
+ HTML5 video element support                              : yes
+ Fullscreen API support                                   : yes
+ Icon database support                                    : yes
+ Image resizer support                                    : no
+ Link prefetch support                                    : no
+ Opcode stats                                             : no
+ SharedWorkers support                                    : yes
+ Speech input support                                     : no
+ SVG support                                              : yes
+ SVG animation support                                    : yes
+ SVG fonts support                                        : yes
+ SVG foreign object support                               : yes
+ SVG as image support                                     : yes
+ SVG use element support                                  : yes
+ WML support                                              : no
+ Web Audio support                                        : no
+ Web Sockets support                                      : yes
+ Web Timing support                                       : no
+ Web Workers support                                      : yes
+ XHTML-MP support                                         : no
+ XPATH support                                            : yes
+ XSLT support                                             : yes
+
+GTK+ configuration:
+ GTK+ version                                             : 2.0
+ GDK target                                               : x11
+ Hildon UI extensions                                     : no
+ Introspection support                                    : no
+ WebKit2 support                                          : no
+
+
+
+
+0817 webkit 1.3.1 (pentum D)
+     real    129m37.844s
+             user    74m12.174s
+	     sys     26m17.507s
+
+  jit compilation
+
+     ./configure  --enable-gtk-doc-pdf --enable-gtk-doc --enable-webkit2 --enable-introspection --enable-link-prefetch\
+                  --enable-opcode-stats --enable-coverage --enable-fast-mobile-scrolling --enable-web-timing\
+                  --enable-file-system --enable-wml --enable-mathml --enable-geolocation --enable-xhtmlmp\
+                  --enable-image-resizer --enable-input-speech --enable-indexeddb --enable-3D-transforms --enable-debug
+                  
+      ./configure  --enable-gtk-doc-pdf --enable-gtk-doc --enable-webkit2 --enable-link-prefetch\
+                   --enable-coverage --enable-fast-mobile-scrolling --enable-web-timing\
+                  --enable-file-system --enable-wml --enable-mathml --enable-xhtmlmp\
+                  --enable-image-resizer --enable-input-speech --enable-indexeddb --enable-3D-transforms --enable-debug\
+                  --enable-web-audio --enable-3D-transforms --enable-3D-canvas --enable-optimizations --with-hildon
+ 
+	
+Tools/Scripts/build-webkit --gtk
+      ./configure --enable-plugin-process\
+                  --enable-webkit2
+--enable-image-resizer \
+
+		  //
+--enable-3d-transforms --enable-webkit2
+                  --enable-optimizations 
+--with-hildon   
+--enable-file-system
+--enable-input-speech
+--enable-gtk-doc-pdf --enable-gtk-doc --enable-link-prefetch\
+                   --enable-coverage --enable-fast-mobile-scrolling --enable-web-timing\
+                   --enable-mathml --enable-xhtmlmp\
+--enable-web-audio
+--enable-debug 
+--enable-fast-malloc --enable-directory-upload
+		  --enable-webgl(OpenGL header not found)
+                  --enable-introspection(no pc file) --enable-opcode-stats(conflict with JIT)  
+                  --enable-indexeddb --enable-wml(file lack)  
+                  
+		  
+
+WebKit was configured with the following options:
+
+Build configuration:
+ Enable debugging (slow)                                  : yes
+ Enable GCC build optimization                            : yes
+ Code coverage support                                    : yes
+ Unicode backend                                          : icu
+ Font backend                                             : freetype
+ Optimized memory allocator                               : yes
+Features:
+ 3D Transforms                                            : yes
+ WebGL                                                    : no
+ Blob support                                             : yes
+ Directory upload                                         : yes
+ Fast Mobile Scrolling                                    : yes
+ JIT compilation                                          : yes
+ Filters support                                          : yes
+ Geolocation support                                      : no
+ Client-based geolocation support                         : no
+ JavaScript debugger/profiler support                     : yes
+ MathML support                                           : yes
+ Media statistics                                         : no
+ HTML5 offline web applications support                   : yes
+ HTML5 channel messaging support                          : yes
+ HTML5 meter element support                              : yes
+ Page Visibility API support                              : no
+ HTML5 progress element support                           : yes
+ HTML5 client-side session and persistent storage support : yes
+ HTML5 client-side database storage support               : yes
+ HTML5 datagrid support                                   : no
+ HTML5 data transfer items support                        : no
+ HTML5 FileSystem API support                             : yes
+ Quota API support                                        : no
+ HTML5 sandboxed iframe support                           : yes
+ HTML5 server-sent events support                         : yes
+ HTML5 video element support                              : yes
+ HTML5 track element support                              : yes
+ Fullscreen API support                                   : yes
+ Icon database support                                    : yes
+ Image resizer support                                    : yes
+ Link prefetch support                                    : yes
+ Opcode stats                                             : no
+ SharedWorkers support                                    : yes
+ Color input support                                      : no
+ Speech input support                                     : yes
+ SVG support                                              : yes
+ SVG animation support                                    : yes
+ SVG fonts support                                        : yes
+ SVG foreign object support                               : yes
+ SVG as image support                                     : yes
+ SVG use element support                                  : yes
+ WCSS support                                             : no
+ Web Audio support                                        : yes
+ Web Sockets support                                      : yes
+ Web Timing support                                       : yes
+ Web Workers support                                      : yes
+ XHTML-MP support                                         : yes
+ XPATH support                                            : yes
+ XSLT support                                             : yes
+ Spellcheck support                                       : yes
+ Animation API                                            : no
+
+GTK+ configuration:
+ GTK+ version                                             : 2.0
+ GDK target                                               : x11
+ Hildon UI extensions                                     : yes
+ Introspection support                                    : no
+ WebKit2 support                                          : yes
+ WebKit2 plugin process                                   : yes
+
+
+LIBSOUP
+how to match '-'
+config.log is useful
+ 
+glib---------------------
+real    18m18.384s
+user    4m12.564s
+sys     3m17.400s
+
+checking whether cairo's image surface backend feature could be enabled... no (requires pixman-1 >= 0.18.4 http://cairographics.org/releases/)
+configure: error: mandatory image surface backend feature could not be enabled
+
+
+make distclean
+
+0818 
+
+===========================================================
+ WebKit is now built (2h:59m:51s). 
+ To run GtkLauncher with this newly-built code, use the
+ "Tools/Scripts/run-launcher" script.
+===========================================================
+
+** Message: console message: undefined @0: ReferenceError: Can't find variable: imgzoom
+** Message: console message: undefined @0: ReferenceError: Can't find variable: imgzoom
+** Message: console message: undefined @0: NETWORK_ERR: XMLHttpRequest Exception 101: A network error occured in synchronous requests.
+** Message: console message: undefined @0: ReferenceError: Can't find variable: imgzoom
+
+check dir size
+
+WebKit was configured with the following options:
+Build configuration:
+ Enable debugging (slow)                                  : yes
+ Enable GCC build optimization                            : no
+ Code coverage support                                    : yes
+ Unicode backend                                          : icu
+ Font backend                                             : freetype
+ Optimized memory allocator                               : no
+Features:
+ 3D Transforms                                            : no
+ WebGL                                                    : no
+ Blob support                                             : yes
+ Directory upload                                         : yes
+ Fast Mobile Scrolling                                    : no
+ JIT compilation                                          : yes
+ Filters support                                          : yes
+ Geolocation support                                      : yes
+ Client-based geolocation support                         : no
+ JavaScript debugger/profiler support                     : yes
+ MathML support                                           : yes
+ Media statistics                                         : yes
+ HTML5 offline web applications support                   : yes
+ HTML5 channel messaging support                          : yes
+ HTML5 meter element support                              : yes
+ Page Visibility API support                              : yes
+ HTML5 progress element support                           : yes
+ HTML5 client-side session and persistent storage support : yes
+ HTML5 client-side database storage support               : yes
+ HTML5 datagrid support                                   : no
+ HTML5 data transfer items support                        : yes
+ HTML5 FileSystem API support                             : yes
+ Quota API support                                        : yes
+ HTML5 sandboxed iframe support                           : yes
+ HTML5 server-sent events support                         : yes
+ HTML5 video element support                              : yes
+ HTML5 track element support                              : yes
+ Fullscreen API support                                   : yes
+ Icon database support                                    : yes
+ Image resizer support                                    : no
+ Link prefetch support                                    : yes
+ Opcode stats                                             : no
+ SharedWorkers support                                    : yes
+ Color input support                                      : yes
+ Speech input support                                     : yes
+ SVG support                                              : yes
+ SVG animation support                                    : yes
+ SVG fonts support                                        : yes
+ SVG foreign object support                               : yes
+ SVG as image support                                     : yes
+ SVG use element support                                  : yes
+ WCSS support                                             : yes
+ Web Audio support                                        : yes
+ Web Sockets support                                      : yes
+ Web Timing support                                       : yes
+ Web Workers support                                      : yes
+ XHTML-MP support                                         : yes
+ XPATH support                                            : yes
+ XSLT support                                             : yes
+ Spellcheck support                                       : yes
+ Animation API                                            : yes
+
+GTK+ configuration:
+ GTK+ version                                             : 2.0
+ GDK target                                               : x11
+ Hildon UI extensions                                     : no
+ Introspection support                                    : no
+ WebKit2 support                                          : no
+ WebKit2 plugin process                                   : no
+
+Tools/Scripts/build-webkit --gtk --3d-canvas --accelerated-2d-canvas --animation-api --coverage --data-transfer-items\
+                                 --device-orientation --directory-upload --file-system --indexed-database --input-color\
+                                 --input-speech --link-prefetch --link-prefetch --media-statistics --mhtml --notifications\
+                                 --orientation-events --page-visibility-api --quota --register-protocol-handler\
+                                 --system-malloc  --touch-icon-loading --wcss --web-audio\
+                                 --web-timing --xhtmlmp  --3d-rendering  --filters\
+                                 --javascript-debugger --mathml --netscape-plugin --offline-web-applications\
+                                 --progress-tag --web-sockets
+
+				--debug --dom-storage --svg-dom-objc-bindings
+Tools/Scripts/build-webkit --gtk --javascript-debugger --netscape-plugin --filters
+
+
+iso-8859
+http://www.gzl.com.cn/
+
+../../Source/WebKit/gtk/WebCoreSupport/EditorClientGtk.cpp:48:27: error: webkitmarshal.h: No such file or directory
+./DerivedSources/webkit/WebKitDOMDOMWindow.h:181: error: expected constructor, destructor, or type conversion before °Æ*°Ø token
+Source/WebKit/gtk/WebCoreSupport/EditorClientGtk.cpp:48:27: error: webkitmarshal.h: No such file or directory
+
+static NAT
+packet filter
+SDP; RTP
+OSIP
+NAT¿‡–ÕºÏ≤‚
