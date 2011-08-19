@@ -5132,7 +5132,7 @@ GTK+ configuration:
 	
 Tools/Scripts/build-webkit --gtk
       ./configure --enable-plugin-process\
-                  --enable-webkit2
+                  --enable-webkit2 --enable-debug
 --enable-image-resizer \
 
 		  //
@@ -5348,3 +5348,22 @@ packet filter
 SDP; RTP
 OSIP
 NAT¿‡–ÕºÏ≤‚
+     
+0819 
+     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp: In member function °Ævirtual void WebKit::PageClientImpl::getEditorCommandsForKeyEvent(const WebKit::NativeWebKeyboardEvent&, WTF::Vector<WTF::String, 0u>&)°Ø:
+     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp:58: error: no match for °Æoperator==°Ø in °Æevent->WebKit::WebEvent::type == (WebKit::WebEvent::Type)4°Ø
+     ./Source/WebKit2/Shared/LayerTreeContext.h:51: note: candidates are: bool WebKit::operator==(const WebKit::LayerTreeContext&, const WebKit::LayerTreeContext&)
+     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp:58: error: expected primary-expression before °Æ.°Ø token
+
+compile glib-------------------------
+4 of Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz
+j8
+real    11m2.937s
+user    37m27.160s
+sys     0m34.920s
+
+j16
+real    9m45.249s
+user    30m9.410s
+sys     0m29.890s
+
