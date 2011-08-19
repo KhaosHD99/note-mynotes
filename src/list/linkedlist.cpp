@@ -59,19 +59,19 @@ list *AddElement(list *l,int x)
 }
 
 void DeleteSpecElement(list *l)
-{
-   if(l == NULL)
-   {
-      return ;
-      printf("\n\t\t The list is empty!!!");
-   }
-   
-   listnode *p = l -> head;
-      int i  = p->data;
-      l->head = p->next;
-      free(p);
-      p = NULL;
-      cout << "Deleted Element is: " << i <<endl;   
+{	
+	if(l == NULL)
+	{
+	  return ;
+	  printf("\n\t\t The list is empty!!!");
+	}
+
+	listnode *p = l -> head;
+	int i  = p->data;
+	l->head = p->next;
+	free(p);
+	p = NULL;
+	cout << "Deleted Element is: " << i <<endl;   
 }
 
 void SearchSpecElement(list *l)

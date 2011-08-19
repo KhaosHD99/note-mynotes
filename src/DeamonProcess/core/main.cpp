@@ -31,7 +31,7 @@ int main()
 		 sleep(10);
 	  }
 	  else                                                      //child 1
-	  {
+	  {	
 	     int stat_val;
 	     pid_t child_pid;
 		 printf("I am child 1,waiting for the terminating of child 2\n",getpid());	 
