@@ -5287,7 +5287,7 @@ Features:
  HTML5 FileSystem API support                             : yes
  Quota API support                                        : yes
  HTML5 sandboxed iframe support                           : yes
- HTML5 server-sent events support                         : yes
+ HTML5 serverio-sent events support                         : yes
  HTML5 video element support                              : yes
  HTML5 track element support                              : yes
  Fullscreen API support                                   : yes
@@ -5347,6 +5347,19 @@ static NAT
 packet filter
 SDP; RTP
 OSIP
+<<<<<<< .mine
+NAT类型检测										**
+     
+0819 
+
+0822 io ctr										**
+     udp transfer; ARQ									**
+     si: file relevance
+     bonobo-arg.c:427: error: expected expression before 'do'
+    sudo apt-add-repository ppa:martin-james-robinson/webkitgtk
+
+     
+     =======
 NAT类型检测
      
 0819 
@@ -5367,3 +5380,4 @@ real    9m45.249s
 user    30m9.410s
 sys     0m29.890s
 
+>>>>>>> .r642
