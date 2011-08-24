@@ -4978,6 +4978,18 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      phonenum conflict												done
      
+<<<<<<< .mine
+      
+
+
+
+
+
+
+
+diskLib.sparseMaxFileSizeCheck= "false"
+
+=======
 0815 wifi: when set off wifi, what ip is
      brwDsk: modify dial phonenum key work
      saw tooth													done
@@ -5348,6 +5360,9 @@ packet filter
 SDP; RTP
 OSIP
 <<<<<<< .mine
+NAT类型检测>>>>>>> .r638
+=======
+<<<<<<< .mine
 NAT类型检测										**
      
 0819 
@@ -5381,3 +5396,4 @@ user    30m9.410s
 sys     0m29.890s
 
 >>>>>>> .r642
+>>>>>>> .r644
