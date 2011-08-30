@@ -395,3 +395,92 @@ int check_proc(char* name)
 	return 0;
 }
 #endif
+
+
+SYNOPSIS
+#include <sys/socket.h>
+
+int socket(int domain, int type, int protocol);
+
+
+DESCRIPTION
+The socket() function shall create an unbound socket in a communications domain, and return a file descriptor that can be used in later function calls that operate on sockets.
+
+The socket() function takes the following arguments:
+
+domain 
+Specifies the communications domain in which a socket is to be created. 
+type 
+Specifies the type of socket to be created. 
+protocol 
+Specifies a particular protocol to be used with the socket. Specifying a protocol of 0 causes socket() to use an unspecified default protocol appropriate for the requested socket type. 
+The domain argument specifies the address family used in the communications domain. The address families supported by the system are implementation-defined.
+
+Symbolic constants that can be used for the domain argument are defined in the <sys/socket.h> header.
+
+The type argument specifies the socket type, which determines the semantics of communication over the socket. The following socket types are defined; implementations may specify additional socket types:
+
+SOCK_STREAM 
+Provides sequenced, reliable, bidirectional, connection-mode byte streams, and may provide a transmission mechanism for out-of-band data. 
+SOCK_DGRAM 
+Provides datagrams, which are connectionless-mode, unreliable messages of fixed maximum length. 
+SOCK_SEQPACKET 
+Provides sequenced, reliable, bidirectional, connection-mode transmission paths for records. A record can be sent using one or more output operations and received using one or more input operations, but a single operation never transfers part of more than one record. Record boundaries are visible to the receiver via the MSG_EOR flag. 
+If the protocol argument is non-zero, it shall specify a protocol that is supported by the address family. If the protocol argument is zero, the default protocol for this address family and type shall be used. The protocols supported by the system are implementation-defined.
+
+The process may need to have appropriate privileges to use the socket() function or to create some sockets.
+
+RETURN VALUE
+Upon successful completion, socket() shall return a non-negative integer, the socket file descriptor. Otherwise, a value of -1 shall be returned and errno set to indicate the error.
+
+ERRORS
+The socket() function shall fail if:
+
+[EAFNOSUPPORT] 
+The implementation does not support the specified address family. 
+[EMFILE] 
+No more file descriptors are available for this process. 
+[ENFILE] 
+No more file descriptors are available for the system. 
+[EPROTONOSUPPORT] 
+The protocol is not supported by the address family, or the protocol is not supported by the implementation. 
+[EPROTOTYPE] 
+The socket type is not supported by the protocol. 
+The socket() function may fail if:
+
+[EACCES] 
+The process does not have appropriate privileges. 
+[ENOBUFS] 
+Insufficient resources were available in the system to perform the operation. 
+[ENOMEM] 
+Insufficient memory was available to fulfill the request. 
+
+
+
+
+--------------------------------------------------------------
+	#if 0
+	int send_sock;
+	int numbytes;
+	const char *receiver_addr_str = "10.10.211.33";
+	struct sockaddr_in receiver_addr;
+	char buf[128];
+	
+	if((send_sock = socket(AF_INET, SOCK_DGRAM, 0)) == -1) 
+	{			
+		showError("**** Socket Create Err\n");
+		return -1;
+	}		
+	
+	receiver_addr.sin_family = AF_INET;         	
+	//receiver_addr.sin_port = htons(SERVER_PORT);
+		
+	if (inet_pton(AF_INET, receiver_addr_str, &receiver_addr.sin_addr) <= 0)
+	{	
+		showError("inet_pton error for %s\n", receiver_addr_str);
+		return -1;
+	}	
+	
+	strcpy(buf, "this a testkkk");
+	send_frame(buf, strlen(buf), SERVER_PORT, (struct sockaddr *)&receiver_addr);
+	#endif
