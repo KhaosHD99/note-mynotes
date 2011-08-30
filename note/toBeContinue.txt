@@ -5403,7 +5403,21 @@ re-trasmission, nak
 FD_SET
 
 flash										*
+ 
+>>>>>>> .r642
 
+<<<<<<< .mine
+<<<<<<< .mine
+0820 yangu meigu and three sister go cong hua for a trip
+         stay at home, pay pes
+
+0821 wen yi come;
+         stay at home, pay pes
+=======
+>>>>>>> .r642
+>>>>>>> .r644
+>>>>>>> .r645
+=======
 0825 crc table
      g_cond_wait; g_cond_signal
      phone config: usewifi flag							**
@@ -5594,4 +5608,4 @@ modify the output line(etc: progress)						**
 
      player err****
 
-     
+     >>>>>>> .r648
