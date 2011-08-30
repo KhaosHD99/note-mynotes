@@ -4978,18 +4978,6 @@ ERROR: main.c(171) ******* fnAdvertisement: 1 == WEXITSTATUS(status)
      
      phonenum conflict												done
      
-<<<<<<< .mine
-      
-
-
-
-
-
-
-
-diskLib.sparseMaxFileSizeCheck= "false"
-
-=======
 0815 wifi: when set off wifi, what ip is
      brwDsk: modify dial phonenum key work
      saw tooth													done
@@ -5359,9 +5347,6 @@ static NAT
 packet filter
 SDP; RTP
 OSIP
-NAT类型检测>>>>>>> .r638
-=======
-<<<<<<< .mine
 NAT类型检测										**
      
 0819 
@@ -5408,7 +5393,7 @@ NAT类型检测										**
      unsigned long, format
      
     clean default gw 								**
-    two same segment								**
+    two same segment								***
     
     网络字节顺序(Network Byte Order)						*
 Little endian(Network Byte Order)：将低序字节存储在起始地址
@@ -5419,7 +5404,6 @@ FD_SET
 
 flash										*
 
-<<<<<<< .mine
 0825 crc table
      g_cond_wait; g_cond_signal
      phone config: usewifi flag							**
@@ -5574,10 +5558,10 @@ modify the output line(etc: progress)						**
 	
 0629 data_cond									over
      g_timer_elapsed								over
-     optimize deamon								**
-
+     optimize  libmonitor							done
      1. 文件内容空或指定程序不存在时，出现段错误
-2. 处理行末空格符或非字符
+     2. 处理行末空格符或非字符
+     3. optimize the code
      
      upnp
     
@@ -5591,12 +5575,23 @@ modify the output line(etc: progress)						**
      
      pass array, array[x] not pointer?
      access
-     why brw bookmark will...be recover
+     why brw bookmark will...be recover						over
      messy code 								**
      
-     state change collapse and after collapse					**
+     1. state change collapse 
+     2. Gdk asyn collapse							*** 
+     3. and after collapse: stop video						**
+     
+     
+0630 isspace									over
+     char array can not operand, resolution: memory move 			over
+     str and char array name spec						*
+     shift + direction key							**
 
-0630 isspace=======
->>>>>>> .r642
->>>>>>> .r644
->>>>>>> .r646
+          
+     (fnBrowserDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (drawable)' failed
+(fnBrowserDesktop:5950): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
+
+     player err****
+
+     
