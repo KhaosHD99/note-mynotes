@@ -5359,7 +5359,6 @@ static NAT
 packet filter
 SDP; RTP
 OSIP
-<<<<<<< .mine
 NAT类型检测>>>>>>> .r638
 =======
 <<<<<<< .mine
@@ -5371,29 +5370,233 @@ NAT类型检测										**
      udp transfer; ARQ									**
      si: file relevance
      bonobo-arg.c:427: error: expected expression before 'do'
-    sudo apt-add-repository ppa:martin-james-robinson/webkitgtk
-
+     sudo apt-add-repository ppa:martin-james-robinson/webkitgtk
+     mtp_fr
+     dir struct rev									*
+     certifi download; credit; Authentication						**
      
-     =======
-NAT类型检测
+     the fuck xmanager need key in fact but prompt msg is system date!!!
+     create_web_view_event								*
      
-0819 
-     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp: In member function ‘virtual void WebKit::PageClientImpl::getEditorCommandsForKeyEvent(const WebKit::NativeWebKeyboardEvent&, WTF::Vector<WTF::String, 0u>&)’:
-     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp:58: error: no match for ‘operator==’ in ‘event->WebKit::WebEvent::type == (WebKit::WebEvent::Type)4’
-     ./Source/WebKit2/Shared/LayerTreeContext.h:51: note: candidates are: bool WebKit::operator==(const WebKit::LayerTreeContext&, const WebKit::LayerTreeContext&)
-     Source/WebKit2/UIProcess/API/gtk/PageClientImpl.cpp:58: error: expected primary-expression before ‘.’ token
+     build a web server
+     entry: shift+direction key
 
-compile glib-------------------------
-4 of Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz
-j8
-real    11m2.937s
-user    37m27.160s
-sys     0m34.920s
+0823 collect2: ld terminated with signal 9 [Killed]
+     summer report
+     browser die, drag media service
+     
+0824 add swap
+     htons htonl
+     focus frame								*
+     GCond, g_cond_wait
+     crc MAX_FRAME_LENGTH GQueue
+     typedef struct _sw_node 
+	{
+	// non ha il vincolo 0x00-0xff, ma puo' continuare all'infinito.
+	// la finestra [0x00, 0xff] verra' usata solo nei pacchetti.
+	unsigned int seq_num;
+	
+	unsigned char* data;
+	unsigned short data_length;
+	
+	int timeout_id;
+	double start_tx_time;
+	
+	void *data_pointer;
+	}sw_node, *sw_node_ptr;	/* *sw_node_ptr; */
 
-j16
-real    9m45.249s
-user    30m9.410s
-sys     0m29.890s
+     unsigned long, format
+     
+    clean default gw 								**
+    two same segment								**
+    
+    网络字节顺序(Network Byte Order)						*
+Little endian(Network Byte Order)：将低序字节存储在起始地址
+Big endian：   将高序字节存储在起始地址
 
+re-trasmission, nak
+FD_SET
+
+flash										*
+
+<<<<<<< .mine
+0825 crc table
+     g_cond_wait; g_cond_signal
+     phone config: usewifi flag							**
+     select									*
+     listen
+
+     INFO: misc.c(142) on get_next_block_from_file, block_num: 11
+INFO: mtp_proto.c(415) seq_num: 12, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 512, num_crc_bytes: 2, packet_length: 519
+INFO: mtp_proto.c(426) -------- data_len_network: 131072
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+
+INFO: misc.c(142) on get_next_block_from_file, block_num: 12
+INFO: mtp_proto.c(415) seq_num: 13, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 512, num_crc_bytes: 2, packet_length: 519
+INFO: mtp_proto.c(426) -------- data_len_network: 131072
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(278) on send_frame
+
+INFO: misc.c(142) on get_next_block_from_file, block_num: 13
+INFO: mtp_proto.c(415) seq_num: 14, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 512, num_crc_bytes: 2, packet_length: 519
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(426) -------- data_len_network: 131072
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+
+INFO: misc.c(142) on get_next_block_from_file, block_num: 14
+INFO: mtp_proto.c(415) seq_num: 15, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 512, num_crc_bytes: 2, packet_length: 519
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(426) -------- data_len_network: 131072
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(278) on send_frame
+
+INFO: misc.c(142) on get_next_block_from_file, block_num: 15
+INFO: mtp_proto.c(415) seq_num: 16, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 149, num_crc_bytes: 2, packet_length: 156
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(426) -------- data_len_network: -1795162112
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+
+INFO: misc.c(142) on get_next_block_from_file, block_num: 16
+INFO: misc.c(150) Get nothing from file
+INFO: mtp_proto.c(415) seq_num: 17, sizeof(packet.seq): 1, sizeof(packet.data_length): 4, data_len: 0, num_crc_bytes: 2, packet_length: 7
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+INFO: mtp_proto.c(426) -------- data_len_network: 0
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 254
+WARNING: mtp_client.c(536) **** select() timed out
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(609) on on_timeout_occurred
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 0
+INFO: mtp_proto.c(278) on send_frame
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 1
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 2
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 3
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 4
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 5
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 6
+INFO: mtp_client.c(388) on on_client_got_ack, seq: 17
+INFO: mtp_client.c(931) Transmission done
+INFO: mtp_client.c(123) on client_dispose
+INFO: mtp_proto.c(192) on proto_dispose
+INFO: mtp_proto.c(199) on proto_finalize
+INFO: mtp_client.c(133) 
+on client_finalize
+
+INFO: server.c(140) packet_seq: 43, head_seq: 0, index_in_queue: 43
+INFO: server.c(178) on server_got_packet, seq: 43
+INFO: server.c(334) on server_send_ack, seq_num: 0
+INFO: server.c(123) 
+INFO: server.c(140) packet_seq: 44, head_seq: 0, index_in_queue: 44
+INFO: server.c(178) on server_got_packet, seq: 44
+INFO: server.c(334) on server_send_ack, seq_num: 0
+INFO: server.c(123) 
+INFO: server.c(140) packet_seq: 45, head_seq: 0, index_in_queue: 45
+INFO: server.c(178) on server_got_packet, seq: 45
+INFO: server.c(334) on server_send_ack, seq_num: 0
+INFO: server.c(123) 
+INFO: server.c(140) packet_seq: 46, head_seq: 0, index_in_queue: 46
+INFO: server.c(178) on server_got_packet, seq: 46
+INFO: server.c(334) on server_send_ack, seq_num: 0
+INFO: server.c(123) 
+INFO: server.c(140) packet_seq: 47, head_seq: 0, index_in_queue: 47
+INFO: server.c(178) on server_got_packet, seq: 47
+
+
+gdb
+sliding window
+
+why no need conver byte order when received
+0826 brw state: audio;
+     is_mtp_fr 
+     0xff						*
+ 5451 ?        S      0:00                  \_ fnBrowser
+ 5456 ?        Sl     0:02                      \_ fnBrowser
+ 5521 pts/0    S+     0:00          \_ grep --color=auto fn
+ 5428 ?        Sl     0:02 fnBrowser							!!!---------------	global deamon					over
+
+brw: bookmark not save							over
+     
+
+INFO: main.c(421) on server_wait_file
+INFO: main.c(529) on server_got_packet, seq: 15
+INFO: main.c(637) on server_send_ack, seq_num: 0
+INFO: mtp_proto.c(279) on send_frame
+INFO: main.c(529) on server_got_packet, seq: 16
+INFO: main.c(637) on server_send_ack, seq_num: 0
+INFO: mtp_proto.c(279) on send_frame
+INFO: main.c(529) on server_got_packet, seq: 17
+INFO: main.c(637) on server_send_ack, seq_num: 0
+INFO: mtp_proto.c(279) on send_frame
+
+
+nak:sever requests a re-trasmission
+
+unsigned char*									*
+seq: int, char
+
+modify the output line(etc: progress)						**
+	
+0629 data_cond									over
+     g_timer_elapsed								over
+     optimize deamon								**
+
+     1. 文件内容空或指定程序不存在时，出现段错误
+2. 处理行末空格符或非字符
+     
+     upnp
+    
+     // set the timeout in which select() will have to return if nothing has arrived 
+	// on the socket. This is needed to free the port not used anymore once
+	// terminated the sending [the listening thread would infact block with
+	// get_frame ()].
+
+     webkit certificate								***
+     detect nat type
+     
+     pass array, array[x] not pointer?
+     access
+     why brw bookmark will...be recover
+     messy code 								**
+     
+     state change collapse and after collapse					**
+
+0630 isspace=======
 >>>>>>> .r642
 >>>>>>> .r644
+>>>>>>> .r646
