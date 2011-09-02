@@ -220,3 +220,184 @@ gboolean set_background_pixmap(const gchar *filename, GtkWidget *widget, int wid
 	return TRUE;
 }
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+	#if 0//BG Image
+	GtkWidget *bg_image = NULL;
+	GdkPixbuf *pixbuf = NULL;
+	GdkPixmap *bg_pixmap = NULL;
+	GdkBitmap *bg_bitmap = NULL;
+	char img_path[128];
+
+	snprintf(img_path, sizeof(img_path), "%s%s", RESOURCE_APP_FILE_PATH IMAGE_DIR, 
+												 IMG_BROWSER_ADDTO_BOOKMARK_BG);		
+	
+	pixbuf = create_gtk_pixbuf(img_path, DIALOG_SIZE_WIDTH, DIALOG_SIZE_HEIGHT, NULL, 14);	
+	bg_image = GTK_IMAGE(gtk_image_new_from_pixbuf(pixbuf));
+	if(G_IS_OBJECT(pixbuf))
+		g_object_unref(pixbuf);
+	
+	gdk_pixbuf_render_pixmap_and_mask(gtk_image_get_pixbuf(GTK_IMAGE(bg_image)), &bg_pixmap, 
+																				 &bg_bitmap, 128);
+	gtk_widget_shape_combine_mask(dialog, bg_bitmap, 0, 0);
+
+	gtk_widget_realize (dialog);
+	/*------------------ Set Irregular Window --------------------*/
+	gdk_window_set_back_pixmap(dialog->window, bg_pixmap, FALSE);
+	gtk_widget_show(bg_image);
+	#endif
+
+
+-------------------------------------------------------------------------------------------------
+gtk_dialog_run ()
+
+gint                gtk_dialog_run                      (GtkDialog *dialog);
+Blocks in a recursive main loop until the dialog either emits the "response" signal, or is destroyed. If the dialog is destroyed during the call to gtk_dialog_run(), gtk_dialog_run() returns GTK_RESPONSE_NONE. Otherwise, it returns the response ID from the ::response signal emission.
+
+Before entering the recursive main loop, gtk_dialog_run() calls gtk_widget_show() on the dialog for you. Note that you still need to show any children of the dialog yourself.
+
+During gtk_dialog_run(), the default behavior of "delete-event" is disabled; if the dialog receives ::delete_event, it will not be destroyed as windows usually are, and gtk_dialog_run() will return GTK_RESPONSE_DELETE_EVENT. Also, during gtk_dialog_run() the dialog will be modal. You can force gtk_dialog_run() to return at any time by calling gtk_dialog_response() to emit the ::response signal. Destroying the dialog during gtk_dialog_run() is a very bad idea, because your post-run code won't know whether the dialog was destroyed or not.
+
+After gtk_dialog_run() returns, you are responsible for hiding or destroying the dialog if you wish to do so.
+
+Typical usage of this function might be:
+
+  gint result = gtk_dialog_run (GTK_DIALOG (dialog));
+  switch (result)
+    {
+      case GTK_RESPONSE_ACCEPT:
+         do_application_specific_something ();
+         break;
+      default:
+         do_nothing_since_dialog_was_cancelled ();
+         break;
+    }
+  gtk_widget_destroy (dialog);
+Note that even though the recursive main loop gives the effect of a modal dialog (it prevents the user from interacting with other windows in the same window group while the dialog is run), callbacks such as timeouts, IO channel watches, DND drops, etc, will be triggered during a gtk_dialog_run() call.
+
+dialog :
+
+a GtkDialog
+Returns :
+
+response ID
+
+
+---------------------------
+typedef enum
+{
+  GTK_JUSTIFY_LEFT,
+  GTK_JUSTIFY_RIGHT,
+  GTK_JUSTIFY_CENTER,
+  GTK_JUSTIFY_FILL
+} GtkJustification;
+
+---------------------------
+//gtk_window_set_transient_for (GTK_WINDOW(addto_bookmark_window), GTK_WINDOW(window));
+	//gtk_window_set_modal(GTK_WINDOW(addto_bookmark_window), TRUE);
+
+
+gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
+gtk_label_set_line_wrap_mode(GTK_LABEL(label), PANGO_WRAP_CHAR);
+
+
+
+typedef enum {
+    WEBKIT_WEB_NAVIGATION_REASON_LINK_CLICKED,
+    WEBKIT_WEB_NAVIGATION_REASON_FORM_SUBMITTED,
+    WEBKIT_WEB_NAVIGATION_REASON_BACK_FORWARD,
+    WEBKIT_WEB_NAVIGATION_REASON_RELOAD,
+    WEBKIT_WEB_NAVIGATION_REASON_FORM_RESUBMITTED,
+    WEBKIT_WEB_NAVIGATION_REASON_OTHER,
+} WebKitWebNavigationReason;
+
+
+typedef enum {
+	SOUP_HTTP_1_0 = 0, /*< nick=http-1-0 >*/
+	SOUP_HTTP_1_1 = 1  /*< nick=http-1-1 >*/
+} SoupHTTPVersion;
+
+
+typedef enum {
+	SOUP_MESSAGE_NO_REDIRECT          = (1 << 1),
+#ifndef LIBSOUP_DISABLE_DEPRECATED
+	SOUP_MESSAGE_OVERWRITE_CHUNKS     = (1 << 3),
+#endif
+	SOUP_MESSAGE_CONTENT_DECODED      = (1 << 4),
+	SOUP_MESSAGE_CERTIFICATE_TRUSTED  = (1 << 5)
+} SoupMessageFlags;
+
+
+
+typedef enum {
+  G_TLS_CERTIFICATE_UNKNOWN_CA    = (1 << 0),
+  G_TLS_CERTIFICATE_BAD_IDENTITY  = (1 << 1),
+  G_TLS_CERTIFICATE_NOT_ACTIVATED = (1 << 2),
+  G_TLS_CERTIFICATE_EXPIRED       = (1 << 3),
+  G_TLS_CERTIFICATE_REVOKED       = (1 << 4),
+  G_TLS_CERTIFICATE_INSECURE      = (1 << 5),
+  G_TLS_CERTIFICATE_GENERIC_ERROR = (1 << 6),
+
+  G_TLS_CERTIFICATE_VALIDATE_ALL  = 0x007f
+} GTlsCertificateFlags;
+
+
+typedef enum {
+	SOUP_MEMORY_STATIC,
+	SOUP_MEMORY_TAKE,
+	SOUP_MEMORY_COPY,
+	SOUP_MEMORY_TEMPORARY
+} SoupMemoryUse;
+
+-----------------------------------------------------------------
+The "navigation-policy-decision-requested" signal
+gboolean            user_function                      (WebKitWebView             *webView,
+                                                        WebKitWebFrame            *frame,
+                                                        WebKitNetworkRequest      *request,
+                                                        WebKitWebNavigationAction *navigation_action,
+                                                        WebKitWebPolicyDecision   *policy_decision,
+                                                        gpointer                   user_data)              : Run Last
+Emitted when frame requests a navigation to another page. If this signal is not handled, the default behavior is to allow the navigation. 
+
+Notice that if you return TRUE, meaning that you handled the signal, you are expected to have decided what to do, by calling webkit_web_policy_decision_ignore(), webkit_web_policy_decision_use(), or webkit_web_policy_decision_download() on the policy_decision object. 
+
+
+
+
+-------------------------------------------------------------------------------------------------
+The "resource-request-starting" signal
+void                user_function                      (WebKitWebView         *webView,
+                                                        WebKitWebFrame        *web_frame,
+                                                        WebKitWebResource     *web_resource,
+                                                        WebKitNetworkRequest  *request,
+                                                        WebKitNetworkResponse *response,
+                                                        gpointer               user_data)         : Action
+Emitted when a request is about to be sent. You can modify the request while handling this signal. You can set the URI in the WebKitNetworkRequest object itself, and add/remove/replace headers using the SoupMessage object it carries, if it is present. See webkit_network_request_get_message(). Setting the request URI to "about:blank" will effectively cause the request to load nothing, and can be used to disable the loading of specific resources. 
+
+Notice that information about an eventual redirect is available in response's SoupMessage, not in the SoupMessage carried by the request. If response is NULL, then this is not a redirected request. 
+
+The WebKitWebResource object will be the same throughout all the lifetime of the resource, but the contents may change from inbetween signal emissions. 
+
+webView :
+ the object which received the signal 
+web_frame :
+ the WebKitWebFrame whose load dispatched this request 
+web_resource :
+ an empty WebKitWebResource object 
+request :
+ the WebKitNetworkRequest that will be dispatched 
+response :
+ the WebKitNetworkResponse representing the redirect response, if any 
+user_data :
+ user data set when the signal handler was connected. 
+

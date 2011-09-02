@@ -5570,7 +5570,7 @@ seq: int, char
 
 modify the output line(etc: progress)						**
 	
-0629 data_cond									over
+0829 data_cond									over
      g_timer_elapsed								over
      optimize  libmonitor							done
      1. 文件内容空或指定程序不存在时，出现段错误
@@ -5592,12 +5592,12 @@ modify the output line(etc: progress)						**
      why brw bookmark will...be recover						over
      messy code 								**
      
-     1. state change collapse 
-     2. Gdk asyn collapse							*** 
-     3. and after collapse: stop video						**
+     1. flash. state change collapse(no occure sample yet)			*							
+     2. Gdk asyn collapse							done 
+     3. and after collapse: stop video						done
      
      
-0630 isspace									over
+0830 isspace									over
      char array can not operand, resolution: memory move 			over
      str and char array name spec						*
      shift + direction key							**
@@ -5607,5 +5607,47 @@ modify the output line(etc: progress)						**
 (fnBrowserDesktop:5950): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
 
      player err****
+     
 
+<<<<<<< .mine
+0831 dialog revolution; bookmark; gtk_window_set_modal; popup window not lose focus??			over
+     GTK_WINDOW_POPUP: no  focus!!!!!!!!!!!!!!!!!
+     3.电视直播、视频点播出现闪屏现象
+     
+     gtk_label_set_justify conflic gtk_label_set_line_wrap						*     
+     popup menu: rubish											*
+     web page active configure
+     
+     tv reboot brw fail again and again
+     
+0901 state change; flash										**
+     compile svn											done
+     stop ring error											**
+     shell test												*   
+     
+     if test 1; then
+     echo 1
+     else
+     echo 0
+     fi
+     
+     special char search
+     INURL	
+     vim hightlight
+Thanks in advance for any suggestions
+     
+
+     C:\Documents and Settings\Administrator>keytool -genkey -v -alias tomcat -keyalg RSA -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore -dname "CN=10.10.188.188,OU=logiscn,O=logis,L=beijing,ST=beijing,C=CN" -validity 3650 -storepass logiscn -keypass logiscn
+
+
+0902 PKCS12
+     x509; 个人信息交换
+     brw: bookmark; repeat name										**
+     ssl handshake fail: Error in the push funci
+     
+     show the lib func
+     pb hot key: separate the contact and calllog
+     
+     gtls test =======
      >>>>>>> .r648
+>>>>>>> .r652
