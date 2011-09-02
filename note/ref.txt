@@ -484,3 +484,38 @@ Insufficient memory was available to fulfill the request.
 	strcpy(buf, "this a testkkk");
 	send_frame(buf, strlen(buf), SERVER_PORT, (struct sockaddr *)&receiver_addr);
 	#endif
+
+
+
+算符 用途 用法 
+allinanchor: 限制搜索的词语是网页中链接内包含的关键词（可使用多个关键词） allinanchor:keyword1 keyword2 
+allintext: 限制搜索的词语是网页内文包含的关键词（可使用多个关键词） allintext:keyword1 keyword2 
+allintitle: 限制搜索的词语是网页标题中包含的关键词（可使用多个关键词） allintitle:keyword1 keyword2 
+allinurl: 限制搜索的词语是网页网址中包含的关键词（可使用多个关键词） inurl:keyword1 keyword2 
+filetype: 限制所搜索的文件一个特定的格式 filetype:extension 
+inanchor: 限制搜索的词语是网页中链接内包含的关键词 inanchor:keyword 
+intext: 限制搜索的词语是网页内文包含的关键词 intext:keyword 
+intitle: 限制搜索的词语是网页标题中包含的关键词 intitle:keyword 
+inurl: 限制搜索的网页的地址 inurl:keyword 
+site: 限制所进行的搜索在指定的域名或网站内 site:domain 
+
+
+
+
+
+
+--------------------------------- tomcat ssl:
+/************* gen server key ***************/
+keytool -genkey -v -alias tomcat -keyalg RSA -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore -dname "CN=10.10.188.188,OU=server,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass serverpwd -keypass serverpwd
+
+/*********** gen client key **************/
+keytool -genkey -v -alias elon -keyalg RSA -storetype PKCS12 -keystore E:/note/elon.p12 -dname "CN=elon,OU=client,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass clientpwd -keypass clientpwd"
+
+/******* export the server trust cer from client cer********/
+keytool -export -alias elon -keystore E:/note/elon.p12 -storetype PKCS12 -storepass clientpwd -rfc -file E:/note/elon.cer
+
+//import trust cer to server
+keytool -import -alias elon -v -file E:/note/elon.cer -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore -storepass serverpwd
+
+//list the server trust cer
+keytool -list -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore
