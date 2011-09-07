@@ -5603,7 +5603,8 @@ modify the output line(etc: progress)						**
      shift + direction key							**
 
           
-     (fnBrowserDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (drawable)' failed
+     (fnBrow
+serDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (drawable)' failed
 (fnBrowserDesktop:5950): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
 
      player err****
@@ -5641,7 +5642,7 @@ Thanks in advance for any suggestions
 
 
 0902 PKCS12
-     x509; 个人信息交换
+     cer type: x509; 个人信息交换
      brw: bookmark; repeat name										**
      ssl handshake fail: Error in the push funci
      
@@ -5651,3 +5652,15 @@ Thanks in advance for any suggestions
      gtls test =======
      >>>>>>> .r648
 >>>>>>> .r652
+
+
+0906 gdk_threads_init flash										**
+     
+     (fnBrowserDesktop:6707): Gdk-CRITICAL **: gdk_cairo_create: assertion `GDK_IS_DRAWABLE (drawable)' failed
+     (fnBrowserDesktop:6707): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
+     
+     DER, PEM, X509, PKCS12, PKCS7
+      
+
+     
+     
