@@ -501,25 +501,38 @@ site: 限制所进行的搜索在指定的域名或网站内 site:domain
 
 
 
-
-
-
 --------------------------------- tomcat ssl:
 /************* gen server key ***************/
 keytool -genkey -v -alias tomcat -keyalg RSA -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore -dname "CN=10.10.188.188,OU=server,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass serverpwd -keypass serverpwd
 
+./keytool -genkey -v -alias tomcat -keyalg RSA -keystore /home/elon/open-source/apache-tomcat-6.0.33/key_store/tomcat.keystore -dname "CN=10.10.188.188,OU=server,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass serverpwd -keypass serverpwd
+
 /*********** gen client key **************/
-keytool -genkey -v -alias elon -keyalg RSA -storetype PKCS12 -keystore E:/note/elon.p12 -dname "CN=elon,OU=client,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass clientpwd -keypass clientpwd"
+keytool -genkey -v -alias elon -keyalg RSA -storetype PKCS12 -keystore E:/note/elon.p12 -dname "CN=elon,OU=client,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass clientpwd -keypass clientpwd
+
+keytool -genkey -v -alias elon -keyalg RSA -storetype PKCS12 -keystore E:/note/elon.p12 -dname "CN=elon,OU=client,O=logis,L=guangzhou,ST=guangzhou,C=CN" -validity 3650 -storepass clientpwd -keypass clientpwd
+
 
 /******* export the server trust cer from client cer********/
 keytool -export -alias elon -keystore E:/note/elon.p12 -storetype PKCS12 -storepass clientpwd -rfc -file E:/note/elon.cer
 
-//import trust cer to server
+./keytool -export -alias elon -keystore /home/elon/tmp/elon.p12 -storetype PKCS12 -storepass clientpwd -rfc -file /home/elon/tmp/elon.cer
+
+/*********** import trust cer to server **************/
 keytool -import -alias elon -v -file E:/note/elon.cer -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore -storepass serverpwd
+
+./keytool -import -alias elon -v -file /home/elon/tmp/elon.cer -keystore /home/elon/open-source/apache-tomcat-6.0.33/key_store/tomcat.keystore -storepass serverpwd
 
 //list the server trust cer
 keytool -list -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore
 
+
+
+  <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"
+			    maxThreads="150" scheme="https" secure="true"
+			    clientAuth="true" sslProtocol="TLS"
+			    keystoreFile="E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore" keystorePass="serverpwd"
+			    truststoreFile="E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore" truststorePass="serverpwd"/>
 
 PKCS#1：定义RSA公开密钥算法加密和签名机制，主要用于组织PKCS#7中所描述的数字签名和数字信封。  
 PKCS#3：定义Diffie-Hellman密钥交换协议。  
@@ -535,3 +548,14 @@ PKCS#13：椭圆曲线密码体制标准。
 PKCS#14：伪随机数生成标准。  
 PKCS#15：密码令牌信息格式标准。
   
+
+pkcs12-----------
+The correct title of this article is PKCS #12. The substitution or omission of the # sign is because of technical restrictions.
+In cryptography, PKCS #12 is one of the family of standards called Public-Key Cryptography Standards (PKCS), published by RSA Laboratories. It defines a file format commonly used to store X.509 private keys with accompanying public key certificates, protected with a password-based symmetric key, and is the successor to PFX from Microsoft. PFX has received heavy criticism of being one of the most complex cryptographic protocols [1], but nevertheless remains the only standard way today to store private keys and certificates in a single encrypted file[citation needed].
+File extension: .p12
+
+secure crt log naming expression: E:\note\log\%S %Y-%M-%D %h;%m;%s.log
+
+
+Note that "keytool -exportcert" command uses DER format by default. The "-rfc" option is to change it to PEM (RFC 1421) format. 
+

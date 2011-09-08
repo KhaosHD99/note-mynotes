@@ -401,3 +401,13 @@ response :
 user_data :
  user data set when the signal handler was connected. 
 
+
+
+typedef enum {
+    WEBKIT_CACHE_MODEL_DEFAULT,
+    WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER,
+    WEBKIT_CACHE_MODEL_WEB_BROWSER,
+    WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER,
+} WebKitCacheModel;
+
+
