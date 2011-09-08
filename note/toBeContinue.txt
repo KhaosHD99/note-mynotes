@@ -906,7 +906,7 @@ gcc: -lglib-2.0: linker input file unused because linking not done
      vial->vialLen-((int)vial->mark - (int)vial));	
      
      avc h264
-     polymorphic											               *
+     polymorphic											              
      动态联编    											               *
      mount.nfs: mount to NFS server '192.168.0.88' failed: RPC Error: Program not registered
      mount -t cifs -ousername="elon",password="en" //192.168.0.89/elon /mnt/89/
@@ -4161,11 +4161,9 @@ WARNING: BrowserModule.cpp(23) ************ Module Intance and VialSys Null ****
      open and shared :  十六进制：支持10位或26位十六进制字符
            ACSII：支持5位或13位ACSII字符   
      
-<<<<<<< .mine
           =======
     /etc/rc.local     
     * not match "_"
-<<<<<<< .mine
     WPA2
 
 0623  	wireless card can scan when not up
@@ -5609,8 +5607,6 @@ serDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (
 
      player err****
      
-
-<<<<<<< .mine
 0831 dialog revolution; bookmark; gtk_window_set_modal; popup window not lose focus??			over
      GTK_WINDOW_POPUP: no  focus!!!!!!!!!!!!!!!!!
      3.电视直播、视频点播出现闪屏现象
@@ -5649,9 +5645,7 @@ Thanks in advance for any suggestions
      show the lib func
      pb hot key: separate the contact and calllog
      
-     gtls test =======
-     >>>>>>> .r648
->>>>>>> .r652
+     gtls test
 
 
 0906 gdk_threads_init flash										**
@@ -5660,7 +5654,8 @@ Thanks in advance for any suggestions
      (fnBrowserDesktop:6707): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
      
      DER, PEM, X509, PKCS12, PKCS7
-      
-
+           
+     1. 电视机在浏览器进入流媒体时，屏幕视频区域出现竖式间条；
+     2. 电话机不断振铃。
      
-     
+     libpb: common phone
