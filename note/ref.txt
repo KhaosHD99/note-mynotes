@@ -526,7 +526,10 @@ keytool -import -alias elon -v -file E:/note/elon.cer -keystore E:/soft/develop/
 //list the server trust cer
 keytool -list -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore
 
+./keytool -list -keystore E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore
 
+
+keytool error: java.lang.Exception: Keystore file does not exist: E:/soft/develop/apache-tomcat-6.0.33/key_store/tomcat.keystore
 
   <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"
 			    maxThreads="150" scheme="https" secure="true"
@@ -556,6 +559,138 @@ File extension: .p12
 
 secure crt log naming expression: E:\note\log\%S %Y-%M-%D %h;%m;%s.log
 
-
 Note that "keytool -exportcert" command uses DER format by default. The "-rfc" option is to change it to PEM (RFC 1421) format. 
 
+
+
+*************************How do I export or import a PKCS#12 certificate*********************************
+If someone sends you a PKCS#12 and any passwords needed to work with it, you can export it into standard PEM format.
+
+# export certificate and passphrase-less key
+openssl pkcs12 -in mycert.pfx -out mycert.pem -nodes
+
+# same as above, but you’ll be prompted for a passphrase for
+# the private key
+openssl pkcs12 -in mycert.pfx -out mycert.pem
+
+
+
+
+
+-------------------------------------------------------------------------------
+一. 创建CA
+1. 创建CA需要用到的目录和文件：
+执行命令如下：
+mkdir "$HOME/testca"
+cd "$HOME/testca"
+mkdir newcerts private conf
+chmod g-rwx,o-rwx private
+echo "01" > serial
+touch index.txt
+ 
+说明：
+$HOME/testca为待建CA的主目录。其中newcerts子目录将存放CA签署（颁发）过的数字证书（证书备份目录）。而private目录用于存放CA的私钥。目录conf只是用于存放一些简化参数用的配置文件。
+ 
+文件serial和index.txt分别用于存放下一个证书的序列号和证书信息数据库。
+当然，偷懒起见，可以只用按照本文操作即可，不一定需要关心各个目录和文件的作用。
+ 
+2. 生成CA的私钥和自签名证书（即根证书）
+创建文件：
+vi "$HOME/testca/conf/gentestca.conf"
+文件内容如下：
+####################################
+[ req ]
+default_keyfile = $ENV::HOME/testca/private/cakey.pem
+default_md = md5
+prompt = no
+distinguished_name = ca_distinguished_name
+x509_extensions = ca_extensions
+ 
+[ ca_distinguished_name ]
+organizationName = TestOrg
+organizationalUnitName  = TestDepartment
+commonName = TestCA
+emailAddress = ca_admin@testorg.com
+ 
+[ ca_extensions ]
+basicConstraints = CA:true
+########################################
+ 
+然后执行命令如下：
+cd "$HOME/testca"
+openssl req -x509 -newkey rsa:2048 -out cacert.pem -outform PEM -days 2190 -config "$HOME/testca/conf/gentestca.conf"
+执行过程中需要输入CA私钥的保护密码，假设我们输入密码： 888888
+ 
+可以用如下命令查看一下CA自己证书的内容
+openssl x509 -in cacert.pem -text -noout
+ 
+3. 创建一个配置文件，以便后续CA日常操作中使用：
+vi "$HOME/testca/conf/testca.conf"
+文件内容如下：
+####################################
+[ ca ]
+default_ca      = testca                   # The default ca section
+ 
+[ testca ]
+dir            = $ENV::HOME/testca         # top dir
+database       = $dir/index.txt          # index file.
+new_certs_dir  = $dir/newcerts           # new certs dir
+ 
+certificate    = $dir/cacert.pem         # The CA cert
+serial         = $dir/serial             # serial no file
+private_key    = $dir/private/cakey.pem  # CA private key
+RANDFILE       = $dir/private/.rand      # random number file
+ 
+default_days   = 365                     # how long to certify for
+default_crl_days= 30                     # how long before next CRL
+default_md     = md5                     # message digest method to use
+unique_subject = no                      # Set to 'no' to allow creation of
+                                         # several ctificates with same subject.
+policy         = policy_any              # default policy
+ 
+[ policy_any ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional 
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+------------------------------------------------------------------------
+创建个人密钥和证书请求（证书请求里包含了公钥）
+创建$HOME/testuser1目录并执行命令：（证书等都放到这个目录）
+mkdir $HOME/testuser1
+cd $HOME/testuser1
+openssl req -newkey rsa:1024 -keyout testkey.pem -keyform PEM -out testreq.pem -outform PEM -subj "/O=TestCom/OU=TestOU/CN=testuser1" 
+执行过程中需要输入私钥的保护密码，假设我们输入密码： 222222
+ 
+执行完后，testkey.pem即为用户的密钥，而testreq.pem即为证书请求。
+可以用openssl req -in testreq.pem -text -noout查看证书请求的内容。
+ 
+2. 用CA为testuser1签发个人证书
+同样还在$HOME/testuser1目录下执行命令：
+openssl ca -in testreq.pem -out testcert.pem -config "$HOME/testca/conf/testca.conf"
+执行过程中需要输入CA的密钥保护密码（刚才设置的888888），并且最后询问你是否要给该用户签发证书时要选y。
+执行完后，testcert.pem即为证书，
+可以用命令openssl x509 -in testcert.pem -text -noout查看证书内容。
+ 
+3. 制作PKCS12文件（个人数字证书）
+我们制作的这个PKCS#12文件将包含密钥、证书和颁发该证书的CA证书。
+把前几步生成的密钥和证书制作成一个pkcs12文件的方法执行命令：
+openssl pkcs12 -export -in testcert.pem -inkey testkey.pem -out testuser1.p12 -name testuser1 -chain -CAfile "$HOME/testca/cacert.pem"
+执行过程中需要输入保护密钥的密码（222222），以及新的保护pkcs12文件的密码（222222）。
+ 
+执行完后，若要查看testuser1.p12的内容可以用命令openssl pkcs12 -in testuser1.p12
+该testuser1.p12即为pkcs12文件。你可以直接拷贝到windows下，作为个人数字证书，双击导入IE后就可以使用了。
+ 
+
+
+
+
+10.0.0.0~10.255.255.255，172.16.0.0~172.16.255.255， 192.168.0.0~192.168.255.255

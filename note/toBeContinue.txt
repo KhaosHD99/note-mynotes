@@ -5609,7 +5609,7 @@ serDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (
      
 0831 dialog revolution; bookmark; gtk_window_set_modal; popup window not lose focus??			over
      GTK_WINDOW_POPUP: no  focus!!!!!!!!!!!!!!!!!
-     3.电视直播、视频点播出现闪屏现象
+     3.电视直播、视频点播出现闪09屏现象
      
      gtk_label_set_justify conflic gtk_label_set_line_wrap						*     
      popup menu: rubish											*
@@ -5654,8 +5654,78 @@ Thanks in advance for any suggestions
      (fnBrowserDesktop:6707): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
      
      DER, PEM, X509, PKCS12, PKCS7
-           
+        
      1. 电视机在浏览器进入流媒体时，屏幕视频区域出现竖式间条；
      2. 电话机不断振铃。
      
      libpb: common phone
+     
+     libcurl; openssl
+     
+0909 modssl
+     rtsp
+     sms capture
+     
+0913 perror revo!!!									*
+     state change: flash play								**
+     the other process to stop ring							**
+     mount: arch?????
+
+
+     解决部分网址乱码、
+    javascrip弹出窗口挂起、								done
+     flash长时间播放崩溃等异常；
+     支持全屏浏览功能；
+     Flash与其他音视频应用功能冲突(媒体点播、视频电话、音频播放)；
+     Flash与其他音视频应用功能冲突(媒体点播、视频电话、音频播放)；
+     ctrl+z,fg,bg					
+     
+-------------------------------------------------
+     mount: wrong fs type, bad option, bad superblock on //10.10.188.188/src,
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.<type> helper program)
+       In some cases useful info is found in syslog - try
+       dmesg | tail  or so
+
+0914       
+      test audio play ui 								**
+      all is key :"video"								
+      popup window to replace drawarea?; 						no      
+      demand media      prompt msg bug							done			
+      Gnas  SWFdec.
+      fsl-flash10
+
+
+ ERROR: No GIF library development package installed!
+               Install it from http://sourceforge.net/projects/giflib/
+               or .deb users: apt-get install libungif-dev
+               or maybe     : apt-get install libgif-dev
+               or .rpm users: yum install libungif-devel
+        ERROR: No SDL development package installed!
+               Install it from http://www.libsdl.org/download-1.2.php
+               or .deb users: apt-get install libsdl1.2-dev
+               or .rpm users: yum install SDL-devel
+        ERROR: No AGG development package installed!
+               Install it from http://www.antigrain.com
+               or .deb users: apt-get install libagg-dev
+               or .rpm users: yum install agg-devel
+        ERROR: No BOOST development package installed!
+               Install it from http://www.boost.org
+               or .deb users: apt-get install libboost-dev libboost-thread-dev
+               or .rpm users: yum install boost-devel
+        ERROR : No xulrunner development package is installed
+                Install it from http://releases.mozilla.org/pub/mozilla.org/xulrunner
+                or .deb users: apt-get install xulrunner-dev
+                or .rpm users: yum install xulrunner-devel
+
+
+        ERROR: No GtkGLExt development package installed!
+               It is needed to build the GTK/OpenGL GUI/renderer combination.
+               Either install it from http://gtkglext.sourceforge.net
+               or .deb users: apt-get install libgtkglext1-dev
+               or .rpm users: yum install gtkglext-devel
+               or --enable-gui=sdl or --enable-renderer=agg
+        ERROR: The BOOST program_options library is needed!
+               Install it from http://boost.org
+               or .deb users: apt-get install libboost-program-options-dev
