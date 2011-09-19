@@ -5729,3 +5729,84 @@ Thanks in advance for any suggestions
         ERROR: The BOOST program_options library is needed!
                Install it from http://boost.org
                or .deb users: apt-get install libboost-program-options-dev
+
+
+0915   
+       RECOMMENDED: If you install the CURL library, Gnash will be able to
+                     display remote content (streaming from URLs) using CURL.
+                     Install libcurl from http://curl.haxx.se/libcurl
+                     or .deb users: apt-get install libcurl-dev
+                     or .rpm users: yum install curl-devel
+        RECOMMENDED: If you install the Speex library, Gnash will be able to
+                     decoded Speex encoded audio in FLV files.
+                     Install libspeex from http://speex.org
+                     or .deb users: apt-get install libspeex-dev
+                     or .rpm users: yum install speex-devel
+
+        webkit messy code
+
+ WARNING: without --enable-docbook we will use the cached
+                 documentation files included in the gnash distribution.
+                 If you change files in doc/C, you should --enable-docbook.
+        WARNING: You need to have the Ming development package
+                 installed to run most of the tests in Gnash testsuite.
+                 Install it from http://www.libming.org/
+                 or .deb users: apt-get install libming-dev
+        WARNING: You need to have the Ming utilities package
+                 version 0.4 or higher installed to run
+                 many of the tests in Gnash testsuite.
+                 Install it from http://www.libming.org
+                 or .deb users: apt-get install libming-util
+        WARNING: You need to have the MTASC compiler packages installed
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://mtasc.org
+                 or .deb users: apt-get install mtasc
+        WARNING: You need to have the HAXE compiler package 
+                 version 2.00 or higher installed
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://haxe.org
+                 or .deb users: apt-get install haxe
+        WARNING: You need to have the 'swfmill' tool installed
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://swfmill.org/
+                 or .deb users: apt-get install swfmill
+        WARNING: You need to have 'swfc' from SWFTools installed
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://www.swftools.org/
+                 or .deb users: apt-get install swftools
+        WARNING: you need as3compile from SWFTools
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://www.swftools.org/
+        WARNING: You need the dejagnu package installed to get a summary
+                 report after running ''make check''
+                 Install it from http://www.gnu.org/software/dejagnu/
+                 or .deb users: apt-get install dejagnu
+                 or .rpm users: yum install dejagnu
+
+
+--------------------------
+global gtk var
+set_text_to_drawaraw: add a args						***
+     
+0916 brw auto move when lose focus						done
+     (fnBrowser:6318): GLib-GObject-WARNING **: invalid cast from `-g-type-private--GTypeFlags' to `GtkWidget'
+     INFO: main.c(428) on set_text_to_drawarea, text: 
+     INFO: main.c(438) *** Invalid Widget
+
+     why will hide when show							over
+     initiative lose focus							
+     lose focus when media fullscreen						done
+     expose redraw the msg							done
+     
+     secure crt ui suspend
+ 	
+     phoneconfig ui block
+     
+     gtk time post signal
+     
+     no need refresh con state frequently					**
+     two case, one action							done
+
+     (fnBrowser:907): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `dest_height > 0' failed
+     (fnBrowser:907): Gdk-CRITICAL **: gdk_draw_pixbuf: assertion `GDK_IS_PIXBUF (pixbuf)' failed     
+   
