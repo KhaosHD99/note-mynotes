@@ -5402,23 +5402,15 @@ FD_SET
 
 flash										*
  
->>>>>>> .r642
-
-<<<<<<< .mine
-<<<<<<< .mine
 0820 yangu meigu and three sister go cong hua for a trip
          stay at home, pay pes
 
 0821 wen yi come;
          stay at home, pay pes
-=======
->>>>>>> .r642
->>>>>>> .r644
->>>>>>> .r645
-=======
+
 0825 crc table
      g_cond_wait; g_cond_signal
-     phone config: usewifi flag							**
+     phone config: usewifi flag							over
      select									*
      listen
 
@@ -5648,7 +5640,7 @@ Thanks in advance for any suggestions
      gtls test
 
 
-0906 gdk_threads_init flash										**
+0906 gdk_threads_init flash										***
      
      (fnBrowserDesktop:6707): Gdk-CRITICAL **: gdk_cairo_create: assertion `GDK_IS_DRAWABLE (drawable)' failed
      (fnBrowserDesktop:6707): Gdk-CRITICAL **: _gdk_gc_update_context: assertion `GDK_IS_GC (gc)' failed
@@ -5786,7 +5778,7 @@ Thanks in advance for any suggestions
 
 --------------------------
 global gtk var
-set_text_to_drawaraw: add a args						***
+set_text_to_drawaraw: add a args						done
      
 0916 brw auto move when lose focus						done
      (fnBrowser:6318): GLib-GObject-WARNING **: invalid cast from `-g-type-private--GTypeFlags' to `GtkWidget'
@@ -5804,9 +5796,25 @@ set_text_to_drawaraw: add a args						***
      
      gtk time post signal
      
-     no need refresh con state frequently					**
+     no need refresh con state frequently					done
      two case, one action							done
 
      (fnBrowser:907): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `dest_height > 0' failed
      (fnBrowser:907): Gdk-CRITICAL **: gdk_draw_pixbuf: assertion `GDK_IS_PIXBUF (pixbuf)' failed     
    
+0919 ver brw: image flash							**
+     brw: focus_in set focus to tool bar					*
+     
+     
+     drawFocusRing
+     
+0920 prompter: get miss call							**
+     why first boot, locale is en
+     on_hook<->dialing adver will die??					
+     brw reverse flash trategy							**
+     brw will block?								*
+
+     application/x-shockwave-flash
+    
+     pb: too slow(linconfig)     
+     
