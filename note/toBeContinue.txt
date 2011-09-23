@@ -5817,4 +5817,18 @@ set_text_to_drawaraw: add a args						done
      application/x-shockwave-flash
     
      pb: too slow(linconfig)     
+
+0921 find the way too disable flash						**
+     auto-resize-window		
+     default-encoding: 8859							**
+     enable-default-context-menu						
+     enable-spatial-navigation							**				
+
+0923 NPAPI
+     
+     webview set setting: (fnBrowser:1900): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+     
+     player show nothing
+     
+     when media play-> ring will die???						*
      
