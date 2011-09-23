@@ -5802,27 +5802,25 @@ set_text_to_drawaraw: add a args						done
      (fnBrowser:907): GdkPixbuf-CRITICAL **: gdk_pixbuf_scale_simple: assertion `dest_height > 0' failed
      (fnBrowser:907): Gdk-CRITICAL **: gdk_draw_pixbuf: assertion `GDK_IS_PIXBUF (pixbuf)' failed     
    
-0919 ver brw: image flash							**
+0919 ver brw: image flash							done
      brw: focus_in set focus to tool bar					*
-     
-     
      drawFocusRing
      
-0920 prompter: get miss call							**
-     why first boot, locale is en
-     on_hook<->dialing adver will die??					
-     brw reverse flash trategy							**
+0920 prompter: get miss call							done
+     why first boot, locale is en						
+     on_hook<->dialing adver will die??						over			
+     brw reverse flash trategy							done
      brw will block?								*
 
      application/x-shockwave-flash
     
      pb: too slow(linconfig)     
 
-0921 find the way too disable flash						**
+0921 find the way too disable flash						done
      auto-resize-window		
-     default-encoding: 8859							**
+     default-encoding: 8859							done
      enable-default-context-menu						
-     enable-spatial-navigation							**				
+     enable-spatial-navigation(messay sequece??)					*			
 
 0923 NPAPI
      
@@ -5830,5 +5828,6 @@ set_text_to_drawaraw: add a args						done
      
      player show nothing
      
-     when media play-> ring will die???						*
+     when media play-> ring will block???					**
      
+          
