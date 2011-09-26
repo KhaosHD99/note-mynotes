@@ -5820,7 +5820,7 @@ set_text_to_drawaraw: add a args						done
      auto-resize-window		
      default-encoding: 8859							done
      enable-default-context-menu						
-     enable-spatial-navigation(messay sequece??)					*			
+     enable-spatial-navigation(messay sequece??)				*			
 
 0923 NPAPI
      
@@ -5828,6 +5828,15 @@ set_text_to_drawaraw: add a args						done
      
      player show nothing
      
-     when media play-> ring will block???					**
+     when media play-> ring will block???					done
      
-          
+0924
+
+0925
+
+0926 liblinconfig slow								**
+     webkit focus frame								*
+     onhook->ring adver die; adver reboot fail???				**
+     
+     ioctl
+     inet_aton

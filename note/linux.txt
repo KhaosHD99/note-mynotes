@@ -920,6 +920,7 @@ struct rusage {
     long   ru_nsignals;      /* signals received */
     long   ru_nvcsw;         /* voluntary context switches */
     long   ru_nivcsw;        /* involuntary context switches */
+
 };
 
 disk:
@@ -949,3 +950,5 @@ NAT是一种将私有(保留)地址转化为合法IP地址的转换技术
 -w file 如果文件可写，则为真
 -x file 如果文件可执行，则为真
 
+
+freopen("/var/log/syslog","a", stderr);
