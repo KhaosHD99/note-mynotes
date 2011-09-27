@@ -952,3 +952,268 @@ NAT是一种将私有(保留)地址转化为合法IP地址的转换技术
 
 
 freopen("/var/log/syslog","a", stderr);
+
+
+
+------------------------------------------------------------------------------------------
+Linux 套接字编程中的 5 个隐患
+在异构环境中开发可靠的网络应用程序
+M. Tim Jones (mtj@mtjones.com), 资深软件工程师, Emulex
+简介： Socket API 是网络应用程序开发中实际应用的标准 API。尽管该 API 简单，但是开发新手可能会经历一些常见的问题。本文识别一些最常见的隐患并向您显示如何避免它们。
+标记本文！
+发布日期： 2005 年 10 月 08 日 
+级别： 中级 
+访问情况 ： 4280 次浏览 
+评论： 0 (查看 | 添加评论 - 登录)
+ 平均分 (2个评分)
+为本文评分
+
+在 4.2 BSD UNIX® 操作系统中首次引入，Sockets API 现在是任何操作系统的标准特性。事实上，很难找到一种不支持 Sockets API 的现代语言。该 API 相当简单，但新的开发人员仍然会遇到一些常见的隐患。
+本文识别那些隐患并向您显示如何避开它们。
+隐患 1．忽略返回状态
+第一个隐患很明显，但它是开发新手最容易犯的一个错误。如果您忽略函数的返回状态，当它们失败或部分成功的时候，您也许会迷失。反过来，这可能传播错误，使定位问题的源头变得困难。
+捕获并检查每一个返回状态，而不是忽略它们。考虑清单 1 显示的例子，一个套接字 send 函数。
+
+清单 1. 忽略 API 函数返回状态
+
+int status, sock, mode;
+/* Create a new stream (TCP) socket */
+sock = socket( AF_INET, SOCK_STREAM, 0 );
+...
+status = send( sock, buffer, buflen, MSG_DONTWAIT );
+if (status == -1) {
+  /* send failed */
+  printf( "send failed: %s\n", strerror(errno) );
+} else {
+  /* send succeeded -- or did it? */
+}
+
+清单 1 探究一个函数片断，它完成套接字 send 操作（通过套接字发送数据）。函数的错误状态被捕获并测试，但这个例子忽略了 send 在无阻塞模式（由 MSG_DONTWAIT 标志启用）下的一个特性。
+send API 函数有三类可能的返回值：
+如果数据成功地排到传输队列，则返回 0。
+如果排队失败，则返回 -1（通过使用 errno 变量可以了解失败的原因）。
+如果不是所有的字符都能够在函数调用时排队，则最终的返回值是发送的字符数。
+由于 send 的 MSG_DONTWAIT 变量的无阻塞性质，函数调用在发送完所有的数据、一些数据或没有发送任何数据后返回。在这里忽略返回状态将导致不完全的发送和随后的数据丢失。
+回页首
+隐患 2．对等套接字闭包
+UNIX 有趣的一面是您几乎可以把任何东西看成是一个文件。文件本身、目录、管道、设备和套接字都被当作文件。这是新颖的抽象，意味着一整套的 API 可以用在广泛的设备类型上。
+考虑 read API 函数，它从文件读取一定数量的字节。read 函数返回读取的字节数（最高为您指定的最大值）；或者 -1，表示错误；或者 0，如果已经到达文件末尾。
+如果在一个套接字上完成一个 read 操作并得到一个为 0 的返回值，这表明远程套接字端的对等层调用了 close API 方法。该指示与文件读取相同 —— 没有多余的数据可以通过描述符读取（参见 清单 2）。
+
+清单 2．适当处理 read API 函数的返回值
+
+int sock, status;
+sock = socket( AF_INET, SOCK_STREAM, 0 );
+...
+status = read( sock, buffer, buflen );
+if (status > 0) {
+  /* Data read from the socket */
+} else if (status == -1) {
+  /* Error, check errno, take action... */
+} else if (status == 0) {
+  /* Peer closed the socket, finish the close */
+  close( sock );
+  /* Further processing... */
+}
+
+同样，可以用 write API 函数来探测对等套接字的闭包。在这种情况下，接收 SIGPIPE 信号，或如果该信号阻塞，write 函数将返回 -1 并设置 errno 为 EPIPE。
+回页首
+隐患 3．地址使用错误（EADDRINUSE）
+您可以使用 bind API 函数来绑定一个地址（一个接口和一个端口）到一个套接字端点。可以在服务器设置中使用这个函数，以便限制可能有连接到来的接口。也可以在客户端设置中使用这个函数，以便限制应当供出去的连接所使用的接口。bind 最常见的用法是关联端口号和服务器，并使用通配符地址（INADDR_ANY），它允许任何接口为到来的连接所使用。
+bind 普遍遭遇的问题是试图绑定一个已经在使用的端口。该陷阱是也许没有活动的套接字存在，但仍然禁止绑定端口（bind 返回 EADDRINUSE），它由 TCP 套接字状态 TIME_WAIT 引起。该状态在套接字关闭后约保留 2 到 4 分钟。在 TIME_WAIT 状态退出之后，套接字被删除，该地址才能被重新绑定而不出问题。
+等待 TIME_WAIT 结束可能是令人恼火的一件事，特别是如果您正在开发一个套接字服务器，就需要停止服务器来做一些改动，然后重启。幸运的是，有方法可以避开 TIME_WAIT 状态。可以给套接字应用 SO_REUSEADDR 套接字选项，以便端口可以马上重用。
+考虑清单 3 的例子。在绑定地址之前，我以 SO_REUSEADDR 选项调用 setsockopt。为了允许地址重用，我设置整型参数（on）为 1 （不然，可以设为 0 来禁止地址重用）。
+
+清单 3．使用 SO_REUSEADDR 套接字选项避免地址使用错误
+
+int sock, ret, on;
+struct sockaddr_in servaddr;
+/* Create a new stream (TCP) socket */
+sock = socket( AF_INET, SOCK_STREAM, 0 ):
+/* Enable address reuse */
+on = 1;
+ret = setsockopt( sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on) );
+/* Allow connections to port 8080 from any available interface */
+memset( &servaddr, 0, sizeof(servaddr) );
+servaddr.sin_family = AF_INET;
+servaddr.sin_addr.s_addr = htonl( INADDR_ANY );
+servaddr.sin_port = htons( 45000 );
+/* Bind to the address (interface/port) */
+ret = bind( sock, (struct sockaddr *)&servaddr, sizeof(servaddr) );
+
+在应用了 SO_REUSEADDR 选项之后，bind API 函数将允许地址的立即重用。
+回页首
+隐患 4．发送结构化数据
+套接字是发送无结构二进制字节流或 ASCII 数据流（比如 HTTP 上的 HTTP 页面，或 SMTP 上的电子邮件）的完美工具。但是如果试图在一个套接字上发送二进制数据，事情将会变得更加复杂。
+比如说，您想要发送一个整数：您可以肯定，接收者将使用同样的方式来解释该整数吗？运行在同一架构上的应用程序可以依赖它们共同的平台来对该类型的数据做出相同的解释。但是，如果一个运行在高位优先的 IBM PowerPC 上的客户端发送一个 32 位的整数到一个低位优先的 Intel x86，那将会发生什么呢？字节排列将引起不正确的解释。
+字节交换还是不呢？
+Endianness 是指内存中字节的排列顺序。高位优先（big endian） 按最高有效字节在前排列，然而 低位优先（little endian） 按照最低有效字节在前排序。
+高位优先架构（比如 PowerPC®）比低位优先架构（比如 Intel® Pentium® 系列，其网络字节顺序是高位优先）有优势。这意味着，对高位优先的机器来说，在 TCP/IP 内控制数据是自然有序的。低位优先架构要求字节交换 —— 对网络应用程序来说，这是一个轻微的性能弱点。
+通过套接字发送一个 C 结构会怎么样呢？这里，也会遇到麻烦，因为不是所有的编译器都以相同的方式排列一个结构的元素。结构也可能被压缩以便使浪费的空间最少，这进一步使结构中的元素错位。
+幸好，有解决这个问题的方案，能够保证两端数据的一致解释。过去，远程过程调用（Remote Procedure Call，RPC）套装工具提供所谓的外部数据表示（External Data Representation，XDR）。XDR 为数据定义一个标准的表示来支持异构网络应用程序通信的开发。
+现在，有两个新的协议提供相似的功能。可扩展标记语言/远程过程调用（XML/RPC）以 XML 格式安排 HTTP 上的过程调用。数据和元数据用 XML 进行编码并作为字符串传输，并通过主机架构把值和它们的物理表示分开。SOAP 跟随 XML-RPC，以更好的特性和功能扩展了它的思想。参见 参考资料 小节，获取更多关于每个协议的信息。
+回页首
+隐患 5．TCP 中的帧同步假定
+TCP 不提供帧同步，这使得它对于面向字节流的协议是完美的。这是 TCP 与 UDP（User Datagram Protocol，用户数据报协议）的一个重要区别。UDP 是面向消息的协议，它保留发送者和接收者之间的消息边界。TCP 是一个面向流的协议，它假定正在通信的数据是无结构的，如图 1 所示。
+
+图 1．UDP 的帧同步能力和缺乏帧同步的 TCP
+ 
+图 1 的上部说明一个 UDP 客户端和服务器。左边的对等层完成两个套接字的写操作，每个 100 字节。协议栈的 UDP 层追踪写的数量，并确保当右边的接收者通过套接字获取数据时，它以同样数量的字节到达。换句话说，为读者保留了写者提供的消息边界。
+现在，看图 1 的底部．它为 TCP 层演示了相同粒度的写操作。两个独立的写操作（每个 100 字节）写入流套接字。但在本例中，流套接字的读者得到的是 200 字节。协议栈的 TCP 层聚合了两次写操作。这种聚合可以发生在 TCP/IP 协议栈的发送者或接收者中任何一方。重要的是，要注意到聚合也许不会发生 —— TCP 只保证数据的有序发送。
+对大多数开发人员来说，该陷阱会引起困惑。您想要获得 TCP 的可靠性和 UDP 的帧同步。除非改用其他的传输协议，比如流传输控制协议（STCP），否则就要求应用层开发人员来实现缓冲和分段功能。
+回页首
+调试套接字应用程序的工具
+GNU/Linux 提供几个工具，它们可以帮助您发现套接字应用程序中的一些问题。此外，使用这些工具还有教育意义，而且能够帮助解释应用程序和 TCP/IP 协议栈的行为。在这里，您将看到对几个工具的概述。查阅下面的 参考资料 了解更多的信息。
+查看网络子系统的细节
+netstat 工具提供查看 GNU/Linux 网络子系统的能力。使用 netstat，可以查看当前活动的连接（按单个协议进行查看），查看特定状态的连接（比如处于监听状态的服务器套接字）和许多其他的信息。清单 4 显示了 netstat 提供的一些选项和它们启用的特性。
+
+清单 4．netstat 实用程序的用法模式
+
+View all TCP sockets currently active
+$ netstat --tcp
+View all UDP sockets
+$ netstat --udp
+View all TCP sockets in the listening state
+$ netstat --listening
+View the multicast group membership information
+$ netstat --groups
+Display the list of masqueraded connections
+$ netstat --masquerade
+View statistics for each protocol
+$ netstat --statistics
+
+尽管存在许多其他的实用程序，但 netstat 的功能很全面，它覆盖了 route、ifconfig 和其他标准 GNU/Linux 工具的功能。
+监视流量
+可以使用 GNU/Linux 的几个工具来检查网络上的低层流量。tcpdump 工具是一个比较老的工具，它从网上“嗅探”网络数据包，打印到 stdout 或记录在一个文件中。该功能允许查看应用程序产生的流量和 TCP 生成的低层流控制机制。一个叫做 tcpflow 的新工具与 tcpdump 相辅相成，它提供协议流分析和适当地重构数据流的方法，而不管数据包的顺序或重发。清单 5 显示 tcpdump 的两个用法模式。
+
+清单 5．tcpdump 工具的用法模式
+
+Display all traffic on the eth0 interface for the local host
+$ tcpdump -l -i eth0
+Show all traffic on the network coming from or going to host plato
+$ tcpdump host plato
+Show all HTTP traffic for host camus
+$ tcpdump host camus and (port http)
+View traffic coming from or going to TCP port 45000 on the local host
+$ tcpdump tcp port 45000
+
+tcpdump 和 tcpflow 工具有大量的选项，包括创建复杂过滤表达式的能力。查阅下面的 参考资料 获取更多关于这些工具的信息。
+tcpdump 和 tcpflow 都是基于文本的命令行工具。如果您更喜欢图形用户界面（GUI），有一个开放源码工具 Ethereal 也许适合您的需要。Ethereal 是一个专业的协议分析软件，它可以帮助调试应用层协议。它的插入式架构（plug-in architecture）可以分解协议，比如 HTTP 和您能想到的任何协议（写本文的时候共有 637 个协议）。
+回页首
+总结
+套接字编程是容易而有趣的，但是您要避免引入错误或至少使它们容易被发现，这就需要考虑本文中描述的这 5 个常见的陷阱，并且采用标准的防错性程序设计实践。GNU/Linux 工具和实用程序还可以帮助发现一些程序中的小问题。记住：在查看实用程序的帮助手册时候，跟踪相关的或“请参见”工具。您也许会发现一个必要的新工具。
+
+参考资料
+学习
+您可以参阅本文在 developerWorks 全球站点上的 英文原文。
+
+TCP 状态机有 11 个状态。参见 W. Richard Steven 的 illustration from TCP/IP Illustrated, Volume 1 一书。
+
+在 Wikipedia 上探究 Endianness 的历史和含意。
+
+了解更多关于 IBM 的开放式、可伸缩和可定制的 Power Architecture 的信息。
+
+从 Programming in C 课件阅读 RPC/XDR 简介。
+
+获取更多关于 XML-RPC 以及在 Java™ 应用程序中如何使用它的信息，请阅读 “Java 编程中的 XML-RPC” （developerWorks，2004 年 1 月）。
+
+SOAP 以 XML-RPC 的特性为基础。请在 SoapWare.Org 上查找规范、工具、教程和文章。
+
+SCTP 兼有 TCP 和 UDP 的特性，以及可用性和可靠性。
+
+教程 “Linux Socket 编程，第一部分” （developerWorks，2003 年 10 月）讲解如何开始套接字编程以及如何构建一个通过 TCP/IP 连接的 echo 服务器和客户端。“Linux Socket 编程，第二部分” （developerWorks，2004 年 1 月）集中讨论 UDP 并且讲解如何用 C 和 Python 编写 UDP 套接字应用程序（尽管代码会翻译为其他语言）。
+
+netstat 手册页 提供有关各种使用 netstat 的方法的细节。
+
+BSD Sockets Programming from a Multilanguage Perspective （作者 M. Tim Jones），用 6 种不同的语言介绍了套接字编程的技巧。
+
+在 developerWorks Linux 专区 上查找更多为 Linux 开发人员提供的参考资料。 
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+--------------------------------------
+NAME
+
+setsockopt - set the socket options
+SYNOPSIS
+
+#include <sys/socket.h>
+
+int setsockopt(int socket, int level, int option_name,
+       const void *option_value, socklen_t option_len);
+
+DESCRIPTION
+
+The setsockopt() function shall set the option specified by the option_name argument, at the protocol level specified by the level argument, to the value pointed to by the option_value argument for the socket associated with the file descriptor specified by the socket argument.
+
+The level argument specifies the protocol level at which the option resides. To set options at the socket level, specify the level argument as SOL_SOCKET. To set options at other levels, supply the appropriate level identifier for the protocol controlling the option. For example, to indicate that an option is interpreted by the TCP (Transport Control Protocol), set level to IPPROTO_TCP as defined in the <netinet/in.h> header.
+
+The option_name argument specifies a single option to set. The option_name argument and any specified options are passed uninterpreted to the appropriate protocol module for interpretations. The <sys/socket.h> header defines the socket-level options. The options are as follows:
+
+SO_DEBUG
+Turns on recording of debugging information. This option enables or disables debugging in the underlying protocol modules. This option takes an int value. This is a Boolean option.
+SO_BROADCAST
+Permits sending of broadcast messages, if this is supported by the protocol. This option takes an int value. This is a Boolean option.
+SO_REUSEADDR
+Specifies that the rules used in validating addresses supplied to bind() should allow reuse of local addresses, if this is supported by the protocol. This option takes an int value. This is a Boolean option.
+SO_KEEPALIVE
+Keeps connections active by enabling the periodic transmission of messages, if this is supported by the protocol. This option takes an int value.
+If the connected socket fails to respond to these messages, the connection is broken and threads writing to that socket are notified with a SIGPIPE signal. This is a Boolean option.
+
+SO_LINGER
+Lingers on a close() if data is present. This option controls the action taken when unsent messages queue on a socket and close() is performed. If SO_LINGER is set, the system shall block the calling thread during close() until it can transmit the data or until the time expires. If SO_LINGER is not specified, and close() is issued, the system handles the call in a way that allows the calling thread to continue as quickly as possible. This option takes a linger structure, as defined in the <sys/socket.h> header, to specify the state of the option and linger interval.
+SO_OOBINLINE
+Leaves received out-of-band data (data marked urgent) inline. This option takes an int value. This is a Boolean option.
+SO_SNDBUF
+Sets send buffer size. This option takes an int value.
+SO_RCVBUF
+Sets receive buffer size. This option takes an int value.
+SO_DONTROUTE
+Requests that outgoing messages bypass the standard routing facilities. The destination shall be on a directly-connected network, and messages are directed to the appropriate network interface according to the destination address. The effect, if any, of this option depends on what protocol is in use. This option takes an int value. This is a Boolean option.
+SO_RCVLOWAT
+Sets the minimum number of bytes to process for socket input operations. The default value for SO_RCVLOWAT is 1. If SO_RCVLOWAT is set to a larger value, blocking receive calls normally wait until they have received the smaller of the low water mark value or the requested amount. (They may return less than the low water mark if an error occurs, a signal is caught, or the type of data next in the receive queue is different from that returned; for example, out-of-band data.) This option takes an int value. Note that not all implementations allow this option to be set.
+SO_RCVTIMEO
+Sets the timeout value that specifies the maximum amount of time an input function waits until it completes. It accepts a timeval structure with the number of seconds and microseconds specifying the limit on how long to wait for an input operation to complete. If a receive operation has blocked for this much time without receiving additional data, it shall return with a partial count or errno set to [EAGAIN] or [EWOULDBLOCK] if no data is received. The default for this option is zero, which indicates that a receive operation shall not time out. This option takes a timeval structure. Note that not all implementations allow this option to be set.
+SO_SNDLOWAT
+Sets the minimum number of bytes to process for socket output operations. Non-blocking output operations shall process no data if flow control does not allow the smaller of the send low water mark value or the entire request to be processed. This option takes an int value. Note that not all implementations allow this option to be set.
+SO_SNDTIMEO
+Sets the timeout value specifying the amount of time that an output function blocks because flow control prevents data from being sent. If a send operation has blocked for this time, it shall return with a partial count or with errno set to [EAGAIN] or [EWOULDBLOCK] if no data is sent. The default for this option is zero, which indicates that a send operation shall not time out. This option stores a timeval structure. Note that not all implementations allow this option to be set.
+For Boolean options, 0 indicates that the option is disabled and 1 indicates that the option is enabled.
+
+Options at other protocol levels vary in format and name.
+
+RETURN VALUE
+
+Upon successful completion, setsockopt() shall return 0. Otherwise, -1 shall be returned and errno set to indicate the error.
+
+ERRORS
+
+The setsockopt() function shall fail if:
+
+[EBADF]
+The socket argument is not a valid file descriptor.
+[EDOM]
+The send and receive timeout values are too big to fit into the timeout fields in the socket structure.
+[EINVAL]
+The specified option is invalid at the specified socket level or the socket has been shut down.
+[EISCONN]
+The socket is already connected, and a specified option cannot be set while the socket is connected.
+[ENOPROTOOPT]
+The option is not supported by the protocol.
+[ENOTSOCK]
+The socket argument does not refer to a socket.
+The setsockopt() function may fail if:
+
+[ENOMEM]
+There was insufficient memory availabl
+e for the operation to complete.
+[ENOBUFS]
+Insufficient resources are available in the system to complete the call.
+------------------------------------------------------------------------------------
