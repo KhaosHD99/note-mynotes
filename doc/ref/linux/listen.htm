@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://pubs.opengroup.org/onlinepubs/7908799/xns/listen.html -->
+<HTML><HEAD><TITLE>listen</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><!-- Copyright 1997 The Open Group, All Rights Reserved -->
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR></HEAD>
+<BODY bgColor=white>
+<CENTER><FONT size=2>The Single UNIX &reg; Specification, Version 2<BR>Copyright &copy; 
+1997 The Open Group </FONT></CENTER>
+<HR noShade SIZE=2>
+
+<H4>NAME</H4>
+<BLOCKQUOTE>listen - listen for socket connections and limit the queue of 
+  incoming connections </BLOCKQUOTE>
+<H4>SYNOPSIS</H4>
+<BLOCKQUOTE><PRE><CODE>
+
+#include &lt;<A href="http://pubs.opengroup.org/onlinepubs/7908799/xns/syssocket.h.html">sys/socket.h</A>&gt;
+
+int listen(int <I>socket</I>, int <I>backlog</I>);
+</CODE>
+</PRE></BLOCKQUOTE>
+<H4>DESCRIPTION</H4>
+<BLOCKQUOTE>The <I>listen()</I> function marks a connection-mode socket, 
+  specified by the <I>socket</I> argument, as accepting connections, and limits 
+  the number of outstanding connections in the socket's listen queue to the 
+  value specified by the <I>backlog</I> argument. 
+  <P>If <I>listen()</I> is called with a <I>backlog</I> argument value that is 
+  less than 0, the function sets the length of the socket's listen queue to 0. 
+  <P>The implementation may include incomplete connections in the queue subject 
+  to the queue limit. The implementation may also increase the specified queue 
+  limit internally if it includes such incomplete connections in the queue 
+  subject to this limit. 
+  <P>Implementations may limit the length of the socket's listen queue. If 
+  <I>backlog</I> exceeds the implementation-dependent maximum queue length, the 
+  length of the socket's listen queue will be set to the maximum supported 
+  value. 
+  <P>The socket in use may require the process to have appropriate privileges to 
+  use the <I>listen()</I> function. </P></BLOCKQUOTE>
+<H4>RETURN VALUE</H4>
+<BLOCKQUOTE>Upon successful completions, <I>listen()</I> returns 0. Otherwise, 
+  -1 is returned and <I>errno</I> is set to indicate the error. </BLOCKQUOTE>
+<H4>ERRORS</H4>
+<BLOCKQUOTE>The <I>listen()</I> function will fail if: 
+  <DL compact>
+    <DT>[EBADF]
+    <DD>The <I>socket</I> argument is not a valid file descriptor. 
+    <DT>[EDESTADDRREQ]
+    <DD>The socket is not bound to a local address, and the protocol does not 
+    support listening on an unbound socket. 
+    <DT>[EINVAL]
+    <DD>The <I>socket</I> is already connected. 
+    <DT>[ENOTSOCK]
+    <DD>The <I>socket</I> argument does not refer to a socket. 
+    <DT>[EOPNOTSUPP]
+    <DD>The socket protocol does not support <I>listen()</I>. </DD></DL>
+  <P>The <I>listen()</I> function may fail if: 
+  <DL compact>
+    <DT>[EACCES]
+    <DD>The calling process does not have the appropriate privileges. 
+    <DT>[EINVAL]
+    <DD>The <I>socket</I> has been shut down. 
+    <DT>[ENOBUFS]
+    <DD>Insufficient resources are available in the system to complete the call. 
+    </DD></DL></BLOCKQUOTE>
+<H4>SEE ALSO</H4>
+<BLOCKQUOTE><I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xns/accept.html">accept()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xns/connect.html">connect()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xns/socket.html">socket()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xns/syssocket.h.html">&lt;sys/socket.h&gt;</A></I>. 
+</BLOCKQUOTE>
+<HR noShade SIZE=2>
+
+<CENTER><FONT size=2>UNIX &reg; is a registered Trademark of The Open 
+Group.<BR>Copyright &copy; 1997 The Open Group <BR>[ <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/index.html">Main Index</A> | 
+<A href="http://pubs.opengroup.org/onlinepubs/7908799/xshix.html">XSH</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/xcuix.html">XCU</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/xbdix.html">XBD</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/cursesix.html">XCURSES</A> | 
+<A href="http://pubs.opengroup.org/onlinepubs/7908799/xnsix.html">XNS</A> ] 
+</FONT></CENTER>
+<HR noShade SIZE=2>
+</BODY></HTML>
