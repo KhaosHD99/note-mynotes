@@ -5840,3 +5840,6 @@ set_text_to_drawaraw: add a args						done
      
      ioctl
      inet_aton
+
+0927 FD_SET test
+     

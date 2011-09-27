@@ -1,0 +1,5096 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0053)http://www.ibm.com/developerworks/cn/linux/l-sockpit/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Linux 套接字编程中的 5 个隐患</title>
+<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+  <meta name="Owner" content="dw@cn.ibm.com">
+  <meta name="DC.Language" scheme="rfc1766" content="zh-CN">
+  <meta name="IBM.Country" content="CN">
+<meta name="Security" content="Public">
+<meta name="IBM.SpecialPurpose" content="SP001">
+<meta name="IBM.PageAttributes" content="sid=1003,1004">
+<meta name="Source" content="v16 Template Generator">
+<meta name="Robots" content="index,follow">
+<meta name="Abstract" content="Socket API 是网络应用程序开发中实际应用的标准 API。尽管该 API 简单，但是开发新手可能会经历一些常见的问题。本文识别一些最常见的隐患并向您显示如何避免它们。">
+<meta name="Description" content="Socket API 是网络应用程序开发中实际应用的标准 API。尽管该 API 简单，但是开发新手可能会经历一些常见的问题。本文识别一些最常见的隐患并向您显示如何避免它们。">
+<meta name="Keywords" content="networking, Internet protocol, availability, reliability, SCTP, TCP, UDP, IP, sockets api, sockets, tcpflow, tcpdump, bsd, c, xdr, xml, rpc, gnulinux, ethereal, m. tim jones, 连网, 网际协议, 可用性, 可靠性, 套接字 api, 套接字, tttlca">
+<meta name="DC.Date" scheme="iso8601" content="2005-10-08">
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316">
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="SWGC0">
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCLNXCN">
+<meta name="DC.Rights" content="&copy; Copyright&nbsp;IBM Corporation&nbsp;2005">
+<meta name="IBM.Effective" scheme="W3CDTF" content="2005-10-08">
+<meta name="title" content="Linux 套接字编程中的 5 个隐患">
+
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="./Linux 套接字编程中的 5 个隐患_files/all.css" media="all" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/print.css" media="print" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/overlay.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+
+<!-- dW-specific CSS -->
+<link href="./Linux 套接字编程中的 5 个隐患_files/dw-screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/dw-local-site.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/dw-screen-comments-ratings-signin.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/jquery.cluetip.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/dw-mf0311.css" rel="stylesheet" title="www" type="text/css">
+<link href="./Linux 套接字编程中的 5 个隐患_files/dw-mf-cn.css" rel="stylesheet" title="www" type="text/css">
+<script src="./Linux 套接字编程中的 5 个隐患_files/ibmcommon.js" type="text/javascript">//</script>
+<script src="./Linux 套接字编程中的 5 个隐患_files/dynamicnav.js" type="text/javascript">//</script>
+<script language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/urltactic.js" type="text/javascript"></script>
+<!-- Rating_START -->
+<script language="JavaScript" type="text/javascript">
+  // <![CDATA[
+
+ dwr = {};
+  dwr.clickhere = '点击评分';
+  dwr.starIntro = ''; 
+  dwr.stars = '星';
+  dwr.star = '星'; 
+  dwr.avgRatingOf = '平均分';
+  dwr.youRated = '您的评分是';
+  dwr.avgRating = '平均分';
+  dwr.basedOnVote = '共 {1} 个评分'; // {1} to be substitue by code
+  dwr.basedOnVotes = '共 {1} 个评分';
+  dwr.leftParen = '（'; 
+  dwr.rightParen = ' ）'; 
+  dwr.space = ' '; 
+  dwr.yourRating = '您的评分';
+dwr.avgRating2 = '总共 {1} 评分的平均分';
+dwr.avgRating3 = '平均分{1} 星';
+dwr.rateThisArticle = '为本文评分';
+dwr.votes = '{1}个评分';
+dwr.vote = '{1}个评分';
+dwr.submitErr = '错误：提交失败，请重试。';
+dwr.noRatingErr = '错误：请选择一个评分并重新提交。';
+dwr.submit = '提交';
+// ]]>
+</script>
+
+<!-- Rating_START -->
+<script language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/showrating.js" type="text/javascript"></script>
+<style type="text/css">
+  .metavalue {
+  display: none;
+  }
+</style>
+<!-- Rating_END --><!-- RESERVED_HEADER_INCLUDE -->
+<script language="javascript" src="./Linux 套接字编程中的 5 个隐患_files/ajax1.js" type="text/javascript"></script>
+<script language="javascript" src="./Linux 套接字编程中的 5 个隐患_files/search_counter-maverick.js" type="text/javascript"></script>
+<script language="javascript" src="./Linux 套接字编程中的 5 个隐患_files/request_referer_capture-maverick.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ setDefaultQuery('defaultHere');
+ //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ function openNewWindow(url,tar,arg){window.open(url,tar,arg);}
+ //-->
+</script>
+  <!-- Include file support -->
+  <script language="JavaScript" type="text/javascript">
+    (function($) {
+    jQuery.extend({
+    getInc: function(u,d){
+    if(u==null)return;
+    jQuery.ajax({
+    type: "GET",
+    url: u,
+    dataType: "text",
+    success: function(t) {
+    jQuery(d).html(t);
+    ibmCommon.initShowHide(jQuery(d).children()[0]);	
+    },
+    async: true
+    });
+    }
+    });
+    })(jQuery);
+  </script>
+<script id="flashdetect" type="text/javascript" src="./Linux 套接字编程中的 5 个隐患_files/flash-detect.js" charset="UTF-8"></script><script id="mhMenu" type="text/javascript" src="./Linux 套接字编程中的 5 个隐患_files/cnzh-utf8.js" charset="UTF-8"></script><script id="wiBundle" type="text/javascript" src="./Linux 套接字编程中的 5 个隐患_files/Controller" charset="UTF-8"></script></head><body id="ibm-com">
+<div id="ibm-top" class="ibm-landing-page">
+
+<!-- MASTHEAD_BEGIN -->
+<!-- MASTHEAD_BEGIN -->
+<div class="ibm-access"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-content">跳转到主要内容</a></div> 
+<div id="ibm-masthead-dw">
+  
+    <!-- TOP ROW -->    
+    <div id="dw-masthead-top-row">
+		<ul id="ibm-unav-home-dw">
+			<li id="ibm-logo">
+				<a href="http://www.ibm.com/cn/zh/"><img src="./Linux 套接字编程中的 5 个隐患_files/ibm-smlogo.gif" width="44" height="16" alt="IBM&reg;"></a>
+			</li>
+		</ul>
+        <ul id="ibm-mast-options-dw" class="cn">
+        	<li id="dw-mast-top-0"> 	
+				<a class="" href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&lang=zh&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F" title="">登录 (或注册)</a>
+			</li>
+        	<li id="dw-mast-top-1" class="dw-mast-top-1-cn">
+		    	<a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#SELECTLANG">中文</a><img class="dw-preload" src="./Linux 套接字编程中的 5 个隐患_files/arrow-down-active.gif" width="8" height="7" alt="">
+			</li>
+        	<li id="dw-mast-top-2" class="dw-mf-hide">
+				<a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">[userid]<img src="./Linux 套接字编程中的 5 个隐患_files/photo.do" alt="PHOTO" class="dw-mast-profimg" width="20" height="20"></a>
+			</li>
+		</ul>
+	</div>
+    
+    <!-- TOP ROW SLIDER -->
+    <div id="ibm-my-menu-dw">    
+          <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+                <!-- Sign-in -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+						<div class="dw-mast-close">
+							<ul>
+								<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+							</ul>
+						</div>
+						
+						<div id="dw-mast-sso">
+							<div id="dw-mast-sso-reg">
+								<p class="dw-mast-sso-reg-cn">如果您还没有注册到 IBM 注册系统，我们为给您带来的不便表示道歉，并请您马上注册。 							
+									<a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=zh&amp;d=&#39;+encodeURIComponent(location.href);})();">现在注册</a>。</p>
+							</div>
+							<div id="signin_error_mf" class="no-display"></div>
+							<div id="dw-mast-sso-form">
+								<form id="sForm_mf" action="" method="post" name="sForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-sso-id" class="dw-mast-sso-id-cn">
+										<label for="ibmid_mf">IBM ID：</label>
+										<input id="ibmid_mf" type="text" value="" name="ibmid_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,&#39;mf&#39;);" class="">
+									</div>
+									<div id="dw-mast-sso-pw" class="dw-mast-sso-pw-cn">
+										<label for="pw_mf">密码：</label>
+										<input id="pw_mf" type="password" value="" name="pw_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,&#39;mf&#39;);" class="">
+									</div>
+									<div id="dw-mast-sso-target" class="dw-mast-sso-target-cn">
+										<label for="AfterSignIn_mf">登录之后：</label>
+										<select id="AfterSignIn_mf" name="AfterSignIn_name_mf">
+											<option value="" selected="selected">留在当前页面</option>
+											<option value="/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=zh">My developerWorks 概要信息</option>
+											<option value="/developerworks/mydeveloperworks/homepage/?lang=zh">My developerWorks 首页</option>
+										</select>
+									</div>
+									<div id="dw-mast-sso-terms">
+										<p class="dw-mf-perm-box">
+											<input id="perm_mf" type="checkbox" name="perm_name_mf"><label for="perm_mf"> 保持登录。</label>
+										</p>
+										<p class="dw-mast-sso-terms-cn">单击提交则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/mydeveloperworks/terms?lang=zh">查看条款和条件</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn-cn" name="ibm_submit_name_mf" value="提交" onclick="signin(&#39;mf&#39;);return false;" type="submit">
+									</div>
+								</form>
+							</div>
+							<div id="dw-mast-sso-update">
+								<ul>
+									<li><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=zh_CN">忘记 IBM ID？</a></li>
+								</ul>
+								<ul class="dw-mf-pwupdate-cn">
+									<li><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;https://www.ibm.com/account/profile?page=forgot&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(getAuthUrl())+&#39;%3Fm%3Dloginpage%26lang%3Dzh_CN%26d%3D&#39;+encodeURIComponent(location.href);})();">忘记密码？</a></li>
+									<li><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;https://www.ibm.com/account/profile?page=chpw&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(location.href);})();">更改您的密码</a></li>
+								</ul>
+							</div>
+							<div id="dw-mast-sso-text">
+								<p>当您初次登录到 developerWorks 时，将会为您创建一份概要信息。<strong>您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。</strong>您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容显示在一起。</p>
+								<p class="dw-mf-secure-cn">所有提交的信息确保安全。</p>
+							</div>
+						</div>
+						
+						<div id="dw-mast-dname" class="dw-mf-hide">
+							<p>当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。</p><p><strong>昵称长度在 3 至 31 个字符之间</strong>。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。</p>
+							<div id="signin_dname_error_mf" class="no-display"></div>
+							<div id="dw-mast-dname-form">
+								<form id="dForm_mf" action="" method="post" name="dForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-dname-mf">
+										<label for="dname_mf">昵称：</label>
+										<input id="dname_mf" name="dname_name_mf" maxlength="31" size="25" value="" type="text" onkeypress="handleEP(event,this.form,&#39;mf&#39;);">
+									</div>
+									<div id="dw-mast-dname-terms">
+										<p class="dw-mast-dname-terms-cn">单击<strong>提交</strong>则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/mydeveloperworks/terms?lang=zh">查看条款和条件</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn-cn" name="dname_submit_name_mf" value="提交" onclick="signin(&#39;mf&#39;);return false;" type="submit">
+									</div>
+								</form>								
+							</div>
+							<div id="dw-mast-dname-secure">
+								<p class="dw-mf-secure-cn">所有提交的信息确保安全。</p>
+							</div>
+						</div>
+						
+						<div id="dw-mast-auth" class="dw-mf-hide">
+							<div>
+								<h2>My developerWorks：</h2>
+								<ul>
+									<li><a id="dw-mast-top-0-0" href="http://www.ibm.com/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=zh">我的概要信息</a></li>
+									<li><a href="http://www.ibm.com/developerworks/mydeveloperworks/homepage?lang=zh">我的首页</a></li>
+									<li><a href="http://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/mycommunities?lang=zh">我的群组</a></li>
+								</ul>     
+							</div>
+							<div id="dw-mast-notify" class="dw-mf-hide">
+								<h2>我的通知：</h2>
+								<ul>
+									<li><a id="new_notify" href="http://www.ibm.com/developerworks/mydeveloperworks/homepage?lang=zh">{[num_notify] 个新通知}([num_notify] 个新通知)</a></li>
+									<li><a id="new_invite" href="http://www.ibm.com/developerworks/mydeveloperworks/profiles/html/wc.do?action=in&requireAuth=true&widgetId=friends&lang=[lang]">{[num_invite] 个网络请求}([num_invite] 个网络请求)</a></li>  
+								</ul>
+							</div>
+							<div class="dw-mast-more">
+								<ul class="ibm-link-list">
+									<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="signOut(); return false;"><strong>退出</strong></a></li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+                	
+                </div>
+                  <!-- Site selector --> 
+				<div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">
+						<h2>选择语言：</h2>
+						<ul>
+							<li><a id="dw-mast-top-1-0" href="http://www.ibm.com/developerworks/">English</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/">中文</a></li>
+							<li><a href="http://www.ibm.com/developerworks/jp/">日本語</a></li>
+							<li><a href="http://www.ibm.com/developerworks/kr/">한국어</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-col-2-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/ru/">Русский</a></li>
+							<li><a href="http://www.ibm.com/developerworks/br/">Português (Brasil)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ssa/">Español</a></li>
+							<li><a href="http://www.ibm.com/developerworks/vn/">Việt</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div id="ibm-universal-nav-dw">
+        <ul id="ibm-unav-links-dw">
+            <li id="ibm-unav-home-dwlogo">
+				<a href="http://www.ibm.com/developerWorks/cn/"><img src="./Linux 套接字编程中的 5 个隐患_files/dw-wordmark.gif" width="218" height="32" alt="developerWorks&reg;"></a>
+            </li>
+        </ul>
+ 
+        <ul id="ibm-menu-links-dw" class="ibm-menu-links-dw-cn">
+
+        	<li id="dw-mast-nav-0"><a href="http://www.ibm.com/developerworks/cn/topics">技术主题</a></li>
+        	<li id="dw-mast-nav-1"><a href="http://www.ibm.com/developerworks/cn/downloads/">软件下载</a></li>
+        	<li id="dw-mast-nav-2"><a href="https://www.ibm.com/developerworks/community/?lang=zh">社区</a></li>
+        	<li id="dw-mast-nav-3"><a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=6d7f9e5d-5f89-4767-a006-a81b8d186370&lang=zh">技术讲座</a></li>
+     </ul>
+			<form id="ibm-search-form" action="http://www.ibm.com/search/csass/search/" method="get" name="form1">
+				<input type="hidden" name="sn" value="dw">
+				<input type="hidden" name="lang" value="zh">
+				<input type="hidden" name="cc" value="CN">
+				<input type="hidden" name="en" value="utf">
+				<input type="hidden" name="hpp" value="20">
+				<input type="hidden" name="dws" value="cndw">
+			    <input type="hidden" name="lo" value="zh">
+				<p>
+				<label for="q"><img alt="查询:" height="1" width="1" src="./Linux 套接字编程中的 5 个隐患_files/c.gif"></label>
+				<input type="text" value="搜索 developerWorks" name="q" maxlength="100" id="q">
+					<input type="submit" id="ibm-search" class="ibm-btn-search ibm-btn-search-cn" name="Search" value="搜索">
+				</p>
+			</form>
+    </div>
+    
+    <!-- BOTTOM ROW SLIDER -->
+    <div id="ibm-common-menu-dw">
+     
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Technical topics category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-3-1">
+						<h2>IBM 产品：</h2>
+						<ul>
+							<li><a id="dw-mast-nav-0-0" href="http://www.ibm.com/developerworks/cn/aix/">AIX and UNIX</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/ibmi/">IBM i</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/data/">Information Management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/lotus/">Lotus</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/rational/">Rational</a></li>
+						<!--	<li><a href="">Tivoli</a></li>  -->
+							<li><a href="http://www.ibm.com/developerworks/cn/websphere/">WebSphere</a></li>     
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-3-2">
+						<h2>技术：</h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/java/">Java technology</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/">Linux</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/opensource/">Open source</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/webservices/">SOA and web services</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/web/">Web development</a></li>  
+							<li><a href="http://www.ibm.com/developerworks/cn/xml/">XML</a></li>     
+						</ul>
+                    </div>
+					<div class="dw-mast-col-3-3">
+						<h2>解决方案：</h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/cloud/">Cloud computing</a></li>
+						<!--	<li><a href="">Industries</a></li> -->
+						</ul>
+					    <br>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/library/">文档库</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/rss/">订阅源</a></li>
+							<li><a href="http://www.ibm.com/vrm/newsletter/10104?S_TACT=105AGX52&S_CMP=dwcntop">在线浏览每周时事通讯</a></li>
+						</ul>        
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/cn/topics/"><strong>技术主题详情</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Evaluation software category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+					<h2>查找软件：</h2>
+						<ul>
+							<li><a id="dw-mast-nav-1-0" href="http://www.ibm.com/developerworks/cn/downloads/product.html">IBM 产品</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/downloads/evalmethod.html">评估方式（下载，在线试用，Beta 版，云）</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/downloads/industry.html">行业</a></li>
+						</ul>           
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/cn/downloads/"><strong>软件评估详情</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+				</div> 
+				<!-- Community category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">
+						<ul>
+							<li><a id="dw-mast-nav-2-0" href="https://www.ibm.com/developerworks/community/homepage/?lang=zh">我的首页</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/profiles/home.do?lang=zh">概要信息</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/groups/service/html/allcommunities?lang=zh">群组</a></li>
+							<li><a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/?lang=zh">博客</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/bookmarks/html?lang=zh">书签</a></li>  
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-2-2">
+						<ul>
+						<!--	<li><a href="">Forums</a></li> -->
+							<li><a href="https://www.ibm.com/developerworks/mydeveloperworks/wikis/home?lang=zh">Wiki</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/files/app?lang=zh">文件</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/activities/service/html/mainpage?lang=zh#dashboard,myactivities">活动</a></li>
+						<!--	<li><a href="">Podcasts</a></li> -->    
+						</ul>
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=3302cc3b-074e-44da-90b1-5055f1dc0d9c&lang=zh"><strong>社区详情</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Events category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+						<ul>
+							<li><a id="dw-mast-nav-3-0" href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=6d7f9e5d-5f89-4767-a006-a81b8d186370&lang=zh">技术讲座</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/swi/">多媒体课堂</a></li>
+							<li><a href="http://www.ibm.com/developerworks/find/webcasts/">网络广播（英文）</a></li>
+							<li><a href="http://www.ibm.com/developerworks/find/events/">查找活动（技术讲座，网络广播，会议等）（英文）</a></li> 
+						</ul>            
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=6d7f9e5d-5f89-4767-a006-a81b8d186370&lang=zh"><strong>活动详情</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="fdiv" class="ibm-access"><embed type="application/x-shockwave-flash" src="https://www.ibm.com/developerworks/js/dw-mf/connect.swf" width="1" height="1" id="sflash" name="sflash" quality="high" menu="false" wmode="window" movie="https://www.ibm.com/developerworks/js/dw-mf/connect.swf" swliveconnect="true" allowscriptaccess="always"></div>
+<!-- MASTHEAD_END --><!-- MASTHEAD_END -->
+
+<div id="ibm-pcon">
+
+<!-- CONTENT_BEGIN -->
+<div id="ibm-content">
+
+<!-- Navigation_Trail_BEGIN -->
+<!-- &nbsp; -->
+      <div id="ibm-content-head"><ul id="ibm-navigation-trail"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/cn/">developerWorks 中国</a></li><li><a href="http://www.ibm.com/developerworks/cn/linux/">Linux</a></li><li><a href="http://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp">文档库</a></li></ul></div>
+<!-- Navigation_Trail_END -->
+
+<!-- dW_Summary Area_START -->
+<div id="dw-summary-article">
+
+<div class="dw-content-head">
+<h1>Linux 套接字编程中的 5 个隐患</h1><p><em>在异构环境中开发可靠的网络应用程序</em></p>
+</div>
+
+<div class="ibm-container-body ibm-two-column">
+
+<div class="ibm-column ibm-first">
+<div class="author"><a class="dwauthor" rel="#authortip1" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#author1">M. Tim Jones</a> (<a href="mailto:mtj@mtjones.com?subject=Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3&cc=tomyoung@us.ibm.com">mtj@mtjones.com</a>), 资深软件工程师, Emulex</div><div id="authortip1" class="dwauthor-onload-state ibm-no-print" style="display: none; "><div class="position"><img src="./Linux 套接字编程中的 5 个隐患_files/p-mjones.jpg" width="64" height="80" alt="M. Tim Jones"></div>Tim Jones 是一名嵌入式软件工程师，他是 <em>GNU/Linux Application Programming</em>、<em>AI Application Programming</em> 以及
+<em>BSD Sockets Programming from a Multilanguage Perspective</em> 等书的作者。他的工程背景非常广泛，从同步宇宙飞船的内核开发到嵌入式架构设计，再到网络协议的开发。Tim 是 Emulex Corp. 的一名资深软件工程师。</div>
+<p></p>
+  <p><strong>简介：</strong>&nbsp;Socket API 是网络应用程序开发中实际应用的标准 API。尽管该 API 简单，但是开发新手可能会经历一些常见的问题。本文识别一些最常见的隐患并向您显示如何避免它们。</p>
+
+  <!-- <p class="ibm-no-print"><div id="dw-tag-this" class="ibm-no-print"></div><div id="interestShow" class="ibm-no-print"></div></p> -->
+<div id="dw-tag-content" class="ibm-no-print"></div><div id="dw-moretags-access" class="ibm-access"></div>
+<p class="ibm-no-print"></p><div id="dw-tag-this" class="ibm-no-print"><a class="ibm-external-link" onclick="jQuery.launchTagThisWindow(); return false;" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">标记本文！</a></div><div id="interestShow" class="ibm-no-print"></div><p></p>
+</div>
+
+<div class="ibm-column ibm-second">
+
+<p class="leading"><b>发布日期：</b>&nbsp;2005 年 10 月 08 日
+  
+<br><b>级别：</b>&nbsp;中级
+    
+
+<br><strong>访问情况 ：</strong>&nbsp;4280 次浏览
+  <br><strong>评论：</strong>&nbsp;<span id="nCmts">0&nbsp;(<a class="dw-view-comment" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#icomments">查看</a>&nbsp;|&nbsp;<a onclick="showSignIn();return false;" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">添加评论</a> - 登录)</span>
+  <!-- Rating_Area_Begin -->
+  </p><div id="art-rating-summary"><img alt="平均分 5 星 共 2 个评分" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-5b.jpg" class="dw-avg-rating"> 平均分 (2个评分)<br><a class="dw-view-comment" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#iratings">为本文评分</a></div>
+  <!-- Rating_Area_End -->
+  <br>
+<p></p>
+</div>
+
+</div>
+</div>
+<!-- dW_Summary_Area_END -->
+
+<!-- CONTENT_BODY -->
+<div id="ibm-content-body">
+
+<!-- MAIN_COLUMN_BEGIN -->
+<div id="ibm-content-main">
+
+<!-- Related_Searches_Area_And_Overlays_Begin -->
+
+<!-- MAIN_COLUMN_CONTAINER_BEGIN -->
+<div class="ibm-container">
+
+<!-- MAIN_COLUMN_CONTENT_BEGIN -->
+<p>在 4.2 BSD UNIX® 操作系统中首次引入，Sockets API 现在是任何操作系统的标准特性。事实上，很难找到一种不支持 Sockets API 的现代语言。该 API 相当简单，但新的开发人员仍然会遇到一些常见的隐患。</p>
+<p>本文识别那些隐患并向您显示如何避开它们。</p>
+<p><a name="N10057"><span class="atitle">隐患 1．忽略返回状态</span></a></p>
+<p>第一个隐患很明显，但它是开发新手最容易犯的一个错误。如果您忽略函数的返回状态，当它们失败或部分成功的时候，您也许会迷失。反过来，这可能传播错误，使定位问题的源头变得困难。</p>
+<p>捕获并检查每一个返回状态，而不是忽略它们。考虑清单 1 显示的例子，一个套接字 <code>send</code> 函数。</p>
+<br><a name="N1006B"><b>清单 1. 忽略 API 函数返回状态</b></a><br><table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="code-outline"><pre class="displaycode">
+int status, sock, mode;
+/* Create a new stream (TCP) socket */
+sock = <strong>socket</strong>( AF_INET, SOCK_STREAM, 0 );
+...
+status = <strong>send</strong>( sock, buffer, buflen, MSG_DONTWAIT );
+if (status == -1) {
+  /* send failed */
+  printf( "send failed: %s\n", strerror(errno) );
+} else {
+  /* send succeeded -- or did it? */
+}
+</pre></td></tr></tbody></table><br>
+<p>清单 1 探究一个函数片断，它完成套接字 <code>send</code> 操作（通过套接字发送数据）。函数的错误状态被捕获并测试，但这个例子忽略了 <code>send</code> 在无阻塞模式（由 <code>MSG_DONTWAIT</code> 标志启用）下的一个特性。</p>
+<p><code>send</code> API 函数有三类可能的返回值：</p>
+<ul>
+<li>如果数据成功地排到传输队列，则返回 0。</li>
+<li>如果排队失败，则返回 -1（通过使用 <code>errno</code> 变量可以了解失败的原因）。</li>
+<li>如果不是所有的字符都能够在函数调用时排队，则最终的返回值是发送的字符数。</li>
+</ul>
+<p>由于 <code>send</code> 的 <code>MSG_DONTWAIT</code> 变量的无阻塞性质，函数调用在发送完所有的数据、一些数据或没有发送任何数据后返回。在这里忽略返回状态将导致不完全的发送和随后的数据丢失。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N100A7"><span class="atitle">隐患 2．对等套接字闭包</span></a></p>
+<p>UNIX 有趣的一面是您几乎可以把任何东西看成是一个文件。文件本身、目录、管道、设备和套接字都被当作文件。这是新颖的抽象，意味着一整套的 API 可以用在广泛的设备类型上。</p>
+<p>考虑 <code>read</code> API 函数，它从文件读取一定数量的字节。<code>read</code> 函数返回读取的字节数（最高为您指定的最大值）；或者 -1，表示错误；或者 0，如果已经到达文件末尾。</p>
+<p>如果在一个套接字上完成一个 <code>read</code> 操作并得到一个为 0 的返回值，这表明远程套接字端的对等层调用了 <code>close</code> API 方法。该指示与文件读取相同 —— 没有多余的数据可以通过描述符读取（参见 清单 2）。</p>
+<br><a name="N100CA"><b>清单 2．适当处理 read API 函数的返回值</b></a><br><table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="code-outline"><pre class="displaycode">
+int sock, status;
+sock = <strong>socket</strong>( AF_INET, SOCK_STREAM, 0 );
+...
+status = <strong>read</strong>( sock, buffer, buflen );
+if (status &gt; 0) {
+  /* Data read from the socket */
+} else if (status == -1) {
+  /* Error, check errno, take action... */
+} else if (status == 0) {
+  /* Peer closed the socket, finish the close */
+  <strong>close</strong>( sock );
+  /* Further processing... */
+}
+</pre></td></tr></tbody></table><br>
+<p>同样，可以用 <code>write</code> API 函数来探测对等套接字的闭包。在这种情况下，接收 <code>SIGPIPE</code> 信号，或如果该信号阻塞，<code>write</code> 函数将返回 -1 并设置 <code>errno</code> 为 <code>EPIPE</code>。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N100F0"><span class="atitle">隐患 3．地址使用错误（EADDRINUSE）</span></a></p>
+<p>您可以使用 <code>bind</code> API 函数来绑定一个地址（一个接口和一个端口）到一个套接字端点。可以在服务器设置中使用这个函数，以便限制可能有连接到来的接口。也可以在客户端设置中使用这个函数，以便限制应当供出去的连接所使用的接口。<code>bind</code> 最常见的用法是关联端口号和服务器，并使用通配符地址（<code>INADDR_ANY</code>），它允许任何接口为到来的连接所使用。</p>
+<p><code>bind</code> 普遍遭遇的问题是试图绑定一个已经在使用的端口。该陷阱是也许没有活动的套接字存在，但仍然禁止绑定端口（<code>bind</code> 返回 <code>EADDRINUSE</code>），它由 TCP 套接字状态 <code>TIME_WAIT</code> 引起。该状态在套接字关闭后约保留 2 到 4 分钟。在 <code>TIME_WAIT</code> 状态退出之后，套接字被删除，该地址才能被重新绑定而不出问题。</p> 
+<p>等待 <code>TIME_WAIT</code> 结束可能是令人恼火的一件事，特别是如果您正在开发一个套接字服务器，就需要停止服务器来做一些改动，然后重启。幸运的是，有方法可以避开 <code>TIME_WAIT</code> 状态。可以给套接字应用 <code>SO_REUSEADDR</code> 套接字选项，以便端口可以马上重用。</p>
+<p>考虑清单 3 的例子。在绑定地址之前，我以 <code>SO_REUSEADDR</code> 选项调用 <code>setsockopt</code>。为了允许地址重用，我设置整型参数（<code>on</code>）为 1 （不然，可以设为 0 来禁止地址重用）。 </p>
+<br><a name="N1013D"><b>清单 3．使用 SO_REUSEADDR 套接字选项避免地址使用错误</b></a><br><table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="code-outline"><pre class="displaycode">
+int sock, ret, on;
+struct sockaddr_in servaddr;
+/* Create a new stream (TCP) socket */
+sock = <strong>socket</strong>( AF_INET, SOCK_STREAM, 0 ):
+/* Enable address reuse */
+<em>on = 1;
+ret = <strong>setsockopt</strong>( sock, SOL_SOCKET, SO_REUSEADDR, &amp;on, sizeof(on) );</em>
+/* Allow connections to port 8080 from any available interface */
+memset( &amp;servaddr, 0, sizeof(servaddr) );
+servaddr.sin_family = AF_INET;
+servaddr.sin_addr.s_addr = <strong>htonl</strong>( INADDR_ANY );
+servaddr.sin_port = <strong>htons</strong>( 45000 );
+/* Bind to the address (interface/port) */
+ret = <strong>bind</strong>( sock, (struct sockaddr *)&amp;servaddr, sizeof(servaddr) );
+</pre></td></tr></tbody></table><br>
+<p>在应用了 <code>SO_REUSEADDR</code> 选项之后，<code>bind</code> API 函数将允许地址的立即重用。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N10160"><span class="atitle">隐患 4．发送结构化数据</span></a></p>
+<p>套接字是发送无结构二进制字节流或 ASCII 数据流（比如 HTTP 上的 HTTP 页面，或 SMTP 上的电子邮件）的完美工具。但是如果试图在一个套接字上发送二进制数据，事情将会变得更加复杂。</p>
+<p>比如说，您想要发送一个整数：您可以肯定，接收者将使用同样的方式来解释该整数吗？运行在同一架构上的应用程序可以依赖它们共同的平台来对该类型的数据做出相同的解释。但是，如果一个运行在高位优先的 IBM PowerPC 上的客户端发送一个 32 位的整数到一个低位优先的 Intel x86，那将会发生什么呢？字节排列将引起不正确的解释。</p>
+<div class="ibm-container ibm-alt-header dw-container-sidebar"><h2>字节交换还是不呢？</h2><div class="ibm-container-body">
+
+<p>
+<em>Endianness</em> 是指内存中字节的排列顺序。<em>高位优先（big endian）</em> 按最高有效字节在前排列，然而 <em>低位优先（little endian）</em> 按照最低有效字节在前排序。</p>
+<p>高位优先架构（比如 PowerPC®）比低位优先架构（比如 Intel® Pentium® 系列，其网络字节顺序是高位优先）有优势。这意味着，对高位优先的机器来说，在 TCP/IP 内控制数据是自然有序的。低位优先架构要求字节交换 —— 对网络应用程序来说，这是一个轻微的性能弱点。</p>
+</div></div>
+<p>通过套接字发送一个 C 结构会怎么样呢？这里，也会遇到麻烦，因为不是所有的编译器都以相同的方式排列一个结构的元素。结构也可能被压缩以便使浪费的空间最少，这进一步使结构中的元素错位。</p>
+<p>幸好，有解决这个问题的方案，能够保证两端数据的一致解释。过去，远程过程调用（Remote Procedure Call，RPC）套装工具提供所谓的外部数据表示（External Data Representation，XDR）。XDR 为数据定义一个标准的表示来支持异构网络应用程序通信的开发。</p>
+<p>现在，有两个新的协议提供相似的功能。可扩展标记语言/远程过程调用（XML/RPC）以 XML 格式安排 HTTP 上的过程调用。数据和元数据用 XML 进行编码并作为字符串传输，并通过主机架构把值和它们的物理表示分开。SOAP 跟随 XML-RPC，以更好的特性和功能扩展了它的思想。参见 <a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#resources">参考资料</a> 小节，获取更多关于每个协议的信息。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N10190"><span class="atitle">隐患 5．TCP 中的帧同步假定</span></a></p>
+<p>TCP 不提供帧同步，这使得它对于面向字节流的协议是完美的。这是 TCP 与 UDP（User Datagram Protocol，用户数据报协议）的一个重要区别。UDP 是面向消息的协议，它保留发送者和接收者之间的消息边界。TCP 是一个面向流的协议，它假定正在通信的数据是无结构的，如图 1 所示。</p>
+
+<br><a name="N1019B"><b>图 1．UDP 的帧同步能力和缺乏帧同步的 TCP</b></a><br>
+<img alt="帧同步能力" height="503" src="./Linux 套接字编程中的 5 个隐患_files/figure1.gif" width="565">
+<br>
+<p>图 1 的上部说明一个 UDP 客户端和服务器。左边的对等层完成两个套接字的写操作，每个 100 字节。协议栈的 UDP 层追踪写的数量，并确保当右边的接收者通过套接字获取数据时，它以同样数量的字节到达。换句话说，为读者保留了写者提供的消息边界。</p>
+<p>现在，看图 1 的底部．它为 TCP 层演示了相同粒度的写操作。两个独立的写操作（每个 100 字节）写入流套接字。但在本例中，流套接字的读者得到的是 200 字节。协议栈的 TCP 层聚合了两次写操作。这种聚合可以发生在 TCP/IP 协议栈的发送者或接收者中任何一方。重要的是，要注意到聚合也许不会发生 —— TCP 只保证数据的有序发送。</p>
+<p>对大多数开发人员来说，该陷阱会引起困惑。您想要获得 TCP 的可靠性和 UDP 的帧同步。除非改用其他的传输协议，比如流传输控制协议（STCP），否则就要求应用层开发人员来实现缓冲和分段功能。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N101B2"><span class="atitle">调试套接字应用程序的工具</span></a></p>
+<p>GNU/Linux 提供几个工具，它们可以帮助您发现套接字应用程序中的一些问题。此外，使用这些工具还有教育意义，而且能够帮助解释应用程序和 TCP/IP 协议栈的行为。在这里，您将看到对几个工具的概述。查阅下面的 <a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#resources">参考资料</a> 了解更多的信息。</p>
+<p><a name="N101BF"><span class="smalltitle">查看网络子系统的细节</span></a></p>
+<p><code>netstat</code> 工具提供查看 GNU/Linux 网络子系统的能力。使用 <code>netstat</code>，可以查看当前活动的连接（按单个协议进行查看），查看特定状态的连接（比如处于监听状态的服务器套接字）和许多其他的信息。清单 4 显示了 <code>netstat</code> 提供的一些选项和它们启用的特性。</p>
+<br><a name="N101D6"><b>清单 4．netstat 实用程序的用法模式</b></a><br><table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="code-outline"><pre class="displaycode">
+View all TCP sockets currently active
+$ netstat --tcp
+View all UDP sockets
+$ netstat --udp
+View all TCP sockets in the listening state
+$ netstat --listening
+View the multicast group membership information
+$ netstat --groups
+Display the list of masqueraded connections
+$ netstat --masquerade
+View statistics for each protocol
+$ netstat --statistics
+</pre></td></tr></tbody></table><br>
+<p>尽管存在许多其他的实用程序，但 <code>netstat</code> 的功能很全面，它覆盖了 <code>route</code>、<code>ifconfig</code> 和其他标准 GNU/Linux 工具的功能。</p>
+<p><a name="N101EB"><span class="smalltitle">监视流量</span></a></p>
+<p>可以使用 GNU/Linux 的几个工具来检查网络上的低层流量。<code>tcpdump</code> 工具是一个比较老的工具，它从网上“嗅探”网络数据包，打印到 <code>stdout</code> 或记录在一个文件中。该功能允许查看应用程序产生的流量和 TCP 生成的低层流控制机制。一个叫做 <code>tcpflow</code> 的新工具与 <code>tcpdump</code> 相辅相成，它提供协议流分析和适当地重构数据流的方法，而不管数据包的顺序或重发。清单 5 显示 <code>tcpdump</code> 的两个用法模式。</p>
+<br><a name="N1020C"><b>清单 5．tcpdump 工具的用法模式</b></a><br><table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="code-outline"><pre class="displaycode">
+Display all traffic on the eth0 interface for the local host
+$ tcpdump -l -i eth0
+Show all traffic on the network coming from or going to host plato
+$ tcpdump host plato
+Show all HTTP traffic for host camus
+$ tcpdump host camus and (port http)
+View traffic coming from or going to TCP port 45000 on the local host
+$ tcpdump tcp port 45000
+</pre></td></tr></tbody></table><br>
+<p><code>tcpdump</code> 和 <code>tcpflow</code> 工具有大量的选项，包括创建复杂过滤表达式的能力。查阅下面的 <a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#resources">参考资料</a> 获取更多关于这些工具的信息。 </p>
+<p><code>tcpdump</code> 和 <code>tcpflow</code> 都是基于文本的命令行工具。如果您更喜欢图形用户界面（GUI），有一个开放源码工具 <code>Ethereal</code> 也许适合您的需要。<code>Ethereal</code> 是一个专业的协议分析软件，它可以帮助调试应用层协议。它的插入式架构（plug-in architecture）可以分解协议，比如 HTTP 和您能想到的任何协议（写本文的时候共有 637 个协议）。</p>
+<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><p><a name="N10232"><span class="atitle">总结</span></a></p>
+<p>套接字编程是容易而有趣的，但是您要避免引入错误或至少使它们容易被发现，这就需要考虑本文中描述的这 5 个常见的陷阱，并且采用标准的防错性程序设计实践。GNU/Linux 工具和实用程序还可以帮助发现一些程序中的小问题。记住：在查看实用程序的帮助手册时候，跟踪相关的或“请参见”工具。您也许会发现一个必要的新工具。</p>
+<!-- CMA ID: 95420 --> <!-- Site ID: 10 --> <!-- XSLT stylesheet used to transform this file:  dw-article-6.0-beta.xsl -->
+<br>
+<p><a name="resources"><span class="atitle">参考资料 </span></a></p><p><b>学习</b></p><ul><li>您可以参阅本文在 developerWorks 全球站点上的 <a href="http://www.ibm.com/developerworks/linux/library/l-sockpit/?S_TACT=105AGX52&S_CMP=cn-a-l" target="_blank">英文原文</a>。<br><br></li><li>
+TCP 状态机有 11 个状态。参见 W. Richard Steven 的 <a href="http://www.research.umbc.edu/~jeehye/cmsc491b/lectures/tcpstate/sld001.htm">illustration from TCP/IP Illustrated, Volume 1</a> 一书。<br><br></li><li>
+在 Wikipedia 上探究 <a href="http://en.wikipedia.org/wiki/Endian">Endianness</a> 的历史和含意。<br><br></li><li>
+了解更多关于 IBM 的开放式、可伸缩和可定制的 <a href="http://www.ibm.com/developerworks/power?S_TACT=105AGX52&S_CMP=cn-a-l">Power Architecture</a> 的信息。<br><br></li><li>
+从 <a href="http://www.cs.cf.ac.uk/Dave/C/node33.html">Programming in C</a> 课件阅读 RPC/XDR 简介。<br><br></li><li>
+获取更多关于 XML-RPC 以及在 Java™ 应用程序中如何使用它的信息，请阅读 “<a href="http://www.ibm.com/developerworks/cn/java/j-xmlrpc/index.html">Java 编程中的 XML-RPC</a>” （developerWorks，2004 年 1 月）。<br><br></li><li>
+SOAP 以 XML-RPC 的特性为基础。请在 <a href="http://www.soapware.org/">SoapWare.Org</a> 上查找规范、工具、教程和文章。<br><br></li><li>
+<a href="http://www.sctp.org/">SCTP</a> 兼有 TCP 和 UDP 的特性，以及可用性和可靠性。<br><br></li><li>
+教程 “<a href="https://www14.software.ibm.com/webapp/iwm/web/preLogin.do?lang=zh_CN&source=dw-cn-l-l-sock">Linux Socket 编程，第一部分</a>” （developerWorks，2003 年 10 月）讲解如何开始套接字编程以及如何构建一个通过 TCP/IP 连接的 echo 服务器和客户端。“<a href="https://www14.software.ibm.com/webapp/iwm/web/preLogin.do?lang=zh_CN&source=dw-cn-l-l-sock2">Linux Socket 编程，第二部分</a>” （developerWorks，2004 年 1 月）集中讨论 UDP 并且讲解如何用 C 和 Python 编写 UDP 套接字应用程序（尽管代码会翻译为其他语言）。<br><br></li><li>
+<a href="http://man.linuxquestions.org/?query=netstat&section=0&type=2">netstat 手册页</a> 提供有关各种使用 netstat 的方法的细节。<br><br></li><li>
+<a href="http://www.charlesriver.com/Books/BookDetail.aspx?productID=70637"><em>BSD Sockets Programming from a Multilanguage Perspective</em></a> （作者 M. Tim Jones），用 6 种不同的语言介绍了套接字编程的技巧。<br><br></li><li>
+在 <a href="http://www.ibm.com/developerworks/cn/linux/">developerWorks Linux 专区</a> 上查找更多为 Linux 开发人员提供的参考资料。
+<br><br></li></ul><p><b>获得产品和技术</b></p><ul><li>
+<a href="http://www.tcpdump.org/">tcpdump</a> 和 <a href="http://freshmeat.net/projects/tcpflow/">tcpflow</a> 实用程序可以用来监控网络流量。<br><br></li><li>
+<a href="http://www.ethereal.com/">Ethereal network protocol analyzer</a> 提供 tcpdump 的功能，它具有图形用户界面和可伸缩的插入式架构。<br><br></li><li>
+<a href="http://www.ibm.com/developerworks/offers/sek/?S_TACT=105AGX52&S_CMP=cn-a-l">免费索取 SEK for Linux</a>（两张 DVD），它包含来自 DB2®、Lotus®、Rational®、Tivoli® 以及 WebSphere® 的最新 IBM 试用软件的 Linux 版本。
+<br><br></li><li>
+用 <a href="http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX52&S_CMP=cn-a-l">IBM 试用软件</a> 在 Linux 上构建您的下一个开发项目，可以直接在 developerWorks 上下载。<br>
+<br><br></li></ul><p><b>讨论</b></p><ul><li>
+通过参与 <a href="http://www.ibm.com/developerworks/blogs/?S_TACT=105AGX52&S_CMP=cn-a-l">developerWorks blog</a> 加入 developerWorks 社区。<br>
+<br><br></li></ul>
+<p><a name="author"><span class="atitle">关于作者</span></a></p><div class="ibm-container ibm-portrait-module ibm-alternate-two"><div class="ibm-container-body"><img src="./Linux 套接字编程中的 5 个隐患_files/p-mjones.jpg" class="dw-author-img" width="64" height="80" alt="M. Tim Jones"><p><a name="author1"> </a>Tim Jones 是一名嵌入式软件工程师，他是 <em>GNU/Linux Application Programming</em>、<em>AI Application Programming</em> 以及
+<em>BSD Sockets Programming from a Multilanguage Perspective</em> 等书的作者。他的工程背景非常广泛，从同步宇宙飞船的内核开发到嵌入式架构设计，再到网络协议的开发。Tim 是 Emulex Corp. 的一名资深软件工程师。</p></div></div>
+<!-- MAIN_COLUMN_CONTENT_END -->
+  <!-- OVERLAYS_START -->
+  <!-- Report_Abuse_Start -->
+  <div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlay">
+    <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></p></div>
+    <div class="ibm-body">
+      <div class="ibm-main">
+        <a class="ibm-access" name="reportabuseoverlay">关于报告滥用的帮助</a>   
+        <div class="ibm-title"><h1>报告滥用</h1></div>
+        <div class="ibm-container ibm-alternate">
+          <p><strong>谢谢!</strong>  此内容已经标识给管理员注意。</p>
+          <div class="ibm-overlay-rule"><hr></div>
+          <div class="ibm-buttons-row">
+            <input type="button" onclick="ibmCommon.Overlays.hide(&#39;reportabuseoverlay&#39;);return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="关闭">
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="ibm-footer"></div>
+  </div>
+  <!-- Report_Abuse_Error_Start -->
+  <div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlayerror">
+    <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></p></div>
+    <div class="ibm-body">
+      <div class="ibm-main">
+        <a class="ibm-access" name="reportabuseoverlayerror">关于报告滥用的帮助</a>   
+        <div class="ibm-title"><h1>报告滥用</h1></div>
+        <div class="ibm-container ibm-alternate">
+          <p class="ibm-ind-error"><strong>报告滥用提交失败。  请稍后重试。</strong></p>
+          <div class="ibm-overlay-rule"><hr></div>
+          <div class="ibm-buttons-row">
+            <input type="button" onclick="ibmCommon.Overlays.hide(&#39;reportabuseoverlayerror&#39;);return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="关闭">
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="ibm-footer"></div>
+  </div>
+  <!-- Sign in OVERLAY STARTS HERE --> 
+  <div class="ibm-common-overlay" id="signin_overlay">
+    <div class="ibm-head">
+      <p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="clearForm();">关闭 [x]</a></p>
+    </div>
+    <div class="ibm-body">
+      <div class="ibm-main">
+        <div class="ibm-title ibm-subtitle">
+          <h1>developerWorks：登录</h1>
+          <div id="ibm-overlay-error-signin" class="no-display"></div>
+        </div>
+        
+        <div class="ibm-container ibm-alternate ibm-buttons-last">
+          <div class="ibm-container-body">
+            <p class="ibm-overlay-intro">如果您还没有注册到 IBM 注册系统，我们为给您带来的不便表示道歉，并请您马上注册。 							
+              <a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=zh&amp;d=&#39;+encodeURIComponent(location.href);})();">现在注册</a>。</p>
+            <form class="ibm-column-form" id="sFormId" action="" method="post" name="sForm" onsubmit="return false;">
+              <p><label for="ibmid">IBM ID：</label><span><input name="ibm-id" id="ibmid" size="25" value="" class="required" type="text" onkeypress="handleEP(event,this.form);"><br><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=zh_CN">忘记 IBM ID？</a></span>   
+              </p> 
+              <p><label for="password">密码：</label><span><input name="password" id="password" size="25" value="" class="required" type="password" onkeypress="handleEP(event,this.form);"><br>
+                <a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;https://www.ibm.com/account/profile?page=forgot&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(getAuthUrl())+&#39;%3Fm%3Dloginpage%26lang%3Dzh_CN%26d%3D&#39;+encodeURIComponent(location.href);})();">忘记密码？</a><br>
+                <a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="(function () {window.location=&#39;https://www.ibm.com/account/profile?page=chpw&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(location.href);})();">更改您的密码</a></span></p> 
+              <p class="no-bottom-padding"> 
+                <label for="AfterSignIn">登录之后：</label> 
+                <span>
+                  
+                  <select name="SignInAction" id="AfterSignIn">
+                    <option value="">留在当前页面</option>
+                    <option value="/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=zh">My developerWorks 概要信息</option>
+                    <option value="/developerworks/mydeveloperworks/homepage/?lang=zh">My developerWorks 首页</option>
+                  </select>
+                </span>
+              </p>
+              <p class="dw-perm-box">
+                <span><input id="perm" type="checkbox" name="perm_name"><label for="perm"> 保持登录。</label></span>
+              </p>
+              <div class="ibm-overlay-rule"><hr></div>
+              <p>单击提交则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/mydeveloperworks/terms?lang=zh">查看条款和条件</a></p>
+              <div class="ibm-buttons-row">
+                <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="提交" onclick="signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+                  <input value="取消" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide(&#39;signin_overlay&#39;);return false;"></p>
+              </div>
+            </form>
+            <div class="ibm-overlay-rule"><hr></div>
+            <p>当您初次登录到 developerWorks 时，将会为您创建一份概要信息。<strong>您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。</strong>您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容一同显示。</p>
+            <div class="dw-overlay-legal"><p>所有提交的信息确保安全。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibm-footer"></div>
+  </div>
+  <!-- Sign in OVERLAY ENDS HERE --> 
+  
+  
+  <!-- Display name OVERLAY STARTS HERE --> 
+  <div class="ibm-common-overlay" id="displayname_overlay">
+    <div class="ibm-head">
+      <p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" onclick="clearForm();">关闭 [x]</a></p>
+    </div>
+    <div class="ibm-body">
+      <div class="ibm-main">
+        <div class="ibm-title ibm-subtitle">
+          <h1>请选择您的昵称：</h1>
+          <div id="ibm-overlay-error-dname" class="no-display"></div>
+        </div>
+        <div class="ibm-container ibm-alternate ibm-buttons-last">
+          <div class="ibm-container-body">
+            <p class="ibm-overlay-intro">当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。</p><p><strong>昵称长度在 3 至 31 个字符之间</strong>。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。</p>
+            <form id="dFormId" method="post" action="" name="dForm" onsubmit="return false;" class="ibm-column-form">
+              <p><label for="displayname">昵称：</label><span><input name="displayname" id="displayname" size="25" value="" type="text" onkeypress="handleEP(event,this.form);"></span><span class="ibm-form-note">（长度在 3 至 31 个字符之间）</span>
+              </p>
+              
+              <div class="ibm-overlay-rule"><hr>
+              </div>
+              <p>单击<strong>提交</strong>则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/mydeveloperworks/terms?lang=zh">查看条款和条件</a>.</p>
+              <div class="ibm-buttons-row">
+                <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="提交" onclick="signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+                  <input value="取消" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide(&#39;displayname_overlay&#39;);return false;"></p>
+              </div>
+            </form>
+            <div class="ibm-overlay-rule"><hr></div>
+            <div class="dw-overlay-legal"><p>所有提交的信息确保安全。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibm-footer"></div>
+  </div>
+  <!-- Display name OVERLAY ENDS HERE -->
+  <!-- OVERLAYS_END -->
+  <!-- RATINGS START -->
+  <p class="ibm-no-print"><span class="atitle"><a name="iratings">为本文评分</a></span></p>
+  <input id="art-rating" name="ratinga" type="hidden" value="5"><div id="art-rating-module"><p id="submitErr" class="ibm-ind-error" style="display: none;"><strong>错误：提交失败，请重试。</strong></p><p><span id="ratingSectUI"><img alt="平均分 5 星 共 2 个评分" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-5gw.jpg" class="dw-avg-rating"> 平均分 (2个评分)</span></p><div class="ibm-container" id="ratingForm"><div class="ibm-container-body dw-container-ratings"><form class="dw-ratings-form" onsubmit="artRating.submitRating(); return false;"><input type="radio" name="ratingstars" id="rat-1" value="1"><label class="rating-label" id="star1" for="rat-1">1 星</label><img id="rat-1-img" alt="1 星" title="1 星" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-1w.jpg" class="rating-image"><span class="dw-rating-text">1 星</span><br><input type="radio" name="ratingstars" id="rat-2" value="2"><label class="rating-label" id="star2" for="rat-2">2 星</label><img id="rat-2-img" alt="2 星" title="2 星" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-2w.jpg" class="rating-image2"><span class="dw-rating-text">2 星</span><br><input type="radio" name="ratingstars" id="rat-3" value="3"><label class="rating-label" id="star3" for="rat-3">3 星</label><img id="rat-3-img" alt="3 星" title="3 星" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-3w.jpg" class="rating-image2"><span class="dw-rating-text">3 星</span><br><input type="radio" name="ratingstars" id="rat-4" value="4"><label class="rating-label" id="star4" for="rat-4">4 星</label><img id="rat-4-img" alt="4 星" title="4 星" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-4w.jpg" class="rating-image2"><span class="dw-rating-text">4 星</span><br><input type="radio" name="ratingstars" id="rat-5" value="5"><label class="rating-label" id="star5" for="rat-5">5 星</label><img id="rat-5-img" alt="5 星" title="5 星" src="./Linux 套接字编程中的 5 个隐患_files/stars120x20-5w.jpg" class="rating-image2"><span class="dw-rating-text">5 星</span><div class="ibm-buttons-row"><p class="ibm-first"><input value="提交" type="submit" name="ibm-submit" class="ibm-btn-arrow-pri dw-ratings-submit"></p></div></form></div></div></div>
+  <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+   // widget div id and article id as args
+   window.artRating.init('art-rating-module','art-rating-summary');
+// ]]>
+  </script>
+  <!-- RATINGS END --> 
+  
+  <!-- INLINE_COMMENTS_START -->
+  <p class="ibm-no-print"><span class="atitle"><a name="icomments">评论</a></span></p>
+    <script language="JavaScript" type="text/javascript">
+      // <![CDATA[
+dwc = {};
+dwc.cmts = '条评论';
+dwc.signInPreText = '请';
+dwc.signIn = '登录';
+dwc.or = '或';
+dwc.register = '注册';
+dwc.signInPostText = '';
+dwc.leaveCmt = '后发表评论。';
+dwc.view = '查看';
+dwc.totalCmts = '共有评论';
+dwc.postYourCmt = '添加您的评论';
+dwc.show = '显示：';
+dwc.recentCmts = '最新评论';
+dwc.allCmts = '所有评论';
+dwc.tooLongCmt = '您的评论超过了 1000 字符限制';
+dwc.numCharsLeft = '剩余 <span id="charCount">{1}</span> 字符';
+dwc.reportAbuse = '报告滥用';
+dwc.notifyMsg = '有新评论时提醒我';
+dwc.htmlWarning = '注意：评论中不支持 HTML 语法'; 
+dwc.cmt = '评论：';
+dwc.addCmts = '添加评论';
+dwc.addCmt = '添加评论';
+dwc.doNotErase = '--在下方添加评论--'; 
+dwc.viewOrAddCmts = '查看或添加评论';
+dwc.reportInapprCont = '举报不良信息';
+dwc.reportInapprContLink = 'http://www.ibm.com/developerworks/forums/forum.jspa?forumID=1834';
+dwc.postingCmt = '正在发布评论……';
+dwc.noCmt = '快来添加第一条评论';
+dwc.netwkErr = '在检索评论时出错，请稍后刷新。';
+dwc.addACmt = '添加评论';
+dwc.instructCmt = '标有星号（<span class="ibm-required">*</span>）的是必填项目。';
+dwc.btnPost = '发布';
+dwc.btnPostAnon = '匿名发布';
+dwc.btnClrCmt = '清除评论';
+dwc.btnCancel = '取消';
+dwc.showRecent = '显示最新的 {1} 条评论'; // {1} is the count to be substituted
+dwc.showNext = '显示后 {1} 条评论'; // {1} is the count to be substituted
+dwc.showAllCmts = '显示所有评论';
+dwc.enterCmt = '请输入评论内容。';
+dwc.loginErr = '暂时无法验证您的登录状态，请稍后再试。';
+dwc.postErr = '暂时无法发布您的评论，请稍后再试。';
+dwc.postBy = '由 <strong>{1}</strong>  于 {2} '; // {1} is the author to be substituted; {2} is the date
+dwc.siteId = 10;
+dwc.lang = 'zh_CN';
+dwc.viperLang = 'zh';
+// ]]>
+    </script>
+    <div id="threadShow"><div id="cmtTog" style=""><div class="ibm-container ibm-alternate-two dw-commentbox dw-noborder"><p id="cmtHead"><label for="newCmt"><strong>添加评论:</strong></label></p><div class="ibm-container-body dw-commentbox dw-noborder"><p id="signInSect">请 <a onclick="showSignIn();return false;" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">登录</a> 或 <a href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=register&lang=zh_CN&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F%23icomments">注册</a>  后发表评论。</p><p>注意：评论中不支持 HTML 语法</p><span id="infoCmt"></span><form focus="name" enctype="multipart/form-data" method="post" action="" name="form" class="ibm-column-form"><p><textarea cols="120" rows="5" name="newCmt" id="newCmt" class="dw-inoperable" disabled=""></textarea><br></p><div id="notifiedSect"><label for="comment_notification"><span><input type="checkbox" name="comment_notification" id="comment_notification" value="1" disabled=""><span id="notifyText" class="ibm-form-note">有新评论时提醒我</span></span></label><span id="maxCharsCount" class="ibm-form-note">剩余 <span id="charCount">1000</span> 字符</span></div><br><br><p></p><p class="ibm-buttons-row"><input type="button" value="发布" jquery1275054459750="11" name="postCmt" id="postCmt" class="ibm-btn-arrow-sec dw-btn-arrow-sec" alt="添加您的评论" disabled=""><br><br></p></form></div></div><div id="topControl" class="ibm-container ibm-alternate-two dw-comment-totals" style="display: none; "><div class="ibm-container-body"><form id="selectComments" method="get" action=""><p><span class="dw-comment-totals-label"><strong>共有评论 (<span id="numCmts">0</span>)</strong></span><span><img src="./Linux 套接字编程中的 5 个隐患_files/c.gif" width="100" height="10" alt=""></span><span class="dw-how-many-comments-label" style="display:none" id="dropdownCmts"><label for="howManyComments">显示：</label>&nbsp;<select name="comments" id="howManyComments" class="dw-how-many-comments"><option selected="selected" value="recent">最新评论   </option></select><input type="image" class="ibm-btn-go" name="ibm-go" value="Go" src="./Linux 套接字编程中的 5 个隐患_files/short-btn.gif" alt="Go"><br></span></p></form></div></div><div id="cmtSect"><div class="comment"><div class="dw-icomment-container"><table class="dw-icomment-body" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><p>快来添加第一条评论</p></td></tr></tbody></table></div></div></div></div><div id="bottomControl" class="ibm-container ibm-alternate-two dw-comment-totals" style="display: none; "><div class="ibm-container-body"><form id="selectComments2" method="get" action=""><p><span class="dw-comment-totals-label"><strong>共有评论 (<span id="numCmts2">0</span>)</strong></span><span><img src="./Linux 套接字编程中的 5 个隐患_files/c.gif" width="100" height="10" alt=""></span><span class="dw-how-many-comments-label" style="display:none" id="dropdownCmts2"><label for="howManyComments2">显示：</label>&nbsp;<select name="comments" id="howManyComments2" class="dw-how-many-comments"><option selected="selected" value="recent">最新评论   </option></select><input type="image" class="ibm-btn-go" name="ibm-go" value="Go" src="./Linux 套接字编程中的 5 个隐患_files/short-btn.gif" alt="Go"><br></span></p></form></div></div></div>
+  <!-- INLINE_COMMENTS_END -->
+  
+
+  <p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#ibm-pcon">回页首</a></p>
+
+<!-- Overlays -->
+<!-- lk - pull in overlays from ww when required on cn -->
+  </div>
+<!-- MAIN_COLUMN_CONTAINER_END -->
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=10</div><div class="metavalue">Zone=Linux</div><div class="metavalue">ArticleID=95420</div><div class="metavalue">ArticleTitle=Linux 套接字编程中的 5 个隐患</div><div class="metavalue">publish-date=10082005</div><div class="metavalue">author1-email=mtj@mtjones.com</div><div class="metavalue">author1-email-cc=tomyoung@us.ibm.com</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href.replace(/</g, '%3C')+'</div>');</script><div class="metavalue">url=http://www.ibm.com/developerworks/cn/linux/l-sockpit/</div><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- MAIN_COLUMN_END-->
+
+<!-- RIGHT_COLUMN_BEGIN -->
+<div id="ibm-content-sidebar">
+
+<!-- RIGHT_COLUMN_CONTENT_BEGIN --> 
+<div class="ibm-container"><h2>内容</h2><div class="ibm-container-body"><img alt="" height="1" width="1" src="./Linux 套接字编程中的 5 个隐患_files/c(1).gif"><ul class="ibm-bullet-list"><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N10057">隐患 1．忽略返回状态</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N100A7">隐患 2．对等套接字闭包</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N100F0">隐患 3．地址使用错误（EADDRINUSE）</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N10160">隐患 4．发送结构化数据</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N10190">隐患 5．TCP 中的帧同步假定</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N101B2">调试套接字应用程序的工具</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#N10232">总结</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#resources">参考资料 </a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#author">关于作者</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#icomments">建议</a></li></ul></div></div>
+
+ 
+
+<!-- Tagging_Start -->
+<div id="dw-tag-cloud-container" class="ibm-container"><h2>标签</h2>
+<div id="dw-tag-help"><a class="dwauthor" rel="#tagtip" id="dwtagtip"><img alt="Help" height="16" width="16" align="top" src="./Linux 套接字编程中的 5 个隐患_files/help_icon.gif"></a></div>
+<div id="tagtip" class="dwauthor-onload-state ibm-no-print" style="display: none; ">使用 <strong>搜索</strong> 文本框在 My developerWorks 中查找包含该标签的所有内容。<p>使用 <strong>滑动条</strong> 调节标签的数量。</p><p><strong>热门标签</strong> 显示了特定专区最受欢迎的标签（例如 Java technology，Linux，WebSphere）。</p><p><strong>我的标签</strong> 显示了特定专区您标记的标签（例如 Java technology，Linux，WebSphere）。</p></div>
+<div class="ibm-access">使用搜索文本框在 My developerWorks 中查找包含该标签的所有内容。<em>热门标签</em> 显示了特定专区最受欢迎的标签（例如 Java technology，Linux，WebSphere）。<em>我的标签</em> 显示了特定专区您标记的标签（例如 Java technology，Linux，WebSphere）。</div>
+<div class="ibm-container-body">
+<div class="dw-tag-search"><form action="http://www.ibm.com/developerworks/mydeveloperworks/bookmarks/html" method="get" id="actualtagform" onsubmit="popupform(this, &#39;join&#39;)">
+<p><label for="tagfield"><strong>搜索所有标签</strong></label>
+<input type="hidden" name="lang" value="zh">
+<input id="tagfield" name="tag" type="text" maxlength="20" size="17">&nbsp;<input src="./Linux 套接字编程中的 5 个隐患_files/short-btn.gif" type="image" class="ibm-btn-view" alt="submit search" title="提交搜索" value="Search"></p></form></div>
+<div class="ibm-rule"><hr></div>
+<div id="dw-tag-select">
+<div id="dw-tag-select-popular"><p><strong>热门文章标签</strong>&nbsp;|&nbsp;<br><a id="a-my" href="javascript:;">我的文章标签</a><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#dw-tag-access" class="ibm-access">跳转到标签列表</a></p></div>
+<div id="dw-tag-select-my" class="dw-hidetag"><p><a id="a-popular" href="javascript:;">热门文章标签</a>&nbsp;|&nbsp;<br><strong>我的文章标签</strong></p><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#dw-tag-access" class="ibm-access">跳转到标签列表</a></div><div id="dw-tag-access" class="ibm-access"><h2>热门标签</h2><ul>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f1-1">
+					
+					<a title="1 4" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=1&lang=zh')">
+					
+						
+						
+							1	
+						
+					
+					<span class="ibm-access">(4)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f2-1">
+					
+					<a title="autoconf 4" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=autoconf&lang=zh')">
+					
+						
+						
+							autoconf	
+						
+					
+					<span class="ibm-access">(4)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f3-9">
+					
+					<a title="awk 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=awk&lang=zh')">
+					
+						
+						
+							awk	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f4-12">
+					
+					<a title="bash 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=bash&lang=zh')">
+					
+						
+						
+							bash	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f5-5">
+					
+					<a title="buffer 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=buffer&lang=zh')">
+					
+						
+						
+							buffer	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f6-43">
+					
+					<a title="c 27" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=c&lang=zh')">
+					
+						
+						
+							c	
+						
+					
+					<span class="ibm-access">(27)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f7-40">
+					
+					<a title="eclipse 23" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse&lang=zh')">
+					
+						
+						
+							eclipse	
+						
+					
+					<span class="ibm-access">(23)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f8-26">
+					
+					<a title="file_systems 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=file_systems&lang=zh')">
+					
+						
+						
+							file_systems	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f9-12">
+					
+					<a title="ftp 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ftp&lang=zh')">
+					
+						
+						
+							ftp	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f10-32">
+					
+					<a title="hadoop 17" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=hadoop&lang=zh')">
+					
+						
+						
+							hadoop	
+						
+					
+					<span class="ibm-access">(17)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f11-26">
+					
+					<a title="kernel 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=kernel&lang=zh')">
+					
+						
+						
+							kernel	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f12-15">
+					
+					<a title="klx.marks 8" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=klx.marks&lang=zh')">
+					
+						
+						
+							klx.marks	
+						
+					
+					<span class="ibm-access">(8)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f13-5">
+					
+					<a title="kvm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=kvm&lang=zh')">
+					
+						
+						
+							kvm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+							
+								
+							
+						
+				<li class="f14-100">
+					
+					<a title="linux 277" class="lotusF5 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux&lang=zh')">
+					
+						
+						
+							linux	
+						
+					
+					<span class="ibm-access">(277)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f15-9">
+					
+					<a title="linux_kernel 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_kernel&lang=zh')">
+					
+						
+						
+							linux_kernel	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f16-26">
+					
+					<a title="linux_on_power 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_on_power&lang=zh')">
+					
+						
+							linux_on_powe...	
+						
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f17-24">
+					
+					<a title="linux_virtualization 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_virtualization&lang=zh')">
+					
+						
+							linux_virtual...	
+						
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f18-22">
+					
+					<a title="linux_入门 11" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_%25E5%2585%25A5%25E9%2597%25A8&lang=zh')">
+					
+						
+						
+							linux_入门	
+						
+					
+					<span class="ibm-access">(11)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f19-12">
+					
+					<a title="linux环境进程间通信 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux%25E7%258E%25AF%25E5%25A2%2583%25E8%25BF%259B%25E7%25A8%258B%25E9%2597%25B4%25E9%2580%259A%25E4%25BF%25A1&lang=zh')">
+					
+						
+						
+							linux环境进程间通信	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f20-5">
+					
+					<a title="linux系统调用 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux%25E7%25B3%25BB%25E7%25BB%259F%25E8%25B0%2583%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							linux系统调用	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f21-5">
+					
+					<a title="lvm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=lvm&lang=zh')">
+					
+						
+						
+							lvm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f22-5">
+					
+					<a title="makefile 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=makefile&lang=zh')">
+					
+						
+						
+							makefile	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f23-12">
+					
+					<a title="network 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=network&lang=zh')">
+					
+						
+						
+							network	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f24-12">
+					
+					<a title="on_demand_business 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=on_demand_business&lang=zh')">
+					
+						
+							on_demand_busi...	
+						
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f25-36">
+					
+					<a title="perl 20" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=perl&lang=zh')">
+					
+						
+						
+							perl	
+						
+					
+					<span class="ibm-access">(20)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f26-9">
+					
+					<a title="php 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=php&lang=zh')">
+					
+						
+						
+							php	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f27-20">
+					
+					<a title="php_(hypertext_preprocessor) 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=php_%2528hypertext_preprocessor%2529&lang=zh')">
+					
+						
+							php_(hypertext...	
+						
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f28-12">
+					
+					<a title="posix 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=posix&lang=zh')">
+					
+						
+						
+							posix	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f29-5">
+					
+					<a title="protocol 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=protocol&lang=zh')">
+					
+						
+						
+							protocol	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f30-54">
+					
+					<a title="python 42" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=python&lang=zh')">
+					
+						
+						
+							python	
+						
+					
+					<span class="ibm-access">(42)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f31-32">
+					
+					<a title="resource_virtualization 17" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=resource_virtualization&lang=zh')">
+					
+						
+							resource_virt...	
+						
+						
+					
+					<span class="ibm-access">(17)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f32-5">
+					
+					<a title="rpm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=rpm&lang=zh')">
+					
+						
+						
+							rpm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f33-28">
+					
+					<a title="shell 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=shell&lang=zh')">
+					
+						
+						
+							shell	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f34-20">
+					
+					<a title="shells 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=shells&lang=zh')">
+					
+						
+						
+							shells	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f35-26">
+					
+					<a title="socket 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=socket&lang=zh')">
+					
+						
+						
+							socket	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f36-12">
+					
+					<a title="system_p 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=system_p&lang=zh')">
+					
+						
+						
+							system_p	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f37-9">
+					
+					<a title="tools 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=tools&lang=zh')">
+					
+						
+						
+							tools	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f38-22">
+					
+					<a title="vim 11" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=vim&lang=zh')">
+					
+						
+						
+							vim	
+						
+					
+					<span class="ibm-access">(11)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f39-5">
+					
+					<a title="virtualization 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=virtualization&lang=zh')">
+					
+						
+						
+							virtualization	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f40-9">
+					
+					<a title="windows 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=windows&lang=zh')">
+					
+						
+						
+							windows	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f41-5">
+					
+					<a title="xen 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=xen&lang=zh')">
+					
+						
+						
+							xen	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f42-43">
+					
+					<a title="安全 27" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AE%2589%25E5%2585%25A8&lang=zh')">
+					
+						
+						
+							安全	
+						
+					
+					<span class="ibm-access">(27)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f43-28">
+					
+					<a title="安装 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AE%2589%25E8%25A3%2585&lang=zh')">
+					
+						
+						
+							安装	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f44-12">
+					
+					<a title="编程 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							编程	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f45-20">
+					
+					<a title="编码 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BC%2596%25E7%25A0%2581&lang=zh')">
+					
+						
+						
+							编码	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f46-5">
+					
+					<a title="部分 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2583%25A8%25E5%2588%2586&lang=zh')">
+					
+						
+						
+							部分	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f47-29">
+					
+					<a title="存储 15" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AD%2598%25E5%2582%25A8&lang=zh')">
+					
+						
+						
+							存储	
+						
+					
+					<span class="ibm-access">(15)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f48-24">
+					
+					<a title="代码库 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BB%25A3%25E7%25A0%2581%25E5%25BA%2593&lang=zh')">
+					
+						
+						
+							代码库	
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f49-26">
+					
+					<a title="调试 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25B0%2583%25E8%25AF%2595&lang=zh')">
+					
+						
+						
+							调试	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f50-9">
+					
+					<a title="多线程 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25A4%259A%25E7%25BA%25BF%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							多线程	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f51-9">
+					
+					<a title="发行版 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%258F%2591%25E8%25A1%258C%25E7%2589%2588&lang=zh')">
+					
+						
+						
+							发行版	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+								
+							
+							
+						
+				<li class="f52-69">
+					
+					<a title="管理 77" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							管理	
+						
+					
+					<span class="ibm-access">(77)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f53-44">
+					
+					<a title="集群 28" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%259B%2586%25E7%25BE%25A4&lang=zh')">
+					
+						
+						
+							集群	
+						
+					
+					<span class="ibm-access">(28)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f54-26">
+					
+					<a title="脚本编程 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%2584%259A%25E6%259C%25AC%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							脚本编程	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f55-50">
+					
+					<a title="开发工具 36" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BC%2580%25E5%258F%2591%25E5%25B7%25A5%25E5%2585%25B7&lang=zh')">
+					
+						
+						
+							开发工具	
+						
+					
+					<span class="ibm-access">(36)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f56-26">
+					
+					<a title="开放源码 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BC%2580%25E6%2594%25BE%25E6%25BA%2590%25E7%25A0%2581&lang=zh')">
+					
+						
+						
+							开放源码	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+								
+							
+							
+						
+				<li class="f57-72">
+					
+					<a title="内核 88" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%2586%2585%25E6%25A0%25B8&lang=zh')">
+					
+						
+						
+							内核	
+						
+					
+					<span class="ibm-access">(88)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f58-35">
+					
+					<a title="配置 19" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2585%258D%25E7%25BD%25AE&lang=zh')">
+					
+						
+						
+							配置	
+						
+					
+					<span class="ibm-access">(19)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f59-20">
+					
+					<a title="迁移 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25BF%2581%25E7%25A7%25BB&lang=zh')">
+					
+						
+						
+							迁移	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f60-9">
+					
+					<a title="驱动程序 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%25A9%25B1%25E5%258A%25A8%25E7%25A8%258B%25E5%25BA%258F&lang=zh')">
+					
+						
+						
+							驱动程序	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f61-5">
+					
+					<a title="全球化 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%2585%25A8%25E7%2590%2583%25E5%258C%2596&lang=zh')">
+					
+						
+						
+							全球化	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f62-12">
+					
+					<a title="认证 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25AE%25A4%25E8%25AF%2581&lang=zh')">
+					
+						
+						
+							认证	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f63-9">
+					
+					<a title="使用 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BD%25BF%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							使用	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f64-28">
+					
+					<a title="数据库和数据管理 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E5%2592%258C%25E6%2595%25B0%25E6%258D%25AE%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							数据库和数据管理	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f65-18">
+					
+					<a title="通用编程 9" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2580%259A%25E7%2594%25A8%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							通用编程	
+						
+					
+					<span class="ibm-access">(9)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f66-24">
+					
+					<a title="图形 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%259B%25BE%25E5%25BD%25A2&lang=zh')">
+					
+						
+						
+							图形	
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f67-31">
+					
+					<a title="网络 16" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BD%2591%25E7%25BB%259C&lang=zh')">
+					
+						
+						
+							网络	
+						
+					
+					<span class="ibm-access">(16)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f68-5">
+					
+					<a title="网络编程 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BD%2591%25E7%25BB%259C%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							网络编程	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f69-9">
+					
+					<a title="文档和文本管理 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2596%2587%25E6%25A1%25A3%25E5%2592%258C%25E6%2596%2587%25E6%259C%25AC%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							文档和文本管理	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f70-20">
+					
+					<a title="系统脚本 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25B3%25BB%25E7%25BB%259F%25E8%2584%259A%25E6%259C%25AC&lang=zh')">
+					
+						
+						
+							系统脚本	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f71-15">
+					
+					<a title="线程 8" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BA%25BF%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							线程	
+						
+					
+					<span class="ibm-access">(8)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f72-47">
+					
+					<a title="性能 32" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2580%25A7%25E8%2583%25BD&lang=zh')">
+					
+						
+						
+							性能	
+						
+					
+					<span class="ibm-access">(32)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f73-5">
+					
+					<a title="学习 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AD%25A6%25E4%25B9%25A0&lang=zh')">
+					
+						
+						
+							学习	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f74-5">
+					
+					<a title="验证 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%25AA%258C%25E8%25AF%2581&lang=zh')">
+					
+						
+						
+							验证	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f75-37">
+					
+					<a title="移动和嵌入式系统 21" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25A7%25BB%25E5%258A%25A8%25E5%2592%258C%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F&lang=zh')">
+					
+						
+						
+							移动和嵌入式系统	
+						
+					
+					<span class="ibm-access">(21)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f76-34">
+					
+					<a title="应用开发 18" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BA%2594%25E7%2594%25A8%25E5%25BC%2580%25E5%258F%2591&lang=zh')">
+					
+						
+						
+							应用开发	
+						
+					
+					<span class="ibm-access">(18)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f77-59">
+					
+					<a title="硬件平台 51" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25A1%25AC%25E4%25BB%25B6%25E5%25B9%25B3%25E5%258F%25B0&lang=zh')">
+					
+						
+						
+							硬件平台	
+						
+					
+					<span class="ibm-access">(51)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f78-5">
+					
+					<a title="用 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							用	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f79-26">
+					
+					<a title="云计算 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BA%2591%25E8%25AE%25A1%25E7%25AE%2597&lang=zh')">
+					
+						
+						
+							云计算	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f80-38">
+					
+					<a title="桌面环境 22" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%25A1%258C%25E9%259D%25A2%25E7%258E%25AF%25E5%25A2%2583&lang=zh')">
+					
+						
+						
+							桌面环境	
+						
+					
+					<span class="ibm-access">(22)</span>					
+					</a>&nbsp;
+				</li>
+					
+			</ul><p>热门标签结束</p><h2>我的标签</h2><div id="dw-tag-access-my" class="ibm-access"><center>要访问我的标签，请<a href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=auth&lang=zh&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F">登录</a><p>查看热门标签</p></center><br></div><p>我的标签结束</p></div>
+<div id="dw-tag-cloud">
+	<div id="dogearTagCloud">
+		<div id="content-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%; "></a></div>
+		
+			
+						
+						
+						
+						
+			
+				<div id="ui-slider-scale"><p><span class="content-slider-more">更多</span><span class="content-slider-less">更少</span></p></div>
+						
+									
+			
+		
+	    <div id="cloud-container">
+			<ul>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f1-1">
+					
+					<a title="1 4" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=1&lang=zh')">
+					
+						
+						
+							1	
+						
+					
+					<span class="ibm-access">(4)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f2-1">
+					
+					<a title="autoconf 4" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=autoconf&lang=zh')">
+					
+						
+						
+							autoconf	
+						
+					
+					<span class="ibm-access">(4)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f3-9">
+					
+					<a title="awk 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=awk&lang=zh')">
+					
+						
+						
+							awk	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f4-12">
+					
+					<a title="bash 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=bash&lang=zh')">
+					
+						
+						
+							bash	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f5-5">
+					
+					<a title="buffer 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=buffer&lang=zh')">
+					
+						
+						
+							buffer	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f6-43">
+					
+					<a title="c 27" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=c&lang=zh')">
+					
+						
+						
+							c	
+						
+					
+					<span class="ibm-access">(27)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f7-40">
+					
+					<a title="eclipse 23" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse&lang=zh')">
+					
+						
+						
+							eclipse	
+						
+					
+					<span class="ibm-access">(23)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f8-26">
+					
+					<a title="file_systems 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=file_systems&lang=zh')">
+					
+						
+						
+							file_systems	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f9-12">
+					
+					<a title="ftp 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ftp&lang=zh')">
+					
+						
+						
+							ftp	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f10-32">
+					
+					<a title="hadoop 17" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=hadoop&lang=zh')">
+					
+						
+						
+							hadoop	
+						
+					
+					<span class="ibm-access">(17)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f11-26">
+					
+					<a title="kernel 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=kernel&lang=zh')">
+					
+						
+						
+							kernel	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f12-15">
+					
+					<a title="klx.marks 8" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=klx.marks&lang=zh')">
+					
+						
+						
+							klx.marks	
+						
+					
+					<span class="ibm-access">(8)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f13-5">
+					
+					<a title="kvm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=kvm&lang=zh')">
+					
+						
+						
+							kvm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+							
+								
+							
+						
+				<li class="f14-100">
+					
+					<a title="linux 277" class="lotusF5 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux&lang=zh')">
+					
+						
+						
+							linux	
+						
+					
+					<span class="ibm-access">(277)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f15-9">
+					
+					<a title="linux_kernel 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_kernel&lang=zh')">
+					
+						
+						
+							linux_kernel	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f16-26">
+					
+					<a title="linux_on_power 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_on_power&lang=zh')">
+					
+						
+							linux_on_powe...	
+						
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f17-24">
+					
+					<a title="linux_virtualization 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_virtualization&lang=zh')">
+					
+						
+							linux_virtual...	
+						
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f18-22">
+					
+					<a title="linux_入门 11" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux_%25E5%2585%25A5%25E9%2597%25A8&lang=zh')">
+					
+						
+						
+							linux_入门	
+						
+					
+					<span class="ibm-access">(11)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f19-12">
+					
+					<a title="linux环境进程间通信 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux%25E7%258E%25AF%25E5%25A2%2583%25E8%25BF%259B%25E7%25A8%258B%25E9%2597%25B4%25E9%2580%259A%25E4%25BF%25A1&lang=zh')">
+					
+						
+						
+							linux环境进程间通信	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f20-5">
+					
+					<a title="linux系统调用 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=linux%25E7%25B3%25BB%25E7%25BB%259F%25E8%25B0%2583%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							linux系统调用	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f21-5">
+					
+					<a title="lvm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=lvm&lang=zh')">
+					
+						
+						
+							lvm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f22-5">
+					
+					<a title="makefile 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=makefile&lang=zh')">
+					
+						
+						
+							makefile	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f23-12">
+					
+					<a title="network 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=network&lang=zh')">
+					
+						
+						
+							network	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f24-12">
+					
+					<a title="on_demand_business 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=on_demand_business&lang=zh')">
+					
+						
+							on_demand_busi...	
+						
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f25-36">
+					
+					<a title="perl 20" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=perl&lang=zh')">
+					
+						
+						
+							perl	
+						
+					
+					<span class="ibm-access">(20)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f26-9">
+					
+					<a title="php 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=php&lang=zh')">
+					
+						
+						
+							php	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f27-20">
+					
+					<a title="php_(hypertext_preprocessor) 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=php_%2528hypertext_preprocessor%2529&lang=zh')">
+					
+						
+							php_(hypertext...	
+						
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f28-12">
+					
+					<a title="posix 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=posix&lang=zh')">
+					
+						
+						
+							posix	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f29-5">
+					
+					<a title="protocol 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=protocol&lang=zh')">
+					
+						
+						
+							protocol	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f30-54">
+					
+					<a title="python 42" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=python&lang=zh')">
+					
+						
+						
+							python	
+						
+					
+					<span class="ibm-access">(42)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f31-32">
+					
+					<a title="resource_virtualization 17" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=resource_virtualization&lang=zh')">
+					
+						
+							resource_virt...	
+						
+						
+					
+					<span class="ibm-access">(17)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f32-5">
+					
+					<a title="rpm 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=rpm&lang=zh')">
+					
+						
+						
+							rpm	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f33-28">
+					
+					<a title="shell 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=shell&lang=zh')">
+					
+						
+						
+							shell	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f34-20">
+					
+					<a title="shells 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=shells&lang=zh')">
+					
+						
+						
+							shells	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f35-26">
+					
+					<a title="socket 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=socket&lang=zh')">
+					
+						
+						
+							socket	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f36-12">
+					
+					<a title="system_p 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=system_p&lang=zh')">
+					
+						
+						
+							system_p	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f37-9">
+					
+					<a title="tools 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=tools&lang=zh')">
+					
+						
+						
+							tools	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f38-22">
+					
+					<a title="vim 11" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=vim&lang=zh')">
+					
+						
+						
+							vim	
+						
+					
+					<span class="ibm-access">(11)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f39-5">
+					
+					<a title="virtualization 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=virtualization&lang=zh')">
+					
+						
+						
+							virtualization	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f40-9">
+					
+					<a title="windows 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=windows&lang=zh')">
+					
+						
+						
+							windows	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f41-5">
+					
+					<a title="xen 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=xen&lang=zh')">
+					
+						
+						
+							xen	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f42-43">
+					
+					<a title="安全 27" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AE%2589%25E5%2585%25A8&lang=zh')">
+					
+						
+						
+							安全	
+						
+					
+					<span class="ibm-access">(27)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f43-28">
+					
+					<a title="安装 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AE%2589%25E8%25A3%2585&lang=zh')">
+					
+						
+						
+							安装	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f44-12">
+					
+					<a title="编程 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							编程	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f45-20">
+					
+					<a title="编码 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BC%2596%25E7%25A0%2581&lang=zh')">
+					
+						
+						
+							编码	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f46-5">
+					
+					<a title="部分 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2583%25A8%25E5%2588%2586&lang=zh')">
+					
+						
+						
+							部分	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f47-29">
+					
+					<a title="存储 15" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AD%2598%25E5%2582%25A8&lang=zh')">
+					
+						
+						
+							存储	
+						
+					
+					<span class="ibm-access">(15)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f48-24">
+					
+					<a title="代码库 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BB%25A3%25E7%25A0%2581%25E5%25BA%2593&lang=zh')">
+					
+						
+						
+							代码库	
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f49-26">
+					
+					<a title="调试 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25B0%2583%25E8%25AF%2595&lang=zh')">
+					
+						
+						
+							调试	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f50-9">
+					
+					<a title="多线程 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25A4%259A%25E7%25BA%25BF%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							多线程	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f51-9">
+					
+					<a title="发行版 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%258F%2591%25E8%25A1%258C%25E7%2589%2588&lang=zh')">
+					
+						
+						
+							发行版	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+								
+							
+							
+						
+				<li class="f52-69">
+					
+					<a title="管理 77" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							管理	
+						
+					
+					<span class="ibm-access">(77)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f53-44">
+					
+					<a title="集群 28" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%259B%2586%25E7%25BE%25A4&lang=zh')">
+					
+						
+						
+							集群	
+						
+					
+					<span class="ibm-access">(28)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f54-26">
+					
+					<a title="脚本编程 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%2584%259A%25E6%259C%25AC%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							脚本编程	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f55-50">
+					
+					<a title="开发工具 36" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BC%2580%25E5%258F%2591%25E5%25B7%25A5%25E5%2585%25B7&lang=zh')">
+					
+						
+						
+							开发工具	
+						
+					
+					<span class="ibm-access">(36)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f56-26">
+					
+					<a title="开放源码 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BC%2580%25E6%2594%25BE%25E6%25BA%2590%25E7%25A0%2581&lang=zh')">
+					
+						
+						
+							开放源码	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+							
+								
+							
+							
+						
+				<li class="f57-72">
+					
+					<a title="内核 88" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%2586%2585%25E6%25A0%25B8&lang=zh')">
+					
+						
+						
+							内核	
+						
+					
+					<span class="ibm-access">(88)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f58-35">
+					
+					<a title="配置 19" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2585%258D%25E7%25BD%25AE&lang=zh')">
+					
+						
+						
+							配置	
+						
+					
+					<span class="ibm-access">(19)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f59-20">
+					
+					<a title="迁移 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25BF%2581%25E7%25A7%25BB&lang=zh')">
+					
+						
+						
+							迁移	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f60-9">
+					
+					<a title="驱动程序 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%25A9%25B1%25E5%258A%25A8%25E7%25A8%258B%25E5%25BA%258F&lang=zh')">
+					
+						
+						
+							驱动程序	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f61-5">
+					
+					<a title="全球化 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%2585%25A8%25E7%2590%2583%25E5%258C%2596&lang=zh')">
+					
+						
+						
+							全球化	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f62-12">
+					
+					<a title="认证 7" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E8%25AE%25A4%25E8%25AF%2581&lang=zh')">
+					
+						
+						
+							认证	
+						
+					
+					<span class="ibm-access">(7)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f63-9">
+					
+					<a title="使用 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BD%25BF%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							使用	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f64-28">
+					
+					<a title="数据库和数据管理 14" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E5%2592%258C%25E6%2595%25B0%25E6%258D%25AE%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							数据库和数据管理	
+						
+					
+					<span class="ibm-access">(14)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f65-18">
+					
+					<a title="通用编程 9" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%2580%259A%25E7%2594%25A8%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							通用编程	
+						
+					
+					<span class="ibm-access">(9)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f66-24">
+					
+					<a title="图形 12" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%259B%25BE%25E5%25BD%25A2&lang=zh')">
+					
+						
+						
+							图形	
+						
+					
+					<span class="ibm-access">(12)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f67-31">
+					
+					<a title="网络 16" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BD%2591%25E7%25BB%259C&lang=zh')">
+					
+						
+						
+							网络	
+						
+					
+					<span class="ibm-access">(16)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f68-5">
+					
+					<a title="网络编程 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BD%2591%25E7%25BB%259C%25E7%25BC%2596%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							网络编程	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f69-9">
+					
+					<a title="文档和文本管理 6" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2596%2587%25E6%25A1%25A3%25E5%2592%258C%25E6%2596%2587%25E6%259C%25AC%25E7%25AE%25A1%25E7%2590%2586&lang=zh')">
+					
+						
+						
+							文档和文本管理	
+						
+					
+					<span class="ibm-access">(6)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f70-20">
+					
+					<a title="系统脚本 10" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25B3%25BB%25E7%25BB%259F%25E8%2584%259A%25E6%259C%25AC&lang=zh')">
+					
+						
+						
+							系统脚本	
+						
+					
+					<span class="ibm-access">(10)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f71-15">
+					
+					<a title="线程 8" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25BA%25BF%25E7%25A8%258B&lang=zh')">
+					
+						
+						
+							线程	
+						
+					
+					<span class="ibm-access">(8)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f72-47">
+					
+					<a title="性能 32" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%2580%25A7%25E8%2583%25BD&lang=zh')">
+					
+						
+						
+							性能	
+						
+					
+					<span class="ibm-access">(32)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f73-5">
+					
+					<a title="学习 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25AD%25A6%25E4%25B9%25A0&lang=zh')">
+					
+						
+						
+							学习	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f74-5">
+					
+					<a title="验证 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E9%25AA%258C%25E8%25AF%2581&lang=zh')">
+					
+						
+						
+							验证	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f75-37">
+					
+					<a title="移动和嵌入式系统 21" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25A7%25BB%25E5%258A%25A8%25E5%2592%258C%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F&lang=zh')">
+					
+						
+						
+							移动和嵌入式系统	
+						
+					
+					<span class="ibm-access">(21)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f76-34">
+					
+					<a title="应用开发 18" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E5%25BA%2594%25E7%2594%25A8%25E5%25BC%2580%25E5%258F%2591&lang=zh')">
+					
+						
+						
+							应用开发	
+						
+					
+					<span class="ibm-access">(18)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+							
+								
+							
+							
+							
+						
+				<li class="f77-59">
+					
+					<a title="硬件平台 51" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%25A1%25AC%25E4%25BB%25B6%25E5%25B9%25B3%25E5%258F%25B0&lang=zh')">
+					
+						
+						
+							硬件平台	
+						
+					
+					<span class="ibm-access">(51)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+								
+							
+							
+							
+							
+							
+						
+				<li class="f78-5">
+					
+					<a title="用 5" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E7%2594%25A8&lang=zh')">
+					
+						
+						
+							用	
+						
+					
+					<span class="ibm-access">(5)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f79-26">
+					
+					<a title="云计算 13" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E4%25BA%2591%25E8%25AE%25A1%25E7%25AE%2597&lang=zh')">
+					
+						
+						
+							云计算	
+						
+					
+					<span class="ibm-access">(13)</span>					
+					</a>&nbsp;
+				</li>
+					
+						
+							
+							
+								
+							
+							
+							
+							
+						
+				<li class="f80-38">
+					
+					<a title="桌面环境 22" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=%25E6%25A1%258C%25E9%259D%25A2%25E7%258E%25AF%25E5%25A2%2583&lang=zh')">
+					
+						
+						
+							桌面环境	
+						
+					
+					<span class="ibm-access">(22)</span>					
+					</a>&nbsp;
+				</li>
+					
+			</ul>
+		</div>
+		
+			
+						
+						
+						
+						
+			
+				<div class="ibm-rule"><hr></div><p>查看方式<strong>云</strong>&nbsp;| <a id="alist" class="lotusAction" href="javascript:;">列表</a></p>
+						
+			
+			
+		
+		</div> 
+
+		
+			
+			<div class="lotusChunk dw-hidetag" id="dogearTagList">
+			<div id="list-container">
+				<ul class="lotusList lotusEditable lotusTags lotusMeta">
+				
+					
+						
+			
+
+			
+				<li>				
+					<a title="1 4" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=1&lang=zh')">
+						
+							
+							
+								1	
+							
+						
+					</a>
+					4
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="autoconf 4" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=autoconf&lang=zh')">
+						
+							
+							
+								autoconf	
+							
+						
+					</a>
+					4
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="awk 6" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=awk&lang=zh')">
+						
+							
+							
+								awk	
+							
+						
+					</a>
+					6
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="bash 7" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=bash&lang=zh')">
+						
+							
+							
+								bash	
+							
+						
+					</a>
+					7
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="buffer 5" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=buffer&lang=zh')">
+						
+							
+							
+								buffer	
+							
+						
+					</a>
+					5
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="c 27" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=c&lang=zh')">
+						
+							
+							
+								c	
+							
+						
+					</a>
+					27
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="eclipse 23" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse&lang=zh')">
+						
+							
+							
+								eclipse	
+							
+						
+					</a>
+					23
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="file_systems 13" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=file_systems&lang=zh')">
+						
+							
+							
+								file_systems	
+							
+						
+					</a>
+					13
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="ftp 7" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ftp&lang=zh')">
+						
+							
+							
+								ftp	
+							
+						
+					</a>
+					7
+				</li>
+				
+			
+					
+						
+			
+
+			
+				<li>				
+					<a title="hadoop 17" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=hadoop&lang=zh')">
+						
+							
+							
+								hadoop	
+							
+						
+					</a>
+					17
+				</li>
+				
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+					
+			
+				
+			</ul>
+			</div>
+			
+				
+							
+							
+							
+							
+				
+					<div class="ibm-rule"><hr></div><p>查看方式<a id="acloud" class="lotusAction" href="javascript:;">云</a>&nbsp;| <strong>列表</strong></p>
+							
+								
+				
+			
+			</div></div>  
+</div>   
+</div>
+</div>
+<!-- Tagging_End -->
+
+<!-- Dig_Deeper -->
+
+<!-- High_Visibility_Offer -->
+
+<!-- Special_Offers -->
+
+<!-- RIGHT_COLUMN_CONTENT_END -->
+
+</div>
+<!-- RIGHT_COLUMN_END -->
+
+<!-- CONTENT_BODY_END -->
+</div>
+
+</div>
+<!-- CONTENT_END -->
+
+ <!-- END_IBM-PCON -->
+</div>
+
+<!-- FOOTER_BEGIN -->
+<div id="ibm-footer">
+<!-- IBM footer container; disabled -->
+</div>
+
+<div id="ibm-page-tools-dw">
+	<div id="dw-footer-top-row">
+		<ul id="dw-foot-options">
+			<li id="dw-print"><a class="ibm-print-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">打印此页面</a></li>
+		</ul>
+		<ul id="ibm-foot-options-dw">
+			<li id="dw-foot-0" class="dw-foot-0-cn"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">分享此页面</a></li>
+			<li id="dw-foot-1" class="dw-foot-1-cn"><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关注 developerWorks</a></li>
+		</ul>
+	</div>       
+
+
+
+	<!-- TOP ROW SLIDER -->
+    <div id="dw-page-tools-menu">    
+
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Share this page -->			
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-3-1">
+                        <h2>分享此页面：</h2>                       
+						<ul class="ibm-link-list">
+							<li><a id="dw-foot-0-0" class="ibm-facebook-link" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F&t=Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3">Facebook</a></li>
+							<li><a class="ibm-linkedin-link" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F&title=Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3">LinkedIn</a></li>
+							<li><a class="ibm-twitter-link" href="http://twitter.com/home?status=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F%20-%20Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-2">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-delicious-link" href="http://delicious.com/post?url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F&title=Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3">Delicious</a></li>
+							<li><a class="ibm-digg-link" href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Flinux%2Fl-sockpit%2F&title=Linux%20%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%205%20%E4%B8%AA%E9%9A%90%E6%82%A3">Digg</a></li>
+						<!--	<li><a class="ibm-stumbleupon" href="#">StumbleUpon</a></li> -->
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-3">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-email-link" href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">发送此页面</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+                <!-- Follow developerWorks -->
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-1-1">
+                        <h2>关注 developerWorks：</h2>
+						<ul class="ibm-link-list">
+
+							<li><a id="dw-foot-1-0" class="ibm-twitter-link" href="http://www.twitter.com/dwchina">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/l-sockpit/#">关闭 [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <a class="ibm-ribbon-next">Next</a> -->
+    </div>
+</div>
+
+<div id="ibm-footer-module-dw">
+	<div class="dw-footer-columns">
+		<div class="dw-footer-col-6-1"> 
+			<h2><a href="http://www.ibm.com/developerworks/cn/topics/">技术主题</a></h2>
+				<ul>
+					<li><a href="http://www.ibm.com/developerworks/cn/aix/">AIX and UNIX</a></li>
+					<li><a href="http://www.ibm.com/developerworks/cn/ibmi/">IBM i</a></li>
+					<li class="dw-footer-newline"><a href="http://www.ibm.com/developerworks/cn/data/">Information<br> Management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/lotus/">Lotus</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/rational/">Rational</a></li>
+						<!--	<li><a href="">Tivoli</a></li>  -->
+							<li><a href="http://www.ibm.com/developerworks/cn/websphere/">WebSphere</a></li>     
+						</ul>      
+			<ul>
+				<li class="dw-footer-newgroup"><a href="http://www.ibm.com/developerworks/cn/cloud/">Cloud computing</a></li>
+				<!-- <li><a href="REPLACE.HTML">Industries</a></li> -->
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-2">
+			<ul>
+							<li><a href="http://www.ibm.com/developerworks/cn/java/">Java technology</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/linux/">Linux</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/opensource/">Open source</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/webservices/">SOA and web services</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/web/">Web development</a></li>  
+							<li><a href="http://www.ibm.com/developerworks/cn/xml/">XML</a></li>     
+					</ul>
+			<h2><a href="http://www.ibm.com/developerworks/cn/topics/">更多...</a></h2>
+		</div>
+		<div class="dw-footer-col-6-3">
+			<h2 class="dw-footer-headonly">查找软件</h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/cn/downloads/product.html">IBM 产品</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/downloads/evalmethod.html">评估方式（下载，在线试用，Beta 版，云）</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/downloads/industry.html">行业</a></li>
+			</ul>     
+			<h2 class="dw-footer-newgroup"><a href="http://www.ibm.com/developerworks/cn/offers/techbriefings/">技术讲座</a></h2>
+		<!--	<ul>
+				<li><a href="REPLACE.HTML">Briefings</a></li>
+				<li><a href="REPLACE.HTML">Webcasts</a></li>
+				<li><a href="REPLACE.HTML">Find technical events</a></li>
+			</ul> -->
+		</div>
+		<div class="dw-footer-col-6-4">
+			<h2><a href="https://www.ibm.com/developerworks/community/?lang=zh">社区</a></h2>
+			<ul>
+				<!-- <li><a href="REPLACE.HTML">Forums</a></li> -->
+				<li><a href="https://www.ibm.com/developerworks/community/groups/service/html/allcommunities?lang=zh">群组</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/blogs/?lang=zh">博客</a></li>
+				<li><a href="https://www.ibm.com/developerworks/mydeveloperworks/wikis/home?lang=zh">Wiki</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/files/app?lang=zh">文件</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms?lang=zh">使用条款</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/report?lang=zh">报告滥用</a></li>
+			</ul>
+			<h2><a href="https://www.ibm.com/developerworks/community/?lang=zh">更多...</a></h2>
+		</div>
+		<div class="dw-footer-col-6-5">
+			<h2 class="dw-footer-headonly">关于 developerWorks</h2>
+			<ul>
+				<li><a href="https://www.ibm.com/developerworks/secure/feedback.jsp?domain=dwchina">反馈意见</a></li>
+			<!--	<li><a href="REPLACE.HTML">Contacts</a></li> -->
+				<li><a href="https://www.ibm.com/developerworks/secure/myideas2.jsp?domain=dwchina&start=true">在线投稿</a></li>
+			    <li><a href="http://www.ibm.com/developerworks/cn/author/">投稿指南</a></li>
+			    <li><a href="http://www.ibm.com/developerworks/cn/sitemap/">网站导航</a></li>
+			    <li><a href="https://www.ibm.com/developerworks/secure/reprintreq.jsp?domain=dwchina">
+请求转载内容</a></li>
+			</ul>
+			<h2 class="dw-footer-headonly dw-footer-newgroup">相关资源</h2>
+			<ul>
+				<li><a href="http://www.ibm.com/partnerworld/isv/">ISV 资源 (英语)</a></li>
+				<li><a href="http://www-900.ibm.com/cn/ai/">IBM 教育学院教育培养计划</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-6">
+			<h2><a href="http://www.ibm.com/cn/">IBM</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/solutions/cn/zh/">解决方案</a></li>
+				<li><a href="http://www-01.ibm.com/software/cn/">软件</a></li>
+				<!-- <li><a href="REPLACE.HTML">Software services</a></li> -->
+				<li><a href="http://www.ibm.com/support/cn/zh/">支持门户</a></li>
+				<li><a href="http://www.ibm.com/support/documentation/cn/zh/">产品文档</a></li>
+				<li><a href="http://www.ibm.com/redbooks">红皮书 (英语)</a></li>
+				<li><a href="http://www.ibm.com/privacy/cn/zh/">隐私条约</a></li>
+				<li><a href="http://www.ibm.com/ibm/accessibility/cn/">浏览辅助</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Language selector no-script -->
+	<noscript></noscript>
+</div> <!-- FOOTER_END -->
+
+ <!-- END_IBM-TOP -->
+<div id="ibm-overlay-top"></div></div>
+ 
+ <!-- SCRIPTS_INCLUDE_BEGIN -->
+<!-- JQuery start -->
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/jquery.cluetip.js"></script>
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/ui.core-1.7.1.js"></script>
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/ui.slider-1.7.1.js"></script>
+
+<!-- xM Masthead/Footer -->
+<script src="./Linux 套接字编程中的 5 个隐患_files/jquery.tools.min.js" type="text/javascript">//</script>
+<script src="./Linux 套接字编程中的 5 个隐患_files/jquery.jscroll.js" type="text/javascript">//</script>
+<script src="./Linux 套接字编程中的 5 个隐患_files/dw_v16.js" type="text/javascript">//</script>
+<script src="./Linux 套接字编程中的 5 个隐患_files/flash-detect(1).js" type="text/javascript">//</script>
+<script src="./Linux 套接字编程中的 5 个隐患_files/dwsi.js" type="text/javascript">//</script>
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/dwjquerytags.js"></script>
+<script type="text/javascript" language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/showcomments.js">//</script>
+<script language="JavaScript" type="text/javascript">
+	// <![CDATA[
+ jQuery('threadShow').showComments('95%',5,'nCmts','icomments');
+// ]]>
+</script>
+<script type="text/javascript" language="JavaScript">
+	jQuery.noConflict();     
+	// Put all your code in your document ready area
+	jQuery(document).ready(function(jQuery) {
+	// Do jQuery stuff using jQuery 
+	jQuery('a.dwauthor').cluetip({
+	local: true,
+	showTitle: false,
+	positionBy: 'bottomTop',
+	sticky: true,	
+	mouseOutClose: true,
+	closeText: '<img src="//dw1.s81c.com/developerworks/js/jquery/cluetip98/i/x.gif" alt="Close" />',
+	arrows: false,
+	dropShadow: true,
+	cluetipClass: 'dwbasic'
+	});   	
+	//tagging
+	login="false";
+	userid="";
+	whichTags = "init";
+	pCont = "";
+	mCont = "";
+	signInMCont = "";
+	accessCont = "";
+	pValue = 0;
+	mValue = 0;
+	
+	rBHash = null;
+	rBHash = new Object();
+	rBHash['viperLang'] = 'zh';
+	rBHash['urlLang'] = 'cn';
+	rBHash['tagThisWinTitle'] = '添加标签';
+	rBHash['pTags1'] = '热门标签';		
+	rBHash['pTags2'] = '热门标签结束';
+	rBHash['mTags1'] = '我的标签';
+	rBHash['mTags2'] = '我的标签结束';
+	rBHash['alt1'] = '正在加载内容';
+	rBHash['noATags'] = '没有可用的标签';
+	rBHash['signIn1'] = '请';
+	rBHash['signIn2'] = '登录';
+	rBHash['signIn3'] = '以访问';
+	rBHash['signIn4'] = '我的标签';
+	rBHash['signIn5'] = '要访问我的标签，请';
+	rBHash['signIn6'] = '登录';
+	rBHash['signIn7'] = '查看热门标签';
+	rBHash['dnameSuffix'] = '';
+
+	zoneHash = new Object();
+	zoneHash['aix'] = 'AIX and UNIX';
+	zoneHash['ibmi'] = 'IBM i zone';
+	zoneHash['data'] = 'Information Management';
+	zoneHash['lotus'] = 'Lotus';
+	zoneHash['rational'] = 'Rational';
+	//zoneHash['tivoli'] = 'Tivoli zone';
+	zoneHash['websphere'] = 'WebSphere';
+	zoneHash['architecture'] = 'Technical library';
+	//zoneHash['autonomic'] = 'Technical library';
+	zoneHash['java'] = 'Java technology';
+	zoneHash['cloud'] = 'Cloud computing';
+	//zoneHash['industry'] = 'Technical library';
+	zoneHash['library'] = '文档库';
+	zoneHash['linux'] = 'Linux';
+	zoneHash['opensource'] = 'Open source';
+	//zoneHash['power'] = 'Technical library';
+	zoneHash['webservices'] = 'SOA and web services';
+	zoneHash['web'] = 'Web development';
+	zoneHash['xml'] = 'XML';
+	//zoneHash['wireless'] = 'Technical library';
+	jQuery.checkRB();
+	jQuery.getPopularTags("/developerworks/dwtags/dwjquerytabtags?lang=" + rBHash['viperLang'] + "&base=" + jQuery.getNormalizedZoneUrl(location.href));
+	jQuery.getUserTags();
+	if(jQuery.isTutorial(location.href) == "true") {
+	jQuery.getTagsForContent("/developerworks/tagging/UseCaseServlet?lang=" + rBHash['viperLang'] + "&format=maverick&cType=tutorials&use_case=geturltags&action=gettags&url=" + jQuery.normalizeUrl(location.href));
+	}
+	else {
+	jQuery.getTagsForContent("/developerworks/tagging/UseCaseServlet?lang=" + rBHash['viperLang'] + "&format=maverick&cType=articles&use_case=geturltags&action=gettags&url=" + jQuery.normalizeUrl(location.href));
+	
+	}
+	// si
+	initSI();
+	});
+</script>
+<!-- JQuery end -->
+<!-- Overlay js -->
+<script language="JavaScript" src="./Linux 套接字编程中的 5 个隐患_files/overlay.js" type="text/javascript"></script><!-- BEGIN: Use this section to set page specific variables for the Unica Page Tag -->
+<script language="JavaScript">var NTPT_PGEXTRA="ibmSkillLevel=3&ibmAdoptPhase=667&ibmRole=710";</script>
+<!--END --><!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="./Linux 套接字编程中的 5 个隐患_files/stats.js" type="text/javascript">//</script>
+</div>
+
+
+
+<div id="cluetip-waitimage" style="position: absolute; z-index: 95; display: none; "></div><div id="cluetip" style="display: none; position: absolute; z-index: 96; "><div style="z-index: 95; opacity: 0.1; top: 1px; left: 1px; position: absolute; background-color: rgb(0, 0, 0); "></div><div style="z-index: 94; opacity: 0.1; top: 2px; left: 2px; position: absolute; background-color: rgb(0, 0, 0); "></div><div style="z-index: 93; opacity: 0.1; top: 3px; left: 3px; position: absolute; background-color: rgb(0, 0, 0); "></div><div style="z-index: 92; opacity: 0.1; top: 4px; left: 4px; position: absolute; background-color: rgb(0, 0, 0); "></div><div style="z-index: 91; opacity: 0.1; top: 5px; left: 5px; position: absolute; background-color: rgb(0, 0, 0); "></div><div style="z-index: 90; opacity: 0.1; top: 6px; left: 6px; position: absolute; background-color: rgb(0, 0, 0); "></div><div id="cluetip-outer" style="position: relative; z-index: 97; "><h3 id="cluetip-title"></h3><div id="cluetip-inner"></div></div><div id="cluetip-extra"></div><div id="cluetip-arrows" class="cluetip-arrows" style="z-index: 97; "></div></div></body></html>
