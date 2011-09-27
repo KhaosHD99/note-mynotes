@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://pubs.opengroup.org/onlinepubs/7908799/xsh/select.html -->
+<HTML><HEAD><TITLE>select</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><!-- Copyright 1997 The Open Group, All Rights Reserved -->
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR></HEAD>
+<BODY bgColor=white>
+<CENTER><FONT size=2>The Single UNIX &reg; Specification, Version 2<BR>Copyright &copy; 
+1997 The Open Group </FONT></CENTER>
+<HR noShade SIZE=2>
+
+<H4><A name=tag_000_008_261>&nbsp;</A>NAME</H4>
+<BLOCKQUOTE>select - synchronous I/O multiplexing </BLOCKQUOTE>
+<H4><A name=tag_000_008_262>&nbsp;</A>SYNOPSIS</H4>
+<BLOCKQUOTE><PRE><CODE>
+
+#include &lt;<A href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/systime.h.html">sys/time.h</A>&gt;
+
+int select(int <I>nfds</I>, fd_set *<I>readfds</I>, fd_set *<I>writefds</I>,
+    fd_set *<I>errorfds</I>, struct timeval *<I>timeout</I>);
+void FD_CLR(int <I>fd</I>, fd_set *<I>fdset</I>);
+int FD_ISSET(int <I>fd</I>, fd_set *<I>fdset</I>);
+void FD_SET(int <I>fd</I>, fd_set *<I>fdset</I>);
+void FD_ZERO(fd_set *<I>fdset</I>);
+</CODE>
+</PRE></BLOCKQUOTE>
+<H4><A name=tag_000_008_263>&nbsp;</A>DESCRIPTION</H4>
+<BLOCKQUOTE>The <I>select()</I> function indicates which of the specified file 
+  descriptors is ready for reading, ready for writing, or has an error condition 
+  pending. If the specified condition is false for all of the specified file 
+  descriptors, <I>select()</I> blocks, up to the specified timeout interval, 
+  until the specified condition is true for at least one of the specified file 
+  descriptors. 
+  <P>The <I>select()</I> function supports regular files, terminal and 
+  pseudo-terminal devices, STREAMS-based files, FIFOs and pipes. The behaviour 
+  of <I>select()</I> on file descriptors that refer to other types of file is 
+  unspecified. 
+  <P>The <I>nfds</I> argument specifies the range of file descriptors to be 
+  tested. The <I>select()</I> function tests file descriptors in the range of 0 
+  to <I>nfds</I>-1. 
+  <P>If the <I>readfds</I> argument is not a null pointer, it points to an 
+  object of type <B>fd_set</B> that on input specifies the file descriptors to 
+  be checked for being ready to read, and on output indicates which file 
+  descriptors are ready to read. 
+  <P>If the <I>writefds</I> argument is not a null pointer, it points to an 
+  object of type <B>fd_set</B> that on input specifies the file descriptors to 
+  be checked for being ready to write, and on output indicates which file 
+  descriptors are ready to write. 
+  <P>If the <I>errorfds</I> argument is not a null pointer, it points to an 
+  object of type <B>fd_set</B> that on input specifies the file descriptors to 
+  be checked for error conditions pending, and on output indicates which file 
+  descriptors have error conditions pending. 
+  <P>On successful completion, the objects pointed to by the <I>readfds</I>, 
+  <I>writefds</I>, and <I>errorfds</I> arguments are modified to indicate which 
+  file descriptors are ready for reading, ready for writing, or have an error 
+  condition pending, respectively. For each file descriptor less than 
+  <I>nfds</I>, the corresponding bit will be set on successful completion if it 
+  was set on input and the associated condition is true for that file 
+  descriptor. 
+  <P>If the <I>timeout</I> argument is not a null pointer, it points to an 
+  object of type <B>struct timeval</B> that specifies a maximum interval to wait 
+  for the selection to complete. If the <I>timeout</I> argument points to an 
+  object of type <B>struct timeval</B> whose members are 0, <I>select()</I> does 
+  not block. If the <I>timeout</I> argument is a null pointer, <I>select()</I> 
+  blocks until an event causes one of the masks to be returned with a valid 
+  (non-zero) value. If the time limit expires before any event occurs that would 
+  cause one of the masks to be set to a non-zero value, <I>select()</I> 
+  completes successfully and returns 0. 
+  <P>The use of a timeout does not affect any pending timers set up by <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/alarm.html">alarm()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/ualarm.html">ualarm()</A></I> 
+  or <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/setitimer.html">setitimer()</A></I>. 
+
+  <P>On successful completion, the object pointed to by the <I>timeout</I> 
+  argument may be modified. 
+  <P>Implementations may place limitations on the maximum timeout interval 
+  supported. On all implementations, the maximum timeout interval supported will 
+  be at least 31 days. If the <I>timeout</I> argument specifies a timeout 
+  interval greater than the implementation-dependent maximum value, the maximum 
+  value will be used as the actual timeout value. Implementations may also place 
+  limitations on the granularity of timeout intervals. If the requested timeout 
+  interval requires a finer granularity than the implementation supports, the 
+  actual timeout interval will be rounded up to the next supported value. 
+  <P>If the <I>readfds</I>, <I>writefds</I>, and <I>errorfds</I> arguments are 
+  all null pointers and the <I>timeout</I> argument is not a null pointer, 
+  <I>select()</I> blocks for the time specified, or until interrupted by a 
+  signal. If the <I>readfds</I>, <I>writefds</I>, and <I>errorfds</I> arguments 
+  are all null pointers and the <I>timeout</I> argument is a null pointer, 
+  <I>select()</I> blocks until interrupted by a signal. 
+  <P>File descriptors associated with regular files always select true for ready 
+  to read, ready to write, and error conditions. 
+  <P>On failure, the objects pointed to by the <I>readfds</I>, <I>writefds</I>, 
+  and <I>errorfds</I> arguments are not modified. If the timeout interval 
+  expires without the specified condition being true for any of the specified 
+  file descriptors, the objects pointed to by the <I>readfds</I>, 
+  <I>writefds</I>, and <I>errorfds</I> arguments have all bits set to 0. 
+  <P>File descriptor masks of type <B>fd_set</B> can be initialised and tested 
+  with FD_CLR(), FD_ISSET(), FD_SET(), and FD_ZERO(). It is unspecified whether 
+  each of these is a macro or a function. If a macro definition is suppressed in 
+  order to access an actual function, or a program defines an external 
+  identifier with any of these names, the behaviour is undefined. 
+  <DL compact>
+    <DT>FD_CLR(<I>fd</I>, &amp;<I>fdset</I>)
+    <DD>Clears the bit for the file descriptor <I>fd</I> in the file descriptor 
+    set <I>fdset</I>. 
+    <DT>FD_ISSET(<I>fd</I>, &amp;<I>fdset</I>)
+    <DD>Returns a non-zero value if the bit for the file descriptor <I>fd</I> is 
+    set in the file descriptor set pointed to by <I>fdset</I>, and 0 otherwise. 
+    <DT>FD_SET(<I>fd</I>, &amp;<I>fdset</I>)
+    <DD>Sets the bit for the file descriptor <I>fd</I> in the file descriptor 
+    set <I>fdset</I>. 
+    <DT>FD_ZERO(&amp;<I>fdset</I>)
+    <DD>Initialises the file descriptor set <I>fdset</I> to have zero bits for 
+    all file descriptors. </DD></DL>
+  <P>The behaviour of these macros is undefined if the <I>fd</I> argument is 
+  less than 0 or greater than or equal to FD_SETSIZE, or if any of the arguments 
+  are expressions with side effects. </P></BLOCKQUOTE>
+<H4><A name=tag_000_008_264>&nbsp;</A>RETURN VALUE</H4>
+<BLOCKQUOTE>FD_CLR(), FD_SET() and FD_ZERO() return no value. FD_ISSET() a 
+  non-zero value if the bit for the file descriptor <I>fd</I> is set in the file 
+  descriptor set pointed to by <I>fdset</I>, and 0 otherwise. 
+  <P>On successful completion, <I>select()</I> returns the total number of bits 
+  set in the bit masks. Otherwise, -1 is returned, and <I>errno</I> is set to 
+  indicate the error. </P></BLOCKQUOTE>
+<H4><A name=tag_000_008_265>&nbsp;</A>ERRORS</H4>
+<BLOCKQUOTE>Under the following conditions, <I>select()</I> fails and sets 
+  <I>errno</I> to: 
+  <DL compact>
+    <DT>[EBADF]
+    <DD>One or more of the file descriptor sets specified a file descriptor that 
+    is not a valid open file descriptor. 
+    <DT>[EINTR]
+    <DD>The <I>select()</I> function was interrupted before any of the selected 
+    events occurred and before the timeout interval expired. If SA_RESTART has 
+    been set for the interrupting signal, it is implementation-dependent whether 
+    <I>select()</I> restarts or returns with [EINTR]. 
+    <DT>[EINVAL]
+    <DD>An invalid timeout interval was specified. 
+    <DT>[EINVAL]
+    <DD>The <I>nfds</I> argument is less than 0 or greater than FD_SETSIZE. 
+    <DT>[EINVAL]
+    <DD>One of the specified file descriptors refers to a STREAM or multiplexer 
+    that is linked (directly or indirectly) downstream from a multiplexer. 
+  </DD></DL></BLOCKQUOTE>
+<H4><A name=tag_000_008_266>&nbsp;</A>EXAMPLES</H4>
+<BLOCKQUOTE>None. </BLOCKQUOTE>
+<H4><A name=tag_000_008_267>&nbsp;</A>APPLICATION USAGE</H4>
+<BLOCKQUOTE>None. </BLOCKQUOTE>
+<H4><A name=tag_000_008_268>&nbsp;</A>FUTURE DIRECTIONS</H4>
+<BLOCKQUOTE>None. </BLOCKQUOTE>
+<H4><A name=tag_000_008_269>&nbsp;</A>SEE ALSO</H4>
+<BLOCKQUOTE><I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/fcntl.html">fcntl()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/poll.html">poll()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/read.html">read()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/write.html">write()</A></I>, 
+  <I><A 
+  href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/systime.h.html">&lt;sys/time.h&gt;</A></I>. 
+</BLOCKQUOTE>
+<HR noShade SIZE=2>
+
+<CENTER><FONT size=2>UNIX &reg; is a registered Trademark of The Open 
+Group.<BR>Copyright &copy; 1997 The Open Group <BR>[ <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/index.html">Main Index</A> | 
+<A href="http://pubs.opengroup.org/onlinepubs/7908799/xshix.html">XSH</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/xcuix.html">XCU</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/xbdix.html">XBD</A> | <A 
+href="http://pubs.opengroup.org/onlinepubs/7908799/cursesix.html">XCURSES</A> | 
+<A href="http://pubs.opengroup.org/onlinepubs/7908799/xnsix.html">XNS</A> ] 
+</FONT></CENTER>
+<HR noShade SIZE=2>
+</BODY></HTML>
