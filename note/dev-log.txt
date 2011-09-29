@@ -745,9 +745,6 @@ over time
 0906 certificate
      
 0907 certificate
------------------
-lend 500 to zhucunlin
------------------
 
 0908 certificate
 
@@ -786,3 +783,4 @@ lend 500 to zhucunlin
      then, go to xicun, but close for maintain
      
 0925 
+	     

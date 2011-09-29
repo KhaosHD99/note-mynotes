@@ -5833,8 +5833,8 @@ set_text_to_drawaraw: add a args						done
 0924
 
 0925
-
-0926 liblinconfig slow								**
+     
+0926 liblinconfig slow								done
      webkit focus frame								*
      onhook->ring adver die; adver reboot fail???				**
      
@@ -5842,4 +5842,24 @@ set_text_to_drawaraw: add a args						done
      inet_aton
 
 0927 FD_SET test
+     catch ctr+c
+     netstat port
+     stderr syslog								*
+
+     recvfrom addr; inet_ntoa(), inet_ntop()
+     
+     binary and text								*     
+     why some need conver, some not						**     
+     
+     die: media play								**
+     
+0928 brw can not reboot????								
+     bind: Cannot assign requested address					done
+     & with + is unexpected!!!!!!!!!!!!!!!!!     				
+     
+     /etc/hosts
+     
+     brw flash fullscreen							**
+     
+     
      
