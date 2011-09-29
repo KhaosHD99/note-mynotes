@@ -5859,7 +5859,25 @@ set_text_to_drawaraw: add a args						done
      
      /etc/hosts
      
-     brw flash fullscreen							**
+     brw flash fullscreen or javascript pop menu				**
      
-     
-     
+0929 
+      WARNING: without --enable-docbook we will use the cached
+                 documentation files included in the gnash distribution.
+                 If you change files in doc/C, you should --enable-docbook.
+        WARNING: You need to have 'swfc' from SWFTools installed
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://www.swftools.org/
+                 or .deb users: apt-get install swftools
+        WARNING: you need as3compile from SWFTools
+                 to run some of the tests in Gnash testsuite.
+                 You can install it from http://www.swftools.org/
+       
+       move hidden file      
+
+       renderstyle
+             object 
+             image
+              
+
+好像可以捕获插件里面的SetWindow的全屏好像都要调那个setwindow，还有一个printwindow
