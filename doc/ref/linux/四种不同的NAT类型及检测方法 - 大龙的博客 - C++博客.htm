@@ -1,0 +1,920 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html -->
+<HTML><HEAD id=Head><TITLE>四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META id=metaKeywords content=四种不同的NAT类型及检测方法 name=keywords><LINK 
+href="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/common.css" type=text/css 
+rel=stylesheet><LINK id=MainCss 
+href="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/style.css" type=text/css 
+rel=stylesheet><LINK id=RSSLink title=RSS 
+href="http://www.cppblog.com/fwxjj/rss.aspx" type=application/rss+xml 
+rel=alternate>
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR></HEAD>
+<BODY>
+<FORM id=Form1 name=Form1 onsubmit="javascript:return WebForm_OnSubmit();" 
+action=58823.html method=post>
+<DIV><INPUT id=__EVENTTARGET type=hidden name=__EVENTTARGET> <INPUT 
+id=__EVENTARGUMENT type=hidden name=__EVENTARGUMENT> <INPUT 
+id="&#13;&#10;__VIEWSTATE" type=hidden name=__VIEWSTATE> </DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</SCRIPT>
+
+<SCRIPT src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/WebResource.axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript>
+									function ctlent(evt,id)
+											{
+												if(evt.ctrlKey && evt.keyCode == 13)
+												{	
+													try
+													{
+														TempSave(id);
+													}
+													catch(ex)
+													{
+													}
+													finally
+													{
+													    __doPostBack('AjaxHolder$PostComment$btnSubmit','')
+													}
+												}
+		
+												}</SCRIPT>
+
+<SCRIPT language=JavaScript>function SetReplyAuhor(author){document.getElementById('AjaxHolder_PostComment_tbComment').value+="@"+author+"\n";document.getElementById('AjaxHolder_PostComment_tbComment').focus();return false}</SCRIPT>
+
+<SCRIPT src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/ScriptResource.axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT 
+src="E:\note\doc\ref\linux\四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files\ScriptResource(1).axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT 
+src="E:\note\doc\ref\linux\四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files\ScriptResource(2).axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</SCRIPT>
+
+<DIV id=top>
+<H1><A class=headermaintitle id=Header1_HeaderTitle 
+href="http://www.cppblog.com/fwxjj/">大龙的博客</A></H1>
+<P id=tagline></P></DIV>
+<DIV id=leftmenu style="DISPLAY: none">
+<H3>导航</H3>
+<UL>
+  <LI><A id=MyLinks1_HomeLink href="http://www.cppblog.com/">C++博客</A> 
+  <LI><A id=MyLinks1_MyHomeLink href="http://www.cppblog.com/fwxjj/">首页</A> 
+  <LI><A id=MyLinks1_NewPostLink 
+  href="http://www.cppblog.com/fwxjj/admin/EditPosts.aspx?opt=1">新随笔</A> 
+  <LI><A id=MyLinks1_ContactLink accessKey=9 
+  href="http://www.cppblog.com/fwxjj/contact.aspx?id=1">联系</A> 
+  <LI><A id=MyLinks1_Syndication 
+  href="http://www.cppblog.com/fwxjj/Rss.aspx">聚合</A><A id=MyLinks1_XMLLink 
+  href="http://www.cppblog.com/fwxjj/Rss.aspx"><IMG 
+  style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+  src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/xml.gif"></A> 
+  <LI><A id=MyLinks1_Admin 
+  href="http://www.cppblog.com/fwxjj/admin/EditPosts.aspx">管理</A> </LI></UL>
+<TABLE class=Cal id=Calendar1_entryCal title=Calendar 
+style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; BORDER-COLLAPSE: collapse" 
+cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD style="BACKGROUND-COLOR: silver" colSpan=7>
+      <TABLE class=CalTitle style="WIDTH: 100%; BORDER-COLLAPSE: collapse" 
+      cellSpacing=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=CalNextPrev style="WIDTH: 15%"><A 
+            title="Go to the previous month" style="COLOR: black" 
+            href="javascript:__doPostBack('Calendar1$entryCal','V2891')">&lt;</A></TD>
+          <TD style="WIDTH: 70%" align=middle>2008年1月</TD>
+          <TD class=CalNextPrev style="WIDTH: 15%" align=right><A 
+            title="Go to the next month" style="COLOR: black" 
+            href="javascript:__doPostBack('Calendar1$entryCal','V2953')">&gt;</A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TH class=CalDayHeader scope=col align=middle abbr=日>日</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=一>一</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=二>二</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=三>三</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=四>四</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=五>五</TH>
+    <TH class=CalDayHeader scope=col align=middle abbr=六>六</TH></TR>
+  <TR>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>30</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>31</TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/01.html"><U>1</U></A></TD>
+    <TD style="WIDTH: 14%" align=middle>2</TD>
+    <TD style="WIDTH: 14%" align=middle>3</TD>
+    <TD style="WIDTH: 14%" align=middle>4</TD>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/05.html"><U>5</U></A></TD></TR>
+  <TR>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>6</TD>
+    <TD style="WIDTH: 14%" align=middle>7</TD>
+    <TD style="WIDTH: 14%" align=middle>8</TD>
+    <TD style="WIDTH: 14%" align=middle>9</TD>
+    <TD style="WIDTH: 14%" align=middle>10</TD>
+    <TD style="WIDTH: 14%" align=middle>11</TD>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>12</TD></TR>
+  <TR>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>13</TD>
+    <TD style="WIDTH: 14%" align=middle>14</TD>
+    <TD style="WIDTH: 14%" align=middle>15</TD>
+    <TD style="WIDTH: 14%" align=middle>16</TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/17.html"><U>17</U></A></TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/18.html"><U>18</U></A></TD>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/19.html"><U>19</U></A></TD></TR>
+  <TR>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>20</TD>
+    <TD style="WIDTH: 14%" align=middle>21</TD>
+    <TD style="WIDTH: 14%" align=middle>22</TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/23.html"><U>23</U></A></TD>
+    <TD style="WIDTH: 14%" align=middle>24</TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/25.html"><U>25</U></A></TD>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>26</TD></TR>
+  <TR>
+    <TD class=CalWeekendDay style="WIDTH: 14%" align=middle>27</TD>
+    <TD style="WIDTH: 14%" align=middle>28</TD>
+    <TD style="WIDTH: 14%" align=middle>29</TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/30.html"><U>30</U></A></TD>
+    <TD style="WIDTH: 14%" align=middle><A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/01/31.html"><U>31</U></A></TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>1</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>2</TD></TR>
+  <TR>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>3</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>4</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>5</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>6</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>7</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" align=middle>8</TD>
+    <TD class=CalOtherMonthDay style="WIDTH: 14%" 
+align=middle>9</TD></TR></TBODY></TABLE>
+<H3>留言簿<SPAN style="FONT-WEIGHT: normal; FONT-SIZE: 11px">(26)</SPAN></H3>
+<UL>
+  <LI><A id=MyMessages1_lnkMessages 
+  href="http://www.cppblog.com/fwxjj/Contact.aspx?id=1">给我留言</A> 
+  <LI><A id=MyMessages1_lnkPublicMsgView 
+  href="http://www.cppblog.com/fwxjj/default.aspx?opt=msg">查看公开留言</A> 
+  <LI><A id=MyMessages1_lnkPrivateMsgView 
+  href="http://www.cppblog.com/fwxjj/admin/MyMessages.aspx">查看私人留言</A> </LI></UL>
+<H3>收藏夹</H3>
+<UL>
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl00_LinkList_ctl01_Link 
+  href="http://www.cppblog.com/fwxjj/favorite/7446.html">ps</A> <A 
+  id=ArchiveLinks1_Categories_CatList_ctl00_LinkList_ctl01_RssLink 
+  title="Subscribe to ps" 
+  href="http://www.cppblog.com/fwxjj/favorite/7446.html/rss">(rss)</A> </LI></UL>
+<H3>随笔档案</H3>
+<UL>
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl01_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09.html">2011年9月 (10)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl02_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/08.html">2011年8月 (6)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl03_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/07.html">2011年7月 (27)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl04_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/06.html">2011年6月 (18)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl05_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/05.html">2011年5月 (12)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl06_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/04.html">2011年4月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl07_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/03.html">2011年3月 (1)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl08_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/02.html">2011年2月 (5)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl09_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2011/01.html">2011年1月 (24)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl10_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/12.html">2010年12月 (5)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl11_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/11.html">2010年11月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl12_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/10.html">2010年10月 (3)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl13_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/09.html">2010年9月 (4)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl14_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/08.html">2010年8月 (7)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl15_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/07.html">2010年7月 (1)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl16_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/06.html">2010年6月 (13)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl17_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/05.html">2010年5月 (18)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl18_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/04.html">2010年4月 (21)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl19_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/03.html">2010年3月 (6)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl20_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/02.html">2010年2月 (7)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl21_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2010/01.html">2010年1月 (7)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl22_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/12.html">2009年12月 (7)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl23_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/11.html">2009年11月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl24_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/10.html">2009年10月 (8)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl25_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/09.html">2009年9月 (19)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl26_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/08.html">2009年8月 (11)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl27_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/06.html">2009年6月 (28)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl28_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/05.html">2009年5月 (35)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl29_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/04.html">2009年4月 (18)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl30_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/03.html">2009年3月 (27)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl31_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/02.html">2009年2月 (13)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl32_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2009/01.html">2009年1月 (10)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl33_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/12.html">2008年12月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl34_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/11.html">2008年11月 (6)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl35_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/10.html">2008年10月 (4)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl36_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/09.html">2008年9月 (11)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl37_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/08.html">2008年8月 (18)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl38_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/07.html">2008年7月 (8)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl39_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/06.html">2008年6月 (19)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl40_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/05.html">2008年5月 (9)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl41_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/04.html">2008年4月 (6)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl42_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/03.html">2008年3月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl43_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/02.html">2008年2月 (4)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl44_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2008/01.html">2008年1月 (21)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl45_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/12.html">2007年12月 (14)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl46_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/11.html">2007年11月 (4)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl47_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/10.html">2007年10月 (7)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl48_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/09.html">2007年9月 (17)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl49_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/08.html">2007年8月 (10)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl50_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/07.html">2007年7月 (20)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl51_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/06.html">2007年6月 (11)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl52_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/05.html">2007年5月 (8)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl53_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/04.html">2007年4月 (13)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl54_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/03.html">2007年3月 (2)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl55_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/02.html">2007年2月 (6)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl56_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2007/01.html">2007年1月 (14)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl57_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2006/12.html">2006年12月 (23)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl58_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2006/11.html">2006年11月 (15)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl59_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2006/10.html">2006年10月 (5)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl01_LinkList_ctl60_Link 
+  href="http://www.cppblog.com/fwxjj/archive/2006/09.html">2006年9月 (4)</A> 
+</LI></UL>
+<H3>文章档案</H3>
+<UL>
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl02_LinkList_ctl01_Link 
+  href="http://www.cppblog.com/fwxjj/archives/2007/11.html">2007年11月 (1)</A> 
+  <LI><A id=ArchiveLinks1_Categories_CatList_ctl02_LinkList_ctl02_Link 
+  href="http://www.cppblog.com/fwxjj/archives/2006/12.html">2006年12月 (1)</A> 
+  </LI></UL>
+<H3>阅读排行榜</H3>
+<DIV class=RecentComment>
+<UL style="WIDTH: 100%; WORD-BREAK: break-all">
+  <LI><A id=TopViewPosts_TopList_ctl01_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2008/01/01/40080.aspx">1.&nbsp;Windows 
+  XP DDK 的有效下载地址(30757)</A> 
+  <LI><A id=TopViewPosts_TopList_ctl02_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2006/11/07/14802.aspx">2.&nbsp;hostent结构体(13093)</A> 
+
+  <LI><A id=TopViewPosts_TopList_ctl03_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2007/12/02/37643.aspx">3.&nbsp;WaitForMultipleObjects用法探索(12758)</A> 
+
+  <LI><A id=TopViewPosts_TopList_ctl04_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2008/01/18/41424.aspx">4.&nbsp;WinDBG教程(12160)</A> 
+
+  <LI><A id=TopViewPosts_TopList_ctl05_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2007/09/09/31883.aspx">5.&nbsp;在Cygwin上安装编辑器vim 
+  (8549)</A> </LI></UL></DIV>
+<H3>评论排行榜</H3>
+<DIV class=RecentComment>
+<UL style="WORD-BREAK: break-all">
+  <LI><A id=TopFeedbackPosts1_TopList_ctl01_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2008/01/01/40080.aspx">1.&nbsp;Windows 
+  XP DDK 的有效下载地址(102)</A> 
+  <LI><A id=TopFeedbackPosts1_TopList_ctl02_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2007/09/09/31883.aspx">2.&nbsp;在Cygwin上安装编辑器vim 
+  (16)</A> 
+  <LI><A id=TopFeedbackPosts1_TopList_ctl03_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2006/11/06/14716.aspx">3.&nbsp; 
+  经典好书 (9)</A> 
+  <LI><A id=TopFeedbackPosts1_TopList_ctl04_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2008/01/01/40114.aspx">4.&nbsp;Compuware 
+  DriverStudio V3.2(9)</A> 
+  <LI><A id=TopFeedbackPosts1_TopList_ctl05_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2010/02/03/107085.aspx">5.&nbsp;转： 
+  office2007不允许修改,因为所选内容已被锁定的解决办法(8)</A> </LI></UL></DIV></DIV>
+<DIV id=rightmenu>
+<H3>常用链接</H3>
+<UL>
+  <LI><A id=BlogCustomControl1_repeaterLinks_ctl01_lnkLinkItem 
+  href="http://www.cppblog.com/fwxjj/MyPosts.html">我的随笔</A> 
+  <LI><A id=BlogCustomControl1_repeaterLinks_ctl02_lnkLinkItem 
+  href="http://www.cppblog.com/fwxjj/MyComments.html">我的评论</A> 
+  <LI><A id=BlogCustomControl1_repeaterLinks_ctl03_lnkLinkItem 
+  href="http://www.cppblog.com/fwxjj/OtherPosts.html">我参与的随笔</A> </LI></UL>
+<H3>统计</H3>
+<UL>
+  <LI>随笔 - 660 
+  <LI>文章 - 2 
+  <LI>评论 - 285 
+  <LI>引用 - 0 </LI></UL>
+<H3>最新评论 <A id=RecentComments1_RSSHyperlink1 
+href="http://www.cppblog.com/fwxjj/CommentsRSS.aspx"><IMG 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/xml.gif"></A></H3>
+<DIV class=RecentComment>
+<UL>
+  <LI style="WORD-BREAK: break-all"><A 
+  id=RecentComments1_CommentList_ctl01_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09/28/102557.html#157061">1.&nbsp;re: 
+  从apnic获取中国电信,网通,铁通的最新ip段(路由表)的方法 </A>
+  <LI style="WORD-BREAK: break-all">评论内容较长,点击标题查看 
+  <LI style="MARGIN-RIGHT: 4px; TEXT-ALIGN: right">--College essays to buy 
+  <LI style="WORD-BREAK: break-all"><A 
+  id=RecentComments1_CommentList_ctl02_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09/28/102557.html#157060">2.&nbsp;re: 
+  从apnic获取中国电信,网通,铁通的最新ip段(路由表)的方法 </A>
+  <LI style="WORD-BREAK: break-all">评论内容较长,点击标题查看 
+  <LI style="MARGIN-RIGHT: 4px; TEXT-ALIGN: right">--essay writing service 
+  <LI style="WORD-BREAK: break-all"><A 
+  id=RecentComments1_CommentList_ctl03_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09/28/102557.html#157054">3.&nbsp;re: 
+  从apnic获取中国电信,网通,铁通的最新ip段(路由表)的方法 </A>
+  <LI style="WORD-BREAK: break-all">评论内容较长,点击标题查看 
+  <LI style="MARGIN-RIGHT: 4px; TEXT-ALIGN: right">--forum profile service 
+  <LI style="WORD-BREAK: break-all"><A 
+  id=RecentComments1_CommentList_ctl04_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09/23/40080.html#156623">4.&nbsp;re: 
+  Windows XP DDK 的有效下载地址</A> 
+  <LI style="WORD-BREAK: break-all">没下下来 
+  <LI style="MARGIN-RIGHT: 4px; TEXT-ALIGN: right">--stephenle 
+  <LI style="WORD-BREAK: break-all"><A 
+  id=RecentComments1_CommentList_ctl05_Hyperlink1 
+  href="http://www.cppblog.com/fwxjj/archive/2011/09/21/57551.html#156471">5.&nbsp;re: 
+  巧妙的函数设计之GetNetworkParams</A> 
+  <LI style="WORD-BREAK: break-all">日，百度上一样 
+  <LI style="MARGIN-RIGHT: 4px; TEXT-ALIGN: right">--啊啊啊啊啊啊 </LI></UL></DIV></DIV>
+<DIV id=main>
+<DIV class=post>
+<H2><A id=viewpost1_TitleUrl 
+href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html">四种不同的NAT类型及检测方法</A> 
+</H2>
+<DIV class=tit>&nbsp;</DIV>
+<TABLE style="TABLE-LAYOUT: fixed">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV class=cnt id=blog_text>&nbsp;&nbsp;&nbsp; 考 
+      虑到UDP的无状态特性，目前针对其的NAT实现大致可分为Full Cone、Restricted Cone、Port Restricted 
+      Cone和Symmetric 
+      NAT四种。值得指出的是，对于TCP协议而言，一般来说，目前NAT中针对TCP的实现基本上是一致的，其间并不存在太大差异，这是因为TCP协议本身 
+      便是面向连接的，因此无需考虑网络连接无状态所带来复杂性。 
+      <P><STRONG>用语定义</STRONG><BR><STRONG><BR>1.内部Tuple</STRONG>：指内部主机的私有地址和端口号所构成的二元组，即内部主机所发送报文的源地址、端口所构成的二元组<BR><STRONG>2.外部Tuple</STRONG>：指内部Tuple经过NAT的源地址/端口转换之后，所获得的外部地址、端口所构成的二元组，即外部主机收到经NAT转换之后的报文时，它所看到的该报文的源地址（通常是NAT设备的地址）和源端口<BR><STRONG>3.目标Tuple</STRONG>：指外部主机的地址、端口所构成的二元组，即内部主机所发送报文的目标地址、端口所构成的二元组</P><STRONG>详细释义</STRONG><BR><STRONG><BR>1. 
+      Full Cone NAT</STRONG>：所有来自同一 个内部Tuple X的请求均被NAT转换至同一个外部Tuple 
+      Y，而不管这些请求是不是属于同一个应用或者是多个应用的。除此之外，当X-Y的转换关系建立之后，任意外部主机均可随时将Y中的地址和端口作为目标地址 
+      和目标端口，向内部主机发送UDP报文，由于对外部请求的来源无任何限制，因此这种方式虽然足够简单，但却不那么安全<BR><STRONG><BR>2. 
+      Restricted Cone NAT</STRONG>： 它是Full Cone的受限版本：所有来自同一个内部Tuple 
+      X的请求均被NAT转换至同一个外部Tuple Y，这与Full 
+      Cone相同，但不同的是，只有当内部主机曾经发送过报文给外部主机（假设其IP地址为Z）后，外部主机才能以Y中的信息作为目标地址和目标端口，向内部 
+      主机发送UDP请求报文，这意味着，NAT设备只向内转发（目标地址/端口转换）那些来自于当前已知的外部主机的UDP报文，从而保障了外部请求来源的安 
+      全性<BR><STRONG><BR>3. Port Restricted Cone NAT</STRONG>：它是Restricted Cone 
+      NAT的进一步受限版。只有当内部主机曾经发送过报文给外部主机（假设其IP地址为Z且端口为P）之后，外部主机才能以Y中的信息作为目标地址和目标端 
+      口，向内部主机发送UDP报文，同时，其请求报文的源端口必须为P，这一要求进一步强化了对外部报文请求来源的限制，从而较Restrictd 
+      Cone更具安全性<BR><STRONG><BR>4. Symmetric NAT</STRONG>：这是一种比所有Cone 
+      NAT都要更为灵活的转换方式：在Cone 
+      NAT中，内部主机的内部Tuple与外部Tuple的转换映射关系是独立于内部主机所发出的UDP报文中的目标地址及端口的，即与目标Tuple无关； 
+      在Symmetric NAT中，目标Tuple则成为了NAT设备建立转换关系的一个重要考量：只有来自于同一个内部Tuple 
+      、且针对同一目标Tuple的请求才被NAT转换至同一个外部Tuple，否则的话，NAT将为之分配一个新的外部Tuple；打个比方，当内部主机以相 
+      同的内部Tuple对2个不同的目标Tuple发送UDP报文时，此时NAT将会为内部主机分配两个不同的外部Tuple，并且建立起两个不同的内、外部 
+      Tuple转换关系。与此同时，只有接收到了内部主机所发送的数据包的外部主机才能向内部主机返回UDP报文，这里对外部返回报文来源的限制是与Port 
+      Restricted Cone一致的。不难看出，如果说Full Cone是要求最宽松NAT UDP转换方式，那么，Symmetric 
+      NAT则是要求最严格的NAT方式，其不仅体现在转换关系的建立上，而且还体现在对外部报文来源的限制方面。<BR><BR>
+      <P><STRONG>第二部：<STRONG 
+      style="COLOR: black; BACKGROUND-COLOR: #ffff66">NAT类型</STRONG>检测</STRONG></P>
+      <P>前提条件:有一个公网的Server并且绑定了两个公网IP(IP-1,IP-2)。这个Server做UDP监听(IP-1,Port-1),(IP-2,Port-2)并根据客户端的要求进行应答。</P>
+      <P>第一步：检测客户端是否有能力进行UDP通信以及客户端是否位于NAT后？</P>
+      <P>客户端建立UDP socket然后用这个socket向服务器的(IP-1,Port-1)发送数据包要求服务器返回客户端的IP和Port, 
+      客户端发送请求后立即开始接受数据包，要设定socket Timeout（300ms），防止无限堵塞. 
+      重复这个过程若干次。如果每次都超时，无法接受到服务器的回应，则说明客户端无法进行UDP通信，可能是防火墙或NAT阻止UDP通信，这样的客户端也就 
+      不能P2P了（检测停止）。 <BR>当客户端能够接收到服务器的回应时，需要把服务器返回的客户端（IP,Port）和这个客户端socket的 
+      （LocalIP，LocalPort）比较。如果完全相同则客户端不在NAT后，这样的客户端具有公网IP可以直接监听UDP端口接收数据进行通信（检 
+      测停止）。否则客户端在NAT后要做进一步的<STRONG 
+      style="COLOR: black; BACKGROUND-COLOR: #ffff66">NAT类型</STRONG>检测(继续)。</P>
+      <P>第二步：检测客户端NAT是否是Full Cone NAT？</P>
+      <P>客户端建立UDP 
+      socket然后用这个socket向服务器的(IP-1,Port-1)发送数据包要求服务器用另一对(IP-2,Port-2)响应客户端的请求往回 
+      发一个数据包,客户端发送请求后立即开始接受数据包，要设定socket Timeout（300ms），防止无限堵塞. 
+      重复这个过程若干次。如果每次都超时，无法接受到服务器的回应，则说明客户端的NAT不是一个Full Cone 
+      NAT，具体类型有待下一步检测(继续)。如果能够接受到服务器从(IP-2,Port-2)返回的应答UDP包，则说明客户端是一个Full Cone 
+      NAT，这样的客户端能够进行UDP-P2P通信（检测停止）。</P>
+      <P>第三步：检测客户端NAT是否是Symmetric NAT？</P>
+      <P>客户端建立UDP socket然后用这个socket向服务器的(IP-1,Port-1)发送数据包要求服务器返回客户端的IP和Port, 
+      客户端发送请求后立即开始接受数据包，要设定socket Timeout（300ms），防止无限堵塞. 
+      重复这个过程直到收到回应（一定能够收到，因为第一步保证了这个客户端可以进行UDP通信）。 
+      <BR>用同样的方法用一个socket向服务器的(IP-2,Port-2)发送数据包要求服务器返回客户端的IP和Port。 <BR>比 
+      较上面两个过程从服务器返回的客户端(IP,Port),如果两个过程返回的(IP,Port)有一对不同则说明客户端为Symmetric 
+      NAT，这样的客户端无法进行UDP-P2P通信（检测停止）。否则是Restricted Cone NAT，是否为Port Restricted 
+      Cone NAT有待检测(继续)。</P>
+      <P>第四步：检测客户端NAT是否是Restricted Cone NAT还是Port Restricted Cone NAT？</P>
+      <P>客户端建立UDP 
+      socket然后用这个socket向服务器的(IP-1,Port-1)发送数据包要求服务器用IP-1和一个不同于Port-1的端口发送一个UDP 
+      数据包响应客户端, 客户端发送请求后立即开始接受数据包，要设定socket Timeout（300ms），防止无限堵塞. 
+      重复这个过程若干次。如果每次都超时，无法接受到服务器的回应，则说明客户端是一个Port Restricted Cone 
+      NAT，如果能够收到服务器的响应则说明客户端是一个Restricted Cone NAT。以上两种NAT都可以进行UDP-P2P通信。</P>
+      <P>注：以上检测过程中只说明了可否进行UDP-P2P的打洞通信，具体怎么通信一般要借助于Rendezvous 
+      Server。另外对于Symmetric 
+    NAT不是说完全不能进行UDP-P2P达洞通信，可以进行端口预测打洞，不过不能保证成功。</P></DIV></TD></TR></TBODY></TABLE>
+<P class=postfoot>posted on 2008-08-14 11:00 <A 
+href="http://www.cppblog.com/fwxjj/">大龙</A> 阅读(1175) <A 
+href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html#Post">评论(0)</A> 
+&nbsp;<A 
+href="http://www.cppblog.com/fwxjj/admin/EditPosts.aspx?postid=58823">编辑</A>&nbsp;<A 
+href="http://www.cppblog.com/fwxjj/AddToFavorite.aspx?id=58823">收藏</A> <A 
+href="http://www.cppblog.com/fwxjj/services/trackbacks/58823.aspx">引用</A> 
+</P></DIV><IMG height=1 src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/58823.jpg" 
+width=1> <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html"
+dc:identifier="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html"
+dc:title="四种不同的NAT类型及检测方法"
+trackback:ping="http://www.cppblog.com/fwxjj/services/trackbacks/58823.aspx" />
+</rdf:RDF>
+-->
+<SCRIPT type=text/javascript>
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('AjaxHolder$scriptmanager1', document.getElementById('Form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tAjaxHolder$UpdatePanel1'], [], [], 90);
+//]]>
+</SCRIPT>
+
+<DIV id=AjaxHolder_UpdatePanel1>
+<STYLE>TD {
+	FONT-SIZE: 12px
+}
+.commentTextBox {
+	FONT-SIZE: 13px; FONT-FAMILY: Verdana
+}
+</STYLE>
+<!--Beging Temp Save-->
+<STYLE>.userData {
+	BEHAVIOR: url(#default#userdata)
+}
+</STYLE>
+
+<DIV class=userData id=CommentsPersistDiv></DIV>
+<SCRIPT type=text/javascript>
+function pageLoad()
+{
+    Sys.WebForms.PageRequestManager.getInstance().add_initializeRequest(handleInitializeRequest);
+    //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(handleEndRequest);
+}
+
+function handleInitializeRequest(sender, args)
+{
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+    var eid = args.get_postBackElement().id;
+    if (eid.indexOf("DeleteLink")>0) 
+    {
+       args.get_postBackElement().innerHTML = "<font color='red'>正在删除...</font>";         
+    }    
+    if (eid.indexOf("btnSubmit")>0) 
+    {
+       document.getElementById("AjaxHolder_PostComment_ltSubmitMsg").innerHTML="正在提交...";
+       document.getElementById("AjaxHolder_PostComment_btnSubmit").disabled = true;
+       
+    }    
+   
+}	
+
+function TempSave(ElementID)
+{
+	try
+	{
+	CommentsPersistDiv.setAttribute("CommentContent",document.getElementById(ElementID).value);
+	CommentsPersistDiv.save("CommentXMLStore");
+	}
+	catch(ex)
+	{
+	}
+	
+}
+function Restore(ElementID)
+{
+	CommentsPersistDiv.load("CommentXMLStore");
+	document.getElementById(ElementID).value=CommentsPersistDiv.getAttribute("CommentContent");
+}	
+			
+			
+</SCRIPT>
+<!--Ene TempSave-->
+<DIV class=commentform>
+<SCRIPT src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/google_service.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+var c_enable_dfp = true;
+if (navigator.userAgent.indexOf("Chrome/6.0.401.1") > 0) {
+c_enable_dfp = false;
+}
+if (c_enable_dfp) {
+try{
+  GS_googleAddAdSenseService("ca-pub-4210569241504288");
+  GS_googleEnableAllServices();
+  } catch (e) { }
+}
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+if (c_enable_dfp) {
+try{
+  GA_googleAddSlot("ca-pub-4210569241504288", "cppblog_blogpost_bottom");
+  GA_googleAddSlot("ca-pub-4210569241504288", "cppblog_commentbox_up");
+  } catch (e) { }
+}
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+if (c_enable_dfp) {
+try{
+  GA_googleFetchAds();
+  } catch (e) { }
+}
+</SCRIPT>
+<SPAN id=AjaxHolder_PostComment_ltSubmitMsg style="COLOR: red"></SPAN><BR><A 
+name=Feedback></A>
+<TABLE cellSpacing=1 cellPadding=1 border=0>
+  <TBODY>
+  <TR>
+    <TD id=AjaxHolder_PostComment_tdOnCommentForm colSpan=3><A 
+      href="http://job.cnblogs.com/" target=_blank>找优秀程序员，就在博客园</A><BR>
+      <DIV class=other_info_list id=itnews_block 
+      style="LINE-HEIGHT: 150%">IT新闻：<BR>· <A 
+      href="http://news.cnblogs.com/n/116748/" target=_blank>Mango系统纳入微软技术支持网站 
+      即将投入使用</A><BR>· <A href="http://news.cnblogs.com/n/116747/" 
+      target=_blank>佩奇：收购摩托并不意味着谷歌进入冒险时期</A><BR>· <A 
+      href="http://news.cnblogs.com/n/116746/" target=_blank>一淘网称3年内不考虑盈利 
+      未来会整体上市</A><BR>· <A href="http://news.cnblogs.com/n/116745/" 
+      target=_blank>谷歌向太阳能公司CPF投资7500万美元</A><BR>· <A 
+      href="http://news.cnblogs.com/n/116744/" target=_blank>完美世界回购357万份ADS 
+      价值约4617万美元</A><BR></DIV></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <SCRIPT type=Text/Javascript>
+try{
+  GA_googleFillSlot("cppblog_commentbox_up");
+  } catch (e) { }
+</SCRIPT>
+      <BR></TD></TR>
+  <TR>
+    <TD width=75></TD>
+    <TD></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD colSpan=2><A href="http://www.cnblogs.com/" 
+      target=_blank>博客园</A>&nbsp; <A href="http://q.cnblogs.com/" 
+      target=_blank>博问</A>&nbsp; <A href="http://news.cnblogs.com/" 
+      target=_blank>IT新闻</A>&nbsp; <!--<a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a>&nbsp;  --><A 
+      href="http://job.cnblogs.com/cate-cpp_programmer/" 
+      target=_blank>C++程序员招聘</A> </TD></TR>
+  <TR>
+    <TD width=55>标题</TD>
+    <TD><INPUT class=commenttb id=AjaxHolder_PostComment_tbTitle 
+      style="WIDTH: 320px" value="re: 四种不同的NAT类型及检测方法" 
+      name=AjaxHolder$PostComment$tbTitle></TD>
+    <TD><SPAN id=AjaxHolder_PostComment_RequiredFieldValidator1 
+      style="VISIBILITY: hidden; COLOR: red">请输入标题</SPAN></TD></TR>
+  <TR>
+    <TD>姓名</TD>
+    <TD><INPUT class=commenttb id=AjaxHolder_PostComment_tbName 
+      style="WIDTH: 320px" name=AjaxHolder$PostComment$tbName></TD>
+    <TD><SPAN id=AjaxHolder_PostComment_RequiredFieldValidator2 
+      style="VISIBILITY: hidden; COLOR: red">请输入你的姓名</SPAN></TD></TR>
+  <TR>
+    <TD>主页</TD>
+    <TD><INPUT class=commenttb id=AjaxHolder_PostComment_tbUrl 
+      style="WIDTH: 320px" name=AjaxHolder$PostComment$tbUrl></TD>
+    <TD><FONT face=宋体></FONT></TD></TR>
+  <TR>
+    <TD align=left colSpan=3>
+      <TABLE class=CommentForm id=AjaxHolder_PostComment_tbCaptchaImage 
+      cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3><SPAN 
+            id=AjaxHolder_PostComment_Requiredfieldvalidator4 
+            style="DISPLAY: none; COLOR: red">请输入验证码</SPAN> <SPAN 
+            id=AjaxHolder_PostComment_lblImage 
+            style="FONT-WEIGHT: bold; COLOR: red"></SPAN></TD></TR>
+        <TR>
+          <TD width=78>验证码</TD>
+          <TD><INPUT id=AjaxHolder_PostComment_CodeNumberTextBox 
+            name=AjaxHolder$PostComment$CodeNumberTextBox>*</TD>
+          <TD align=left><IMG id=AjaxHolder_PostComment_Img1 
+            src="四种不同的NAT类型及检测方法 - 大龙的博客 - C++博客.files/JpegImage.jpg"> 
+        </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=3>内容(提交失败后,可以通过“恢复上次提交”恢复刚刚提交的内容) <SPAN 
+      id=AjaxHolder_PostComment_RequiredFieldValidator3 
+      style="VISIBILITY: hidden; COLOR: red">请输入评论内容</SPAN><BR><TEXTAREA class=commentTextBox id=AjaxHolder_PostComment_tbComment onkeydown="ctlent(event,'AjaxHolder_PostComment_tbComment')" style="WIDTH: 480px; HEIGHT: 220px" name=AjaxHolder$PostComment$tbComment rows=10 cols=50></TEXTAREA></TD></TR>
+  <TR>
+    <TD colSpan=3><SPAN id=AjaxHolder_PostComment_Message 
+      style="COLOR: red"></SPAN></TD>
+  <TR>
+    <TD colSpan=3><INPUT id=AjaxHolder_PostComment_chkRemember tabIndex=-1 
+      type=checkbox CHECKED name=AjaxHolder$PostComment$chkRemember><LABEL 
+      for=AjaxHolder_PostComment_chkRemember>Remember Me?</LABEL></TD></TR>
+  <TR>
+    <TD height=23><INPUT id=AjaxHolder_PostComment_btnSubmit onclick="TempSave('AjaxHolder_PostComment_tbComment');WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;AjaxHolder$PostComment$btnSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" type=submit value=提交 name=AjaxHolder$PostComment$btnSubmit> 
+    </TD>
+    <TD colSpan=2 height=23>&nbsp; <A id=AjaxHolder_PostComment_lnkLogin 
+      href="http://www.cppblog.com/login.aspx?ReturnURL=http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html&amp;SourceURL=/fwxjj/archive/2008/08/14/58823.html">登录</A>&nbsp;&nbsp;<A 
+      id=AjaxHolder_PostComment_linkLoginComment 
+      onclick="if(document.getElementById('AjaxHolder_PostComment_tbComment').value != '') return confirm('未提交的评论内容将会丢失, 你真的要进入高级评论吗?');" 
+      href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html?login=1#Post">使用高级评论</A>&nbsp;&nbsp;<A 
+      href="http://www.cppblog.com/RequireRegister.aspx">新用户注册</A>&nbsp;&nbsp;<A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html#Top">返回页首</A>&nbsp;&nbsp;<A 
+      id=AjaxHolder_PostComment_lbRestore 
+      onclick="Restore('AjaxHolder_PostComment_tbComment'); return false;" 
+      href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html#Post">恢复上次提交</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </TD></TR>
+  <TR>
+    <TD colSpan=3>[使用Ctrl+Enter键可以直接提交]</TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <SCRIPT type=text/javascript>
+		if (c_enable_dfp) {
+		try{
+		  GA_googleFillSlot("cppblog_blogpost_bottom");
+		  } catch (e) { }
+		}
+		</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <DIV id=job_block style="LINE-HEIGHT: 1.8">推荐职位：<BR>· <A 
+      href="http://job.cnblogs.com/offer/15624/" target=_blank>上海 
+      .NET软件工程师(上海苏秦网络)</A><BR>· <A href="http://job.cnblogs.com/offer/11799/" 
+      target=_blank>北京ASP.NET开发工程师(百润时代网络)</A><BR>· <A 
+      href="http://job.cnblogs.com/offer/15282/" 
+      target=_blank>全国J2EE/Android/PHP/ASP.NET系列讲师(北风网)</A><BR>· <A 
+      href="http://job.cnblogs.com/offer/16502/" 
+      target=_blank>技术编辑兼程序员(博客园)</A><BR>· <A 
+      href="http://job.cnblogs.com/offer/13241/" 
+      target=_blank>杭州ASP.NET程序员(杭州迈媒信息科技)</A><BR>· <A 
+      href="http://job.cnblogs.com/offer/5914/" target=_blank>北京.NET 研发工程师 
+      (北京捷报数据)</A><BR></DIV>
+      <DIV id=cnblogs_posts style="LINE-HEIGHT: 1.8">博客园首页随笔：<BR>· <A 
+      href="http://www.cnblogs.com/9tian/archive/2011/09/28/2194188.html" 
+      target=_blank>遇到一个关于静态成员函数的问题</A><BR>· <A 
+      href="http://www.cnblogs.com/wubaiqing/archive/2011/09/28/2193333.html" 
+      target=_blank>PHP图像处理(一) GraphicsMagick介绍与安装</A><BR>· <A 
+      href="http://www.cnblogs.com/Michael_z/archive/2011/09/28/2194122.html" 
+      target=_blank>【四】SAP ECC6安装系列：安装过程详解</A><BR>· <A 
+      href="http://www.cnblogs.com/umbrella_yang/archive/2011/09/28/2194109.html" 
+      target=_blank>[开源] KJFramework.Message 智能二进制消息框架</A><BR>· <A 
+      href="http://www.cnblogs.com/yantao7589/archive/2011/09/28/2194037.html" 
+      target=_blank>最老程序员创业札记：全文检索、数据挖掘、推荐引擎应用37</A><BR></DIV>
+      <DIV id=job_block style="LINE-HEIGHT: 1.8">知识库：<BR>· <A 
+      href="http://kb.cnblogs.com/page/107928/" 
+      target=_blank>Web前端开发中的MCRV模式</A><BR>· <A 
+      href="http://kb.cnblogs.com/page/107604/" 
+      target=_blank>C#初学者对Equals方法的几个常见误解</A><BR>· <A 
+      href="http://kb.cnblogs.com/page/107603/" 
+      target=_blank>探讨：ASP.NET技术的学习顺序问题</A><BR>· <A 
+      href="http://kb.cnblogs.com/page/107717/" target=_blank>谈SOA和平台</A><BR>· 
+      <A href="http://kb.cnblogs.com/page/116501/" 
+      target=_blank>浅谈JavaScript编程语言的编码规范</A><BR></DIV></TD></TR>
+  <TR>
+    <TD colSpan=3 height=5></TD></TR>
+  <TR>
+    <TD colSpan=3></TD></TR>
+  <TR>
+    <TD colSpan=3 height=1>
+      <DIV id=blogsite>网站导航: <A 
+      href="http://www.cnblogs.com/">博客园</A>&nbsp;&nbsp; <A 
+      href="http://news.cnblogs.com/">IT新闻</A>&nbsp;&nbsp; <A 
+      href="http://www.blogjava.net/">BlogJava</A>&nbsp;&nbsp; <A 
+      href="http://kb.cnblogs.com/">知识库</A>&nbsp;&nbsp; <A 
+      href="http://job.cnblogs.com/">程序员招聘</A>&nbsp;&nbsp; <A 
+      href="http://www.cppblog.com/fwxjj/archive/2008/08/14/58823.html?opt=admin">管理</A> 
+      </DIV></TD></TR>
+  <TR>
+    <TD colSpan=3><BR><BR></TD></TR></TBODY></TABLE></DIV>
+<DIV id=AjaxHolder_PostComment_ValidationSummary1 
+style="DISPLAY: none; COLOR: red"></DIV></DIV></DIV>
+<P id=footer>Powered by: <BR><A id=Footer1_Hyperlink3 
+style="FONT-SIZE: 12px; FONT-FAMILY: Verdana" href="http://www.cppblog.com/" 
+name=Hyperlink1>C++博客</A> <BR>Copyright © 大龙 </P>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("AjaxHolder_PostComment_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator1"), document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator2"), document.getElementById("AjaxHolder_PostComment_Requiredfieldvalidator4"), document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator3"));
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var AjaxHolder_PostComment_RequiredFieldValidator1 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator1"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator1");
+AjaxHolder_PostComment_RequiredFieldValidator1.controltovalidate = "AjaxHolder_PostComment_tbTitle";
+AjaxHolder_PostComment_RequiredFieldValidator1.errormessage = "请输入标题";
+AjaxHolder_PostComment_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator1.initialvalue = "";
+var AjaxHolder_PostComment_RequiredFieldValidator2 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator2"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator2");
+AjaxHolder_PostComment_RequiredFieldValidator2.controltovalidate = "AjaxHolder_PostComment_tbName";
+AjaxHolder_PostComment_RequiredFieldValidator2.errormessage = "请输入你的姓名";
+AjaxHolder_PostComment_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator2.initialvalue = "";
+var AjaxHolder_PostComment_Requiredfieldvalidator4 = document.all ? document.all["AjaxHolder_PostComment_Requiredfieldvalidator4"] : document.getElementById("AjaxHolder_PostComment_Requiredfieldvalidator4");
+AjaxHolder_PostComment_Requiredfieldvalidator4.controltovalidate = "AjaxHolder_PostComment_CodeNumberTextBox";
+AjaxHolder_PostComment_Requiredfieldvalidator4.errormessage = "请输入验证码";
+AjaxHolder_PostComment_Requiredfieldvalidator4.display = "Dynamic";
+AjaxHolder_PostComment_Requiredfieldvalidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_Requiredfieldvalidator4.initialvalue = "";
+var AjaxHolder_PostComment_RequiredFieldValidator3 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator3"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator3");
+AjaxHolder_PostComment_RequiredFieldValidator3.controltovalidate = "AjaxHolder_PostComment_tbComment";
+AjaxHolder_PostComment_RequiredFieldValidator3.errormessage = "请输入评论内容";
+AjaxHolder_PostComment_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator3.initialvalue = "";
+var AjaxHolder_PostComment_ValidationSummary1 = document.all ? document.all["AjaxHolder_PostComment_ValidationSummary1"] : document.getElementById("AjaxHolder_PostComment_ValidationSummary1");
+AjaxHolder_PostComment_ValidationSummary1.showmessagebox = "True";
+AjaxHolder_PostComment_ValidationSummary1.showsummary = "False";
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('AjaxHolder_PostComment_ValidationSummary1').dispose = function() {
+    Array.remove(Page_ValidationSummaries, document.getElementById('AjaxHolder_PostComment_ValidationSummary1'));
+}
+Sys.Application.initialize();
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator1'));
+}
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator2'));
+}
+
+document.getElementById('AjaxHolder_PostComment_Requiredfieldvalidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_Requiredfieldvalidator4'));
+}
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator3'));
+}
+//]]>
+</SCRIPT>
+</FORM>
+<SCRIPT type=text/javascript>
+        if (document.getElementById('cnblogsgooglead') != null) {
+            document.getElementById('cnblogsgooglead').innerHTML = document.getElementById('cnblogsgoogleadcode').innerHTML;
+            document.getElementById('cnblogsgoogleadcode').innerHTML = '';
+        }
+
+        if (document.getElementById('leftcontent') != null) {
+            if (document.getElementById('leftcontent').style.display == 'none') {
+                document.getElementById('leftcontent').style.display = 'inline';
+            }
+        }
+        if (document.getElementById('Blogleftcontent') != null) {
+            if (document.getElementById('cnblogsleftcontent').style.display == 'none') {
+                document.getElementById('cnblogsleftcontent').style.display = 'inline';
+            }
+        }
+
+        if (document.getElementById('cnblogsleftcontent') != null) {
+            if (document.getElementById('cnblogsleftcontent').style.display == 'none') {
+                document.getElementById('cnblogsleftcontent').style.display = 'inline';
+            }
+        }
+
+        if (document.getElementById('rightmenu') != null) {
+            if (document.getElementById('rightmenu').style.display == 'none') {
+                document.getElementById('rightmenu').style.display = 'inline';
+            }
+        }
+        if (document.getElementById('leftmenu') != null) {
+            if (document.getElementById('leftmenu').style.display == 'none') {
+                document.getElementById('leftmenu').style.display = 'inline';
+            }
+            if (document.getElementById('lefttemp') != null) {
+                document.getElementById('leftmenu').innerHTML = document.getElementById('lefttemp').innerHTML;
+                document.getElementById('lefttemp').innerHTML = '';
+            }
+        }
+
+        if (document.getElementById('left') != null) {
+            if (document.getElementById('left').style.display == 'none') {
+                document.getElementById('left').style.display = 'inline';
+            }
+        }
+
+        if (document.getElementById('cnblogsleftmenu') != null) {
+            if (document.getElementById('cnblogsleftmenu').style.display == 'none') {
+                document.getElementById('cnblogsleftmenu').style.display = 'inline';
+            }
+        }
+
+        if (document.getElementById('menu') != null) {
+            if (document.getElementById('menu').style.display == 'none') {
+                document.getElementById('menu').style.display = 'inline';
+            }
+        }
+
+        if (document.getElementById('cnblogsmenu') != null) {
+            if (document.getElementById('cnblogsmenu').style.display == 'none') {
+                document.getElementById('cnblogsmenu').style.display = 'inline';
+            }
+        }
+    </SCRIPT>
+
+<SCRIPT type=text/javascript>
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</SCRIPT>
+
+<SCRIPT type=text/javascript>
+	try {
+	var pageTracker = _gat._getTracker("UA-476124-5");
+	pageTracker._trackPageview();
+	} catch(err) {}</SCRIPT>
+</BODY></HTML>
