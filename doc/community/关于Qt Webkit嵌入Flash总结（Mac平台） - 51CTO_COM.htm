@@ -1,0 +1,791 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0042)http://mobile.51cto.com/symbian-287652.htm -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO.COM</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META http-equiv=x-ua-compatible content=ie=7>
+<META 
+content="Qt Webkit嵌入Flash总结是本文呢要介绍的内容，主要是来学习qt中webkit的flash的应用，具体内容的实现来看本文详解。" 
+name=description>
+<META content=Qt,Webkit,Flash name=keywords><LINK 
+href="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/grid.css" type=text/css 
+rel=stylesheet><LINK 
+href="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/art_master_top.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/base_art.js"></SCRIPT>
+
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/index_1_down.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR></HEAD>
+<BODY><!-- 导航 开始-->
+<DIV id=home_top>
+<DIV class=top_nav>
+<DIV class=left style="WIDTH: 420px">
+<DIV class=logo_51cto title="51CTO.COM - 技术成就梦想 -  中国领先的IT技术网站"></DIV><A 
+href="http://www.51cto.com/">首页</A><IMG style="PADDING-TOP: 2px" height=25 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/top_bg_xian.gif" width=16 
+align=absMiddle><A onmouseover=show(1,this); onmouseout=popupClose(); 
+href="http://www.51cto.com/col/35/" target=_blank>技术频道<IMG 
+style="PADDING-LEFT: 4px" 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/nav_ico1.gif" 
+align=absMiddle></A><IMG height=25 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/top_bg_xian.gif" width=16 
+align=absMiddle><A onmouseover=show(2,this); onmouseout=popupClose(); 
+href="http://www.51cto.com/" target=_blank>51CTO旗下网站<IMG 
+style="PADDING-LEFT: 4px" 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/nav_ico1.gif" 
+align=absMiddle></A><IMG height=25 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/top_bg_xian.gif" width=16 
+align=absMiddle><A href="http://www.51cto.com/about/map.htm" 
+target=_blank>地图</A> </DIV>
+<DIV class=right>
+<DIV class=more><IMG height=16 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/top_shequ.gif" width=27 
+align=absMiddle>社区：<A href="http://bbs.51cto.com/" target=_blank>论坛</A><A 
+href="http://blog.51cto.com/" target=_blank>博客</A><A 
+href="http://down.51cto.com/" target=_blank>下载</A><A 
+href="http://book.51cto.com/" target=_blank>读书</A><A onmouseover=show(3,this) 
+onmouseout=popupClose() href="javascript:viod(0);">更多<IMG 
+style="PADDING-LEFT: 4px" 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/nav_ico1.gif" 
+align=absMiddle></A> </DIV><SPAN id=login_status>
+<DIV class=login id=login_status></DIV></SPAN></DIV></DIV></DIV>
+<DIV class=subMenu1 id=s1 onmouseover=popupNoClose(); onmouseout=popupClose();>
+<UL>
+  <LI><A href="http://network.51cto.com/" target=_blank>组网</A> 
+  <LI><A href="http://netsecurity.51cto.com/" target=_blank>安全</A> 
+  <LI><A href="http://developer.51cto.com/" target=_blank>开发</A> 
+  <LI><A href="http://database.51cto.com/" target=_blank>数据库</A> 
+  <LI><A href="http://server.51cto.com/" target=_blank>服务器</A> 
+  <LI><A href="http://os.51cto.com/" target=_blank>系统</A> 
+  <LI><A href="http://virtual.51cto.com/" target=_blank>虚拟化</A> 
+  <LI><A href="http://cloud.51cto.com/" target=_blank>云计算</A> 
+  <LI><A href="http://developer.51cto.com/embed/" target=_blank>嵌入式</A> 
+  <LI><A href="http://mobile.51cto.com/" target=_blank>移动开发</A> </LI></UL></DIV>
+<DIV class=subMenu2 id=s2 onmouseover=popupNoClose() onmouseout=popupClose()>
+<UL>
+  <LI><A title=中国领先的IT技术网站 href="http://www.51cto.com/" 
+  target=_blank>51CTO.COM</A> 
+  <LI><A title=中国首个专门服务于CIO的专业网站 href="http://www.cioage.com/" 
+  target=_blank>CIOage.com</A> 
+  <LI><A title=领先的中文存储网络媒体 href="http://www.watchstor.com/" 
+  target=_blank>WatchStor.com</A> 
+  <LI><A title=中国首家专注于数字医疗及医疗信息化的专业网站 href="http://www.hc3i.cn/" 
+  target=_blank>HC3i.cn</A> 
+  <LI><A title=移动互联网生活门户 href="http://www.linkphone.cn/" 
+  target=_blank>灵客风LinkPhone</A> </LI></UL></DIV>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/head_art_more1.js"></SCRIPT>
+<!-- 登陆信息 --><!-- 导航 结束-->
+<DIV class="g_39 mb10">
+<DIV class=fl id=tonglanad></DIV>
+<DIV class=fr id=list4>
+<UL>
+  <LI id=wordlinkad1>
+  <LI id=wordlinkad2>
+  <LI id=wordlinkad3>
+  <LI id=wordlinkad4></LI></UL></DIV><BR class=dle></DIV>
+<DIV class="g_39 menu">
+<DIV class=subNav_logo><A title=移动开发 href="http://mobile.51cto.com/"><IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/143329156.gif"></A></DIV>
+<DIV class=subNav_l><A href="http://mobile.51cto.com/">首页</A> | <A 
+href="http://mobile.51cto.com/android/">Android</A> | <A 
+href="http://mobile.51cto.com/iphone/">iOS</A> | <A 
+href="http://mobile.51cto.com/windows-phone/">Windows Phone</A> | <A 
+href="http://mobile.51cto.com/blackberry/">BlackBerry</A> | <A 
+href="http://mobile.51cto.com/webos/">webOS</A> | <A 
+href="http://mobile.51cto.com/symbian/">Symbian</A> | <A 
+href="http://mobile.51cto.com/bada/">bada</A> | <A 
+href="http://mobile.51cto.com/ophone/">OPhone</A> | <A 
+href="http://mobile.51cto.com/others/" target=_blank>其他</A></DIV>
+<DIV class="search fr">
+<DL>
+  <FORM 
+  style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px" 
+  name=searchform action=http://www.51cto.com/php/search.php method=post 
+  target=_blank>
+  <DT class=fl><INPUT class="searchInput f14 input" 
+  onblur="doempty(this, '请输入关键字');" onfocus="doempty(this, '请输入关键字');" 
+  value=请输入关键字 name=keyword> </DT>
+  <DD class=fl><INPUT type=image 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/search.gif"></FORM></DD></DL></DIV><BR 
+class=dle></DIV>
+<DIV class="g_39 b3-s-4273B3 rel"><!--width : 26*25 - 15 = 635px-->
+<DIV class="g_26 fl m_l">
+<DIV class="brief bgF8F8F8">
+<P class="crumb ">您所在的位置：<A href="http://mobile.51cto.com/">移动开发</A> &gt; <A 
+href="http://mobile.51cto.com/col/1541/">Symbian</A> &gt; <B>关于Qt 
+Webkit嵌入Flash总结（Mac平台）</B> </P>
+<H1>关于Qt Webkit嵌入Flash总结（Mac平台）</H1>
+<DIV class=msg>
+<DIV>2011-08-29 14:10 佚名 互联网 <SPAN class=f12-a><A 
+href="http://mobile.51cto.com/symbian-287652.htm#commment" 
+target=_self>我要评论(<SPAN id=pinglun_1>0</SPAN>)</A></SPAN> 字号：<SPAN 
+class=f14-b><A href="javascript:setfont(12);" target=_self>T</A></SPAN> | <SPAN 
+class=f16-b><A href="javascript:setfont(16);" target=_self>T</A></SPAN></DIV>
+<DIV class=fav><A title=一键收藏，随时查看，分享好友！ href="javascript:favorBox('open');" 
+target=_self><IMG alt=一键收藏，随时查看，分享好友！ 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/Fav.gif" 
+border=0></A></DIV></DIV>
+<DIV class=brieftext>
+<P class="f14 green">Qt 
+Webkit嵌入Flash总结是本文呢要介绍的内容，主要是来学习qt中webkit的flash的应用，具体内容的实现来看本文详解。</P>
+<P class=ad>AD：
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/keywords_ad_new.js"></SCRIPT>
+ </P></DIV></DIV>
+<DIV class="tag bgF8F8F8" id=indexlist style="DISPLAY: none">
+<UL id=indexliststr></UL><BR class=dle></DIV>
+<DIV class="content bgF8F8F8 f14">
+<DIV id=content>
+<P>
+<P><STRONG>Qt 
+Webkit</STRONG>嵌入<STRONG>Flash</STRONG>总结是本文呢要介绍的内容，我们都知道<STRONG>Flash</STRONG>是adobe公司的闭源产品，在各平台的渲染都是通过<STRONG>插件</STRONG>来进行的（如windows下的<STRONG>flash</STRONG>.ocx,linux下的libflashplugin.so和mac下的Flash_Plugin），<STRONG>插件</STRONG>可以在adobe的网站上获取。</P>
+<P>当然也有开源（如gnash）或商业项目（如scaleform）来自行对<STRONG>flash</STRONG>进行解码渲染。我使用qtwebkit嵌入flash主要是因为它相对简单。如果要在游戏中嵌入一个网页（当然也包括flash）除了昂贵的scaleform外，还可选择其他flash 
+gui，不过因为效率原因实用性不高，其原理就是通过adobe的插件获取要渲染的每一帧图片，然后将其渲染到一张纹理上，通过引擎来渲染。说白了就是用游戏引擎来代替如windows或qt来对其进行渲染。</P>
+<P>1、具体实现（相关资料网上有很多，这里只说原理和关键性的东东）</P>
+<P>要加载flash进行显示（当然也包括网页），其实只需要建立一个QWebView然后调用其setUrl接口传进去要显示的文件的路径（最好是绝对路径，并且路径前加 
+<A 
+href="file:///">file:///</A>，当然，这应该不是必须的）。QWebView还有一个重要的接口是setHtml，它是传一个字符串参数，改字符串是html网页源代码形式，如"&lt;html&gt;&lt;/html&gt;"。</P>
+<P>如果要进行交互，需要通过javascript进行中转（其实从原理上来说，是可以通过NP 
+Api来直接与adobe提供的flash插件进行交互的，不过相关资料太少，俺又没有写过插件，所以选择了简单的方法）。</P>
+<P>这里我选择的是在一个网页中嵌入flash，然后在网页的&lt;head&gt;&lt;/head&gt;中添加js脚本，相关资料也很多，直接google即可。</P>
+<P>这里有一些需要注意的地方：</P>
+<P>（1）用addToJavaScriptWindowObject的时机很关键，必须要dom什么的加载完毕，官方推荐的做法是，用一个函数来调用addToJavaScriptWindowObject,将javaScriptWindowObjectCleared的信号和改函数connect。具体可以看QWebFrame中的addToJavaScriptWindowObject函数注释。</P>
+<P>（2）c++调用js函数：page()-&gt;mainFrame()-&gt;evaluateJavaScript("Test(1, 
+2)")，这样就可以直接调用js中的Test函数，其中1和2是参数。</P>
+<P>（3）js调用c++函数：确保a步骤已经操作，然后js中就可以直接通过addToJavaScriptWindowObject传进去对象名来调用相应QObject对象的函数。</P>
+<P>（4）js调用flash的函数：在as2.0以后可以直接使用ExternalCallback来进行，这里为了兼容以前的flash，使用了老的方法。假设网页中已经插入了一个flash，其id为flashname，使用flashname.SetVariable来修改flash中的变量。而flash的脚本中，则通过watch()方法来监视这个变量的改变，从而调用相应函数。</P>
+<P>（5）flash调用js的函数：flash中使用fscommand函数，js中只要实现flashname_DoFSCommand(cmd, 
+args)即可自动被调用。</P>
+<P>（6）传给<STRONG>flash</STRONG>的参数（尤其是中文字符串）要是unicode编码的，否则会乱码。</P>
+<P>最后说明一下，这些交互步骤的尤其是js调用flash函数的时机也很重要，比较早的话会出现无法响应的情况（可能要等flash完全加载完），或许新的调用方法会好些。这里我用了非常恶心的实现。建立一个定时器，当过了1秒钟（确认flash已经加载完了），才允许调用该函数。</P>
+<P>2、qt webkit的bug：</P>
+<P>其实也有可能是adobe的flash插件的bug，不过反正出现问题了，而幸好webkit是开源的，俺就只好修改它了。(当然，最终也没有完美修正改bug，不过满足了俺的需要，那就够了，希望诺基亚的精英们能在下次出版本的时候解决该问题)</P>
+<P>bug描述：在mac操作系统下，使用qtwebkit加载flash，在文本框进行输入时，按下一个键，响应两个字符。</P>
+<P>原因：猜想是在adobe的10.1的<STRONG>插件</STRONG>自己实现了输入响应（即便我把按键消息都过滤掉，flash依然可以正常进行输入，包括中文输入），而qtwebkit又传给它一次按键信息，那就会出现该问题了。</P>
+<P>解决办法：在pluginViewMac.mm（qt使用的就是这个文件），的dispatchNPevent函数中过滤掉按键消息</P><PRE><OL class=dp-xml><LI class=alt><SPAN><SPAN>if&nbsp;(</SPAN><SPAN class=attribute>event.what</SPAN><SPAN>&nbsp;==&nbsp;keyDown)&nbsp;&nbsp;{&nbsp; &nbsp;</SPAN></SPAN><LI><SPAN>return&nbsp;; &nbsp;</SPAN><LI class=alt><SPAN>}&nbsp;</SPAN></LI></OL></PRE>
+<P>这样flash的输入就正常了，当然，其他任何插件都无法进行正常输入了，不过俺做的是游戏，又不是浏览器，只要伺候好一个flash插件就足够了。</P>
+<P>还有一个bug是，如果我在网页的空白地方点一下，再回到flash的文本框就无法正常输入了，即便光标什么的都在里面，除非我找到一个flash中的文本框点击一下。初步判断原因是点击到空白的地方，整个webkit的page就无法获取按键信息了，因为一个page是无法进行编辑的，除非点到一个文本框，这样又重新可获取输入信息。如果整个page都接收不到按键信息，那其中的<STRONG>flash</STRONG>插件自然也就无法进行输入了。不过悲催的是，如果我们之前咩有屏蔽掉的PluginView的keyDown信息，这个时候反而会正常的输入一个字符，当然中文依然不能正常输入。</P>
+<P>这两个bug继续查两天看看，说不定会有新的发现。</P>
+<P>小结：关于<STRONG>Qt 
+Webkit</STRONG>嵌入<STRONG>Flash</STRONG>总结（Mac平台）的内容介绍完了，希望通过本文的学习能对你有所帮助！</P>
+<P>【编辑推荐】</P>
+<DIV>
+<OL>
+  <LI><A href="http://mobile.51cto.com/symbian-273548.htm" target=_blank>详解QT 
+  自定义控件 捕获鼠标消息</A>
+  <LI><A href="http://mobile.51cto.com/hot-280267.htm" target=_blank>Adobe推HTML 
+  5开发工具 取代Flash可兼容苹果</A>
+  <LI><A href="http://mobile.51cto.com/symbian-287594.htm" target=_blank>关于Qt 
+  Webkit模块详细介绍</A>
+  <LI><A href="http://mobile.51cto.com/symbian-287601.htm" 
+  target=_blank>浅谈关于QT中QWebKit目录介绍</A>
+  <LI><A href="http://mobile.51cto.com/symbian-287623.htm" target=_blank>详解基于Qt 
+  Webkit嵌入式BS架构设计</A>
+  <LI><A href="http://mobile.51cto.com/symbian-287629.htm" target=_blank>QT 
+  WebKit鼠标引发事件处理</A></LI></OL></DIV>
+<DIV align=right>【责任编辑：<A class=ln href="mailto:licz@51cto.com">李程站</A> 
+TEL：（010）68476606】</DIV><BR>
+<P class=blank10></P>
+<DIV class="biaoqing fixfloat">
+<UL>
+  <LI><A href="javascript:getcountscom(287652,1)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq1.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,1)" 
+  target=_self>给力</A></DIV><SPAN id=287652_1>(0票)</SPAN> </LI>
+  <LI><A href="javascript:getcountscom(287652,2)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq2.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,2)" 
+  target=_self>动心</A></DIV><SPAN id=287652_2>(0票)</SPAN> </LI>
+  <LI><A href="javascript:getcountscom(287652,3)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq3.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,3)" 
+  target=_self>废话</A></DIV><SPAN id=287652_3>(0票)</SPAN> </LI>
+  <LI><A href="javascript:getcountscom(287652,4)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq4.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,4)" 
+  target=_self>专业</A></DIV><SPAN id=287652_4>(0票)</SPAN> </LI>
+  <LI><A href="javascript:getcountscom(287652,5)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq5.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,5)" 
+  target=_self>标题党</A></DIV><SPAN id=287652_5>(0票)</SPAN> </LI>
+  <LI><A href="javascript:getcountscom(287652,6)" target=_self><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/bq6.jpg"></A> 
+  <DIV><A href="javascript:getcountscom(287652,6)" 
+  target=_self>路过</A></DIV><SPAN id=287652_6>(0票)</SPAN> </LI></UL></DIV>
+<SCRIPT language=javascript> 
+getcountscom(287652,11);
+getcountscom(287652,12);
+getcountscom(287652,13);
+getcountscom(287652,14);
+getcountscom(287652,15);
+getcountscom(287652,16); 
+</SCRIPT>
+
+<P class=blank10></P>
+<DIV class=f12><SPAN class=fl>原文：<A class=blue 
+href="http://mobile.51cto.com/symbian-287652.htm"><B>关于Qt 
+Webkit嵌入Flash总结（Mac平台）</B></A></SPAN> <SPAN class=fr><A 
+href="http://mobile.51cto.com/">返回移动开发首页</A></SPAN> </DIV>
+<P class=blank1></P></DIV>
+<DIV class=tips>
+<DIV class=fl>分享到： <SPAN class=blue><IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/weiboicon16.png"> <A 
+title=QQ微博 style="BACKGROUND-POSITION: 0px -40px; CURSOR: pointer" 
+onclick="window.open( 'http://v.t.qq.com/share/share.php?url='+encodeURIComponent(document.location)+'&amp;appkey=&amp;site=&amp;title='+encodeURI(document.title),'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );" 
+target=_self>QQ微博</A><IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/qz_logo.png"><A title=分享到QQ空间 
+href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://mobile.51cto.com/symbian-287652.htm">QQ空间</A><IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/kx.jpg"><A 
+href="http://www.kaixin001.com/repaste/share.php?rurl=http://mobile.51cto.com/symbian-287652.htm&amp;rtitle=关于Qt Webkit嵌入Flash总结（Mac平台）" 
+target=_blank>开心</A><IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/rr.jpg"><A title=分享到人人网 
+href="http://share.renren.com/share/buttonshare.do?link=http://mobile.51cto.com/symbian-287652.htm&amp;title=关于Qt Webkit嵌入Flash总结（Mac平台）">人人网</A><IMG 
+height=16 src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/145820640.gif" 
+width=17> <A title=豆瓣 style="BACKGROUND-POSITION: 0px -120px; CURSOR: pointer" 
+onclick="window.open( 'http://www.douban.com/recommend/?url='+encodeURIComponent(document.location)+'&amp;appkey=&amp;site=&amp;title='+encodeURI(document.title),'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );" 
+target=_self>豆瓣</A> <IMG 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/sina.gif"><A title=分享到新浪微博 
+href="http://v.t.sina.com.cn/share/share.php?appkey=2378297317&amp;url=http://mobile.51cto.com/symbian-287652.htm&amp;title=关于Qt Webkit嵌入Flash总结（Mac平台）">新浪微博</A></SPAN></DIV>
+<DIV class="fr blue"><A 
+href="javascript:AddFavorite(document.location.href,document.title);" 
+target=_self>收藏</A>|<A href="javascript:window.print();" target=_self>打印</A>|<A 
+id=msnqqcopy title=分享本资源给好友 target=_self>复制</A></DIV></DIV></DIV><!--内容 end-->
+<DIV class=bor>
+<DIV class="titbg pl15">关于<A class=underline 
+href="http://www.51cto.com/php/search.php?keyword=Qt" 
+target=_blank>Qt</A>&nbsp;&nbsp;<A class=underline 
+href="http://www.51cto.com/php/search.php?keyword=Webkit" 
+target=_blank>Webkit</A>&nbsp;&nbsp;<A class=underline 
+href="http://www.51cto.com/php/search.php?keyword=Flash" 
+target=_blank>Flash</A>的更多文章</DIV>
+<DIV class=reltag>
+<UL class="fl list02">
+  <LI><A title=浅谈关于QT中Webkit内核浏览器 
+  href="http://mobile.51cto.com/symbian-287663.htm">浅谈关于QT中Webkit内核浏览器</A>
+  <LI><A title="Qt Webkit中浏览器插件设计实现" 
+  href="http://mobile.51cto.com/iphone-287660.htm">Qt Webkit中浏览器插件设计实现</A>
+  <LI><A title="QT WebKit鼠标引发事件处理" 
+  href="http://mobile.51cto.com/symbian-287629.htm">QT WebKit鼠标引发事件处理</A>
+  <LI><A title="详解基于Qt Webkit嵌入式BS架构设计" 
+  href="http://mobile.51cto.com/symbian-287623.htm">详解基于Qt Webkit嵌入式BS架构设计</A>
+  <LI><A title="在Windows上使用Visual Studio 2008和QT编译Webkit" 
+  href="http://mobile.51cto.com/symbian-287588.htm">在Windows上使用Visual Studio 
+  2008和QT编</A> </LI></UL>
+<DIV class=fr>
+<DIV class="h5 f12"><A title=Qt编程基础入门 
+href="http://mobile.51cto.com/qt-275463.htm"><B>Qt编程基础入门</B></A></DIV><A 
+title=Qt编程基础入门 href="http://mobile.51cto.com/qt-275463.htm"><IMG height=80 
+alt=Qt编程基础入门 src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/163150167.gif" 
+width=100 border=0></A> 
+<P class=c666>本专题为Qt编程基础入门。Qt是诺基亚开发的一个跨平台的C++图形<A class=blue title=Qt编程基础入门 
+href="http://mobile.51cto.com/qt-275463.htm">[详细]</A></P></DIV></DIV><!--reltag end--></DIV>
+<P class=blank10></P>
+<DIV class=bor>
+<DIV class="f14 comm">
+<H3 class=fl>网友评论<EM>TOP5</EM></H3><SPAN class=fr><A 
+href="http://www.51cto.com/php/feedbackt.php?id=287652">查看所有评论（<SPAN 
+id=pinglun_2></SPAN>）</A></SPAN> </DIV>
+<P class=blank1></P>
+<DIV class=blank1></DIV>
+<UL class=commlist>
+  <SCRIPT 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/artcomment1105.htm"></SCRIPT>
+</UL>
+<DIV class="txt bgF8F8F8"><A name=commment></A>
+<DL>
+  <DT class="fl tlt">提交评论 
+  <DD>
+  <SCRIPT 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/authart.htm"></SCRIPT>
+  <BR></DD></DL>
+<SCRIPT language=javascript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/nomal_k.htm" 
+type=text/javascript></SCRIPT>
+</DIV></DIV><!--box end-->
+<P class=blank10></P>
+<DIV class="relart fl bor">
+<DIV class=titbg>
+<H3 class="fl t1">栏目热门</H3><A class=tmore 
+href="http://mobile.51cto.com/col/1541/click1.htm">更多&gt;&gt;</A></DIV>
+<UL>
+  <LI><A title=Qt编程基础入门 
+  href="http://mobile.51cto.com/qt-275463.htm">Qt编程基础入门</A> 
+  <LI><A title="视频谍报 诺基亚最新Symbian Belle初评" 
+  href="http://mobile.51cto.com/hot-285873.htm">视频谍报 诺基亚最新Symbian Belle初评</A> 
+  <LI><A title=诺基亚拟在北美停售Symbian智能手机 
+  href="http://mobile.51cto.com/hot-282234.htm">诺基亚拟在北美停售Symbian智能手机</A> 
+  <LI><A title="Qt移植学习之路 QT4.5.3至mini2440" 
+  href="http://mobile.51cto.com/symbian-272866.htm">Qt移植学习之路 
+  QT4.5.3至mini2440</A> 
+  <LI><A title=基于PhoneGap的Symbian平台入门教程 
+  href="http://mobile.51cto.com/symbian-277905.htm">基于PhoneGap的Symbian平台入门教程</A> 
+  </LI></UL></DIV>
+<DIV class="cathot fr bor">
+<DIV class=titbg>
+<H3 class="fl t1">同期最新</H3><A class=tmore 
+href="http://mobile.51cto.com/col/1541">更多&gt;&gt;</A></DIV>
+<UL>
+  <LI><A title="QT WebKit鼠标引发事件处理" 
+  href="http://mobile.51cto.com/symbian-287629.htm">QT WebKit鼠标引发事件处理</A> 
+  <LI><A title="详解基于Qt Webkit嵌入式BS架构设计" 
+  href="http://mobile.51cto.com/symbian-287623.htm">详解基于Qt Webkit嵌入式BS架构设计</A> 
+  <LI><A title=浅谈关于QT中QWebKit目录介绍 
+  href="http://mobile.51cto.com/symbian-287601.htm">浅谈关于QT中QWebKit目录介绍</A> 
+  <LI><A title="关于Qt Webkit模块详细介绍" 
+  href="http://mobile.51cto.com/symbian-287594.htm">关于Qt Webkit模块详细介绍</A> 
+  <LI><A title="在Windows上使用Visual Studio 2008和QT编译Webkit" 
+  href="http://mobile.51cto.com/symbian-287588.htm">在Windows上使用Visual Studio 
+  2008和QT编</A> </LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=bor>
+<DIV class=titbg>
+<H3 class="fl t1"><A href="http://mobile.51cto.com/">移动开发</A></H3><SPAN 
+class=pl10>频道导航</SPAN></DIV>
+<UL class=xtlist>
+  <LI><SPAN class=tit>平台</SPAN> 
+  <DIV><A href="http://mobile.51cto.com/android/">Android</A>|<A 
+  href="http://mobile.51cto.com/iphone/">iOS</A>|<A 
+  href="http://mobile.51cto.com/windows-phone/">Windows Phone</A>|<A 
+  href="http://mobile.51cto.com/blackberry/">BlackBerry</A></DIV></LI>
+  <LI><SPAN class=tit>应用</SPAN> 
+  <DIV><A href="http://mobile.51cto.com/widget/">Widget</A>|<A 
+  href="http://mobile.51cto.com/app-show/">应用展示</A>|<A 
+  href="http://mobile.51cto.com/design/">产品&amp;设计</A>|<A 
+  href="http://mobile.51cto.com/appstores/">应用商店</A></DIV></LI>
+  <LI class=last><SPAN class=tit>专题</SPAN> 
+  <DIV><A href="http://mobile.51cto.com/speclist/">专题汇总</A>|<A 
+  href="http://mobile.51cto.com/mobile-182392.htm">Android开发</A>|<A 
+  href="http://mobile.51cto.com/mobile-194833.htm">iPhone开发</A>|<A 
+  href="http://mobile.51cto.com/bada-257083.htm">bada开发</A></DIV></LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=leftbotcon>
+<DIV class="bor jdlist">
+<DIV class=titbg>
+<H3 class=t2>热点推荐</H3></DIV>
+<UL>
+  <LI><A 
+  onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-t-4']);" 
+  href="http://mobile.51cto.com/mobile-182392.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/153546162.jpg"></A> 
+  <DIV class=name><A 
+  onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-t-4']);" 
+  href="http://mobile.51cto.com/mobile-182392.htm">Android开发应用详解</A></DIV></LI>
+  <LI><A 
+  onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-t-4']);" 
+  href="http://developer.51cto.com/art/201106/266369.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/133620622.jpg"></A> 
+  <DIV class=name><A 
+  onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-t-4']);" 
+  href="http://developer.51cto.com/art/201106/266369.htm">那些性感的让人尖叫的程序员</A></DIV></LI>
+  <LI><A href="http://developer.51cto.com/art/200907/133407.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/134217922.jpg"></A> 
+  <DIV class=name><A 
+  href="http://developer.51cto.com/art/200907/133407.htm">HTML5 
+  下一代Web开发标准详解</A></DIV></LI>
+  <LI><A href="http://developer.51cto.com/art/201104/257581.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/123123954.jpg"></A> 
+  <DIV class=name><A 
+  href="http://developer.51cto.com/art/201104/257581.htm">高性能WEB开发应用指南</A></DIV></LI>
+  <LI><A href="http://os.51cto.com/art/200706/49181.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/195816929.jpg"></A> 
+  <DIV class=name><A 
+  href="http://os.51cto.com/art/200706/49181.htm">Ubuntu开源技术交流频道</A></DIV></LI></UL></DIV>
+<P class=blank10></P>
+<DIV class="bor hotTag"><STRONG>热门标签：</STRONG> <A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-2]);" 
+href="http://os.51cto.com/windows/">windows频道</A><A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-w']);" 
+href="http://mobile.51cto.com/">移动开发</A><A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-w']);" 
+href="http://cloud.51cto.com/">云计算</A><A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-w']);" 
+href="http://mobile.51cto.com/android-227548.htm">eclipse android</A><A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-w']);" 
+href="http://network.51cto.com/art/200909/151122.htm">tp-link路由器设置图解</A><A 
+onclick="javascript: _gaq.push(['_trackPageview', '/51cto/neirong/d-w']);" 
+href="http://developer.51cto.com/art/200907/133407.htm">html5</A> </DIV></DIV>
+<DIV class=leftbotbox></DIV></DIV><!--left end-->
+<DIV class="g_13 fr">
+<DIV class="focus fixfloat">
+<DIV class=hot>
+<UL>
+  <LI class=tit><EM>头条</EM> <A 
+  href="http://mobile.51cto.com/hot-292923.htm">5款傻瓜式APP开发工具</A> 
+  <LI class=con>
+  <DL>
+    <DT><A href="http://mobile.51cto.com/hot-292923.htm"><IMG 
+    src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/095455227.jpg" 
+    border=0></A> </DT>
+    <DD>通过这些工具,对程序一窍不通的普通网民都可以创建一个企业的APP程序. </DD></DL></LI></UL>
+<OL class=hotlist>
+  <LI><A href="http://mobile.51cto.com/hot-291090.htm">英特尔全面转向Android阵营</A>
+  <LI><A 
+  href="http://mobile.51cto.com/appstores-290920.htm">中国开发者咬下一口“苹果”</A></LI></OL></DIV>
+<P>
+<SCRIPT language=JavaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/ad.js" 
+type=text/javascript></SCRIPT>
+</P></DIV>
+<DIV class=rank>
+<DIV class=tlt>
+<H3>文章排行</H3><A id=top_3 onmouseover=change_top10(3);>本月</A><A id=top_2 
+onmouseover=change_top10(2);>本周</A><A class=myon id=top_1 
+onmouseover=change_top10(1);>24小时</A> </DIV>
+<DIV class=list id=top10_1 style="DISPLAY: block">
+<UL>
+  <LI><A title=微软与三星达成Android专利交叉许可协议 
+  href="http://mobile.51cto.com/hot-294924.htm" 
+  target=_blank>微软与三星达成Android专利交叉许可协议</A> </LI>
+  <LI><A title=在Eclipse下搭建Android开发环境教程 
+  href="http://mobile.51cto.com/android-227548.htm" 
+  target=_blank>在Eclipse下搭建Android开发环境教程</A> </LI>
+  <LI><A title=2011年Android手机用户购买行为研究报告 
+  href="http://mobile.51cto.com/hot-292153.htm" 
+  target=_blank>2011年Android手机用户购买行为研究报告</A> </LI>
+  <LI><A title=《水果忍者》背后的故事 href="http://mobile.51cto.com/app-show-294293.htm" 
+  target=_blank>《水果忍者》背后的故事</A> </LI>
+  <LI><A title="安卓系应对谷歌硬化 HTC三星或集体出逃" 
+  href="http://mobile.51cto.com/hot-293016.htm" target=_blank>安卓系应对谷歌硬化 
+  HTC三星或集体出逃</A> </LI>
+  <LI><A title="多图详解 “Android UI”设计官方教程" 
+  href="http://mobile.51cto.com/android-223416.htm" target=_blank>多图详解 “Android 
+  UI”设计官方教程</A> </LI>
+  <LI><A title="Windows Phone 7.5开放更新后各方评论" 
+  href="http://mobile.51cto.com/hot-294867.htm" target=_blank>Windows Phone 
+  7.5开放更新后各方评论</A> </LI>
+  <LI><A title=最新基于HTML5的移动操作系统Carbyn 
+  href="http://mobile.51cto.com/hot-293499.htm" 
+  target=_blank>最新基于HTML5的移动操作系统Carbyn</A> </LI>
+  <LI><A title=Objective-C基础语法快速入门 href="http://mobile.51cto.com/hot-232833.htm" 
+  target=_blank>Objective-C基础语法快速入门</A> </LI>
+  <LI><A title=21个免费的UI界面设计工具、资源及网站 
+  href="http://mobile.51cto.com/design-250037.htm" 
+  target=_blank>21个免费的UI界面设计工具、资源及网站</A> </LI></UL></DIV>
+<DIV class=list id=top10_2 style="DISPLAY: none">
+<UL>
+  <LI><A title=《水果忍者》背后的故事 href="http://mobile.51cto.com/app-show-294293.htm" 
+  target=_blank>《水果忍者》背后的故事</A> </LI>
+  <LI><A title=Android疯狂的专利战争大史记 href="http://mobile.51cto.com/hot-294210.htm" 
+  target=_blank>Android疯狂的专利战争大史记</A> </LI>
+  <LI><A title=苹果确认10月4日发布新款iPhone href="http://mobile.51cto.com/hot-294685.htm" 
+  target=_blank>苹果确认10月4日发布新款iPhone</A> </LI>
+  <LI><A title="试用豆瓣电台之后不得不吐的槽 " 
+  href="http://mobile.51cto.com/AppFocus-293829.htm" 
+  target=_blank>试用豆瓣电台之后不得不吐的槽 </A></LI>
+  <LI><A title=安卓开发者必须重新开发“蜂窝”应用 href="http://mobile.51cto.com/hot-294317.htm" 
+  target=_blank>安卓开发者必须重新开发“蜂窝”应用</A> </LI>
+  <LI><A title=新iPhone欧洲上市遇阻？三星反击苹果 
+  href="http://mobile.51cto.com/news-293910.htm" 
+  target=_blank>新iPhone欧洲上市遇阻？三星反击苹果</A> </LI>
+  <LI><A title="HTC计划开发自主操作系统 获得谷歌帮助" 
+  href="http://mobile.51cto.com/hot-293850.htm" target=_blank>HTC计划开发自主操作系统 
+  获得谷歌帮助</A> </LI>
+  <LI><A title=调研:在美国Android智能手机份额达43% 
+  href="http://mobile.51cto.com/hot-294379.htm" 
+  target=_blank>调研:在美国Android智能手机份额达43%</A> </LI>
+  <LI><A title=诺基亚谈新产品和战略：用产品来证明 
+  href="http://mobile.51cto.com/windows-phone-294473.htm" 
+  target=_blank>诺基亚谈新产品和战略：用产品来证明</A> </LI>
+  <LI><A title=视频展示如何让MeeGo兼容Android程序 
+  href="http://mobile.51cto.com/meego-293847.htm" 
+  target=_blank>视频展示如何让MeeGo兼容Android程序</A> </LI></UL></DIV>
+<DIV class=list id=top10_3 style="DISPLAY: none">
+<UL>
+  <LI><A title=2011年Android手机用户购买行为研究报告 
+  href="http://mobile.51cto.com/hot-292153.htm" 
+  target=_blank>2011年Android手机用户购买行为研究报告</A> </LI>
+  <LI><A title=中国开发者咬下一口“苹果” href="http://mobile.51cto.com/appstores-290920.htm" 
+  target=_blank>中国开发者咬下一口“苹果”</A> </LI>
+  <LI><A title="雷军：小米我不能输 输了这辈子就踏实了" 
+  href="http://mobile.51cto.com/AppFocus-288233.htm" target=_blank>雷军：小米我不能输 
+  输了这辈子就踏实了</A> </LI>
+  <LI><A title="腾讯正式发布移动应用平台 与开发者五五分成" 
+  href="http://mobile.51cto.com/hot-290205.htm" target=_blank>腾讯正式发布移动应用平台 
+  与开发者五五分成</A> </LI>
+  <LI><A title="目标iOS Intel全面转向Android阵营(图)" 
+  href="http://mobile.51cto.com/hot-291090.htm" target=_blank>目标iOS 
+  Intel全面转向Android阵营(图)</A> </LI>
+  <LI><A title=Scala：未受重视却潜力巨大的Android编程语言 
+  href="http://mobile.51cto.com/android-288175.htm" 
+  target=_blank>Scala：未受重视却潜力巨大的Android编程语言</A> </LI>
+  <LI><A title=最新基于HTML5的移动操作系统Carbyn 
+  href="http://mobile.51cto.com/hot-293499.htm" 
+  target=_blank>最新基于HTML5的移动操作系统Carbyn</A> </LI>
+  <LI><A title=《水果忍者》背后的故事 href="http://mobile.51cto.com/app-show-294293.htm" 
+  target=_blank>《水果忍者》背后的故事</A> </LI>
+  <LI><A title=在这儿IM：很职业很SoLoMo的LBS应用 
+  href="http://mobile.51cto.com/app-show-290624.htm" 
+  target=_blank>在这儿IM：很职业很SoLoMo的LBS应用</A> </LI>
+  <LI><A title="微软将展示Windows 8平板电脑 欲证明发展并未停滞" 
+  href="http://mobile.51cto.com/hot-290370.htm" target=_blank>微软将展示Windows 8平板电脑 
+  欲证明发展并未停滞</A> </LI></UL></DIV></DIV>
+<P class=blank1></P>
+<DIV class=bor>
+<DIV class=titbg>
+<H3 class="fl t1">热点专题</H3><A class=tmore 
+href="http://mobile.51cto.com/col/1541/spec1.htm">更多&gt;&gt;</A></DIV>
+<UL class=plist01>
+  <LI><A title=三星bada平台开发基础教程 
+  href="http://mobile.51cto.com/bada-257083.htm"><IMG height=80 
+  alt=三星bada平台开发基础教程 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/123721334.jpg" 
+  width=100></A> 
+  <H5><A title=三星bada平台开发基础教程 
+  href="http://mobile.51cto.com/bada-257083.htm">三星bada平台开发基础</A></H5>
+  <DIV class=c666>bada是韩国三星公司自行开发的低智能手机平台，底层为</DIV></LI>
+  <LI><A title="第一期“Phone Club”51CTO移动开发沙龙" 
+  href="http://mobile.51cto.com/mobile/phoneclub01/"><IMG height=80 
+  alt="第一期“Phone Club”51CTO移动开发沙龙" 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/161610645.jpg" 
+  width=100></A> 
+  <H5><A title="第一期“Phone Club”51CTO移动开发沙龙" 
+  href="http://mobile.51cto.com/mobile/phoneclub01/">第一期“Phone Club”</A></H5>
+  <DIV class=c666>Phone Club——51CTO移动开发技术沙龙是领先的IT技术</DIV></LI>
+  <LI><A title="第二期“Phone Club”51CTO移动开发沙龙" 
+  href="http://mobile.51cto.com/mobile/phoneclub02/"><IMG height=80 
+  alt="第二期“Phone Club”51CTO移动开发沙龙" 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/161610621.jpg" 
+  width=100></A> 
+  <H5><A title="第二期“Phone Club”51CTO移动开发沙龙" 
+  href="http://mobile.51cto.com/mobile/phoneclub02/">第二期“Phone Club”</A></H5>
+  <DIV class=c666>Phone Club——51CTO移动开发技术沙龙是领先的IT技术</DIV></LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=tagCloud>
+<DIV class=tlt>
+<H3>热点标签</H3></DIV>
+<DIV class=taglist><A title=iOS开发 
+href="http://mobile.51cto.com/mobile-194833.htm">iOS开发</A> <A title=Android开发 
+href="http://mobile.51cto.com/mobile-182392.htm">Android开发</A> <A 
+title=Symbian开发 href="http://mobile.51cto.com/mobile-220581.htm">Symbian开发</A> 
+<A title=MeeGo开发 href="http://mobile.51cto.com/meego-208013.htm">MeeGo开发</A> <A 
+title=BlackBerry开发 
+href="http://mobile.51cto.com/blackberry-255350.htm">BlackBerry开发</A> <A 
+title="Windows Phone开发" href="http://mobile.51cto.com/mobile-219051.htm">Windows 
+Phone开发</A> <A title=Widget开发 
+href="http://mobile.51cto.com/mobile-223781.htm">Widget开发</A> <A title=用户体验 
+href="http://mobile.51cto.com/design-244102.htm">用户体验</A> <A title="Phone Club" 
+href="http://mobile.51cto.com/mobile/phoneclub04/">Phone Club</A> <A 
+title="Windows Phone 7" href="http://mobile.51cto.com/mobile-229350.htm">Windows 
+Phone 7</A> <A class=imp title="Android 3.0" 
+href="http://mobile.51cto.com/android-243810.htm">Android 3.0</A> <A 
+title="iOS 4.3" href="http://mobile.51cto.com/iphone-246419.htm">iOS 4.3</A> <A 
+title="webOS 2.1" href="http://mobile.51cto.com/others-251827.htm">webOS 2.1</A> 
+<A title=开发者调查 
+href="http://mobile.51cto.com/mobile/mobiledeveloper2010/">开发者调查</A> <A 
+title=上网行为管理 
+href="http://netsecurity.51cto.com/secu/netentsec2010/">上网行为管理</A></DIV></DIV>
+<DIV class=rss>
+<UL>
+  <LI class="lin f12-c"><A 
+  href="http://news.51cto.com/col/1323/"><STRONG>点击这里查看样刊</STRONG></A> 
+  <LI>
+  <DL>
+    <DT></DT>
+    <DD><A href="http://home.51cto.com/index.php?s=/Subscribe"><IMG 
+    src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/dingy.gif"></A> 
+  </DD></DL></LI></UL></DIV>
+<DIV class=bor>
+<DIV class=titbg>
+<H3 class=t1>全站热点</H3></DIV>
+<DIV class="webhot fixfloat">
+<UL>
+  <LI><A title=webOS携手Palm死去 href="http://mobile.51cto.com/hot-284919.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/083240363.png"></A> 
+  <DIV><A title=webOS携手Palm死去 
+  href="http://mobile.51cto.com/hot-284919.htm">webOS携手Palm死去</A></DIV></LI>
+  <LI><A title=《开发月刊》2011年8月刊发布 
+  href="http://developer.51cto.com/art/201108/284616.htm"><IMG 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/100640569.jpg"></A> 
+  <DIV><A title=《开发月刊》2011年8月刊发布 
+  href="http://developer.51cto.com/art/201108/284616.htm">《开发月刊》2011年8月刊发布</A></DIV></LI></UL></DIV>
+<P class=blank1></P>
+<UL class=list03>
+  <LI><A title=VxWorks设备驱动开发详解 
+  href="http://book.51cto.com/art/201103/248271.htm">VxWorks设备驱动开发详解</A> 
+  <LI><A title="闪光材料研究 天梭助力西安交大" 
+  href="http://server.51cto.com/Corecase-248253.htm">闪光材料研究 天梭助力西安交大</A> 
+  <LI><A title=C语言开发手册（典藏版） 
+  href="http://book.51cto.com/art/201103/248042.htm">C语言开发手册（典藏版）</A> 
+  <LI><A title=微博:改变一切 
+  href="http://book.51cto.com/art/201103/247936.htm">微博:改变一切</A> 
+  <LI><A title=密战——网络犯罪大追踪 
+  href="http://book.51cto.com/art/201103/247910.htm">密战——网络犯罪大追踪</A> 
+</LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=bor>
+<DIV class=titbg>
+<H3 class=t1>读书</H3></DIV>
+<DIV class=catbook><A title=计算机网络技术 
+href="http://book.51cto.com/art/200706/49300.htm"><IMG height=98 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/171256139.jpg" width=66 
+border=0></A> 
+<H5><A href="http://book.51cto.com/art/200706/49300.htm">计算机网络技术</A></H5>
+<DIV 
+class="c666 text">本书是为北大燕工教育研究院编写的计算机网络技术的学习教材。它以实际教学大纲为依据，全面系统的介绍了计算机网络技术知识</DIV></DIV>
+<UL class=list03>
+  <LI><A title=程序员教程（第2版） 
+  href="http://book.51cto.com/art/200704/44879.htm">程序员教程（第2版）</A> 
+  <LI><A title=SQL应用与开发标准教程 
+  href="http://book.51cto.com/art/200704/44887.htm">SQL应用与开发标准教程</A> 
+  <LI><A title=系统分析师技术指南 
+  href="http://book.51cto.com/art/200704/45138.htm">系统分析师技术指南</A> 
+  <LI><A title=网络技术应试辅导（三级） 
+  href="http://book.51cto.com/art/200704/45216.htm">网络技术应试辅导（三级）</A> 
+</LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=bor>
+<DIV class=titbg>
+<H3 class="t1 fl">博文推荐</H3><A class=tmore 
+href="http://blog.51cto.com/">更多&gt;&gt;</A></DIV>
+<DIV class=blogtj>
+<UL>
+  <LI><A href="http://terryblog.blog.51cto.com/"><IMG height=65 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/1764499_1277109651.jpg" 
+  width=60></A> 
+  <H5><A href="http://terryblog.blog.51cto.com/">terry_龙</A></H5>Windows Phone专家 
+  </LI>
+  <LI><A href="http://lhqvip.blog.51cto.com/"><IMG height=65 
+  src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/2211973_1302541540.jpg" 
+  width=60></A> 
+  <H5><A href="http://lhqvip.blog.51cto.com/">lhq_vip</A></H5>
+  <P>Qt框架开发专家</P></LI></UL></DIV>
+<UL class=list03>
+  <LI><A title='"请备份该数据库的事务日志以释放一些日志空间"解决方法' 
+  href="http://redking.blog.51cto.com/27212/61032/" 
+  target=_blank>"请备份该数据库的事务日志以释</A>
+  <LI><A title=未竣工的水立方内部 href="http://840711.blog.51cto.com/69327/61023/" 
+  target=_blank>未竣工的水立方内部</A>
+  <LI><A title=在线WEB代理 href="http://waringid.blog.51cto.com/65148/61013/" 
+  target=_blank>在线WEB代理</A>
+  <LI><A title=通过Java反射调用方法 href="http://lavasoft.blog.51cto.com/62575/61002/" 
+  target=_blank>通过Java反射调用方法</A> </LI></UL></DIV>
+<P class=blank10></P>
+<DIV class=tj>
+<DIV class=tlt>
+<H3>最新热帖</H3><A class=more 
+href="http://bbs.51cto.com/hotthreads.php">更多&gt;&gt;</A></DIV>
+<UL>
+  <LI><A title=施工企业信息化建设的探讨.pdf href="http://bbs.51cto.com/thread-731882-1.html" 
+  target=_blank>施工企业信息化建设的探讨.pdf</A>
+  <LI><A title=求助!想监控公司员工上网访问网页记录，可有几种途径！ 
+  href="http://bbs.51cto.com/thread-731389-1.html" 
+  target=_blank>求助!想监控公司员工上网访问网页记</A>
+  <LI><A title=求职IT职位（主攻网络） href="http://bbs.51cto.com/thread-729330-1.html" 
+  target=_blank>求职IT职位（主攻网络）</A>
+  <LI><A title="GNS3  如何  搭建交换实验环境" 
+  href="http://bbs.51cto.com/thread-728854-1.html" target=_blank>GNS3 如何 
+  搭建交换实验环境</A>
+  <LI><A title="Windows XP SP3支持多用户远程桌面连接方法" 
+  href="http://bbs.51cto.com/thread-728606-1.html" target=_blank>Windows XP 
+  SP3支持多用户远程桌面连</A> </LI></UL></DIV>
+<DIV class=picAD><IFRAME class=bann 
+style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; WIDTH: 300px; PADDING-TOP: 0px; HEIGHT: 250px; BACKGROUND-COLOR: #dbdbdb" 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/14.htm" frameBorder=0 
+scrolling=no></IFRAME></DIV></DIV>
+<P class=blank1></P><!--leftbotcon end--></DIV>
+<DIV class=subweb>
+<H4>51CTO旗下网站</H4>
+<DIV><A href="http://www.51cto.com/" target=_blank>领先的IT技术网站 51CTO</A> <A 
+href="http://www.watchstor.com/" target=_blank>领先的中文存储媒体 WatchStor</A> <A 
+href="http://www.cioage.com/" target=_blank>中国首个CIO网站 CIOage</A> <A 
+href="http://www.hc3i.cn/" target=_blank>中国首家数字医疗网站 HC3i</A> <A 
+href="http://www.linkphone.cn/" target=_blank>移动互联网生活门户 灵客风LinkPhone</A> 
+</DIV></DIV>
+<DIV id=ft>
+<DIV id=foot align=center>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/copy_right.js"></SCRIPT>
+</DIV></DIV>
+<SCRIPT src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/count.js"></SCRIPT>
+<!-- START GA.js -->
+<SCRIPT type=text/javascript>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20883758-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_addOrganic', 'baidu', 'word']);
+  _gaq.push(['_addOrganic', 'google', 'q']);
+  _gaq.push(['_addOrganic', 'soso', 'w']);
+  _gaq.push(['_addOrganic', '3721', 'name']);
+  _gaq.push(['_addOrganic', 'yodao', 'q']);
+  _gaq.push(['_addOrganic', 'vnet', 'kw']);
+  _gaq.push(['_addOrganic', 'sogou', 'query']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</SCRIPT>
+<!-- END GA.js --><!-- baidu.js -->
+<SCRIPT type=text/javascript>
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff77ea1ecd95cb2a1bc65cbcb3aaba7d4' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+<!--end baidu.js --><!-- 新监测代码 --><!-- 新监测代码 -->
+<DIV id=MyMoveAd style="DISPLAY: none"><SPAN id=wordlink_1>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/wordlink1.js"></SCRIPT>
+</SPAN><SPAN id=wordlink_2>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/wordlink2.js"></SCRIPT>
+</SPAN><SPAN id=wordlink_3>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/wordlink3.js"></SCRIPT>
+</SPAN><SPAN id=wordlink_4>
+<SCRIPT 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/wordlink4.js"></SCRIPT>
+</SPAN><SPAN id=pinglun>
+<SCRIPT language=JavaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/getArtCount.htm"></SCRIPT>
+</SPAN><SPAN id=tonglan>
+<SCRIPT language=JavaScript 
+src="E:\note\doc\community\关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files\ad(1).js"></SCRIPT>
+</SPAN><SPAN id=wordlink>
+<SCRIPT language=JavaScript 
+src="E:\note\doc\community\关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files\ad(2).js"></SCRIPT>
+</SPAN>
+<SCRIPT 
+src="E:\note\doc\community\关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files\ad(2).js"></SCRIPT>
+</DIV>
+<SCRIPT language=javascript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/favorite.js"></SCRIPT>
+
+<SCRIPT language=javaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/fb_words_list.htm"></SCRIPT>
+
+<SCRIPT language=javaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/dialog_utf8.js"></SCRIPT>
+
+<SCRIPT language=javaScript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/mail.js"></SCRIPT>
+
+<SCRIPT src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/favorbox.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/clipboard.js"></SCRIPT>
+
+<SCRIPT language=javaScript> 
+	var thistid=287652; 
+	
+	//收藏按钮
+	var favor_url = 'http://mobile.51cto.com/symbian-287652.htm';  // 如：http://bbs.51cto.com/thread-789649-1.html
+	var favor_title = '关于Qt Webkit嵌入Flash总结（Mac平台）';       //  
+	
+	//绑定复制按钮
+	copy('msnqqcopy', 'http://mobile.51cto.com/symbian-287652.htm', '分享到MSN/QQ的链接复制成功!');
+//	copy('bbscopy', '[url=http://mobile.51cto.com/symbian-287652.htm][u]关于Qt Webkit嵌入Flash总结（Mac平台）[/u][/url]', '分享到论坛的UBB代码复制成功!');
+
+</SCRIPT>
+
+<SCRIPT src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/index.htm" 
+charset=utf-8></SCRIPT>
+
+<SCRIPT language=javascript 
+src="关于Qt Webkit嵌入Flash总结（Mac平台） - 51CTO_COM.files/count.htm"></SCRIPT>
+</BODY></HTML>
