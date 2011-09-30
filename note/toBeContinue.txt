@@ -5881,3 +5881,73 @@ set_text_to_drawaraw: add a args						done
               
 
 好像可以捕获插件里面的SetWindow的全屏好像都要调那个setwindow，还有一个printwindow
+
+     NP_Initialize
+
+0930 grep: exclude
+     
+     awk
+     cut
+     grep
+     gzip
+     head
+     paste
+     perl
+     sed
+     sort
+     split
+     strings
+     tac
+     tail
+     tee
+     tr
+     uniq
+     wc
+     
+
+    n Source/WebCore/plugins/gtk/PluginViewGtk.cpp, handleMouseEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, handleFocusInEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, initXEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, show
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, setFocus
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, initXEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, setXButtonEventSpecificFields
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, getRootWindow
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, inputEventState
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, handleMouseEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, initXEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, setXButtonEventSpecificFields
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, getRootWindow
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, inputEventState
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, handleMouseEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, initXEvent
+
+
+XButtonEvent& xbutton = xEvent->xbutton;
+
+
+
+on Source/WebCore/plugins/PluginView.cpp, getURLNotify
+on Source/WebCore/plugins/PluginView.cpp, makeURL
+on Source/WebCore/plugins/PluginView.cpp, load
+on Source/WebCore/plugins/PluginView.cpp, scriptStringIfJavaScriptURL
+on Source/WebCore/plugins/PluginView.cpp, arePopupsAllowed
+on Source/WebCore/plugins/PluginView.cpp, scheduleRequest
+on Source/WebCore/plugins/PluginView.cpp, requestTimerFired
+on Source/WebCore/plugins/PluginView.cpp, performRequest
+on Source/WebCore/plugins/PluginView.cpp, scriptStringIfJavaScriptURL
+================= on resource_request_starting
+on Source/WebCore/plugins/PluginView.cpp, handleEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, handleKeyboardEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, initXEvent
+on Source/WebCore/plugins/gtk/PluginViewGtk.cpp, getRootWindow
+on Source/WebCore/plugins/PluginView.cpp, disconnectStream
+
+
+
+    wifi: is patch package support dhcp 						**
+    
+断点跟踪 webkit; gdb
+
+color grep									
+ 
