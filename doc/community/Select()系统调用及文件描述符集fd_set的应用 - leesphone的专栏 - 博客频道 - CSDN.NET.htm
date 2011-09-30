@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0054)http://blog.csdn.net/leesphone/article/details/2137568 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET</title>
+
+<meta name="description" content="Select()系统调用及文件描述符集fd_set的应用.pdf">
+<script type="text/javascript" async="" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ga.js"></script><script src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/plugins.js" type="text/javascript"></script>
+<script src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/common.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/leesphone/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/default.css">
+<script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/shCore.js"></script>
+</head><body>
+<script src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/navtop_2011.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="http://passport.csdn.net/UserLogin.aspx">登录</a>|<a href="http://passport.csdn.net/CSDNUserRegister.aspx">注册</a>|<a href="http://passport.csdn.net/help/faq">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank">CSDN首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">资讯</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li><a href="http://so.csdn.net/" target="_blank">搜索</a></li>
+<li class="more"><h2 id="topnav_btnmore"><a href="javascript:void(0);">更多</a></h2>
+<ul id="topnav_hidlist" style="display: none; ">
+<li><a href="http://cto.csdn.net/" target="_blank">CTO俱乐部</a></li>
+<li><a href="http://student.csdn.net/" target="_blank">学生大本营</a></li>
+<li><a href="http://edu.csdn.net/" target="_blank">培训充电</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动开发</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">软件研发</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://www.programmer.com.cn/" target="_blank">程序员</a></li>
+<li><a href="http://tup.csdn.net/" target="_blank">TUP</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1>
+                <a href="http://blog.csdn.net/leesphone">leesphone的专栏</a></h1>
+            <h2>只爱我的小鱼</h2>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            <!--<li id="btnHome"><a href="/leesphone"><span><img src="http://static.blog.csdn.net/images/ico_home.gif">我的首页</span></a></li>-->
+            <li id="btnContents"><a href="http://blog.csdn.net/leesphone?viewmode=contents"><span><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/leesphone?viewmode=list"><span><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/leesphone/rss/list"><span><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "leesphone";
+    var blog_address = "http://blog.csdn.net/leesphone";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = $.cookie("UserName");
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"><font size="2">
+
+&nbsp;<a href="http://blog.csdn.net/blogdevteam/article/details/6822154" target="_blank"><font color="red">2011移动开发者大会亮点之一：六大精彩主题论坛抢鲜看</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/blogdevteam/article/details/6799983" target="_blank"><font color="red">2012年1月微软MVP申请开始了！</font></a><br>
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/6740376" target="_blank"><font color="red">CSDN博客“准专家勋章”“微软MVP勋章”上线公告</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://g.csdn.net/5197723" target="_blank"><font color="red">“IT适合你吗？”智力挑战</font></a>
+</font></div><script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ad.js"></script>
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Repost"></span>
+    <h3>
+        <span class="link_title"><a href="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET.htm" title="Select()系统调用及文件描述符集fd_set的应用">Select()系统调用及文件描述符集fd_set的应用</a></span>
+        
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/leesphone/article/category/367059">TCP/IP</a> 
+            <a href="http://blog.csdn.net/leesphone/article/category/359241">Linux C</a> 
+        </span>
+    <span class="link_postdate">2008-03-01 16:50</span>
+    <span class="link_view" title="阅读次数">498人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="http://blog.csdn.net/leesphone/article/details/2137568#comments">评论</a>(0)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;Select()系统调用及文件描述符集fd_set的应用&#39;,&#39;2137568&#39;);return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="http://blog.csdn.net/leesphone/article/details/2137568#report" onclick="javascript:report(2137568,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+    
+<div class="article_content">
+    Select()系统调用及文件描述符集fd_set的应用<br>在网络程序中，一个进程同时处理多个文件描述符是很常见的情况。select()系统调用可以使进程检测同时等待的多个I/O设备，当没有设备准备好时，select()阻塞，其中任一设备准备好时，select()就返回。<br>select()的调用形式为：<br>#include &lt;sys/select.h&gt;<br>#include &lt;sys/time.h&gt;<br>int select(int maxfd, fd_set *readfds, fd_set *writefds, fe_set *exceptfds, const struct timeval *timeout);<br>select的第一个参数是文件描述符集中要被检测的比特数，这个值必须至少比待检测的最大文件描述符大1；<br>参数readfds指定了被读监控的文件描述符集；<br>参数writefds指定了被写监控的文件描述符集；<br>而参数exceptfds指定了被例外条件监控的文件描述符集。<br>参数timeout起了定时器的作用：到了指定的时间，无论是否有设备准备好，都返回调用。timeval的结构定义如下：<br>struct timeval{<br>long tv_sec; //表示几秒<br>long tv_usec; //表示几微妙<br>}<br>timeout取不同的值，该调用就表现不同的性质：<br>1．timeout为0，调用立即返回；<br>2．timeout为NULL，select()调用就阻塞，直到知道有文件描述符就绪；<br>3．timeout为正整数，就是一般的定时器。<br>select调用返回时，除了那些已经就绪的描述符外，select将清除readfds、writefds和exceptfds中的所有没有就绪的描述符。select的返回值有如下情况：<br>1．正常情况下返回就绪的文件描述符个数；<br>2．经过了timeout时长后仍无设备准备好，返回值为0；<br>3．如果select被某个信号中断，它将返回‐1并设置errno为EINTR。<br>4．如果出错，返回‐1并设置相应的errno。<br>系统提供了4个宏对描述符集进行操作：<br>#include &lt;sys/select.h&gt;<br>#include &lt;sys/time.h&gt;<br>void FD_SET(int fd, fd_set *fdset);<br>void FD_CLR(int fd, fd_set *fdset);<br>void FD_ISSET(int fd, fd_set *fdset);<br>void FD_ZERO(fd_set *fdset);<br>宏FD_SET设置文件描述符集fdset中对应于文件描述符fd的位(设置为1).<br>宏FD_CLR清除文件描述符集fdset中对应于文件描述符fd的位（设置为0）<br>宏FD_ZERO清除文件描述符集fdset中的所有位(既把所有位都设置为0)。<br>使用这3个宏在调用select前.设置描述符屏蔽位，在调用select后使用FD_ISSET来检测文件描述符集fdset中对应于文件描述符fd的位是否被设置。<br>过去，描述符集被作为一个整数位屏蔽码得到实现，但是这种实现对于多于32个的文件描述符将无法工作。描述符集现在通常用整数数组中的位域表示，数组元素的每一位对应一个文件描述符。例如，一个整数占32位，那么整数数组的第一个元素代表文件描述符0到31，数组的第二个元素代表文件描述符32到63，以此类推。<br>宏FD_SET设置整数数组中对应于fd文件描述符的位为1，宏FD_CLR设置整数数组中对应于fd文件描述符的位为0，宏FD_ZERO设置整数数组中的所有位都为0。假设执行如下程序后：<br>#include &lt;sys/select.h&gt;<br>#include &lt;sys/time.h&gt;<br>fd_set readset;<br>FD_ZERO(&amp;readset);<br>FD_SET(5, &amp;readset);<br>FD_SET(33, &amp;readset);<br>则文件描述符集readset中对应于文件描述符5和33的相应位被置为1，如图1所示：<br>再执行如下程序后：<br>FD_CLR(5, &amp;readset);<br>则文件描述符集readset对应于文件描述符5的相应位被置为0，如图2所示：<br>通常，操作系统通过宏FD_SETSIZE来声明在一个进程中select所能操作的文件描述符的最大数目。例如：<br>在4.4BSD的头文件中我们可以看到：<br>＃ifndef FD_SETSIZE<br>#define FD_SETSIZE 1024<br>#endif<br>在红帽Linux的头文件&lt;bits/types.h&gt;中我们可以看到：<br>＃define __FD_SETSIZE 1024<br>以及在头文件&lt;sys/select.h&gt;中我们可以看到：<br>#include &lt;bits/types.h&gt;<br>#define FD_SETSIZE __FD_SETSIZE<br>即定义FD_SETSIZE为1024，一个整数占4个字节，既32位，那么就是用包含32个元素的整数数组来表示文件描述符集。我们可以在头文件中修改这个值来改变select使用的文件描述符集的大小，但是必须重新编译内核才能使修改后的值有效。当前版本的unix操作系统没有限制FD_SETSIZE的最大值，通常只受内存以及系统管理上的限制。<br>我们明白了文件描述符集的实现机制之后，就可对其进行灵活运用。<br>（以下程序在红帽Linux 6.0下运行通过，函数fd_isempty用于判断文件描述符集是否为空；函数fd_fetch取出文件描述符集中的所有文件描述符）.<br>#include &lt;stdio.h&gt;<br>#include &lt;string.h&gt;<br>#include &lt;sys/time.h&gt;<br>#include &lt;sys/select.h&gt;<br>struct my_fd_set{<br>fd_set fs; //定义文件描述符集fs<br>unsigned int nconnect; //文件描述符集fs中文件描述符的个数<br>unsigned int nmaxfd; //文件描述符集fs中最大的文件描述符<br>};<br>/* 函数fd_isempty用于判断文件描述符集是否为空，为空返回1，不为空则返回0 */<br>int fd_isempty(struct my_fd_set *pfs)<br>{<br>int i;<br>/* 文件描述符集fd_set是通过整数数组来实现的，所以定义整数数组myset的元素个数为文件描述符集fd_set所占内存空间的字节数除以整数所占内存空间的字节数。*/<br>unsigned int myset[sizeof(fd_set) / sizeof(int)];<br>/* 把文件描述符集pfs‐&gt;fs 拷贝到数组myset */<br>memcpy(myset, &amp;pfs‐&gt;fs, sizeof(fd_set));<br>for(i = 0; i &lt; sizeof(fd_set) / sizeof(int); i++)<br>{<br>/* 如果myset的某个元素不为0，说明文件描述符集不为空，则函数返回0 */<br>if (myset[i])<br>return 0;<br>/* 如果myset的所有元素都为0，说明文件描述符集为空，则函数返回1 */<br>return 1;<br>}<br>}<br>/* 函数fd_fetch对文件描述符集进行位操作，把为1的位换算成相应的文件描述符，然后就可对其进行I/O操作 */<br>void fd_fetch(struct my_fd_set *pfs)<br>{<br>struct my_fd_set *tempset; //定义一个临时的结构指针<br>unsigned int myset[sizeof(fd_set)/sizeof(unsigned int)];<br>unsigned int i, nbit, nfind, ntemp;<br>tempset = pfs;<br>memcpy(myset, &amp;tempset‐&gt;fs, sizeof(fd_set));<br>/* 把最大的文件描述符maxfd除以整数所占的位数，得出maxfd在文件描述符集中相应的位对应于整数数组myset的相应元素的下标，目的是为了减少检索的次数 */<br>nfind = tempset‐&gt;nmaxfd / (sizeof(int)*8);<br>for (i = 0; i &lt;= nfind; i++)<br>{<br>/* 如果数组myset的某个元素为0，说明这个元素所对应的文件描述符集的32位全为0，则继续判断下一元素。*/<br>if (myset[i] == 0)<br>continue;<br>/* 如果数组myset的某个元素不为0，说明这个元素所对应的文件描述符集的32位中有为1的，把myset赋值给临时变量ntemp，对ntemp进行位运算，把为1的位换算成相应的文件描述符 */<br>ntemp = myset[i];<br>/* nbit记录整数的二进制位数，对ntemp从低到高位进行&amp;1运算，直到整数的最高位,或直到文件描述符集中文件描述符的个数等于0 */<br>for (nbit = 0; tempset‐&gt;nconnect &amp;&amp; (nbit &lt; sizeof(int)*8); nbit++)<br>{<br>if (ntemp &amp; 1)<br>{<br>/* 如果某位为1，则可得到对应的文件描述符为nbit+32*I，然后我们可对其进行I/O操作。这里我只是做了简单的显示。*/<br>printf("i = %d, nbit = %d, The file description is %d/n", i, nbit, nbit+32*i);<br>}<br>/* 取出一个文件描述符后，将文件描述符集中文件描述符的个数减1 */<br>tempset‐&gt;nconnect‐‐; }<br>ntemp &gt;&gt;= 1; // ntemp右移一位<br>}<br>}<br>}<br>/* 下面的主程序是对以上两个函数的测试 */<br>Void main(void)<br>{<br>/* 假设fd1，fd2，fd3为3个文件描述符，实际运用中可为Socket描述符等 */<br>int fd1 = 7, fd2 = 256, fd3 = 1023, isempty;<br>struct my_fd_set connect_set;<br>connect_set.nconnect = 0;<br>connect_set.nmaxfd = 0;<br>FD_ZERO(&amp;connect_set.fs);<br>/* FD_SET操作前对函数fd_isempty进行测试 */<br>isempty = fd_isempty(&amp;connect_set);<br>printf("isempty = %d/n", isempty);<br>FD_SET(fd1, &amp;connect_set.fs);<br>FD_SET(fd2, &amp;connect_set.fs);<br>FD_SET(fd3, &amp;connect_set.fs);<br>connect_set.nconnect = 3;<br>connect_set.nmaxfd = fd3 ;<br>/* FD_SET操作后，既把文件描述符加入到文件描述符集之后，对函数fd_isempty进行测试 */<br>isempty = fd_isempty(&amp;connect_set);<br>printf("isempty = %d/n", isempty);<br>/* 对函数fd_ fetch进行测试 */<br>fd_fetch(&amp;connect_set);<br>}<br>/* 程序输出结果为 ：*/<br>isempty is 1<br>isempty is 0<br>i = 0, nbit = 7, The file description is 7<br>i = 8, nbit = 0, The file description is 256<br>i = 31, nbit = 31, The file description is 1023&nbsp;
+</div>
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+
+<div class="article_next_prev">
+        <li class="prev_article">
+            <span>上一篇：</span><a href="http://blog.csdn.net/leesphone/article/details/2137567">RTSP FAQ</a></li>
+        <li class="next_article">
+            <span>下一篇：</span><a href="http://blog.csdn.net/leesphone/article/details/2138775">gethostbyname用法</a></li>
+</div>
+
+
+</div>
+<div id="ad_cen"><iframe id="ad_frm_0" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 95px; " src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ad.htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"><br>&nbsp;&nbsp;暂无评论<br><br><div class="clear"></div></div>
+<div id="comment_bar"></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="http://passport.csdn.net/Account/Login?from=http%3A%2F%2Fblog.csdn.net%2Fleesphone%2Farticle%2Fdetails%2F2137568">[登录]</a>或<a href="http://passport.csdn.net/Account/Register?from=http%3A%2F%2Fblog.csdn.net%2Fleesphone%2Farticle%2Fdetails%2F2137568">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场</div>
+<script type="text/javascript">
+    var fileName = '2137568';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe id="ad_frm_1" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 170px; " src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/ad(1).htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://blog.csdn.net/leesphone" title="我的博客主页">
+            <img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/1_leesphone.jpg" style="max-width:90%">
+            </a>
+            <br>
+            <span>leesphone</span>
+        </div>
+        <div id="blog_medal">
+        <div id="bms_box"></div></div>
+        <ul id="blog_rank">
+            <li>访问：<span>36404次</span></li>
+            <li>积分：<span>468分</span></li>
+            <li>排名：<span>第15233名</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>12篇</span></li>
+            <li>转载：<span>23篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>29条</span></li>
+        </ul>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>文章分类</span></ul>
+    <ul class="panel_body">
+        <li>
+        <a href="http://blog.csdn.net/leesphone/article/category/367058">Codec(MPEG4, H264, JPEG)</a><span>(6)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/leesphone/article/category/685297">IP Camera专题</a><span>(2)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/leesphone/article/category/359241">Linux C</a><span>(11)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/leesphone/article/category/359239">Streaming and Media</a><span>(6)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/leesphone/article/category/367059">TCP/IP</a><span>(10)</span>
+        
+        </li>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list">
+        <!--归档统计-->
+        <li><a href="http://blog.csdn.net/leesphone/article/month/2010/05">2010年05月</a>(9)</li><li><a href="http://blog.csdn.net/leesphone/article/month/2008/04">2008年04月</a>(1)</li><li><a href="http://blog.csdn.net/leesphone/article/month/2008/03">2008年03月</a>(16)</li><li><a href="http://blog.csdn.net/leesphone/article/month/2008/02">2008年02月</a>(8)</li><li><a href="http://blog.csdn.net/leesphone/article/month/2008/01">2008年01月</a>(1)</li>
+        </div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2138775" title="gethostbyname用法">gethostbyname用法</a> (19066)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2123123" title="H.264 PPS成员值含义学习笔记">H.264 PPS成员值含义学习笔记</a> (1796)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5576247" title="RFC3984中文版(部分)">RFC3984中文版(部分)</a> (1563)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5571930" title="YUV420SP to YUV420P">YUV420SP to YUV420P</a> (1440)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2159604" title="H.264 sequence_parameter_sets成员值含义学习笔记">H.264 sequence_param...</a> (1347)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2123112" title="H.264 中的指数哥伦布编码">H.264 中的指数哥伦布编码</a> (1150)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2285586" title="关于SIP中的Authorization">关于SIP中的Authorization</a> (790)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2042351" title="梭哈概率计算">梭哈概率计算</a> (788)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2123070" title="H.264的基本概念">H.264的基本概念</a> (787)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5572171" title="RTCP中的NTP的时间计算方法">RTCP中的NTP的时间计算方法</a> (732)
+        </li>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2138775" title="gethostbyname用法">gethostbyname用法</a> (16)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2042351" title="梭哈概率计算">梭哈概率计算</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2285586" title="关于SIP中的Authorization">关于SIP中的Authorization</a> (2)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5572171" title="RTCP中的NTP的时间计算方法">RTCP中的NTP的时间计算方法</a> (2)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5571930" title="YUV420SP to YUV420P">YUV420SP to YUV420P</a> (1)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5571972" title="RTP/RTCP的时间同步机制">RTP/RTCP的时间同步机制</a> (1)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2123070" title="H.264的基本概念">H.264的基本概念</a> (1)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/5572822" title="RGB  YUV">RGB  YUV</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2194995" title="组播地址的划分">组播地址的划分</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/leesphone/article/details/2223863" title="嵌入式程序员应知道的0x10个基本问题">嵌入式程序员应知道的0x10个基本问题</a> (0)
+        </li>
+    </ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body">
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">zqwfd:
+servhost = gethostbyname(host);    if ( servhost =...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">liaochuan1234:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/5571930#comments">YUV420SP to YUV420P</a>
+    <p style="margin:0px;">zhangning:
+// Read Y  fread (pBuffer, pixels, sizeof(unsigned...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/5572171#comments">RTCP中的NTP的时间计算方法</a>
+    <p style="margin:0px;">yt0088:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">tianyu0888:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2042351#comments">梭哈概率计算</a>
+    <p style="margin:0px;">a1689988:
+这个是真钱梭哈，扎金花，斗地主之类的棋牌游戏。网址http://jh.jh687.com/ 附客服Q...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2042351#comments">梭哈概率计算</a>
+    <p style="margin:0px;">a1689988:
+算错了！！！总共是2598960，那么你算得加起来少了一半，另一半的牌型是什么？真晕！原则性错误！！...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">BlackBerry8700v:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">noheyongbing:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/leesphone/article/details/2138775#comments">gethostbyname用法</a>
+    <p style="margin:0px;">Michale_Han:
+
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="clear"></div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".article_content pre").each(function () {
+                var $this = $(this);
+                if ($this.attr("class").indexOf("brush:") != -1) {
+                    var lang = $this.attr("class").split(';')[0].split(':')[1];
+                    $this.attr('name', 'code');
+                    $this.attr('class', lang);
+                }
+            });
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+<script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/show.js"></script>
+<script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/showblogmedal.ashx"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/counter.js"></script><script type="text/javascript" charset="UTF-8" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/msg.popup.js"></script><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/visitlog.php" width="1" height="1" border="0" alt=""><iframe id="myframe" name="myframe" frameborder="no" scrolling="no" width="0" height="0" border="0" src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/dd333.htm"></iframe>
+<script src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/publib_footer.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/pub_footerstyle.css"><div class="pub_footerall"><dl><dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd>北京创新乐知信息技术有限公司 版权所有,&nbsp;京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/pic_email.gif" alt="" title=""> Email:webmaster@csdn.net</dd><dd>Copyright © 1999-2011, CSDN.NET, All Rights Reserved</dd><dd><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./Select()系统调用及文件描述符集fd_set的应用 - leesphone的专栏 - 博客频道 - CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div>
+</div>
+
+</body></html>
