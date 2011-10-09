@@ -797,7 +797,8 @@ over time
 0929 
      
 0930 pay the first month swim fee: 240
-
+     webkit js flash
+      
 1001 swim
      
 1002 swim; go hometown 
@@ -814,3 +815,8 @@ over time
 1007 swim 750m for many times£» have breakfast with meigu
      
 1008 swim 800m
+     webkit js flash
+     
+1009 750m for many times(turn around), fuck
+     webkit js flash
+     
