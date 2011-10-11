@@ -1287,3 +1287,15 @@ Insufficient resources are available in the system to complete the call.
 
 
 find . -name .svn | xargs rm -r
+
+
+
+
+--------------------------------- increase swap space----------------
+dd if=/dev/zero of=/home/swap bs=1024 count=1024000
+/sbin/mkswap /home/swap
+/sbin/swapon /home/swap
+
+auto work after boot:
+fstab:
+/home/swap              swap                    swap    defaults        0 0

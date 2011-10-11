@@ -5945,7 +5945,7 @@ on Source/WebCore/plugins/PluginView.cpp, disconnectStream
 
 
 
-    wifi: is patch package support dhcp 						**
+    wifi: is necessary to patch a package to support dhcp 						**
     
 断点跟踪 webkit; gdb
 
@@ -5959,3 +5959,68 @@ color grep
      flash flv
      
      brw: audio ui									**
+
+1009 全屏好像都要调那个setwindow，还有一个printwindow
+
+     RefPtr<PluginPackage>
+     gdb: stack, start, status, step, stepi, stepping, stop
+     
+     dd
+     
+1010 is wifi dhcp flag necessary							*
+     autotool -g
+     FOUND CFLAGS DEFINES : "-g -O2"
+     configure: FOUND CPPFLAGS DEFINES : " -g -O2 -Wall"
+     lsof
+     ltrace
+     strace
+     truss
+
+     NPN_PopPopupsEnabledState
+  
+     NPN_PushPopupsEnabledState (instance=0x9d819f0, enabled=1 '\001') at Source/WebCore/plugins/npapi.cpp:178
+178     }
+(gdb) 
+
+
+0x06bcdcca in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+(gdb) 
+Single stepping until exit from function g_closure_invoke, 
+which has no line number information.
+0x06be5bb3 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+(gdb) 
+Single stepping until exit from function g_signal_emit_valist, 
+which has no line number information.
+0x06be61e2 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+(gdb) 
+Single stepping until exit from function g_signal_emit, 
+which has no line number information.
+0x02c2ea5d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+(gdb) 
+Single stepping until exit from function gtk_propagate_event, 
+which has no line number information.
+0x02c2fe07 in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+(gdb) 
+Single stepping until exit from function gtk_main_do_event, 
+which has no line number information.
+0x05d0ab15 in g_main_context_dispatch () from /lib/libglib-2.0.so.0
+(gdb) 
+Single stepping until exit from function g_main_context_dispatch, 
+which has no line number information.
+0x05d0f617 in g_main_loop_run () from /lib/libglib-2.0.so.0
+(gdb) 
+Single stepping until exit from function g_main_loop_run, 
+which has no line number information.
+Warning:
+Cannot insert breakpoint 0.
+Error accessing memory address 0x2c7267e3: Input/output error.
+
+0x02f28441 in siglongjmp () from /lib/tls/i686/cmov/libc.so.6
+(gdb) 
+Single stepping until exit from function siglongjmp, 
+which has no line number information.
+Warning:
+Cannot insert breakpoint 0.
+Error accessing memory address 0x2c7267e3: Input/output error.
+
+0x02f28441 in siglongjmp () from /lib/tls/i686/cmov/libc.so.6
