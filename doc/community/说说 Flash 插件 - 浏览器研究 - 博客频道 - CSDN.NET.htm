@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0050)http://blog.csdn.net/sgnaw/article/details/3616117 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET</title>
+
+<meta name="description" content="目前开源网站上的 WebKit 已经提供了对 Flash 插件的支持。">
+<script type="text/javascript" async="" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/ga.js"></script><script src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/plugins.js" type="text/javascript"></script>
+<script src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/common.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/sgnaw/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/default.css">
+<script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/shCore.js"></script>
+</head>
+<body>
+<script src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/navtop_2011.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="http://passport.csdn.net/UserLogin.aspx">登录</a>|<a href="http://passport.csdn.net/CSDNUserRegister.aspx">注册</a>|<a href="http://passport.csdn.net/help/faq">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank">CSDN首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">资讯</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li><a href="http://so.csdn.net/" target="_blank">搜索</a></li>
+<li class="more"><h2 id="topnav_btnmore"><a href="javascript:void(0);">更多</a></h2>
+<ul id="topnav_hidlist">
+<li><a href="http://cto.csdn.net/" target="_blank">CTO俱乐部</a></li>
+<li><a href="http://student.csdn.net/" target="_blank">学生大本营</a></li>
+<li><a href="http://edu.csdn.net/" target="_blank">培训充电</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动开发</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">软件研发</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://www.programmer.com.cn/" target="_blank">程序员</a></li>
+<li><a href="http://tup.csdn.net/" target="_blank">TUP</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1>
+                <a href="http://blog.csdn.net/sgnaw">浏览器研究</a></h1>
+            <h2>王国凡的博客</h2>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            <!--<li id="btnHome"><a href="/sgnaw"><span><img src="http://static.blog.csdn.net/images/ico_home.gif">我的首页</span></a></li>-->
+            <li id="btnContents"><a href="http://blog.csdn.net/sgnaw?viewmode=contents"><span><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/sgnaw?viewmode=list"><span><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/sgnaw/rss/list"><span><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "sgnaw";
+    var blog_address = "http://blog.csdn.net/sgnaw";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = $.cookie("UserName");
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"><font size="2">
+
+&nbsp;<a href="http://download.csdn.net/detail/csdn/3641062" target="_blank"><font color="red">安装Chrome浏览器下载资源送30个下载分！</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/csdnproduct/article/details/6830315" target="_blank"><font color="red">CSDN博客“持之以恒”勋章上线了</font></a><br>
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/6852726" target="_blank"><font color="red">2011年10月当选微软MVP的CSDN会员名单揭晓!</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://g.csdn.net/5197723" target="_blank"><font color="red">“IT适合你吗？”智力挑战</font></a>
+</font></div><script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/ad.js"></script>
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET.htm" title="说说 Flash 插件">说说 Flash 插件</a></span>
+        
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+    <span class="link_postdate">2008-12-26 17:43</span>
+    <span class="link_view" title="阅读次数">2018人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="http://blog.csdn.net/sgnaw/article/details/3616117#comments">评论</a>(4)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;说说 Flash 插件&#39;,&#39;3616117&#39;);return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="http://blog.csdn.net/sgnaw/article/details/3616117#report" onclick="javascript:report(3616117,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+    
+<div class="article_content">
+    目前开源网站上的 WebKit 已经提供了对 Flash 插件的支持。<br><br>在 Windows 上，WebKit 会去读取注册表 HKEY_LOCAL_MACHINE/SOFTWARE/MozillaPlugins 位置上的插件，从而找到 插件动态库的位置，比如 C:/Windows/system32/Macromed/Flash/NPSWF32.dll 。在 Windows 上 WebKit 用到了三个接口:<br>NPError NP_Initialize(NPNetscapeFuncs*);<br>
+
+void NP_Shutdown(void);&nbsp; <br>
+NPError NP_GetEntryPoints(NPPluginFuncs*);<br>
+
+<br>在 Linux 平台上，WebKit 可以通过设置环境变量 QTWEBKIT_PLUGIN_PATH 来设置 Flash 插件的位置，程序会自动去读取目录里的 *.so 文件。或者你在 WebCore/plugins/PluginDatabase.cpp 文件的 Vector&lt;String&gt; PluginDatabase::defaultPluginDirectories() 函数里设置一下它默认的位置。在平台上，只需要对外提供 NP_Initialize 和 NP_Shutdown 这两个函数就可以了。<br><br>在 WebKit 打开含有 Flash 的网页时，浏览器就开始查找 Flash 插件，成功后，会设置一些函数到结构体 NPNetscapeFuncs 中，通过 NP_Initialize 函数传给插件，从而插件可以回调得到 Flash 实体对象的信息，比如，尺寸，地址等。插件所在的区域是一个相对独立的窗口。有 Flash 支持的浏览器看起似乎很不错。<br><br>由于 Flash 技术不是开源的，这对于没有 Adobe 支持的我们来说，无法跟上 Adobe 不断更新版本的步伐。普通网站上喜欢放最新版本格式的 Flash ，在平台上很可能就无法正常播放，阻碍了 Flash 的推广与应用。<br>
+</div>
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+
+<div class="article_next_prev">
+        <li class="prev_article">
+            <span>上一篇：</span><a href="http://blog.csdn.net/sgnaw/article/details/2962769">Introducing SquirrelFish Extreme</a></li>
+        <li class="next_article">
+            <span>下一篇：</span><a href="http://blog.csdn.net/sgnaw/article/details/3697955">开源的 Flash 项目</a></li>
+</div>
+
+
+</div>
+<div id="ad_cen"><iframe id="ad_frm_0" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 0px; " src="about:blank"></iframe></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"></div>
+<div id="comment_bar"></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="http://passport.csdn.net/Account/Login?from=http%3A%2F%2Fblog.csdn.net%2Fsgnaw%2Farticle%2Fdetails%2F3616117">[登录]</a>或<a href="http://passport.csdn.net/Account/Register?from=http%3A%2F%2Fblog.csdn.net%2Fsgnaw%2Farticle%2Fdetails%2F3616117">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场</div>
+<script type="text/javascript">
+    var fileName = '3616117';
+    var commentscount = 4;
+    var islock = false
+</script>
+<script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe id="ad_frm_1" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 0px; " src="about:blank"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://blog.csdn.net/sgnaw" title="我的博客主页">
+            <img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/1_sgnaw.jpg" style="max-width:90%">
+            </a>
+            <br>
+            <span>sgnaw</span>
+        </div>
+        <div id="blog_medal">
+        <div id="bms_box"></div></div>
+        <ul id="blog_rank">
+            <li>访问：<span>68887次</span></li>
+            <li>积分：<span>1039分</span></li>
+            <li>排名：<span>第5766名</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>27篇</span></li>
+            <li>转载：<span>1篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>78条</span></li>
+        </ul>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list"><li><a href="http://blog.csdn.net/sgnaw/article/month/2009/01">2009年01月</a>(1)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/12">2008年12月</a>(1)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/09">2008年09月</a>(1)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/06">2008年06月</a>(5)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/05">2008年05月</a>(6)</li><span class="hidelist" style="display:none;"><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/04">2008年04月</a>(2)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2008/02">2008年02月</a>(4)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2007/01">2007年01月</a>(1)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2006/12">2006年12月</a>(5)</li><li><a href="http://blog.csdn.net/sgnaw/article/month/2004/05">2004年05月</a>(1)</li></span><div id="archive_list_button" class="list_closed">展开</div></div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2519791" title="WebKit 学习笔记(5) -- qt javascript 扩展">WebKit 学习笔记(5) -- qt...</a> (9866)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2479891" title="WebKit 学习笔记(2) -- Win32 版">WebKit 学习笔记(2) -- Wi...</a> (9229)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2479573" title="WebKit 学习笔记(1)">WebKit 学习笔记(1)</a> (8700)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2505305" title="WebKit 学习笔记(4) -- qt 的 helloworld 程序">WebKit 学习笔记(4) -- qt...</a> (6950)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2488548" title="WebKit 学习笔记(3) -- 图片和中文支持">WebKit 学习笔记(3) -- 图片...</a> (5607)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2521285" title="WebKit 学习笔记(6) -- qt4 的应用程序">WebKit 学习笔记(6) -- qt...</a> (3784)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/1451141" title="在非托管的 VC++2005 中调用托管的 C# DLL 文件">在非托管的 VC++2005 中调用托管...</a> (3678)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2584065" title="WebKit 学习笔记(6) -- qt4 的应用程序(2)">WebKit 学习笔记(6) -- qt...</a> (3064)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2595389" title="用 Qt4 Designer 配合程序设计">用 Qt4 Designer 配合程序设...</a> (2854)
+        </li>
+        <li>
+            <a href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET.htm" title="说说 Flash 插件">说说 Flash 插件</a> (2017)
+        </li>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/1451141" title="在非托管的 VC++2005 中调用托管的 C# DLL 文件">在非托管的 VC++2005 中调用托管...</a> (16)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2479891" title="WebKit 学习笔记(2) -- Win32 版">WebKit 学习笔记(2) -- Wi...</a> (11)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2488548" title="WebKit 学习笔记(3) -- 图片和中文支持">WebKit 学习笔记(3) -- 图片...</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2584065" title="WebKit 学习笔记(6) -- qt4 的应用程序(2)">WebKit 学习笔记(6) -- qt...</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2477315" title="浏览器研究">浏览器研究</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2519791" title="WebKit 学习笔记(5) -- qt javascript 扩展">WebKit 学习笔记(5) -- qt...</a> (5)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2595389" title="用 Qt4 Designer 配合程序设计">用 Qt4 Designer 配合程序设...</a> (4)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/2505305" title="WebKit 学习笔记(4) -- qt 的 helloworld 程序">WebKit 学习笔记(4) -- qt...</a> (4)
+        </li>
+        <li>
+            <a href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET.htm" title="说说 Flash 插件">说说 Flash 插件</a> (4)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/sgnaw/article/details/1466522" title="用 C++ 读取 Oracle CLOB 数据">用 C++ 读取 Oracle CLOB...</a> (3)
+        </li>
+    </ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body">
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2477315#comments">浏览器研究</a>
+    <p style="margin:0px;">tianhailong:
+您好，我也在学习浏览器内核，苦于没有合适的教材，请推荐几本优秀的图书，谢谢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2477315#comments">浏览器研究</a>
+    <p style="margin:0px;">tianhailong:
+您好，我想学习浏览器内核，但是没有找到合适的书籍，请问讲解浏览器内加尔的图书比较好的有哪些呢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/3616117#comments">说说 Flash 插件</a>
+    <p style="margin:0px;">zfreeze:
+你好，我也遇到和haihua_880同样的问题，调试时无法渲染出Flash的画面，请问是什么原因？是...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/1451141#comments">在非托管的 VC++2005 中调用托管的 C# DLL 文件</a>
+    <p style="margin:0px;">mfwan198110:
+非托管
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/1451141#comments">在非托管的 VC++2005 中调用托管的 C# DLL 文件</a>
+    <p style="margin:0px;">mfwan198110:
+还是 非托管
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/1466522#comments">用 C++ 读取 Oracle CLOB 数据</a>
+    <p style="margin:0px;">a123750640:
+这个取得的N条记录我怎么把他一条条列出来啊？
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2519791#comments">WebKit 学习笔记(5) -- qt javascript 扩展</a>
+    <p style="margin:0px;">hai836045106:
+问题1：这个是在qt的源代码中修改的吧，这样怎么运行webkit呢？browser是QT编译后才可以...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2488548#comments">WebKit 学习笔记(3) -- 图片和中文支持</a>
+    <p style="margin:0px;">hai836045106:
+你好，我是linux +qt4.62的，打开中文是乱码，请问具体该怎么配置呢？
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2479573#comments">WebKit 学习笔记(1)</a>
+    <p style="margin:0px;">hai836045106:
+最近在学这个东东，谢谢了。
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/sgnaw/article/details/2477315#comments">浏览器研究</a>
+    <p style="margin:0px;">shanleichicheng:
+王国凡大哥，我的情况个你一样，我现在是大四，在北京找到一份工作，公司是自主研发浏览器的。刚工作一个周...
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="clear"></div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".article_content pre").each(function () {
+                var $this = $(this);
+                if ($this.attr("class").indexOf("brush:") != -1) {
+                    var lang = $this.attr("class").split(';')[0].split(':')[1];
+                    $this.attr('name', 'code');
+                    $this.attr('class', lang);
+                }
+            });
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+<script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/show.js"></script>
+<script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/showblogmedal.ashx"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/counter.js"></script><script type="text/javascript" charset="UTF-8" src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/msg.popup.js"></script><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/visitlog.php" width="1" height="1" border="0" alt=""><iframe id="myframe" name="myframe" frameborder="no" scrolling="no" width="0" height="0" border="0" src="about:blank"></iframe>
+<script src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/publib_footer.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/pub_footerstyle.css"><div class="pub_footerall"><dl><dt></dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd>北京创新乐知信息技术有限公司 版权所有,&nbsp;京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/pic_email.gif" alt="" title=""> Email:webmaster@csdn.net</dd><dd>Copyright © 1999-2011, CSDN.NET, All Rights Reserved</dd><dd><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./说说 Flash 插件 - 浏览器研究 - 博客频道 - CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div>
+</div>
+
+</body></html>

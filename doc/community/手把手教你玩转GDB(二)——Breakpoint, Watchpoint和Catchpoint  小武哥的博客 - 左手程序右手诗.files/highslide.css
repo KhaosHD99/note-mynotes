@@ -1,0 +1,123 @@
+.highslide {
+	outline: none
+}
+.highslide-wrapper {
+	COLOR: #333
+}
+.highslide-wrapper A {
+	COLOR: #3b5998; TEXT-DECORATION: none
+}
+.highslide-wrapper A:hover {
+	TEXT-DECORATION: underline
+}
+.highslide-image {
+	CURSOR: url(graphics/zoomin.cur), pointer; outline: none
+}
+.highslide-active-anchor IMG {
+	VISIBILITY: hidden
+}
+.highslide-wrapper {
+	BACKGROUND: white
+}
+.highslide-caption {
+	BORDER-RIGHT: white 2px solid; PADDING-RIGHT: 5px; BORDER-TOP: white 2px; DISPLAY: none; PADDING-LEFT: 5px; FONT-SIZE: 10px; PADDING-BOTTOM: 5px; BORDER-LEFT: white 2px solid; PADDING-TOP: 5px; BORDER-BOTTOM: white 2px solid; FONT-FAMILY: Verdana, Helvetica; BACKGROUND-COLOR: white
+}
+.highslide-loading {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BACKGROUND-POSITION: 3px 1px; BORDER-TOP: black 1px solid; DISPLAY: block; PADDING-LEFT: 22px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; BACKGROUND-IMAGE: url(graphics/loader.white.gif); PADDING-BOTTOM: 2px; BORDER-LEFT: black 1px solid; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: white; TEXT-DECORATION: none
+}
+A.highslide-credits {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; COLOR: silver; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+A.highslide-credits I {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; COLOR: silver; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+A.highslide-credits:hover {
+	COLOR: white; BACKGROUND-COLOR: gray
+}
+A.highslide-credits:hover I {
+	COLOR: white; BACKGROUND-COLOR: gray
+}
+A.highslide-full-expand {
+	DISPLAY: block; BACKGROUND: url(graphics/fullexpand.gif) no-repeat; MARGIN: 0px 10px 10px 0px; WIDTH: 34px; HEIGHT: 34px
+}
+.highslide-display-block {
+	DISPLAY: block
+}
+.highslide-display-none {
+	DISPLAY: none
+}
+.highslide-html {
+	BACKGROUND-COLOR: white
+}
+.highslide-html-blur {
+	
+}
+.highslide-html-content {
+	DISPLAY: none; POSITION: absolute
+}
+.highslide-loading {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BACKGROUND-POSITION: 3px 1px; BORDER-TOP: black 1px solid; DISPLAY: block; PADDING-LEFT: 22px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; BACKGROUND-IMAGE: url(graphics/loader.white.gif); PADDING-BOTTOM: 2px; BORDER-LEFT: black 1px solid; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: white; TEXT-DECORATION: none
+}
+A.highslide-credits {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; COLOR: silver; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+A.highslide-credits I {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; COLOR: silver; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+A.highslide-credits:hover {
+	COLOR: white; BACKGROUND-COLOR: gray
+}
+A.highslide-credits:hover I {
+	COLOR: white; BACKGROUND-COLOR: gray
+}
+.highslide-wrapper {
+	BACKGROUND-COLOR: white
+}
+.highslide-wrapper .highslide-html-content {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; WIDTH: 300px; PADDING-TOP: 5px
+}
+.highslide-wrapper .highslide-header DIV {
+	
+}
+.highslide-wrapper .highslide-header UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; TEXT-ALIGN: right
+}
+.highslide-wrapper .highslide-header UL LI {
+	DISPLAY: inline; PADDING-LEFT: 1em
+}
+.highslide-wrapper .highslide-header UL LI.highslide-previous {
+	DISPLAY: none
+}
+.highslide-wrapper .highslide-header UL LI.highslide-next {
+	DISPLAY: none
+}
+.highslide-wrapper .highslide-header A {
+	FONT-WEIGHT: bold; TEXT-TRANSFORM: uppercase; COLOR: gray; TEXT-DECORATION: none
+}
+.highslide-wrapper .highslide-header A:hover {
+	COLOR: black
+}
+.highslide-wrapper .highslide-header .highslide-move A {
+	CURSOR: move
+}
+.highslide-wrapper .highslide-footer {
+	HEIGHT: 11px
+}
+.highslide-wrapper .highslide-footer .highslide-resize {
+	BACKGROUND: url(graphics/resize.gif); FLOAT: right; WIDTH: 11px; HEIGHT: 11px
+}
+.highslide-wrapper .highslide-body {
+	
+}
+.highslide-move {
+	CURSOR: move
+}
+.highslide-resize {
+	CURSOR: nw-resize
+}
+.highslide-display-block {
+	DISPLAY: block
+}
+.highslide-display-none {
+	DISPLAY: none
+}

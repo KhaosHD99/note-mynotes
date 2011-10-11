@@ -1,0 +1,9 @@
+#ajax-comment-loader {
+	PADDING-LEFT: 20px; BACKGROUND: url(img/ajax-loader.gif) no-repeat left 50%
+}
+#cp_post_id {
+	DISPLAY: none
+}
+#cp_comments_id {
+	DISPLAY: none
+}

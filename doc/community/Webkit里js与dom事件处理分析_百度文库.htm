@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0057)http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>Webkit里js与dom事件处理分析_百度文库      </title>
+<meta name="description" content="在线互动式文档分享平台，在这里，您可以和千万网友分享自己手中的文档，全文阅读其他用户的文档，同时，也可以利用分享文档获取的积分下载文档 ">
+<link type="text/css" rel="stylesheet" href="./Webkit里js与dom事件处理分析_百度文库_files/ugcViewCom.css">
+<script type="text/javascript" src="./Webkit里js与dom事件处理分析_百度文库_files/ugcViewCom.js"></script><style>#shadowDiv{display:none;width:100%;height:100%;position:absolute;top:0:left:0;background:#000;filter: alpha(opacity=25);opacity:0.25;z-index:65534}#popDiv{display:none;position:absolute;width:450px;height:300px;z-index:65535;background:#fff;line-height:20px}#popBody{display:none;text-align:center;padding:20px;font-size:14px}.pop_r1,.pop_r2,.pop_r3,.pop_r4{width:10px;height:5px;display:bolck;overflow:hidden;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif)}.pop_r1{background-position:0 -62px;float:left;margin-top:-3px}.pop_r2{background-position:-10px -62px;float:right;margin-top:-3px}.pop_r3{height:10px;background-position:0 -67px;float:left}.pop_r4{height:10px;background-position:-10px -67px;float:right}.pop_bottom{background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif) repeat-x 0 -82px}.pop_bg1{width:10px;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup2.gif) repeat-y}.pop_bg2{width:10px;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup2.gif) repeat-y right center}.pop_holder1{width:100%;height:100%;background:#fff;border:2px solid #68995a;position:absolute;top:0;left:0;z-index:1}.pop_holder2{width:100%;height:100%;background:#000;position:absolute;left:7px;top:7px;filter:alpha(opacity=25);opacity:0.25}.pop_title{height:33px;line-height:33px;padding:0 10px;color:#2f5124;font-size:14px;font-weight:bold;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif) repeat-x}.pop_close{width:19px;height:19px;display:block;float:right;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif) no-repeat 0 -38px;border:0;margin:5px 0 0 0;padding:0;cursor:pointer}.tasknote{padding-left:10px;position:absolute;z-index:100;}.tasknote .arrow{background:url(http://img.baidu.com/img/iknow/task/arrow.gif) 0 0 no-repeat;overflow:hidden;position:absolute;top:9px;left:0;z-index:1;}.tasknote .side{width:11px;height:21px;}.tasknote .up{top:0;left:40px;width:21px;height:11px;}.tasknote .down{bottom:2px;top:auto;left:40px;width:21px;height:11px;background-position:0 -10px}.tasknotebody{background:#FFF9E3; border:1px solid #FBE5A3; width:100px; padding-left:4px; font-size:12px; }.noticeInfo{background:url(http://img.baidu.com/img/iknow/task/note.gif) no-repeat 0 center; padding-left:20px; margin:8px 8px 0; line-height:22px; }.noticelist{ margin:0;padding:0; margin-left:26px; }.noticelist li{ margin:0;padding:0; line-height:22px; }.tasknote .close{width:13px;height:13px;background:url(http://img.baidu.com/img/iknow/task/close.gif) no-repeat  0 0;overflow:hidden;position:absolute;top:2px;right:2px;cursor:pointer;z-index:2};/* tangram-dialog */.tangram-dialog-main{position:absolute;z-index:65535;background:#68995a;line-height:20px}.tangram-dialog-content{text-align:center;font-size:14px;}.tangram-dialog{    background:#FFFFFF repeat scroll 0 0 ;    border: 2px solid #68995A;    height: 100%;    position: absolute;    width: 100%;    z-index: 1;}.tangram-dialog-title {	height:33px;	line-height:33px;	padding:0 10px;	color:#2f5124;	font-size:14px;	font-weight:bold;	background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif) repeat-x}.tangram-dialog-close {width:19px;height:19px;display:block;position:absolute;top:5px;right:10px;background:url(http://img.baidu.com/img/iknow/docshare/bg_popup.gif) no-repeat 0 -38px;border:0;padding:0;cursor:pointer;}.tangram-dialog-title .pop_r1{background-position:0 -62px;position:absolute;left:0;top:30px;z-index:2;margin:0;}.tangram-dialog-title .pop_r2{background-position:-10px -62px;position:absolute;right:0;top:30px;z-index:2;margin:0;}.tangram-dialog-footer {position:relative;display:block;margin-top:-10px;width:200px;margin:0 auto;padding:10px 0 30px 0;margin-top:-10px;}.tangram-dialog-footer:after {    content:".";    display:block;    visibility:hidden;    clear:both;    height:0;}.submit {text-align:center;background:#fff;}.tangram-dialog-button-label {    background: url("http://img.baidu.com/img/iknow/docshare/bg_popbtn.gif") no-repeat scroll 0 -37px transparent;    border: medium none;    color: #2F5124;    cursor: pointer;    font-size: 14px;    font-weight: bold;    height: 32px;    line-height: 32px;    width: 92px;    display:inline-block;}.tangram-dialog-accept {    display:inline;    float:left;}.tangram-dialog-cancel {    display:inline;    float:right;}</style>
+<script type="text/javascript">(function(){var module=function(name,module,owner){var packages=name.split("."),len=packages.length-1,packageName,i=0;if(!owner){try{if(!(new RegExp("^[a-zA-Z_\x24][a-zA-Z0-9_\x24]*\x24")).test(packages[0])){throw""}owner=eval(packages[0]);i=1}catch(e){owner=window}}for(;i<len;i++){packageName=packages[i];if(!owner[packageName]){owner[packageName]={}}owner=owner[packageName]}if(!owner[packages[len]]){owner[packages[len]]=module}};var _info=_info||{};_info.tpl="view.tpl";var ts_tpl_cookie="view.tpl".split("/")[0]+"_docBubble";ts_tpl_cookie=ts_tpl_cookie.replace(".","-");if(baidu.cookie.get(ts_tpl_cookie)){_info.cookie=baidu.cookie.get(ts_tpl_cookie).split("_")}module("wenku.bubble.info",_info);baidu.dom.ready(function(){baidu.page.loadJsFile("http://img.baidu.com/img/iknow/docshare/bubble_data.js?t="+Math.round(Math.random()*2147483647))})})();(function(){var A=function(D,I){D=D||{};I=I||1;var C=[],H=baidu.array;if(+I==1){if(D.level1&&D.level1 instanceof Array&&class_level_1&&class_level_1 instanceof Array){for(var E=0,B=class_level_1.length;E<B;E++){if(H.indexOf(D.level1,+class_level_1[E][0])==-1){C.push(class_level_1[E])}}class_level_1=C}}else{if(+I==2){if(D.level2&&D.level2 instanceof Array&&class_level_2&&class_level_2 instanceof Array){D.level1=D.level1&&D.level1 instanceof Array?D.level1:[];for(var E=0,B=class_level_2.length;E<B;E++){var G=class_level_2[E];if(H.indexOf(D.level1,G[0])==-1&&H.indexOf(D.level2,+G[1])==-1){C.push(G)}else{if(H.indexOf(D.level1,G[0]!=-1)){if(H.indexOf(D.level2,G[1]==-1)){D.level2.push(G[1])}}}}class_level_2=C}}else{if(+I==3){if(D.level3 instanceof Array&&class_level_3&&class_level_3 instanceof Array){D.level2=D.level2&&D.level2 instanceof Array?D.level2:[];for(var E=0,B=class_level_3.length;E<B;E++){var F=class_level_3[E];if(H.indexOf(D.level2,F[0])==-1&&H.indexOf(D.level3,+F[1])==-1){C.push(F)}}class_level_3=C}}}}return(+I==1||+I==2)?arguments.callee(D,I+1):true};if(wenku.bubble.info.tpl=="multiupload.tpl"){A({level1:[6,12]})}})();</script>
+<script type="text/javascript" src="./Webkit里js与dom事件处理分析_百度文库_files/bubble_data.js" defer="defer"></script><style id="doc-Bubble-stylesheet" type="text/css">#docBubble{width:210px;height:121px;padding:19px 11px 0 10px;position:absolute;background:url(http://img.baidu.com/img/iknow/docshare/bubble_bg.png) no-repeat;top:30px;right:40px;text-align:left;z-index:100;}#docBubble img{display:block;border:0;}#docBubble div{height:36px;}#docBubble div span{display:block;float:right;width:11px;height:11px;background:url(http://img.baidu.com/img/iknow/docshare/bubble_bg.png) no-repeat -231px 0;cursor:pointer;margin-top:5px;font-size:0;}#docBubble div a{display:block;float:left;text-decoration:none;}#docBubble div a.bubbleTitle{margin:5px 0 0 5px;font-weight:bold;font-size:13px;}#docBubble p{padding:0 15px 0 40px;height:68px;margin-top:-8px;}#docBubble p, #docBubble p a{color:#000;font-size:12px;line-height:1.6em; _line-height:1.5em;}#docBubble p a:hover{color:#eb5200;text-decoration:none;}#docBubble div.vbtn{text-align:right;}#docBubble div.vbtn a{float:none;text-decoration:underline;}</style><link href="./Webkit里js与dom事件处理分析_百度文库_files/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+
+
+
+<body><iframe style="display: none; " frameborder="0"></iframe>
+<div id="usrbar">
+<span id="topright" style="display:none">
+<a href="http://www.baidu.com/">百度首页</a>&nbsp;|&nbsp;
+<a target="_blank" href="http://zhidao.baidu.com/">百度知道</a>&nbsp;|&nbsp;
+</span>
+<a class="Index" target="_blank" href="http://wenku.baidu.com/">百度文库首页</a>&nbsp;|&nbsp;
+<a class="Phone" href="http://wk.baidu.com/" target="_blank">手机文库</a>&nbsp;|&nbsp;
+<a href="https://passport.baidu.com/?reg" id="reg" class="Login">注册</a>&nbsp;|&nbsp;
+<a href="https://passport.baidu.com/?login" id="login" class="Login">登录</a>
+</div>
+<div id="wrapper">
+<form action="http://wenku.baidu.com/search" name="ftop" id="topSearchBox" method="get" class="top-search-box">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td width="146" valign="top" align="left" id="logo">
+<a href="http://wenku.baidu.com/" id="top-logo"><img src="./Webkit里js与dom事件处理分析_百度文库_files/logo_uui.gif" alt="百度文库_文档分享平台" width="137" height="46"></a>
+</td>
+<td valign="top">
+<p id="top-nav">
+<a onclick="return global.go(this,&#39;&#39;,&#39;news&#39;);" href="http://news.baidu.com/">新闻</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;www&#39;);" href="http://www.baidu.com/">网页</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;tieba&#39;);" href="http://tieba.baidu.com/">贴吧</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;zhidao&#39;);" href="http://zhidao.baidu.com/">知道</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;mp3&#39;);" href="http://mp3.baidu.com/">MP3</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;image&#39;);" href="http://image.baidu.com/">图片</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;video&#39;);" href="http://video.baidu.com/">视频</a>　<a onclick="return global.go(this,&#39;&#39;,&#39;baike&#39;);" href="http://baike.baidu.com/">百科</a>　<b>文库</b>
+</p>
+<table cellpadding="0" cellspacing="0" class="g-si">
+<tbody><tr>
+<td><input class="g-hdi" size="48" type="text" maxlength="256" tabindex="1" value="" name="word" id="kw" autocomplete="off"></td>
+<td valign="center"><input type="submit" id="sb" value="搜索文档"></td>
+<td valign="center" id="help"><a href="http://www.baidu.com/search/wenku/help.html" target="_blank">帮助</a></td>
+</tr></tbody>
+</table>
+<div class="g-sl">
+<label for="all"><input type="radio" name="lm" value="0" checked="" id="all">全部</label>
+<label for="doc"><input type="radio" name="lm" value="1" id="doc">DOC</label>
+<label for="pdf"><input type="radio" name="lm" value="2" id="pdf">PDF</label>
+<label for="ppt"><input type="radio" name="lm" value="3" id="ppt">PPT</label>
+<label for="xls"><input type="radio" name="lm" value="4" id="xls">XLS</label>
+<label for="txt"><input type="radio" name="lm" value="5" id="txt">TXT</label>
+</div>
+<input type="hidden" name="od" value="0">
+</td>
+</tr>
+</tbody></table>
+</form>
+<div id="nav" class="nav">
+<a href="http://wenku.baidu.com/">百度文库</a>&nbsp;&gt;&nbsp;
+<a href="http://wenku.baidu.com/list/3" id="cateList0">专业文献/行业资料</a>&nbsp;&gt;&nbsp;
+<a href="http://wenku.baidu.com/list/63" id="cateList1">计算机</a>
+</div>
+<div id="main" class="main">
+<div id="header">
+<div class="d"><span class="icon dl"></span><a rel="log-down-download-fr=up" id="downloadTop" href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#">下载</a></div>
+<div class="g"><span class="icon cang"></span><a href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#" id="addToStore" class="addToStore">收藏</a></div>
+<div class="s"><span class="icon share"></span><a href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#" id="shareDoc">分享</a></div>
+<div class="a"><span class="icon album"></span><a href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#" id="addToAlbum" class="addToAlbum">加入文辑</a></div>
+<div id="wk-jb-clew" class="wk-jb-clew" style="display:none;">
+</div>
+<div class="title-icon">
+<span title="doc" class="doc icon"></span>
+</div>
+<h1>W<wbr>e<wbr>b<wbr>k<wbr>i<wbr>t<wbr>里<wbr>j<wbr>s<wbr>与<wbr>d<wbr>o<wbr>m<wbr>事<wbr>件<wbr>处<wbr>理<wbr>分<wbr>析<wbr> <wbr></h1>
+<p class="summary ml">
+<span id="summary">详细介绍了webkit里dom事件的处理流程呢个,配有相应代码</span>
+<span id="full-summary" style="display:none">详细介绍了webkit里dom事件的处理流程呢个,配有相应代码<a href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#" onclick="view.showHideSummary(2)">&lt;&lt;隐藏</a></span>
+</p>
+<form name="AddToStore" action="http://wenku.baidu.com/submit" method="post" target="popIframe">
+<input type="hidden" name="ct" value="20010">
+<input type="hidden" name="doc_id" value="936bbb7da26925c52cc5bfd0">
+</form>
+</div>
+<div id="readerContainer" class="mt"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" id="reader" width="717" height="588" align="middle"><param name="bgcolor" value="#FFFFFF"><param name="wmode" value="window"><param name="allowfullscreen" value="true"><param name="movie" value="/static/flash/reader.swf"><param name="flashvars" value="docurl=http%3A%2F%2Fai.wenku.baidu.com%2Fplay&amp;docid=936bbb7da26925c52cc5bfd0&amp;fpn=5&amp;npn=5&amp;bookmark=0&amp;ext=doc&amp;readertype=internal&amp;newmark=0%7C0&amp;catal=0&amp;cdnurl=http%3A%2F%2Fai.wenku.baidu.com%2Fplay"><embed width="717" height="588" ver="10.0.0" bgcolor="#FFFFFF" wmode="window" allowfullscreen="true" align="middle" flashvars="docurl=http%3A%2F%2Fai.wenku.baidu.com%2Fplay&amp;docid=936bbb7da26925c52cc5bfd0&amp;fpn=5&amp;npn=5&amp;bookmark=0&amp;ext=doc&amp;readertype=internal&amp;newmark=0%7C0&amp;catal=0&amp;cdnurl=http%3A%2F%2Fai.wenku.baidu.com%2Fplay" src="/static/flash/reader.swf" name="reader" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></object></div>
+<div id="extra" class="mt">
+<p>下载本文档需要登录，并付出相应财富值。<a target="_blank" class="Score" href="http://www.baidu.com/search/wenku/help.html#如何获取积分">如何获取财富值?</a></p>
+<div class="download">
+<a name="download" id="downloadButton" href="http://wenku.baidu.com/view/936bbb7da26925c52cc5bfd0.html#">&nbsp;</a>
+<p>大小: 46.5KB</p>
+<p>所需财富值:
+<span class="icon big_score" title="下载需要财富值2分"></span>
+<span class="red" title="下载需要财富值2分">2</span>
+</p>
+</div>
+<form name="downloadForm" action="http://wenku.baidu.com/submit" method="post" target="popIframe">
+<input name="ct" value="20008" type="hidden">
+<input name="doc_id" value="936bbb7da26925c52cc5bfd0" type="hidden">
+</form>
+</div>
+<div class="recommend">
+<h3>喜欢此文档的人还喜欢</h3>
+<ul class="m17" id="recommendUL">
+<li class="odd">
+<span class="read">108人阅读</span>
+<span class="icon doc icon1"></span>
+<a href="http://wenku.baidu.com/view/8c67a70bf78a6529647d5398.html?from=rec&pos=0&weight=7&lastweight=5&count=5" target="_blank" class="coimghref" title="webkit目录JScore分析">
+webkit目录JScore分析
+</a>
+</li>
+<li>
+<span class="read">980人阅读</span>
+<span class="icon doc icon1"></span>
+<a href="http://wenku.baidu.com/view/7cfebcc558f5f61fb7366613.html?from=rec&pos=1&weight=6&lastweight=5&count=5" target="_blank" class="coimghref" title="html5和webkit调研报告">
+html5和webkit调研报告
+</a>
+</li>
+<li class="odd">
+<span class="read">979人阅读</span>
+<span class="icon ppt icon1"></span>
+<a href="http://wenku.baidu.com/view/45086b07cc175527072208fc.html?from=rec&pos=2&weight=6&lastweight=5&count=5" target="_blank" class="coimghref" title="v8引擎">
+v8引擎
+</a>
+</li>
+<li>
+<span class="read">154人阅读</span>
+<span class="icon pdf icon1"></span>
+<a href="http://wenku.baidu.com/view/0f5f781614791711cc791748.html?from=rec&pos=3&weight=5&lastweight=5&count=5" target="_blank" class="coimghref" title="WebKit中的HTML词法分析">
+WebKit中的HTML词法分析
+</a>
+</li>
+<li class="odd">
+<span class="read">1672人阅读</span>
+<span class="icon pdf icon1"></span>
+<a href="http://wenku.baidu.com/view/9573151efc4ffe473368ab1f.html?from=rec&pos=4&weight=5&lastweight=5&count=5" target="_blank" class="coimghref" title="WebKit内核源代码分析(三)">
+WebKit内核源代码分析(三)
+</a>
+</li>
+</ul>
+<script type="text/javascript">(function(){var F=[],D=baidu.q("coimghref",baidu.g("recommendUL"),"a"),E,A=D.length,C;for(var B=A-1;B>=0;B--){E=D[B].href.replace(/^.*\?.*&weight=([0-9]*).*$/g,"$1");if(B==A-1){C=E}D[B].href=D[B].href+"&lastweight="+C+"&count="+A;F.push("weight"+B+"="+E)}new Image().src="/tongji/shop.gif?hasrec=1&docId=936bbb7da26925c52cc5bfd0&count=5&"+F.join("&")+"&lastweight="+C+"&t="+new Date().getTime()})();</script>
+</div>
+<div class="mod wk-book-moda mt20" style="display:none;">
+<div class="hd shop-hd-d">
+<span>文库书店等你来逛</span><a href="http://wenku.baidu.com/book/index" target="_blank">点击进入书店</a>
+</div>
+<div class="bd wk-book-scroll-box">
+<div class="wk-book-view-pre_off" id="literaturePreButton">prev</div>
+<div class="wk-book-view-next_on" id="literatureNextButton">next</div>
+<div id="literatureWraper" data-guid="TANGRAM__3"><div id="tangram-CAROUSEL--TANGRAM__3" class="tangram-carousel"><div id="tangram-CAROUSEL--TANGRAM__3scroll" class="tangram-carousel-scroll"></div></div></div>
+</div>
+</div>
+</div>
+<div id="aside" class="aside">
+<div class="upbox">
+<div class="content">
+<div class="upload" id="upload"></div>
+</div>
+</div>
+<div class="wenku-join-btn mt10">
+    
+
+</div><div class="mt10 box">
+<div class="content">
+<h2>当前文档信息</h2>	<div id="docInfo">
+<p class="rate" id="rateContainer"><span id="rateScore" class="score">4.0</span><span id="rateStar" class="star-list"><span title="文档得分:4.0分" class="icon star-big-on"></span><span title="文档得分:4.0分" class="icon star-big-on"></span><span title="文档得分:4.0分" class="icon star-big-on"></span><span title="文档得分:4.0分" class="icon star-big-on"></span><span title="文档得分:4.0分" class="icon star-big-off"></span></span><span class="rate-tip" id="rateTip"></span></p>
+<p>已有<span id="rateCount">20</span>人评价</p>
+<p class="view">浏览：1353次<span class="ml">下载：108次</span></p>
+<p>贡献时间：2010-09-09</p>
+<script type="text/javascript">var isLec=false;</script>
+<hr>
+<p>贡献者：
+<a href="http://passport.baidu.com/?business&aid=6&un=yujiawang2008#7" class="Author" target="_blank">yujiawang2008</a>
+<span class="ml">蜻蜓点水 一级</span></p>
+<p class="c" id="FriendsCor">
+</p>
+<p class="c">
+</p>
+</div>
+</div>
+</div>
+<div class="bbox box">
+<div class="content">
+<h2>文档关键词</h2>	<p class="tag-list" id="tagList">
+<a href="http://wenku.baidu.com/search?word=Webkit%D4%B4%C2%EB%B7%D6%CE%F6-%CA%C2%BC%FE&lm=0&od=0" target="_blank">Webkit源码分析-事件</a>
+</p>
+</div>
+</div>
+<div class="bbox box">
+<div class="content">
+<h2><a href="http://wenku.baidu.com/search?word=Webkit%C0%EFjs%D3%EBdom%CA%C2%BC%FE%B4%A6%C0%ED%B7%D6%CE%F6&lm=0&od=0" class="more relateDocTitle">更多</a><a href="http://wenku.baidu.com/search?word=Webkit%C0%EFjs%D3%EBdom%CA%C2%BC%FE%B4%A6%C0%ED%B7%D6%CE%F6&lm=0&od=0" class="relateDocTitle">相关推荐文档</a>
+</h2>	<table cellpadding="0" cellspacing="0" id="relateDocList" class="multi-list-moudle related hotDocListExtra">
+<tbody>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="ppt" class="ppt icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/f77898b465ce050876321301.html?from=related&hasrec=1" rel="log-view-relatehot-subtype=relate" target="_blank" title="DOM">DOM</a>
+<p>
+<span class="icon star-small-on" title="文档得分:3.5分"></span><span class="icon star-small-on" title="文档得分:3.5分"></span><span class="icon star-small-on" title="文档得分:3.5分"></span><span class="icon star-small-half" title="文档得分:3.5分"></span><span class="icon star-small-off" title="文档得分:3.5分"></span> <span class="gray">4人评</span>
+<span class="pn">12页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="pdf" class="pdf icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/51b042fec8d376eeaeaa318d.html?from=related&hasrec=1" rel="log-view-relatehot-subtype=relate" target="_blank" title="DOM_SAX">DOM_SAX</a>
+<p>
+<span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span> <span class="gray">0人评</span>
+<span class="pn">30页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="doc" class="doc icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/cfdc2bc458f5f61fb736663f.html?from=related&hasrec=1" rel="log-view-relatehot-subtype=relate" target="_blank" title="DOM对象">DOM对象</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-off" title="文档得分:4分"></span> <span class="gray">1人评</span>
+<span class="pn">3页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="wps" class="wps icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/9a1dff1b10a6f524ccbf85fe.html?from=related&hasrec=1" rel="log-view-relatehot-subtype=relate" target="_blank" title="事件处理">事件处理</a>
+<p>
+<span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span> <span class="gray">0人评</span>
+<span class="pn">5页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="txt" class="txt icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/03ced9d86f1aff00bed51eda.html?from=related&hasrec=1" rel="log-view-relatehot-subtype=relate" target="_blank" title="下拉框处理.js">下拉框处理.js</a>
+<p>
+<span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span><span class="icon star-small-off" title="文档得分:0分"></span> <span class="gray">0人评</span>
+<span class="pn">2页</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bbox box">
+<div class="content">
+<h2><a href="http://wenku.baidu.com/list/63?od=2" class="more hotDocTitle">更多</a><a href="http://wenku.baidu.com/list/63?od=2" class="hotDocTitle">同分类热门文档</a>
+</h2>	<table cellpadding="0" cellspacing="0" id="hotDocList" class="multi-list-moudle related hotDocListExtra">
+<tbody>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="doc" class="doc icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/59138f5f804d2b160b4ec03e.html" rel="log-view-relatehot-subtype=hot" target="_blank" title="BIOS设置图解教程">BIOS设置图解教程</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-half" title="文档得分:4.5分"></span> <span class="gray">27008人评</span>
+<span class="pn">41页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="doc" class="doc icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/f0c976fb770bf78a652954e8.html" rel="log-view-relatehot-subtype=hot" target="_blank" title="教你如何用手机连接电脑上网">教你如何用手机连接电脑上网</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-off" title="文档得分:4分"></span> <span class="gray">29998人评</span>
+<span class="pn">2页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="doc" class="doc icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/61bb2bc58bd63186bcebbc7b.html" rel="log-view-relatehot-subtype=hot" target="_blank" title="Excel表格的35招必学秘技">Excel表格的35招必学...</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-off" title="文档得分:4分"></span> <span class="gray">36824人评</span>
+<span class="pn">21页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="pdf" class="pdf icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/22370b4c2e3f5727a5e96204.html" rel="log-view-relatehot-subtype=hot" target="_blank" title="谷歌黑板报--数学之美">谷歌黑板报--数学之美</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-on" title="文档得分:4.5分"></span><span class="icon star-small-half" title="文档得分:4.5分"></span> <span class="gray">26639人评</span>
+<span class="pn">45页</span></p>
+</td>
+</tr>
+<tr>
+<td class="wk-hotdoc-td" width="24" valign="top">
+<span title="doc" class="doc icon"></span>
+</td>
+<td valign="top">
+<a href="http://wenku.baidu.com/view/30464e8102d276a200292e70.html" rel="log-view-relatehot-subtype=hot" target="_blank" title="免费下载  Excel表格的35招必学秘技">免费下载  Excel表格...</a>
+<p>
+<span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-on" title="文档得分:4分"></span><span class="icon star-small-off" title="文档得分:4分"></span> <span class="gray">20531人评</span>
+<span class="pn">20页</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt4 box">
+<div class="content">
+如要投诉或提出意见建议，请到<br><span id="tousu"><a href="http://tousu.baidu.com/wenku" target="_blank">百度文库投诉吧</a>反馈。</span>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="footer" class="footer">&#169;2011 Baidu<a href="http://www.baidu.com/duty/" class="Bidu" target="_blank">使用百度前必读</a><a href="http://www.baidu.com/search/wenku/help.html#文库协议" class="Xieyi" target="_blank">文库协议</a></div>
+<script type="text/javascript">(function(){global.checkSearchBoxQuery();baidu.on("login","click",function(B){login.check();baidu.preventDefault(B)});baidu.on("reg","click",function(B){login.regiest();baidu.preventDefault(B)});baidu.on("login","mousedown",function(B){log.send("view","loginclick",{fr:"view"})});baidu.on("reg","mousedown",function(B){log.send("view","regclick",{fr:"view"})});baidu.on("upload","mouseover",function(){this.className="upload upload_over"});baidu.on("upload","mouseout",function(){this.className="upload"});baidu.on("upload","click",function(B){log.send("submit","submit",{fr:"view"});login.verlogin(function(){location.href="http://wenku.baidu.com/new?fr=view"});baidu.preventDefault(B)});var A=["homeDaren","homeMingren","classDaren","classMingren"];baidu.each(A,function(D){var C=G(D);if(C){var B=baidu.GT("a",C);baidu.breakWord(B,100)}});baidu.on("lecupload","mouseover",function(){this.className="lecupload lecupload_over"});baidu.on("lecupload","mouseout",function(){this.className="lecupload"});baidu.on("lecupload","click",function(B){log.send("submit","submit",{fr:"view"});login.verlogin(function(){location.href="http://wenku.baidu.com/lec/new?fr=view"});baidu.preventDefault(B)});var A=["homeDaren","homeMingren","classDaren","classMingren"];baidu.each(A,function(D){var C=G(D);if(C){var B=baidu.GT("a",C);baidu.breakWord(B,100)}})})();(function(){var A=baidu.GT("a");var B=[];baidu.each(A,function(C){if(/^log-/.test(C.rel)){B.push(C)}});baidu.each(B,function(C){baidu.on(C,"click",function(I){var E=C.rel.split("-");var D={};if(/=/.test(C.rel)){var H=C.rel.match(/(\w+)=(\w+)/g);for(var K=0;K<H.length;K++){var F=H[K].match(/(\w+)=/)[1];var J=H[K].match(/=(\w+)/)[1];D[F]=J}}log.send(E[1],E[2],D)})})})();</script>
+</div>
+<div id="literatureElement" style="display: none">
+</div>
+<script type="text/javascript">function Reader(L){var H=function(O,M){for(var N in M){if(M.hasOwnProperty(N)){O[N]=M[N]}}return O};L=H({newmark:"",lastview:""},L);function C(){var M=baidu.swf.getVersion(),N;if(M){N=M.slice(0,M.indexOf("."));if(N<9){N=M}else{log.send("view","flashload",{subtype:"jsrequest"});return true}}else{N=0}log.send("view","reader",{flashver:N});return false}var B=700,J=DOC_INFO.doc_type,I=cookie.get("newMark");if(!I){I=view.getViewedPage()}else{I=I.split("|");I=I.slice(1,3).join("|");cookie.del("newMark","/view/")}var D=J=="txt"?"txtreader.swf":"reader.swf";B=document.documentElement.clientHeight-5;if(/(ppt|pps|pot|pptx)/.test(J)){B=516}var F=J=="txt"?50:5;var K=J=="txt"?"http://wenku.baidu.com/play":"http://ai.wenku.baidu.com/play";var E=J=="txt"?"http://txt.wenku.baidu.com/play":"http://ai.wenku.baidu.com/play";this.create=function(O,M){var N=(C())?"":'<p class="ml">文档预览需要最新版本的Flash Player支持。</p><p class="ml">您尚未安装或版本过低，建议您：</p><a id="downloadflash" href="http://www.adobe.com/cn/products/flashplayer/" target="_blank"><img src="http://box.zhangmen.baidu.com/images/setupflash.gif" height="39" width="273" /></a>';baidu.swf.create({id:"reader",width:"717",height:B,ver:"10.0.0",errorMessage:N,url:"/static/flash/"+D,bgColor:"#FFFFFF",wmode:"window",allowfullscreen:"true",vars:{docurl:K,docid:M,fpn:F,npn:F,bookmark:I,ext:J,readertype:"internal",newmark:L.newmark,catal:L.catal,cdnurl:E}},O);A(O)};function A(N){baidu.on(N,"mousewheel",function(P){var R=P.wheelDelta;var Q=-3;if(R<0){Q=3}baidu.swf.getMovie("reader").NS_IK_doMouseWheel(Q);baidu.preventDefault(P)});if(window.addEventListener){baidu.G(N).addEventListener("DOMMouseScroll",function(P){var R=P.detail;var Q=-3;if(R>0){Q=3}baidu.swf.getMovie("reader").NS_IK_doMouseWheel(Q);baidu.preventDefault(P)},false)}baidu.on("downloadflash","click",function(P){log.send("view","downloadflash")});var M={37:"left",39:"right"},O={left:function(){baidu.swf.getMovie("reader").NS_IK_leftKeyCode()},right:function(){baidu.swf.getMovie("reader").NS_IK_rightKeyCode()}};baidu.on(document,"keydown",function(R){var P=R.which||R.keyCode,Q=M[P];if(Q){O[Q]();log.send("view","keycode"+Q)}})}}var wenku_logo=new Image();wenku_logo.src="http://img.baidu.com/img/iknow/docshare/bdwenku.gif";var DOC_INFO={doc_id:"936bbb7da26925c52cc5bfd0",cid:"63",price:"2",value_average:"8",doc_size:"46.5KB",doc_name:'Webkit里js与dom事件处理分析',doc_type:"doc",url:"http://wenku.baidu.com",wealth:parseInt('0'),level:parseInt('1'),isOrgDoc:'0',catal:"0",isAdmin:"",totalPageNum:"3",cid1:"3",cid2:"63",cid3:""};var _reader=new Reader({newmark:'0|0',catal:DOC_INFO.catal});_reader.create("readerContainer","936bbb7da26925c52cc5bfd0");baidu.each(["selfChangeCategory","adminChangeCategory","selfChangePrice"],function(B,A){baidu.on(B,"click",function(C){login.verlogin(baidu.proxy(view.changeDocInfo,B));baidu.preventDefault(C)})});baidu.on("addToStore","click",function(A){login.check(view.cang(A));if(parseInt(DOC_INFO.isOrgDoc)){log.send("org","org_favo")}baidu.preventDefault(A)});var _tmpprivate="0";if(_tmpprivate==0){baidu.on("shareDoc","click",function(A){log.send("api","share",{subtype:"button",cid:baidu.G("cateList0")?baidu.G("cateList0").href.split("/")[4]:""});view.shareDoc();baidu.preventDefault(A)});baidu.on("addToAlbum","click",function(A){login.check(view.addToAlbum);baidu.preventDefault(A)});if(baidu.g("impeachDoc")){baidu.on("impeachDoc","click",function(A){login.check(view.impeachDoc(DOC_INFO.doc_id));log.imageReq("/tongji/shop.gif?bn=0&pv=jubaoicon&t="+new Date().getTime());baidu.preventDefault(A)})}}baidu.each(["downloadTop","downloadButton"],function(A){baidu.on(A,"click",function(C){var D=baidu.G("cateList0")?baidu.G("cateList0").href.split("/")[4]:"";var B=DOC_INFO.doc_type;if(A=="downloadButton"){log.send("down","download",{fr:"down",cid:D,doctype:B})}if(isLec){log.send("lec","download")}if(parseInt(DOC_INFO.isOrgDoc)){log.send("org","org_down")}login.verlogin(view.download);baidu.preventDefault(C)})});var rate=new Rate("rateContainer");if(_tmpprivate==0){rate.create("8")}else{rate.setvalue("8")}if(G("kw")){G("kw").value=""}baidu.on(window,"unload",function(A){view.saveViewedPage()});var DownloadFlag=window.location.hash;if(DownloadFlag&&DownloadFlag=="#flag"){login.check(view.download)}function uploadDoc(A){log.send("submit","submit",{fr:"view"});location.href="http://wenku.baidu.com/new?fr=view";baidu.preventDefault(A)}if(parseInt(DOC_INFO.isOrgDoc)){log.send("org","org_docview")}var AddLogo=function(){var B=function(D){var E=/.*\/4866d3323968011ca300915d.html/ig;return E.test(D)},C=function(E){var D=E,F=D.children;return F.length},A=function(E,F){var D=window.location.href;if(B(D)&&!C(E)){E.innerHTML=F}};return{init:function(D,E){A(D,E)}}}();AddLogo.init(baidu.G("FriendsCor"),'<a href="http://www.fanshu.com" target="_blank" onclick="log.send(\'org\',\'fanshu_site\');"><img src="http://img.baidu.com/img/iknow/docshare/fanshu.jpg" /></a>');function flashresush(){var A="1";if(A!=3){var C=document.documentElement.clientHeight-5;if(C<0){C=0}var B=baidu.swf.getMovie("reader");B.height=C}}window.onresize=helper.onFooEndFunc(flashresush);(function(win,doc,undefined){if(win.wenku===undefined){win.wenku={}}var newmark=!!("");wenku.setBookMark=function(info){var save=false,readerMovie=baidu.swf.getMovie("reader"),isLogin=!!(""),tmpinfo,getPagethOnClose,getPageOffset;if(info){tmpinfo=info.split("|");getPagethOnClose=tmpinfo[0];getPageOffset=tmpinfo[1]}else{getPagethOnClose=readerMovie.NS_IK_getPagethOnClose();getPageOffset=readerMovie.NS_IK_getPageOffset();info=getPagethOnClose+"|"+getPageOffset}var saveMark=function(data){if(data.save){save=true}};login.checksynch(function(){baidu.ajax.request("/submit",{onsuccess:function(xhr){if(xhr.status===200){var responseText=eval("("+xhr.responseText+")");saveMark(responseText)}},method:"POST",data:"ct=20109&doc_id=936bbb7da26925c52cc5bfd0&page="+getPagethOnClose+"&offset="+getPageOffset,async:false})},function(){view.saveViewedPage();login.log()});var isPrivate=!!("");if(isPrivate){readerMovie.showNewMarkInfo('<FONT FACE="宋体" SIZE="12" COLOR="#000000">该文档未审核通过，暂无法使用书签功能。</FONT>',0);return false}if(save){if(!newmark){readerMovie.showNewMarkInfo('<FONT FACE="宋体" SIZE="12" COLOR="#000000">添加书签成功，可以进入我的文库中查看</FONT><FONT><a target="_blank" href="/user/bookmark">>>点击查看</a></FONT>',1);newmark=true}else{readerMovie.showNewMarkInfo('<FONT FACE="宋体" SIZE="12" COLOR="#000000">添加书签成功！新添加的书签将覆盖之前的书签。</FONT><FONT><a target="_blank" href="/user/bookmark">>>点击查看</a></FONT>',1)}}else{if(isLogin){readerMovie.showNewMarkInfo('<FONT FACE="宋体" SIZE="12" COLOR="#f00000">添加书签失败，请您稍后重新尝试！</FONT>',0)}}}})(window,document);(function(C,B,D){var A=B.getElementsByTagName("h1")[0];A.innerHTML=helper.wbr(A.innerHTML)})(window,document);(function(C,B,D){var A=function(){return new Function('return []')()};helper.lang.module("wenku.seriesDocCallBack",A)})(window,document);(function(C,B,D){var A=helper.q("Score")[0];baidu.on(A,"click",function(E){view.help();baidu.preventDefault(E)})})(window,document);(function(win,doc,undefined){try{function literatureCallback(){var totalPage=Math.ceil(literatureCarousel.totalCount/literatureCarousel.pageSize),currPage=Math.ceil((literatureCarousel.scrollIndex+1)/literatureCarousel.pageSize),btn0=baidu.g("literaturePreButton"),btn1=baidu.g("literatureNextButton");if(currPage<=1){baidu.dom.setAttr(btn0,"class","wk-book-view-pre_off")}else{baidu.dom.setAttr(btn0,"class","wk-book-view-pre_on")}if(currPage>=totalPage){baidu.dom.setAttr(btn1,"class","wk-book-view-next_off")}else{baidu.dom.setAttr(btn1,"class","wk-book-view-next_on")}}var literatureInner=baidu.dom.children(baidu.g("literatureElement")),literatureStr=[];for(i=0;i<literatureInner.length;i++){literatureStr.push({content:literatureInner[i].innerHTML})}var literatureCarousel=baidu.ui.carousel.create({target:baidu.g("literatureWraper"),pageSize:5,showButton:false,contentText:literatureStr,onafterscroll:literatureCallback});literatureCarousel.scrollTo(0);baidu.dom.ready(function(){baidu.event.on("literaturePreButton","click",function(e){literatureCarousel.prevPage();return false});baidu.event.on("literatureNextButton","click",function(e){literatureCarousel.nextPage();return false})})}catch(e){}var juclewclose=baidu.q("wk-juclew-close");baidu.each(juclewclose,function(item){baidu.event.on(item,"mouseover",function(e){baidu.addClass(item,"jbshow")});baidu.event.on(item,"mouseout",function(e){baidu.removeClass(item,"jbshow")})});var jb_close=baidu.g("wk-impeachDoc-close");var jb_ok=baidu.g("wk-impeachDoc-ok");if(jb_close){baidu.on(jb_close,"click",function(){baidu.hide("wk-impeachDoc-div");if(baidu.g("wk-impeachDoc-con").style.display!="none"){log.imageReq("/tongji/shop.gif?bn=0&pv=jubaoclose&t="+new Date().getTime())}})}if(jb_ok){baidu.on(jb_ok,"click",function(){baidu.hide("wk-impeachDoc-div")})}var jb_submit=baidu.g("wk-impeachDoc-submit");var impeachmoreobj=baidu.g("wk-impeach-more");if(baidu.browser.ie){baidu.on(impeachmoreobj,"propertychange",function(){if(impeachmoreobj.value.length>100){impeachmoreobj.value=impeachmoreobj.value.substring(0,100)}impeachmoreobj.focus()})}else{baidu.on(impeachmoreobj,"input",function(){if(impeachmoreobj.value.length>100){impeachmoreobj.value=impeachmoreobj.value.substring(0,100);impeachmoreobj.focus()}})}if(jb_submit){baidu.on(jb_submit,"click",function(){var _tmpreason="";var impeachmore=impeachmoreobj.value;var sl=baidu.g("impeachDoc-sl");var radio=sl.getElementsByTagName("input");for(var i=0;i<radio.length;i++){if(radio[i].checked){_tmpreason=radio[i].value}}var r_reason=["广告","黄色反动","盗版"];var type=_tmpreason;if(impeachmore!=""){_tmpreason=r_reason[type]+","+impeachmore.substring(0,100)}baidu.ajax.post("/submit?cmd=20116","type="+type+"&report_reason="+_tmpreason+"&doc_id="+DOC_INFO.doc_id+"&ct=20116",function(xhr,responseText){var obj=eval("("+xhr.responseText+")");if(obj.status==0){baidu.hide("wk-impeachDoc-con");baidu.show("wk-impeachDoc-over")}else{if(obj.status==1){alert("您已经举报过此文档")}}});log.imageReq("/tongji/shop.gif?bn=0&pv=jubaosubmit&t="+new Date().getTime())})}})(window,document);(function(H,L,D){var E=function(P,O){baidu.each(P,function(R,Q){baidu.on(R,"click",function(){var S=new Date().getTime();log.imageReq("/tongji/shop.gif?bn=0&pv="+O+"&t="+S)})})},M=function(){var P=baidu.dom.query("#literatureWraper a"),O=baidu.dom.query(".wenku-join-btn a");E(P,"ugc");E(O,"viewrightbanner")};M();var C="0",F=baidu.g("wk-xueshu"),K="936bbb7da26925c52cc5bfd0",J=baidu.g("wk-jb-ts");if(C==8){log.send("view","xs",{gurl:K})}if(F){baidu.event.on(F,"click",function(O){log.send("view","xs_ad",{gurl:K})})}if(J){baidu.on(J,"click",function(){log.imageReq("/tongji/shop.gif?bn=0&pv=jubaots&t="+new Date().getTime())})}var B="3";var A="63";var N="";var I="/tongji/view.html?type=viewload&cid1="+B+"&cid2="+A+"&cid3="+N+"&doctype="+DOC_INFO.doc_type;log.imageReq(I+"&t="+new Date().getTime())})(window,document);</script>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=10002" src="./Webkit里js与dom事件处理分析_百度文库_files/bds_s_v2.js"></script>
+<script type="text/javascript" id="bdshell_js" data=";" src="./Webkit里js与dom事件处理分析_百度文库_files/shell_v2.js"></script>
+<script type="text/javascript">var bds_config={render:false};document.getElementById("bdshell_js").src="http://share.baidu.com/static/js/shell_v2.js?t="+new Date().getHours();</script>
+<script type="text/javascript">var ClassFlashInfo=function(){this.isFlashIn=0};ClassFlashInfo.prototype={setIsFlashIn:function(A){if(A){this.isFlashIn=1}else{this.isFlashIn=0}}};var flashInfo=new ClassFlashInfo();(function(){A();function A(){var E=0;var B;var D;var C={docId:DOC_INFO.doc_id,docType:DOC_INFO.doc_type,cid1:DOC_INFO.cid1,cid2:DOC_INFO.cid2,cid3:DOC_INFO.cid3,totalPageNum:DOC_INFO.totalPageNum,pageviewtimelength:0};baidu.on(window,"load",function(){date=new Date();B=date.getTime()});baidu.on(window,"focus",function(){date=new Date();B=date.getTime()});baidu.on(window,"blur",function(){if(flashInfo.isFlashIn){}else{date=new Date();D=date.getTime();E=E+(D-B)}});baidu.on(window,"unload",function(){date=new Date();D=date.getTime();E=E+(D-B);C.pageviewtimelength=E;C.t=new Date().getTime();log.send("view","pageviewtime",C)})}})();</script>
+<script type="text/javascript">var _bdhmProtocol=(("https:"==document.location.protocol)?" https://":" http://");document.write(unescape("%3Cscript src='"+_bdhmProtocol+"hm.baidu.com/h.js%3Fd8bfb560f8d03bbefc9bdecafc4a4bf6' type='text/javascript'%3E%3C/script%3E"));</script><script src="./Webkit里js与dom事件处理分析_百度文库_files/h.js" type="text/javascript"></script>
+
+<div style="position: absolute; display: none; left: 165px; top: 72px; width: 364px; " class="tangram-suggestion-main" id="tangram-suggestion--TANGRAM__5-main" data-guid="TANGRAM__5"><div id="tangram-suggestion--TANGRAM__5" class="tangram-suggestion"></div></div><div id="docBubble"><div><span onmousedown="wenku.bubble.sendLog(&#39;bubble_shut&#39;)" onclick="baidu.dom.g(&#39;docBubble&#39;).parentNode.removeChild(baidu.dom.g(&#39;docBubble&#39;))"></span><a onmousedown="wenku.bubble.sendLog(&#39;bubble_click&#39;)" href="http://www.baidu.com/search/wenku/kehuduanfabu/Index.html?fr=qipao" target="_blank"><img src="./Webkit里js与dom事件处理分析_百度文库_files/bookicon.gif"></a><a class="bubbleTitle" onmousedown="wenku.bubble.sendLog(&#39;bubble_click&#39;)" target="_blank" href="http://www.baidu.com/search/wenku/kehuduanfabu/Index.html?fr=qipao">iPhone2.0震撼升级</a></div><p>文库iPhone华丽升级2.0，超逼真3D翻页，支持多格式、原文档下载，享受原汁原味的文档盛宴…</p><div class="vbtn"><a onmousedown="wenku.bubble.sendLog(&#39;bubble_click&#39;)" href="http://www.baidu.com/search/wenku/kehuduanfabu/Index.html?fr=qipao" target="_blank">马上体验</a></div></div></body></html>

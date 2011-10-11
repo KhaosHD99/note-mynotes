@@ -1,0 +1,9 @@
+BODY {
+	OVERFLOW-Y: visible; HEIGHT: 100%
+}
+HTML {
+	OVERFLOW-Y: scroll; OVERFLOW-X: visible
+}
+#takeMeUpContainer {
+	POSITION: absolute
+}

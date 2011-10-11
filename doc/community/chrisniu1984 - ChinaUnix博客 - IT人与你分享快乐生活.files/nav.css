@@ -1,0 +1,105 @@
+.login {
+	BACKGROUND: url(/image/1x30.png) repeat-x; HEIGHT: 30px
+}
+.form {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 15px; MARGIN: 0px auto; WIDTH: 190px; PADDING-TOP: 15px
+}
+.form1 {
+	
+}
+.form1 DIV {
+	COLOR: #000; PADDING-TOP: 10px
+}
+.form1 .cen {
+	TEXT-ALIGN: center
+}
+.Content {
+	MARGIN: 0px auto; WIDTH: 950px
+}
+.l1 B {
+	COLOR: #2e3092
+}
+.l1 {
+	WORD-SPACING: 8px
+}
+.l1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 15px; FLOAT: left; PADDING-BOTTOM: 0px; WORD-SPACING: 8px; COLOR: #cecece; PADDING-TOP: 9px
+}
+.l1 A {
+	COLOR: #2e3092
+}
+.btn1 {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND: url(/image/an.png) no-repeat 0px -44px; FLOAT: right; BORDER-LEFT: 0px; WIDTH: 45px; BORDER-BOTTOM: 0px; HEIGHT: 21px
+}
+SELECT {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+A {
+	TEXT-DECORATION: none
+}
+A.a1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 24px; BACKGROUND: url(/image/an.png) no-repeat 0px 0px; FLOAT: right; PADDING-BOTTOM: 0px; WIDTH: 43px; COLOR: #2e3092; MARGIN-RIGHT: 5px; PADDING-TOP: 5px; HEIGHT: 17px
+}
+A.aa {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 24px; BACKGROUND: url(/image/album.jpg) no-repeat 0px 0px; FLOAT: right; PADDING-BOTTOM: 0px; WIDTH: 43px; COLOR: #2e3092; MARGIN-RIGHT: 10px; PADDING-TOP: 5px; HEIGHT: 17px
+}
+.r1 {
+	FLOAT: right; PADDING-TOP: 4px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: "ËÎÌו", Arial
+}
+.inp1 {
+	BORDER-RIGHT: #bbbbbb 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #bbbbbb 1px solid; PADDING-LEFT: 3px; FLOAT: right; PADDING-BOTTOM: 0px; BORDER-LEFT: #bbbbbb 1px solid; WIDTH: 77px; LINE-HEIGHT: 18px; MARGIN-RIGHT: 5px; PADDING-TOP: 0px; BORDER-BOTTOM: #bbbbbb 1px solid; HEIGHT: 18px
+}
+SELECT {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+.r1 SELECT {
+	FLOAT: right; MARGIN-RIGHT: 5px
+}
+.t_input {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; MARGIN: 0px; BORDER-LEFT: #dddddd 1px solid; BORDER-BOTTOM: #dddddd 1px solid
+}
+SELECT {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; MARGIN: 0px; BORDER-LEFT: #dddddd 1px solid; BORDER-BOTTOM: #dddddd 1px solid
+}
+SELECT {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}

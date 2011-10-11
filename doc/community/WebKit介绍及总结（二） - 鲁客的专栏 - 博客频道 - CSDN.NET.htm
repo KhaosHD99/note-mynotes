@@ -1,0 +1,1172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://blog.csdn.net/spacetiller/article/details/5784475 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET</title>
+
+<meta name="description" content="五.
+调用过程知道了WebKit的大体结构，我们就可以深究下去，看看这个浏览器引擎具体是怎么工作的。首先介绍几个基本且重要的类：Page：打开page.h头文件，我们似乎看不到我们概念中的“页面”相关的东西，没错，这里的Page并非就是我们印象中的简单网页，在头文件中我们发现很多关于history的东西，goBack(),goForward(),等等，关于主题的设定，关于Frame的描述等等，因此，这里的Page更像是我们见到的浏览器，抽象起来，应该算是我们访问网站的一次浏览会话；在page.cpp文件里">
+<script type="text/javascript" async="" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ga.js"></script><script src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/plugins.js" type="text/javascript"></script>
+<script src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/common.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/spacetiller/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/default.css">
+<script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/shCore.js"></script>
+</head>
+<body>
+<script src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/navtop_2011.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="http://passport.csdn.net/UserLogin.aspx">登录</a>|<a href="http://passport.csdn.net/CSDNUserRegister.aspx">注册</a>|<a href="http://passport.csdn.net/help/faq">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank">CSDN首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">资讯</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li><a href="http://so.csdn.net/" target="_blank">搜索</a></li>
+<li class="more"><h2 id="topnav_btnmore"><a href="javascript:void(0);">更多</a></h2>
+<ul id="topnav_hidlist" style="display: none; ">
+<li><a href="http://cto.csdn.net/" target="_blank">CTO俱乐部</a></li>
+<li><a href="http://student.csdn.net/" target="_blank">学生大本营</a></li>
+<li><a href="http://edu.csdn.net/" target="_blank">培训充电</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动开发</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">软件研发</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://www.programmer.com.cn/" target="_blank">程序员</a></li>
+<li><a href="http://tup.csdn.net/" target="_blank">TUP</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1>
+                <a href="http://blog.csdn.net/spacetiller">鲁客的专栏</a></h1>
+            <h2>一个原创空间</h2>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            <!--<li id="btnHome"><a href="/spacetiller"><span><img src="http://static.blog.csdn.net/images/ico_home.gif">我的首页</span></a></li>-->
+            <li id="btnContents"><a href="http://blog.csdn.net/spacetiller?viewmode=contents"><span><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/spacetiller?viewmode=list"><span><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/spacetiller/rss/list"><span><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "spacetiller";
+    var blog_address = "http://blog.csdn.net/spacetiller";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = $.cookie("UserName");
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"><font size="2">
+
+&nbsp;<a href="http://download.csdn.net/detail/csdn/3641062" target="_blank"><font color="red">安装Chrome浏览器下载资源送30个下载分！</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/csdnproduct/article/details/6830315" target="_blank"><font color="red">CSDN博客“持之以恒”勋章上线了</font></a><br>
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/6852726" target="_blank"><font color="red">2011年10月当选微软MVP的CSDN会员名单揭晓!</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://g.csdn.net/5197723" target="_blank"><font color="red">“IT适合你吗？”智力挑战</font></a>
+</font></div><script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad.js"></script>
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（二）">WebKit介绍及总结（二）</a></span>
+        
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/spacetiller/article/category/705818">WebKit</a> 
+        </span>
+    <span class="link_postdate">2010-08-03 10:36</span>
+    <span class="link_view" title="阅读次数">2452人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">评论</a>(6)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;WebKit介绍及总结（二）&#39;,&#39;5784475&#39;);return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" onclick="javascript:report(5784475,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+    
+<div class="article_content">
+    <p><span style="font-size: large;"><span style="font-family: 宋体-18030;"><strong>五</strong>
+
+</span>
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><strong>.
+</strong>
+
+</span>
+</span>
+<strong>调用过程</strong>
+</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-family: 宋体-18030;"><span style="font-size: small;">
+</span>
+</span>
+</p>
+<p style="margin-left: 0.76cm; margin-bottom: 0cm;"><span style="font-size: medium;">知道了
+WebKit
+的大体结构，我们就可以深究下去，看看这个浏览器引擎具体是怎么工作的。首先介绍几个基本且重要的类：</span>
+</p>
+<ol>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Page
+：打开
+page.h
+头文件，我们似乎看不到我们概念中的“页面”相关的东西，没错，这里的
+Page
+并非就是我们印象中的简单网页，在头文件中我们发现很多关于
+history
+的东西，
+goBack(),goForward(),
+等等，关于主题的设定，关于Frame
+的描述等等，因此，这里的
+Page
+更像是我们见到的浏览器，抽象起来，应该算是我们访问网站的一次浏览会话；<br>
+在
+page.cpp
+文件里，还有个重要的全局指针变量：
+static
+	HashSet&lt;Page*&gt;*
+	allPages;
+这个变量包含了所有的page
+实例，没错！就像
+FireFox
+一样，我们可以启动几个浏览器，而且就是在一个进程里；<br>
+allPages
+在
+Page
+的构造函数里将每次新产生的
+Page
+对象加入；每次启动新的
+window
+，才会新建一个
+Page
+对象，并触发
+PageGroup::addPage()
+；</span>
+
+
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Frame
+：与
+Page
+相比，
+Frame
+更像我们印象中的一个网页，它关注的是页面的显示
+(FrameView)
+、页面数据的加载(FrameLoader)
+、页面内的各种控制器
+(Editor,
+	EventHandler, ScriptController,
+	etc.)
+等等，可以说，这个结构表示浏览器开始从外部控制转向关注一个页面的具体描述了；</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Document
+：这个类的爷爷类是
+Node
+，它是
+DOM
+树各元素的基类；
+Document
+有个子类是
+HTMLDocument
+，它是整个文档
+DOM
+树的根结点，这样就明白了：原来
+Document
+就是描述具体文档的代码，看一下它的头文件，就更明白了，它的属性与方法就是围绕着各种各样的结点：
+Text
+，
+Comment
+，
+CDATASection
+，
+Element……<br>
+当然，
+Document
+不止描述了
+HTML
+相关的结点，还有
+XHTML
+、
+SVG
+、
+WML
+等等其他类型的页面；<br>
+另外，
+Node
+的父类之一是
+EventTarget
+，也就是所有元素都有事件响应的能力，由于
+Document
+类作为
+DOM
+根结点的位置，因此在窗口事件发生时，它第一个接收到事件，并寻找到事件发生的目标元素，然后从目标元素开始以树的路径向上依次处理事件。</span>
+
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">RenderObject
+：在形成
+DOM
+树结点的时候，
+Node
+会根据需要调用
+RenderObject
+的方法，生成
+Render
+结点并最终形成
+Render
+树，因此此类是
+Render
+树各种结点类的基类，它的一个孙子类——
+RenderView
+，就是整个
+Render
+树的根结点。</span>
+</p>
+</li>
+</ol>
+<p style="margin-left: 0.76cm; margin-bottom: 0cm;"><span style="font-size: medium;">对于调用过程，这里有一段话，我认为比较明确地描述了一个场景：<br>
+	“
+浏览器的一个经典应用场景是用户给出一个
+URL
+（直接输入或者点击链接或者
+JavaScript
+解析等方式）。然后浏览器外壳调用
+FrameLoader
+来装载页面。
+FrameLoader
+首先检查一些条件
+(policyCheck())
+，如
+URL
+是否非空、
+URL
+是否可达，用户是否取消等等。然后通过
+DocumentLoader
+启动一个
+MainResourceLoader
+来装载页面。MainResourceLoader
+调用
+network
+模块中的接口来下载页面内容（
+ResourceHandle
+），实际上这里的Resourcehandle
+已
+经是平台相关的内容了，比如在
+Qt
+里面，会有
+ResourceHandleQt
+来控制，然后调用QtNetworkReplyHandler
+来处理
+HTTP
+请求（
+GET
+，
+POST
+等）。接收到数据以后，会有回调函数，告诉MainResourceLoader
+数据已经接收到了。然后一路返回到
+FrameLoader
+开始调用
+HTMLTokenizer
+解析
+HTML
+文本。解析过程中，如果遇到
+Javascript
+脚本的话，也会调用
+Javascript
+引擎（
+Webkit
+中的
+JavascriptCore
+，
+chrome
+中的
+V8
+）来解析。数据被解析完了以后，成了一个一个的
+node
+，生成
+DOM
+树和
+Render
+树，然后通过
+FrameLoaderClient
+调用外部的壳把内容显示出来。”<br>
+下面我们以
+Qt
+平台为例，看看这个场景下的具体函数调用关系：</span>
+
+
+
+
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">首先是
+<strong>整理并向服务器发送客户请求</strong>
+：</span>
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-weight: normal;">WebCore::</span>
+FrameLoader::load()	</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+FrameLoader::loadWithDocumentLoader()	
+→<span style="font-weight: normal;">WebCore::</span>
+FrameLoader::continueLoadAfterNavigationPolicy()	
+→<span style="font-weight: normal;">WebCore::</span>
+FrameLoader::continueLoadAfterWillSubmitForm()	
+→<span style="font-weight: normal;">WebCore::</span>
+DocumentLoader::startLoadingMainResource()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+MainResourceLoader::load()	
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+MainResourceLoader::loadNow()	</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">这里，注意到本函数在调用
+ResourceHandle::create()
+时，
+MainResourceLoader
+把自己作为
+create()
+的第二个参数传入，这个参数是
+MainResourceLoader
+的祖父类
+ResourceHandleClient
+，这样便于下面当调用祖父类的虚函数
+didReceiveData()
+时，实际调用的是
+MainResourceLoader
+的
+didReceiveData()
+方法。</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">继续：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+ResourceHandle::create()	
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+ResourceHandleQt::start()	</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+QnetworkReplyHandler::start()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><strong>截至本函数，用户请求才会被最终发送出去</strong>
+，然后用
+connect()
+方法挂载了几个信号回调函数，比如针对
+finished()
+信号的
+finish()
+函数，针对
+readyRead()
+信号的
+forwardData()
+函数，针对
+processQueuedItems()
+信号的sendQueuedItems()
+函数，其中最重要的就是
+forwardData()
+函数，此函数就是
+<span style="font-weight: normal;">对服务器返回数据的接收与处理</span>
+。</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">让我们来看看
+<strong>返回数据的处理过程</strong>
+：</span>
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-weight: normal;">WebCore::</span>
+QnetworkReplyHandler::forwardData()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+(QNetworkReply)QIODevice::read(),ResourceHandleClient::
+didReceiveData()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">可见，首先
+forwardData()
+函数会利用
+QIODevice
+的
+read()
+方法从网络数据缓冲区中读取接收数据，然后调用didReceiveData()
+方法，在类
+ResourceHandleClient
+中，这个方法实际上是个虚函数，因此实际调用的是其子类ResourceLoader
+的同名函数：</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+ResourceLoader::didReceiveData(ResourceHandle*,
+const char* data, int length, int lengthReceived) </span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+MainResourceLoader::didReceiveData()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+ResourceLoader::didReceiveData(const
+char* data, int length, long long lengthReceived, bool allAtOnce) </span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">在这个函数中，有个直接调用
+addData(data,
+length,
+allAtOnce);
+虽然这个语句在
+ResourceLoader
+中，但是实际上调用的并非
+ResourceLoader::addData(),
+而是
+MainResourceLoader::addData()
+，又一个虚函数覆盖的例子：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><a name="__DdeLink__3_1478993787"></a>
+→
+<span style="font-weight: normal;">WebCore::</span>
+MainResourceLoader::addData()	</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+ResourceLoader::addData(),
+<span style="color: #000000;">FrameLoader::receivedData()	</span>
+→<span style="font-weight: normal;">WebCore::</span>
+DocumentLoader::receivedData()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+DocumentLoader::commitLoad()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+FrameLoader::committedLoad()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+FrameLoaderClient::committedLoad()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+FrameLoaderClientQt::committedLoad()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+FrameLoader::addData()	</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+DocumentWriter::addData()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">至此，一次
+URL
+请求就完成了初始化设置，请求发送，以及数据接收，接下来就是
+<strong>HTML</strong>
+<strong>／</strong>
+<strong>JS</strong>
+<strong>分析</strong>
+。</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+Tokenizer::write()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLTokenizer::write()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">在此函数中有个循环，针对每个
+Tag
+进行分析，下面是对某个
+Tag
+的分析过程：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLTokenizer::advance()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLTokenizer::parseTag(),HTMLTokenizer::processToken()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><a name="__DdeLink__3_603203782"></a>
+→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLParser::parseToken()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLParser::insertNodeAfterLimitDepth()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+HTMLParser::insertNode()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+Element::attach()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">当分析了一个
+Tag
+，如果不是
+HTML
+的
+Tag
+，则调用相关的
+parse
+函数解析（如
+parseNonHTMLText
+）；如果它是HTML
+的
+Tag
+，就将其加入
+Dom
+树的一个节点，接下来根据这个节点
+<strong>生成</strong>
+<strong>Render</strong>
+<strong>树节点</strong>
+：</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::</span>
+Node::createRendererIfNeeded()
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span lang="en-US">WebCore::Text::createRenderer()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span lang="en-US">WebCore::RenderText::RenderText()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">另外，在
+HTMLTokenizer::parseTag()
+中，也会调用
+HTMLTokenizer::parseNonHtmlText,
+之后调用：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><a name="__DdeLink__98_658581691"></a>
+→
+<span style="font-weight: normal;">WebCore::HTMLTokenizer::scriptHandler()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::HTMLTokenizer::scriptExecution()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::ScriptController::executeScript()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::ScriptController::evaluate()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::ScriptController::evaluateInWorld()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::JSMainThreadExecState::evaluate()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::evaluate()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::Interpreter::execute()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::JITCode::execute()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::JITThunks::tryCacheGetByID()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">cti_op_put_by_id()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::JSValue::put()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::JSHTMLInputElement::put()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::lookupPut&lt;WebCore::JSHTMLInputElement,
+WebCore::JSHTMLElement&gt; ()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">JSC::lookupPut&lt;WebCore::JSHTMLInputElement&gt;()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::setJSHTMLInputElementSelectionStart()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::JSHTMLInputElement::setSelectionStart()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::HTMLTextFormControlElement::setSelectionStart()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::HTMLTextFormControlElement::textRendererAfterUpdateLayout()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::Document::updateLayoutIgnorePendingStylesheets()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<span style="font-weight: normal;">WebCore::Document::updateLayout()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+<strong>WebCore::FrameView::layout</strong>
+<span style="font-weight: normal;">()</span>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-weight: normal;">之后有可能会调用</span>
+<span style="font-weight: normal;">FrameView::adjustViewSize(),
+FrameView::setContentsSize(), ScrollView::updateScrollbars(),
+FrameView::visibleContentsResized(),
+FrameView::endDeferredRepaints(),
+FrameView::doDeferredRepaints()</span>
+<span style="font-weight: normal;">等函数，</span>
+然后调用：</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::ScrollView::repaintContentRectangle()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::Chrome::invalidateContentsAndWindow()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">在此函数中，有关键的一句：
+emit
+m_webPage-&gt;repaintRequested(windowRect)
+，意思是
+<strong>将</strong>
+<strong>paint</strong>
+<strong>的信号最终发送出去</strong>
+。</span>
+
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">在
+qt
+中，函数
+QEventLoop::exec()
+负责对事件的检测，当检测到事件发生（信号），会调用以下函数进行处理：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QeventLoop::processEvents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+？</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QEventDispatcherGlib::processEvents</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+g_main_context_iteration()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+？</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+g_main_context_dispatch()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+？</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QCoreApplication::sendPostedEvents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QCoreApplicationPrivate::sendPostedEvents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QCoreApplication::notifyInternal()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QApplication::notify()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QApplicationPrivate::notify_helper()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QMainWindow::event(QEvent*)</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWidget::event(QEvent*)</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWidgetPrivate::syncBackingStore()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+？</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWidgetPrivate::drawWidget()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QCoreApplication::notifyInternal()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QApplication::notify()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QApplicationPrivate::notify_helper()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWebView::event()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+Qwidget::event()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">以上是
+Qt
+事件处理的通用过程，从下面的函数开始，
+Qt
+识别出此信号是
+paint
+信号：</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWebView::paintEvent()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWebFrame::render()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QWebFramePrivate::renderRelativeCoords()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::FrameView::paintContents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paintLayer()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paintList()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paintLayer()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paintList()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLayer::paintLayer()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintObject()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintContents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintChildren()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintObject()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintContents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintChildren()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintObject()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderBlock::paintContents()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RenderLineBoxList::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::RootInlineBox::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::InlineFlowBox::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::InlineFlowBox::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::InlineTextBox::paint()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+paintTextWithShadows()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::GraphicsContext::drawText()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::Font::drawText()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+WebCore::Font::drawComplexText()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">→
+QPainter::drawText()</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">可以看到，以上有的函数会重复调用，因为现在所展示的只是一个执行流程，于
+WebKit
+全体只是冰山一角。到此，
+WebKit最终调用
+Qt
+的
+QPainter
+画出文字。</span>
+
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">这样，从最初的数据载入到将一个文字最终画出，基本上完成了，其他如图片的过程类似。</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">之后，在
+resize
+、
+mouse-click
+等事件的驱动下，
+WebKit
+仍然会不停地进行
+relayout
+和
+repaint
+。</span>
+</p>
+<p>&nbsp;</p>
+</div>
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+
+<div class="article_next_prev">
+        <li class="prev_article">
+            <span>上一篇：</span><a href="http://blog.csdn.net/spacetiller/article/details/5784461">WebKit介绍及总结（一）</a></li>
+        <li class="next_article">
+            <span>下一篇：</span><a href="http://blog.csdn.net/spacetiller/article/details/5784587">WebKit介绍及总结（三）</a></li>
+</div>
+
+
+</div>
+<div id="ad_cen"><iframe id="ad_frm_0" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 0px; " src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad.htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"><dl class="comment_item comment_topic" id="comment_item_1790106"><dt class="comment_head" floor="6">6楼 <span class="user"><a class="username" href="http://blog.csdn.net/wenRei" target="_blank">wenRei</a> <span class="ptime">2011-06-06 17:07发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1790106" username="wenRei"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/wenRei" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_wenrei.jpg" width="40" height="40"></a></dd><dd class="comment_body">我的猜想：<br>在构建Render Tree时，遇到videoTag，通过SubresourceLoader::create调用HTMLMediaElement::load来实现video的加载<br>不过在webkit source中没有trace到一个完整的flow<br><br>还望指点迷津</dd></dl><dl class="comment_item comment_topic" id="comment_item_1790105"><dt class="comment_head" floor="5">5楼 <span class="user"><a class="username" href="http://blog.csdn.net/wenRei" target="_blank">wenRei</a> <span class="ptime">2011-06-06 17:07发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1790105" username="wenRei"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/wenRei" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_wenrei.jpg" width="40" height="40"></a></dd><dd class="comment_body">请教博主：<br>HTML5 中video tag是怎样被解析出来的呢？</dd></dl><dl class="comment_item comment_topic" id="comment_item_1587999"><dt class="comment_head" floor="4">4楼 <span class="user"><a class="username" href="http://blog.csdn.net/dlmu2001" target="_blank">dlmu2001</a> <span class="ptime">2011-01-31 14:36发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1587999" username="dlmu2001"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/dlmu2001" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_dlmu2001.jpg" width="40" height="40"></a></dd><dd class="comment_body">Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一个Page可以有多帧，必须且只能有一个主帧</dd></dl><dl class="comment_item comment_topic" id="comment_item_1586022"><dt class="comment_head" floor="3">3楼 <span class="user"><a class="username" href="http://blog.csdn.net/dlmu2001" target="_blank">dlmu2001</a> <span class="ptime">2011-01-26 16:55发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1586022" username="dlmu2001"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/dlmu2001" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_dlmu2001.jpg" width="40" height="40"></a></dd><dd class="comment_body">Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一个Page可以有多帧，必须且只能有一个子帧</dd></dl><dl class="comment_item comment_topic" id="comment_item_1474279"><dt class="comment_head" floor="2">2楼 <span class="user"><a class="username" href="http://blog.csdn.net/bzero1982" target="_blank">bzero1982</a> <span class="ptime">2010-08-15 22:13发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1474279" username="bzero1982"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/bzero1982" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_bzero1982.jpg" width="40" height="40"></a></dd><dd class="comment_body">CSS的 style标签如何解析，如何添加到CSSSelector应该重点介绍下，这里面的内容比较复杂。</dd></dl><dl class="comment_item comment_topic" id="comment_item_1474253"><dt class="comment_head" floor="1">1楼 <span class="user"><a class="username" href="http://blog.csdn.net/bzero1982" target="_blank">bzero1982</a> <span class="ptime">2010-08-15 21:48发表</span>  <a href="http://blog.csdn.net/spacetiller/article/details/5784475#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1474253" username="bzero1982"> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/spacetiller/article/details/5784475#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/bzero1982" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/3_bzero1982.jpg" width="40" height="40"></a></dd><dd class="comment_body">分析的不错，受教了</dd></dl><div class="clear"></div></div>
+<div id="comment_bar" style="display: none; "></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="http://passport.csdn.net/Account/Login?from=http%3A%2F%2Fblog.csdn.net%2Fspacetiller%2Farticle%2Fdetails%2F5784475">[登录]</a>或<a href="http://passport.csdn.net/Account/Register?from=http%3A%2F%2Fblog.csdn.net%2Fspacetiller%2Farticle%2Fdetails%2F5784475">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场</div>
+<script type="text/javascript">
+    var fileName = '5784475';
+    var commentscount = 6;
+    var islock = false
+</script>
+<script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe id="ad_frm_1" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 170px; " src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad(1).htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://blog.csdn.net/spacetiller" title="我的博客主页">
+            <img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/1_spacetiller.jpg" style="max-width:90%">
+            </a>
+            <br>
+            <span>spacetiller</span>
+        </div>
+        <div id="blog_medal">
+        <div id="bms_box"></div></div>
+        <ul id="blog_rank">
+            <li>访问：<span>12706次</span></li>
+            <li>积分：<span>214分</span></li>
+            <li>排名：<span>千里之外</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>7篇</span></li>
+            <li>转载：<span>0篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>20条</span></li>
+        </ul>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>文章分类</span></ul>
+    <ul class="panel_body">
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705819">C／C++</a><span>(0)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705817">Linux</a><span>(0)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705818">WebKit</a><span>(3)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705816">杂项</a><span>(1)</span>
+        
+        </li>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list">
+        <!--归档统计-->
+        <li><a href="http://blog.csdn.net/spacetiller/article/month/2010/08">2010年08月</a>(3)</li><li><a href="http://blog.csdn.net/spacetiller/article/month/2007/12">2007年12月</a>(1)</li><li><a href="http://blog.csdn.net/spacetiller/article/month/2007/11">2007年11月</a>(3)</li>
+        </div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867891" title="在Windows下产生和使用.tar.gz包">在Windows下产生和使用.tar.g...</a> (2618)
+        </li>
+        <li>
+            <a href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（二）">WebKit介绍及总结（二）</a> (2450)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867931" title="用zlib压缩文件夹">用zlib压缩文件夹</a> (2371)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784461" title="WebKit介绍及总结（一）">WebKit介绍及总结（一）</a> (2123)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784587" title="WebKit介绍及总结（三）">WebKit介绍及总结（三）</a> (1868)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1916536" title="在Windows Visual C++ 6.0/7.0下编译带ssl的curl库">在Windows Visual C++ ...</a> (698)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867980" title="DLL程序开发实例">DLL程序开发实例</a> (352)
+        </li>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784587" title="WebKit介绍及总结（三）">WebKit介绍及总结（三）</a> (8)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867931" title="用zlib压缩文件夹">用zlib压缩文件夹</a> (6)
+        </li>
+        <li>
+            <a href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（二）">WebKit介绍及总结（二）</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867891" title="在Windows下产生和使用.tar.gz包">在Windows下产生和使用.tar.g...</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867980" title="DLL程序开发实例">DLL程序开发实例</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1916536" title="在Windows Visual C++ 6.0/7.0下编译带ssl的curl库">在Windows Visual C++ ...</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784461" title="WebKit介绍及总结（一）">WebKit介绍及总结（一）</a> (0)
+        </li>
+    </ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body">
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">wenRei:
+我的猜想：在构建Render Tree时，遇到videoTag，通过SubresourceLoade...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">wenRei:
+请教博主：HTML5 中video tag是怎样被解析出来的呢？
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">ivan19871002:
+求图 谢谢h-ivan#foxmail.com  (#换成@)谢谢 ，求原图高清版
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">djsfanye:
+我也看不清楚图片，能帮我也发一份么  djs454168@yahoo.com.cn十分感谢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">lyfneusoft_star:
+我也看不清楚图片，能帮我也发一份么liuyang12341982@gmail。com 十分感谢啊！！...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">xiangxiangliang:
+图下载后也看不清楚，能否给个大图啊？563673296@qq.com谢谢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">dlmu2001:
+Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">dlmu2001:
+Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">supersi:
+回复 spacetiller：这个图是你自己画的吗，下载下来之后还是太小了，看不清楚，能给个大图吗？...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">zwtchy123:
+调试使用gdb调试吗
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="clear"></div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".article_content pre").each(function () {
+                var $this = $(this);
+                if ($this.attr("class").indexOf("brush:") != -1) {
+                    var lang = $this.attr("class").split(';')[0].split(':')[1];
+                    $this.attr('name', 'code');
+                    $this.attr('class', lang);
+                }
+            });
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+<script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/show.js"></script>
+<script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/showblogmedal.ashx"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/counter.js"></script><script type="text/javascript" charset="UTF-8" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/msg.popup.js"></script><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/visitlog.php" width="1" height="1" border="0" alt=""><iframe id="myframe" name="myframe" frameborder="no" scrolling="no" width="0" height="0" border="0" src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/dd333.htm"></iframe>
+<script src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/publib_footer.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pub_footerstyle.css"><div class="pub_footerall"><dl><dt></dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd>北京创新乐知信息技术有限公司 版权所有,&nbsp;京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pic_email.gif" alt="" title=""> Email:webmaster@csdn.net</dd><dd>Copyright © 1999-2011, CSDN.NET, All Rights Reserved</dd><dd><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./WebKit介绍及总结（二） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div>
+</div>
+
+</body></html>
