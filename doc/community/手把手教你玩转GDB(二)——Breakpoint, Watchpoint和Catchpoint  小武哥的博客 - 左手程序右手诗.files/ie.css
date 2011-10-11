@@ -1,0 +1,15 @@
+PRE {
+	WORD-WRAP: break-word
+}
+A SPAN {
+	CURSOR: hand
+}
+#submitbox #submit {
+	CURSOR: hand
+}
+#searchbox .button {
+	CURSOR: hand
+}
+#subscribe LI A {
+	CURSOR: hand
+}

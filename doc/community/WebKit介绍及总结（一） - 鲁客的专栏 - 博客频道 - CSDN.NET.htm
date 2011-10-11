@@ -1,0 +1,1178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://blog.csdn.net/spacetiller/article/details/5784461 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET</title>
+
+<meta name="description" content="一.
+ WebKit简介    	Webkit
+是一个开放源代码的浏览器引擎(web
+browser engine)，最初的代码来自
+KDE
+的KHTML
+和 KJS(均开放源代码)。苹果公司在
+Webkit
+的基础上做了大量优化改进工作
+，此时的Apple
+Webkit 已经和Webkit
+有了不少差别，最后开发出了著名的
+Safari，可以说
+Safari
+是一个相当成功的产品，但是Safari
+却不是开放源代码的。基于WebKit的浏览器产品有：苹果的Safari和iPh">
+<script type="text/javascript" async="" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ga.js"></script><script src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/plugins.js" type="text/javascript"></script>
+<script src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/common.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/spacetiller/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/default.css">
+<script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/shCore.js"></script>
+</head>
+<body>
+<script src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/navtop_2011.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="http://passport.csdn.net/UserLogin.aspx">登录</a>|<a href="http://passport.csdn.net/CSDNUserRegister.aspx">注册</a>|<a href="http://passport.csdn.net/help/faq">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank">CSDN首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">资讯</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li><a href="http://so.csdn.net/" target="_blank">搜索</a></li>
+<li class="more"><h2 id="topnav_btnmore"><a href="javascript:void(0);">更多</a></h2>
+<ul id="topnav_hidlist" style="display: none; ">
+<li><a href="http://cto.csdn.net/" target="_blank">CTO俱乐部</a></li>
+<li><a href="http://student.csdn.net/" target="_blank">学生大本营</a></li>
+<li><a href="http://edu.csdn.net/" target="_blank">培训充电</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动开发</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">软件研发</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://www.programmer.com.cn/" target="_blank">程序员</a></li>
+<li><a href="http://tup.csdn.net/" target="_blank">TUP</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1>
+                <a href="http://blog.csdn.net/spacetiller">鲁客的专栏</a></h1>
+            <h2>一个原创空间</h2>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            <!--<li id="btnHome"><a href="/spacetiller"><span><img src="http://static.blog.csdn.net/images/ico_home.gif">我的首页</span></a></li>-->
+            <li id="btnContents"><a href="http://blog.csdn.net/spacetiller?viewmode=contents"><span><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/spacetiller?viewmode=list"><span><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/spacetiller/rss/list"><span><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "spacetiller";
+    var blog_address = "http://blog.csdn.net/spacetiller";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = $.cookie("UserName");
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"><font size="2">
+
+&nbsp;<a href="http://download.csdn.net/detail/csdn/3641062" target="_blank"><font color="red">安装Chrome浏览器下载资源送30个下载分！</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/csdnproduct/article/details/6830315" target="_blank"><font color="red">CSDN博客“持之以恒”勋章上线了</font></a><br>
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/6852726" target="_blank"><font color="red">2011年10月当选微软MVP的CSDN会员名单揭晓!</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://g.csdn.net/5197723" target="_blank"><font color="red">“IT适合你吗？”智力挑战</font></a>
+</font></div><script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad.js"></script>
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（一）">WebKit介绍及总结（一）</a></span>
+        
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/spacetiller/article/category/705818">WebKit</a> 
+        </span>
+    <span class="link_postdate">2010-08-03 10:34</span>
+    <span class="link_view" title="阅读次数">2124人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="http://blog.csdn.net/spacetiller/article/details/5784461#comments">评论</a>(0)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;WebKit介绍及总结（一）&#39;,&#39;5784461&#39;);return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="http://blog.csdn.net/spacetiller/article/details/5784461#report" onclick="javascript:report(5784461,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+    
+<div class="article_content">
+    <p>
+	
+	
+	
+	<!--  
+		@page { margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		A:link { color: #0000ff; text-decoration: none }
+-->
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: large;"><span style="font-family: 宋体-18030;"><strong>一</strong>
+
+</span>
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><strong>.
+ WebKit</strong>
+
+</span>
+</span>
+<span style="font-family: 宋体-18030;"><strong>简介</strong>
+
+</span>
+</span>
+
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-family: arial,helvetica,sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;	Webkit
+是一个开放源代码的浏览器引擎
+(web
+browser engine)
+，最初的代码来自
+KDE
+的
+KHTML
+和 
+KJS(
+均开放源代码
+)
+。苹果公司在
+Webkit
+的基础上做了大量优化改进工作
+，此时的
+Apple
+Webkit 
+已经和
+Webkit
+有了不少差别，最后开发出了著名的
+Safari
+，可以说
+Safari
+是一个相当成功的产品，但是
+Safari
+却不是开放源代码的。
+</span>
+</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-family: arial,helvetica,sans-serif;">	
+基于
+WebKit
+的浏览器产品有：苹果的
+Safari
+和
+iPhone
+，
+Google
+的
+Chrome
+和
+Android
+，
+Nokia
+的
+S60
+，傲游
+3(Maxthon3)
+；
+</span>
+</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-family: arial,helvetica,sans-serif;">	<strong><span style="font-weight: normal;"><span style="background: none repeat scroll 0% 0% transparent;">WebKit</span>
+</span>
+</strong>
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">目前支持
+</span>
+<span style="font-weight: normal;">HTML4/5</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，</span>
+<span style="font-weight: normal;">CSS1/2</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，</span>
+<span style="font-weight: normal;">DOM1/2</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，</span>
+<span style="font-weight: normal;">HTTP/FILE</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，
+</span>
+<span style="font-weight: normal;">GIF/JPEG/PNG</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，
+</span>
+<span style="font-weight: normal;">XML</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，</span>
+<span style="font-weight: normal;">SVG</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">，</span>
+<span style="font-weight: normal;">RSS2.0</span>
+</span>
+</strong>
+
+<strong><span style="background: none repeat scroll 0% 0% transparent;"><span style="font-weight: normal;">等；</span>
+</span>
+</strong>
+
+</span>
+</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;"><span style="font-family: arial,helvetica,sans-serif;">	
+同类的浏览器引擎有：
+Trident
+（
+IE
+内核），
+Gechko
+（
+Netscape,
+Mozilla
+和
+Firefox
+内核），
+Presto
+（
+Opera
+内核，不免费），
+Tasman
+（
+IE
+for MAC
+内核），等等，而
+WebKit
+因为其功能强大、速度快而且免费备受欢迎。
+</span>
+</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-family: 宋体-18030;">	</span>
+</p>
+<p style="margin-bottom: 0cm;"><span style="font-size: large;"><span style="font-family: 宋体-18030;"><strong>二</strong>
+
+</span>
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><strong>.
+ </strong>
+
+</span>
+</span>
+<span style="font-family: 宋体-18030;"><strong>用到的库：</strong>
+
+</span>
+</span>
+
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><span style="font-size: small;"><strong><br>
+<span style="font-size: medium;">&nbsp;&nbsp;	</span>
+</strong>
+</span>
+</span>
+</span>
+<span style="font-size: medium;"><span style="font-weight: normal;">除了平台相关的库，</span>
+
+<span style="font-weight: normal;">WebKit</span>
+
+<span style="font-weight: normal;">需要用到的一些主要的后台库有：</span>
+
+</span>
+
+</p>
+<ul>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">ICU
+：
+International
+	Components for Unicode
+，
+一个成熟，广泛使用的一套为
+<span lang="en-US">C
+	/ C + +</span>
+
+和
+<span lang="en-US">Java</span>
+
+库提供
+<span lang="en-US">Unicode</span>
+
+的
+	全球化支持软件；
+</span>
+
+
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">XSLT
+：
+eXtensible
+	Stylesheet Language Transformation, W3C
+定义的用于
+XML
+文档转换的规范；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Curl
+：
+一个利用
+<span lang="en-US">URL</span>
+
+语法的命令行数据传输工具，基于
+<span lang="en-US">libcurl</span>
+
+。
+</span>
+
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Sqlite
+：
+<span lang="en-US">SQLite</span>
+
+是实现了
+<span lang="en-US">SQL92</span>
+
+标准的
+SQL
+数据库引擎，它能在一个库里组合数据库引擎和接口
+，
+将所有数据存储于单个文件
+；
+</span>
+
+
+
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Gperf
+：一个很完美的哈希函数生成器；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Flex
+：
+Fast
+	Lex, 快速词法分析生成器；</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Bison
+：语法分析生成器，可以将一段带注释的上下文无关语法转化成
+LALR
+或
+GLR
+语法；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">Enchant
+：一个拼写检查库，提供单词的拼写检查、纠错等功能；</span>
+</p>
+</li>
+</ul>
+<p style="margin-bottom: 0cm;"><span style="font-size: large;"><span style="font-family: 宋体-18030;"><strong>三</strong>
+
+</span>
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><strong>.
+ </strong>
+
+</span>
+</span>
+<span style="font-family: 宋体-18030;"><strong>代码目录结构</strong>
+
+</span>
+</span>
+
+</p>
+<ul>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">WebKitTools<br>
+一些测试
+WebKit
+实现功能的程序；</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">WebKitLibraries<br>
+WebKit
+用到的库以及系统调用接口定义；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">WebKitExamplePlugins<br>
+一些来自
+Netscape
+的插件，比如输入法、动画和
+Cocoa
+环境等；</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">WebKitSite:
+	保存了
+www.webkit.org
+网站的</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">WebKit<br>
+此目录位于
+WebKit
+的最上层，定义了与应用相关的一些接口，因此它是平台相关的，每个子目录都是对应平台的完整实现：</span>
+
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">cf
+：
+<span style="color: #000000;">Core
+									Foundation,</span>
+ MAC OS
+									X
+上的系统级
+C
+语言
+API
+接口；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">win
+：
+Windows
+；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">mac
+：
+MAC
+									OS X
+；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">qt
+：
+Q
+									Toolkit
+，其公司已被
+Nokia
+收购；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">gtk
+：
+Gimp
+									Toolkit
+；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">scripts
+：一些脚本，目前只有一个关于
+WebKit
+版本的脚本程序；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">chromium
+：
+Google
+									Chrome
+开发平台；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">wx
+：
+wxWindows
+，一种可移植的
+C++
+和
+Python
+									GUI
+工具箱，
+by
+									Julian Smart
+；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">haiku
+：一种开源
+OS
+，从
+BeOS
+而来，
+2001
+开始，
+2009
+发布首版；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">efl:
+									Enlightenment Foundation Libraries, Enlightenment
+平台；<br>
+WebCore
+<br>
+WebKit
+的核心部分，定义了浏览相关的数据
+IO
+、页面加载、脚本分析、
+UI
+组织、事件处理、网络分析、平台相关的具体实现等内容。</span>
+</p>
+</li>
+</ul>
+<ul>
+<li>
+	<span style="font-size: medium;">xml
+：提供
+xml
+相关的内容；</span>
+				</li>
+<li><span style="font-size: medium;">html
+：提供
+html
+相关的内容；其下的
+Canvas
+目录定义了
+3D
+画布以及
+WebGL
+库相关的内容；</span>
+</li>
+<li><span style="font-size: medium;">wml:
+				Wireless Markup Language
+；</span>
+</li>
+<li><span style="font-size: medium;">css
+：提供
+css
+相关的内容；</span>
+</li>
+<li><span style="font-size: medium;">dom
+：提供
+dom
+相关的内容；</span>
+</li>
+<li><span style="font-size: medium;">editing
+：编辑相关的功能；</span>
+</li>
+<li><span style="font-size: medium;">page
+：浏览相关内容，并非是我们看到的一个页面，在一次浏览会话中，它只有一个实例；</span>
+</li>
+<li><span style="font-size: medium;">rendering
+：页面渲染相关的内容，在对页面脚本进行
+DOM
+树分析之后，需要对这些元素进行渲染和显示；</span>
+</li>
+<li><span style="font-size: medium;">notification
+：内部模块间的事件通信；</span>
+</li>
+<li><span style="font-size: medium;">history
+：页面浏览历史记录相关的内容；</span>
+</li>
+<li><span style="font-size: medium;">svg
+：矢量图形功能，有选项，
+--svg
+；</span>
+</li>
+<li><span style="font-size: medium;">mathml
+：
+W3C
+为网页中的数学表达式制定的规范；有编译选项，
+--mathml
+；</span>
+</li>
+<li><span style="font-size: medium;">loader
+：
+加载资源及
+<span lang="en-US">Cache</span>
+
+；
+</span>
+
+</li>
+<li><span style="font-size: medium;">workers
+：“
+<strong><span style="font-weight: normal;">Web
+				Workers</span>
+
+</strong>
+<strong><span style="font-weight: normal;">为</span>
+
+<span style="font-weight: normal;">WEB</span>
+
+</strong>
+<strong><span style="font-weight: normal;">前端网页上的脚本提供了一种能在后台进程中运行的方法。一旦它被创建，</span>
+
+<span style="font-weight: normal;">Web
+				Workers</span>
+
+</strong>
+<strong><span style="font-weight: normal;">就可以通过</span>
+
+<span style="font-weight: normal;">postMessage()</span>
+
+</strong>
+<strong><span style="font-weight: normal;">向任务池发送任务请求，执行完之后再通过</span>
+
+<span style="font-weight: normal;">postMessage()</span>
+
+</strong>
+<strong><span style="font-weight: normal;">返回消息给创建者指定的事件处理
+				程序</span>
+
+<span style="font-weight: normal;">(</span>
+
+</strong>
+<strong><span style="font-weight: normal;">通过</span>
+
+<span style="font-weight: normal;">onmessage</span>
+
+</strong>
+<strong><span style="font-weight: normal;">进行捕获</span>
+
+<span style="font-weight: normal;">)</span>
+
+</strong>
+<strong><span style="font-weight: normal;">。</span>
+
+<span style="font-weight: normal;"><br>
+Web
+				Workers</span>
+
+</strong>
+<strong><span style="font-weight: normal;">进程能够在不影响用户界面的情况下处理任务，并且，它还可以使用</span>
+
+<span style="font-weight: normal;">XMLHttpRequest</span>
+
+</strong>
+<strong><span style="font-weight: normal;">来处理</span>
+
+<span style="font-weight: normal;">I/O</span>
+
+</strong>
+<strong><span style="font-weight: normal;">，无论</span>
+
+<span style="font-weight: normal;">responseXML</span>
+
+</strong>
+<strong><span style="font-weight: normal;">和
+				</span>
+
+<span style="font-weight: normal;">channel</span>
+
+</strong>
+<strong><span style="font-weight: normal;">属性是否为</span>
+
+<span style="font-weight: normal;">null</span>
+
+</strong>
+<strong><span style="font-weight: normal;">。”</span>
+
+</strong>
+</span>
+</li>
+<li><span style="font-size: medium;">storage
+：
+Web
+				Storage
+相关的内容，保存页面的数据，可以看成是
+Cookie
+的升级；</span>
+</li>
+<li><span style="font-size: medium;">websockets
+：与网络连接相关的内容；</span>
+</li>
+<li><span style="font-size: medium;">bridge:
+				主要包含
+				NPPlugin(Netscape
+				Plugin)
+方面的接口访问等内容；</span>
+
+</li>
+<li><span style="font-size: medium;">binding
+：
+Dom
+与
+JavaScriptCore
+绑定的功能；
+</span>
+
+
+</li>
+<li><span style="font-size: medium;">accessibility
+：提供控件的可用性相关的内容，
+accessibility
+常用来形容对一些特殊人群的功能支持，比如残障者、老人等；</span>
+</li>
+<li><span style="font-size: medium;">icu
+：里面放了专门为
+Mac
+				OS X 10.4
+编译的
+icu
+相关头文件
+；
+</span>
+</li>
+<li><span style="font-size: medium;">platform
+：提供了平台相关的具体实现，如事件响应、本地化、网络连接等；
+</span>
+
+</li>
+<li><span style="font-size: medium;">plugins
+：插件相关内容；
+</span>
+
+</li>
+<li><span style="font-size: medium;">ForwardingHeaders
+：头文件；</span>
+</li>
+<li><span style="font-size: medium;">inspector
+：
+Inspector
+是
+WebKit
+提供的查看网页源代码，
+DOM
+树，以及调试脚本的工具，本目录包含了实现此功能的内容；</span>
+</li>
+<li><span style="font-size: medium;">Configurations
+：
+X
+				Code
+环境相关的配置文件；</span>
+</li>
+<li><span style="font-size: medium;">English.lproj
+：本地化文件；</span>
+</li>
+<li><span style="font-size: medium;">manual-tests
+：测试用的
+html
+文件；</span>
+</li>
+<li><span style="font-size: medium;">Resources
+：资源，图标；</span>
+</li>
+<li><span style="font-size: medium;">WebCore.gyp
+：工程文件。
+<span style="color: #0000ff;"><span style="text-decoration: none;"><span style="color: #000000;">GYP</span>
+</span>
+</span>
+（
+Generate
+				Youre Project
+）是
+google
+				
+自己开发了一个脚本工具，这个工具也
+				是采用
+python
+				
+编写的。它采用了自定义的一套规则，用于生成各种工程文件；
+</span>
+
+
+</li>
+<li><span style="font-size: medium;">WebCore.vcproj
+：
+VC
+工程文件；</span>
+</li>
+<li><span style="font-size: medium;">WebCore.xcodeproj
+：
+X
+				Code
+工程文件；</span>
+</li>
+<li><span style="font-size: medium;">WTF
+：
+Apple
+的
+C++
+库，可以看作精简的
+STL
+；
+SunSpider</span>
+</li>
+<li><span style="font-size: medium;">一个
+JavaScript
+的检测程序，它不检测
+DOM
+或者浏览器其他的
+API
+，只用来检测
+Javascript
+。</span>
+</li>
+</ul>
+<ul>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">JavaScriptGlue</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">JavaScriptCore
+：有关
+JavaScript
+的相关内容，包括了脚本解释器、分析器以及执行程序；</span>
+</p>
+</li>
+<li>
+<p style="margin-bottom: 0cm;"><span style="font-size: medium;">PlanetWebkit:
+	一个比较灵活的
+RSS
+阅读器；
+Webkit
+网站上的
+Planet
+：一站式的
+Webkit
+开发与动态信息；</span>
+
+</p>
+</li>
+</ul>
+<p style="margin-bottom: 0cm;"><span style="font-size: large;"><span style="font-family: 宋体-18030;"><strong>四</strong>
+
+</span>
+<span style="font-family: DejaVu Serif,serif;"><span style="font-family: 宋体-18030;"><strong>.
+ </strong>
+
+</span>
+</span>
+<span style="font-family: 宋体-18030;"><strong>体系结构</strong>
+
+</span>
+</span>
+
+</p>
+<p style="margin-left: 0.66cm; margin-bottom: 0cm;"><span style="font-size: medium;">WebKit
+主要包括三部分：
+WebKit
+，
+WebCore
+，以及
+JavaScriptCore
+，加上所使用的库，依托的平台，其基本的体系结构
+(Architecture)
+如下所示：</span>
+</p>
+<p><span style="font-size: medium;"><br>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><br>
+</span>
+</p>
+<p style="text-align: center;"><span style="font-size: medium;"><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/0_1280802740jR3E.gif" alt="">
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;"><br>
+</span>
+</p>
+<p style="margin-left: 0.72cm; margin-bottom: 0cm;"><span style="font-size: medium;">注意有的模块相对于下面的模块有突出，这是因为此模块与下面几个模块直接相关，比如
+WebCore
+模块就与JavaScriptCore
+、
+Libraries
+和
+Platforms
+模块直接相关。</span>
+
+</p>
+<p>&nbsp;</p>
+</div>
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+
+<div class="article_next_prev">
+        <li class="prev_article">
+            <span>上一篇：</span><a href="http://blog.csdn.net/spacetiller/article/details/1916536">在Windows Visual C++ 6.0/7.0下编译带ssl的curl库</a></li>
+        <li class="next_article">
+            <span>下一篇：</span><a href="http://blog.csdn.net/spacetiller/article/details/5784475">WebKit介绍及总结（二）</a></li>
+</div>
+
+
+</div>
+<div id="ad_cen"><iframe id="ad_frm_0" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 0px; " src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad.htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"><br>&nbsp;&nbsp;暂无评论<br><br><div class="clear"></div></div>
+<div id="comment_bar"></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="http://passport.csdn.net/Account/Login?from=http%3A%2F%2Fblog.csdn.net%2Fspacetiller%2Farticle%2Fdetails%2F5784461">[登录]</a>或<a href="http://passport.csdn.net/Account/Register?from=http%3A%2F%2Fblog.csdn.net%2Fspacetiller%2Farticle%2Fdetails%2F5784461">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场</div>
+<script type="text/javascript">
+    var fileName = '5784461';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe id="ad_frm_1" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 170px; " src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/ad(1).htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://blog.csdn.net/spacetiller" title="我的博客主页">
+            <img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/1_spacetiller.jpg" style="max-width:90%">
+            </a>
+            <br>
+            <span>spacetiller</span>
+        </div>
+        <div id="blog_medal">
+        <div id="bms_box"></div></div>
+        <ul id="blog_rank">
+            <li>访问：<span>12709次</span></li>
+            <li>积分：<span>214分</span></li>
+            <li>排名：<span>千里之外</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>7篇</span></li>
+            <li>转载：<span>0篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>20条</span></li>
+        </ul>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>文章分类</span></ul>
+    <ul class="panel_body">
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705819">C／C++</a><span>(0)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705817">Linux</a><span>(0)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705818">WebKit</a><span>(3)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/spacetiller/article/category/705816">杂项</a><span>(1)</span>
+        
+        </li>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list">
+        <!--归档统计-->
+        <li><a href="http://blog.csdn.net/spacetiller/article/month/2010/08">2010年08月</a>(3)</li><li><a href="http://blog.csdn.net/spacetiller/article/month/2007/12">2007年12月</a>(1)</li><li><a href="http://blog.csdn.net/spacetiller/article/month/2007/11">2007年11月</a>(3)</li>
+        </div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867891" title="在Windows下产生和使用.tar.gz包">在Windows下产生和使用.tar.g...</a> (2618)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784475" title="WebKit介绍及总结（二）">WebKit介绍及总结（二）</a> (2452)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867931" title="用zlib压缩文件夹">用zlib压缩文件夹</a> (2371)
+        </li>
+        <li>
+            <a href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（一）">WebKit介绍及总结（一）</a> (2123)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784587" title="WebKit介绍及总结（三）">WebKit介绍及总结（三）</a> (1869)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1916536" title="在Windows Visual C++ 6.0/7.0下编译带ssl的curl库">在Windows Visual C++ ...</a> (698)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867980" title="DLL程序开发实例">DLL程序开发实例</a> (352)
+        </li>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784587" title="WebKit介绍及总结（三）">WebKit介绍及总结（三）</a> (8)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867931" title="用zlib压缩文件夹">用zlib压缩文件夹</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/5784475" title="WebKit介绍及总结（二）">WebKit介绍及总结（二）</a> (6)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867891" title="在Windows下产生和使用.tar.gz包">在Windows下产生和使用.tar.g...</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1867980" title="DLL程序开发实例">DLL程序开发实例</a> (0)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/spacetiller/article/details/1916536" title="在Windows Visual C++ 6.0/7.0下编译带ssl的curl库">在Windows Visual C++ ...</a> (0)
+        </li>
+        <li>
+            <a href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET.htm" title="WebKit介绍及总结（一）">WebKit介绍及总结（一）</a> (0)
+        </li>
+    </ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body">
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">wenRei:
+我的猜想：在构建Render Tree时，遇到videoTag，通过SubresourceLoade...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">wenRei:
+请教博主：HTML5 中video tag是怎样被解析出来的呢？
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">ivan19871002:
+求图 谢谢h-ivan#foxmail.com  (#换成@)谢谢 ，求原图高清版
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">djsfanye:
+我也看不清楚图片，能帮我也发一份么  djs454168@yahoo.com.cn十分感谢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">lyfneusoft_star:
+我也看不清楚图片，能帮我也发一份么liuyang12341982@gmail。com 十分感谢啊！！...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">xiangxiangliang:
+图下载后也看不清楚，能否给个大图啊？563673296@qq.com谢谢
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">dlmu2001:
+Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784475#comments">WebKit介绍及总结（二）</a>
+    <p style="margin:0px;">dlmu2001:
+Page是一个页面访问请求（一般是一个tab页中的一个导航项），frame是一个页面请求中的一帧，一...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">supersi:
+回复 spacetiller：这个图是你自己画的吗，下载下来之后还是太小了，看不清楚，能给个大图吗？...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/spacetiller/article/details/5784587#comments">WebKit介绍及总结（三）</a>
+    <p style="margin:0px;">zwtchy123:
+调试使用gdb调试吗
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="clear"></div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".article_content pre").each(function () {
+                var $this = $(this);
+                if ($this.attr("class").indexOf("brush:") != -1) {
+                    var lang = $this.attr("class").split(';')[0].split(':')[1];
+                    $this.attr('name', 'code');
+                    $this.attr('class', lang);
+                }
+            });
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+<script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/show.js"></script>
+<script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/showblogmedal.ashx"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/counter.js"></script><script type="text/javascript" charset="UTF-8" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/msg.popup.js"></script><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/visitlog.php" width="1" height="1" border="0" alt=""><iframe id="myframe" name="myframe" frameborder="no" scrolling="no" width="0" height="0" border="0" src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/dd333.htm"></iframe>
+<script src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/publib_footer.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pub_footerstyle.css"><div class="pub_footerall"><dl><dt></dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd>北京创新乐知信息技术有限公司 版权所有,&nbsp;京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/pic_email.gif" alt="" title=""> Email:webmaster@csdn.net</dd><dd>Copyright © 1999-2011, CSDN.NET, All Rights Reserved</dd><dd><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./WebKit介绍及总结（一） - 鲁客的专栏 - 博客频道 - CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div>
+</div>
+
+</body></html>

@@ -1,0 +1,42 @@
+.wp_syntax {
+	BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; OVERFLOW-Y: hidden; BACKGROUND: #f7f7f7; OVERFLOW-X: auto; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 15px; OVERFLOW: auto; BORDER-LEFT: #ccc 1px solid; WIDTH: 99%; BORDER-BOTTOM: #ccc 1px solid
+}
+.comment .content .wp_syntax {
+	MARGIN-TOP: 10px
+}
+UNKNOWN {
+	PADDING-BOTTOM: 15px! important
+}
+.wp_syntax DIV {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: top; PADDING-TOP: 2px
+}
+.wp_syntax TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: top; PADDING-TOP: 2px
+}
+.wp_syntax .code {
+	COLOR: #333
+}
+.wp_syntax PRE {
+	CLEAR: none; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: none; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: visible; WIDTH: auto; BORDER-TOP-STYLE: none; LINE-HEIGHT: 1.333; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.line_numbers PRE {
+	PADDING-LEFT: 10px
+}
+.wp_syntax TABLE {
+	BACKGROUND: #f7f7f7; MARGIN: 0px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM-STYLE: none
+}
+.post .content .wp_syntax TABLE {
+	BACKGROUND: #f7f7f7; MARGIN: 0px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM-STYLE: none
+}
+.wp_syntax TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; BORDER-TOP-STYLE: none; PADDING-TOP: 2px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.post .content .wp_syntax TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; BORDER-TOP-STYLE: none; PADDING-TOP: 2px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.wp_syntax .line_numbers {
+	BORDER-RIGHT: #ccc 1px solid; BACKGROUND: #e3e4e6; OVERFLOW: visible; COLOR: #666; TEXT-ALIGN: right
+}
+.post .content .wp_syntax .line_numbers {
+	BORDER-RIGHT: #ccc 1px solid; BACKGROUND: #e3e4e6; OVERFLOW: visible; COLOR: #666; TEXT-ALIGN: right
+}

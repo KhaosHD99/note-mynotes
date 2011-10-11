@@ -1,0 +1,102 @@
+SMALL {
+	FONT-SIZE: 12px
+}
+#tagline {
+	FONT-SIZE: 12px
+}
+#cmtswitcher {
+	FONT-SIZE: 12px
+}
+.comment .date {
+	FONT-SIZE: 12px
+}
+.trackback .date {
+	FONT-SIZE: 12px
+}
+.comment .act {
+	FONT-SIZE: 12px
+}
+.trackback .act {
+	FONT-SIZE: 12px
+}
+#submit {
+	FONT-SIZE: 12px
+}
+.more-link {
+	FONT-SIZE: 12px
+}
+.messagebox {
+	FONT-SIZE: 12px
+}
+.errorbox {
+	FONT-SIZE: 12px
+}
+#menus LI A {
+	FONT-SIZE: 12px
+}
+.post .date {
+	FONT-SIZE: 12px
+}
+.post .under {
+	FONT-SIZE: 12px
+}
+.post .author {
+	FONT-SIZE: 12px
+}
+.post .editpost {
+	FONT-SIZE: 12px
+}
+.post .readingblinds {
+	FONT-SIZE: 12px
+}
+.post .comments {
+	FONT-SIZE: 12px
+}
+.post .addcomment {
+	FONT-SIZE: 12px
+}
+.post .editlinks {
+	FONT-SIZE: 12px
+}
+.post .addlink {
+	FONT-SIZE: 12px
+}
+#pagenavi {
+	FONT-SIZE: 12px
+}
+#footer {
+	FONT-SIZE: 12px
+}
+#cmtswitcher .addcomment {
+	FONT-SIZE: 12px
+}
+#cmtswitcher .addtrackback {
+	FONT-SIZE: 12px
+}
+#respond {
+	FONT-SIZE: 12px
+}
+#commentnavi {
+	FONT-SIZE: 12px
+}
+#submitbox #submit {
+	FONT-SIZE: 12px
+}
+#sidebar #feedrss {
+	FONT-SIZE: 12px
+}
+#sidebar #feedemail {
+	FONT-SIZE: 12px
+}
+#sidebar #followme {
+	FONT-SIZE: 12px
+}
+#caption {
+	PADDING-RIGHT: 30px; PADDING-LEFT: 30px; PADDING-BOTTOM: 20px; PADDING-TOP: 25px
+}
+#cmtswitcher #trackbacktab {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 6px; PADDING-TOP: 6px
+}
+UNKNOWN {
+	PADDING-RIGHT: 10px! important; PADDING-LEFT: 10px! important; PADDING-BOTTOM: 6px! important; PADDING-TOP: 6px! important
+}

@@ -1,0 +1,93 @@
+.syntaxhighlighter {
+	BACKGROUND-COLOR: #fff! important
+}
+.syntaxhighlighter .highlighted .number {
+	COLOR: black! important
+}
+.syntaxhighlighter .alt1 {
+	BACKGROUND-COLOR: #e0e0e0! important
+}
+.syntaxhighlighter .alt2 {
+	BACKGROUND-COLOR: #e0e0e0! important
+}
+.syntaxhighlighter .line .number {
+	COLOR: #afafaf! important
+}
+.syntaxhighlighter .line .content {
+	BORDER-LEFT: #6ce26c 3px solid; COLOR: #000! important
+}
+.printing .line .content {
+	BORDER-TOP-WIDTH: 0px! important; BORDER-LEFT-WIDTH: 0px! important; BORDER-BOTTOM-WIDTH: 0px! important; BORDER-RIGHT-WIDTH: 0px! important
+}
+.syntaxhighlighter .alt1 {
+	BACKGROUND-COLOR: #fff! important
+}
+.syntaxhighlighter .alt2 {
+	BACKGROUND-COLOR: #f8f8f8! important
+}
+.syntaxhighlighter .toolbar {
+	BORDER-RIGHT: #e7e5dc 1px solid; BORDER-TOP: #e7e5dc 1px solid; BORDER-LEFT: #e7e5dc 1px solid; BORDER-BOTTOM: #e7e5dc 1px solid; BACKGROUND-COLOR: #f8f8f8! important
+}
+.syntaxhighlighter .toolbar A {
+	COLOR: #a0a0a0! important
+}
+.syntaxhighlighter .toolbar A:hover {
+	COLOR: red! important
+}
+.syntaxhighlighter .plain {
+	COLOR: #000! important
+}
+.syntaxhighlighter .plain A {
+	COLOR: #000! important
+}
+.syntaxhighlighter .comments {
+	COLOR: #008200! important
+}
+.syntaxhighlighter .comments A {
+	COLOR: #008200! important
+}
+.syntaxhighlighter .string {
+	COLOR: blue! important
+}
+.syntaxhighlighter .string A {
+	COLOR: blue! important
+}
+.syntaxhighlighter .keyword {
+	FONT-WEIGHT: bold! important; COLOR: #069! important
+}
+.syntaxhighlighter .preprocessor {
+	COLOR: gray! important
+}
+.syntaxhighlighter .variable {
+	COLOR: #a70! important
+}
+.syntaxhighlighter .value {
+	COLOR: #090! important
+}
+.syntaxhighlighter .functions {
+	COLOR: #ff1493! important
+}
+.syntaxhighlighter .constants {
+	COLOR: #0066cc! important
+}
+.syntaxhighlighter .script {
+	BACKGROUND-COLOR: yellow! important
+}
+.syntaxhighlighter .color1 {
+	COLOR: #808080! important
+}
+.syntaxhighlighter .color1 A {
+	COLOR: #808080! important
+}
+.syntaxhighlighter .color2 {
+	COLOR: #ff1493! important
+}
+.syntaxhighlighter .color2 A {
+	COLOR: #ff1493! important
+}
+.syntaxhighlighter .color3 {
+	COLOR: red! important
+}
+.syntaxhighlighter .color3 A {
+	COLOR: red! important
+}

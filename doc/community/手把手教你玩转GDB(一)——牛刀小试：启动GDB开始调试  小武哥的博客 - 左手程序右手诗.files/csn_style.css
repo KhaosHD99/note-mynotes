@@ -1,0 +1,54 @@
+#csn {
+	MARGIN-TOP: 10px; WIDTH: 80%
+}
+#csn TH {
+	TEXT-ALIGN: left
+}
+#csn TH.name {
+	min-width: 10%
+}
+#csn TH.story {
+	WIDTH: 50%
+}
+#csn TH.action {
+	min-width: 10%
+}
+#csn_msg {
+	PADDING-RIGHT: 3px; DISPLAY: none; PADDING-LEFT: 3px; PADDING-BOTTOM: 5px; MARGIN: 3px 0px; WIDTH: 79.5%; PADDING-TOP: 5px
+}
+#csn_submission_content {
+	WIDTH: 65%
+}
+#csn_submission_details {
+	MARGIN: 10px 0px 10px 5px; WIDTH: 65%
+}
+#csn_submission_details INPUT {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0px 5px; PADDING-TOP: 5px
+}
+#major-publishing-actions INPUT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: none; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#csn_submission_details LABEL {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+#csn_submission_details FIELDSET {
+	MARGIN-TOP: 3px; MARGIN-BOTTOM: 5px
+}
+#csn_form {
+	WIDTH: 100%; TEXT-ALIGN: left
+}
+#csn_captcha_code {
+	WIDTH: 220px! important
+}
+#csn_form INPUT {
+	FLOAT: right; WIDTH: 234px; MARGIN-RIGHT: 135px
+}
+#csn_form LI {
+	MARGIN-TOP: 5px; LIST-STYLE-TYPE: none
+}
+#csn_user_submission SPAN {
+	VERTICAL-ALIGN: top
+}
+#csn_form LI:unknown {
+	content: none
+}

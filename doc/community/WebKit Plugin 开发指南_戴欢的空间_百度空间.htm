@@ -1,0 +1,1901 @@
+
+<!-- saved from url=(0069)http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>WebKit Plugin 开发指南_戴欢的空间_百度空间      </title>
+
+<style type="text/css">
+    .error{color:#FF0000;font-size:12px}
+    .shareUser,.shareLastEditor{line-height:20px;color:#666666;text-align:left}
+    .shareLastEditor{margin:5px 0 8px;}
+</style>
+
+<script type="text/javascript">
+    var g_pageTimerStart=new Date().getTime();
+</script>
+
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/global.js"></script>
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/libs.js"></script>
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/tangram-1.1.0.js"></script>
+
+
+<script type="text/javascript">
+var Session = {
+    isLogin: ! true,
+    isHost: "",
+    userName: "huanruiqi",   
+    userPortrait:'cda26875616e7275697169690a',
+    spaceURL: "/huanruiqi",
+    spBasicURL:"huanruiqi",
+    spBasicURLEnc:"huanruiqi",
+    visitorName:    "",
+    visitorPortrait:'00000000',
+    isActive: '',   
+    visitorURL: "/index.html",        // 
+    pageURL: "http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7%2Ehtml",    
+    refer: "",
+    spToken: 'ca80fcb174b41da704391308a8a15456', 
+    spFriendDomain: 'http://frd.baidu.com',
+    spSpaceDomain: 'http://hi.baidu.com',
+    spPortraitDomain: '',
+    spSpaceStaticDomain: 'http://hi.baidu.com' 
+
+    ,isDrag:  false  
+    ,isProfile:  false   
+    ,isPortraitVerify:!true
+    };
+</script>
+
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/brwstat"></script></head>
+
+<body><iframe frameborder="0" name="_BdPopupLayer_smhsb5-3tqw34lgjipz-c96kc8" style="position:absolute; z-index:65001; display:none;" scrolling="no" id="_BdPopupLayer_smhsb5-3tqw34lgjipz-c96kc8"></iframe><link href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/bdeditor.css" type="text/css" rel="Stylesheet">
+
+<center>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+if(top.location != self.location){
+	top.location = self.location;
+}
+var myref = encodeURIComponent("http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7%2Ehtml");
+/*]]>*/
+</script>
+<link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/mods.css">
+
+<link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/df9e8a27cad3612bd5074233.css">
+
+<link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/space.css">
+
+<div class="userbar">
+    <div id="nav">
+        <a class="logo" href="http://hi.baidu.com/index.htm"><img src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/logo.gif" border="0" alt="图片"></a>
+
+
+
+        <div class="manage">
+            <form action="https://passport.baidu.com/?login" method="post">
+                用户名:<input type="text" name="username">&nbsp;&nbsp; 
+                密码:<input type="password" name="password"> 
+                <input type="hidden" name="mem_pass" value="on">
+                <input type="submit" value="" style="width:0; height:0;">
+                <a href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" class="loginlink" onclick="this.parentNode.submit(); return false;">登录</a>  
+            </form> 
+            <a href="http://hi.baidu.com/reg/new" class="reglink">注册</a>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/base.js"></script>
+ <link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/base.css">
+
+
+		
+
+
+
+<div id="main" align="left">
+
+<!--[if IE]>
+<script>
+var objmain = document.getElementById("main");
+function updatesize(){ var bodyw = window.document.body.offsetWidth; if(bodyw <= 790) objmain.style.width="772px"; else if(bodyw >= 1016) objmain.style.width="996px"; else objmain.style.width="100%"; }
+updatesize(); window.onresize = updatesize;
+</script>
+<![endif]-->
+
+	<div id="header">
+
+	<div class="lc"><div class="rc"></div></div>
+<div class="tit"><a href="http://hi.baidu.com/huanruiqi/home" class="titlink" title="huanruiqi的空间 http://hi.baidu.com/huanruiqi">戴欢的空间</a></div>
+<div class="desc">Welcome！</div>
+<div id="tabline">&nbsp;</div>
+
+	<div id="tab"><a href="http://hi.baidu.com/huanruiqi/home">主页</a><a href="http://hi.baidu.com/huanruiqi/blog" class="on">博客</a><a href="http://hi.baidu.com/huanruiqi/album">相册</a><span>|</span><a href="http://hi.baidu.com/huanruiqi/profile">个人档案</a>
+
+	<span>|</span><a href="http://hi.baidu.com/huanruiqi/friends">好友</a>
+
+
+<span>|</span><a href="http://tieba.baidu.com/i/sys/jump?un=huanruiqi&fr=spacebar" onclick="BdUtil.ns_trackerLink(&#39;m_20110330_spacebar&#39;,&#39;&#39;)" target="_blank">i贴吧</a>
+
+
+	</div>
+
+</div>
+
+
+
+<div class="stage">
+
+<div class="stagepad">
+
+<div style="width:100%">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="modth">
+
+	<tbody><tr><td class="modtl" width="7">&nbsp;</td>
+
+	<td class="modtc" nowrap=""><div class="modhead"><span class="modtit">查看文章</span></div></td>
+
+	<td class="modtc" nowrap="" align="right"></td>
+
+	<td class="modtr" width="7">&nbsp;</td>
+
+	</tr></tbody></table>
+
+
+
+<div id="m_blog" class="modbox" style="overflow-x:hidden;">
+
+<div class="tit">
+
+WebKit Plugin 开发指南</div>
+
+<div class="date">2010年10月29日 星期五  11:06</div>
+
+
+
+
+<table style="table-layout:fixed;width:100%"><tbody><tr><td><div id="blog_text" class="cnt"><span class="Apple-style-span" style="word-spacing: 0px; font: medium Simsun; text-transform: none; color: rgb(0,0,0); text-indent: 0px; white-space: normal; letter-spacing: normal; border-collapse: separate; orphans: 2; widows: 2; webkit-border-horizontal-spacing: 0px; webkit-border-vertical-spacing: 0px; webkit-text-decorations-in-effect: none; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px"><span class="Apple-style-span" style="font-size: 14px; color: rgb(73,73,73); line-height: 21px;  text-align: left">
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>一、</strong><strong>NPAPI</strong><strong>介绍</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">WebKit plugin遵循了NPAPI (Netscape Plugin Application Programming Interface) 标准，支持这个标准的浏览器需要实现一组规定的API供插件调用，这组API形如NPN_XXX，插件可以利用这些API进行二次开发。而NPAPI插件以一个动态链接库作为物理载体进行提供，里面同样也实现了一组规定的API。形式包括NP_XXX和NPP_XXX，NP_XXX是系统需要默认调用的方法，用于认知这个插件，比如NP_Initialize，而NPP_XXX是用于插件完成一些实际功能，比如NPP_New。所有的插件都需要放置在指定的目录下，每个插件可以处理一种或者多种MIME格式的数据，如audio/x-ms-wma，说明该插件可以处理wma格式的音频。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPAPI是一个很经典的插件方案，用dll进行注入，用协定的API进行通信，用字符串描述插件能力。插件宿主（在这里就是浏览器…）会根据能力描述，动态加载插件，并负责插件调用的流程和生命周期管理。而插件中，负责真实逻辑的处理，并可以构造UI与用户交流。以此类方式实现的插件系统，往往是处理的逻辑比较固定，但可扩展性不错。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"> <wbr></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>二、</strong><strong>WebKit plugin</strong><strong>接口介绍</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>1)</strong><strong>NP_XXX</strong><strong>类接口</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NP_XXX类接口一般为动态链接库的导出接口，主要有NP_Initialize、NP_GetMIMEDescription、NP_GetValue、NP_Shutdown的等几个函数，不同平台的接口可能略有不同，但基本功能都是一样的，都是通过接口来初始化、销毁以及认知此动态库。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">详细的接口介绍请参照：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><a style="color: rgb(120,94,68); text-decoration: none" href="https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Plug-in_Side_Plug-in_API">https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Plug-in_Side_Plug-in_API</a></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"> <wbr></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>2)</strong><strong>NPP_XXX</strong><strong>类接口</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr></strong><span class="Apple-converted-space"> </span>NPP_XXX类接口一般为提供给浏览器引擎调用的接口，主要包括：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPP_New、NPP_Destroy、NPP_SetWindow、NPP_NewStream、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPP_DestroyStream、NPP_StreamAsFile、NPP_WriteReady、NPP_Write、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPP_Print、NPP_HandleEvent、NPP_URLNotify、NPP_GetValue、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPP_SetValue等</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">详细的接口介绍请参照：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><a style="color: rgb(120,94,68); text-decoration: none" href="https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Plug-in_Side_Plug-in_API">https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Plug-in_Side_Plug-in_API</a></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left"> <wbr></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>3)</strong><strong>NPN_XXX</strong><strong>类接口</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPP_XXX类接口一般为webkit引擎提供给plugin调用的接口，</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">主要包括：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPN_GetURL、NPN_PostURL、NPN_RequestRead、NPN_NewStreamNPN_Write、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPN_DestroyStream、NPN_Status、NPN_UserAgent、NPN_MemAlloc、NPN_MemFree、NPN_MemFlush、NPN_ReloadPlugins、NPN_GetJavaEnv、NPN_GetJavaPeer、NPN_GetURLNotify、NPN_PostURLNotify、NPN_GetValue、NPN_SetValue、NPN_InvalidateRect、NPN_InvalidateRegion、NPN_ForceRedraw、NPN_GetStringIdentifier、NPN_GetStringIdentifiers、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPN_GetIntIdentifier、NPN_IdentifierIsString、 <wbr><span class="Apple-converted-space"> </span>NPN_UTF8FromIdentifier、NPN_IntFromIdentifier、NPN_CreateObject、NPN_RetainObject、NPN_ReleaseObject、NPN_Invoke、</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">NPN_InvokeDefault、NPN_Evaluate、NPN_GetProperty、NPN_SetProperty、NPN_RemoveProperty、NPN_HasProperty、NPN_HasMethod、NPN_ReleaseVariantValue、NPN_SetException、NPN_PushPopupsEnabledState、NPN_PopPopupsEnabledState、NPN_Enumerate、NPN_PluginThreadAsyncCall、NPN_Construct、NPN_ScheduleTimer、NPN_UnscheduleTimer、NPN_PopUpContextMenu等</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left">详细接口请参照： <wbr> <wbr> <wbr> <wbr> <wbr><a style="color: rgb(120,94,68); text-decoration: none" href="https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Browser_Side_Plug-in_API">https://developer.mozilla.org/en/Gecko_Plugin_API_Reference:Browser_Side_Plug-in_API</a> <wbr> <wbr>和<a style="color: rgb(120,94,68); text-decoration: none" href="https://developer.mozilla.org/en/Gecko_Plugin_API_Reference/Scripting_plugins">https://developer.mozilla.org/en/Gecko_Plugin_API_Reference/Scripting_plugins</a></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal" align="left"><strong> <wbr></strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal"><strong>三、</strong><strong>WebKit plugin</strong><strong>开发步骤介绍</strong></p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">1) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>使用附件中的几个.h .cpp创建并编译一个mobile 6平台下的工程(附件中文件为一个NPAPI接口plugin的一个简单模板)</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">2) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>根据plugin实际情况实现main.cpp中的函数，其中NP_XXX的函数必须都完全实现。简单介绍如下：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NP_Initialize <wbr> <wbr><span class="Apple-converted-space"> </span> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr>附件代码中已经实现不需要处理</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NP_GetMIMEDescription <wbr><span class="Apple-converted-space"> </span>返回MIME Type类型，webkit通过此类型来识别plugin。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">如"audio/x-ms-wma:wma:wma;video/x-ms-asf:asx:asx" 此返回字符串表示此plugin支持wma和asx类型格式的文件处理。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NP_GetValue <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>返回pluginName 和plugin Description两种字符串，</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">源码内有示例</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NP_Shutdown 可以不管</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">3) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>根据实际情况实现NPP_XXX函数，下面简单介绍几个常用的函数：</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPP_New 和NPP_Destory 创建及销毁plugin实例，此处不需要修改</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPP_NewStream 和NPP_DestroyStream <wbr><span class="Apple-converted-space"> </span>创建及销毁一个数据流的使用实例，传递数据给plugin的时候需要此两个接口，需要自己实现，NPP_NewStream也可传递URL给plugin。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPP_WriteReady 和NPP_Write 在需要传递数据给plugin的时候，需要此两个接口，分别为获得可传递数据大小和传递数据的接口。</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">NPP_SetWindow 设置窗口句柄及窗口相对位置</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">4) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>Plugin动态链接库名字必须为xxxWrapper.dll，否则webkit引擎无法识别</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">5) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>Plugin动态链接库必须和浏览器或者widget管理器在同一目录下</p>
+<p style="border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px 0px 5px; word-break: normal; text-indent: 2em; line-height: 21px; padding-top: 0px; list-style-type: none; border-right-width: 0px; word-wrap: normal">6) <wbr> <wbr> <wbr> <wbr> <wbr><span class="Apple-converted-space"> </span>编译成功，放到指定目录下即可动态加载</p>
+</span></span></div></td></tr></tbody></table>
+
+<br>
+
+<div class="opt" id="blogOpt">
+
+<a href="http://hi.baidu.com/huanruiqi/blog/category/%D7%A8%D2%B5%D6%AA%CA%B6" title="查看该分类中所有文章">类别：专业知识</a>
+
+| <a href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" onclick="addToShare(); return false;" target="_blank"><img src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/share_btn.gif" border="0" align="absbottom"></a>
+
+
+
+
+	
+	
+    | <a title="将此文章分享到i贴吧" href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" onclick="addToiTieba(); return false;" target="_blank">分享到i贴吧</a>
+
+	| 浏览(<span id="result"></span>)
+
+	| <a href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#send">评论</a>&nbsp;(<span id="blogCmtCount">0</span>)
+
+
+
+<script language="javascript">
+
+/*<![CDATA[*/
+
+var pre = [true,'[原创] 在 Ubuntu 下配置 QT 开发环境', '[原创] 在 Ubuntu 下配置 QT 开...','/huanruiqi/blog/item/0d80f8f7f17fc3d6f3d3852e.html'];
+
+var post = [true,'什么是插件？什么是扩展？','什么是插件？什么是扩展？', '/huanruiqi/blog/item/64e88f30846254f71a4cffa5.html'];
+
+if(pre[0] || post[0]){
+
+	document.write('<div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">');
+
+	if(pre[0]){
+
+		document.write('上一篇：<a href="' + pre[3] + '" title="' + pre[1] + '">' +  pre[2] + '</a>&nbsp;&nbsp;&nbsp;&nbsp;');
+
+	}
+
+	if(post[0]){
+
+		document.write('下一篇：<a href="' + post[3] + '" title="' + post[1] + '">' +  post[2] + '</a>');
+
+	}
+
+	document.write('</div>');
+
+}
+
+/*]]>*/
+
+</script><div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">上一篇：<a href="http://hi.baidu.com/huanruiqi/blog/item/0d80f8f7f17fc3d6f3d3852e.html" title="[原创] 在 Ubuntu 下配置 QT 开发环境">[原创] 在 Ubuntu 下配置 QT 开...</a>&nbsp;&nbsp;&nbsp;&nbsp;下一篇：<a href="http://hi.baidu.com/huanruiqi/blog/item/64e88f30846254f71a4cffa5.html" title="什么是插件？什么是扩展？">什么是插件？什么是扩展？</a></div>
+
+
+
+</div>
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+    
+<style type="text/css">
+
+/*<![CDATA[*/
+
+#in_related_doc a { text-decoration:none; }
+
+/*]]>*/
+
+</style>
+
+<div id="in_related_tmp"></div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="in_reader">
+    <div class="tit">最近读者：</div>
+
+</div>
+
+
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+<div id="in_comment">
+
+    <a name="comment"></a>
+
+    <div class="tit">网友评论：</div>
+
+    <span id="userCommentList"></span>    
+
+    <div id="page"></div>
+
+</div>
+
+<form action="http://hi.baidu.com/huanruiqi/commit" id="blogCmtSubmitForm" name="blogCmtSubmitForm" method="post">
+    <input type="hidden" name="bdstoken" value="ca80fcb174b41da704391308a8a15456">
+    <input type="hidden" name="ct" value="8">
+    <input type="hidden" name="cm" value="2">
+    <input type="hidden" name="spBlogID" value="58a492dc4beb351c632798c7">
+    <input type="hidden" name="spBlogCmtID" value="">
+    <input type="hidden" name="spRefURL" value="">
+</form>
+
+
+
+
+
+
+<div id="in_send">
+
+<a name="send"></a>
+
+<form name="form1" id="popFormSubmit" action="http://hi.baidu.com/huanruiqi/commit" method="post" onsubmit="return checkcmtform()">
+
+<input type="hidden" name="bdstoken" value="ca80fcb174b41da704391308a8a15456">
+
+<input type="hidden" name="ct" value="8">
+
+<input type="hidden" name="cm" value="1">
+
+<input type="hidden" name="spBlogID" value="58a492dc4beb351c632798c7">
+
+<input type="hidden" name="spRefURL" id="spRefURL" value="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html">
+
+<script>
+
+    document.getElementById("spRefURL").value = window.location.href;
+
+</script>
+
+<div class="tit">发表评论：</div>
+
+<table width="620" border="0" cellspacing="5" cellpadding="0">
+
+
+
+
+
+<tbody><tr id="2_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="2_err_con"></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td valign="top" class="f14" id="reTitle">内　容：</td>
+
+<td>
+	        <div id="bdeditor_container_1ohg8d-wgyqlxw1h53m-9i5g7t">            <table width="100%" height="155px" cellpadding="0" cellspacing="0" border="0">                <tbody><tr>                    <td id="editor_toolbar_1ohg8d-wgyqlxw1h53m-9i5g7t" class="ToolbarContainer" style="display: none; "><div class="ToolbarStrip"><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td nowrap="nowrap"><div class="ToolbarItem" title="插入表情" id="ToolbarItem_7mzkll-ggjoud356tab-orjj96" onclick="_Instance[&#39;7mzkll-ggjoud356tab-orjj96&#39;].clickHandler(this)" onmouseup="_Instance[&#39;7mzkll-ggjoud356tab-orjj96&#39;].mouseUpHandler(this)" onmousedown="_Instance[&#39;7mzkll-ggjoud356tab-orjj96&#39;].mouseDownHandler(this)" onmouseout="_Instance[&#39;7mzkll-ggjoud356tab-orjj96&#39;].mouseOutHandler(this)" onmouseover="_Instance[&#39;7mzkll-ggjoud356tab-orjj96&#39;].mouseOverHandler(this)"><div class="img Smiley" alt="插入表情"><font style="font-size:12px">插入表情</font></div></div></td></tr></tbody></table></div></td>                </tr>                <tr>                    <td id="editor_area_1ohg8d-wgyqlxw1h53m-9i5g7t" class="EditorContainer"><iframe width="100%" height="155px" frameborder="0" src="javascript:void(0)"></iframe></td>                </tr>            </tbody></table>        </div>    <textarea name="spBlogCmtText" id="spBlogCmtText" style="width: 520px; height: 155px; display: none; " tabindex="3" onfocus="hidErr(3);" onclick="BdUtil.relogin(); return false;"></textarea>
+</td>
+
+</tr>
+
+<tr id="3_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="3_err_con"></div></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td valign="top" class="f14">&nbsp;</td>
+
+<td valign="top" class="f14"><input id="btn_ok" name="btn_ok" type="submit" autocomplete="off" onclick="BdUtil.relogin(); return false;" value="发表评论" tabindex="5">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" id="cancleReLink" onclick="canclereply(); return false;" style="display:none; font-size:12px;color:#666;">取消回复</a></td>
+
+</tr>
+
+</tbody></table>
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+<br>
+
+</div>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="8">
+
+<tbody><tr><td class="modbl" width="7">&nbsp;</td>
+
+<td class="modbc">&nbsp;</td>
+
+<td class="modbr" width="7">&nbsp;</td>
+
+</tr></tbody></table>
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<br><center><div id="ft">&#169;2011 Baidu</div></center>
+
+
+</center>
+
+<ul id="blogCmtContentList" style="display:none;">
+
+</ul>
+
+<!--inc_getmsgnum.html-->
+
+<iframe id="submitiframe" name="submitiframe" src="about:blank" style="display:none;"></iframe>
+<script src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/comment.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/detailpage.js"></script>
+			
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+var SP = SP || {};
+if(!SP.mycard){
+    SP.mycard = new (function(){
+        var me = this;
+        var _cancleAction = Session.isDrag;  
+        var _list = [];
+        var _sourceLoaded = false;    
+        me.bind = function (_id){
+            if(_cancleAction){  //abort
+                return;
+            }
+            if(!_sourceLoaded){
+                _list.push(_id);
+            } else {
+                baidu.space.mycard.bind(_id);
+            }
+        }
+        me.init = function (_config){
+            _cancleAction = !!_config.cancle;
+        }
+        me.onSourceLoaded = function (){
+            _sourceLoaded = true;
+            baidu.space.mycard.init({portrait: Session.visitorPortrait});
+            for(var i=0,len=_list.length; i<len; i++){
+                baidu.space.mycard.bind(_list[i]);
+            }
+        }
+    })();
+    baidu.dom.ready(function(){
+        BdAjax.loadCSS('/ui/css/ucard/ucard.css?v=020507100.css');
+        BdAjax.loadJS('/ui/scripts/ucard/ucard.js?v=020507100.js');
+    });
+}
+SP.mycard.bind('m_blog');  
+/*]]>*/
+</script>
+
+<script type="text/javascript">
+    //*****there is some function。
+    function checkMail(s)
+
+    {
+
+        var pattern=/\w+@\w+\.[a-z]+/;
+
+        if(pattern.test(s))
+
+        {
+
+           return true;
+
+        }
+
+        else
+
+       {
+
+          return false;
+
+       }
+
+    }
+
+
+
+
+
+    function checkeandu(eanduid)
+
+    {
+
+        var eanduvalue=baidu.G(eanduid).value;
+
+        var len=baidu.string.getByteLength(eanduvalue);
+
+        if(len>128)
+
+        {
+
+            showErr(2,"您输入的网址或邮箱太长，请保持在128字节以内。");
+
+            return false;
+
+        }
+
+        else
+
+        {
+
+             return true;
+
+        }
+
+
+
+    }
+
+
+
+
+
+    function checkname(strid)
+
+    {
+
+        var ele=baidu.G(strid);
+
+        var len=baidu.string.getByteLength(ele.value);
+
+        if(len>49)
+
+        {
+
+            showErr(1,"您输入的姓名太长，请保持在49字节以内。");
+
+            return false;
+
+        }
+
+        else
+
+        {
+
+            if(len==0)
+
+            {
+
+                baidu.G(strid).value="匿名网友";
+
+            }
+
+             return true;
+
+        }
+
+
+
+    }
+
+
+
+    function checktext(textid)
+
+    {
+
+            var tempStr='';
+
+            var isLightFont=false;
+
+            if(editor&&textid=="spBlogCmtText"){
+
+                tempStr=editor.getHtml();
+                
+                /*
+                //火星文处理，能不碰它就别碰它
+                tempStr=tempStr.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,'');
+
+                tempStr=tempStr.replace(/<\/span>/ig,'');
+                */
+
+                baidu.G("spBlogCmtText").value=tempStr;
+
+                isLightFont=!(tempStr==editor.getHtml());
+
+            }
+
+
+            var str=baidu.string.trim(baidu.G(textid).value);
+            baidu.G(textid).value=str;
+
+            
+
+            len=str.length;
+
+            if(len==0 || ((/^[\s,　]+$/gi).test(str)) )
+
+            {
+
+                showErr(3,"您必须输入评论内容，请检查。");
+
+                return false;
+
+            }
+
+            else
+
+            {
+
+                    var maxLength=isLightFont?916:1000;
+
+                    if(len > maxLength)
+
+                    {
+
+                        showErr(3,"您输入的评论内容太长，请保持在500字以内。");
+
+                        return false;
+
+                    }
+
+                    if(editor&&textid=="spBlogCmtText"){
+
+                        baidu.G("spBlogCmtText").value=editor.getHtml();
+
+                        baidu.G(textid).value=str;
+
+                    }
+
+
+
+                return true;
+
+            }
+
+    }
+
+
+
+    function showErr(index,str)
+
+    {
+
+        baidu.G(index+"_err").style.display="";
+
+        baidu.G(index+"_err_con").innerHTML=str;
+
+    }
+
+    function hidErr(index)
+
+    {
+
+        baidu.G(index+"_err").style.display="none";
+
+        baidu.G(index+"_err_con").innerHTML="";
+
+    }
+
+
+
+    function alertPop(tit,con)
+
+    {
+
+        var pop=new Popup({ contentType:4,isReloadOnClose:false,width:340,height:80});
+
+        pop.setContent("title",tit);
+
+        pop.setContent("alertCon",con);
+
+        pop.build();
+
+        pop.show();
+
+    }
+
+
+
+    function cmtfull()
+
+    {
+
+        var cnum=0;
+
+        if(cnum>=50000)
+
+        {
+
+            alertPop("发表评论","单篇日志评论数最多为50000条.");
+
+            return false;
+
+        }
+
+        else
+
+        {
+
+            return true;
+
+        }
+
+    }
+
+
+	function showCmtSuccess(){
+		ShareBlog.showCmtShareResult(0);
+	}
+
+
+    function checkcmtform()
+
+    {
+
+        if(checkname("spBlogCmtor")&&checkeandu("spBlogCmtURL")&&checktext("spBlogCmtText")&&cmtfull())
+
+        {
+            if(baidu.g("shareBlog").checked && !ShareBlog.isHostReply){
+                baidu.g("shareBlogEchoback").value = "shareblog"; 
+                ShareBlog.submit(Session.spToken);
+            }else{
+                baidu.g("shareBlogEchoback").value = "";
+            }
+            location.hash = "lastcmt";
+            submitForm();
+
+            return true;
+
+        }
+
+        else
+
+        {
+
+            return false;
+
+        }
+
+    }
+
+
+
+    var g_pop=null;
+
+    function submitForm()
+
+    {
+
+        g_pop=new Popup({ contentType:1,isReloadOnClose:false,width:340,height:80});
+
+        g_pop.setContent("title","添加评论");
+
+        g_pop.setContent("contentUrl","");
+
+        g_pop.setContent("someDisabledBtn","btn_ok");
+
+        g_pop.build();
+
+        G("popFormSubmit").target=g_pop.iframeIdName;
+
+        g_pop.show();
+
+    }
+
+
+
+    function g_close_pop()
+
+    {
+
+        g_pop.close();
+
+    }
+
+
+
+    function formatonlinpic()
+
+    {
+
+        var picobj=document.getElementsByName("onlinepic");
+
+        var picnum=picobj.length;
+
+
+
+        for(var i=0;i<picnum;i++)
+
+        {
+
+            if(picobj[i].width>200)
+
+            {
+
+                picobj[i].width=200;
+
+            }
+
+            if(picobj[i].height>200)
+
+            {
+
+                picobj[i].height=200;
+
+            }
+
+        }
+
+        try{baidu.G("btn_ok").disabled = "";}catch(e){}
+
+    }
+
+
+
+    function addToFavor(){
+
+        var blogTitle='WebKit Plugin 开发指南'.replace(/&#39;/g,'\'');
+
+        window.open('http://cang.baidu.com/do/add?it='+encodeURIComponent(blogTitle+'_百度空间')+'&iu='+encodeURIComponent(location.href)+'&fr=sp#nw=1','_s','scrollbars=no,width=600,height=450,right=75,top=20,status=no,resizable=yes');
+
+        return false;
+
+    }
+
+    function addToiTieba(){
+        var blogTitle='WebKit Plugin 开发指南'.replace(/&#39;/g,'\'');
+        window.open('http://tieba.baidu.com/i/sys/share?link='+encodeURIComponent('http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html')+'&type=text&title='+encodeURIComponent(blogTitle)+'&content=');
+    }
+
+    function addToShare(){
+        window.open('http://apps.hi.baidu.com/share/?url='+encodeURIComponent('http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html'));
+    }
+
+
+    /* some functions for cmt-reply */
+    var g_cmtorInfo = [];
+    function goCmtReply(cmtPorID){
+        //如果是主人的话，回复别人的评论，是不需要显示分享的
+        
+
+        cmtreply(g_cmtorInfo[cmtPorID],cmtPorID);
+    }
+    function cmtreply(cmtName,cmtPorID)
+
+    {
+
+        cmtName=cmtName.replace(/<|>/g,"");
+
+        window.location.hash="#send";
+
+        var cmtForm=document.form1;
+
+        cmtForm.cm.value="3";
+
+        if(!cmtForm.spReferTarget)
+
+        {
+
+            var ipt=document.createElement("input");
+
+            ipt.type="hidden";
+
+            ipt.name="spReferTarget";
+
+            ipt.value=cmtPorID;
+
+            cmtForm.appendChild(ipt);
+
+        }else cmtForm.spReferTarget.value=cmtPorID;
+
+
+
+
+
+         //G("reTitle").innerHTML="回复"+cmtName+"：";
+
+         G("cancleReLink").style.display="";
+
+         cmtForm.btn_ok.value="回复评论";
+
+
+
+
+
+         try{
+
+            editor.window.focus();
+
+            editor.window.document.body.innerHTML="回复"+cmtName+"：";
+
+
+
+            var w = editor.window;
+
+            if(w.getSelection){
+
+                var d = w.document;
+
+                var s = w.getSelection();
+
+                var r = d.createRange();
+
+                r.setStartAfter(d.body.firstChild);
+
+                r.setEndAfter(d.body.lastChild);
+
+                s.removeAllRanges();
+
+                s.addRange(r);
+
+            }
+
+        }catch(e){
+
+                try{
+
+                    cmtForm.getElementsByTagName("textarea")[0].focus();
+
+                    cmtForm.getElementsByTagName("textarea")[0].value="回复"+cmtName+"：";
+
+                }catch(e){}
+
+        }
+
+    }
+
+
+
+    function canclereply()
+
+    {
+        //主人可以分享自己的文章
+        ShareBlog.cancelReply();
+
+        var cmtForm=document.form1;
+
+        cmtForm.cm.value="1";
+
+        try{cmtForm.removeChild(cmtForm.spReferTarget);}catch(e){}
+
+        /*
+
+        try{
+
+                var cmt=cmtForm.getElementsByTagName("textarea")[0]
+
+                cmt.value="";
+
+                cmt.focus();
+
+        }catch(e){}
+
+        */
+
+
+
+        try{
+
+                var ed=editor.window.document.body;
+
+                ed.innerHTML="";
+
+                editor.window.focus();
+
+            }catch(e){
+
+                var cmt=cmtForm.getElementsByTagName("textarea")[0];
+
+                cmt.value="";
+
+                cmt.focus();
+
+        }
+
+
+
+        G("cancleReLink").style.display="none";
+
+        cmtForm.btn_ok.value="发表评论";
+
+    }
+
+
+
+    function gotoreply()
+
+    {//to checking whether reply cmt
+
+        if( window.location.hash.indexOf("&re=1")<0) return;
+
+        var cmtID=window.location.hash.split("&")[0].replace("#","");
+
+        var cmtlinks=document.getElementsByTagName("a");
+
+        for(var i=0,n=cmtlinks.length;i<n;i++)
+
+        {
+
+            if(cmtlinks[i].name==cmtID){ var rename=cmtlinks[i].getAttribute("rename");  repid=cmtlinks[i].getAttribute("repid"); break;}
+
+        }
+
+        if(typeof(rename)!="undefined"){
+
+            cmtreply(rename, repid);
+
+        }
+
+    }
+
+    
+    
+    function f_focus(){
+        getVcode();
+    }
+    function getVcode(){
+        var url="http://hi.baidu.com/sys/file/getvcode?echoback=getVcodeDone&t="+(new Date().getTime());
+        BdAjax.loadJS(url)
+    }
+
+    function getVcodeDone(vcode){
+        document.form1.spVcode.value=vcode;
+        var imgsrc="http://hiup.baidu.com/cgi-bin/genimg?"+vcode;
+        G('verifypic').src=imgsrc;
+        G('yanzheng').style.display="block";
+    }
+    function newverifypic(){
+        getVcode();
+        return false;
+    }
+
+    function blogdel(str)
+
+    {
+
+        var pop=new Popup({ contentType:3,isReloadOnClose:false,width:340,height:80});
+
+        pop.setContent("title","删除文章");
+
+        pop.setContent("confirmCon","您确定要彻底删除这篇文章及其所有评论吗？");
+
+        pop.setContent("callBack",delCallback);
+
+        pop.setContent("parameter",{fid:str,popup:pop});
+
+        pop.build();
+
+        pop.show();
+
+        return false;
+
+    }
+
+    
+    function delCallback(para)
+
+    {
+        if(!para["popup"])return;
+
+        var o_pop=para["popup"];
+
+        o_pop.config.contentType=1;
+
+        o_pop.setContent("contentUrl","");
+
+        o_pop.reBuild();
+
+        G(para["fid"]).target=o_pop.iframeIdName;
+        eval("document.draft"+para["fid"]).submit();
+
+        eval("document."+para["fid"]).submit();
+
+    }
+
+
+
+    var _Space = _Space || {};
+    
+    /********这里的东西，是用来生成评论列表的**********/
+   _Space.commentOperate = (function(){
+      /*blog评论的浏览*/
+    var total_page = 0,
+        cmtNumPerPage = 50,
+        nowPage = 0,
+	    count = 1,
+	    comment = new Space.Pubs.Comment(Session.spSpaceDomain+"/cmt/spcmt/");
+    //分页的组件
+   var pager = (function () {
+	var pageNum = '#p#';
+	var MAX = 10;
+    function getPageBar(allPn, nowPn, tplstr) {
+        var Max = 10;
+		allPn = Number(allPn);
+		nowPn = Number(nowPn) + 1; 
+		if (allPn <= 1) {
+			return " &nbsp;";
+		}
+        var _html = [];
+        var startPn = Math.max(1, nowPn - Math.floor(MAX / 2));
+		var endPn = Math.min(allPn, startPn + MAX - 1);
+		startPn = Math.max(1, endPn - MAX + 1);
+        if (nowPn > 1) {
+			_html.push('<a', tplstr.replace('#p#', 0), '>[首页]</a> ');
+			_html.push('<a', tplstr.replace('#p#', (nowPn - 1 - 1)), '>[上一页]</a> ');
+		}
+        for (var i = startPn; i <= endPn; i++) {
+			if (i == nowPn) {
+				_html.push('<span>', i, '</span> ');
+			} else {
+				_html.push('<a', tplstr.replace('#p#', i - 1), '>[', i, ']</a> '); 
+			}
+		}
+		if (nowPn < allPn) {
+			_html.push('<a', tplstr.replace('#p#', nowPn), '>[下一页]</a> ');
+			_html.push('<a', tplstr.replace('#p#', (allPn - 1)), '>[尾页]</a> ');
+		}
+       return _html.join('');
+	}
+	return {
+		render: getPageBar
+	}
+})();
+
+//获取评论数据后，callback，在页面上展现
+var viewCallBack = function(data){
+    var response = data;
+    if(response.err_no == 0){
+    if (response.body.data && response.body.total_count) {
+        var all_page = Math.ceil(response.body.total_count / cmtNumPerPage);
+        total_page = all_page - 1;
+        if("#lastcmt" == location.hash){
+            location.hash = ""+total_page;
+            view(total_page);
+            
+            return;
+        }
+        var output = [];
+        baidu.each(response.body.data, function (list) {
+            output.push(generateHtml(list));
+
+        });
+        count = 1;
+        baidu.G('userCommentList').innerHTML = output.join('');
+        baidu.G('blogCmtCount').innerHTML = response.body.total_count;
+        
+        baidu.G('page').innerHTML = pager.render(all_page, nowPage, ' href="#"  onclick="_Space.commentOperate.view(#p#);return false;"');
+        filterCmtContent('userCommentList');//在非ie浏览器对闪光字做处理
+        SP.mycard.bind('m_blog'); 
+       //锚点会让链接的颜色发生变化，用js来实现锚点功能
+        var scrollObj = baidu.g("in_comment"); 
+        if(scrollObj){
+		 scrollObj.scrollIntoView();
+	    }    
+	
+     }
+ }
+};
+ 
+    var generateHtml = function(data) {
+	var generateOprate = function(type,id,portraitId,cmtname,isHost, isAnnony, canReply, isMobile) {
+		var data = [];
+		if (isMobile) {
+			data.push('  <a href="http://hi.baidu.com/hi/cms/article/help_phone/index.html" target="_blank" style="text-decoration:none;">来自手机<img src="http://img.baidu.com/hi/img/mobile.gif" align="absmiddle" border="0"/></a>');
+		}
+		if (canReply && isCmtAllow) {
+			if (isAnnony) {
+				data.push(' | <a href="#" onclick="BdUtil.relogin();return false;">回复</a>');
+			} else {
+				data.push(' | <a href="#" onclick="goCmtReply(\'' + portraitId + '\');return false;">回复</a>');
+			}
+		}
+       if (isHost) {              
+			data.push(' | <a href="#" onclick="_Space.commentOperate.deleteCmt(\'' + id + '\');return false;">删除</a>');
+			var cName = type==1?cmtname:'';
+			data.push(' | <a href="#" onclick="userSpam.tipBlogCmt(this,\'' + cName + '\',\'' + id + '\',\'' + blogId + '\'); return false;">举报</a>');
+			
+	
+		}
+		return data.join("");
+	};
+    var generateUser = function(type, id, cmtname, cmturl, portraitId) {
+		if ("1" == type) {
+			return "<a  href='{1}' target='_blank' class='ucard' pid='{2}'><img border='0' src='http://tx.bdimg.com/sys/portraitn/item/{2}.jpg'><br />{3}</a>".format(id, cmturl, portraitId, cmtname);
+		} else {
+			if (cmtname == "" || cmtname == "匿名网友") {
+				if (cmturl == "") {
+					return "<a>匿名网友</a>";
+				} else {
+
+					return "<a href='{1}' target='_blank' class='ucard' pid='{0}'>{2}</a>".format(portraitId, cmturl, cmtname);
+
+				}
+
+			} else {
+				if (cmturl == "") {
+					return "<div class='f14' style='display:inline'>网友:<a>{0}</a></div>".format(cmtname);
+				} else {
+					return "<div class='f14' style='display:inline'>网友:<a href='{1}' target='_blank' title='{1}'>{2}</a></div>".format(id, cmturl, cmtname);
+				}
+
+			}
+
+		}
+	};
+    var type = 0,
+	isMobile = data.reserved1,
+	isHost = Session.isHost,
+	isAnnony = Session.visitorPortrait == '00000000' ? true: false,
+	portraitId = data.portrait,
+	canReply = portraitId == Session.visitorPortrait ? false: true,
+	id = data.reply_id_enc,
+	cmtname = data.un,
+	cmturl = cmtname ? 'http://hi.baidu.com/sys/checkuser/' + cmtname + '/1': '',
+	isCmtAllow =  true ,
+	blogId = "58a492dc4beb351c632798c7";
+	if (cmtname && cmturl && portraitId) {
+		type = 1;
+	}
+	g_cmtorInfo[portraitId] = cmtname;
+
+	var html = [],
+        perPage = cmtNumPerPage,
+        listCount = count + nowPage*perPage;
+    html.push('<a name="'+id+'" rename="'+cmtname+'" repid="'+portraitId+'"></a>');
+	html.push('<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;"><tr>');
+	html.push('<td valign="top" class="index" width="5%">'+listCount+'</td>');
+    html.push('<td align="center" valign="top" width="10%"><div class="user" style="overflow:hidden;">');
+	html.push(generateUser(type, id, cmtname, cmturl, portraitId));
+	html.push('</div></td><td class="cnt" style="padding-left:20px;">');
+    html.push('<span class="date">');
+	var pattern='yyyy-MM-dd HH:mm';
+	var date_time = new Date();
+    date_time.setTime(parseInt(data.cdatetime) * 1000);
+    html.push(baidu.date.format(date_time,pattern));
+	html.push(generateOprate(type,id,portraitId,cmtname,isHost, isAnnony, canReply, isMobile));
+	html.push("</span>")
+	html.push('<div class="desc" style="overflow:hidden;word-break:normal;"  name="cmtcontent">');
+	html.push(data.content);
+    html.push('</div></td></tr></table>');
+	html.push('<div class="line">&nbsp;</div>');
+	count++;	
+	return html.join("");
+	
+};
+   //获取评论列表
+var  view = function(page){
+   var  threadId ="58a492dc4beb351c632798c7";
+   page = page || 0;
+   var obj={"thread_id_enc":threadId,"callback":"_Space.commentOperate.viewCallBack","start":page*cmtNumPerPage,"count":cmtNumPerPage,"orderby_type":0};
+   nowPage = page;
+   comment.view(obj);
+};
+	
+	
+	
+            function deleteCmt(cid){
+            var pop=new Popup({ contentType:3,isReloadOnClose:false,width:340,height:80});
+
+            pop.setContent("title","删除评论");
+
+            pop.setContent("confirmCon","您确定要彻底删除这条评论吗？");
+
+            pop.setContent("callBack", function(){
+            
+                var o_pop=pop;
+                var _F = baidu.G('blogCmtSubmitForm');
+                _F.spBlogCmtID.value=cid;
+                _F.spRefURL.value = window.location.href;
+
+                o_pop.config.contentType=1;
+
+                o_pop.setContent("contentUrl","");
+
+                o_pop.reBuild();
+
+                _F.target=o_pop.iframeIdName;
+
+                _F.submit();
+            });
+
+            pop.build();
+
+            pop.show();
+
+            return false;
+        }
+          
+		  function filterCmtContent(n){
+
+            if(!baidu.browser.ie){
+
+                var defaultfilter1='<span style="filter:glow(color=#000000,strength=2);height:0px;color:#000000">';
+
+                var defaultfilter2='<span style="height: 0px; color: rgb(0, 0, 0);">';
+
+                var commentDiv=document.getElementById(n);
+
+                var divs=commentDiv.getElementsByTagName('div');
+
+                var d,tmp;
+
+                for( var i=0,len=divs.length;i<len;i++){
+
+                    d=divs[i];
+
+                    if(d.getAttribute('name')=='cmtcontent'){
+
+                        tmp=d.innerHTML;
+
+                        tmp=tmp.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,defaultfilter1);
+
+                        tmp=tmp.replace('<span style="height: 0px; color: rgb(255, 255, 255);">',defaultfilter2);
+
+                        d.innerHTML=tmp;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return {
+            view : view,
+			viewCallBack : viewCallBack,
+            deleteCmt : deleteCmt
+        }
+        
+    })();
+    
+    /**********分享该文章的用户功能**********/
+    
+
+    
+    /*********相关文章的显示函数********/
+    _Space.RelatedDoc=(function(){
+
+        function HI_MOD_IN_RELATED_DOC_CALLBACK(arg){
+
+            if(arg.length <= 1) return false;
+
+            var hasMore = arg[0];
+
+            var D=function(A,B){A[A.length]=B;}
+
+            if(arg.length % 2 == 0) D(arg, ["","","",""]);
+
+
+
+            var html = ['<div id="in_related_doc" onclick="relative_Click()"><div class="tit">相关文章：</div>'];
+
+            D(html, '<table cellpadding="0" cellspacing="3" border="0">');
+
+            for(var i = 1, j = arg.length; i < j; i += 2){
+
+                D(html, '<tr>');
+
+                D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i][3] + '/blog/item/' + arg[i][2] + '.html" target="_blank" title="' + arg[i][0] + '">' + arg[i][1] + '</a>');
+
+                D(html, new Array(10).join('\u3000'));
+
+                D(html, '</td>');
+
+                if(arg[i + 1][0] != "")
+
+                    D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i + 1][3] + '/blog/item/' + arg[i + 1][2] + '.html" target="_blank" title="' + arg[i + 1][0] + '">' + arg[i + 1][1] + '</a></td>');
+
+                else
+
+                    D(html, '<td>&nbsp;</td><td>&nbsp;</td>');
+
+                D(html, '</tr>');
+
+            }
+
+            if(hasMore) D(html, '<tr><td colspan="4"><a target="_blank" href="/sys/search?pageno=1&type=7&sort=1&word=WebKit%20Plugin%20%BF%AA%B7%A2%D6%B8%C4%CF&item=58a492dc4beb351c632798c7">更多&gt;&gt;</a></td></tr>');
+
+            D(html, '</table></div><div class="line">&nbsp;</div>');
+
+
+
+            var div = document.getElementById('in_related_tmp');
+
+            if(div){
+
+                div.innerHTML = html.join('');
+
+                while(div.firstChild){
+
+                    div.parentNode.insertBefore(div.firstChild, div);
+
+                }
+
+                div.parentNode.removeChild(div);
+
+            }
+
+
+        }
+
+        window.HI_MOD_IN_RELATED_DOC_CALLBACK = HI_MOD_IN_RELATED_DOC_CALLBACK;
+
+        function show(){
+            if( baidu.G('in_related_tmp') )
+            baidu.sio.callByServer("/sys/search?type=8&word=WebKit%20Plugin%20%BF%AA%B7%A2%D6%B8%C4%CF&item=58a492dc4beb351c632798c7");
+        }
+
+        return {
+            show : show
+        }
+
+    })();
+    
+
+    /*********最近读者*********/
+    _Space.latestReader=(function(){
+        var g_read=[
+
+        
+
+        ["wanerf3","4df677616e657266335a09","wanerf3"],
+
+        
+
+        ["%BB%E1%B1%E0%B3%CC%B5%C4%BF%A8%BF%A8%CE%F7","58dabbe1b1e0b3ccb5c4bfa8bfa8cef7fe08","会编程的卡卡西"],
+
+        
+
+        ["alpgalw","4fc0416c7067616c777801","Alpgalw"],
+
+        
+
+        ["%C0%E4%D7%D3%B7%E7%D4%C6","265bc0e4d7d3b7e7d4c6bf00","冷子风云"],
+
+        
+
+        ["fginter","053e6667696e7465729d01","fginter"],
+
+        
+
+        ["sinoecu","dc5f73696e6f656375e308","sinoecu"],
+
+        
+
+        ["neestream","e6336e656573747265616d1d03","neestream"],
+
+        
+
+        ["joseliu2002","eb3b6a6f73656c6975323030329813","joseliu2002"],
+
+        
+
+        {}
+
+        ];
+
+        g_read.length=g_read.length-1;
+
+
+
+        var _rh1="";
+
+        var _rh2="";
+
+
+
+        function show(){
+
+            _rh1 += '<table width="100%" ><tr>';
+
+            _rh2+='<tr>';
+
+            if(!Session.isLogin){
+
+                _rh1+='<td align="center" width="10%" ><img border="0" width="55" height="55" src="http://img.baidu.com/hi/img/portraitn.jpg"></td>';
+
+                _rh2+='<td>&nbsp;</td>';
+
+                if(g_read.length>0){
+
+                    _rh1+='<td align="left" width="12%">';
+
+                }else{
+
+                    _rh1+='<td align="left" width="100%">';
+
+                }
+
+                _rh1+='<a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u='+myref+'" target="_self" onclick="BdUtil.relogin(); return false;">登录</a>后，您就出现在这里。</td>';
+
+                _rh2+='<td>&nbsp;</td>'
+
+            }
+
+            if(g_read.length==0){
+
+                if(Session.isLogin){
+
+                    _rh1+='<td align=left width="100%">最近还没有登录用户看过这篇文章……</td>';
+
+                    _rh2+='<td>&nbsp;</td>';
+
+                }
+
+            }else{
+
+                for(i=0,len=g_read.length;i<len;i++){
+
+                    _rh1+='<td align="center" valign="bottom" width="10%" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid="'+g_read[i][1]+'"><img border="0" src="http://tx.bdimg.com/sys/portraitn/item/'+g_read[i][1]+'.jpg"></a></td>';
+
+                    _rh2+='<td align="center" valign="top" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid="'+g_read[i][1]+'">'+g_read[i][2]+'</a></td>';
+
+                }
+
+            }
+
+            _rh1+='<td width="100%"></td></tr>';
+
+            _rh2+='<td></td></tr></table>';
+
+
+            baidu.dom.insertHTML("in_reader", "beforeEnd", _rh1+_rh2);
+
+        }
+
+        return {
+            show : show
+        }
+    })();
+    
+
+    /*********页面完成后执行的一些东西，比较乱，小心轻放**********/
+    _Space.pageDone = (function(){
+        
+        function initBlogTextForFCK(){
+            //fck init music
+            if(window.Node){Node.prototype.replaceNode=function(Node){this.parentNode.replaceChild(Node,this);}}
+            var imgBox=document.getElementsByName('musicName');
+            var isAutoPlay=true;
+            for(var i=0,n=imgBox.length;i<n;i++){
+                var img=imgBox[i];
+                if(img.getAttribute('rel')){
+                    var musicSrc=img.getAttribute('rel');
+                    var musicDiv = document.createElement("SPAN");
+                    var tmp=musicSrc.substr (musicSrc.indexOf('#')+1, 1);
+                    var tmpAutoPlay=(tmp=='1');
+                    if(isAutoPlay&&tmpAutoPlay){
+                        isAutoPlay=false;
+                        tmpAutoPlay=true;
+                    }else{
+                        tmpAutoPlay=false;
+                    }
+                    var shtml=creatbgmusic(musicSrc.substr(0,musicSrc.indexOf('#')).replace(/[\s><()'"]+/g,''),1,true,false,tmpAutoPlay,tmpAutoPlay,'FckMusicHelper');
+                    shtml=shtml.replace('width=100%','width=200').replace('width="100%"','width=200 height=45');			img.replaceNode(musicDiv);
+                    musicDiv.innerHTML=shtml;
+                    i--;n--;
+                }
+            }
+                //fck init vote
+            !function(){
+                var vote = document.getElementsByName('FCK_VOTE');
+                for(var i=0,len=vote.length,item,rel=0,cdiv;i<len;i++){
+                    item = vote[0];
+                    rel = item.getAttribute('rel')|0;
+                    if(rel){
+                        cdiv = document.createElement('span');
+                        item.parentNode.replaceChild(cdiv,item);
+                        baidu.swf.create({
+                            "id": "VOTE_FLASH_"+i,
+                            "width" : "585",
+                            "height": "100",
+                            "ver"   : "9.0.0",
+                            "wmode" : document.all ? "opaque" : "window",
+                            "allowscriptaccess" : "always",
+                            "url"   : "http://hi.bdimg.com/apps/appvote/spaceVote.swf?vote_id="+rel
+                        },cdiv)
+
+                    }
+                }
+            }()
+            //document.getElementById('blog_text').style.display='';
+        }
+        
+        function resizeBlogImg(){
+
+            if(document.getElementById("m_blog"))
+
+            {
+
+                var imgarray = document.getElementById("m_blog").getElementsByTagName('img');
+
+                var imgw = document.getElementById("m_blog").offsetWidth;
+
+                imgw =imgw-40;
+
+	            var imgs = []
+                for(var i=0; i<imgarray.length; i++){
+                    if(imgarray[i].className=="blogimg" && imgarray[i].width>=imgw) {
+                        imgs[i]=new Image();
+                        (function(_imgarray,_imgs,_i){
+                            _imgs[_i].onload=function(){
+                                var h=imgw/_imgs[_i].width*_imgs[_i].height;
+                                _imgarray[_i].height = h;
+                                _imgarray[_i].style.height=h+'px';
+                            };
+                        })(imgarray,imgs,i);
+                        imgs[i].src=imgarray[i].src;
+                        imgarray[i].width=imgw;
+                        imgarray[i].style.width=imgw+'px';
+                    }
+                }
+            }
+        }
+
+        function fixURLCopyBug(){
+        
+            // Fix ff bugs
+
+            var blog_text = document.getElementById('blog_text');
+            /**
+
+            blog_text.innerHTML = blog_text.innerHTML.replace(/href\s*=\s*("|')?(\.\.\/\.\.\/)/gi,"href=$1../$2");
+            */
+            /*modify by poker, to fix the flashalbum's static domain*/
+            var _blog_trans = blog_text.innerHTML.replace(/href\s*=\s*("|')?(\.\.\/\.\.\/)/gi,"href=$1../$2");
+            _blog_trans = _blog_trans.replace(/http:\/\/hi\.baidu\.com\/static\/album\/album\.swf/g,"http://hi.bdimg.com/static/album/album.swf");
+            blog_text.innerHTML = _blog_trans;
+        }
+
+        function getPVData(){
+
+            var hstr="";
+
+            baidu.sio.callByServer("/huanruiqi/brwstat?key1=1&key2=0880ab3b10b86a27b9998f73_58a492dc4beb351c632798c7_");   
+        } 
+
+        function setpv(allnum)
+
+        {
+
+            var num = allnum.split('_');
+
+            baidu.G("result").innerHTML=num[0];
+
+        }
+
+        window.setpv = setpv;
+        
+        function initCmtEditor(){ //初始化浏览编辑器
+            var editor=null;
+
+            try{
+
+                editor=new BdEditor("spBlogCmtText",{width:"100%",height:"155px"});
+
+                editor.onfocus = function(){hidErr(3);}
+
+                editor.render();
+
+                //如果用户没有登陆，焦点进入编辑器，弹出登录框
+				
+                var editorCont=editor.window;
+				baidu.Q("ToolbarContainer",baidu.G("in_send"))[0].style.display="none";
+                baidu.on(editorCont,"focus",function(){
+				BdUtil.relogin();
+				return false;
+				});
+				
+
+            }catch(e){
+
+                var spBlogCmtText = document.getElementById("spBlogCmtText");
+                if(!spBlogCmtText ) return false;
+
+                var p = spBlogCmtText.previousSibling;
+
+                while(p && p.nodeType != 1) p = p.previousSibling;
+
+                if(p && /bdeditor_container/.test(p.id)){
+
+                    p.parentNode.removeChild(p);
+
+                }
+
+                spBlogCmtText.style.display = '';
+
+                editor=null;
+
+            }
+
+            
+
+            window.editor = editor;
+        }
+
+        function ok(){
+            getPVData();
+            resizeBlogImg();
+            fixURLCopyBug();
+            initBlogTextForFCK();
+            initCmtEditor();
+
+            gotoreply(); /* external fun*/
+        }
+
+        return {
+            ok : ok
+        }
+    })();
+	
+	function relative_Click(){
+		BdUtil.ns_trackerLink('m_20110329_relative_article','')
+	}
+    /********分段加载处理对象，实验性功能*********/
+    _Space.SectionLoad = (function(){
+
+        var loaded = false;
+
+        var sectioinList = [];
+
+        function complete(item){
+            item.isComplete = true;
+        }
+
+        function add(mod, loadCallback){
+
+            var mod = baidu.G(mod);
+            
+            sectioinList.push({"mod": mod, "callback":loadCallback});
+        }
+
+        function startLoad(item){
+            item['callback']();
+            complete(item);
+        }
+
+        function checkStat(){
+            if(sectioinList.length <= 0) return;
+
+            var pageTop2bottom=getPageTop2bottom();
+            
+            baidu.each(sectioinList, function(item, index){
+
+                if(! item.isComplete){
+                    if(getOffsetTop(item.mod)-100 <= pageTop2bottom)
+                        startLoad(item);
+                }
+            });
+        }
+
+        function getOffsetTop(mod){
+            return baidu.dom.getPosition(mod).top;
+        }
+
+        function getPageTop2bottom(){
+            var dsh = baidu.page.getScrollTop();
+            var dch = baidu.page.getViewHeight();
+
+            return dsh + dch;
+        }
+
+        
+        baidu.on(window, 'resize', checkStat);
+        baidu.on(window, 'onload', checkStat);
+        baidu.on(window, 'scroll', checkStat);
+        
+        return {
+            "add" : add
+        } 
+    })();
+
+    /*******Start Working！*******/
+    var _pageEndTime=(new Date().getTime()) - g_pageTimerStart;
+
+    baidu.on(window, 'load', function(){
+        var _pageLoadTime=(new Date().getTime()) - g_pageTimerStart;
+
+        BdUtil.hi_trackerLink('m_20101109_blogloadtime', _pageLoadTime+'|'+_pageEndTime);
+    });
+
+    /**********Step2***********/
+    _Space.pageDone.ok();
+
+    baidu.G('share_user_list') && _Space.SectionLoad.add('share_user_list', _Space.BlogSharedUser.getData);
+    baidu.G('in_related_tmp') && _Space.SectionLoad.add('in_related_tmp', _Space.RelatedDoc.show);
+    baidu.G('in_reader') && _Space.SectionLoad.add('in_reader', _Space.latestReader.show);
+    baidu.G('blogOpt') && _Space.SectionLoad.add('blogOpt', _Space.commentOperate.view);
+</script>
+
+
+
+
+	<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/refer.js"></script><div id="xp" style="position: absolute; z-index: 65531 !important; overflow-x: hidden; overflow-y: hidden; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-left-color: rgb(255, 0, 0); width: 304px; height: 229px; left: 719px; top: 762px; "><div id="xp_content" style="position: absolute; z-index: 1; overflow-x: hidden; overflow-y: hidden; border-left-width: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; width: 304px; height: 229px; left: 0px; top: 0px; "><a id="closeButton" href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 270px; top: 6px; width: 13px; height: 13px; background-image: url(http://img.baidu.com/hi/img/refer/blogrecommend_hz_003.gif); "></a><a id="switchButton" href="http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 250px; top: 6px; width: 13px; height: 13px; background-image: url(http://img.baidu.com/hi/img/refer/blogrecommend_hz_004.gif); "></a><div id="ifm_div" style="height:245px;"><iframe id="xp_content_iframe" src="about:blank" frameborder="0" scrolling="no" width="100%" height="100%" allowtransparency="true"></iframe></div></div></div>
+	
+<link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/userset.css">
+<link rel="stylesheet" type="text/css" href="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/widget.css">
+
+<script type="text/javascript" src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/7981c83540082cdca2cc2b50.js"></script>
+
+<script type="text/javascript">
+//页面状态变量
+var Session = Session || {
+    spaceURL: "/huanruiqi",
+    pageURL: "http://hi.baidu.com/huanruiqi/blog/item/58a492dc4beb351c632798c7%2Ehtml",    //当前访问的url
+    isHost: "",         // 是否是空间主人
+    userName: "huanruiqi",   // 空间主人用户名
+    userNameEnc:    "huanruiqi", 
+    visitorName:    "",
+    visitorURL: "/index.html",        // 
+    refer: "",
+    spBasicURL:"huanruiqi",
+    spBasicURLEnc:"huanruiqi"
+};
+</script>
+<script src="./WebKit Plugin 开发指南_戴欢的空间_百度空间_files/render.js" type="text/javascript"></script>
+<script type="text/javascript">
+baidu.dom.ready(function(){
+    if(typeof spBeautifyConfigData != 'undefined'){
+        var _installList = spBeautifyConfigData.list;
+    } else {
+        spBeautifyConfigData = {};
+        _installList = [];
+    }
+    spBeautifyConfigData.currentDate  = Math.round((new Date('2011/10/09')).getTime() / 1000);    
+    BeautifyWidget.init({timeStamp: spBeautifyConfigData.currentDate, env: 'sys'});
+    BeautifyWidget.render(_installList);
+	if(Space && Space.ActiveTip){
+		if(baidu.g("active_space")){
+			window.active_tip=new Space.ActiveTip("tary_space_name",function(){
+				active_tip.hidden();
+				//activeSpace("pop_tip");
+				if(BdUtil && BdUtil.ns_trackerLink){
+					BdUtil.ns_trackerLink('nm_20101018_</script></body></html>

@@ -1,0 +1,1 @@
+document.getElementById('bdshare_js').src = 'http://share.baidu.com/static/js/bds_s_v2.js?v=20110929';

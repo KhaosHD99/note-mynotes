@@ -1,0 +1,1212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0066)http://blog.chinaunix.net/space.php?uid=24382173&do=blog&id=374709 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活</TITLE>
+<META http-equiv=content-type content="text/html; charset=gbk">
+<META content="" name=description>
+<META content="" name=keywords>
+<META http-equiv=X-UA-Compatible content=IE=EmulateIE7>
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_cookie.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_common.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_menu.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_ajax.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_face.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/script_manage.js" 
+type=text/javascript></SCRIPT>
+<LINK media=screen 
+href="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/style.css" type=text/css 
+rel=StyleSheet><LINK media=screen 
+href="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/default.css" type=text/css 
+rel=StyleSheet>
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR></HEAD>
+<BODY>
+<STYLE type=text/css>@import url( http://blog.chinaunix.net/css/nav.css );
+</STYLE>
+
+<DIV class=login>
+<DIV class=Content>
+<DIV class=l1 id=ll><A href="http://www.chinaunix.net/" target=_blank>CU首页</A> 
+<A title=CU论坛 
+href="http://blog.chinaunix.net/link.php?url=http://bbs.chinaunix.net" 
+target=_blank>CU论坛首页</A> <A title=CU博客 
+href="http://blog.chinaunix.net/link.php?url=http://blog.chinaunix.net" 
+target=_blank>CU博客首页</A> ┊ <A 
+href="http://blog.chinaunix.net/do.php?ac=819edd0a745efc58097086a9ef2fc155">登录</A> 
+<A 
+href="http://blog.chinaunix.net/do.php?ac=8f442ba1e0c79cd3efcd1fd42b8aad8e">注册</A> 
+┊ <A href="http://blog.chinaunix.net/network.php">随便看看</A> </DIV>
+<DIV class=r1>
+<FORM action=cp.php method=get><INPUT id=ac type=hidden value=search name=ac> <INPUT class=btn1 style="MARGIN-BOTTOM: 0px" type=submit> <SELECT id=searchType 
+style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 13px; PADDING-TOP: 0px; HEIGHT: 21px" 
+name=searchType> <OPTION value=blog selected>博文</OPTION> <OPTION 
+  value=friend>博主</OPTION> <OPTION value=album>相册</OPTION> <OPTION 
+  value=poll>投票</OPTION> <OPTION value=event>活动</OPTION></SELECT> <INPUT 
+type=hidden value=chrisniu1984 name=username> <INPUT class=inp1 id=searchkey 
+style="MARGIN-BOTTOM: 0px" name=searchkey> <A class=a1 
+href="http://blog.chinaunix.net/cp.php?ac=blog">发博文</A> 
+</FORM></DIV></DIV></DIV>
+<UL class=dropmenu_drop id=ucappmenu_menu style="DISPLAY: none">
+  <LI><A title=CU论坛 
+  href="http://blog.chinaunix.net/link.php?url=http://bbs.chinaunix.net" 
+  target=_blank>CU论坛首页</A> 
+  <LI><A title=CU博客 
+  href="http://blog.chinaunix.net/link.php?url=http://blog.chinaunix.net" 
+  target=_blank>CU博客首页</A> </LI></UL>
+<DIV id=append_parent style="Z-INDEX: 99999"></DIV>
+<DIV id=ajaxwaitid></DIV><SPAN id=pageSet></SPAN>
+<DIV class=Content id=Content>
+<DIV class=top id=top style="POSITION: relative">
+<DIV class=tm><A 
+href="http://blog.chinaunix.net/link.php?url=http%3A%2F%2Fblog.chinaunix.net%2Fspace.php%3Fuid%3D24462432%26do%3Dblog%26id%3D2327763%26stats%3Dclick" 
+target=_blank>公告：参与Shell 技术征文比赛，赢取实用礼品</A></DIV>
+<DIV class=addr><B id=home_title>牛晨光的博客</B> 
+<P><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173">chrisniu1984.blog.chinaunix.net</A> 
+</P><SPAN id=blog_brief><SPAN id=blog_b>老博客迁移完成！</SPAN>&nbsp;&nbsp;&nbsp; 
+</SPAN>
+<DIV id=blog_brief_form style="DISPLAY: none; HEIGHT: auto">
+<FORM id=brief_form action=do.php?ac=ajax&amp;op=blog_brief method=post><INPUT 
+id=blog_brief style="MARGIN-BOTTOM: 0px" size=50 value=老博客迁移完成！ 
+name=blog_brief></INPUT> <INPUT class=submit style="MARGIN-BOTTOM: 0px; HEIGHT: 20px" onclick=checkBbrief(); type=button value=提交>&nbsp; 
+<INPUT type=hidden value=3190e1cf name=formhash> <INPUT class=submit style="MARGIN-BOTTOM: 0px; HEIGHT: 20px" onclick="s('blog_brief');h('blog_brief_form');" type=button value=取消> 
+</FORM></DIV></DIV>
+<DIV class=daoh><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173">首页</A> | <A class=here 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;view=me&amp;frmd=-1" 
+;>博文目录</A> | <A 
+href="http://blog.chinaunix.net/space.php?do=album&amp;view=me&amp;uid=24382173">相册</A> 
+| <A href="http://blog.chinaunix.net/group.php" target=_blank>博客圈</A> | <A 
+href="http://blog.chinaunix.net/space.php?do=profile&amp;uid=24382173">关于我</A> | 
+<A 
+href="http://blog.chinaunix.net/space.php?do=profile&amp;uid=24382173#comment">留言</A> 
+</DIV></DIV><LINK 
+href="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/fck_editorarea.css" 
+type=text/css rel=stylesheet>
+<DIV class="l2 "><!-- 个人资料 -->
+<DIV class="bor1 mt10" id=profile>
+<DIV class=tit1>个人资料</DIV>
+<DIV class=Img><A href="http://blog.chinaunix.net/space.php?uid=24382173"><IMG 
+onerror="this.onerror=null;this.src='http://bbs.chinaunix.net/uc_server/images/noavatar_big.gif'" 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/73_avatar_big.jpg"></A></DIV>
+<DIV class=Text>
+<DIV class=p1><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173">chrisniu1984</A> </DIV>
+<DIV class=p3 style="HEIGHT: 38px"><A 
+href="http://blog.chinaunix.net/space.php?do=doing&amp;view=me&amp;uid=24382173" 
+target=_blank>微博</A> <A 
+href="http://blog.chinaunix.net/link.php?url=http://bbs.chinaunix.net%2F" 
+target=_blank>论坛</A> </DIV>
+<DIV class=p3><A id=a_pm onclick="ajaxmenu(event, this.id, 1)" 
+href="http://blog.chinaunix.net/cp.php?ac=pm&amp;uid=24382173">发纸条</A> <A 
+id=a_poke onclick="ajaxmenu(event, this.id, 1)" 
+href="http://blog.chinaunix.net/cp.php?ac=poke&amp;op=send&amp;uid=24382173">打招呼</A> 
+<SPAN id=attention><A onclick="attention(24382173 , 'add');" 
+href="javascript:;">加关注</A></SPAN> <A id=a_friend_li 
+onclick="ajaxmenu(event, this.id, 1)" 
+href="http://blog.chinaunix.net/cp.php?ac=friend&amp;op=add&amp;uid=24382173">加好友</A> 
+</DIV>
+<DIV class=list1>
+<UL>
+  <LI>博客访问：8967 
+  <LI>博文数量：95 
+  <LI>博客积分：1572 
+  <LI>博客等级：<A 
+  href="http://blog.chinaunix.net/cp.php?ac=credit&amp;op=usergroup">上尉</A> 
+  <LI>注册时间：2010-08-04 00:03:10 </LI></UL></DIV></DIV></DIV><!-- 文章分类 -->
+<DIV class="bor1 mt10" id=blist>
+<DIV class=tit1>文章分类</DIV>
+<DIV class=allla>
+<DIV class=alll><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;view=me&amp;frmd=-1">全部博文<B>(95)</B></A></DIV>
+<DIV class=alll1><IMG 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/list3.gif"><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;frmd=17260&amp;view=me">其他(5)</A></DIV>
+<DIV class=alll3 id=DIV_17260 style="DISPLAY: none"></DIV>
+<DIV class=alll1><IMG 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/list3.gif"><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;frmd=17235&amp;view=me">原理(17)</A></DIV>
+<DIV class=alll3 id=DIV_17235 style="DISPLAY: none"></DIV>
+<DIV class=alll1><IMG 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/list3.gif"><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;frmd=17234&amp;view=me">使用(45)</A></DIV>
+<DIV class=alll3 id=DIV_17234 style="DISPLAY: none"></DIV>
+<DIV class=alll1><IMG 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/list3.gif"><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;frmd=17189&amp;view=me">开发(23)</A></DIV>
+<DIV class=alll3 id=DIV_17189 style="DISPLAY: none"></DIV>
+<DIV class=alll><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;view=me&amp;frmd=0">未分类博文(5)</A></DIV></DIV></DIV>
+<SCRIPT>
+function opDIV(id){
+if(document.getElementById('DIV_'+id).style.display=='none'){
+document.getElementById('DIV_'+id).style.display='block';
+document.getElementById(id).src="image/list4.gif";
+}else{
+document.getElementById('DIV_'+id).style.display='none';
+document.getElementById(id).src="image/list41.gif";
+}
+}
+</SCRIPT>
+<!-- 订阅我的博客 -->
+<DIV class="bor1 mt10" id=rss>
+<DIV class=tit1>订阅我的博客</DIV>
+<UL class=list3>
+  <LI><A href="http://blog.chinaunix.net/rss.php?uid=24382173"><IMG height=16 
+  alt=订阅 src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/feedsky.gif" 
+  width=49></A> 
+  <LI><A 
+  href="http://www.xianguo.com/subscribe.php?url=http://home.chinaunix.com/rss.php?uid=24382173" 
+  target=_blank><IMG alt=订阅到鲜果 
+  src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/d2.png" border=0></A> 
+  <LI><A 
+  href="http://www.zhuaxia.com/add_channel.php?url=http://home.chinaunix.com/rss.php?uid=24382173" 
+  target=_blank><IMG height=16 alt=订阅到抓虾 
+  src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/d3.png" width=103 
+  border=0></A> 
+  <LI><A 
+  href="http://fusion.google.com/add?feedurl=http://home.chinaunix.com/rss.php?uid=24382173" 
+  target=_blank><IMG height=16 alt=订阅到Google 
+  src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/d4.png" width=103 
+  border=0></A> </LI></UL></DIV><!-- 好友 --><!-- 最近来访 --></DIV>
+<DIV class=r2 id=blog_center><!-- 博文 -->
+<DIV class="bor1 mt10">
+<DIV class=tit5><SPAN>字体大小：<A id=font_16 onclick="doZoom('16');" 
+href="javascript:;">大</A> <A id=font_14 onclick="doZoom('14');" 
+href="javascript:;">中</A> <A id=font_12 onclick="doZoom('12');" 
+href="javascript:;">小</A></SPAN>博文</DIV>
+<DIV class=text>
+<DIV class=tit6><A href="javascript:;">linux内核代码风格（中文）</A> (2011-06-16 15:00) 
+</DIV>
+<DIV class=tit7><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=tag">标签</A>:&nbsp; 
+<A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=tag&amp;id=102671">linux</A>&nbsp; 
+<A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=tag&amp;id=103165">中文</A>&nbsp; 
+分类： <A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;frmd=0&amp;classid=17189&amp;view=me">开发</A> 
+</DIV>
+<DIV class=detail id=detail style="LINE-HEIGHT: 1.3">
+<P>
+<DIV>Chinese translated version of Documentation/CodingStyle</DIV>
+<DIV><BR></DIV>
+<DIV>If you have any comment or update to the content, please post to LKML 
+directly.</DIV>
+<DIV>However, if you have problem communicating in English you can also ask 
+the</DIV>
+<DIV>Chinese maintainer for help. &nbsp;Contact the Chinese maintainer, if 
+this</DIV>
+<DIV>translation is outdated or there is problem with translation.</DIV>
+<DIV><BR></DIV>
+<DIV>Chinese maintainer: Zhang Le &lt;r0bertz@gentoo.org&gt;</DIV>
+<DIV>---------------------------------------------------------------------</DIV>
+<DIV>Documentation/CodingStyle的中文翻译</DIV>
+<DIV><BR></DIV>
+<DIV>如果想评论或更新本文的内容，请直接发信到LKML。如果你使用英文交流有困难的话，也可</DIV>
+<DIV>以向中文版维护者求助。如果本翻译更新不及时或者翻译存在问题，请联系中文版维护者。</DIV>
+<DIV><BR></DIV>
+<DIV>中文版维护者： 张乐 Zhang Le &lt;r0bertz@gentoo.org&gt;</DIV>
+<DIV>中文版翻译者： 张乐 Zhang Le &lt;r0bertz@gentoo.org&gt;</DIV>
+<DIV>中文版校译者： 王聪 Wang Cong &lt;xiyou.wangcong@gmail.com&gt;</DIV>
+<DIV>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;wheelz 
+&lt;kernel.zeng@gmail.com&gt;</DIV>
+<DIV>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;管旭东 Xudong Guan 
+&lt;xudong.guan@gmail.com&gt;</DIV>
+<DIV>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Li Zefan 
+&lt;lizf@cn.fujitsu.com&gt;</DIV>
+<DIV>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Wang Chen 
+&lt;wangchen@cn.fujitsu.com&gt;</DIV>
+<DIV>以下为正文</DIV>
+<DIV>---------------------------------------------------------------------</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>Linux内核代码风格</DIV>
+<DIV><BR></DIV>
+<DIV>这是一个简短的文档，描述了linux内核的首选代码风格。代码风格是因人而异的，而且我</DIV>
+<DIV>不愿意把我的观点强加给任何人，不过这里所讲述的是我必须要维护的代码所遵守的风格，</DIV>
+<DIV>并且我也希望绝大多数其他代码也能遵守这个风格。请在写代码时至少考虑一下本文所述的</DIV>
+<DIV>风格。</DIV>
+<DIV><BR></DIV>
+<DIV>首先，我建议你打印一份GNU代码规范，然后不要读它。烧了它，这是一个具有重大象征性</DIV>
+<DIV>意义的动作。</DIV>
+<DIV><BR></DIV>
+<DIV>不管怎样，现在我们开始：</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN><SPAN 
+class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第一章：缩进</DIV>
+<DIV><BR></DIV>
+<DIV>制表符是8个字符，所以缩进也是8个字符。有些异端运动试图将缩进变为4（乃至2）个字符</DIV>
+<DIV>深，这几乎相当于尝试将圆周率的值定义为3。</DIV>
+<DIV><BR></DIV>
+<DIV>理由：缩进的全部意义就在于清楚的定义一个控制块起止于何处。尤其是当你盯着你的屏幕</DIV>
+<DIV>连续看了20小时之后，你将会发现大一点的缩进会使你更容易分辨缩进。</DIV>
+<DIV><BR></DIV>
+<DIV>现在，有些人会抱怨8个字符的缩进会使代码向右边移动的太远，在80个字符的终端屏幕上</DIV>
+<DIV>就很难读这样的代码。这个问题的答案是，如果你需要3级以上的缩进，不管用何种方式你</DIV>
+<DIV>的代码已经有问题了，应该修正你的程序。</DIV>
+<DIV><BR></DIV>
+<DIV>简而言之，8个字符的缩进可以让代码更容易阅读，还有一个好处是当你的函数嵌套太深的</DIV>
+<DIV>时候可以给你警告。留心这个警告。</DIV>
+<DIV><BR></DIV>
+<DIV>在switch语句中消除多级缩进的首选的方式是让“switch”和从属于它的“case”标签对齐于同</DIV>
+<DIV>一列，而不要“两次缩进”“case”标签。比如：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>switch (suffix) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'G':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'g':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>mem &lt;&lt;= 
+30;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>break;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'M':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'm':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>mem &lt;&lt;= 
+20;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>break;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'K':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 'k':</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>mem &lt;&lt;= 
+10;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>/* fall through 
+*/</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>default:</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>break;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV>不要把多个语句放在一行里，除非你有什么东西要隐藏：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (condition) 
+do_this;</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>&nbsp;do_something_everytime;</DIV>
+<DIV><BR></DIV>
+<DIV>也不要在一行里放多个赋值语句。内核代码风格超级简单。就是避免可能导致别人误读的表</DIV>
+<DIV>达式。</DIV>
+<DIV><BR></DIV>
+<DIV>除了注释、文档和Kconfig之外，不要使用空格来缩进，前面的例子是例外，是有意为之。</DIV>
+<DIV><BR></DIV>
+<DIV>选用一个好的编辑器，不要在行尾留空格。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第二章：把长的行和字符串打散</DIV>
+<DIV><BR></DIV>
+<DIV>代码风格的意义就在于使用平常使用的工具来维持代码的可读性和可维护性。</DIV>
+<DIV><BR></DIV>
+<DIV>每一行的长度的限制是80列，我们强烈建议您遵守这个惯例。</DIV>
+<DIV><BR></DIV>
+<DIV>长于80列的语句要打散成有意义的片段。每个片段要明显短于原来的语句，而且放置的位置</DIV>
+<DIV>也明显的靠右。同样的规则也适用于有很长参数列表的函数头。长字符串也要打散成较短的</DIV>
+<DIV>字符串。唯一的例外是超过80列可以大幅度提高可读性并且不会隐藏信息的情况。</DIV>
+<DIV><BR></DIV>
+<DIV>void fun(int a, int b, int c)</DIV>
+<DIV>{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if 
+(condition)</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>printk(KERN_WARNING "Warning this is a long 
+printk with "</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>"3 parameters a: 
+%u b: %u "</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>"c: %u \n", a, 
+b, c);</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>else</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>next_statement;</DIV>
+<DIV>}</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第三章：大括号和空格的放置</DIV>
+<DIV><BR></DIV>
+<DIV>C语言风格中另外一个常见问题是大括号的放置。和缩进大小不同，选择或弃用某种放置策</DIV>
+<DIV>略并没有多少技术上的原因，不过首选的方式，就像Kernighan和Ritchie展示给我们的，是</DIV>
+<DIV>把起始大括号放在行尾，而把结束大括号放在行首，所以：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (x is true) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>we do y</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><BR></DIV>
+<DIV>这适用于所有的非函数语句块（if、switch、for、while、do）。比如：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>switch (action) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 
+KOBJ_ADD:</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+"add";</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 
+KOBJ_REMOVE:</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+"remove";</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>case 
+KOBJ_CHANGE:</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+"change";</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>default:</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+NULL;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><BR></DIV>
+<DIV>不过，有一个例外，那就是函数：函数的起始大括号放置于下一行的开头，所以：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>int function(int 
+x)</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>body of 
+function</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><BR></DIV>
+<DIV>全世界的异端可能会抱怨这个不一致性是……呃……不一致的，不过所有思维健全的人都知道（</DIV>
+<DIV>a）K&amp;R是_正确的_，并且（b）K&amp;R是正确的。此外，不管怎样函数都是特殊的（在C语言中</DIV>
+<DIV>，函数是不能嵌套的）。</DIV>
+<DIV><BR></DIV>
+<DIV>注意结束大括号独自占据一行，除非它后面跟着同一个语句的剩余部分，也就是do语句中的</DIV>
+<DIV>“while”或者if语句中的“else”，像这样：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do {</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>body of 
+do-loop</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>} while 
+(condition);</DIV>
+<DIV><BR></DIV>
+<DIV>和</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (x == y) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>..</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>} else if (x 
+&gt; y) {</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>...</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>} else {</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>....</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><BR></DIV>
+<DIV>理由：K&amp;R。</DIV>
+<DIV><BR></DIV>
+<DIV>也请注意这种大括号的放置方式也能使空（或者差不多空的）行的数量最小化，同时不失可</DIV>
+<DIV>读性。因此，由于你的屏幕上的新行是不可再生资源（想想25行的终端屏幕），你将会有更</DIV>
+<DIV>多的空行来放置注释。</DIV>
+<DIV><BR></DIV>
+<DIV>当只有一个单独的语句的时候，不用加不必要的大括号。</DIV>
+<DIV><BR></DIV>
+<DIV>if (condition)</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>action();</DIV>
+<DIV><BR></DIV>
+<DIV>这点不适用于本身为某个条件语句的一个分支的单独语句。这时需要在两个分支里都使用大</DIV>
+<DIV>括号。</DIV>
+<DIV><BR></DIV>
+<DIV>if (condition) {</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do_this();</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do_that();</DIV>
+<DIV>} else {</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>otherwise();</DIV>
+<DIV>}</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>3.1：空格</DIV>
+<DIV><BR></DIV>
+<DIV>Linux内核的空格使用方式（主要）取决于它是用于函数还是关键字。（大多数）关键字后</DIV>
+<DIV>要加一个空格。值得注意的例外是sizeof、typeof、alignof和__attribute__，这些关键字</DIV>
+<DIV>某些程度上看起来更像函数（它们在Linux里也常常伴随小括号而使用，尽管在C语言里这样</DIV>
+<DIV>的小括号不是必需的，就像“struct fileinfo info”声明过后的“sizeof info”）。</DIV>
+<DIV><BR></DIV>
+<DIV>所以在这些关键字之后放一个空格：</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if, switch, 
+case, for, do, while</DIV>
+<DIV>但是不要在sizeof、typeof、alignof或者__attribute__这些关键字之后放空格。例如，</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>s = 
+sizeof(struct file);</DIV>
+<DIV><BR></DIV>
+<DIV>不要在小括号里的表达式两侧加空格。这是一个反例：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>s = sizeof( 
+struct file );</DIV>
+<DIV><BR></DIV>
+<DIV>当声明指针类型或者返回指针类型的函数时，“*”的首选使用方式是使之靠近变量名或者函</DIV>
+<DIV>数名，而不是靠近类型名。例子：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>char 
+*linux_banner;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>unsigned long 
+long memparse(char *ptr, char **retptr);</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>char 
+*match_strdup(substring_t *s);</DIV>
+<DIV><BR></DIV>
+<DIV>在大多数二元和三元操作符两侧使用一个空格，例如下面所有这些操作符：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>= &nbsp;+ 
+&nbsp;- &nbsp;&lt; &nbsp;&gt; &nbsp;* &nbsp;/ &nbsp;% &nbsp;| &nbsp;&amp; 
+&nbsp;^ &nbsp;&lt;= &nbsp;&gt;= &nbsp;== &nbsp;!= &nbsp;? &nbsp;:</DIV>
+<DIV><BR></DIV>
+<DIV>但是一元操作符后不要加空格：</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>&amp; &nbsp;* 
+&nbsp;+ &nbsp;- &nbsp;~ &nbsp;! &nbsp;sizeof &nbsp;typeof &nbsp;alignof 
+&nbsp;__attribute__ &nbsp;defined</DIV>
+<DIV><BR></DIV>
+<DIV>后缀自加和自减一元操作符前不加空格：</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>++ 
+&nbsp;--</DIV>
+<DIV><BR></DIV>
+<DIV>前缀自加和自减一元操作符后不加空格：</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>++ 
+&nbsp;--</DIV>
+<DIV><BR></DIV>
+<DIV>“.”和“-&gt;”结构体成员操作符前后不加空格。</DIV>
+<DIV><BR></DIV>
+<DIV>不要在行尾留空白。有些可以自动缩进的编辑器会在新行的行首加入适量的空白，然后你</DIV>
+<DIV>就可以直接在那一行输入代码。不过假如你最后没有在那一行输入代码，有些编辑器就不</DIV>
+<DIV>会移除已经加入的空白，就像你故意留下一个只有空白的行。包含行尾空白的行就这样产</DIV>
+<DIV>生了。</DIV>
+<DIV><BR></DIV>
+<DIV>当git发现补丁包含了行尾空白的时候会警告你，并且可以应你的要求去掉行尾空白；不过</DIV>
+<DIV>如果你是正在打一系列补丁，这样做会导致后面的补丁失败，因为你改变了补丁的上下文。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第四章：命名</DIV>
+<DIV><BR></DIV>
+<DIV>C是一个简朴的语言，你的命名也应该这样。和Modula-2和Pascal程序员不同，C程序员不使</DIV>
+<DIV>用类似ThisVariableIsATemporaryCounter这样华丽的名字。C程序员会称那个变量为“tmp”</DIV>
+<DIV>，这样写起来会更容易，而且至少不会令其难于理解。</DIV>
+<DIV><BR></DIV>
+<DIV>不过，虽然混用大小写的名字是不提倡使用的，但是全局变量还是需要一个具描述性的名字</DIV>
+<DIV>。称一个全局函数为“foo”是一个难以饶恕的错误。</DIV>
+<DIV><BR></DIV>
+<DIV>全局变量（只有当你真正需要它们的时候再用它）需要有一个具描述性的名字，就像全局函</DIV>
+<DIV>数。如果你有一个可以计算活动用户数量的函数，你应该叫它“count_active_users()”或者</DIV>
+<DIV>类似的名字，你不应该叫它“cntuser()”。</DIV>
+<DIV><BR></DIV>
+<DIV>在函数名中包含函数类型（所谓的匈牙利命名法）是脑子出了问题——编译器知道那些类型而</DIV>
+<DIV>且能够检查那些类型，这样做只能把程序员弄糊涂了。难怪微软总是制造出有问题的程序。</DIV>
+<DIV><BR></DIV>
+<DIV>本地变量名应该简短，而且能够表达相关的含义。如果你有一些随机的整数型的循环计数器</DIV>
+<DIV>，它应该被称为“i”。叫它“loop_counter”并无益处，如果它没有被误解的可能的话。类似</DIV>
+<DIV>的，“tmp”可以用来称呼任意类型的临时变量。</DIV>
+<DIV><BR></DIV>
+<DIV>如果你怕混淆了你的本地变量名，你就遇到另一个问题了，叫做函数增长荷尔蒙失衡综合症</DIV>
+<DIV>。请看第六章（函数）。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第五章：Typedef</DIV>
+<DIV><BR></DIV>
+<DIV>不要使用类似“vps_t”之类的东西。</DIV>
+<DIV><BR></DIV>
+<DIV>对结构体和指针使用typedef是一个错误。当你在代码里看到：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>vps_t a;</DIV>
+<DIV><BR></DIV>
+<DIV>这代表什么意思呢？</DIV>
+<DIV><BR></DIV>
+<DIV>相反，如果是这样</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>struct 
+virtual_container *a;</DIV>
+<DIV><BR></DIV>
+<DIV>你就知道“a”是什么了。</DIV>
+<DIV><BR></DIV>
+<DIV>很多人认为typedef“能提高可读性”。实际不是这样的。它们只在下列情况下有用：</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp;(a) 完全不透明的对象（这种情况下要主动使用typedef来隐藏这个对象实际上是什么）。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;例如：“pte_t”等不透明对象，你只能用合适的访问函数来访问它们。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;注意！不透明性和“访问函数”本身是不好的。我们使用pte_t等类型的原因在于真的是</DIV>
+<DIV>&nbsp; &nbsp; &nbsp;完全没有任何共用的可访问信息。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp;(b) 清楚的整数类型，如此，这层抽象就可以帮助消除到底是“int”还是“long”的混淆。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;u8/u16/u32是完全没有问题的typedef，不过它们更符合类别(d)而不是这里。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;再次注意！要这样做，必须事出有因。如果某个变量是“unsigned long“，那么没有必要</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>typedef unsigned 
+long myflags_t;</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;不过如果有一个明确的原因，比如它在某种情况下可能会是一个“unsigned int”而在</DIV>
+<DIV>&nbsp; &nbsp; &nbsp;其他情况下可能为“unsigned long”，那么就不要犹豫，请务必使用typedef。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp;(c) 当你使用sparse按字面的创建一个新类型来做类型检查的时候。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp;(d) 和标准C99类型相同的类型，在某些例外的情况下。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;虽然让眼睛和脑筋来适应新的标准类型比如“uint32_t”不需要花很多时间，可是有些</DIV>
+<DIV>&nbsp; &nbsp; &nbsp;人仍然拒绝使用它们。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;因此，Linux特有的等同于标准类型的“u8/u16/u32/u64”类型和它们的有符号类型是被</DIV>
+<DIV>&nbsp; &nbsp; &nbsp;允许的——尽管在你自己的新代码中，它们不是强制要求要使用的。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;当编辑已经使用了某个类型集的已有代码时，你应该遵循那些代码中已经做出的选择。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp;(e) 可以在用户空间安全使用的类型。</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; &nbsp; &nbsp;在某些用户空间可见的结构体里，我们不能要求C99类型而且不能用上面提到的“u32”</DIV>
+<DIV>&nbsp; &nbsp; &nbsp;类型。因此，我们在与用户空间共享的所有结构体中使用__u32和类似的类型。</DIV>
+<DIV><BR></DIV>
+<DIV>可能还有其他的情况，不过基本的规则是永远不要使用typedef，除非你可以明确的应用上</DIV>
+<DIV>述某个规则中的一个。</DIV>
+<DIV><BR></DIV>
+<DIV>总的来说，如果一个指针或者一个结构体里的元素可以合理的被直接访问到，那么它们就不</DIV>
+<DIV>应该是一个typedef。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第六章：函数</DIV>
+<DIV><BR></DIV>
+<DIV>函数应该简短而漂亮，并且只完成一件事情。函数应该可以一屏或者两屏显示完（我们都知</DIV>
+<DIV>道ISO/ANSI屏幕大小是80x24），只做一件事情，而且把它做好。</DIV>
+<DIV><BR></DIV>
+<DIV>一个函数的最大长度是和该函数的复杂度和缩进级数成反比的。所以，如果你有一个理论上</DIV>
+<DIV>很简单的只有一个很长（但是简单）的case语句的函数，而且你需要在每个case里做很多很</DIV>
+<DIV>小的事情，这样的函数尽管很长，但也是可以的。</DIV>
+<DIV><BR></DIV>
+<DIV>不过，如果你有一个复杂的函数，而且你怀疑一个天分不是很高的高中一年级学生可能甚至</DIV>
+<DIV>搞不清楚这个函数的目的，你应该严格的遵守前面提到的长度限制。使用辅助函数，并为之</DIV>
+<DIV>取个具描述性的名字（如果你觉得它们的性能很重要的话，可以让编译器内联它们，这样的</DIV>
+<DIV>效果往往会比你写一个复杂函数的效果要好。）</DIV>
+<DIV><BR></DIV>
+<DIV>函数的另外一个衡量标准是本地变量的数量。此数量不应超过5－10个，否则你的函数就有</DIV>
+<DIV>问题了。重新考虑一下你的函数，把它分拆成更小的函数。人的大脑一般可以轻松的同时跟</DIV>
+<DIV>踪7个不同的事物，如果再增多的话，就会糊涂了。即便你聪颖过人，你也可能会记不清你2</DIV>
+<DIV>个星期前做过的事情。</DIV>
+<DIV><BR></DIV>
+<DIV>在源文件里，使用空行隔开不同的函数。如果该函数需要被导出，它的EXPORT*宏应该紧贴</DIV>
+<DIV>在它的结束大括号之下。比如：</DIV>
+<DIV><BR></DIV>
+<DIV>int system_is_up(void)</DIV>
+<DIV>{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+system_state == SYSTEM_RUNNING;</DIV>
+<DIV>}</DIV>
+<DIV>EXPORT_SYMBOL(system_is_up);</DIV>
+<DIV><BR></DIV>
+<DIV>在函数原型中，包含函数名和它们的数据类型。虽然C语言里没有这样的要求，在Linux里这</DIV>
+<DIV>是提倡的做法，因为这样可以很简单的给读者提供更多的有价值的信息。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第七章：集中的函数退出途径</DIV>
+<DIV><BR></DIV>
+<DIV>虽然被某些人声称已经过时，但是goto语句的等价物还是经常被编译器所使用，具体形式是</DIV>
+<DIV>无条件跳转指令。</DIV>
+<DIV><BR></DIV>
+<DIV>当一个函数从多个位置退出并且需要做一些通用的清理工作的时候，goto的好处就显现出来</DIV>
+<DIV>了。</DIV>
+<DIV><BR></DIV>
+<DIV>理由是：</DIV>
+<DIV><BR></DIV>
+<DIV>- 无条件语句容易理解和跟踪</DIV>
+<DIV>- 嵌套程度减小</DIV>
+<DIV>- 可以避免由于修改时忘记更新某个单独的退出点而导致的错误</DIV>
+<DIV>- 减轻了编译器的工作，无需删除冗余代码;)</DIV>
+<DIV><BR></DIV>
+<DIV>int fun(int a)</DIV>
+<DIV>{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>int result = 
+0;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>char *buffer = 
+kmalloc(SIZE);</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (buffer == 
+NULL)</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+-ENOMEM;</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (condition1) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>while (loop1) 
+{</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>...</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>result = 
+1;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>goto out;</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>}</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>...</DIV>
+<DIV>out:</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>kfree(buffer);</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+result;</DIV>
+<DIV>}</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第八章：注释</DIV>
+<DIV><BR></DIV>
+<DIV>注释是好的，不过有过度注释的危险。永远不要在注释里解释你的代码是如何运作的：更好</DIV>
+<DIV>的做法是让别人一看你的代码就可以明白，解释写的很差的代码是浪费时间。</DIV>
+<DIV><BR></DIV>
+<DIV>一般的，你想要你的注释告诉别人你的代码做了什么，而不是怎么做的。也请你不要把注释</DIV>
+<DIV>放在一个函数体内部：如果函数复杂到你需要独立的注释其中的一部分，你很可能需要回到</DIV>
+<DIV>第六章看一看。你可以做一些小注释来注明或警告某些很聪明（或者槽糕）的做法，但不要</DIV>
+<DIV>加太多。你应该做的，是把注释放在函数的头部，告诉人们它做了什么，也可以加上它做这</DIV>
+<DIV>些事情的原因。</DIV>
+<DIV><BR></DIV>
+<DIV>当注释内核API函数时，请使用kernel-doc格式。请看</DIV>
+<DIV>Documentation/kernel-doc-nano-HOWTO.txt和scripts/kernel-doc以获得详细信息。</DIV>
+<DIV><BR></DIV>
+<DIV>Linux的注释风格是C89“/* ... */”风格。不要使用C99风格“// ...”注释。</DIV>
+<DIV><BR></DIV>
+<DIV>长（多行）的首选注释风格是：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>/*</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>* This is the 
+preferred style for multi-line</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>* comments in 
+the Linux kernel source code.</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>* Please use it 
+consistently.</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>*</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>* Description: 
+&nbsp;A column of asterisks on the left side,</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>* with beginning 
+and ending almost-blank lines.</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>*/</DIV>
+<DIV><BR></DIV>
+<DIV>注释数据也是很重要的，不管是基本类型还是衍生类型。为了方便实现这一点，每一行应只</DIV>
+<DIV>声明一个数据（不要使用逗号来一次声明多个数据）。这样你就有空间来为每个数据写一段</DIV>
+<DIV>小注释来解释它们的用途了。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第九章：你已经把事情弄糟了</DIV>
+<DIV><BR></DIV>
+<DIV>这没什么，我们都是这样。可能你的使用了很长时间Unix的朋友已经告诉你“GNU emacs”能</DIV>
+<DIV>自动帮你格式化C源代码，而且你也注意到了，确实是这样，不过它所使用的默认值和我们</DIV>
+<DIV>想要的相去甚远（实际上，甚至比随机打的还要差——无数个猴子在GNU emacs里打字永远不</DIV>
+<DIV>会创造出一个好程序）（译注：请参考Infinite Monkey Theorem）</DIV>
+<DIV><BR></DIV>
+<DIV>所以你要么放弃GNU emacs，要么改变它让它使用更合理的设定。要采用后一个方案，你可</DIV>
+<DIV>以把下面这段粘贴到你的.emacs文件里。</DIV>
+<DIV><BR></DIV>
+<DIV>(defun linux-c-mode ()</DIV>
+<DIV>&nbsp; "C mode with adjusted defaults for use with the Linux kernel."</DIV>
+<DIV>&nbsp; (interactive)</DIV>
+<DIV>&nbsp; (c-mode)</DIV>
+<DIV>&nbsp; (c-set-style "K&amp;R")</DIV>
+<DIV>&nbsp; (setq tab-width 8)</DIV>
+<DIV>&nbsp; (setq indent-tabs-mode t)</DIV>
+<DIV>&nbsp; (setq c-basic-offset 8))</DIV>
+<DIV><BR></DIV>
+<DIV>这样就定义了M-x linux-c-mode命令。当你hack一个模块的时候，如果你把字符串</DIV>
+<DIV>-*- linux-c -*-放在头两行的某个位置，这个模式将会被自动调用。如果你希望在你修改</DIV>
+<DIV>/usr/src/linux里的文件时魔术般自动打开linux-c-mode的话，你也可能需要添加</DIV>
+<DIV><BR></DIV>
+<DIV>(setq auto-mode-alist (cons '("/usr/src/linux.*/.*\\.[ch]$" . 
+linux-c-mode)</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>auto-mode-alist))</DIV>
+<DIV><BR></DIV>
+<DIV>到你的.emacs文件里。</DIV>
+<DIV><BR></DIV>
+<DIV>不过就算你尝试让emacs正确的格式化代码失败了，也并不意味着你失去了一切：还可以用“</DIV>
+<DIV>indent”。</DIV>
+<DIV><BR></DIV>
+<DIV>不过，GNU indent也有和GNU emacs一样有问题的设定，所以你需要给它一些命令选项。不</DIV>
+<DIV>过，这还不算太糟糕，因为就算是GNU indent的作者也认同K&amp;R的权威性（GNU的人并不是坏</DIV>
+<DIV>人，他们只是在这个问题上被严重的误导了），所以你只要给indent指定选项“-kr -i8”</DIV>
+<DIV>（代表“K&amp;R，8个字符缩进”），或者使用“scripts/Lindent”，这样就可以以最时髦的方式</DIV>
+<DIV>缩进源代码。</DIV>
+<DIV><BR></DIV>
+<DIV>“indent”有很多选项，特别是重新格式化注释的时候，你可能需要看一下它的手册页。不过</DIV>
+<DIV>记住：“indent”不能修正坏的编程习惯。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十章：Kconfig配置文件</DIV>
+<DIV><BR></DIV>
+<DIV>对于遍布源码树的所有Kconfig*配置文件来说，它们缩进方式与C代码相比有所不同。紧挨</DIV>
+<DIV>在“config”定义下面的行缩进一个制表符，帮助信息则再多缩进2个空格。比如：</DIV>
+<DIV><BR></DIV>
+<DIV>config AUDIT</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>bool "Auditing 
+support"</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>depends on 
+NET</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>help</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>&nbsp;Enable 
+auditing infrastructure that can be used with another</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>&nbsp;kernel 
+subsystem, such as SELinux (which requires this for</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>&nbsp;logging of 
+avc messages output). &nbsp;Does not do system-call</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>&nbsp;auditing 
+without CONFIG_AUDITSYSCALL.</DIV>
+<DIV><BR></DIV>
+<DIV>仍然被认为不够稳定的功能应该被定义为依赖于“EXPERIMENTAL”：</DIV>
+<DIV><BR></DIV>
+<DIV>config SLUB</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>depends on 
+EXPERIMENTAL &amp;&amp; !ARCH_USES_SLAB_PAGE_STRUCT</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>bool "SLUB 
+(Unqueued Allocator)"</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>...</DIV>
+<DIV><BR></DIV>
+<DIV>而那些危险的功能（比如某些文件系统的写支持）应该在它们的提示字符串里显著的声明这</DIV>
+<DIV>一点：</DIV>
+<DIV><BR></DIV>
+<DIV>config ADFS_FS_RW</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>bool "ADFS write 
+support (DANGEROUS)"</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>depends on 
+ADFS_FS</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>...</DIV>
+<DIV><BR></DIV>
+<DIV>要查看配置文件的完整文档，请看Documentation/kbuild/kconfig-language.txt。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第十一章：数据结构</DIV>
+<DIV><BR></DIV>
+<DIV>如果一个数据结构，在创建和销毁它的单线执行环境之外可见，那么它必须要有一个引用计</DIV>
+<DIV>数器。内核里没有垃圾收集（并且内核之外的垃圾收集慢且效率低下），这意味着你绝对需</DIV>
+<DIV>要记录你对这种数据结构的使用情况。</DIV>
+<DIV><BR></DIV>
+<DIV>引用计数意味着你能够避免上锁，并且允许多个用户并行访问这个数据结构——而不需要担心</DIV>
+<DIV>这个数据结构仅仅因为暂时不被使用就消失了，那些用户可能不过是沉睡了一阵或者做了一</DIV>
+<DIV>些其他事情而已。</DIV>
+<DIV><BR></DIV>
+<DIV>注意上锁不能取代引用计数。上锁是为了保持数据结构的一致性，而引用计数是一个内存管</DIV>
+<DIV>理技巧。通常二者都需要，不要把两个搞混了。</DIV>
+<DIV><BR></DIV>
+<DIV>很多数据结构实际上有2级引用计数，它们通常有不同“类”的用户。子类计数器统计子类用</DIV>
+<DIV>户的数量，每当子类计数器减至零时，全局计数器减一。</DIV>
+<DIV><BR></DIV>
+<DIV>这种“多级引用计数”的例子可以在内存管理（“struct mm_struct”：mm_users和mm_count）</DIV>
+<DIV>和文件系统（“struct super_block”：s_count和s_active）中找到。</DIV>
+<DIV><BR></DIV>
+<DIV>记住：如果另一个执行线索可以找到你的数据结构，但是这个数据结构没有引用计数器，这</DIV>
+<DIV>里几乎肯定是一个bug。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十二章：宏，枚举和RTL</DIV>
+<DIV><BR></DIV>
+<DIV>用于定义常量的宏的名字及枚举里的标签需要大写。</DIV>
+<DIV><BR></DIV>
+<DIV>#define CONSTANT 0x12345</DIV>
+<DIV><BR></DIV>
+<DIV>在定义几个相关的常量时，最好用枚举。</DIV>
+<DIV><BR></DIV>
+<DIV>宏的名字请用大写字母，不过形如函数的宏的名字可以用小写字母。</DIV>
+<DIV><BR></DIV>
+<DIV>一般的，如果能写成内联函数就不要写成像函数的宏。</DIV>
+<DIV><BR></DIV>
+<DIV>含有多个语句的宏应该被包含在一个do-while代码块里：</DIV>
+<DIV><BR></DIV>
+<DIV>#define macrofun(a, b, c) <SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do {<SPAN 
+class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (a == 5)<SPAN 
+class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do_this(b, 
+c);<SPAN class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>} while 
+(0)</DIV>
+<DIV><BR></DIV>
+<DIV>使用宏的时候应避免的事情：</DIV>
+<DIV><BR></DIV>
+<DIV>1) 影响控制流程的宏：</DIV>
+<DIV><BR></DIV>
+<DIV>#define FOO(x)<SPAN class=Apple-tab-span style="WHITE-SPACE: pre"> 
+</SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>do {<SPAN 
+class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>if (blah(x) &lt; 
+0)<SPAN class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>return 
+-EBUGGERED;<SPAN class=Apple-tab-span style="WHITE-SPACE: pre"> </SPAN>\</DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>} while(0)</DIV>
+<DIV><BR></DIV>
+<DIV>非常不好。它看起来像一个函数，不过却能导致“调用”它的函数退出；不要打乱读者大脑里</DIV>
+<DIV>的语法分析器。</DIV>
+<DIV><BR></DIV>
+<DIV>2) 依赖于一个固定名字的本地变量的宏：</DIV>
+<DIV><BR></DIV>
+<DIV>#define FOO(val) bar(index, val)</DIV>
+<DIV><BR></DIV>
+<DIV>可能看起来像是个不错的东西，不过它非常容易把读代码的人搞糊涂，而且容易导致看起来</DIV>
+<DIV>不相关的改动带来错误。</DIV>
+<DIV><BR></DIV>
+<DIV>3) 作为左值的带参数的宏： FOO(x) = y；如果有人把FOO变成一个内联函数的话，这种用</DIV>
+<DIV>法就会出错了。</DIV>
+<DIV><BR></DIV>
+<DIV>4) 忘记了优先级：使用表达式定义常量的宏必须将表达式置于一对小括号之内。带参数的</DIV>
+<DIV>宏也要注意此类问题。</DIV>
+<DIV><BR></DIV>
+<DIV>#define CONSTANT 0x4000</DIV>
+<DIV>#define CONSTEXP (CONSTANT | 3)</DIV>
+<DIV><BR></DIV>
+<DIV>cpp手册对宏的讲解很详细。Gcc internals手册也详细讲解了RTL（译注：register</DIV>
+<DIV>transfer language），内核里的汇编语言经常用到它。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十三章：打印内核消息</DIV>
+<DIV><BR></DIV>
+<DIV>内核开发者应该是受过良好教育的。请一定注意内核信息的拼写，以给人以好的印象。不要</DIV>
+<DIV>用不规范的单词比如“dont”，而要用“do not”或者“don't”。保证这些信息简单、明了、无</DIV>
+<DIV>歧义。</DIV>
+<DIV><BR></DIV>
+<DIV>内核信息不必以句号（译注：英文句号，即点）结束。</DIV>
+<DIV><BR></DIV>
+<DIV>在小括号里打印数字(%d)没有任何价值，应该避免这样做。</DIV>
+<DIV><BR></DIV>
+<DIV>&lt;linux/device.h&gt;里有一些驱动模型诊断宏，你应该使用它们，以确保信息对应于正确的</DIV>
+<DIV>设备和驱动，并且被标记了正确的消息级别。这些宏有：dev_err(), dev_warn(),</DIV>
+<DIV>dev_info()等等。对于那些不和某个特定设备相关连的信息，&lt;linux/kernel.h&gt;定义了</DIV>
+<DIV>pr_debug()和pr_info()。</DIV>
+<DIV><BR></DIV>
+<DIV>写出好的调试信息可以是一个很大的挑战；当你写出来之后，这些信息在远程除错的时候</DIV>
+<DIV>就会成为极大的帮助。当DEBUG符号没有被定义的时候，这些信息不应该被编译进内核里</DIV>
+<DIV>（也就是说，默认地，它们不应该被包含在内）。如果你使用dev_dbg()或者pr_debug()，</DIV>
+<DIV>就能自动达到这个效果。很多子系统拥有Kconfig选项来启用-DDEBUG。还有一个相关的惯例</DIV>
+<DIV>是使用VERBOSE_DEBUG来添加dev_vdbg()消息到那些已经由DEBUG启用的消息之上。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第十四章：分配内存</DIV>
+<DIV><BR></DIV>
+<DIV>内核提供了下面的一般用途的内存分配函数：kmalloc()，kzalloc()，kcalloc()和</DIV>
+<DIV>vmalloc()。请参考API文档以获取有关它们的详细信息。</DIV>
+<DIV><BR></DIV>
+<DIV>传递结构体大小的首选形式是这样的：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>p = 
+kmalloc(sizeof(*p), ...);</DIV>
+<DIV><BR></DIV>
+<DIV>另外一种传递方式中，sizeof的操作数是结构体的名字，这样会降低可读性，并且可能会引</DIV>
+<DIV>入bug。有可能指针变量类型被改变时，而对应的传递给内存分配函数的sizeof的结果不变。</DIV>
+<DIV><BR></DIV>
+<DIV>强制转换一个void指针返回值是多余的。C语言本身保证了从void指针到其他任何指针类型</DIV>
+<DIV>的转换是没有问题的。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>第十五章：内联弊病</DIV>
+<DIV><BR></DIV>
+<DIV>有一个常见的误解是内联函数是gcc提供的可以让代码运行更快的一个选项。虽然使用内联</DIV>
+<DIV>函数有时候是恰当的（比如作为一种替代宏的方式，请看第十二章），不过很多情况下不是</DIV>
+<DIV>这样。inline关键字的过度使用会使内核变大，从而使整个系统运行速度变慢。因为大内核</DIV>
+<DIV>会占用更多的指令高速缓存（译注：一级缓存通常是指令缓存和数据缓存分开的）而且会导</DIV>
+<DIV>致pagecache的可用内存减少。想象一下，一次pagecache未命中就会导致一次磁盘寻址，将</DIV>
+<DIV>耗时5毫秒。5毫秒的时间内CPU能执行很多很多指令。</DIV>
+<DIV><BR></DIV>
+<DIV>一个基本的原则是如果一个函数有3行以上，就不要把它变成内联函数。这个原则的一个例</DIV>
+<DIV>外是，如果你知道某个参数是一个编译时常量，而且因为这个常量你确定编译器在编译时能</DIV>
+<DIV>优化掉你的函数的大部分代码，那仍然可以给它加上inline关键字。kmalloc()内联函数就</DIV>
+<DIV>是一个很好的例子。</DIV>
+<DIV><BR></DIV>
+<DIV>人们经常主张给static的而且只用了一次的函数加上inline，如此不会有任何损失，因为没</DIV>
+<DIV>有什么好权衡的。虽然从技术上说这是正确的，但是实际上这种情况下即使不加inline gcc</DIV>
+<DIV>也可以自动使其内联。而且其他用户可能会要求移除inline，由此而来的争论会抵消inline</DIV>
+<DIV>自身的潜在价值，得不偿失。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十六章：函数返回值及命名</DIV>
+<DIV><BR></DIV>
+<DIV>函数可以返回很多种不同类型的值，最常见的一种是表明函数执行成功或者失败的值。这样</DIV>
+<DIV>的一个值可以表示为一个错误代码整数（-Exxx＝失败，0＝成功）或者一个“成功”布尔值（</DIV>
+<DIV>0＝失败，非0＝成功）。</DIV>
+<DIV><BR></DIV>
+<DIV>混合使用这两种表达方式是难于发现的bug的来源。如果C语言本身严格区分整形和布尔型变</DIV>
+<DIV>量，那么编译器就能够帮我们发现这些错误……不过C语言不区分。为了避免产生这种bug，请</DIV>
+<DIV>遵循下面的惯例：</DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>如果函数的名字是一个动作或者强制性的命令，那么这个函数应该返回错误代码整</DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>数。如果是一个判断，那么函数应该返回一个“成功”布尔值。</DIV>
+<DIV><BR></DIV>
+<DIV>比如，“add work”是一个命令，所以add_work()函数在成功时返回0，在失败时返回-EBUSY。</DIV>
+<DIV>类似的，因为“PCI device present”是一个判断，所以pci_dev_present()函数在成功找到</DIV>
+<DIV>一个匹配的设备时应该返回1，如果找不到时应该返回0。</DIV>
+<DIV><BR></DIV>
+<DIV>所有导出（译注：EXPORT）的函数都必须遵守这个惯例，所有的公共函数也都应该如此。私</DIV>
+<DIV>有（static）函数不需要如此，但是我们也推荐这样做。</DIV>
+<DIV><BR></DIV>
+<DIV>返回值是实际计算结果而不是计算是否成功的标志的函数不受此惯例的限制。一般的，他们</DIV>
+<DIV>通过返回一些正常值范围之外的结果来表示出错。典型的例子是返回指针的函数，他们使用</DIV>
+<DIV>NULL或者ERR_PTR机制来报告错误。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十七章：不要重新发明内核宏</DIV>
+<DIV><BR></DIV>
+<DIV>头文件include/linux/kernel.h包含了一些宏，你应该使用它们，而不要自己写一些它们的</DIV>
+<DIV>变种。比如，如果你需要计算一个数组的长度，使用这个宏</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))</DIV>
+<DIV><BR></DIV>
+<DIV>类似的，如果你要计算某结构体成员的大小，使用</DIV>
+<DIV><BR></DIV>
+<DIV>&nbsp; #define FIELD_SIZEOF(t, f) (sizeof(((t*)0)-&gt;f))</DIV>
+<DIV><BR></DIV>
+<DIV>还有可以做严格的类型检查的min()和max()宏，如果你需要可以使用它们。你可以自己看看</DIV>
+<DIV>那个头文件里还定义了什么你可以拿来用的东西，如果有定义的话，你就不应在你的代码里</DIV>
+<DIV>自己重新定义。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span 
+style="WHITE-SPACE: pre"></SPAN>第十八章：编辑器模式行和其他需要罗嗦的事情</DIV>
+<DIV><BR></DIV>
+<DIV>有一些编辑器可以解释嵌入在源文件里的由一些特殊标记标明的配置信息。比如，emacs</DIV>
+<DIV>能够解释被标记成这样的行：</DIV>
+<DIV><BR></DIV>
+<DIV>-*- mode: c -*-</DIV>
+<DIV><BR></DIV>
+<DIV>或者这样的：</DIV>
+<DIV><BR></DIV>
+<DIV>/*</DIV>
+<DIV>Local Variables:</DIV>
+<DIV>compile-command: "gcc -DMAGIC_DEBUG_FLAG foo.c"</DIV>
+<DIV>End:</DIV>
+<DIV>*/</DIV>
+<DIV><BR></DIV>
+<DIV>Vim能够解释这样的标记：</DIV>
+<DIV><BR></DIV>
+<DIV>/* vim:set sw=8 noet */</DIV>
+<DIV><BR></DIV>
+<DIV>不要在源代码中包含任何这样的内容。每个人都有他自己的编辑器配置，你的源文件不应</DIV>
+<DIV>该覆盖别人的配置。这包括有关缩进和模式配置的标记。人们可以使用他们自己定制的模</DIV>
+<DIV>式，或者使用其他可以产生正确的缩进的巧妙方法。</DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><BR></DIV>
+<DIV><SPAN class=Apple-tab-span style="WHITE-SPACE: pre"></SPAN>附录 I：参考</DIV>
+<DIV><BR></DIV>
+<DIV>The C Programming Language, 第二版, 作者Brian W. Kernighan和Denni</DIV>
+<DIV>M. Ritchie. Prentice Hall, Inc., 1988. ISBN 0-13-110362-8 (软皮),</DIV>
+<DIV>0-13-110370-9 (硬皮). URL: http://cm.bell-labs.com/cm/cs/cbook/</DIV>
+<DIV><BR></DIV>
+<DIV>The Practice of Programming 作者Brian W. Kernighan和Rob Pike. 
+&nbsp;Addison-Wesley,</DIV>
+<DIV>Inc., 1999. &nbsp;ISBN 0-201-61586-X. &nbsp;URL: 
+http://cm.bell-labs.com/cm/cs/tpop/</DIV>
+<DIV><BR></DIV>
+<DIV>cpp，gcc，gcc internals和indent的GNU手册——和K&amp;R及本文相符合的部分，全部可以在</DIV>
+<DIV>http://www.gnu.org/manual/找到</DIV>
+<DIV><BR></DIV>
+<DIV>WG14是C语言的国际标准化工作组，URL: http://www.open-std.org/JTC1/SC22/WG14/</DIV>
+<DIV><BR></DIV>
+<DIV>Kernel CodingStyle，作者greg@kroah.com发表于OLS 2002：</DIV>
+<DIV>http://www.kroah.com/linux/talks/ols_2002_kernel_codingstyle_talk/html/</DIV>
+<DIV><BR></DIV>
+<DIV>--</DIV>
+<DIV>最后更新于2007年7月13日。</DIV>
+<DIV><BR></DIV>
+<P></P></DIV></DIV>
+<DIV class=cont5>
+<DIV class=t>我的更多文章</DIV>
+<UL>
+  <LI><A 
+  href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=1744793">dolphin：Ubuntu 
+  Linux下的WII模拟器</A> (2011-07-19 16:39:01) </LI>
+  <LI><A 
+  href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=443199">find查找过期文件</A> 
+  (2011-06-24 11:10:10) </LI>
+  <LI><A 
+  href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=431032">ubuntu和redhat的crontab配置文件位置</A> 
+  (2011-06-23 15:14:09) </LI>
+  <LI><A 
+  href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=406265">heap,stack,shm,mmap访问速度对比</A> 
+  (2011-06-22 18:06:00) </LI>
+  <LI><A 
+  href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=375035">Linux中的DRM</A> 
+  (2011-06-16 17:18:54) </LI></UL></DIV>
+<DIV class=cont6><!-- 分享 -->
+<DIV class=fx>
+<DIV class=icon><!-- JiaThis Button BEGIN -->
+<DIV id=ckepop><A class="jiathis jiathis_txt jtico jtico_jiathis" 
+href="http://blog.chinaunix.net/link.php?url=http://www.jiathis.com%2Fshare%2F" 
+target=_blank>分享到：</A> <A class=jiathis_button_tsina>新浪微博</A> <A 
+class=jiathis_button_qzone>QQ空间</A> <A class=jiathis_button_kaixin001>开心网</A> <A 
+class=jiathis_button_douban>豆瓣</A> <A class=jiathis_button_renren>人人网</A> <A 
+class=jiathis_button_twitter>twitter</A> <A class=jiathis_button_fb>fb</A> 
+</DIV>
+<SCRIPT src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/jia.js" 
+type=text/javascript charset=utf-8></SCRIPT>
+<!-- JiaThis Button END --></DIV><SPAN style="CURSOR: pointer"><A 
+id=support>0</A> <BR><A id=click_blogid_374709 
+onclick="ajaxmenu(event, this.id,0, 2000, 'doSupport')" 
+href="http://blog.chinaunix.net/cp.php?ac=click&amp;op=add&amp;clickid=4&amp;idtype=blogid&amp;id=374709&amp;hash=5025dc0f13cb6c339240eba9bd6bdabe">&nbsp;&nbsp;&nbsp;<B>顶</B> 
+</A></SPAN>
+<DIV class=clear></DIV></DIV><!-- 阅读 -->
+<DIV class=read><A href="javascript:;">阅读<B>(114)</B></A>┊ <A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=374709#comment">评论 
+<B>(<SPAN id=comm_num>0</SPAN>)</B></A>┊<A id=a_favorite 
+onclick="ajaxmenu(event, this.id, 1)" 
+href="http://blog.chinaunix.net/cp.php?ac=favorites&amp;op=addfavorites&amp;blogid=374709">收藏(1)</A>┊<A 
+id=a_report onclick="ajaxmenu(event, this.id, 1)" 
+href="http://blog.chinaunix.net/cp.php?ac=common&amp;op=report&amp;idtype=blogid&amp;id=374709">举报</A>┊<A 
+href="javascript:window.print();">打印</A> </DIV>
+<DIV class=next1>前一篇：<A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=371867">编写安全代码——不要用memcmp比较structure</A></DIV><!-- 评论 -->
+<DIV class=tit8 id=comment_dv style="DISPLAY: none"><SPAN><A 
+href="http://blog.chinaunix.net/space.php?uid=24382173&amp;do=blog&amp;id=374709#comment">[发评论]</A></SPAN> 
+<B>评论</B>&nbsp;重要提示：警惕虚假中奖信息! </DIV>
+<DIV class=comments_list id=comment>
+<DIV class=box_content>
+<UL class="post_list a_list justify_list" id=comment_ul></UL></DIV></DIV>
+<DIV class=clear></DIV><!-- 发评论 -->
+<DIV class=logins>亲，您还没有登录,请<A 
+href="http://blog.chinaunix.net/do.php?ac=819edd0a745efc58097086a9ef2fc155">[登录]</A>或<A 
+href="http://blog.chinaunix.net/do.php?ac=8f442ba1e0c79cd3efcd1fd42b8aad8e">[注册]</A>后再进行评论</DIV></DIV></DIV></DIV>
+<DIV class=clear></DIV></DIV>
+<SCRIPT type=text/javascript>
+<!--
+var blogid = 374709;
+var bloguid = 0;
+function doSupport(){
+var x = new Ajax();
+x.get('do.php?ac=ajax&op=support&id='+blogid , function(s){
+document.getElementById('support').innerHTML = s;
+});
+}
+
+function checkComment(id){
+
+//	if(bloguid < 1 &&  ($('nim').checked == false) ){
+//		alert('请选择匿名发表评论！');
+//		return false;
+//	}
+if(trim($('seccode').value) == ''){
+alert('验证码不能为空！');
+return false;
+}
+s('comment_dv');
+ajaxpost('quickcommentform_'+id, 'comment_add');
+$('seccode').value = '';
+var img = 'do.php?ac=seccode&rand='+Math.random();
+$('img_seccode').src = img;
+}
+$('font_14').style.fontWeight='bold';
+function doZoom(s){
+$('font_12').style.fontWeight='normal';
+$('font_14').style.fontWeight='normal';
+$('font_16').style.fontWeight='normal';
+$('font_'+s).style.fontWeight='bold';
+s = s + 'px';
+$('detail').style.fontSize = s;
+}
+//-->
+</SCRIPT>
+
+<DIV id=footer>
+<DIV class=l><A 
+href="http://blog.chinaunix.net/link.php?url=http://www.chinaunix.net%2Fabout%2Findex.shtml">关于我们</A> 
+| <A 
+href="http://blog.chinaunix.net/link.php?url=http://www.it168.com%2Fbottomfile%2Fit168.shtml">关于IT168</A> 
+| <A 
+href="http://blog.chinaunix.net/link.php?url=http://www.chinaunix.net%2Fabout%2Fconnect.html">联系方式</A> 
+| <A 
+href="http://blog.chinaunix.net/link.php?url=http://www.chinaunix.net%2Fabout%2Fservice.html">广告合作</A> 
+| <A 
+href="http://blog.chinaunix.net/link.php?url=http://blog.chinaunix.net%2Fabout%2Ffl.html">法律声明</A> 
+| <A 
+href="http://blog.chinaunix.net/link.php?url=http://blog.chinaunix.net%2Fregister.php">免费注册</A> 
+
+<ADDRESS>Copyright &copy; 2001-2010 ChinaUnix.net All Rights Reserved 
+北京皓辰网域网络信息技术有限公司. 版权所有 </ADDRESS></DIV>
+<DIV class=r>感谢所有关心和支持过ChinaUnix的朋友们<BR>京ICP证041476号 京ICP证060528号 </DIV>
+<DIV class=clear></DIV></DIV>
+<DIV id=dialogBoxShadow style="DISPLAY: none; Z-INDEX: 49"></DIV><INPUT id=dot 
+type=hidden></INPUT>
+<SCRIPT type=text/javascript>
+<!--
+if($('dot').value == 'theme')  getPageSet();
+function checkHtitle(){
+var tt = $('spacetitle').value;
+if(ttlen(trim(tt)) > 48){
+alert('博客宣言不能超过48个字符！');
+return false;
+}
+ajaxpost('home_from','homeTitle');
+}
+function checkBbrief(){
+var tt = $('blog_brief').value;
+if(ttlen(trim(tt)) > 200){
+alert('个性签名不能超过200个字符！');
+return false;
+}
+ajaxpost('brief_form','blogBrief');
+}
+function homeTitle()
+{
+var spacetitle_value = $('spacetitle').value;
+if(!spacetitle_value){
+spacetitle_value = '还没有博客宣言';
+}
+var x = new Ajax();
+x.get('/do.php?ac=ajax&op=htl', function(s){
+document.getElementById('home_t').innerHTML = s
+});
+s('home_title');
+h('home_title_form');
+}
+function blogBrief()
+{
+var spacetitle_value = $('blog_brief').value;
+if(!spacetitle_value){
+spacetitle_value = '还没有个性签名';
+}
+var x = new Ajax();
+x.get('/do.php?ac=ajax&op=bbf', function(s){
+document.getElementById('blog_b').innerHTML = s
+});
+s('blog_brief');
+h('blog_brief_form');
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=javascript 
+src="chrisniu1984 - ChinaUnix博客 - IT人与你分享快乐生活.files/pv.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+    function sendPV(){
+        var pvTrack = new PvTrack();
+        pvTrack.type = 35; // 频道类别ID
+        pvTrack.channel = 189; // 频道ID
+        pvTrack.pageType = 0;
+        pvTrack.track();
+    }
+    window.setTimeout("sendPV()", 0); 
+
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20237423-2']);
+  _gaq.push(['_setDomainName', '.chinaunix.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</SCRIPT>
+ 
+<DIV style="DISPLAY: none">
+<SCRIPT type=text/javascript> 
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0ee5e8cdc4d43389b3d1bfd76e83216b' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+</DIV></BODY></HTML>
