@@ -772,16 +772,8 @@ over time
 0920 libprompter: abandon the way that use libpb interface to know the uncatch call
      know how to disable plugin on gtkwebkit
      have a desire to watch football game with liqing 
-<<<<<<< .mine
      
-
-0922 road exam, it is so thrilling 
-     
-     =======
-     
-0921 
-     
-0922 i pass the road drive exam. it is all done, just wait for the certificate 
+0922 road exam, it is so thrilling, i pass the road drive exam. it is all done, just wait for the certificate 
   
 0923
 
@@ -798,6 +790,7 @@ over time
      
 0930 pay the first month swim fee: 240
      webkit js flash
+     got the drive certificate     
       
 1001 swim
      
@@ -828,7 +821,8 @@ over time
 1011 met linqing walk dog
      800m: one rest
      
-1012 
+1012 750 or 800m without a rest
+     metro: chen clan academy -> gong yuan qian, i get off, fuck
      
      
      
