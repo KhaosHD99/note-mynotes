@@ -5580,7 +5580,7 @@ modify the output line(etc: progress)						**
      pass array, array[x] not pointer?
      access
      why brw bookmark will...be recover						over
-     messy code 								**
+     messy code 								ov
      
      1. flash. state change collapse(no occure sample yet)			*							
      2. Gdk asyn collapse							done 
@@ -5609,7 +5609,7 @@ serDesktop:5950): Gdk-CRITICAL **: gdk_cairo_create: assertion`GDK_IS_DRAWABLE (
      
      tv reboot brw fail again and again
      
-0901 state change; flash										**
+0901 state change; flash										over
      compile svn											done
      stop ring error											**
      shell test												*   
@@ -5659,8 +5659,8 @@ Thanks in advance for any suggestions
      sms capture
      
 0913 perror revo!!!									*
-     state change: flash play								**
-     the other process to stop ring							**
+     state change: flash play								done
+     the other process to stop ring							*	
      mount: arch?????
 
 
@@ -5836,8 +5836,7 @@ set_text_to_drawaraw: add a args						done
      
 0926 liblinconfig slow								done
      webkit focus frame								*
-     onhook->ring adver die; adver reboot fail???				**
-     
+     onhook->ring adver die; adver reboot fail???				over     
      ioctl
      inet_aton
 
@@ -5849,9 +5848,8 @@ set_text_to_drawaraw: add a args						done
      recvfrom addr; inet_ntoa(), inet_ntop()
      
      binary and text								*     
-     why some need conver, some not						**     
-     
-     die: media play								**
+     why some need conver, some not						**
+     die: media play								over
      
 0928 brw can not reboot????								
      bind: Cannot assign requested address					done
@@ -5859,7 +5857,7 @@ set_text_to_drawaraw: add a args						done
      
      /etc/hosts
      
-     brw flash fullscreen or javascript pop menu				**
+     brw flash fullscreen or javascript pop menu				done
      
 0929 
       WARNING: without --enable-docbook we will use the cached
@@ -6045,253 +6043,18 @@ Error accessing memory address 0x2c7267e3: Input/output error.
      nm 
      /dev/fb
      
-     rm window frame										**
-     brw fullscreen; ver brw play media 
+     rm window frame										done
+     brw fullscreen; 										*
+     ver brw play media bk 									**     
+     webkit   gdk_threads_init									*
      
-======================================= webkit load page stack trace =======================================
-webkit_web_view_get_type () at Source/WebKit/gtk/webkit/webkitwebview.cpp:243
-
-webkit_web_view_open (webView=0x9c33068, uri=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html") at Source/WebKit/gtk/webkit/webkitwebview.cpp:3851
-
-webkit_web_view_load_uri (webView=0x9c33068, uri=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html")
-    at Source/WebKit/gtk/webkit/webkitwebview.cpp:3898
-
-webkit_web_frame_load_uri (frame=0x9c2f8f0, uri=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html")
-    at Source/WebKit/gtk/webkit/webkitwebframe.cpp:528
-
-WebKit::core (frame=0x9c2f8f0) at Source/WebKit/gtk/webkit/webkitwebframe.cpp:987
-
-WTF::String::fromUTF8 (string=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html") at Source/JavaScriptCore/wtf/text/WTFString.cpp:744
-
-WTF::String::fromUTF8 (stringStart=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html", length=41)
-at Source/JavaScriptCore/wtf/text/WTFString.cpp:715
-
-std::numeric_limits<unsigned int>::max () at /usr/include/c++/4.4/limits:830
-
-WTF::StringImpl::createUninitialized (length=41, data=@0xbfa06cac) at Source/JavaScriptCore/wtf/text/StringImpl.cpp:76
-
-std::numeric_limits<unsigned int>::max () at /usr/include/c++/4.4/limits:830
-
-WTF::fastMalloc (n=102) at Source/JavaScriptCore/wtf/FastMalloc.cpp:240
-
-isForbidden () at Source/JavaScriptCore/wtf/FastMalloc.cpp:116
-
-WTF::StringImplBase::operator new (p=0x9fb5448) at ./Source/JavaScriptCore/wtf/text/StringImplBase.h:34
-
-StringImpl (this=0x9fb5448, length=41) at ./Source/JavaScriptCore/wtf/text/StringImpl.h:96
-
-WTF::adoptRef<WTF::StringImpl> (p=0x9fb5448) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:279
-
-WTF::adopted () at ./Source/JavaScriptCore/wtf/PassRefPtr.h:33
-
-PassRefPtr (this=0xbfa06ca4, ptr=0x9fb5448) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:107
-
-String (this=0xbfa06ca8, impl=...) at Source/JavaScriptCore/wtf/text/WTFString.h:111
-
-RefPtr<WTF::StringImpl> (this=0xbfa06ca8, o=...) at ./Source/JavaScriptCore/wtf/RefPtr.h:94
-
-WTF::PassRefPtr<WTF::StringImpl>::leakRef (this=0xbfa06ca4) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:187
-
-~PassRefPtr (this=0xbfa06ca4, __in_chrg=<value optimized out>) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:74
-
-WTF::derefIfNotNull<WTF::StringImpl> (ptr=0x0) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:58
-
-WTF::Unicode::convertUTF8ToUTF16 (sourceStart=0xbfa06c9c, sourceEnd=0xbfa088b5 "", targetStart=0xbfa06cac, targetEnd=0x9fb54ae, strict=true)
-at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:260
-
-WTF::Unicode::inlineUTF8SequenceLength (b0=104 'h') at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:52
-
-WTF::isASCII (c=104 'h') at ./Source/JavaScriptCore/wtf/ASCIICType.h:46
-
-isLegalUTF8 (source=0xbfa0888c "http://10.10.188.87:8080/myapp/index.html", length=1) at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:209
-
-readUTF8Sequence (sequence=@0xbfa06c58, length=1) at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:241
-
-WTF::Unicode::inlineUTF8SequenceLength (b0=116 't') at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:52
-
-WTF::isASCII (c=116 't') at ./Source/JavaScriptCore/wtf/ASCIICType.h:46
-
-readUTF8Sequence (sequence=@0xbfa06c58, length=1) at Source/JavaScriptCore/wtf/unicode/UTF8.cpp:250
-
-~RefPtr (this=0xbfa06ca8, __in_chrg=<value optimized out>) at ./Source/JavaScriptCore/wtf/RefPtr.h:58
-
-WTF::StringImpl::deref (this=0x9fb5448) at ./Source/JavaScriptCore/wtf/text/StringImpl.h:241
-
-KURL (this=0xbfa06d54) at ./Source/WebCore/platform/KURL.h:72
-
-String (this=0xbfa06d54) at ./Source/JavaScriptCore/wtf/text/WTFString.h:90
-
-RefPtr (this=0xbfa06d54) at ./Source/JavaScriptCore/wtf/RefPtr.h:42
-
-WebCore::KURL::invalidate (this=0xbfa06d54) at Source/WebCore/platform/KURL.cpp:307
-
-KURL (this=0xbfa06d24, base=..., relative=...) at Source/WebCore/platform/KURL.cpp:339
-
-String (this=0xbfa06d24) at ./Source/JavaScriptCore/wtf/text/WTFString.h:90
-
-WebCore::UTF8Encoding () at Source/WebCore/platform/text/TextEncoding.cpp:254
-
-WebCore::TextEncoding::isValid (this=0x33bf0e8) at ./Source/WebCore/platform/text/TextEncoding.h:41
-
-WebCore::KURL::init (this=0xbfa06d24, base=..., relative=..., encoding=...) at Source/WebCore/platform/KURL.cpp:365
-
-WebCore::KURL::isEmpty (this=0xbfa06d54) at ./Source/WebCore/platform/KURL.h:350
-
-WTF::String::isEmpty (this=0xbfa06d54) at ./Source/JavaScriptCore/wtf/text/WTFString.h:124
-
-WTF::RefPtr<WTF::StringImpl>::operator! (this=0xbfa06d54) at ./Source/JavaScriptCore/wtf/RefPtr.h:68
-
-WTF::refIfNotNull<WTF::StringImpl> (ptr=0x9fb5448) at ./Source/JavaScriptCore/wtf/PassRefPtr.h:52
-
-WTF::StringImpl::find (this=0x9fb5448, c=92, start=0) at Source/JavaScriptCore/wtf/text/StringImpl.cpp:524
-
-WebCore::KURL::init (this=0xbfa06d24, base=..., relative=..., encoding=...) at
-
-0x017aa0c9 in Vector (this=0xbfa06a54) at ./Source/JavaScriptCore/wtf/Vector.h:506
-
-VectorBuffer (this=0xbfa06a58) at ./Source/JavaScriptCore/wtf/Vector.h:399
-
-ResourceRequest (this=0xbfa06d98, url=...) at ./Source/WebCore/platform/network/soup/ResourceRequest.h:46
-
-ResourceRequestBase (this=0xbfa06d98, url=..., policy=WebCore::UseProtocolCachePolicy)
-    at ./Source/WebCore/platform/network/ResourceRequestBase.h:185
-
-WTF::fastMalloc (n=26) at Source/JavaScriptCore/wtf/FastMalloc.cpp:240
-
-ResourceRequest (this=0xbfa06d98, url=...) at ./Source/WebCore/platform/network/soup/ResourceRequest.h:46
-
-ResourceRequestBase (this=0xbfa06d98, url=..., policy=WebCore::UseProtocolCachePolicy)
-    at ./Source/WebCore/platform/network/ResourceRequestBase.h:185
-
-HTTPHeaderMap (this=0xbfa06e08) at Source/WebCore/platform/network/HTTPHeaderMap.cpp:40
-
-HashMap (this=0xbfa06e08) at ./Source/JavaScriptCore/wtf/HashMap.h:32
-
-HashTable (this=0xbfa06e08) at ./Source/JavaScriptCore/wtf/HashTable.h:436
-
-Mutex (this=0xbfa06e20) at Source/JavaScriptCore/wtf/ThreadingPthreads.cpp:259
-
-ResourceRequestBase (this=0xbfa06d98, url=..., policy=WebCore::UseProtocolCachePolicy) at ./Source/WebCore/platform/network/ResourceRequestBase.h:187
-
-------
-WebCore::Frame::loader (this=0x9c3e328) at ./Source/WebCore/page/Frame.h:293
-
-WebCore::FrameLoader::load (this=0x9c3e388, request=..., lockHistory=false) at Source/WebCore/loader/FrameLoader.cpp:1453
-
-SubstituteData (this=0xbfa06c84) at ./Source/WebCore/loader/SubstituteData.h:39
-
-WebKit::FrameLoaderClient::createDocumentLoader (this=0x9c3d568, request=..., substituteData=...)
-    at Source/WebKit/gtk/WebCoreSupport/FrameLoaderClientGtk.cpp:299
-
-WebKit::DocumentLoader::create (request=..., data=...) at Source/WebKit/gtk/WebCoreSupport/DocumentLoaderGtk.h:48
-
-WTF::RefCounted<WebCore::DocumentLoader>::operator new (size=1760) at ./Source/JavaScriptCore/wtf/RefCounted.h:136
-
- DocumentLoader (this=0x9fd0df8, request=..., substituteData=...) at Source/WebKit/gtk/WebCoreSupport/DocumentLoaderGtk.cpp
-:44
-
-DocumentLoader (this=0x9fd0df8, req=..., substituteData=...) at Source/WebCore/loader/DocumentLoader.cpp:100
-
-RefCounted (this=0x9fd0dfc) at ./Source/JavaScriptCore/wtf/RefCounted.h:145
-
-Mutex (this=0x9fd0e84) at Source/JavaScriptCore/wtf/ThreadingPthreads.cpp:254
-
-DocumentWriter (this=0x9fd0ea0, frame=0x0) at Source/WebCore/loader/DocumentWriter.cpp:60
-
-HTTPHeaderMap (this=0x9fd0f28) at ./Source/WebCore/platform/network/HTTPHeaderMap.h:42
-
-HashTable (this=0x9fd0f28, other=...) at ./Source/JavaScriptCore/wtf/HashTable.h:960
-
-WTF::HashTable<WTF::AtomicString, std::pair<WTF::AtomicString, WTF::String>, WTF::PairFirstExtractor<std::pair<WTF::AtomicString, WTF::String> >, WTF::CaseFoldingHash, WTF::PairHashTraits<WTF::HashTraits<WTF::AtomicString>, WTF::HashTraits<WTF::String> >, WTF::HashTraits<WTF::AtomicString> >::makeKnownGoodConstIterator (this=0xbfa06e08, pos=0x0) at ./Source/JavaScriptCore/wtf/HashTable.h:396
-
-0x01038a16 in WTF::HashTable<WTF::AtomicString, std::pair<WTF::AtomicString, WTF::String>, WTF::PairFirstExtractor<std::pair<WTF::AtomicString, WTF::String> >, WTF::CaseFoldingHash, WTF::PairHashTraits<WTF::HashTraits<WTF::AtomicString>, WTF::HashTraits<WTF::String> >, WTF::HashTraits<WTF::AtomicString> >::end (this=0xbfa06e08) at ./Source/JavaScriptCore/wtf/HashTable.h:313
-
-Locker (this=0xbfa0698c, lockable=...) at ./Source/JavaScriptCore/wtf/Locker.h:38
-
-SubstituteData (this=0x9fd0f7c) at Source/WebCore/loader/SubstituteData.h:37
-
-ResourceRequestBase (this=0x9fd0fe8) at ./Source/WebCore/platform/network/ResourceRequestBase.h:51
-
-ResourceResponse (this=0x9fd1170) at ./Source/WebCore/platform/network/soup/ResourceResponse.h:39
-
-ResourceResponseBase (this=0x9fd1170) at Source/WebCore/platform/network/ResourceResponseBase.cpp:69
-
-StringWithDirection (this=0x9fd1254) at ./Source/WebCore/platform/text/StringWithDirection.h:50
-
-NavigationAction (this=0x9fd1294) at Source/WebCore/loader/NavigationAction.cpp:51
-
-0x01047056 in ResourceRequestBase (this=0x9fd12cc, url=..., policy=WebCore::UseProtocolCachePolicy)
-    at ./Source/WebCore/platform/network/ResourceRequestBase.h:185
-
-0x01047056 in ResourceRequestBase (this=0x9fd12cc, url=..., policy=WebCore::UseProtocolCachePolicy)
-    at ./Source/WebCore/platform/network/ResourceRequestBase.h:185
-
-TimerBase (this=0x9fd13d0) at Source/WebCore/platform/Timer.cpp:168
-
-WTF::currentThread () at Source/JavaScriptCore/wtf/ThreadingPthreads.cpp:241
-
-WTF::ThreadIdentifierData::identifier () at Source/JavaScriptCore/wtf/ThreadIdentifierDataPthreads.cpp:52
-
-WTF::ThreadIdentifierData::initializeKeyOnce () at Source/JavaScriptCore/wtf/ThreadIdentifierDataPthreads.cpp:92
-
-WTF::ThreadIdentifierData::identifier () at Source/JavaScriptCore/wtf/ThreadIdentifierDataPthreads.cpp:53
-
-OwnPtr (this=0x9fd13fc) at ./Source/JavaScriptCore/wtf/OwnPtr.h:43
-
------- loading
-DocumentLoadTiming (this=0x9fd1444) at Source/WebCore/loader/DocumentLoadTiming.h:44
-
-WebCore::ApplicationCacheHost::operator new (size=36) at ./Source/WebCore/loader/appcache/ApplicationCacheHost.h:6
-
-WTF::adoptPtr<WebCore::ApplicationCacheHost> (ptr=0x9f99428) at ./Source/JavaScriptCore/wtf/PassOwnPtr.h:198
-
-WTF::deleteOwnedPtr<WebCore::ApplicationCacheHost> (ptr=0x0) at ./Source/JavaScriptCore/wtf/OwnPtrCommon.h:59
-
-DocumentLoader (this=0x9fd0df8, request=..., substituteData=...) at Source/WebKit/gtk/WebCoreSupport/DocumentLoaderGtk.cpp:46
-
-WebKit::kitNew (loader=...) at Source/WebKit/gtk/webkit/webkitwebdatasource.cpp:435
-
-webkit_web_data_source_get_type () at Source/WebKit/gtk/webkit/webkitwebdatasource.cpp:78
-
-WebKit::DocumentLoader::setDataSource (this=0x9fd0df8, dataSource=0x9fb7a30) at Source/WebKit/gtk/WebCoreSupport/DocumentLoaderGtk.cpp:54
-
- WebKit::FrameLoaderClient::createDocumentLoader (this=0x9c3d568, request=..., substituteData=...)
-    at Source/WebKit/gtk/WebCoreSupport/FrameLoaderClientGtk.cpp:304
-
-WebCore::FrameLoader::load (this=0x9c3e388, request=..., substituteData=..., lockHistory=false) at Source/WebCore/loader/FrameLoader.cpp:1464
-
-WebCore::DocumentLoader::request (this=0x9fd0df8) at Source/WebCore/loader/DocumentLoader.cpp:147
-
-WebCore::FrameLoader::addExtraFieldsToMainResourceRequest (this=0x9c3e388, request=...) at Source/WebCore/loader/FrameLoader.cpp:2715
-
-WebCore::FrameLoader::addExtraFieldsToRequest (this=0x9c3e388, request=..., loadType=WebCore::FrameLoadTypeStandard, mainResource=true, 
-    cookiePolicyURLFromRequest=false) at Source/WebCore/loader/FrameLoader.cpp:2722
-
-WebCore::ResourceRequestBase::firstPartyForCookies (this=0x9fd10ac) at Source/WebCore/platform/network/ResourceRequestBase.cpp:179
-
-WebCore::ResourceRequestBase::updateResourceRequest (this=0x9fd10ac) at Source/WebCore/platform/network/ResourceRequestBase.cpp:440
-
-WebCore::ResourceRequestBase::firstPartyForCookies (this=0x9fd10ac) at Source/WebCore/platform/network/ResourceRequestBase.cpp:181
-
-WebCore::FrameLoader::addExtraFieldsToRequest (this=0x9c3e388, request=..., loadType=WebCore::FrameLoadTypeStandard, mainResource=true, 
-    cookiePolicyURLFromRequest=false) at Source/WebCore/loader/FrameLoader.cpp:2723
-
-WebCore::FrameLoader::isLoadingMainFrame (this=0x9c3e388) at Source/WebCore/loader/FrameLoader.cpp:2292
-
-WebCore::Frame::page (this=0x9c3e328) at ./Source/WebCore/page/Frame.h:373
-
-WebCore::Page::mainFrame (this=0x9c39408) at ./Source/WebCore/page/Page.h:145
-
-WTF::RefPtr<WebCore::Frame>::get (this=0x9c3942c) at ./Source/JavaScriptCore/wtf/RefPtr.h:60
-
-WebCore::ResourceRequestBase::url (this=0x9fd10ac) at Source/WebCore/platform/network/ResourceRequestBase.cpp:119
-
-
-
-
-
-
-
-
-
-------------------------------------------------------------------------------
+1012 echo 1 > /proc/sys/vm/drop_caches
+     
+1013 
+     "enable-spatial-navigation"
+     
+1014 121.32.9.217
+     the fuck apache server is the worst ue software(no help, no doc, and ambiguous), 
+     sh ftpd.sh res/conf/ftpd-typical.xml
+     
+    
