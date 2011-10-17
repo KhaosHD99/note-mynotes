@@ -833,6 +833,6 @@ over time
      
 1015 because 1014, no swim
 
-1016 swim 1000m without no rest, drived out them
+1016 swim 1000m without any rest, drived out them
 
-1017 swim 800m without no rest
+1017 swim 800m without any rest
