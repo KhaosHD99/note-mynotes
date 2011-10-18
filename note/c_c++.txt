@@ -597,3 +597,9 @@ inline:
 can not be used at complex func
 并且内联函数本身不能直接调用递归函数
  
+
+
+
+20111017 
+Each of the containers is a class template
+   
