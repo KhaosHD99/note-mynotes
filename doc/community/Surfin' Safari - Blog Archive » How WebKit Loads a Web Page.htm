@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/#comment-25297 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="robots" content="noodp">
+
+    <title>Surfin' Safari - Blog Archive  » How WebKit Loads a Web Page</title>
+
+    <meta name="application-name" content="SurfinSafari">
+
+    <meta name="generator" content="WordPress 2.8.5">
+
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/main.css">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/style.css">
+
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/blue.css" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/yellow.css" title="yellow">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/pink.css" title="pink">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/purple.css" title="purple">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/gray.css" title="gray">
+
+<!--[if gte IE 5]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.webkit.org/blog/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.webkit.org/blog/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.webkit.org/blog/feed/atom/">
+    <link rel="pingback" href="http://www.webkit.org/blog/xmlrpc.php">
+
+    <link rel="icon" sizes="32x32 128x128 256x256" href="http://www.webkit.org/images/surfin-safari.icns">
+    <link rel="SHORTCUT ICON" sizes="16x16" type="image/x-icon" href="http://www.webkit.org/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="Surfin&#39; Safari » How WebKit Loads a Web Page Comments Feed" href="http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/feed/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.webkit.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.webkit.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Surfin&#39; Safari" href="http://www.webkit.org/blog">
+<link rel="start" title="Welcome to the WebKit Blog" href="http://www.webkit.org/blog/4/welcome-to-the-webkit-blog/">
+<link rel="prev" title="More Web Inspector Updates" href="http://www.webkit.org/blog/1091/more-web-inspector-updates/">
+<link rel="next" title="Chris Jerdonek is now a WebKit reviewer!" href="http://www.webkit.org/blog/1233/chris-jerdonek-is-now-a-webkit-reviewer/">
+<meta name="generator" content="WordPress 2.8.5">
+</head>
+<body>
+
+<div id="title">
+<h1>Surfin' Safari</h1>
+</div>
+
+<div id="icon"></div>
+
+<div id="content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&lt;&lt; <a href="http://www.webkit.org/blog/1091/more-web-inspector-updates/">More Web Inspector Updates</a></div>
+			<div class="alignright"><a href="http://www.webkit.org/blog/1233/chris-jerdonek-is-now-a-webkit-reviewer/">Chris Jerdonek is now a WebKit reviewer!</a> &gt;&gt;</div>
+			&nbsp;
+		</div>
+
+		<div class="post" id="post-1188">
+			<h2><a href="http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/" rel="bookmark" title="Permanent Link: How WebKit Loads a Web Page">How WebKit Loads a Web Page</a></h2>
+                        <small>Posted by <strong>abarth</strong> on Sunday, April 18th, 2010 at 1:57 pm</small>
+
+			<div class="entrytext">
+				<p>Before WebKit can render a web page, it needs to load the page and all of its subresources from the network.  There are many layers involved in loading resources from the web.  In this post, I’ll focus on explaining how WebCore, the main rendering component of WebKit, is involved in the loading process.</p>
+<p>WebKit contains two loading pipelines, one for loading documents into frames and another for loading the subresources (such as images and scripts).  The diagram below summarizes the major objects involved in the two pipelines:</p>
+<p><a href="http://webkit.org/blog-files/loader-diagram.svg"><br>
+<img src="http://docs.google.com/drawings/pub?id=1qVaLuor_7FvGNfJjyWqz7vJT3Xr4SXdXxHfP1F61GPI&w=937&h=671" alt=""></a></p>
+<h2>Loading Frames</h2>
+<p>The FrameLoader is in charge of loading documents into Frames.  Whenever you click a link, the FrameLoader begins by creating a new DocumentLoader object in the “policy” state, where it awaits a decision by the WebKit client about how it should handle this load.  Typically, the client will instruct the FrameLoader to treat the load as a navigation (instead of blocking the load, for example).</p>
+<p>Once the client instructs the FrameLoader to treat the load as a navigation, the FrameLoader advances the DocumentLoader to the “provisional” state, which kicks off a network request and waits to determine whether the network request will result in a download or a new document.</p>
+<p>The DocumentLoader, in turn, creates a MainResourceLoader, whose job is to interact with the platform’s network library via the ResourceHandle interface.  Separating the MainResourceLoader from DocumentLoader serves two purposes: (1) the MainResourceLoader insulates the DocumentLoader from details of handling the callbacks from the ResourceHandle and (2) the lifetime of the MainResourceLoader is decoupled from the lifetime of the DocumentLoader (which is tied to the Document).</p>
+<p>Once the loading system has received sufficient information from the network to determine that the resource actually represents a document, the FrameLoader advances the DocumentLoader to the “committed” state, which transitions the Frame to displaying the new document.</p>
+<h2>Loading Subresources</h2>
+<p>Of course, displaying a web page requires more than just the HTML that comprises the document.  We also need to load the images, scripts, and other subresources referenced by the document.  The DocLoader is in charge of loading these subresources.  (Note that although DocumentLoader and DocLoader have similar names, their roles are quite different.)</p>
+<p>Let’s take loading an image as a typical example.  To load an image, the DocLoader first asks the Cache whether it already has a copy of the image in memory (as a CachedImage object).  If the image is already in the Cache, the DocLoader can respond immediately with the image.  For even greater efficiency, the Cache often keeps the decoded image in video memory so that WebKit does not have to uncompress the same image twice.</p>
+<p>If the image is not in the Cache, the Cache creates a new CachedImage object to represent the image.  The CachedImage object asks the “Loader” object to kick off a network request, which the Loader does by creating a SubresourceLoader.  The SubresourceLoader plays a similar role in the subresource loading pipeline as the MainResourceLoader does in the main resource loading pipeline in that it interacts most directly with the ResourceHandle interface to the platform.</p>
+<h2>Areas for Improvement</h2>
+<p>There are many areas in which we can improve WebKit’s loading pipelines.  The FrameLoader is significantly more complex than necessary and encompasses more tasks than simply loading a frame.  For example, FrameLoader has a several subtly different methods named “load,” which can be confusing, and is responsible for creating new windows, which seems only tangentially related to loading a frame.  Also, the various stages of the loading pipeline are more tightly coupled than necessary and there are a number of “layering” violations in which a lower-level object interacts directly with a higher-level object.  For example, the MainResourceLoader delivers bytes received from the network directly to FrameLoader instead of delivering them to DocumentLoader.</p>
+<p>If you study the diagram above, you will notice that the Cache is used only for subresources.  In particular, main resource loads do not get the benefits of WebKit’s memory cache.  If we can unify these two loading pipelines, we might be able to improve the performance of main resource loads.  Over time, we hope to improve the performance of the loader to make loading web pages as fast as possible.</p>
+
+				
+				<p class="postmetadata alt">
+					You can follow any responses to this entry through the <a href="http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/feed/">RSS 2.0</a> feed. 
+
+											Both comments and pings are currently closed.			
+
+									</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+    <h3 id="comments">3 Responses to “How WebKit Loads a Web Page”</h3> 
+
+    <ol class="commentlist">
+    
+        <li class="alt" id="comment-25297">
+                                    <cite>tomwang</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/Surfin' Safari - Blog Archive » How WebKit Loads a Web Page.htm" title="">April 22nd, 2010 at 1:33 am</a> </small>
+
+            <p>Can you please provide some overall code pieces about this process?</p>
+
+        </li>
+
+    
+    
+        <li class="" id="comment-25298">
+                                    <cite>smkolins</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/#comment-25298" title="">April 22nd, 2010 at 5:57 am</a> </small>
+
+            <p>Hi. While I use Webkit I’m not so much a programmer. I found that at least with the current Webkit I cannot comment on blogspot.com websites. It works in Safari 4.0.5 and Firefox but not in the current nightly build. I know it should be a bug report but the qualificiations for such reporting seem to be beyond me as I’m not so much a programmer.</p>
+
+        </li>
+
+    
+    
+        <li class="alt" id="comment-25299">
+                                    <cite>smkolins</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/1188/how-webkit-loads-a-web-page/#comment-25299" title="">April 22nd, 2010 at 6:04 am</a> </small>
+
+            <p>I checked with r58082 and it still doesn’t work. See for example</p>
+
+        </li>
+
+    
+    
+    </ol>
+
+ 
+
+
+	
+</div>
+
+<div id="nav">
+    <ul id="navlist">
+        <li><a href="http://www.webkit.org/">Home</a></li>
+        <li><a href="http://www.webkit.org/blog/">Surfin’ Safari Blog</a></li>
+        <li><a href="http://planet.webkit.org/">Planet WebKit</a></li>
+        <li><a href="http://www.webkit.org/projects/goals.html">Project Goals</a></li>
+        <li><a href="http://www.webkit.org/contact.html">Keeping in Touch</a></li>
+        <li><a href="http://trac.webkit.org/">Trac</a></li>
+        <li><a href="http://www.webkit.org/meeting/">Contributors Meeting</a></li>
+
+        <li class="subtitle">Working with the Code</li>
+
+        <li><a href="http://www.webkit.org/building/tools.html">Installing Developer Tools</a></li>
+        <li><a href="http://www.webkit.org/building/checkout.html">Getting the Code</a></li>
+        <li><a href="http://www.webkit.org/building/build.html">Building WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/run.html">Running WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/debug.html">Debugging WebKit</a></li>
+        <li><a href="http://www.webkit.org/coding/contributing.html">Contributing Code</a></li>
+        <li><a href="http://www.webkit.org/coding/commit-review-policy.html">Commit and Review Policy</a></li>
+        <li><a href="http://www.webkit.org/coding/adding-features.html">Adding Features</a></li>
+        <li><a href="http://www.webkit.org/security/">Security Policy</a></li>
+
+        <li class="subtitle">Documentation</li>
+
+        <li><a href="http://trac.webkit.org/wiki">Wiki</a></li>
+        <li><a href="http://www.webkit.org/projects/">Projects</a></li>
+        <li><a href="http://www.webkit.org/coding/coding-style.html">Code Style Guidelines</a></li>
+        <li><a href="http://www.webkit.org/coding/technical-articles.html">Technical Articles</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebDevelopers">Web Developer Resources</a></li>
+        <li><a href="http://www.webkit.org/demos/">Demos</a></li>
+
+        <li class="subtitle">Testing</li>
+
+        <li><a href="http://www.webkit.org/quality/testing.html">Regression Testing</a></li>
+        <li><a href="http://www.webkit.org/quality/leakhunting.html">Leak Hunting</a></li>
+        <li><a href="http://www.webkit.org/quality/testwriting.html">Writing New Tests</a></li>
+        <li><a href="http://www.webkit.org/quality/crashlogs.html">Getting a Crash Log</a></li>
+
+        <li class="subtitle">Bugs</li>
+
+        <li><a href="http://www.webkit.org/quality/reporting.html">Reporting Bugs</a></li>
+        <li><a href="http://www.webkit.org/quality/bugwriting.html">Bug Report Guidelines</a></li>
+        <li><a href="http://www.webkit.org/quality/bugpriorities.html">Bug Prioritization</a></li>
+        <li><a href="http://www.webkit.org/quality/reduction.html">Test Case Reduction</a></li>
+        <li><a href="http://www.webkit.org/quality/lifecycle.html">Bug Life Cycle</a></li>
+<li class="subtitle">Archives</li>
+	<li><a href="http://www.webkit.org/blog/date/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/04/" title="April 2011">April 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/02/" title="February 2011">February 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/09/" title="September 2010">September 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/08/" title="August 2010">August 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/07/" title="July 2010">July 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/06/" title="June 2010">June 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/05/" title="May 2010">May 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/04/" title="April 2010">April 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/03/" title="March 2010">March 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/02/" title="February 2010">February 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/01/" title="January 2010">January 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/12/" title="December 2009">December 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/11/" title="November 2009">November 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/10/" title="October 2009">October 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/07/" title="July 2009">July 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/06/" title="June 2009">June 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/09/" title="September 2007">September 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/10/" title="October 2006">October 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/09/" title="September 2006">September 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/09/" title="September 2005">September 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/08/" title="August 2005">August 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/07/" title="July 2005">July 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/06/" title="June 2005">June 2005</a></li>
+    </ul>
+    <div id="notice">
+        WebKit is open source software with portions licensed under the
+        <a href="http://www.webkit.org/coding/lgpl-license.html">LGPL</a> and
+        <a href="http://www.webkit.org/coding/bsd-license.html">BSD licenses</a>.
+        Complete license and copyright information can be found within the code.
+    </div>
+
+    <div id="terms">
+        Hosting provided by <a href="http://www.macosforge.org/">Mac OS Forge</a>.
+        Use of this site is subject to the
+        <a href="http://www.macosforge.org/terms/">Mac OS Forge Terms of Use</a>.
+    </div>
+</div>
+
+<div id="footer">
+    Surfin' Safari site is powered by 
+    <a href="http://wordpress.org/">WordPress</a>
+    <br><a href="http://www.webkit.org/blog/feed/">Entries (RSS)</a>
+    and <a href="http://www.webkit.org/blog/comments/feed/">Comments (RSS)</a>.
+    <br> <a href="http://www.webkit.org/blog/wp-login.php?action=register">Register</a> <strong>|</strong> <a href="http://www.webkit.org/blog/wp-login.php">Log in</a>    <!-- 25 queries. 0.154 seconds. -->
+</div>
+
+<script src="./Surfin' Safari - Blog Archive » How WebKit Loads a Web Page_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-336489-2";
+urchinTracker();
+</script>
+
+
+</body></html>

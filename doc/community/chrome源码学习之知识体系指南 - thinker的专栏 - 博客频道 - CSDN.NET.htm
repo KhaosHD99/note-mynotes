@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0049)http://blog.csdn.net/ciml/article/details/5721153 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET</title>
+
+<meta name="description" content="google chrome浏览器的源代码是非常庞大的，为了较快的进入学习状态，有必要事先对一些知识点进行说明，这里不是要详细说明里面的细节，而是从概念层次阐明一些注意事项。这里谈到的东西也不一定说非要事先把这些东西搞得很明白才能去学习源代码，主要还是先给大家一个心理准备。当然如果你最终要在细粒度的层次掌握源代码细节，那么这些知识点必须非常清楚，不过这可以结合源代码的时候再针对性的来澄清这些知识点。  由于chrome源代码包含方方面面的技术非常之多，根据个人喜好可能针对性的对某些技术感兴趣，那么可以针对性的">
+<script type="text/javascript" async="" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ga.js"></script><script src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/plugins.js" type="text/javascript"></script>
+<script src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/common.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/ciml/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/default.css">
+<script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/shCore.js"></script>
+</head><body>
+<script src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/navtop_2011.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="http://passport.csdn.net/UserLogin.aspx">登录</a>|<a href="http://passport.csdn.net/CSDNUserRegister.aspx">注册</a>|<a href="http://passport.csdn.net/help/faq">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank">CSDN首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">资讯</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li><a href="http://so.csdn.net/" target="_blank">搜索</a></li>
+<li class="more"><h2 id="topnav_btnmore"><a href="javascript:void(0);">更多</a></h2>
+<ul id="topnav_hidlist" style="display: none; ">
+<li><a href="http://cto.csdn.net/" target="_blank">CTO俱乐部</a></li>
+<li><a href="http://student.csdn.net/" target="_blank">学生大本营</a></li>
+<li><a href="http://edu.csdn.net/" target="_blank">培训充电</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动开发</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">软件研发</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://www.programmer.com.cn/" target="_blank">程序员</a></li>
+<li><a href="http://tup.csdn.net/" target="_blank">TUP</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1>
+                <a href="http://blog.csdn.net/ciml">thinker的专栏</a></h1>
+            <h2>我思故我在</h2>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            <!--<li id="btnHome"><a href="/ciml"><span><img src="http://static.blog.csdn.net/images/ico_home.gif">我的首页</span></a></li>-->
+            <li id="btnContents"><a href="http://blog.csdn.net/ciml?viewmode=contents"><span><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/ciml?viewmode=list"><span><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/ciml/rss/list"><span><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "ciml";
+    var blog_address = "http://blog.csdn.net/ciml";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = $.cookie("UserName");
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"><font size="2">
+
+&nbsp;<a href="http://download.csdn.net/detail/csdn/3641062" target="_blank"><font color="red">安装Chrome浏览器下载资源送30个下载分！</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/blogdevteam/article/details/6870681" target="_blank"><font color="blue">500元移动大会门票开抢！</font></a><br>
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/6869779" target="_blank"><font color="red">2011移动开发者大会亮点之二：七大论坛神秘嘉宾闪亮登场！</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cisco.com/web/CN/learnings/yc3/index.html?pnBAC=&POSITION=Homepage&COUNTRY_SITE=CN&CAMPAIGN=FY12Q1Youth+&CREATIVE=Banner2+FY12Q1Youth+&REFERRING_SITE=CSDN&SurveyCode=&KeyCode=500007_6" target="_blank"><font color="red">“IT适合你吗？”智力挑战</font></a>
+</font></div><script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ad.js"></script>
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET.htm" title="chrome源码学习之知识体系指南">chrome源码学习之知识体系指南</a></span>
+        
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/ciml/article/category/317893">Web Core</a> 
+        </span>
+    <span class="link_postdate">2010-07-08 15:37</span>
+    <span class="link_view" title="阅读次数">2758人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="http://blog.csdn.net/ciml/article/details/5721153#comments">评论</a>(2)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;chrome源码学习之知识体系指南&#39;,&#39;5721153&#39;);return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="http://blog.csdn.net/ciml/article/details/5721153#report" onclick="javascript:report(5721153,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+    
+<div class="article_content">
+    <p><font size="3">google chrome浏览器的源代码是非常庞大的，为了较快的进入学习状态，有必要事先对一些知识点进行说明，这里不是要详细说明里面的细节，而是从概念层次阐明一些注意事项。这里谈到的东西也不一定说非要事先把这些东西搞得很明白才能去学习源代码，主要还是先给大家一个心理准备。当然如果你最终要在细粒度的层次掌握源代码细节，那么这些知识点必须非常清楚，不过这可以结合源代码的时候再针对性的来澄清这些知识点。</font></p>  <p><font size="3">由于chrome源代码包含方方面面的技术非常之多，根据个人喜好可能针对性的对某些技术感兴趣，那么可以针对性的进行学习。大的原则是理论和实践相结合，chrome包含的代码就是各种规范、理论的具体实践实现。</font></p>  <h2>基础知识</h2>  <p><font size="3">基础知识是任何技术方面都应该掌握的领域无关的通用知识。我认为主要包括“语言基础”和“系统基础”两大类。</font></p>  <blockquote>   <h3>语言基础知识</h3> </blockquote>  <p><font size="3">整个chrome源代码包括webkit内核、v8引擎全部用c++语言编写。那么作为语言基础的c++语言就必须是精通的水平才可能流畅的看明白里面的代码。我一直认为c++是有史以来最复杂的语言（可参考孟岩文章<a href="http://blog.csdn.net/myan/archive/2004/10/23/148900.aspx" target="_blank">关于C++复杂性的零碎思考</a>），是典型的魔幻语言，我曾经也痴迷去深究c++一些高级技巧，后来某天突然发现这种深究、这种玩法除了增加理解上的复杂性，对实际问题似乎并没有带来任何好处。后来看到一篇文章（请看孟岩文章<a href="http://blog.csdn.net/myan/archive/2008/01/07/2028545.aspx" target="_blank">Ruby 1.9不会杀死Python</a>），才明白原来自己的性格是喜欢简约风格的语言，从此不再去钻牛角尖玩语言技巧。对于语言问题每个人都有自己的看法和偏好，但显然，不喜欢归不喜欢，但在现实中，我们有时候又必须去面对我们不太喜欢的东西(当然并不是说我讨厌c++)，拿语言来说，这种情况下对于喜欢简约风格的程序员最理智的办法就是以一种简约的方法去使用复杂的c++。千万不要在实际应用中为了技巧而技巧，这样会非常丑陋别扭，因为你根本没有真正明白什么时候该合理的使用这些技巧。好在chrome源代码里面的c++语言技巧绝不是为了故弄玄虚，在chrome里面作者们为我们展示了如何恰到好处的使用这些技巧来解决实际问题，如果你曾经困惑过c++里面一些技巧究竟有何实际用途，或者对这些技巧理解不深，那么在chrome里可以找到很好的答案。扯得有点远了，现在还是总结一下chrome里面关于c++语言层面的一些知识点。</font></p>  <blockquote>   <p><font size="3"><strong>STL</strong>：标准库的使用，这个很基本，没有什么好说的。</font> </p>    <p><font size="3"><strong>C++对象生命周期管理技术</strong>：这可以说是c++应用开发中永远的痛，很多的内存访问错误与此有关。对于简单的过程化应用，我们可以很简单的遵循谁分配对象谁就负责释放对象的原则。但在大型应用中，对象生命周期的管理变得非常的复杂，不可能简单的遵循谁分配谁释放原则，这在chrome这样的大型项目中表现极其突出。在chrome中，对象的出生、生活、死亡经常在不同的上下文线程中完成。在chrome中主要采用了基于引用计数原理来管理对象生命周期，同时有针对不同场合的变体。另外还有类似智能指针这样的方案。如果你要将对chrome代码做改造为我所用，对象的生死问题必须小心对待。</font></p>    <p><font size="3"><strong>模板特化（Template Specialization）</strong>：c++里面所谓的一些高级特性总是离不开模板的，也正是模板的引入让c++变得非常复杂。模板特化在chrome的ipc通信体系中，对参数进行序列化的时候用到了这个特性。</font></p>    <p><font size="3"><strong>C++ 元组（Tuple）实现技术</strong>：也是通过模板技术来实现。</font></p>    <p><font size="3"><strong>类型萃取技术(Traits)：</strong>c++泛型编程的重要技术之一。</font></p>    <p><font size="3"><strong>宏技巧</strong>：在消息映射实现部分，用到了一个很有意思的手法，定义一次宏，展开多段代码，同时完成了消息ID枚举值定义和消息类的定义。</font></p>    <p><font size="3"><strong>类成员函数指针</strong>：相对于模板，这个容易理解多了。</font></p> </blockquote>  <p><font size="3">以上关于STL、模板相关的一些知识可以参考《STL源码剖析》和《C++设计新思维》，我认为把这两本书看明白了，C++水平可以配称“精通”了。另外我可以负责的说，把chrome里面涉及到的c++语言层面的东西都能彻底明白，那么c++水平也足够用了。</font></p>  <blockquote>   <h3>系统基础知识</h3> </blockquote>  <p><font size="3">这里主要指的是操作系统基础知识，chrome浏览器作为跨平台浏览器，在linux、windows、mac os上均有对应的实现版本。对于很多标准性的、通用性的操作系统特性，chrome提供了抽象接口，具体在不同的操作系统上对应有不同的实现。我这里以windows为例，值得关注的知识点包括：</font></p>  <blockquote>   <p><font size="3"><strong>进程、线程概念</strong>：chrome是多进程体系结构，多线程就不用说了，必定是多线程。那么要深刻理解这样的体系结构，就需要对操作系统进程、线程概念非常清楚。</font></p>    <p><font size="3"><strong>线程同步</strong>：多线程如何同步的问题。</font></p>    <p><font size="3"><strong>线程本地存储（TLS）</strong>：利用TLS存储线程私有数据。</font></p>    <p><font size="3"><strong>Windows内核对象</strong>：包括事件对象、互斥体等内核对象用于线程同步。</font></p>    <p><font size="3"><strong>进程IPC</strong>：多进程结构就必定涉及到进程如何通信的问题，这就是操作系统提供的IPC机制。在chrome的windows版本中采用的是“命名管道”来作为IPC通信基础。</font></p>    <p><font size="3"><strong>共享内存</strong>：为了减少进程之间的大数据传递，采用共享内存技术来减少数据搬动开销。</font></p>    <p><font size="3"><strong>完成端口</strong>：Windows操作系统高效的异步IO模型，chrome中线程消息循环使用了完成端口。</font></p>    <p><font size="3"><strong>Socket IO 模型</strong>：http客户端协议实现采用的socket io模型包括重叠io和事件选择。</font></p>    <p><font size="3"><strong>定时器</strong>：很多任务采用操作系统提供的定时器API来完成。</font></p>    <p><font size="3"><strong>操作系统异常机制</strong>：对异常的挂接处理，需利用操作系统提供的相关api来进行。</font></p>    <p><font size="3"><strong>UI交互机制</strong>：chrome最终是要展示很多native UI的，在windows中，chrome采用skia图形库结合操作系统消息机制自己封装了一套界面元素。</font></p> </blockquote>  <p><font size="3">关于操作系统相关的基础知识，可以参考《Windows核心编程》和《Win32 多线程程序设计》。</font></p>  <h2>设计模式知识</h2>  <blockquote>   <p><font size="3">设计模式是编写高质量、高扩展性代码的基础，chrome代码中主要用到了下列一些设计模式：</font></p>    <p><font size="3"><strong>工厂模式</strong></font></p>    <p><font size="3"><strong>观察者模式</strong></font></p>    <p><font size="3"><strong>单件模式</strong></font></p>    <p><font size="3"><strong>命令模式</strong></font></p>    <p><font size="3"><strong>代理模式</strong></font></p>    <p><font size="3"><strong>适配器模式</strong></font></p>    <p><font size="3"><strong>委托模式</strong></font></p>    <p><font size="3">关于设计模式方面的书籍，首推当然是“四人帮”的《设计模式－可复用面向对象软件的基础》，此书非常的精练，内容就难免有些抽象。所以并不适合初学者，要通俗生动一点的可以参考《head first 设计模式》，该书也非常不错。</font></p> </blockquote>  <h2>领域知识</h2>  <blockquote>   <p><font size="3">作为web浏览器，其领域知识当然是w3c标准了。要深刻理解webkit的实现，必然要对相关规范有所了解。</font></p>    <p><font size="3"><strong>HTML4/HTML5规范</strong></font></p>    <p><font size="3"><strong>CSS2/CSS3规范</strong></font></p>    <p><font size="3"><strong>DOM2/DOM3规范</strong></font></p>    <p><font size="3"><strong>JavaScript语言规范</strong></font></p>    <p><font size="3"><strong>HTTP协议规范</strong></font></p>    <p><font size="3">以上是整个web浏览器所涉及到的最核心的几个方面的规范标准，当然里面还有更多的外围相关标准。这些规范直接阅读w3c标准是比较抽象枯燥的，好在这些领域知识所涉及到的相关技术资料已经非常丰富了。可以从web前端应用开发层着手，结合webkit代码、规范文件来理解这些规范。</font></p>    <p><font size="3">除了上述webcore相关领域知识外，还有一些基础设施领域，包括：</font></p>    <p><font size="3"><strong>图形领域知识</strong>：chrome采用的是skia图形引擎作的页面渲染，如果对skia比较有兴趣，这是很好的学习材料，但前提最好是有图形学基础理论知识。</font></p>    <p><font size="3"><strong>数据库领域</strong>：chrome对cookie的管理，采用的是sqlite开源数据库，如果对数据库技术感兴趣，可以学习。</font></p>    <p><font size="3"><strong>数据压缩技术</strong>：zlib这样的基础库。</font></p>    <p><font size="3"><strong>图片解码</strong>：jpeg、png等图片格式解码。</font></p>    <p><font size="3"><strong>XML解析</strong>：expat</font></p>    <p><font size="3"><strong>分布式数据序列化</strong>：protobuf2库，该库是google比较核心的一个基础技术，它是基于二进制的。很好的平衡了对象化和效率之间的取舍。</font></p>    <p><font size="3"><strong>多媒体技术</strong>：网页上的音频视频处理。</font></p>    <p><font size="3"><strong>安全技术</strong>：SSL，加密解密、数字签名。这些都可以在里面找到相关的学习材料。</font></p>    <p><font size="3"><strong>UI框架</strong>：chrome的ui元素是采用了单独的一个view库来封装不同操作系统下的ui机制，如果对ui交互框架感兴趣，可以重点关注view库的实现代码。</font></p>    <p><font size="3"><strong>字符串处理（UNICODE）/国际化</strong>：这部分的技术主要是利用非常强大的icu库来支撑的。</font></p>    <p><font size="3"><strong>CRT运行库的内存管理技术：</strong>采用了tcmalloc库来替换系统提供的内存管理crt库，大大提供内存管理的效率和速度。</font></p>    <p><font size="3">对于上述工具性基础设施，我想作为应用整合者，更多的可能是从各个库的API层面入手，先在使用层面达到很熟练的程度，这样可以方便的为自己的实际项目服务。至于内部实现细节我想有兴趣去深究的人不会很多。</font></p>    <p><font size="3"></font></p> </blockquote>  <h2> 总结</h2>  <p><font size="3">上面只是一个对chrome源代码知识内容很初步很粗的简单的罗列，目的是从概念层次上先有个简单的了解。具体细节里面当然是非常之多。具体情况请根据自身的需要结合源代码选择性、针对性的进行学习。至于我的重点可能包括chrome体系结构、webkit内核、工具库中的protobuf2这几部分内容。</font></p>
+</div>
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+
+<div class="article_next_prev">
+        <li class="prev_article">
+            <span>上一篇：</span><a href="http://blog.csdn.net/ciml/article/details/5700719">Chrome扩展编写之Hello World（二）</a></li>
+        <li class="next_article">
+            <span>下一篇：</span><a href="http://blog.csdn.net/ciml/article/details/5730209">chrome源码学习之启动流程简介</a></li>
+</div>
+
+
+</div>
+<div id="ad_cen"><iframe id="ad_frm_0" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 95px; " src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ad.htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"><dl class="comment_item comment_topic" id="comment_item_1566481"><dt class="comment_head" floor="2">2楼 <span class="user"><a class="username" href="http://blog.csdn.net/kooqily" target="_blank">kooqily</a> <span class="ptime">2010-12-27 11:10发表</span>  <a href="http://blog.csdn.net/ciml/article/details/5721153#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1566481" username="kooqily"> <a href="http://blog.csdn.net/ciml/article/details/5721153#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/ciml/article/details/5721153#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/kooqily" target="_blank"><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/3_kooqily.jpg" width="40" height="40"></a></dd><dd class="comment_body">继续发，持续关注</dd></dl><dl class="comment_item comment_topic" id="comment_item_1448070"><dt class="comment_head" floor="1">1楼 <span class="user"><a class="username" href="http://blog.csdn.net/bzero1982" target="_blank">bzero1982</a> <span class="ptime">2010-07-13 17:10发表</span>  <a href="http://blog.csdn.net/ciml/article/details/5721153#reply" class="cmt_btn reply" title="回复">[回复]</a> <span class="comment_manage" style="display:none;" commentid="1448070" username="bzero1982"> <a href="http://blog.csdn.net/ciml/article/details/5721153#quote" class="cmt_btn quote" title="引用">[引用]</a> <a href="http://blog.csdn.net/ciml/article/details/5721153#report" class="cmt_btn report" title="举报">[举报]</a></span></span></dt><dd class="comment_userface"><a href="http://blog.csdn.net/bzero1982" target="_blank"><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/3_bzero1982.jpg" width="40" height="40"></a></dd><dd class="comment_body">写的不错</dd></dl><div class="clear"></div></div>
+<div id="comment_bar" style="display: none; "></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="http://passport.csdn.net/Account/Login?from=http%3A%2F%2Fblog.csdn.net%2Fciml%2Farticle%2Fdetails%2F5721153">[登录]</a>或<a href="http://passport.csdn.net/Account/Register?from=http%3A%2F%2Fblog.csdn.net%2Fciml%2Farticle%2Fdetails%2F5721153">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场</div>
+<script type="text/javascript">
+    var fileName = '5721153';
+    var commentscount = 2;
+    var islock = false
+</script>
+<script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe id="ad_frm_1" frameborder="0" scrolling="no" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; overflow-x: hidden; overflow-y: hidden; width: 732px; height: 170px; " src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/ad(1).htm"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://blog.csdn.net/ciml" title="我的博客主页">
+            <img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/1_ciml.jpg" style="max-width:90%">
+            </a>
+            <br>
+            <span>ciml</span>
+        </div>
+        <div id="blog_medal">
+        <div id="bms_box"></div></div>
+        <ul id="blog_rank">
+            <li>访问：<span>35017次</span></li>
+            <li>积分：<span>440分</span></li>
+            <li>排名：<span>第14953名</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>9篇</span></li>
+            <li>转载：<span>1篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>39条</span></li>
+        </ul>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>文章分类</span></ul>
+    <ul class="panel_body">
+        <li>
+        <a href="http://blog.csdn.net/ciml/article/category/317893">Web Core</a><span>(4)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/ciml/article/category/680154">Web Dev</a><span>(2)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/ciml/article/category/713253">基础框架库</a><span>(1)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/ciml/article/category/678593">备忘</a><span>(1)</span>
+        
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/ciml/article/category/678592">杂项</a><span>(2)</span>
+        
+        </li>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list">
+        <!--归档统计-->
+        <li><a href="http://blog.csdn.net/ciml/article/month/2010/07">2010年07月</a>(4)</li><li><a href="http://blog.csdn.net/ciml/article/month/2010/06">2010年06月</a>(1)</li><li><a href="http://blog.csdn.net/ciml/article/month/2010/05">2010年05月</a>(1)</li><li><a href="http://blog.csdn.net/ciml/article/month/2010/04">2010年04月</a>(4)</li>
+        </div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5753367" title="protobuf在网络编程中的应用思考">protobuf在网络编程中的应用思考</a> (14116)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5531876" title="轻松编译google chrome浏览器最新稳定版源代码">轻松编译google chrome浏览器...</a> (3466)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5531914" title="为新购Thinkpad T410打造Windows Server 2008工作环境">为新购Thinkpad T410打造Wi...</a> (3214)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5538276" title="chrome源代码目录结构简介（版本4.1.249.1059）">chrome源代码目录结构简介（版本4....</a> (3214)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5730209" title="chrome源码学习之启动流程简介">chrome源码学习之启动流程简介</a> (2993)
+        </li>
+        <li>
+            <a href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET.htm" title="chrome源码学习之知识体系指南">chrome源码学习之知识体系指南</a> (2757)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5700719" title="Chrome扩展编写之Hello World（二）">Chrome扩展编写之Hello Wor...</a> (2545)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5638112" title="Chrome扩展编写之Hello World（一）">Chrome扩展编写之Hello Wor...</a> (1759)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5530782" title="T410使用情况简要报告">T410使用情况简要报告</a> (710)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5734240" title="MSDN 无法显示网页处理方法">MSDN 无法显示网页处理方法</a> (199)
+        </li>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body">
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5753367" title="protobuf在网络编程中的应用思考">protobuf在网络编程中的应用思考</a> (11)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5531914" title="为新购Thinkpad T410打造Windows Server 2008工作环境">为新购Thinkpad T410打造Wi...</a> (7)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5538276" title="chrome源代码目录结构简介（版本4.1.249.1059）">chrome源代码目录结构简介（版本4....</a> (7)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5531876" title="轻松编译google chrome浏览器最新稳定版源代码">轻松编译google chrome浏览器...</a> (4)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5530782" title="T410使用情况简要报告">T410使用情况简要报告</a> (3)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5638112" title="Chrome扩展编写之Hello World（一）">Chrome扩展编写之Hello Wor...</a> (2)
+        </li>
+        <li>
+            <a href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET.htm" title="chrome源码学习之知识体系指南">chrome源码学习之知识体系指南</a> (2)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5730209" title="chrome源码学习之启动流程简介">chrome源码学习之启动流程简介</a> (2)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5700719" title="Chrome扩展编写之Hello World（二）">Chrome扩展编写之Hello Wor...</a> (1)
+        </li>
+        <li>
+            <a href="http://blog.csdn.net/ciml/article/details/5734240" title="MSDN 无法显示网页处理方法">MSDN 无法显示网页处理方法</a> (0)
+        </li>
+    </ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body">
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">Funniest:
+数据包分割协议很麻烦
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5538276#comments">chrome源代码目录结构简介（版本4.1.249.1059）</a>
+    <p style="margin:0px;">qiangjizhang:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">chenchao868:
+回复 chenxiaohong3905：数据类型设置成 FixedSize
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">chenchao868:
+回复 chenxiaohong3905：这个问题我也遇到，仍然在猜测中！
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">W511522329:
+能给个原代码的例子吗，忙了两天了，环境搞不起来。
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">everettjf:
+
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5721153#comments">chrome源码学习之知识体系指南</a>
+    <p style="margin:0px;">kooqily:
+继续发，持续关注
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5753367#comments">protobuf在网络编程中的应用思考</a>
+    <p style="margin:0px;">chenxiaohong3905:
+message BoundMsg{  required int32 msg_type = 1;  r...
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5538276#comments">chrome源代码目录结构简介（版本4.1.249.1059）</a>
+    <p style="margin:0px;">lishuai369:
+在哪里下载google chrome的源码啊？google code我打不开啊
+    </p>
+    </li>
+    <li>
+    <a href="http://blog.csdn.net/ciml/article/details/5538276#comments">chrome源代码目录结构简介（版本4.1.249.1059）</a>
+    <p style="margin:0px;">lichaoandy:
+请问webkit的源代码在哪里啊？在webkit目录下没有webkit的源代码啊
+    </p>
+    </li>
+</ul>
+</div>
+<div id="custom_column_959673" class="panel">
+    <ul class="panel_head"><span>chrome源码学习链接</span></ul>
+    <ul class="panel_body">
+        <ul><li><a href="http://blog.csdn.net/bzero1982/" target="_blank">bzero1982的专栏</a></li><li><a href="http://www.cnblogs.com/duguguiyu/" target="_blank">Venus神庙</a></li><li><a href="http://www.douban.com/note/32956940/" target="_blank">李乒加乓的日记</a></li></ul>
+    </ul>
+</div>    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="clear"></div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".article_content pre").each(function () {
+                var $this = $(this);
+                if ($this.attr("class").indexOf("brush:") != -1) {
+                    var lang = $this.attr("class").split(';')[0].split(':')[1];
+                    $this.attr('name', 'code');
+                    $this.attr('class', lang);
+                }
+            });
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+<script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/show.js"></script>
+<script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/showblogmedal.ashx"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/pv.aspx" border="0" width="0" height="0">
+<script type="text/javascript" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/counter.js"></script><script type="text/javascript" charset="UTF-8" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/msg.popup.js"></script><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/visitlog.php" width="1" height="1" border="0" alt=""><iframe id="myframe" name="myframe" frameborder="no" scrolling="no" width="0" height="0" border="0" src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/dd333.htm"></iframe>
+<script src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/publib_footer.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/pub_footerstyle.css"><div class="pub_footerall"><dl><dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd>北京创新乐知信息技术有限公司 版权所有,&nbsp;京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/pic_email.gif" alt="" title=""> Email:webmaster@csdn.net</dd><dd>Copyright © 1999-2011, CSDN.NET, All Rights Reserved</dd><dd><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./chrome源码学习之知识体系指南 - thinker的专栏 - 博客频道 - CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div>
+</div>
+
+</body></html>

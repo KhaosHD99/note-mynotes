@@ -1,0 +1,135 @@
+.container .icon {
+	BACKGROUND-IMAGE: url(images/ask_icon.gif)
+}
+.btn {
+	BACKGROUND: url(images/ask_btn.gif) no-repeat
+}
+.bg {
+	BACKGROUND: url(images/ask_bg.gif) no-repeat
+}
+.x-icon {
+	DISPLAY: inline-block; BACKGROUND: url(images/ask_bg.gif) no-repeat; VERTICAL-ALIGN: middle; WIDTH: 20px; HEIGHT: 20px
+}
+.panel-header .x-icon {
+	FLOAT: left; MARGIN: -3px 3px -1px -2px
+}
+.panel-hc .panel-header {
+	OVERFLOW: visible
+}
+.panel-hc .panel-header .x-icon {
+	MARGIN: -3px 3px -3px -4px; POSITION: relative
+}
+.container .panel {
+	MARGIN-BOTTOM: 10px
+}
+.btn {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; OVERFLOW: hidden; WIDTH: 109px; BORDER-TOP-STYLE: none; LINE-HEIGHT: 25px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 25px; BORDER-BOTTOM-STYLE: none
+}
+.navigation .panel-body {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 13px; PADDING-TOP: 5px; POSITION: relative; HEIGHT: 32px; TEXT-ALIGN: center
+}
+.navigation .panel-body .bg {
+	DISPLAY: inline-block; VERTICAL-ALIGN: middle; WIDTH: 55px; MARGIN-RIGHT: 10px; HEIGHT: 45px
+}
+.navigation .panel-body INPUT.text {
+	BORDER-RIGHT: #dbdbdb 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #dbdbdb 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 6px; BORDER-LEFT: #dbdbdb 1px solid; WIDTH: 550px; MARGIN-RIGHT: 10px; PADDING-TOP: 6px; BORDER-BOTTOM: #dbdbdb 1px solid
+}
+.navigation .panel-body INPUT.btn {
+	BACKGROUND-POSITION: 0px 0px; FONT-SIZE: 12px; WIDTH: 86px; COLOR: #5e5e5e; HEIGHT: 30px
+}
+.navigation .panel-body INPUT.on {
+	BACKGROUND-POSITION: 0px -40px; COLOR: #000
+}
+.navigation .b-ask {
+	BACKGROUND-POSITION: -210px 0px
+}
+.navigation .b-help {
+	BACKGROUND-POSITION: -265px 0px
+}
+.c-left {
+	FLOAT: left; WIDTH: 210px
+}
+.c-right {
+	MARGIN-LEFT: 217px; ZOOM: 1
+}
+.x-unsolved {
+	BACKGROUND-POSITION: -335px 0px
+}
+.x-share {
+	BACKGROUND-POSITION: -365px 0px
+}
+.x-solved {
+	BACKGROUND-POSITION: -395px 0px
+}
+.classes LI {
+	MARGIN-TOP: 4px
+}
+.classes LI A {
+	FONT-SIZE: 14px; WHITE-SPACE: nowrap; TEXT-DECORATION: underline
+}
+.classes LI UL {
+	OVERFLOW: hidden; ZOOM: 1
+}
+.classes LI LI {
+	DISPLAY: inline; FLOAT: left; MARGIN: 0px 12px 0px 0px
+}
+.classes LI LI A {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #666; LINE-HEIGHT: 22px
+}
+.classes LI LI A:hover {
+	COLOR: #f60
+}
+.guide {
+	PADDING-RIGHT: 8px; BORDER-TOP: #b6cae3 1px solid; PADDING-LEFT: 8px; BACKGROUND: #f2f6fb; PADDING-BOTTOM: 0px; COLOR: #888; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+.guide SPAN {
+	MARGIN: auto 8px; COLOR: #333
+}
+.h-list {
+	FONT-SIZE: 14px; OVERFLOW: hidden; ZOOM: 1
+}
+.h-list LI {
+	DISPLAY: inline; FLOAT: left; MARGIN-LEFT: 8px; OVERFLOW: hidden; WIDTH: 350px; WHITE-SPACE: nowrap; HEIGHT: 20px; TEXT-OVERFLOW: ellipsis
+}
+.h-list LI .icon {
+	BACKGROUND-POSITION: -16px -32px; MARGIN: 2px 6px 2px 0px
+}
+.h-list LI A {
+	VERTICAL-ALIGN: baseline; ZOOM: 1; TEXT-DECORATION: underline
+}
+.h-list LI EM {
+	FONT-SIZE: 12px; MARGIN-LEFT: 0.5em; COLOR: #333
+}
+.h-list LI IMG {
+	MARGIN-LEFT: 0.2em
+}
+.panel-body .h-list {
+	MARGIN-LEFT: -8px
+}
+.list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+.list LI {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; OVERFLOW: hidden; LINE-HEIGHT: 20px; PADDING-TOP: 5px; BORDER-BOTTOM: #e5e5e5 1px dashed; WHITE-SPACE: nowrap; HEIGHT: 20px; TEXT-OVERFLOW: ellipsis
+}
+.view {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; OVERFLOW: hidden; WIDTH: 100%; PADDING-TOP: 10px
+}
+.view A {
+	TEXT-DECORATION: underline
+}
+.view .title H2 {
+	FONT-SIZE: 1.8em; LINE-HEIGHT: 1.8em; TEXT-ALIGN: center
+}
+.view .title P {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #999; PADDING-TOP: 5px; TEXT-ALIGN: right
+}
+.view .content {
+	BORDER-RIGHT: #ccc 0px solid; PADDING-RIGHT: 1em; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 1em; FONT-SIZE: 12px; MIN-HEIGHT: 200px; PADDING-BOTTOM: 1em; BORDER-LEFT: #ccc 0px solid; TEXT-INDENT: 2em; LINE-HEIGHT: 3em; PADDING-TOP: 1em; BORDER-BOTTOM: #ccc 1px solid
+}
+.view .content IMG {
+	TEXT-INDENT: 0px
+}
+.view .confirm {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em
+}
