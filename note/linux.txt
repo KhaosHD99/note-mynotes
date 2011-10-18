@@ -1299,3 +1299,10 @@ dd if=/dev/zero of=/home/swap bs=1024 count=1024000
 auto work after boot:
 fstab:
 /home/swap              swap                    swap    defaults        0 0
+
+
+
+
+
+
+freopen("/var/log/syslog","a", stderr);
