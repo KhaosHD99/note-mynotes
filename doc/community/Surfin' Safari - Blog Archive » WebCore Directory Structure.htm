@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://www.webkit.org/blog/42/webcore-directory-structure/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="robots" content="noodp">
+
+    <title>Surfin' Safari - Blog Archive  » WebCore Directory Structure</title>
+
+    <meta name="application-name" content="SurfinSafari">
+
+    <meta name="generator" content="WordPress 2.8.5">
+
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/main.css">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/style.css">
+
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/blue.css" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/yellow.css" title="yellow">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/pink.css" title="pink">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/purple.css" title="purple">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/gray.css" title="gray">
+
+<!--[if gte IE 5]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.webkit.org/blog/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.webkit.org/blog/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.webkit.org/blog/feed/atom/">
+    <link rel="pingback" href="http://www.webkit.org/blog/xmlrpc.php">
+
+    <link rel="icon" sizes="32x32 128x128 256x256" href="http://www.webkit.org/images/surfin-safari.icns">
+    <link rel="SHORTCUT ICON" sizes="16x16" type="image/x-icon" href="http://www.webkit.org/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="Surfin&#39; Safari &raquo; WebCore Directory Structure Comments Feed" href="http://www.webkit.org/blog/42/webcore-directory-structure/feed/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.webkit.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.webkit.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Surfin&#39; Safari" href="http://www.webkit.org/blog">
+<link rel="start" title="Welcome to the WebKit Blog" href="http://www.webkit.org/blog/4/welcome-to-the-webkit-blog/">
+<link rel="prev" title="Introducing the Web Inspector" href="http://www.webkit.org/blog/41/introducing-the-web-inspector/">
+<link rel="next" title="Karelia Releases Sandvox Beta" href="http://www.webkit.org/blog/43/karelia-releases-sandvox-beta/">
+<meta name="generator" content="WordPress 2.8.5">
+</head><body>
+
+<div id="title">
+<h1>Surfin' Safari</h1>
+</div>
+
+<div id="icon"></div>
+
+<div id="content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&lt;&lt; <a href="http://www.webkit.org/blog/41/introducing-the-web-inspector/">Introducing the Web Inspector</a></div>
+			<div class="alignright"><a href="http://www.webkit.org/blog/43/karelia-releases-sandvox-beta/">Karelia Releases Sandvox Beta</a> &gt;&gt;</div>
+			&nbsp;
+		</div>
+
+		<div class="post" id="post-42">
+			<h2><a href="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/Surfin' Safari - Blog Archive » WebCore Directory Structure.htm" rel="bookmark" title="Permanent Link: WebCore Directory Structure">WebCore Directory Structure</a></h2>
+                        <small>Posted by <strong>Dave Hyatt</strong> on Tuesday, January 17th, 2006 at 4:19 pm</small>
+
+			<div class="entrytext">
+				<p>Now that we’ve moved to Subversion, we’re making some changes to our directory structure.  At the moment WebCore contains both a <tt>khtml</tt> directory and a <tt>ksvg2</tt> directory.  Although these are two separate libraries in KDE, in our code they are merged together (for the purposes of Compound Document support as well as speed), and going forward we want to fold them together even further.</p>
+<p>In addition we are trying to take our portability layer and clean it up as well.   Right now it contains a mix of basic data structures that are similar (but often not identical) to Qt APIs, and data structures that have nothing to do with Qt.  We plan to consolidate these objects together in a new directory and change them so that they no longer clash with Qt.  This will actually make it possible to port WebCore back to Qt, since we will no longer have classes with the same name that clash API-wise but that have numerous differences that make them incompatible.</p>
+<p>The new directory structure is as follows:</p>
+<p><tt>bindings</tt> – houses the language-specific bindings for JavaScript and for Objective-C.  It has two subdirectories, <tt>js</tt> and <tt>objc</tt>.  The files that move here will come from <tt>khtml/ecma</tt>, <tt>ksvg/ecma</tt>, and also <tt>ksvg/bindings</tt>.  Ultimately these language-specific bindings will be auto-generated from IDL files.</p>
+<p><tt>bridge</tt> – Bridge is about the bridging to the WebKit framework.</p>
+<p><tt>page</tt> – Code for the top-level page and frames.  Was originally the khtml part and khtml view.  We will be making this more abstract so that it can be bridged to either WebKit or another abstraction like the khtml part.</p>
+<p><tt>platform</tt> – Contains much of the engine-level plumbing (code from <tt>khtml/misc</tt> and <tt>kwq</tt>).  This code will have platform-specific subdirectories, e.g., <tt>mac</tt>.  Other ports can have their own subdirectories (<tt>Qt</tt>, <tt>GTK</tt>, <tt>Win32</tt>, etc.).</p>
+<p><tt>css</tt> – The CSS back end.  This is consolidated from <tt>khtml/css</tt> and <tt>ksvg2/css</tt>.</p>
+<p><tt>editing</tt> – The editing infrastructure.  This is moving from <tt>khtml/editing</tt>.</p>
+<p><tt>html</tt> – The HTML DOM.  This is moving from <tt>khtml/html</tt>.</p>
+<p><tt>loader</tt> – Files that used to be in <tt>khtml/misc</tt> dealing with subresource loading.</p>
+<p><tt>svg</tt> – The SVG DOM.  This is moving from <tt>ksvg2/svg</tt>.</p>
+<p><tt>xsl</tt> – Support for XSLT stylesheets.  Moving from <tt>khtml/xsl</tt>.</p>
+<p><tt>xml</tt> – The XML DOM (base classes for the HTML+SVG DOMs).  Moving from <tt>khtml/xml</tt>.</p>
+<p>We will also be renaming all files to match the class defined in those files.  For files that currently define many classes, we will be splitting them out into one class per file.</p>
+<p>Feedback is welcome.  Once we finish with these changes, we should have a nice clean merge of KHTML and KSVG2, as well as a better platform abstraction that is really independent of any specific platform implementation.</p>
+
+				
+				<p class="postmetadata alt">
+					You can follow any responses to this entry through the <a href="http://www.webkit.org/blog/42/webcore-directory-structure/feed/">RSS 2.0</a> feed. 
+
+											Both comments and pings are currently closed.			
+
+									</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+    <h3 id="comments">2 Responses to “WebCore Directory Structure”</h3> 
+
+    <ol class="commentlist">
+    
+        <li class="alt" id="comment-760">
+                                    <cite>maciej</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/42/webcore-directory-structure/#comment-760" title="">January 17th, 2006 at 5:47 pm</a> </small>
+
+            <p>Maybe the core DOM should go in dom/ instead of xml/ since it is equally applicable to html. Also curious about the plan for rendering and kcanvas.</p>
+
+        </li>
+
+    
+    
+        <li class="" id="comment-788">
+                                    <cite><a href="http://kaiwai.blogspot.com/" rel="external nofollow" class="url">kaiwai</a></cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/42/webcore-directory-structure/#comment-788" title="">February 4th, 2006 at 7:32 pm</a> </small>
+
+            <p>I would have thought this would have been best:</p>
+<p>/dom<br>
+/dom/core – for the core of the DOM<br>
+/dom/xml<br>
+/dom/html</p>
+
+        </li>
+
+    
+    
+    </ol>
+
+ 
+
+
+	
+</div>
+
+<div id="nav">
+    <ul id="navlist">
+        <li><a href="http://www.webkit.org/">Home</a></li>
+        <li><a href="http://www.webkit.org/blog/">Surfin’ Safari Blog</a></li>
+        <li><a href="http://planet.webkit.org/">Planet WebKit</a></li>
+        <li><a href="http://www.webkit.org/projects/goals.html">Project Goals</a></li>
+        <li><a href="http://www.webkit.org/contact.html">Keeping in Touch</a></li>
+        <li><a href="http://trac.webkit.org/">Trac</a></li>
+        <li><a href="http://www.webkit.org/meeting/">Contributors Meeting</a></li>
+
+        <li class="subtitle">Working with the Code</li>
+
+        <li><a href="http://www.webkit.org/building/tools.html">Installing Developer Tools</a></li>
+        <li><a href="http://www.webkit.org/building/checkout.html">Getting the Code</a></li>
+        <li><a href="http://www.webkit.org/building/build.html">Building WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/run.html">Running WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/debug.html">Debugging WebKit</a></li>
+        <li><a href="http://www.webkit.org/coding/contributing.html">Contributing Code</a></li>
+        <li><a href="http://www.webkit.org/coding/commit-review-policy.html">Commit and Review Policy</a></li>
+        <li><a href="http://www.webkit.org/coding/adding-features.html">Adding Features</a></li>
+        <li><a href="http://www.webkit.org/security/">Security Policy</a></li>
+
+        <li class="subtitle">Documentation</li>
+
+        <li><a href="http://trac.webkit.org/wiki">Wiki</a></li>
+        <li><a href="http://www.webkit.org/projects/">Projects</a></li>
+        <li><a href="http://www.webkit.org/coding/coding-style.html">Code Style Guidelines</a></li>
+        <li><a href="http://www.webkit.org/coding/technical-articles.html">Technical Articles</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebDevelopers">Web Developer Resources</a></li>
+        <li><a href="http://www.webkit.org/demos/">Demos</a></li>
+
+        <li class="subtitle">Testing</li>
+
+        <li><a href="http://www.webkit.org/quality/testing.html">Regression Testing</a></li>
+        <li><a href="http://www.webkit.org/quality/leakhunting.html">Leak Hunting</a></li>
+        <li><a href="http://www.webkit.org/quality/testwriting.html">Writing New Tests</a></li>
+        <li><a href="http://www.webkit.org/quality/crashlogs.html">Getting a Crash Log</a></li>
+
+        <li class="subtitle">Bugs</li>
+
+        <li><a href="http://www.webkit.org/quality/reporting.html">Reporting Bugs</a></li>
+        <li><a href="http://www.webkit.org/quality/bugwriting.html">Bug Report Guidelines</a></li>
+        <li><a href="http://www.webkit.org/quality/bugpriorities.html">Bug Prioritization</a></li>
+        <li><a href="http://www.webkit.org/quality/reduction.html">Test Case Reduction</a></li>
+        <li><a href="http://www.webkit.org/quality/lifecycle.html">Bug Life Cycle</a></li>
+<li class="subtitle">Archives</li>
+	<li><a href="http://www.webkit.org/blog/date/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/04/" title="April 2011">April 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/02/" title="February 2011">February 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/09/" title="September 2010">September 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/08/" title="August 2010">August 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/07/" title="July 2010">July 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/06/" title="June 2010">June 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/05/" title="May 2010">May 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/04/" title="April 2010">April 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/03/" title="March 2010">March 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/02/" title="February 2010">February 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/01/" title="January 2010">January 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/12/" title="December 2009">December 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/11/" title="November 2009">November 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/10/" title="October 2009">October 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/07/" title="July 2009">July 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/06/" title="June 2009">June 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/09/" title="September 2007">September 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/10/" title="October 2006">October 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/09/" title="September 2006">September 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/09/" title="September 2005">September 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/08/" title="August 2005">August 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/07/" title="July 2005">July 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/06/" title="June 2005">June 2005</a></li>
+    </ul>
+    <div id="notice">
+        WebKit is open source software with portions licensed under the
+        <a href="http://www.webkit.org/coding/lgpl-license.html">LGPL</a> and
+        <a href="http://www.webkit.org/coding/bsd-license.html">BSD licenses</a>.
+        Complete license and copyright information can be found within the code.
+    </div>
+
+    <div id="terms">
+        Hosting provided by <a href="http://www.macosforge.org/">Mac OS Forge</a>.
+        Use of this site is subject to the
+        <a href="http://www.macosforge.org/terms/">Mac OS Forge Terms of Use</a>.
+    </div>
+</div>
+
+<div id="footer">
+    Surfin' Safari site is powered by 
+    <a href="http://wordpress.org/">WordPress</a>
+    <br><a href="http://www.webkit.org/blog/feed/">Entries (RSS)</a>
+    and <a href="http://www.webkit.org/blog/comments/feed/">Comments (RSS)</a>.
+    <br> <a href="http://www.webkit.org/blog/wp-login.php?action=register">Register</a> <strong>|</strong> <a href="http://www.webkit.org/blog/wp-login.php">Log in</a>    <!-- 25 queries. 0.147 seconds. -->
+</div>
+
+<script src="./Surfin' Safari - Blog Archive » WebCore Directory Structure_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-336489-2";
+urchinTracker();
+</script>
+
+
+</body></html>
