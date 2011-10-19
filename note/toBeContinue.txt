@@ -6061,7 +6061,7 @@ Error accessing memory address 0x2c7267e3: Input/output error.
 
 
 1017  
-     C++是一种静态类型语言,这就使实现可以容纳不同种类型元素的容器--元组变得十分困难.C++的标准容器库STL虽然提供了丰富的容器,但其都只能容纳相同类型的元素,没有提供对元组容器的支持.其实C++的模板机制为它的静态类型系统增加了很大的灵活性,再使用一些其它的技巧,使得实现元组容器成为可能.wyf::tuple就是如此实现的一个元组容器的程序库.wyf::tuple不但可以保证类型安全,并且是高效的.测试数据表明,它要比一些动态语言如Pyhon中的类似容器高效得多.
+     C++是一种静态类型语言,这就使实现可以容纳不同种类型元素的容器--元组变得十分困难.C++的标准容器库STL虽然提供     了丰富的容器,但其都只能容纳相同类型的元素,没有提供对元组容器的支持.其实C++的模板机制为它的静态类型系统增加    了很大的灵活性,再使用一些其它的技巧,使得实现元组容器成为可能.wyf::tuple就是如此实现的一个元组容器的程序库.wyf::tuple不但可以保证类型安全,并且是高效的.测试数据表明,它要比一些动态语言如Pyhon中的类似容器高效得多.
  
      Traits
      partial specialization
@@ -6069,9 +6069,17 @@ Error accessing memory address 0x2c7267e3: Input/output error.
     标准库定义了许多容器类以及一系列泛型算法，使程序员可以更简洁、抽象和有效地编写程序
      
     why brwDsk crash continually								**
-     
-  
+    
     char str[] = "Helloppp";
     char *str2 = "Helloppp";
     printf("%d, %d\n",sizeof(str), sizeof(str2));
         
+    
+1018 need to clear the frame?									**
+     ResourceLoader MainResourceLoader load flash
+     
+     WebCore::SubframeLoader::requestPlugin
+     
+1019 FrameLoaderClient::createJavaAppletWidget
+     SubframeLoader::createJavaAppletWidget
+     
