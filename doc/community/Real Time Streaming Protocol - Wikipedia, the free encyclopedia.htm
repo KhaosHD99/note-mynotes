@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0057)http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol -->
+<html lang="en" dir="ltr" class="client-chrome client-chrome-6 client-webkit client-win client-js" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Real Time Streaming Protocol - Wikipedia, the free encyclopedia</title>
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.17wmf1">
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit">
+<link rel="edit" title="Edit this page" href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit">
+<link rel="apple-touch-icon" href="http://en.wikipedia.org/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom">
+<link rel="stylesheet" href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load.php" type="text/css" media="all">
+<style type="text/css" media="all">.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:99;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText}.suggestions-special .special-label{font-size:0.8em;color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText}.autoellipsis-matched,.highlight{font-weight:bold}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:5:8d395f27880b6ffcab73b1c74b0217ea */</style><style type="text/css" media="all">#mw-panel.collapsible-nav div.portal{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEtQTFRF29vb2tra4ODg6urq5OTk4uLi6+vr7e3t7Ozs8PDw5+fn4+Pj4eHh3d3d39/f6Ojo5eXl6enp8fHx8/Pz8vLy7+/v3Nzc2dnZ2NjYnErj7QAAAD1JREFUeNq0wQUBACAMALDj7hf6JyUFGxzEnYhC9GaNPG1xVffGDErk/iCigLl1XV2xM49lfAxEaSM+AQYA9HMKuv4liFQAAAAASUVORK5CYII=);background-image:url(//bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/portal-break.png?2011-02-12T21:25:00Z)!ie;background-position:left top;background-repeat:no-repeat;padding:0.25em 0 !important;margin:-11px 9px 10px 11px}#mw-panel.collapsible-nav div.portal h5{color:#4D4D4D;font-weight:normal;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFeXl53d3dmpqasbGx////GU0iEgAAAAV0Uk5T/////wD7tg5TAAAAK0lEQVQI12NwgQIG0hhCDAwMTCJAhqMCA4MiWEoIJABiOCooQhULi5BqMgB2bh4svs8t+QAAAABJRU5ErkJggg==) left center no-repeat;background:url(//bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/open.png?2011-02-12T21:25:00Z) left center no-repeat!ie;padding:4px 0 3px 1.5em;margin-bottom:0px}#mw-panel.collapsible-nav div.collapsed h5{color:#0645AD;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF3d3deXl5////nZ2dQA6SoAAAAAN0Uk5T//8A18oNQQAAADNJREFUeNpiYEIDDMQKMKALMDOgCTDCRWACcBG4AEwEIcDITEAFuhnotmC4g4EEzwEEGAADqgHmQSPJKgAAAABJRU5ErkJggg==) left center no-repeat;background:url(//bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/closed-ltr.png?2011-02-12T21:25:00Z) left center no-repeat!ie;margin-bottom:0px}#mw-panel.collapsible-nav div h5:hover{cursor:pointer;text-decoration:none}#mw-panel.collapsible-nav div.collapsed h5:hover{text-decoration:underline}#mw-panel.collapsible-nav div.portal div.body{background:none !important;padding-top:0px;display:none}#mw-panel.collapsible-nav div.persistent div.body{display:block}#mw-panel.collapsible-nav div.first h5{display:none}#mw-panel.collapsible-nav div.persistent h5{background:none !important;padding-left:0.7em;cursor:default}#mw-panel.collapsible-nav div.portal div.body ul li{padding:0.25em 0}#mw-panel.collapsible-nav div.first{background-image:none;margin-top:0px}#mw-panel.collapsible-nav div.persistent div.body{margin-left:0.5em}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:5:4b4b5a5b12d31e56020a4f4f976a681c */</style><meta name="ResourceLoaderDynamicStyles" content=""><link rel="stylesheet" href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(1).php" type="text/css" media="all">
+<style type="text/css" media="all">a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:5:f2a9127573a22335c2a9102b208c73e7 */</style>
+<script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(2).php" type="text/javascript"></script><script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(3).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Real_Time_Streaming_Protocol", "wgTitle": "Real Time Streaming Protocol", "wgAction": "view", "wgArticleId": 26162, "wgIsArticle": true, "wgUserName": null, "wgUserGroups": ["*"], "wgCurRevisionId": 452868540, "wgCategories": ["Articles lacking in-text citations from July 2009", "All articles lacking in-text citations", "Application layer protocols"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0], "wgFlaggedRevsParams": {"tags": {"status": {"levels": 1, "quality": 2, "pristine": 3}}}, "wgStableRevisionId": null, "wgRevContents": {"error": "Unable to get content.", "waiting": "Waiting for content"}, "wgVectorEnabledModules": {"collapsiblenav": true, "collapsibletabs": true, "editwarning": true, "expandablesearch": false, "footercleanup": false, "sectioneditlinks": false, "simplesearch": true, "experiments": true}, "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "templateEditor": false, "templates": false, "addMediaWizard": false, "preview": false, "previewDialog": false, "publish": false, "toc": false}, "wgTrackingToken": "3d526be4bb95197cd487d694a43553ea", "wikilove-recipient": "", "wikilove-edittoken": "+\\", "wikilove-anon": 0, "mbEditToken": "+\\", "Geo": {"city": "", "country": ""}, "wgNoticeProject": "wikipedia"});
+}
+</script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.page.startup"]);
+	mediaWiki.loader.go();
+}
+</script><script type="text/javascript" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(4).php"></script>
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.17/vector/csshover.min.htc")}</style><![endif]--><link type="text/css" rel="stylesheet" href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/index.php"><script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/index(1).php" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/index(2).php"></head><body class="mediawiki ltr ns-0 ns-subject page-Real_Time_Streaming_Protocol skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><!-- centralNotice loads here --></div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Real Time Streaming Protocol</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#mw-head">navigation</a>,
+					<a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<div class="dablink">Not to be confused with <a href="http://en.wikipedia.org/wiki/Rapid_Spanning_Tree_Protocol" title="Rapid Spanning Tree Protocol" class="mw-redirect">Rapid Spanning Tree Protocol</a>.</div>
+<table class="metadata plainlinks ambox ambox-style ambox-More_footnotes" style="">
+<tbody><tr>
+<td class="mbox-image">
+<div style="width: 52px;"><img alt="" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/40px-Text_document_with_red_question_mark.svg.png" width="40" height="40"></div>
+</td>
+<td class="mbox-text" style="">This article includes a <a href="http://en.wikipedia.org/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">list of references</a>, but <b>its sources remain unclear because it has insufficient <a href="http://en.wikipedia.org/wiki/Wikipedia:Citing_sources#Adding_the_citation" title="Wikipedia:Citing sources">inline citations</a></b>. Please help to <a href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">improve</a> this article by introducing more precise citations <a href="http://en.wikipedia.org/wiki/Wikipedia:When_to_cite" title="Wikipedia:When to cite">where appropriate</a>. <small><i>(July 2009)</i></small></td>
+</tr>
+</tbody></table>
+<p>The <b>Real Time Streaming Protocol</b> (<b>RTSP</b>) is a network control <a href="http://en.wikipedia.org/wiki/Communications_protocol" title="Communications protocol">protocol</a> designed for use in entertainment and communications systems to control <a href="http://en.wikipedia.org/wiki/Streaming_media" title="Streaming media">streaming media</a> <a href="http://en.wikipedia.org/wiki/Web_server" title="Web server">servers</a>. The protocol is used for establishing and controlling media sessions between end points. Clients of media servers issue <a href="http://en.wikipedia.org/wiki/VCR" title="VCR" class="mw-redirect">VCR</a>-like commands, such as <i>play</i> and <i>pause</i>, to facilitate real-time control of playback of media files from the server.</p>
+<p>The transmission of streaming data itself is not a task of the RTSP protocol. Most RTSP servers use the <a href="http://en.wikipedia.org/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">Real-time Transport Protocol</a> (RTP) for media stream delivery, however some vendors implement proprietary transport protocols. The RTSP server from <a href="http://en.wikipedia.org/wiki/RealNetworks" title="RealNetworks">RealNetworks</a>, for example, also features <a href="http://en.wikipedia.org/wiki/RealNetworks" title="RealNetworks">RealNetworks</a>' proprietary <a href="http://en.wikipedia.org/wiki/RDT_stream_transport" title="RDT stream transport" class="mw-redirect">RDT stream transport</a>.</p>
+<p>RTSP was developed by the Multiparty Multimedia Session Control Working Group (MMUSIC WG) of the <a href="http://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" title="Internet Engineering Task Force">Internet Engineering Task Force</a> (IETF) and published as <a href="http://tools.ietf.org/html/rfc2326" class="external mw-magiclink-rfc">RFC 2326</a> in 1998.<sup id="cite_ref-0" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-0"><span>[</span>1<span>]</span></a></sup></p>
+<table class="vertical-navbox nowraplinks" cellspacing="5" style="float: right; clear: right; color: black; background: #f9f9f9; border: 1px solid #aaa; width: 22em; margin: 0 0 1.0em 1.0em; padding: 0.2em; border-spacing: 0.4em 0; text-align: center; line-height: 1.4em; font-size: 88%;" cellpadding="0">
+<tbody><tr>
+<th class="" style="padding: 0.2em 0.4em 0.2em; font-size: 145%; line-height: 1.15em; font-weight: bold; background-color: #adb;"><a href="http://en.wikipedia.org/wiki/Internet_Protocol_Suite" title="Internet Protocol Suite">Internet Protocol Suite</a></th>
+</tr>
+<tr>
+<td class="" style="padding-top: 0.2em; font-weight: bold; background-color: #cfc;"><a href="http://en.wikipedia.org/wiki/Application_Layer" title="Application Layer">Application Layer</a></td>
+</tr>
+<tr>
+<td style="padding-bottom: 0.2em;"><a href="http://en.wikipedia.org/wiki/Border_Gateway_Protocol" title="Border Gateway Protocol">BGP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" title="Dynamic Host Configuration Protocol">DHCP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Domain_Name_System" title="Domain Name System">DNS</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/File_Transfer_Protocol" title="File Transfer Protocol">FTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="Hypertext Transfer Protocol">HTTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol" title="Internet Message Access Protocol">IMAP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Internet_Relay_Chat" title="Internet Relay Chat">IRC</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/LDAP" title="LDAP" class="mw-redirect">LDAP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Media_Gateway_Control_Protocol_(MGCP)" title="Media Gateway Control Protocol (MGCP)">MGCP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Network_News_Transfer_Protocol" title="Network News Transfer Protocol">NNTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Network_Time_Protocol" title="Network Time Protocol">NTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Post_Office_Protocol" title="Post Office Protocol">POP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Routing_Information_Protocol" title="Routing Information Protocol">RIP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Remote_procedure_call" title="Remote procedure call">RPC</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Session_Initiation_Protocol" title="Session Initiation Protocol">SIP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" title="Simple Mail Transfer Protocol">SMTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol" title="Simple Network Management Protocol">SNMP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/SOCKS" title="SOCKS">SOCKS</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Secure_Shell" title="Secure Shell">SSH</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Telnet" title="Telnet">Telnet</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security" title="Transport Layer Security">TLS/SSL</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol" title="Extensible Messaging and Presence Protocol">XMPP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Category:Application_layer_protocols" title="Category:Application layer protocols">(more)</a></td>
+</tr>
+<tr>
+<td class="" style="padding-top: 0.2em; font-weight: bold; background-color: #cfc;"><a href="http://en.wikipedia.org/wiki/Transport_Layer" title="Transport Layer">Transport Layer</a></td>
+</tr>
+<tr>
+<td style="padding-bottom: 0.2em;"><a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol" title="Transmission Control Protocol">TCP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol" title="User Datagram Protocol">UDP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol" title="Datagram Congestion Control Protocol">DCCP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol" title="Stream Control Transmission Protocol">SCTP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Resource_reservation_protocol" title="Resource reservation protocol">RSVP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Explicit_Congestion_Notification" title="Explicit Congestion Notification">ECN</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Category:Transport_layer_protocols" title="Category:Transport layer protocols">(more)</a></td>
+</tr>
+<tr>
+<td class="" style="padding-top: 0.2em; font-weight: bold; background-color: #cfc;"><a href="http://en.wikipedia.org/wiki/Internet_Layer" title="Internet Layer">Internet Layer</a></td>
+</tr>
+<tr>
+<td style="padding-bottom: 0.2em;"><a href="http://en.wikipedia.org/wiki/Internet_Protocol" title="Internet Protocol">IP</a> (<a href="http://en.wikipedia.org/wiki/IPv4" title="IPv4">IPv4</a>, <a href="http://en.wikipedia.org/wiki/IPv6" title="IPv6">IPv6</a>)&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol" title="Internet Control Message Protocol">ICMP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/ICMPv6" title="ICMPv6">ICMPv6</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Internet_Group_Management_Protocol" title="Internet Group Management Protocol">IGMP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/IPsec" title="IPsec">IPsec</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Category:Internet_Layer_protocols" title="Category:Internet Layer protocols">(more)</a></td>
+</tr>
+<tr>
+<td class="" style="padding-top: 0.2em; font-weight: bold; background-color: #cfc;"><a href="http://en.wikipedia.org/wiki/Link_Layer" title="Link Layer">Link Layer</a></td>
+</tr>
+<tr>
+<td style="padding-bottom: 0.2em;"><a href="http://en.wikipedia.org/wiki/Address_Resolution_Protocol" title="Address Resolution Protocol">ARP/InARP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol" title="Neighbor Discovery Protocol">NDP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Open_Shortest_Path_First" title="Open Shortest Path First">OSPF</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Tunneling_protocol" title="Tunneling protocol">Tunnels</a>&nbsp;(<a href="http://en.wikipedia.org/wiki/Layer_2_Tunneling_Protocol" title="Layer 2 Tunneling Protocol">L2TP</a>)&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Point-to-Point_Protocol" title="Point-to-Point Protocol">PPP</a>&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Media_Access_Control" title="Media Access Control">Media Access Control</a>&nbsp;(<a href="http://en.wikipedia.org/wiki/Ethernet" title="Ethernet">Ethernet</a>, <a href="http://en.wikipedia.org/wiki/Digital_subscriber_line" title="Digital subscriber line">DSL</a>, <a href="http://en.wikipedia.org/wiki/Integrated_Services_Digital_Network" title="Integrated Services Digital Network">ISDN</a>, <a href="http://en.wikipedia.org/wiki/Fiber_Distributed_Data_Interface" title="Fiber Distributed Data Interface">FDDI</a>)&nbsp;<span style="font-weight:bold;">·</span>  <a href="http://en.wikipedia.org/wiki/Category:Link_protocols" title="Category:Link protocols">(more)</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="noprint plainlinks navbar" style=""><span style="white-space:nowrap;word-spacing:-.12em;"><a href="http://en.wikipedia.org/wiki/Template:IPstack" title="Template:IPstack"><span style="" title="View this template">v</span></a> <span style=""><b>·</b></span> <a href="http://en.wikipedia.org/wiki/Template_talk:IPstack" title="Template talk:IPstack"><span style="" title="Discuss this template">d</span></a> <span style=""><b>·</b></span> <a href="http://en.wikipedia.org/w/index.php?title=Template:IPstack&action=edit" class="external text" rel="nofollow"><span style="" title="Edit this template">e</span></a></span></span></td>
+</tr>
+</tbody></table>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a id="togglelink" class="internal" href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#Protocol_directives"><span class="tocnumber">1</span> <span class="toctext">Protocol directives</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#Implementations"><span class="tocnumber">2</span> <span class="toctext">Implementations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#Server"><span class="tocnumber">2.1</span> <span class="toctext">Server</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#Client"><span class="tocnumber">2.2</span> <span class="toctext">Client</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=1" title="Edit section: Protocol directives">edit</a>]</span> <span class="mw-headline" id="Protocol_directives">Protocol directives</span></h2>
+<p>While similar in some ways to <a href="http://en.wikipedia.org/wiki/HTTP" title="HTTP" class="mw-redirect">HTTP</a>, RTSP defines control sequences useful in controlling multimedia playback. While HTTP is <a href="http://en.wikipedia.org/wiki/Stateless_server" title="Stateless server" class="mw-redirect">stateless</a>, RTSP has state; an identifier is used when needed to track concurrent sessions. Like HTTP, RTSP uses TCP to maintain an end-to-end connection and, while most RTSP control messages are sent by the client to the server, some commands travel in the other direction (i.e. from server to client).</p>
+<p>Presented here are the basic RTSP requests. Some typical <a href="http://en.wikipedia.org/wiki/HTTP_request" title="HTTP request" class="mw-redirect">HTTP requests</a>, like the OPTIONS request, are also available. The default transport layer <a href="http://en.wikipedia.org/wiki/Port_number" title="Port number">port number</a> is 544.</p>
+<dl>
+<dt>OPTIONS</dt>
+<dd>An OPTIONS request returns the request types the server will accept.</dd>
+</dl>
+<dl>
+<dt>DESCRIBE</dt>
+<dd>A DESCRIBE request includes an RTSP <a href="http://en.wikipedia.org/wiki/Uniform_Resource_Locator" title="Uniform Resource Locator">URL</a> (rtsp://...), and the type of reply data that can be handled. The default port for the RTSP protocol is 544 for both <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol" title="User Datagram Protocol">UDP</a> and <a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol" title="Transmission Control Protocol">TCP</a> transports. This reply includes the presentation description, typically in <a href="http://en.wikipedia.org/wiki/Session_Description_Protocol" title="Session Description Protocol">Session Description Protocol</a> (SDP) format. Among other things, the presentation description lists the media streams controlled with the aggregate URL. In the typical case, there is one media stream each for audio and video.</dd>
+</dl>
+<dl>
+<dt>SETUP</dt>
+<dd>A SETUP request specifies how a single media stream must be transported. This must be done before a PLAY request is sent. The request contains the media stream URL and a transport specifier. This specifier typically includes a local port for receiving <a href="http://en.wikipedia.org/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a> data (audio or video), and another for <a href="http://en.wikipedia.org/wiki/RTCP" title="RTCP" class="mw-redirect">RTCP</a> data (meta information). The server reply usually confirms the chosen parameters, and fills in the missing parts, such as the server's chosen ports. Each media stream must be configured using SETUP before an aggregate play request may be sent.</dd>
+</dl>
+<dl>
+<dt>PLAY</dt>
+<dd>A PLAY request will cause one or all media streams to be played. Play requests can be stacked by sending multiple PLAY requests. The URL may be the aggregate URL (to play all media streams), or a single media stream URL (to play only that stream). A range can be specified. If no range is specified, the stream is played from the beginning and plays to the end, or, if the stream is paused, it is resumed at the point it was paused.</dd>
+</dl>
+<dl>
+<dt>PAUSE</dt>
+<dd>A PAUSE request temporarily halts one or all media streams, so it can later be resumed with a PLAY request. The request contains an aggregate or media stream URL. A range parameter on a PAUSE request specifies when to pause. When the range parameter is omitted, the pause occurs immediately and indefinitely.</dd>
+</dl>
+<dl>
+<dt>RECORD</dt>
+<dd>The RECORD request can be used to send a stream to the server for storage.</dd>
+</dl>
+<dl>
+<dt>TEARDOWN</dt>
+<dd>A TEARDOWN request is used to terminate the session. It stops all media streams and frees all session related data on the server.</dd>
+</dl>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=2" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline" id="Implementations">Implementations</span></h2>
+<h3><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=3" title="Edit section: Server">edit</a>]</span> <span class="mw-headline" id="Server">Server</span></h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/QuickTime_Streaming_Server" title="QuickTime Streaming Server">QuickTime Streaming Server</a>: Apple's closed-source streaming server that ships with Mac OS X Server.</li>
+<li><a href="http://en.wikipedia.org/wiki/Darwin_Streaming_Server" title="Darwin Streaming Server">Darwin Streaming Server</a>: Open-sourced version of QuickTime Streaming Server maintained by Apple.</li>
+<li><a href="http://en.wikipedia.org/wiki/Pvserver" title="Pvserver">pvServer</a>: Formerly called PacketVideo Streaming Server, this is Alcatel-Lucent's streaming server product.</li>
+<li><a href="http://en.wikipedia.org/wiki/Helix_Universal_Server" title="Helix Universal Server">Helix Universal Server</a>: <a href="http://en.wikipedia.org/wiki/RealNetworks" title="RealNetworks">RealNetworks</a> commercial streaming server for RTSP, RTMP, iPhone OS, Silverlight and HTTP streaming media clients</li>
+<li><a href="http://en.wikipedia.org/wiki/Helix_(project)" title="Helix (project)" class="mw-redirect">Helix DNA Server</a>: <a href="http://en.wikipedia.org/wiki/RealNetworks" title="RealNetworks">RealNetworks</a>' streaming server. Comes in both open-source and proprietary flavors.</li>
+<li><a href="http://en.wikipedia.org/wiki/LIVE555" title="LIVE555">LIVE555</a>: Open source <a href="http://en.wikipedia.org/wiki/C%2B%2B" title="C++">C++</a> server and client libraries used in well known clients like <a href="http://en.wikipedia.org/wiki/VLC_media_player" title="VLC media player">VLC</a> and <a href="http://en.wikipedia.org/wiki/Mplayer" title="Mplayer" class="mw-redirect">mplayer</a>.</li>
+<li><a href="http://en.wikipedia.org/wiki/Feng_(program)" title="Feng (program)">Feng</a>: Lean and mean streaming server with focus with rfc compliance.</li>
+<li><a href="http://en.wikipedia.org/wiki/VideoLAN" title="VideoLAN">VideoLAN</a>: Open source media player and streaming server.</li>
+<li><a href="http://en.wikipedia.org/wiki/Windows_Media_Services" title="Windows Media Services">Windows Media Services</a>: Microsoft's streaming server included with <a href="http://en.wikipedia.org/wiki/Windows_Server" title="Windows Server">Windows Server</a>.</li>
+<li>VX30: Streaming video server and embedded JAVA client from Maui X-Stream.</li>
+<li>Xenon Streaming Server: Mobile streaming server from <a href="http://en.wikipedia.org/wiki/Vidiator" title="Vidiator">Vidiator</a> Technology (US) Inc.</li>
+<li>RtpRtspStack: Streaming server which is designed for low footprint and high performance applications.</li>
+<li><a href="http://en.wikipedia.org/wiki/Gstreamer" title="Gstreamer" class="mw-redirect">Gstreamer</a> based RTSP Server and client.</li>
+<li><a href="http://en.wikipedia.org/wiki/FFmpeg" title="FFmpeg">FFmpeg</a>: includes ffserver a <a href="http://en.wikipedia.org/wiki/GPL" title="GPL" class="mw-redirect">GPL</a> or <a href="http://en.wikipedia.org/wiki/LGPL" title="LGPL" class="mw-redirect">LGPL</a> RTSP streaming server.</li>
+<li>Erlyvideo<sup id="cite_ref-1" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-1"><span>[</span>2<span>]</span></a></sup> has RTSP client and can restream video to other protocols.</li>
+<li>ViaMotion&nbsp;: integrated RTSP server for Video On Demand by <a href="http://en.wikipedia.org/w/index.php?title=Anevia&action=edit&redlink=1" class="new" title="Anevia (page does not exist)">Anevia</a></li>
+</ul>
+<h3><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=4" title="Edit section: Client">edit</a>]</span> <span class="mw-headline" id="Client">Client</span></h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/CURL" title="CURL">cURL</a> (beginning with version 7.20.0—9 February 2010<sup id="cite_ref-2" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-2"><span>[</span>3<span>]</span></a></sup>)</li>
+<li><a href="http://en.wikipedia.org/wiki/FFmpeg" title="FFmpeg">FFmpeg</a> (undocumented<sup id="cite_ref-3" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-3"><span>[</span>4<span>]</span></a></sup><sup id="cite_ref-4" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-4"><span>[</span>5<span>]</span></a></sup><sup id="cite_ref-5" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-5"><span>[</span>6<span>]</span></a></sup><sup id="cite_ref-6" class="reference"><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_note-6"><span>[</span>7<span>]</span></a></sup>)
+<ol>
+<li>Live playback: <code>ffplay rtsp://some-server.youtube.com/some-media.3gp</code></li>
+<li>Saving live broadcast to a file: <code>ffmpeg -i rtsp://some-server.youtube.com/some-media.3gp -acodec copy -vcodec copy filename.3gp</code></li>
+</ol>
+</li>
+<li><a href="http://en.wikipedia.org/wiki/GStreamer" title="GStreamer">GStreamer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Media_Player_Classic" title="Media Player Classic">Media Player Classic</a></li>
+<li><a href="http://en.wikipedia.org/wiki/MPlayer" title="MPlayer">MPlayer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/MythTV" title="MythTV">MythTV</a> via Freebox</li>
+<li><a href="http://en.wikipedia.org/wiki/QuickTime" title="QuickTime">QuickTime</a></li>
+<li><a href="http://en.wikipedia.org/wiki/RealPlayer" title="RealPlayer">RealPlayer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Skype" title="Skype">Skype</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Spotify" title="Spotify">Spotify</a></li>
+<li><a href="http://en.wikipedia.org/wiki/VLC_media_player" title="VLC media player">VLC media player</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Winamp" title="Winamp">Winamp</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Windows_Media_Player" title="Windows Media Player">Windows Media Player</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Xine" title="Xine">xine</a></li>
+</ul>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=5" title="Edit section: References">edit</a>]</span> <span class="mw-headline" id="References">References</span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-0"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-0">^</a></b> <a href="http://tools.ietf.org/html/rfc2326" class="external mw-magiclink-rfc">RFC 2326</a>, <i>Real Time Streaming Protocol (RTSP)</i>, IETF, 1998</li>
+<li id="cite_note-1"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-1">^</a></b> <a href="http://erlyvideo.org/" class="external text" rel="nofollow">erlyvideo website</a></li>
+<li id="cite_note-2"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-2">^</a></b> <a href="http://curl.haxx.se/changes.html" class="external free" rel="nofollow">http://curl.haxx.se/changes.html</a></li>
+<li id="cite_note-3"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-3">^</a></b> No mention of RTSP upon executing the command <code>ffmpeg -h</code>. Executing <code>ffmpeg -format</code> yields a multi-page list of items with one inconspicuous mention: "RTSP input format". Section "Supported file protocols" of this help screen only lists "file: http: pipe: rtp: tcp: udp:" and skips over "rtsp:". (FFmpeg release used: "FFmpeg version SVN-r11143", "built on Dec 3 2007 17:42:57", a statically linked Windows executable.)</li>
+<li id="cite_note-4"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-4">^</a></b> No RTSP usage documented on FFmpeg.org website as of 30 May 2010: Google search <a href="http://www.google.com/search?q=rtsp+site:ffmpeg.org&num=100" class="external text" rel="nofollow">page 1</a>, <a href="http://www.google.com/search?q=rtsp+site:ffmpeg.org&num=100&start=100" class="external text" rel="nofollow">page 2</a> (147 results total)</li>
+<li id="cite_note-5"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-5">^</a></b> No mention of RTSP in <i><a href="http://www.ffmpeg.org/ffmpeg-doc.html" class="external text" rel="nofollow">FFmpeg documentation</a></i> as of 30 May 2010.</li>
+<li id="cite_note-6"><b><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#cite_ref-6">^</a></b> An indirect hint in <i><a href="http://www.ffmpeg.org/ffplay-doc.html#SEC6" class="external text" rel="nofollow">FFplay documentation</a></i> (as of 30 May 2010) that FFplay understands RTSP—found in one obscure mention: "<code>`-rtp_tcp'</code> Force RTP/TCP protocol usage instead of RTP/UDP. It is only meaningful if you are streaming with the RTSP protocol."</li>
+</ol>
+</div>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit&section=6" title="Edit section: External links">edit</a>]</span> <span class="mw-headline" id="External_links">External links</span></h2>
+<ul>
+<li><span class="citation web"><a href="http://web.archive.org/web/20070306002838/http://www.rtsp.org/" class="external text" rel="nofollow">"Real Time Streaming Protocol Information and Updates"</a>. Archived from <a href="http://www.rtsp.org/" class="external text" rel="nofollow">the original</a> on 2007-03-06<span class="printonly">. <a href="http://web.archive.org/web/20070306002838/http://www.rtsp.org/" class="external free" rel="nofollow">http://web.archive.org/web/20070306002838/http://www.rtsp.org/</a></span>.</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.btitle=Real+Time+Streaming+Protocol+Information+and+Updates&amp;rft.atitle=&amp;rft_id=http%3A%2F%2Fweb.archive.org%2Fweb%2F20070306002838%2Fhttp%3A%2F%2Fwww.rtsp.org%2F&amp;rfr_id=info:sid/en.wikipedia.org:Real_Time_Streaming_Protocol"><span style="display: none;">&nbsp;</span></span>, a central information repository about RTSP.</li>
+<li><a href="http://developer.apple.com/quicktime/icefloe/dispatch028.html" class="external text" rel="nofollow">Tunnelling RTSP and RTP through HTTP</a>, A standard solution to help RTSP work through firewalls and web proxies</li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1592/1000000
+Post-expand include size: 27882/2048000 bytes
+Template argument size: 11749/2048000 bytes
+Expensive parser function count: 1/500
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:26162-0!*!0!!en!4 and timestamp 20110928151418 -->
+<div class="printfooter">
+Retrieved from "<a href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/Real Time Streaming Protocol - Wikipedia, the free encyclopedia.htm">http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://en.wikipedia.org/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Application_layer_protocols" title="Category:Application layer protocols">Application layer protocols</a></span></div><div id="mw-hidden-catlinks" class="mw-hidden-cats-hidden">Hidden categories: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Articles_lacking_in-text_citations_from_July_2009" title="Category:Articles lacking in-text citations from July 2009">Articles lacking in-text citations from July 2009</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:All_articles_lacking_in-text_citations" title="Category:All articles lacking in-text citations">All articles lacking in-text citations</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li id="pt-login"><a href="http://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Real_Time_Streaming_Protocol&campaign=ACP1" title="You are encouraged to log in; however, it is not mandatory. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/Real Time Streaming Protocol - Wikipedia, the free encyclopedia.htm" title="View the content page [c]" accesskey="c">Article</a></span></li>
+					<li id="ca-talk"><span><a href="http://en.wikipedia.org/wiki/Talk:Real_Time_Streaming_Protocol" title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/Real Time Streaming Protocol - Wikipedia, the free encyclopedia.htm">Read</a></span></li>
+					<li id="ca-edit"><span><a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=edit" title="You can edit this page. 
+Please use the preview button before saving. [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible "><span><a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&action=history" title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="http://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="http://en.wikipedia.org/w/index.php" id="searchform">
+		<input type="hidden" name="title" value="Special:Search">
+				<div id="simpleSearch">
+						<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" tabindex="1" placeholder="Search" autocomplete="off">
+						<button id="searchButton" type="submit" name="button" title="Search Wikipedia for this text"><img src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/search-ltr.png" alt="Search"></button>
+					</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(//upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal first persistent" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="http://en.wikipedia.org/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+					<li id="n-contents"><a href="http://en.wikipedia.org/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+					<li id="n-featuredcontent"><a href="http://en.wikipedia.org/wiki/Portal:Featured_content" title="Featured content &ndash; the best of Wikipedia">Featured content</a></li>
+					<li id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+					<li id="n-randompage"><a href="http://en.wikipedia.org/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+					<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Special:Landingcheck?landing_page=WMFJA085&language=en&utm_source=donate&utm_medium=sidebar&utm_campaign=20101204SB002" title="Support us">Donate to Wikipedia</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- interaction -->
+<div class="portal expanded" id="p-interaction">
+	<h5 tabindex="2">Interaction</h5>
+	<div class="body" style="display: block; ">
+				<ul>
+					<li id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+					<li id="n-aboutsite"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+					<li id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+					<li id="n-recentchanges"><a href="http://en.wikipedia.org/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+					<li id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact Wikipedia</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /interaction -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="3">Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="http://en.wikipedia.org/wiki/Special:WhatLinksHere/Real_Time_Streaming_Protocol" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a href="http://en.wikipedia.org/wiki/Special:RecentChangesLinked/Real_Time_Streaming_Protocol" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+																																					<li id="t-upload"><a href="http://en.wikipedia.org/wiki/Wikipedia:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+											<li id="t-specialpages"><a href="http://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+											<li id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&oldid=452868540" title="Permanent link to this revision of the page">Permanent link</a></li>
+				<li id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&page=Real_Time_Streaming_Protocol&id=452868540" title="Information on how to cite this page">Cite this page</a></li>		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- coll-print_export -->
+<div class="portal collapsed" id="p-coll-print_export">
+	<h5 tabindex="4">Print/export</h5>
+	<div class="body">
+				<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=Real+Time+Streaming+Protocol" title="Create a book or page collection" rel="nofollow">Create a book</a></li><li id="coll-download-as-rl"><a href="http://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=render_article&arttitle=Real+Time+Streaming+Protocol&oldid=452868540&writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>			</div>
+</div>
+
+<!-- /coll-print_export -->
+
+<!-- LANGUAGES -->
+<div class="portal expanded" id="p-lang">
+	<h5 tabindex="5">Languages</h5>
+	<div class="body" style="display: block; ">
+		<ul>
+					<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84_%D8%B3%D8%B1%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA_%D9%81%D9%8A_%D8%A7%D9%84%D8%B2%D9%85%D9%86_%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D9%82%D9%8A" title="بروتوكول سريان المعلومات في الزمن الحقيقي">العربية</a></li>
+					<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Protocol_de_flux_de_dades_en_temps_real" title="Protocol de flux de dades en temps real">Català</a></li>
+					<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Real-Time_Streaming_Protocol" title="Real-Time Streaming Protocol">Deutsch</a></li>
+					<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Español</a></li>
+					<li class="interwiki-eu"><a href="http://eu.wikipedia.org/wiki/RTSP" title="RTSP">Euskara</a></li>
+					<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Français</a></li>
+					<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EC%8B%A4%EC%8B%9C%EA%B0%84_%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" title="실시간 스트리밍 프로토콜">한국어</a></li>
+					<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Italiano</a></li>
+					<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/RTSP" title="RTSP">עברית</a></li>
+					<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Nederlands</a></li>
+					<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">日本語</a></li>
+					<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Polski</a></li>
+					<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/RTSP" title="RTSP">Português</a></li>
+					<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/RTSP" title="RTSP">Русский</a></li>
+					<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Simple English</a></li>
+					<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Slovenčina</a></li>
+					<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/RTSP" title="RTSP">Suomi</a></li>
+					<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Svenska</a></li>
+					<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Türkçe</a></li>
+					<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/RTSP" title="RTSP">Українська</a></li>
+					<li class="interwiki-yo"><a href="http://yo.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">Yorùbá</a></li>
+					<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/RTSP" title="RTSP">中文</a></li>
+				</ul>
+	</div>
+</div>
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last modified on 28 September 2011 at 13:05.<br></li>
+																							<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.
+See <a href="http://wikimediafoundation.org/wiki/Terms_of_use">Terms of use</a> for details.<br>
+Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.<br></li><li class="noprint"><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact us</a></li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+																							<li id="footer-places-disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+																							<li id="footer-places-mobileview"><a href="http://en.wikipedia.org/w/index.php?title=Real_Time_Streaming_Protocol&useformat=mobile">Mobile view</a></li>
+															</ul>
+											<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://wikimediafoundation.org/"><img src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.legacy.wikibits", "mediawiki.util", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.vector.collapsibleNav", "ext.vector.collapsibleTabs", "ext.vector.editWarning", "ext.vector.simpleSearch", "ext.UserBuckets", "ext.articleFeedback.startup"]);
+	mediaWiki.loader.go();
+}
+</script><script type="text/javascript" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(5).php"></script><script type="text/javascript" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(6).php"></script>
+
+<script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/index(3).php" type="text/javascript"></script>
+<script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(7).php" type="text/javascript"></script><script type="text/javascript" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/index(4).php"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.user.options.set({"ccmeonemails":0,"cols":80,"contextchars":50,"contextlines":5,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":false,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,
+	"watchlistdays":"3","watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"flaggedrevssimpleui":1,"flaggedrevsstable":false,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikilove-enabled":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs108":false,"searchNs109":false});;mediaWiki.loader.state({"user.options":"ready"});
+	
+	/* cache key: enwiki:resourceloader:filter:minify-js:5:c183491fdc987ec95b8873a74ef2bb96 */
+}
+</script><script type="text/javascript" src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/saved_resource"></script>		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<!-- Served by srv262 in 0.052 secs. -->			
+
+<script src="./Real Time Streaming Protocol - Wikipedia, the free encyclopedia_files/load(8).php" type="text/javascript"></script><div style="top: 70px; width: 203px; display: none; left: auto; right: 30px; " class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
