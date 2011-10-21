@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="robots" content="noodp">
+
+    <title>Surfin' Safari - Blog Archive  » WebCore Rendering II – Blocks and Inlines</title>
+
+    <meta name="application-name" content="SurfinSafari">
+
+    <meta name="generator" content="WordPress 2.8.5">
+
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/main.css">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/style.css">
+
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/blue.css" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/yellow.css" title="yellow">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/pink.css" title="pink">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/purple.css" title="purple">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/gray.css" title="gray">
+
+<!--[if gte IE 5]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.webkit.org/blog/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.webkit.org/blog/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.webkit.org/blog/feed/atom/">
+    <link rel="pingback" href="http://www.webkit.org/blog/xmlrpc.php">
+
+    <link rel="icon" sizes="32x32 128x128 256x256" href="http://www.webkit.org/images/surfin-safari.icns">
+    <link rel="SHORTCUT ICON" sizes="16x16" type="image/x-icon" href="http://www.webkit.org/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="Surfin&#39; Safari &raquo; WebCore Rendering II &ndash; Blocks and Inlines Comments Feed" href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/feed/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.webkit.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.webkit.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Surfin&#39; Safari" href="http://www.webkit.org/blog">
+<link rel="start" title="Welcome to the WebKit Blog" href="http://www.webkit.org/blog/4/welcome-to-the-webkit-blog/">
+<link rel="prev" title="WebCore Rendering I &ndash; The Basics" href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/">
+<link rel="next" title="WebCore Rendering III &ndash; Layout Basics" href="http://www.webkit.org/blog/116/webcore-rendering-iii-layout-basics/">
+<meta name="generator" content="WordPress 2.8.5">
+</head><body>
+
+<div id="title">
+<h1>Surfin' Safari</h1>
+</div>
+
+<div id="icon"></div>
+
+<div id="content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&lt;&lt; <a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/">WebCore Rendering I – The Basics</a></div>
+			<div class="alignright"><a href="http://www.webkit.org/blog/116/webcore-rendering-iii-layout-basics/">WebCore Rendering III – Layout Basics</a> &gt;&gt;</div>
+			&nbsp;
+		</div>
+
+		<div class="post" id="post-115">
+			<h2><a href="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines.htm" rel="bookmark" title="Permanent Link: WebCore Rendering II &ndash; Blocks and Inlines">WebCore Rendering II – Blocks and Inlines</a></h2>
+                        <small>Posted by <strong>Dave Hyatt</strong> on Thursday, August 9th, 2007 at 2:59 pm</small>
+
+			<div class="entrytext">
+				<p>In the previous entry I talked about the basic structure of a CSS box.  In this article I’m going to talk about subclasses of <code>RenderBox</code> and about the concepts of <i>block</i> and <i>inline</i>.</p>
+<p>A <i>block flow</i> is a box designed either to contain lines (e.g., a paragraph) or to contain other blocks that it stacks vertically.  Example block flow elements in HTML are <i>p</i> and <i>div</i>.</p>
+<p>An <i>inline flow</i> is an object that is designed to be part of a line.  Example inline flow elements in HTML are <i>a</i>, <i>b</i>, <i>i</i> and <i>span</i>.</p>
+<p>In WebCore, there are three renderer classes that cover block and inline flows.  <code>RenderBlock</code>, <code>RenderInline</code> and their common superclass <code>RenderFlow</code>.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderFlow.h">RenderFlow.h</a></code><br>
+<code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderBlock.h">RenderBlock.h</a></code><br>
+<code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderInline.h">RenderInline.h</a></code></p>
+<p>An inline flow can be changed to a block flow (and vice versa) using the CSS display property.</p>
+<pre>div { display: inline }
+span { display: block }
+</pre>
+<p>In addition to block and inline flows, there is another kind of element that can act as a block or inline: the replaced element.  A <i>replaced</i> element is an element whose rendering is unspecified by CSS.  How the contents of the object render is left up to the element itself.  Examples of replaced elements are images, form controls, iframes, plugins and applets.</p>
+<p>A replaced element can also be either block-level or inline-level.  When a replaced element acts as a block, it will get stacked vertically as though it represents its own paragraph.  When a replaced element acts as an inline, it will be part of a line inside a paragraph.  Replaced elements are inline by default.</p>
+<p>Form controls are actually a strange special case.  They are still replaced elements, but because they are implemented by the engine, controls actually ultimately subclass from <code>RenderBlock</code>.  As a result, the concept of being replaced can’t really be confined to a single common subclass, and is therefore represented as a bit on <code>RenderObject</code> instead.  The <code>isReplaced</code> method can be used to ask if an object is a replaced element.</p>
+<p><code>bool isReplaced() const</code></p>
+<p>Images, plugins, frames and applets all inherit from a common subclass that implements replaced element behavior.  This class is <code>RenderReplaced</code>.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderReplaced.h">RenderReplaced.h</a></code></p>
+<h4>The Inline Block</h4>
+<p>One of the most confusingly named objects in CSS is the <i>inline-block</i>.  Inline blocks are block flows that are designed to sit on a line.  In effect they are like inline replaced elements on the outside, but on the inside they are block flows.  The display property in CSS can be used to create inline blocks.   Inline blocks will report true if asked if they are replaced.</p>
+<pre>div { display: inline-block }
+</pre>
+<h4>Tables</h4>
+<p>Tables in HTML are block-level by default.  However they can also be made into inlines using the CSS display property with a value of <i>inline-table</i>.</p>
+<pre>table { display: inline-table }
+</pre>
+<p>Again, from the outside an inline-table is like an inline replaced element (and will return true from isReplaced), but on the inside the object is still just a table.</p>
+<p>In WebCore the <code>RenderTable</code> class represents a table.  It inherits from RenderBlock for reasons that will be covered in the positioning section later.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderTable.h">RenderTable.h</a></code></p>
+<h4>Text</h4>
+<p>Raw text is represented using the <code>RenderText</code> class.  Text is always considered inline by WebCore, since it is always placed on lines.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderText.h">RenderText.h</a></code></p>
+<h4>Getting Block and Inline Information</h4>
+<p>The most basic method for obtaining block vs. inline status is the <code>isInline</code> function.  This method asks if an object is designed to be part of a line.  It does not care what the interior of the element is (e.g., text, image, an inline flow, an inline-block or an inline-table).</p>
+<p><code>bool isInline() const</code></p>
+<p>One of the common mistakes people make when working with the render tree is assuming that <code>isInline</code> means an object is always an inline flow, text or an inline replaced element.  However because of inline-blocks and inline-tables, this method can return true even for these objects.</p>
+<p>To ask if an object is actually a block or inline flow, the following methods should be used.</p>
+<pre>bool isInlineFlow() const
+bool isBlockFlow() const
+</pre>
+<p>These methods are essentially asking questions about the interior of the object.  An inline-block for example is still a block flow and not an inline flow.  It is inline on the outside, but on the inside it is a block flow.</p>
+<p>The exact class type can be queried for blocks and inlines using the following methods.</p>
+<pre>bool isRenderBlock() const
+bool isRenderInline() const
+</pre>
+<p>The <code>isRenderBlock</code> method is useful in the context of positioning, since both block flows and tables act as positioned object containers.</p>
+<p>To ask if an object is specifically an inline block or inline table, the <code>isInlineBlockOrInlineTable</code> method can be used.</p>
+<p><code>bool isInlineBlockOrInlineTable() const</code></p>
+<h4>Children of Block Flows</h4>
+<p>Block flows have a simple invariant regarding their children that the render tree always obeys.  That rule can be summarized as follows:</p>
+<p><i>All in-flow children of a block flow must be blocks, or all in-flow children of a block flow must be inlines.</i></p>
+<p>In other words, once you exclude floating and positioned elements, all of the children of a block flow in the render tree must return true from <code>isInline</code> or they must all return false from <code>isInline</code>.  The render tree will change its structure as needed to preserve this invariant.</p>
+<p>The <code>childrenInline</code> method is used to ask whether the children of a block flow are inlines or blocks.</p>
+<p><code>bool childrenInline() const</code></p>
+<h4>Children of Inline Flows</h4>
+<p>Children of inline flows have an even simpler invariant that must be maintained.</p>
+<p><i>All in-flow children of an inline flow must be inlines.</i></p>
+<h4>Anonymous Blocks</h4>
+<p>In order to preserve the block flow child invariant (only inline children or only block children), the render tree will construct objects called <i>anonymous blocks</i>.  Consider the following example:</p>
+<pre>&lt;div&gt;
+Some text
+&lt;div&gt;
+Some more text
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>In the above example, the outer div has two children: some text and another div.  The first child is an inline, but the second child is a block.  Because this combination of children violates the all-inline or all-block child rule, the render tree will construct an anonymous block flow to wrap the text.  The render tree therefore becomes:</p>
+<pre>&lt;div&gt;
+&lt;anonymous block&gt;
+Some text
+&lt;/anonymous block&gt;
+&lt;div&gt;
+Some more text
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>The <code>isAnonymousBlock</code> method can be used to ask if a renderer is an anonymous block flow.</p>
+<p><code>bool isAnonymousBlock() const</code></p>
+<p>Whenever a block flow has inline children and a block object suddenly tries to insert itself as a child, anonymous blocks will be created as needed to wrap all of the inlines.  Contiguous inlines will share a single common anonymous block, so the number of anonymous blocks can be kept to a minimum.  The <code>makeChildrenNonInline</code> method in <code>RenderBlock</code> is the function that performs this adjustment.</p>
+<p><code>void makeChildrenNonInline(RenderObject *insertionPoint)</code></p>
+<h4>Blocks inside Inline Flows</h4>
+<p>One of the nastiest constructs you will see in HTML is when a block is placed inside an inline flow.  Here is an example:</p>
+<pre>&lt;i&gt;Italic only &lt;b&gt;italic and bold
+&lt;div&gt;
+Wow, a block!
+&lt;/div&gt;
+&lt;div&gt;
+Wow, another block!
+&lt;/div&gt;
+More italic and bold text&lt;/b&gt; More italic text&lt;/i&gt;
+</pre>
+<p>The two divs violate the invariant that all of the children of the bold element must be inlines.  The render tree has to perform a rather complicated series of steps in order to fix up the tree.  Three anonymous blocks are constructed.  The first block holds all of the inlines that come before the divs.  The second anonymous block holds the divs.  The third anonymous block holds all of the inlines that come after the divs.</p>
+<pre>&lt;anonymous pre block&gt;
+&lt;i&gt;Italic only &lt;b&gt;italic and bold&lt;/b&gt;&lt;/i&gt;
+&lt;/anonymous pre block&gt;
+&lt;anonymous middle block&gt;
+&lt;div&gt;
+Wow, a block!
+&lt;/div&gt;
+&lt;div&gt;
+Wow, another block!
+&lt;/div&gt;
+&lt;/anonymous middle block&gt;
+&lt;anonymous post block&gt;
+&lt;i&gt;&lt;b&gt;More italic and bold text&lt;/b&gt; More italic text&lt;/i&gt;
+&lt;/anonymous post block&gt;
+</pre>
+<p>Notice that the bold and italic renderers had to split into two render objects, since they are in both the anonymous pre block and the anonymous post block.  In the case of the bold DOM element, its children are in the pre block, but then continue into the middle block and then finally continue into the post block.  The render tree connects these objects via a <i>continuation chain</i>.</p>
+<pre>RenderFlow* continuation() const
+bool isInlineContinuation() const
+</pre>
+<p>The first bold renderer in the pre block is the one that can be obtained from the <code>b</code> DOM element using the element’s <code>renderer()</code> method.  This renderer has as its <code>continuation()</code> the middle anonymous block.  The middle anonymous block has as its <code>continuation()</code> the second bold renderer.  In this way code that needs to examine the renderers that represent the children of the DOM element can still do so relatively easily.</p>
+<p>In the above example the <code>i</code> DOM element also split.  Its children are all in the pre and post blocks, and therefore only one connection is needed.  The italic renderer in the pre block sets its <code>continuation()</code> to the italic renderer in the post block.</p>
+<p>The function that performs the recursive splitting of inline flows and that creates the continuation chain connections is called <code>splitFlow</code> and is in <code>RenderInline.cpp</code>.</p>
+
+				
+				<p class="postmetadata alt">
+					You can follow any responses to this entry through the <a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/feed/">RSS 2.0</a> feed. 
+
+											Both comments and pings are currently closed.			
+
+									</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+    <h3 id="comments">3 Responses to “WebCore Rendering II – Blocks and Inlines”</h3> 
+
+    <ol class="commentlist">
+    
+        <li class="alt" id="comment-22786">
+                                    <cite>Chris Griego</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/#comment-22786" title="">August 9th, 2007 at 4:26 pm</a> </small>
+
+            <p>If the problem is having a block-level element within an inline element, then why is the anonymous middle block necessary?</p>
+
+        </li>
+
+    
+    
+        <li class="" id="comment-22787">
+                                    <cite>hyatt</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/#comment-22787" title="">August 9th, 2007 at 4:48 pm</a> </small>
+
+            <p>Strictly speaking it isn’t necessary, although it simplifies a lot of the code that deals with continuations.  It’s basically there for convenience.</p>
+
+        </li>
+
+    
+    
+        <li class="alt" id="comment-22788">
+                                    <cite>hyatt</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/#comment-22788" title="">August 9th, 2007 at 4:50 pm</a> </small>
+
+            <p>Longer term, I’d like to explore eliminating continuations completely and wrapping the offending blocks in an anonymous inline-block instead.  The difficult problem with using an anonymous inline-block, however, is that when the pre and post sections end up having no content, you have to margin collapse the offending blocks with surrounding content.  This would necessitate having a sort of hybrid line/block layout that could easily slide into and out of both layout modes.</p>
+
+        </li>
+
+    
+    
+    </ol>
+
+ 
+
+
+	
+</div>
+
+<div id="nav">
+    <ul id="navlist">
+        <li><a href="http://www.webkit.org/">Home</a></li>
+        <li><a href="http://www.webkit.org/blog/">Surfin’ Safari Blog</a></li>
+        <li><a href="http://planet.webkit.org/">Planet WebKit</a></li>
+        <li><a href="http://www.webkit.org/projects/goals.html">Project Goals</a></li>
+        <li><a href="http://www.webkit.org/contact.html">Keeping in Touch</a></li>
+        <li><a href="http://trac.webkit.org/">Trac</a></li>
+        <li><a href="http://www.webkit.org/meeting/">Contributors Meeting</a></li>
+
+        <li class="subtitle">Working with the Code</li>
+
+        <li><a href="http://www.webkit.org/building/tools.html">Installing Developer Tools</a></li>
+        <li><a href="http://www.webkit.org/building/checkout.html">Getting the Code</a></li>
+        <li><a href="http://www.webkit.org/building/build.html">Building WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/run.html">Running WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/debug.html">Debugging WebKit</a></li>
+        <li><a href="http://www.webkit.org/coding/contributing.html">Contributing Code</a></li>
+        <li><a href="http://www.webkit.org/coding/commit-review-policy.html">Commit and Review Policy</a></li>
+        <li><a href="http://www.webkit.org/coding/adding-features.html">Adding Features</a></li>
+        <li><a href="http://www.webkit.org/security/">Security Policy</a></li>
+
+        <li class="subtitle">Documentation</li>
+
+        <li><a href="http://trac.webkit.org/wiki">Wiki</a></li>
+        <li><a href="http://www.webkit.org/projects/">Projects</a></li>
+        <li><a href="http://www.webkit.org/coding/coding-style.html">Code Style Guidelines</a></li>
+        <li><a href="http://www.webkit.org/coding/technical-articles.html">Technical Articles</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebDevelopers">Web Developer Resources</a></li>
+        <li><a href="http://www.webkit.org/demos/">Demos</a></li>
+
+        <li class="subtitle">Testing</li>
+
+        <li><a href="http://www.webkit.org/quality/testing.html">Regression Testing</a></li>
+        <li><a href="http://www.webkit.org/quality/leakhunting.html">Leak Hunting</a></li>
+        <li><a href="http://www.webkit.org/quality/testwriting.html">Writing New Tests</a></li>
+        <li><a href="http://www.webkit.org/quality/crashlogs.html">Getting a Crash Log</a></li>
+
+        <li class="subtitle">Bugs</li>
+
+        <li><a href="http://www.webkit.org/quality/reporting.html">Reporting Bugs</a></li>
+        <li><a href="http://www.webkit.org/quality/bugwriting.html">Bug Report Guidelines</a></li>
+        <li><a href="http://www.webkit.org/quality/bugpriorities.html">Bug Prioritization</a></li>
+        <li><a href="http://www.webkit.org/quality/reduction.html">Test Case Reduction</a></li>
+        <li><a href="http://www.webkit.org/quality/lifecycle.html">Bug Life Cycle</a></li>
+<li class="subtitle">Archives</li>
+	<li><a href="http://www.webkit.org/blog/date/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/04/" title="April 2011">April 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/02/" title="February 2011">February 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/09/" title="September 2010">September 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/08/" title="August 2010">August 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/07/" title="July 2010">July 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/06/" title="June 2010">June 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/05/" title="May 2010">May 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/04/" title="April 2010">April 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/03/" title="March 2010">March 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/02/" title="February 2010">February 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/01/" title="January 2010">January 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/12/" title="December 2009">December 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/11/" title="November 2009">November 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/10/" title="October 2009">October 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/07/" title="July 2009">July 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/06/" title="June 2009">June 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/09/" title="September 2007">September 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/10/" title="October 2006">October 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/09/" title="September 2006">September 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/09/" title="September 2005">September 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/08/" title="August 2005">August 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/07/" title="July 2005">July 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/06/" title="June 2005">June 2005</a></li>
+    </ul>
+    <div id="notice">
+        WebKit is open source software with portions licensed under the
+        <a href="http://www.webkit.org/coding/lgpl-license.html">LGPL</a> and
+        <a href="http://www.webkit.org/coding/bsd-license.html">BSD licenses</a>.
+        Complete license and copyright information can be found within the code.
+    </div>
+
+    <div id="terms">
+        Hosting provided by <a href="http://www.macosforge.org/">Mac OS Forge</a>.
+        Use of this site is subject to the
+        <a href="http://www.macosforge.org/terms/">Mac OS Forge Terms of Use</a>.
+    </div>
+</div>
+
+<div id="footer">
+    Surfin' Safari site is powered by 
+    <a href="http://wordpress.org/">WordPress</a>
+    <br><a href="http://www.webkit.org/blog/feed/">Entries (RSS)</a>
+    and <a href="http://www.webkit.org/blog/comments/feed/">Comments (RSS)</a>.
+    <br> <a href="http://www.webkit.org/blog/wp-login.php?action=register">Register</a> <strong>|</strong> <a href="http://www.webkit.org/blog/wp-login.php">Log in</a>    <!-- 25 queries. 0.169 seconds. -->
+</div>
+
+<script src="./Surfin' Safari - Blog Archive » WebCore Rendering II – Blocks and Inlines_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-336489-2";
+urchinTracker();
+</script>
+
+
+</body></html>

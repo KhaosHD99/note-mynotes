@@ -1,0 +1,1521 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0028)http://173.234.53.177/?cat=8 -->
+<HTML lang=zh-CN dir=ltr xmlns="http://www.w3.org/1999/xhtml"><HEAD 
+profile=http://gmpg.org/xfn/11><TITLE>浏览器 at AZI</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content=移动的技术 name=description>
+<META content="MSHTML 6.00.2900.6129" name=GENERATOR><!-- leave this for stats please --><LINK media=screen 
+href="浏览器是怎么工作的 at AZI.files/style.css" type=text/css rel=stylesheet><LINK 
+title="AZI RSS Feed" href="http://173.234.53.177/?feed=rss2" 
+type=application/rss+xml rel=alternate><LINK 
+href="http://173.234.53.177/wp-content/themes/journalist/favicon.png" 
+type=image/x-png rel="shortcut icon"><LINK 
+href="http://173.234.53.177/xmlrpc.php" rel=pingback><LINK 
+title="AZI » 浏览器 分类目录 feed" href="http://173.234.53.177/?feed=rss2&amp;cat=8" 
+type=application/rss+xml rel=alternate><LINK title=RSD 
+href="http://173.234.53.177/xmlrpc.php?rsd" type=application/rsd+xml 
+rel=EditURI><LINK href="http://173.234.53.177/wp-includes/wlwmanifest.xml" 
+type=application/wlwmanifest+xml rel=wlwmanifest><LINK title=AZI 
+href="http://173.234.53.177" rel=index>
+<META content="WordPress 3.1.3" name=generator></HEAD>
+<BODY>
+<DIV class=group id=container>
+<H1><A href="http://173.234.53.177/">AZI</A></H1>
+<DIV id=bubble>
+<P>移动的技术</P></DIV><!-- erase this line if you want to turn the bubble off -->
+<DIV id=content>
+<H2 class=archive>Archive for the ‘浏览器’ Category</H2>
+<H2 id=post-202><A href="http://173.234.53.177/?p=202" 
+rel=bookmark>浏览器是怎么工作的</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=202#comments">without 
+comments</A></P>
+<DIV class=main>
+<P>简介<BR>浏览器可以被认为是使用最广泛的软件，本文将介绍浏览器的工 
+作原理，我们将看到，从你在地址栏输入google.com到你看到google主页过程中都发生了什么。</P>
+<P>将讨论的浏览器<BR>今天，有五种主流浏览器——IE、Firefox、Safari、Chrome及Opera。</P>
+<P>本文将基于一些开源浏览器的例子——Firefox、 Chrome及Safari，Safari是部分开源的。</P>
+<P>根据W3C（World Wide Web Consortium 
+万维网联盟）的浏览器统计数据，当前（2011年5月），Firefox、Safari及Chrome的市场占有率综合已接近60％。（原文为2009年10月，数据没有太大变化）因此，可以说开源浏览器已经占据了浏览器市场的半壁江山。</P>
+<P>浏览器的主要功能<BR>浏览器的主要功能是将用户选择得web资源呈现出来，它需要从服务器请求资源，并将其显示在浏览器窗口中，资源的格式通常是HTML，也包括PDF、image及其他格式。用户用URI（Uniform 
+Resource Identifier 统一资源标识符）来指定所请求资源的位置，在网络一章有更多讨论。</P>
+<P>HTML和CSS规范中规定了浏览器解释html文档的方式，由 W3C组织对这些规范进行维护，W3C是负责制定web标准的组织。</P>
+<P>HTML规范的最新版本是HTML4(http://www.w3.org/TR/html401/)，HTML5还在制定中（译注：两年前），最新的CSS规范版本是2（http://www.w3.org/TR/CSS2），CSS3也还正在制定中（译注：同样两年前）。</P>
+<P>这些年来，浏览器厂商纷纷开发自己的扩展，对规范的遵循并不完善，这为web开发者带来了严重的兼容性问题。</P>
+<P>但是，浏览器的用户界面则差不多，常见的用户界面元素包括：</P>
+<P>· 用来输入URI的地址栏</P>
+<P>· 前进、后退按钮</P>
+<P>· 书签选项</P>
+<P>· 用于刷新及暂停当前加载文档的刷新、暂停按钮</P>
+<P>· 用于到达主页的主页按钮</P>
+<P>奇怪的是，并没有哪个正式公布的规范对用户界面做出规定，这些是多年来各浏览器厂商之间相互模仿和不断改进得结果。</P>
+<P>HTML5并没有规定浏览器必须具有的UI元素，但列出了一些常用元素，包括地址栏、状态栏及工具栏。还有一些浏览器有自己专有得功能，比如Firefox得下载管理。更多相关内容将在后面讨论用户界面时介绍。</P>
+<P>浏览器的主要构成High Level Structure<BR>浏览器的主要组件包括：</P>
+<P>1. 用户界面－ 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分</P>
+<P>2. 浏览器引擎－ 用来查询及操作渲染引擎的接口</P>
+<P>3. 渲染引擎－ 用来显示请求的内容，例如，如果请求内容为html，它负责解析html及css，并将解析后的结果显示出来</P>
+<P>4. 网络－ 用来完成网络调用，例如http请求，它具有平台无关的接口，可以在不同平台上工作</P>
+<P>5. UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口</P>
+<P>6. JS解释器－ 用来解释执行JS代码</P>
+<P>7. 数据存储－ 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了web 
+database技术，这是一种轻量级完整的客户端存储技术</P>
+<P>图1：浏览器主要组件</P>
+<P>需要注意的是，不同于大部分浏览器，Chrome为每个Tab分配了各自的渲染引擎实例，每个Tab就是一个独立的进程。</P>
+<P>对于构成浏览器的这些组件，后面会逐一详细讨论。</P>
+<P>组件间的通信 Communication between the 
+components<BR>Firefox和Chrome都开发了一个特殊的通信结构，后面将有专门的一章进行讨论。</P>
+<P>渲染引擎 The rendering engine<BR>渲染引擎的职责就是渲染，即在浏览器窗口中显示所请求的内容。</P>
+<P>默认情况下，渲染引擎可以显示html、xml文档及图片，它也可以借助插件（一种浏览器扩展）显示其他类型数据，例如使用PDF阅读器插件，可以显示PDF格式，将由专门一章讲解插件及扩展，这里只讨论渲染引擎最主要的用途——显示应用了CSS之后的html及图片。</P>
+<P>渲染引擎 Rendering 
+engines<BR>本文所讨论得浏览器——Firefox、Chrome和Safari是基于两种渲染引擎构建的，Firefox使用Geoko——Mozilla自主研发的渲染引擎，Safari和Chrome都使用webkit。</P>
+<P>Webkit是一款开源渲染引擎，它本来是为linux平台研发的，后来由Apple移植到Mac及Windows上，相关内容请参考http://webkit.org。</P>
+<P>主流程 The main flow<BR>渲染引擎首先通过网络获得所请求文档的内容，通常以8K分块的方式完成。</P>
+<P>下面是渲染引擎在取得内容之后的基本流程：</P>
+<P>解析html以构建dom树-&gt;构建render树-&gt;布局render树-&gt;绘制render树</P>
+<P>图2：渲染引擎基本流程</P>
+<P>渲染引擎开始解析html，并将标签转化为内容树中的dom节点。接着，它解析外部CSS文件及style标签中的样式信息。这些样式信息以及html中的可见性指令将被用来构建另一棵树——render树。</P>
+<P>Render树由一些包含有颜色和大小等属性的矩形组成，它们将被按照正确的顺序显示到屏幕上。</P>
+<P>Render树构建好了之后，将会执行布局过程，它将确定每个节点在屏幕上的确切坐标。再下一步就是绘制，即遍历render树，并使用UI后端层绘制每个节点。</P>
+<P>值得注意的是，这个过程是逐步完成的，为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html都解析完成之后再去构建和布局render树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。</P>
+<P>图3：webkit主流程</P>
+<P>图4：Mozilla的Geoko 渲染引擎主流程</P>
+<P>从图3和4中可以看出，尽管webkit和Gecko使用的术语稍有不同，他们的主要流程基本相同。Gecko称可见的格式化元素组成的树为frame树，每个元素都是一个frame，webkit则使用render树这个名词来命名由渲染对象组成的树。Webkit中元素的定位称为布局，而Gecko中称为回流。Webkit称利用dom节点及样式信息去构建render树的过程为attachment，Gecko在html和dom树之间附加了一层，这层称为内容接收器，相当制造dom元素的工厂。下面将讨论流程中的各个阶段。</P>
+<P>解析 Parsing－general<BR>既然解析是渲染引擎中一个非常重要的过程，我们将稍微深入的研究它。首先简要介绍一下解析。</P>
+<P>解析一个文档即将其转换为具有一定意义的结构——编码可以理解和使用的东西。解析的结果通常是表达文档结构的节点树，称为解析树或语法树。</P>
+<P>例如，解析“2＋3－1”这个表达式，可能返回这样一棵树。</P>
+<P>图5：数学表达式树节点</P>
+<P>文法 
+Grammars<BR>解析基于文档依据的语法规则——文档的语言或格式。每种可被解析的格式必须具有由词汇及语法规则组成的特定的文法，称为上下文无关文法。人类语言不具有这一特性，因此不能被一般的解析技术所解析。</P>
+<P>解析器－词法分析器 Parser－Lexer combination<BR>解析可以分为两个子过程——语法分析及词法分析</P>
+<P>词法分析就是将输入分解为符号，符号是语言的词汇表——基本有效单元的集合。对于人类语言来说，它相当于我们字典中出现的所有单词。</P>
+<P>语法分析指对语言应用语法规则。</P>
+<P>解析器一般将工作分配给两个组件——词法分析器（有时也叫分词器）负责将输入分解为合法的符号，解析器则根据语言的语法规则分析文档结构，从而构建解析树，词法分析器知道怎么跳过空白和换行之类的无关字符。</P>
+<P>图6：从源文档到解析树</P>
+<P>解析过程是迭代的，解析器从词法分析器处取道一个新的符号，并试着用这个符号匹配一条语法规则，如果匹配了一条规则，这个符号对应的节点将被添加到解析树上，然后解析器请求另一个符号。如果没有匹配到规则，解析器将在内部保存该符号，并从词法分析器取下一个符号，直到所有内部保存的符号能够匹配一项语法规则。如果最终没有找到匹配的规则，解析器将抛出一个异常，这意味着文档无效或是包含语法错误。</P>
+<P>转换 
+Translation<BR>很多时候，解析树并不是最终结果。解析一般在转换中使用——将输入文档转换为另一种格式。编译就是个例子，编译器在将一段源码编译为机器码的时候，先将源码解析为解析树，然后将该树转换为一个机器码文档。</P>
+<P>图7：编译流程</P>
+<P>解析实例 Parsing example<BR>图5中，我们从一个数学表达式构建了一个解析树，这里定义一个简单的数学语言来看下解析过程。</P>
+<P>词汇表：我们的语言包括整数、加号及减号。</P>
+<P>语法：</P>
+<P>1. 该语言的语法基本单元包括表达式、term及操作符</P>
+<P>2. 该语言可以包括多个表达式</P>
+<P>3. 一个表达式定义为两个term通过一个操作符连接</P>
+<P>4. 操作符可以是加号或减号</P>
+<P>5. term可以是一个整数或一个表达式</P>
+<P>现在来分析一下“2＋3－1”这个输入</P>
+<P>第一个匹配规则的子字符串是“2”，根据规则5，它是一个term，第二个匹配的是“2＋3”，它符合第2条规则——一个操作符连接两个term，下一次匹配发生在输入的结束处。“2＋3－1”是一个表达式，因为我们已经知道“2＋3”是一个term，所以我们有了一个term紧跟着一个操作符及另一个term。“2＋＋”将不会匹配任何规则，因此是一个无效输入。</P>
+<P>词汇表及语法的定义<BR>词汇表通常利用正则表达式来定义。</P>
+<P>例如上面的语言可以定义为：</P>
+<P>INTEGER：0｜［1－9］［0－9］＊</P>
+<P>PLUS：＋</P>
+<P>MINUS：－</P>
+<P>正如看到的，这里用正则表达式定义整数。</P>
+<P>语法通常用BNF格式定义，我们的语言可以定义为：</P>
+<P>expression :＝ term operation term</P>
+<P>operation := PLUS | MINUS</P>
+<P>term := INTEGER | expression</P>
+<P>如果一个语言的文法是上下文无关的，则它可以用正则解析器来解析。对上下文无关文法的一个直观的定义是，该文法可以用BNF来完整的表达。可查看http://en.wikipedia.org/wiki/Context-free_grammar。</P>
+<P>解析器类型 Types of 
+parsers<BR>有两种基本的解析器——自顶向下解析及自底向上解析。比较直观的解释是，自顶向下解析，查看语法的最高层结构并试着匹配其中一个；自底向上解析则从输入开始，逐步将其转换为语法规则，从底层规则开始直到匹配高层规则。</P>
+<P>来看一下这两种解析器如何解析上面的例子：</P>
+<P>自顶向下解析器从最高层规则开始——它先识别出“2＋3“，将其视为一个表达式，然后识别出”2＋3－1“为一个表达式（识别表达式的过程中匹配了其他规则，但出发点是最高层规则）。</P>
+<P>自底向上解析会扫描输入直到匹配了一条规则，然后用该规则取代匹配的输入，直到解析完所有输入。部分匹配的表达式被放置在解析堆栈中。</P>
+<P>Stack</P>
+<P>Input</P>
+<P>2 + 3 – 1</P>
+<P>term</P>
+<P>+ 3 – 1</P>
+<P>term operation</P>
+<P>3 – 1</P>
+<P>expression</P>
+<P>- 1</P>
+<P>expression operation</P>
+<P>1</P>
+<P>expression</P>
+<P>自底向上解析器称为shift reduce 解析器，因为输入向右移动（想象一个指针首先指向输入开始处，并向右移动），并逐渐简化为语法规则。</P>
+<P>自动化解析 Generating parsers 
+automatically<BR>解析器生成器这个工具可以自动生成解析器，只需要指定语言的文法——词汇表及语法规则，它就可以生成一个解析器。创建一个解析器需要对解析有深入的理解，而且手动的创建一个由较好性能的解析器并不容易，所以解析生成器很有用。Webkit使用两个知名的解析生成器——用于创建语法分析器的Flex及创建解析器的Bison（你可能接触过Lex和Yacc）。Flex的输入是一个包含了符号定义的正则表达式，Bison的输入是用BNF格式表示的语法规则。</P>
+<P>HTML解析器 HTML Parser<BR>HTML解析器的工作是将html标识解析为解析树。</P>
+<P>HTML文法定义 The HTML grammar definition<BR>W3C组织制定规范定义了HTML的词汇表和语法。</P>
+<P>非上下文无关文法 Not a context free 
+grammar<BR>正如在解析简介中提到的，上下文无关文法的语法可以用类似BNF的格式来定义。</P>
+<P>不幸的是，所有的传统解析方式都不适用于html（当然我提出它们并不只是因为好玩，它们将用来解析css和js），html不能简单的用解析所需的上下文无关文法来定义。</P>
+<P>Html 有一个正式的格式定义——DTD（Document Type Definition 
+文档类型定义）——但它并不是上下文无关文法，html更接近于xml，现在有很多可用的xml解析器，html有个xml的变体——xhtml，它们间的不同在于，html更宽容，它允许忽略一些特定标签，有时可以省略开始或结束标签。总的来说，它是一种soft语法，不像xml呆板、固执。</P>
+<P>显然，这个看起来很小的差异却带来了很大的不同。一方面，这是html流行的原因——它的宽容使web开发人员的工作更加轻松，但另一方面，这也使很难去写一个格式化的文法。所以，html的解析并不简单，它既不能用传统的解析器解析，也不能用xml解析器解析。</P>
+<P>HTML 
+DTD<BR>Html适用DTD格式进行定义，这一格式是用于定义SGML家族的语言，包括了对所有允许元素及它们的属性和层次关系的定义。正如前面提到的，html 
+DTD并没有生成一种上下文无关文法。</P>
+<P>DTD有一些变种，标准模式只遵守规范，而其他模式则包含了对浏览器过去所使用标签的支持，这么做是为了兼容以前内容。最新的标准DTD在http://www.w3.org/TR/html4/strict.dtd</P>
+<P>DOM<BR>输出的树，也就是解析树，是由DOM元素及属性节点组成的。DOM是文档对象模型的缩写，它是html文档的对象表示，作为html元素的外部接口供js等调用。</P>
+<P>树的根是“document”对象。</P>
+<P>DOM和标签基本是一一对应的关系，例如，如下的标签：</P>
+<P></P>
+<P></P>
+<P>Hello DOM</P>
+<DIV><IMG src=""></DIV>
+<P></P>
+<P></P>
+<P>将会被转换为下面的DOM树：</P>
+<P>图8：示例标签对应的DOM树</P>
+<P>和html一样，DOM的规范也是由W3C组织制定的。访问http://www.w3.org/DOM/DOMTR，这是使用文档的一般规范。一个模型描述一种特定的html元素，可以在http://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/idl-definitions.htm 
+查看html定义。</P>
+<P>这里所谓的树包含了DOM节点是说树是由实现了DOM接口的元素构建而成的，浏览器使用已被浏览器内部使用的其他属性的具体实现。</P>
+<P>解析算法 The parsing algorithm<BR>正如前面章节中讨论的，hmtl不能被一般的自顶向下或自底向上的解析器所解析。</P>
+<P>原因是：</P>
+<P>1. 这门语言本身的宽容特性</P>
+<P>2. 浏览器对一些常见的非法html有容错机制</P>
+<P>3. 解析过程是往复的，通常源码不会在解析过程中发生改变，但在html中，脚本标签包含的“document.write 
+”可能添加标签，这说明在解析过程中实际上修改了输入</P>
+<P>不能使用正则解析技术，浏览器为html定制了专属的解析器。</P>
+<P>Html5规范中描述了这个解析算法，算法包括两个阶段——符号化及构建树。</P>
+<P>符号化是词法分析的过程，将输入解析为符号，html的符号包括开始标签、结束标签、属性名及属性值。</P>
+<P>符号识别器识别出符号后，将其传递给树构建器，并读取下一个字符，以识别下一个符号，这样直到处理完所有输入。</P>
+<P>图9：HTML解析流程</P>
+<P>符号识别算法 The tokenization 
+algorithm<BR>算法输出html符号，该算法用状态机表示。每次读取输入流中的一个或多个字符，并根据这些字符转移到下一个状态，当前的符号状态及构建树状态共同影响结果，这意味着，读取同样的字符，可能因为当前状态的不同，得到不同的结果以进入下一个正确的状态。</P>
+<P>这个算法很复杂，这里用一个简单的例子来解释这个原理。</P>
+<P>基本示例——符号化下面的html：</P>
+<P></P>
+<P></P>
+<P>Hello world</P>
+<P></P>
+<P></P>
+<P>初始状态为“Data State”，当遇到“&lt;”字符，状态变为“Tag open 
+state”，读取一个a－z的字符将产生一个开始标签符号，状态相应变为“Tag name 
+state”，一直保持这个状态直到读取到“&gt;”，每个字符都附加到这个符号名上，例子中创建的是一个html符号。</P>
+<P>当读取到“&gt;”，当前的符号就完成了，此时，状态回到“Data 
+state”，“”重复这一处理过程。到这里，html和body标签都识别出来了。现在，回到“Data state”，读取“Hello 
+world”中的字符“H”将创建并识别出一个字符符号，这里会为“Hello world”中的每个字符生成一个字符符号。</P>
+<P>这样直到遇到“”中的“&lt;”。现在，又回到了“Tag open state”，读取下一个字符“/”将创建一个闭合标签符号，并且状态转移到“Tag 
+name state”，还是保持这一状态，直到遇到“&gt;”。然后，产生一个新的标签符号并回到“Data state”。后面的“”将和“”一样处理。</P>
+<P>图10：符号化示例输入</P>
+<P>树的构建算法 Tree construction 
+algorithm<BR>在树的构建阶段，将修改以Document为根的DOM树，将元素附加到树上。每个由符号识别器识别生成的节点将会被树构造器进行处理，规范中定义了每个符号相对应的Dom元素，对应的Dom元素将会被创建。这些元素除了会被添加到Dom树上，还将被添加到开放元素堆栈中。这个堆栈用来纠正嵌套的未匹配和未闭合标签，这个算法也是用状态机来描述，所有的状态采用插入模式。</P>
+<P>来看一下示例中树的创建过程：</P>
+<P></P>
+<P></P>
+<P>Hello world</P>
+<P></P>
+<P></P>
+<P>构建树这一阶段的输入是符号识别阶段生成的符号序列。</P>
+<P>首先是“initial mode”，接收到html符号后将转换为“before 
+html”模式，在这个模式中对这个符号进行再处理。此时，创建了一个HTMLHtmlElement元素，并将其附加到根Document对象上。</P>
+<P>状态此时变为“before 
+head”，接收到body符号时，即使这里没有head符号，也将自动创建一个HTMLHeadElement元素并附加到树上。</P>
+<P>现在，转到“in head”模式，然后是“after 
+head”。到这里，body符号会被再次处理，将创建一个HTMLBodyElement并插入到树中，同时，转移到“in body”模式。</P>
+<P>然后，接收到字符串“Hello world”的字符符号，第一个字符将导致创建并插入一个text节点，其他字符将附加到该节点。</P>
+<P>接收到body结束符号时，转移到“after body”模式，接着接收到html结束符号，这个符号意味着转移到了“after after 
+body”模式，当接收到文件结束符时，整个解析过程结束。</P>
+<P>图11：示例html树的构建过程</P>
+<P>解析结束时的处理 Action when the parsing is 
+finished<BR>在这个阶段，浏览器将文档标记为可交互的，并开始解析处于延时模式中的脚本——这些脚本在文档解析后执行。</P>
+<P>文档状态将被设置为完成，同时触发一个load事件。</P>
+<P>Html5规范中有符号化及构建树的完整算法(http://www.w3.org/TR/html5/syntax.html#html-parser)。</P>
+<P>浏览器容错 Browsers error 
+tolerance<BR>你从来不会在一个html页面上看到“无效语法”这样的错误，浏览器修复了无效内容并继续工作。</P>
+<P>以下面这段html为例：</P>
+<P></P>
+<P><MYTAG></P>
+<P></MYTAG></P>
+<DIV></DIV>
+<P>Really lousy HTML</P>
+<P></P>
+<P>这段html违反了很多规则（mytag不是合法的标签，p及div错误的嵌套等等），但是浏览器仍然可以没有任何怨言的继续显示，它在解析的过程中修复了html作者的错误。</P>
+<P>浏览器都具有错误处理的能力，但是，另人惊讶的是，这并不是html最新规范的内容，就像书签及前进后退按钮一样，它只是浏览器长期发展的结果。一些比较知名的非法html结构，在许多站点中出现过，浏览器都试着以一种和其他浏览器一致的方式去修复。</P>
+<P>Html5规范定义了这方面的需求，webkit在html解析类开始部分的注释中做了很好的总结。</P>
+<P>解析器将符号化的输入解析为文档并创建文档，但不幸的是，我们必须处理很多没有很好格式化的html文档，至少要小心下面几种错误情况。</P>
+<P>1. 在未闭合的标签中添加明确禁止的元素。这种情况下，应该先将前一标签闭合</P>
+<P>2. 不能直接添加元素。有些人在写文档的时候会忘了中间一些标签（或者中间标签是可选的），比如HTML HEAD BODY TR TD LI等</P>
+<P>3. 想在一个行内元素中添加块状元素。关闭所有的行内元素，直到下一个更高的块状元素</P>
+<P>4. 如果这些都不行，就闭合当前标签直到可以添加该元素。</P>
+<P>下面来看一些webkit容错的例子：</P>
+<P><BR>替代</P>
+<P>一些网站使用<BR>替代<BR>，为了兼容IE和Firefox，webkit将其看作<BR>。</P>
+<P>代码：</P>
+<P>if (t-&gt;isCloseTag(brTag) &amp;&amp; m_document-&gt;inCompatMode()) {</P>
+<P>reportError(MalformedBRError);</P>
+<P>t-&gt;beginTag = true;</P>
+<P>}</P>
+<P>Note－这里的错误处理在内部进行，用户看不到。</P>
+<P>迷路的表格</P>
+<P>这指一个表格嵌套在另一个表格中，但不在它的某个单元格内。</P>
+<P>比如下面这个例子：</P>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>inner table</TD></TR></TBODY></TABLE><TR><TD>outer table</TD> </TR></TABLE>
+<P>webkit将会将嵌套的表格变为两个兄弟表格：</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>outer table</TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>inner table</TD></TR></TBODY></TABLE>
+<P>代码：</P>
+<P>if (m_inStrayTableContent &amp;&amp; localName == tableTag)</P>
+<P>popBlock(tableTag);</P>
+<P>webkit使用堆栈存放当前的元素内容，它将从外部表格的堆栈中弹出内部的表格，则它们变为了兄弟表格。</P>
+<P>嵌套的表单元素</P>
+<P>用户将一个表单嵌套到另一个表单中，则第二个表单将被忽略。</P>
+<P>代码：</P>
+<P>if (!m_currentFormElement) {</P>
+<P>m_currentFormElement = new HTMLFormElement(formTag, m_document);</P>
+<P>}</P>
+<P>太深的标签继承</P>
+<P>www.liceo.edu.mx是一个由嵌套层次的站点的例子，最多只允许20个相同类型的标签嵌套，多出来的将被忽略。</P>
+<P>代码：</P>
+<P>bool HTMLParser::allowNestedRedundantTag(const AtomicString&amp; tagName)</P>
+<P>{</P>
+<P>unsigned i = 0;</P>
+<P>for (HTMLStackElem* curr = m_blockStack;</P>
+<P>i &lt; cMaxRedundantTagDepth &amp;&amp; curr &amp;&amp; curr-&gt;tagName == 
+tagName;</P>
+<P>curr = curr-&gt;next, i++) { }</P>
+<P>return i != cMaxRedundantTagDepth;</P>
+<P>}</P>
+<P>放错了地方的html、body闭合标签</P>
+<P>又一次不言自明。</P>
+<P>支持不完整的html。我们从来不闭合body，因为一些愚蠢的网页总是在还未真正结束时就闭合它。我们依赖调用end方法去执行关闭的处理。</P>
+<P>代码：</P>
+<P>if (t-&gt;tagName == htmlTag || t-&gt;tagName == bodyTag )</P>
+<P>return;</P>
+<P>所以，web开发者要小心了，除非你想成为webkit容错代码的范例，否则还是写格式良好的html吧。</P>
+<P>CSS解析 CSS 
+parsing<BR>还记得简介中提到的解析的概念吗，不同于html，css属于上下文无关文法，可以用前面所描述的解析器来解析。Css规范定义了css的词法及语法文法。</P>
+<P>看一些例子：</P>
+<P>每个符号都由正则表达式定义了词法文法（词汇表）：</P>
+<P>comment ///*[^*]*/*+([^/*][^*]*/*+)*//</P>
+<P>num [0-9]+|[0-9]*”.”[0-9]+</P>
+<P>nonascii [/200-/377]</P>
+<P>nmstart [_a-z]|{nonascii}|{escape}</P>
+<P>nmchar [_a-z0-9-]|{nonascii}|{escape}</P>
+<P>name {nmchar}+</P>
+<P>ident {nmstart}{nmchar}*</P>
+<P>“ident”是识别器的缩写，相当于一个class名，“name”是一个元素id（用“＃”引用）。</P>
+<P>语法用BNF进行描述：</P>
+<P>ruleset</P>
+<P>: selector [ ',' S* selector ]*</P>
+<P>‘{‘ S* declaration [ ';' S* declaration ]* ‘}’ S*</P>
+<P>;</P>
+<P>selector</P>
+<P>: simple_selector [ combinator selector | S+ [ combinator selector ] ]</P>
+<P>;</P>
+<P>simple_selector</P>
+<P>: element_name [ HASH | class | attrib | pseudo ]*</P>
+<P>| [ HASH | class | attrib | pseudo ]+</P>
+<P>;</P>
+<P>class</P>
+<P>: ‘.’ IDENT</P>
+<P>;</P>
+<P>element_name</P>
+<P>: IDENT | ‘*’</P>
+<P>;</P>
+<P>attrib</P>
+<P>: ‘[' S* IDENT S* [ [ '=' | INCLUDES | DASHMATCH ] S*</P>
+<P>[ IDENT | STRING ] S* ] ‘]’</P>
+<P>;</P>
+<P>pseudo</P>
+<P>: ‘:’ [ IDENT | FUNCTION S* [IDENT S*] ‘)’ ]</P>
+<P>;</P>
+<P>说明：一个规则集合有这样的结构</P>
+<P>div.error , a.error {</P>
+<P>color:red;</P>
+<P>font-weight:bold;</P>
+<P>}</P>
+<P>div.error和a.error时选择器，大括号中的内容包含了这条规则集合中的规则，这个结构在下面的定义中正式的定义了：</P>
+<P>ruleset</P>
+<P>: selector [ ',' S* selector ]*</P>
+<P>‘{‘ S* declaration [ ';' S* declaration ]* ‘}’ S*</P>
+<P>;</P>
+<P>这说明，一个规则集合具有一个或是可选个数的多个选择器，这些选择器以逗号和空格（S表示空格）进行分隔。每个规则集合包含大括号及大括号中的一条或多条以分号隔开的声明。声明和选择器在后面进行定义。</P>
+<P>Webkit CSS 解析器 Webkit CSS 
+parser<BR>Webkit使用Flex和Bison解析生成器从CSS语法文件中自动生成解析器。回忆一下解析器的介绍，Bison创建一个自底向上的解析器，Firefox使用自顶向下解析器。它们都是将每个css文件解析为样式表对象，每个对象包含css规则，css规则对象包含选择器和声明对象，以及其他一些符合css语法的对象。</P>
+<P>图12：解析css</P>
+<P>脚本解析 Parsing scripts<BR>本章将介绍Javascript。</P>
+<P>处理脚本及样式表的顺序 The order of processing scripts and style sheets</P>
+<P>脚本<BR>web的模式是同步的，开发者希望解析到一个script标签时立即解析执行脚本，并阻塞文档的解析直到脚本执行完。如果脚本是外引的，则网络必须先请求到这个资源——这个过程也是同步的，会阻塞文档的解析直到资源被请求到。这个模式保持了很多年，并且在html4及html5中都特别指定了。开发者可以将脚本标识为defer，以使其不阻塞文档解析，并在文档解析结束后执行。Html5增加了标记脚本为异步的选项，以使脚本的解析执行使用另一个线程。</P>
+<P>预解析 Speculative 
+parsing<BR>Webkit和Firefox都做了这个优化，当执行脚本时，另一个线程解析剩下的文档，并加载后面需要通过网络加载的资源。这种方式可以使资源并行加载从而使整体速度更快。需要注意的是，预解析并不改变Dom树，它将这个工作留给主解析过程，自己只解析外部资源的引用，比如外部脚本、样式表及图片。</P>
+<P>样式表 Style 
+sheets<BR>样式表采用另一种不同的模式。理论上，既然样式表不改变Dom树，也就没有必要停下文档的解析等待它们，然而，存在一个问题，脚本可能在文档的解析过程中请求样式信息，如果样式还没有加载和解析，脚本将得到错误的值，显然这将会导致很多问题，这看起来是个边缘情况，但确实很常见。Firefox在存在样式表还在加载和解析时阻塞所有的脚本，而chrome只在当脚本试图访问某些可能被未加载的样式表所影响的特定的样式属性时才阻塞这些脚本。</P>
+<P>渲染树的构造 Render tree 
+construction<BR>当Dom树构建完成时，浏览器开始构建另一棵树——渲染树。渲染树由元素显示序列中的可见元素组成，它是文档的可视化表示，构建这棵树是为了以正确的顺序绘制文档内容。</P>
+<P>Firefox将渲染树中的元素称为frames，webkit则用renderer或渲染对象来描述这些元素。</P>
+<P>一个渲染对象直到怎么布局及绘制自己及它的children。</P>
+<P>RenderObject是Webkit的渲染对象基类，它的定义如下：</P>
+<P>class RenderObject{</P>
+<P>virtual void layout();</P>
+<P>virtual void paint(PaintInfo);</P>
+<P>virtual void rect repaintRect();</P>
+<P>Node* node; //the DOM node</P>
+<P>RenderStyle* style; // the computed style</P>
+<P>RenderLayer* containgLayer; //the containing z-index layer</P>
+<P>}</P>
+<P>每个渲染对象用一个和该节点的css盒模型相对应的矩形区域来表示，正如css2所描述的那样，它包含诸如宽、高和位置之类的几何信息。盒模型的类型受该节点相关的display样式属性的影响（参考样式计算章节）。下面的webkit代码说明了如何根据display属性决定某个节点创建何种类型的渲染对象。</P>
+<P>RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)</P>
+<P>{</P>
+<P>Document* doc = node-&gt;document();</P>
+<P>RenderArena* arena = doc-&gt;renderArena();</P>
+<P>…</P>
+<P>RenderObject* o = 0;</P>
+<P>switch (style-&gt;display()) {</P>
+<P>case NONE:</P>
+<P>break;</P>
+<P>case INLINE:</P>
+<P>o = new (arena) RenderInline(node);</P>
+<P>break;</P>
+<P>case BLOCK:</P>
+<P>o = new (arena) RenderBlock(node);</P>
+<P>break;</P>
+<P>case INLINE_BLOCK:</P>
+<P>o = new (arena) RenderBlock(node);</P>
+<P>break;</P>
+<P>case LIST_ITEM:</P>
+<P>o = new (arena) RenderListItem(node);</P>
+<P>break;</P>
+<P>…</P>
+<P>}</P>
+<P>return o;</P>
+<P>}</P>
+<P>元素的类型也需要考虑，例如，表单控件和表格带有特殊的框架。</P>
+<P>在webkit中，如果一个元素想创建一个特殊的渲染对象，它需要复写“createRenderer”方法，使渲染对象指向不包含几何信息的样式对象。</P>
+<P>渲染树和Dom树的关系 The render tree relation to the DOM 
+tree<BR>渲染对象和Dom元素相对应，但这种对应关系不是一对一的，不可见的Dom元素不会被插入渲染树，例如head元素。另外，display属性为none的元素也不会在渲染树中出现（visibility属性为hidden的元素将出现在渲染树中）。</P>
+<P>还有一些Dom元素对应几个可见对象，它们一般是一些具有复杂结构的元素，无法用一个矩形来描述。例如，select元素有三个渲染对象——一个显示区域、一个下拉列表及一个按钮。同样，当文本因为宽度不够而折行时，新行将作为额外的渲染元素被添加。另一个多个渲染对象的例子是不规范的html，根据css规范，一个行内元素只能仅包含行内元素或仅包含块状元素，在存在混合内容时，将会创建匿名的块状渲染对象包裹住行内元素。</P>
+<P>一些渲染对象和所对应的Dom节点不在树上相同的位置，例如，浮动和绝对定位的元素在文本流之外，在两棵树上的位置不同，渲染树上标识出真实的结构，并用一个占位结构标识出它们原来的位置。</P>
+<P>图12：渲染树及对应的Dom树</P>
+<P>创建树的流程 The flow of constructing the 
+tree<BR>Firefox中，表述为一个监听Dom更新的监听器，将frame的创建委派给Frame 
+Constructor，这个构建器计算样式（参看样式计算）并创建一个frame。</P>
+<P>Webkit中，计算样式并生成渲染对象的过程称为attachment，每个Dom节点有一个attach方法，attachment的过程是同步的，调用新节点的attach方法将节点插入到Dom树中。</P>
+<P>处理html和body标签将构建渲染树的根，这个根渲染对象对应被css规范称为containing 
+block的元素——包含了其他所有块元素的顶级块元素。它的大小就是viewport——浏览器窗口的显示区域，Firefox称它为viewPortFrame，webkit称为RenderView，这个就是文档所指向的渲染对象，树中其他的部分都将作为一个插入的Dom节点被创建。</P>
+<P>样式计算 Style Computation<BR>创建渲染树需要计算出每个渲染对象的可视属性，这可以通过计算每个元素的样式属性得到。</P>
+<P>样式包括各种来源的样式表，行内样式元素及html中的可视化属性（例如bgcolor），可视化属性转化为css样式属性。</P>
+<P>样式表来源于浏览器默认样式表，及页面作者和用户提供的样式表——有些样式是浏览器用户提供的（浏览器允许用户定义喜欢的样式，例如，在Firefox中，可以通过在Firefox 
+Profile目录下放置样式表实现）。</P>
+<P>计算样式的一些困难：</P>
+<P>1. 样式数据是非常大的结构，保存大量的样式属性会带来内存问题</P>
+<P>2. 
+如果不进行优化，找到每个元素匹配的规则会导致性能问题，为每个元素查找匹配的规则都需要遍历整个规则表，这个过程有很大的工作量。选择符可能有复杂的结构，匹配过程如果沿着一条开始看似正确，后来却被证明是无用的路径，则必须去尝试另一条路径。</P>
+<P>例如，下面这个复杂选择符</P>
+<P>div div div div｛…｝</P>
+<P>这意味着规则应用到三个div的后代div元素，选择树上一条特定的路径去检查，这可能需要遍历节点树，最后却发现它只是两个div的后代，并不使用该规则，然后则需要沿着另一条路径去尝试</P>
+<P>3. 应用规则涉及非常复杂的级联，它们定义了规则的层次</P>
+<P>我们来看一下浏览器如何处理这些问题：</P>
+<P>共享样式数据<BR>webkit节点引用样式对象（渲染样式），某些情况下，这些对象可以被节点间共享，这些节点需要是兄弟或是表兄弟节点，并且：</P>
+<P>1. 这些元素必须处于相同的鼠标状态（比如不能一个处于hover，而另一个不是）</P>
+<P>2. 不能有元素具有id</P>
+<P>3. 标签名必须匹配</P>
+<P>4. class属性必须匹配</P>
+<P>5. 对应的属性必须相同</P>
+<P>6. 链接状态必须匹配</P>
+<P>7. 焦点状态必须匹配</P>
+<P>8. 不能有元素被属性选择器影响</P>
+<P>9. 元素不能有行内样式属性</P>
+<P>10. 
+不能有生效的兄弟选择器，webcore在任何兄弟选择器相遇时只是简单的抛出一个全局转换，并且在它们显示时使整个文档的样式共享失效，这些包括＋选择器和类似:first-child和:last-child这样的选择器。</P>
+<P>Firefox规则树 Firefox rule 
+tree<BR>Firefox用两个树用来简化样式计算－规则树和样式上下文树，webkit也有样式对象，但它们并没有存储在类似样式上下文树这样的树中，只是由Dom节点指向其相关的样式。</P>
+<P>图14：Firefox样式上下文树</P>
+<P>样式上下文包含最终值，这些值是通过以正确顺序应用所有匹配的规则，并将它们由逻辑值转换为具体的值，例如，如果逻辑值为屏幕的百分比，则通过计算将其转化为绝对单位。样式树的使用确实很巧妙，它使得在节点中共享的这些值不需要被多次计算，同时也节省了存储空间。</P>
+<P>所有匹配的规则都存储在规则树中，一条路径中的底层节点拥有最高的优先级，这棵树包含了所找到的所有规则匹配的路径（译注：可以取巧理解为每条路径对应一个节点，路径上包含了该节点所匹配的所有规则）。规则树并不是一开始就为所有节点进行计算，而是在某个节点需要计算样式时，才进行相应的计算并将计算后的路径添加到树中。</P>
+<P>我们将树上的路径看成辞典中的单词，假如已经计算出了如下的规则树：</P>
+<P>假如需要为内容树中的另一个节点匹配规则，现在知道匹配的规则（以正确的顺序）为B-E-I，因为我们已经计算出了路径A-B-E-I-L，所以树上已经存在了这条路径，剩下的工作就很少了。</P>
+<P>现在来看一下树如何保存。</P>
+<P>结构化</P>
+<P>样式上下文按结构划分，这些结构包括类似border或color这样的特定分类的样式信息。一个结构中的所有特性不是继承的就是非继承的，对继承的特性，除非元素自身有定义，否则就从它的parent继承。非继承的特性（称为reset特性）如果没有定义，则使用默认的值。</P>
+<P>样式上下文树缓存完整的结构（包括计算后的值），这样，如果底层节点没有为一个结构提供定义，则使用上层节点缓存的结构。</P>
+<P>使用规则树计算样式上下文</P>
+<P>当为一个特定的元素计算样式时，首先计算出规则树中的一条路径，或是使用已经存在的一条，然后使用路径中的规则去填充新的样式上下文，从样式的底层节点开始，它具有最高优先级（通常是最特定的选择器），遍历规则树，直到填满结构。如果在那个规则节点没有定义所需的结构规则，则沿着路径向上，直到找到该结构规则。</P>
+<P>如果最终没有找到该结构的任何规则定义，那么如果这个结构是继承型的，则找到其在内容树中的parent的结构，这种情况下，我们也成功的共享了结构；如果这个结构是reset型的，则使用默认的值。</P>
+<P>如果特定的节点添加了值，那么需要做一些额外的计算以将其转换为实际值，然后在树上的节点缓存该值，使它的children可以使用。</P>
+<P>当一个元素和它的一个兄弟元素指向同一个树节点时，完整的样式上下文可以被它们共享。</P>
+<P>来看一个例子：假设有下面这段html</P>
+<P></P>
+<P></P>
+<DIV class=err id=div1>
+<P>this is a</P>
+<P><SPAN class=big>big error </SPAN></P>
+<P>this is also a</P>
+<P><SPAN class=big>very big error</SPAN></P>
+<P>error</P>
+<P></P></DIV>
+<DIV class=err id=div2>another error</DIV>
+<P></P>
+<P></P>
+<P>以及下面这些规则</P>
+<P>1. div {margin:5px;color:black}</P>
+<P>2. .err {color:red}</P>
+<P>3. .big {margin-top:3px}</P>
+<P>4. div span {margin-bottom:4px}</P>
+<P>5. #div1 {color:blue}</P>
+<P>6. #div2 {color:green}</P>
+<P>简化下问题，我们只填充两个结构——color和margin，color结构只包含一个成员－颜色，margin结构包含四边。</P>
+<P>生成的规则树如下（节点名：指向的规则）</P>
+<P>上下文树如下（节点名：指向的规则节点）</P>
+<P>假设我们解析html，遇到第二个div标签，我们需要为这个节点创建样式上下文，并填充它的样式结构。</P>
+<P>我们进行规则匹配，找到这个div匹配的规则为1、2、6，我们发现规则树上已经存在了一条我们可以使用的路径1、2，我们只需为规则6新增一个节点添加到下面（就是规则树中的F）。</P>
+<P>然后创建一个样式上下文并将其放到上下文树中，新的样式上下文将指向规则树中的节点F。</P>
+<P>现在我们需要填充这个样式上下文，先从填充margin结构开始，既然最后一个规则节点没有添加margin结构，沿着路径向上，直到找到缓存的前面插入节点计算出的结构，我们发现B是最近的指定margin值的节点。因为已经有了color结构的定义，所以不能使用缓存的结构，既然color只有一个属性，也就不需要沿着路径向上填充其他属性。计算出最终值（将字符串转换为RGB等），并缓存计算后的结构。</P>
+<P>第二个span元素更简单，进行规则匹配后发现它指向规则G，和前一个span一样，既然有兄弟节点指向同一个节点，就可以共享完整的样式上下文，只需指向前一个span的上下文。</P>
+<P>因为结构中包含继承自parent的规则，上下文树做了缓存（color特性是继承来的，但Firefox将其视为reset并在规则树中缓存）。</P>
+<P>例如，如果我们为一个paragraph的文字添加规则：</P>
+<P>p {font-family:Verdana;font size:10px;font-weight:bold}</P>
+<P>那么这个p在内容树中的子节点div，会共享和它parent一样的font结构，这种情况发生在没有为这个div指定font规则时。</P>
+<P>Webkit中，并没有规则树，匹配的声明会被遍历四次，先是应用非important的高优先级属性（之所以先应用这些属性，是因为其他的依赖于它们－比如display），其次是高优先级important的，接着是一般优先级非important的，最后是一般优先级important的规则。这样，出现多次的属性将被按照正确的级联顺序进行处理，最后一个生效。</P>
+<P>总结一下，共享样式对象（结构中完整或部分内容）解决了问题1和3，Firefox的规则树帮助以正确的顺序应用规则。</P>
+<P>对规则进行处理以简化匹配过程<BR>样式规则有几个来源：</P>
+<P>· 外部样式表或style标签内的css规则</P>
+<P>· 行内样式属性</P>
+<P>· html可视化属性（映射为相应的样式规则）</P>
+<P>后面两个很容易匹配到元素，因为它们所拥有的样式属性和html属性可以将元素作为key进行映射。</P>
+<P>就像前面问题2所提到的，css的规则匹配可能很狡猾，为了解决这个问题，可以先对规则进行处理，以使其更容易被访问。</P>
+<P>解析完样式表之后，规则会根据选择符添加一些hash映射，映射可以是根据id、class、标签名或是任何不属于这些分类的综合映射。如果选择符为id，规则将被添加到id映射，如果是class，则被添加到class映射，等等。</P>
+<P>这个处理是匹配规则更容易，不需要查看每个声明，我们能从映射中找到一个元素的相关规则，这个优化使在进行规则匹配时减少了95＋％的工作量。</P>
+<P>来看下面的样式规则：</P>
+<P>p.error {color:red}</P>
+<P>#messageDiv {height:50px}</P>
+<P>div {margin:5px}</P>
+<P>第一条规则将被插入class映射，第二条插入id映射，第三条是标签映射。</P>
+<P>下面这个html片段：</P>
+<P class=error>an error occurred </P>
+<DIV id=" messageDiv">this is a message</DIV>
+<P>我们首先找到p元素对应的规则，class映射将包含一个“error”的key，找到p.error的规则，div在id映射和标签映射中都有相关的规则，剩下的工作就是找出这些由key对应的规则中哪些确实是正确匹配的。</P>
+<P>例如，如果div的规则是</P>
+<P>table div {margin:5px}</P>
+<P>这也是标签映射产生的，因为key是最右边的选择符，但它并不匹配这里的div元素，因为这里的div没有table祖先。</P>
+<P>Webkit和Firefox都会做这个处理。</P>
+<P>以正确的级联顺序应用规则<BR>样式对象拥有对应所有可见属性的属性，如果特性没有被任何匹配的规则所定义，那么一些特性可以从parent的样式对象中继承，另外一些使用默认值。</P>
+<P>这个问题的产生是因为存在不止一处的定义，这里用级联顺序解决这个问题。</P>
+<P>样式表的级联顺序</P>
+<P>一个样式属性的声明可能在几个样式表中出现，或是在一个样式表中出现多次，因此，应用规则的顺序至关重要，这个顺序就是级联顺序。根据css2的规范，级联顺序为（从低到高）：</P>
+<P>1. 浏览器声明</P>
+<P>2. 用户声明</P>
+<P>3. 作者的一般声明</P>
+<P>4. 作者的important声明</P>
+<P>5. 用户important声明</P>
+<P>浏览器声明是最不重要的，用户只有在声明被标记为important时才会覆盖作者的声明。具有同等级别的声明将根据specifity以及它们被定义时的顺序进行排序。Html可视化属性将被转换为匹配的css声明，它们被视为最低优先级的作者规则。</P>
+<P>Specifity</P>
+<P>Css2规范中定义的选择符specifity如下：</P>
+<P>· 如果声明来自style属性，而不是一个选择器的规则，则计1，否则计0（＝a）</P>
+<P>· 计算选择器中id属性的数量（＝b）</P>
+<P>· 计算选择器中class及伪类的数量（＝c）</P>
+<P>· 计算选择器中元素名及伪元素的数量（＝d）</P>
+<P>连接a－b－c－d四个数量（用一个大基数的计算系统）将得到specifity。这里使用的基数由分类中最高的基数定义。例如，如果a为14，可以使用16进制。不同情况下，a为17时，则需要使用阿拉伯数字17作为基数，这种情况可能在这个选择符时发生html 
+body div div …（选择符中有17个标签，一般不太可能）。</P>
+<P>一些例子：</P>
+<P>* {} /* a=0 b=0 c=0 d=0 -&gt; specificity = 0,0,0,0 */</P>
+<P>li {} /* a=0 b=0 c=0 d=1 -&gt; specificity = 0,0,0,1 */</P>
+<P>li:first-line {} /* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</P>
+<P>ul li {} /* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</P>
+<P>ul ol+li {} /* a=0 b=0 c=0 d=3 -&gt; specificity = 0,0,0,3 */</P>
+<P>h1 + *[rel=up]{} /* a=0 b=0 c=1 d=1 -&gt; specificity = 0,0,1,1 */</P>
+<P>ul ol li.red {} /* a=0 b=0 c=1 d=3 -&gt; specificity = 0,0,1,3 */</P>
+<P>li.red.level {} /* a=0 b=0 c=2 d=1 -&gt; specificity = 0,0,2,1 */</P>
+<P>#x34y {} /* a=0 b=1 c=0 d=0 -&gt; specificity = 0,1,0,0 */</P>
+<P>style=”" /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */</P>
+<P>规则排序</P>
+<P>规则匹配后，需要根据级联顺序对规则进行排序，webkit先将小列表用冒泡排序，再将它们合并为一个大列表，webkit通过为规则复写“&gt;”操作来执行排序：</P>
+<P>static bool operator &gt;(CSSRuleData&amp; r1, CSSRuleData&amp; r2)</P>
+<P>{</P>
+<P>int spec1 = r1.selector()-&gt;specificity();</P>
+<P>int spec2 = r2.selector()-&gt;specificity();</P>
+<P>return (spec1 == spec2) : r1.position() &gt; r2.position() : spec1 &gt; 
+spec2;</P>
+<P>}</P>
+<P>逐步处理 Gradual 
+process<BR>webkit使用一个标志位标识所有顶层样式表都已加载，如果在attch时样式没有完全加载，则放置占位符，并在文档中标记，一旦样式表完成加载就重新进行计算。</P>
+<P>布局 Layout<BR>当渲染对象被创建并添加到树中，它们并没有位置和大小，计算这些值的过程称为layout或reflow。</P>
+<P>Html使用基于流的布局模型，意味着大部分时间，可以以单一的途径进行几何计算。流中靠后的元素并不会影响前面元素的几何特性，所以布局可以在文档中从右向左、自上而下的进行。也存在一些例外，比如html 
+tables。</P>
+<P>坐标系统相对于根frame，使用top和left坐标。</P>
+<P>布局是一个递归的过程，由根渲染对象开始，它对应html文档元素，布局继续递归的通过一些或所有的frame层级，为每个需要几何信息的渲染对象进行计算。</P>
+<P>根渲染对象的位置是0,0，它的大小是viewport－浏览器窗口的可见部分。</P>
+<P>所有的渲染对象都有一个layout或reflow方法，每个渲染对象调用需要布局的children的layout方法。</P>
+<P>Dirty bit 系统<BR>为了不因为每个小变化都全部重新布局，浏览器使用一个dirty 
+bit系统，一个渲染对象发生了变化或是被添加了，就标记它及它的children为dirty－需要layout。存在两个标识－dirty及children are 
+dirty，children are dirty说明即使这个渲染对象可能没问题，但它至少有一个child需要layout。</P>
+<P>全局和增量 layout<BR>当layout在整棵渲染树触发时，称为全局layout，这可能在下面这些情况下发生：</P>
+<P>1. 一个全局的样式改变影响所有的渲染对象，比如字号的改变</P>
+<P>2. 窗口resize</P>
+<P>layout也可以是增量的，这样只有标志为dirty的渲染对象会重新布局（也将导致一些额外的布局）。增量 
+layout会在渲染对象dirty时异步触发，例如，当网络接收到新的内容并添加到Dom树后，新的渲染对象会添加到渲染树中。</P>
+<P>图20：增量 layout</P>
+<P>异步和同步layout<BR>增量layout的过程是异步的，Firefox为增量layout生成了reflow队列，以及一个调度执行这些批处理命令。Webkit也有一个计时器用来执行增量layout－遍历树，为dirty状态的渲染对象重新布局。</P>
+<P>另外，当脚本请求样式信息时，例如“offsetHeight”，会同步的触发增量布局。</P>
+<P>全局的layout一般都是同步触发。</P>
+<P>有些时候，layout会被作为一个初始layout之后的回调，比如滑动条的滑动。</P>
+<P>优化<BR>当一个layout因为resize或是渲染位置改变（并不是大小改变）而触发时，渲染对象的大小将会从缓存中读取，而不会重新计算。</P>
+<P>一般情况下，如果只有子树发生改变，则layout并不从根开始。这种情况发生在，变化发生在元素自身并且不影响它周围元素，例如，将文本插入文本域（否则，每次击键都将触发从根开始的重排）。</P>
+<P>layout过程<BR>layout一般有下面这几个部分：</P>
+<P>1. parent渲染对象决定它的宽度</P>
+<P>2. parent渲染对象读取chilidren，并：</P>
+<P>1. 放置child渲染对象（设置它的x和y）</P>
+<P>2. 在需要时（它们当前为dirty或是处于全局layout或者其他原因）调用child渲染对象的layout，这将计算child的高度</P>
+<P>3. 
+parent渲染对象使用child渲染对象的累积高度，以及margin和padding的高度来设置自己的高度－这将被parent渲染对象的parent使用</P>
+<P>4. 将dirty标识设置为false</P>
+<P>Firefox使用一个“state”对象（nsHTMLReflowState）做为参数去布局（firefox称为reflow），state包含parent的宽度及其他内容。</P>
+<P>Firefox布局的输出是一个“metrics”对象（nsHTMLReflowMetrics）。它包括渲染对象计算出的高度。</P>
+<P>宽度计算<BR>渲染对象的宽度使用容器的宽度、渲染对象样式中的宽度及margin、border进行计算。例如，下面这个div的宽度：</P>
+<DIV style="WIDTH: 30%">
+<P>webkit中宽度的计算过程是（RenderBox类的calcWidth方法）：</P>
+<P>· 
+容器的宽度是容器的可用宽度和0中的最大值，这里的可用宽度为：contentWidth=clientWidth()-paddingLeft()-paddingRight()，clientWidth和clientHeight代表一个对象内部的不包括border和滑动条的大小</P>
+<P>· 元素的宽度指样式属性width的值，它可以通过计算容器的百分比得到一个绝对值</P>
+<P>· 加上水平方向上的border和padding</P>
+<P>到这里是最佳宽度的计算过程，现在计算宽度的最大值和最小值，如果最佳宽度大于最大宽度则使用最大宽度，如果小于最小宽度则使用最小宽度。最后缓存这个值，当需要layout但宽度未改变时使用。</P>
+<P>Line 
+breaking<BR>当一个渲染对象在布局过程中需要折行时，则暂停并告诉它的parent它需要折行，parent将创建额外的渲染对象并调用它们的layout。</P>
+<P>绘制 
+Painting<BR>绘制阶段，遍历渲染树并调用渲染对象的paint方法将它们的内容显示在屏幕上，绘制使用UI基础组件，这在UI的章节有更多的介绍。</P>
+<P>全局和增量<BR>和布局一样，绘制也可以是全局的－绘制完整的树－或增量的。在增量的绘制过程中，一些渲染对象以不影响整棵树的方式改变，改变的渲染对象使其在屏幕上的矩形区域失效，这将导致操作系统将其看作dirty区域，并产生一个paint事件，操作系统很巧妙的处理这个过程，并将多个区域合并为一个。Chrome中，这个过程更复杂些，因为渲染对象在不同的进程中，而不是在主进程中。Chrome在一定程度上模拟操作系统的行为，表现为监听事件并派发消息给渲染根，在树中查找到相关的渲染对象，重绘这个对象（往往还包括它的children）。</P>
+<P>绘制顺序<BR>css2定义了绘制过程的顺序－http://www.w3.org/TR/CSS21/zindex.html。这个就是元素压入堆栈的顺序，这个顺序影响着绘制，堆栈从后向前进行绘制。</P>
+<P>一个块渲染对象的堆栈顺序是：</P>
+<P>1. 背景色</P>
+<P>2. 背景图</P>
+<P>3. border</P>
+<P>4. children</P>
+<P>5. outline</P>
+<P>Firefox显示列表<BR>Firefox读取渲染树并为绘制的矩形创建一个显示列表，该列表以正确的绘制顺序包含这个矩形相关的渲染对象。</P>
+<P>用这样的方法，可以使重绘时只需查找一次树，而不需要多次查找——绘制所有的背景、所有的图片、所有的border等等。</P>
+<P>Firefox优化了这个过程，它不添加会被隐藏的元素，比如元素完全在其他不透明元素下面。</P>
+<P>Webkit矩形存储<BR>重绘前，webkit将旧的矩形保存为位图，然后只绘制新旧矩形的差集。</P>
+<P>动态变化<BR>浏览器总是试着以最小的动作响应一个变化，所以一个元素颜色的变化将只导致该元素的重绘，元素位置的变化将大致元素的布局和重绘，添加一个Dom节点，也会大致这个元素的布局和重绘。一些主要的变化，比如增加html元素的字号，将会导致缓存失效，从而引起整数的布局和重绘。</P>
+<P>渲染引擎的线程<BR>渲染引擎是单线程的，除了网络操作以外，几乎所有的事情都在单一的线程中处理，在Firefox和Safari中，这是浏览器的主线程，Chrome中这是tab的主线程。</P>
+<P>网络操作由几个并行线程执行，并行连接的个数是受限的（通常是2－6个）。</P>
+<P>事件循环<BR>浏览器主线程是一个事件循环，它被设计为无限循环以保持执行过程的可用，等待事件（例如layout和paint事件）并执行它们。下面是Firefox的主要事件循环代码。</P>
+<P>while (!mExiting)</P>
+<P>NS_ProcessNextEvent(thread);</P>
+<P>CSS2 可视模型 CSS2 visual module<BR>画布 The 
+Canvas<BR>根据CSS2规范，术语canvas用来描述格式化的结构所渲染的空间——浏览器绘制内容的地方。画布对每个维度空间都是无限大的，但浏览器基于viewport的大小选择了一个初始宽度。</P>
+<P>根据http://www.w3.org/TR/CSS2/zindex.html的定义，画布如果是包含在其他画布内则是透明的，否则浏览器会指定一个颜色。</P>
+<P>CSS盒模型<BR>CSS盒模型描述了矩形盒，这些矩形盒是为文档树中的元素生成的，并根据可视的格式化模型进行布局。每个box包括内容区域（如图片、文本等）及可选的四周padding、border和margin区域。</P>
+<P>每个节点生成0－n个这样的box。</P>
+<P>所有的元素都有一个display属性，用来决定它们生成box的类型，例如：</P>
+<P>block－生成块状box</P>
+<P>inline－生成一个或多个行内box</P>
+<P>none－不生成box</P>
+<P>默认的是inline，但浏览器样式表设置了其他默认值，例如，div元素默认为block。可以访问http://www.w3.org/TR/CSS2/sample.html查看更多的默认样式表示例。</P>
+<P>定位策略 Position scheme<BR>这里有三种策略：</P>
+<P>1. normal－对象根据它在文档的中位置定位，这意味着它在渲染树和在Dom树中位置一致，并根据它的盒模型和大小进行布局</P>
+<P>2. float－对象先像普通流一样布局，然后尽可能的向左或是向右移动</P>
+<P>3. absolute－对象在渲染树中的位置和Dom树中位置无关</P>
+<P>static和relative是normal，absolute和fixed属于absolute。</P>
+<P>在static定位中，不定义位置而使用默认的位置。其他策略中，作者指定位置——top、bottom、left、right。</P>
+<P>Box布局的方式由这几项决定：box的类型、box的大小、定位策略及扩展信息（比如图片大小和屏幕尺寸）。</P>
+<P>Box类型<BR>Block box：构成一个块，即在浏览器窗口上有自己的矩形</P>
+<P>Inline box：并没有自己的块状区域，但包含在一个块状区域内</P>
+<P>block一个挨着一个垂直格式化，inline则在水平方向上格式化。</P>
+<P>Inline盒模型放置在行内或是line 
+box中，每行至少和最高的box一样高，当box以baseline对齐时——即一个元素的底部和另一个box上除底部以外的某点对齐，行高可以比最高的box高。当容器宽度不够时，行内元素将被放到多行中，这在一个p元素中经常发生。</P>
+<P>定位 Position<BR>Relative<BR>相对定位——先按照一般的定位，然后按所要求的差值移动。</P>
+<P>Floats<BR>一个浮动的box移动到一行的最左边或是最右边，其余的box围绕在它周围。下面这段html：</P>
+<P><IMG style="FLOAT: right" height=100 src="" width=100>Lorem ipsum dolor sit 
+amet, consectetuer…</P>
+<P>将显示为：</P>
+<P>Absolute和Fixed<BR>这种情况下的布局完全不顾普通的文档流，元素不属于文档流的一部分，大小取决于容器。Fixed时，容器为viewport（可视区域）。</P>
+<P>图17：fixed</P>
+<P>注意－fixed即使在文档流滚动时也不会移动。</P>
+<P>Layered 
+representation<BR>这个由CSS属性中的z-index指定，表示盒模型的第三个大小，即在z轴上的位置。Box分发到堆栈中（称为堆栈上下文），每个堆栈中靠后的元素将被较早绘制，栈顶靠前的元素离用户最近，当发生交叠时，将隐藏靠后的元素。堆栈根据z-index属性排序，拥有z-index属性的box形成了一个局部堆栈，viewport有外部堆栈，例如：</P>
+<P>
+<STYLE type=text/css>UNKNOWN {
+	
+}
+</STYLE>
+</P>
+<P>
+<P></P>
+<P><DIV< p>
+<P>style="z-index: 3;background-color:red; width: 1in; height: 1in; "&gt;</P>
+<P></P></DIV>
+<P></P>
+<P><DIV< p>
+<P>style="z-index: 1;background-color:green;width: 2in; height: 2in;"&gt;</P>
+<P></P></DIV>
+<P></P>
+<P>结果是：</P>
+<P>虽然绿色div排在红色div后面，可能在正常流中也已经被绘制在后面，但z-index有更高优先级，所以在根box的堆栈中更靠前。</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>十月 8th, 2011 at 10:47 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-99><A href="http://173.234.53.177/?p=99" 
+rel=bookmark>最早的22个标签</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=99#comments">without 
+comments</A></P>
+<DIV class=main>
+<H1><A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html">http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html</A></H1>
+<H1>HTML Tags</H1>
+<P>This is a list of tags used in the&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html#4" 
+name=0>HTML</A> language. Each tag starts with a tag opener (a less than sign) 
+and ends with a tag closer (a greater than sign). Many tags have corresponding 
+closing tags which identical except for a slash after the tag opener. (For 
+example, the<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#2" 
+name=3> TITLE</A> tag).</P>
+<P>Some tags take parameters, called attributes. The attributes are given after 
+the tag, separated by spaces. Certain attributes have an effect simply by their 
+presence, others are followed by an equals sign and a value. (See the&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#4" 
+name=5>Anchor</A> tag, for example). The names of tags and attributes are not 
+case sensitive: they may be in lower, upper, or mixed case with exactly the same 
+meaning. (In this document they are generally represented in upper case.)</P>
+<P>Currently HTML documents are transmitted without the normal SGML framing 
+tags, but if these are included parsers will ignore them.</P>
+<H2><A name=2>Title</A></H2>
+<P>The title of a document is given between title tags: &amp;lt;TITLE&amp;gt; … 
+&amp;lt;/TITLE&amp;gt; The text between the opening and the closing tags is a 
+title for the hypertext node. There should only be one title in any node. It 
+should identify the content of the node in a fairly wide context, and should 
+ideally fit on one line.</P>
+<P>The title is not strictly part of the text of the document, but is an 
+attribute of the node. It may not contain anchors, paragraph marks, or 
+highlighting. the title may be used to identify the node in a history list, to 
+label the window displaying the node, etc. It is not normally displayed in the 
+text of a document itself. Contrast titles with&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#15" 
+name=16>headings</A> .</P>
+<H2>Next ID</H2>
+<P>Obsolete: NeXT Browser only. May be ignored. This tag takes a single 
+attribute which is the number of the next document-wide numeric identifier to be 
+allocated (not good SGML). Note that when modifying a document, old anchor ids 
+should not be reused, as there may be references stored elsewhere which point to 
+them. This is read and generated by hypertext editors. Human writers of HTML 
+usually use mnemonic alpha identifiers. Browser software may ignore this tag. 
+Example of use: &amp;lt;NEXTID 27&amp;gt;</P>
+<H2><A name=11>Base Address</A></H2>
+<P><A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#4" 
+name=9>Anchors</A> specify addresses of other documents, in a from relative to 
+the address of the current document. Normally, the address of a document is 
+known to the browser because it was used to access the document. However, is a 
+document is mailed, or is somehow visible with more than one address (for 
+example, via its filename and also via its library name server catalogue 
+number), then the browser needs to know the base address in order to correctly 
+deduce external document addresses.</P>
+<P>The format of this tag is not yet specified. NOT CURRENTLY USED</P>
+<H2><A name=4>Anchors</A></H2>
+<P>The format of an anchor is as follows: &amp;lt;A NAME=xxx HREF=XXX&amp;gt; … 
+&amp;lt;/A&amp;gt; The text between the opening tag and the closing tag is 
+either the start or destination (or both) of a link. Attributes of the anchor 
+tag are as follows.</P>
+<DL>
+  <DT><A name=13>HREF</A> 
+  <DD>If the HREF attribute is present, the anchor is senstive text: the start 
+  of a link. If the reader selects this text, he should be presented with 
+  another document whose network address is defined by the value of the HREF 
+  attribute . The format of the network address is specified&nbsp;<A 
+  href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/Addressing.html" 
+  name=10>elsewhere</A> . This allows for the form HREF=#identifier to refer to 
+  another anchor in the same document. If the anchor is in another document, the 
+  atribute is a&nbsp;<A 
+  href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/Relative.html" 
+  name=14>relative name</A> , relative to the documents address (or 
+  specified&nbsp;<A 
+  href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#11" 
+  name=12>base address</A> if any). 
+  <DT>NAME 
+  <DD>The attribute NAME allows the anchor to be the destination of a link. The 
+  value of the parameter is that part of a hypertext address which follows the<A 
+  href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/BNF.html#21" 
+  name=19>hash sign</A> . 
+  <DT><A name=21>TYPE</A> 
+  <DD>An attribute TYPE may give the relationship described by the hyertext 
+  link. The type is expressed by a string for extensibility. Strings for types 
+  with particular semantics will be registered by the W3 team. The default 
+  relationship if none other is given is void. </DD></DL>
+<P>All attributes are optional, although one of NAME and HREF is necessary for 
+the anchor to be useful.</P>
+<H2><A name=18>IsIndex</A></H2>
+<P>This tag informs the reader that the document is an index document. As well 
+as reading it, the reader may use a keyword search.</P>
+<P>Format:</P>
+<P>&amp;lt;ISINDEX&amp;gt; The node may be queried with a keyword search by 
+suffixing the node address with a question mark, followed by a list of keywords 
+separated by plus signs. See the&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/Search.html" 
+name=1>network address format</A> .</P>
+<H2><A name=7>Plaintext</A></H2>
+<P>This tag indicates that all following text is to be taken litterally, up to 
+the end of the file. Plain text is designed to be represented in the same way as 
+example XMP text, with fixed width character and significant line breaks. 
+Format: &amp;lt;PLAINTEXT&amp;gt; This tag allows the rest of a file to be read 
+efficiently without parsing. Its presence is an optimisation. There is no 
+closing tag.</P>
+<H2><A name=8>Example sections</A></H2>
+<P>These styles allow text of fixed-width characters to be embedded absolutely 
+as is into the document. The format is: &amp;lt;LISTING&amp;gt; … 
+&amp;lt;/LISTING&amp;gt; The text between these tags is to be portrayed in a 
+fixed width font, so that any formatting done by character spacing on successive 
+lines will be maintained. Between the opening and closing tags:</P>
+<UL>
+  <LI>The text may contain any ISO Latin printable characters, including the tag 
+  opener, so long as it does not contain the closing tag in full. 
+  <LI>Line boundaries are significant, and are to be interpreted as a move to 
+  the start of a new line. 
+  <LI>The ASCII Horizontal Tab (HT) character should be interpreted as the 
+  smallest positive nonzero number of spaces which will leave the number of 
+  characters so far on the line as a multiple of 8. Its use is not recommended 
+  however. </LI></UL>
+<P>The LISTING tag is portrayed so that at least 132 characters will fit on a 
+line. The XMP tag is portrayed in a font so that at least 80 characters will fit 
+on a line but is otherwise identical to LISTING. The examples of markup are here 
+given using the XMP tag.</P>
+<H2>Paragraph</H2>
+<P>This tag indicates a new paragraph. The exact representation of this 
+(indentation, leading, etc) is not defined here, and may be a function of other 
+tags, style sheets etc. The format is simply &amp;lt;P&amp;gt; (In SGML terms, 
+paragraph elements are transmitted in minimised form).</P>
+<H2><A name=15>Headings</A></H2>
+<P>Several levels (at least six) of heading are supported. Note that a hypertext 
+document tends to need less levels of heading than a normal document whose only 
+structure is given by the nesting of headings. H1 is the highest level of 
+heading, and is recommened for the start of a hypertext node. It is suggested 
+that the first heading be one suitable for a reader who is already browsing in 
+related information, in contrast to the&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html#2" 
+name=6>title</A> tag which should identify the node in a wider context. 
+&amp;lt;H1&amp;gt;, &amp;lt;H2&amp;gt;, &amp;lt;H3&amp;gt;, &amp;lt;H4&amp;gt;, 
+&amp;lt;H5&amp;gt;, &amp;lt;H6&amp;gt; These tags are kept as defined in the 
+CERN SGML guide. Their definition is completely historical, deriving from 
+the&nbsp;<A 
+href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/AAP.html" 
+name=17>AAP</A> tag set. A difference is that HTML documents allow headings to 
+be terminated by closing tags: &amp;lt;H2&amp;gt;Second level 
+heading&amp;lt;/h2&amp;gt;</P>
+<H2><A name=20>Address</A></H2>
+<P>This tag is for address information, signatures, etc, normally at the top or 
+bottom of a document. typically, it is italic and/or right justified or 
+indented. The format is: &amp;lt;ADDRESS&amp;gt; text … 
+&amp;lt;/ADDRESS&amp;gt;</P>
+<H2>Highlighting</H2>
+<P>The highlighted phrase tags may occur in normal text, and may be nested. For 
+each opening tag there must follow a corresponding closing tag. NOT CURRENTLY 
+USED. &amp;lt;HP1&amp;gt;…&amp;lt;/HP1&amp;gt; &amp;lt;HP2&amp;gt;… 
+&amp;lt;/HP2&amp;gt; etc.</P>
+<H2>Glossaries</H2>
+<P>A glosary (or definition list) is a list of paragraphs each of which has a 
+short title alongside it. Apart from glossaries, this format is useful for 
+presenting a set of named elements to the reader. The format is as follows: 
+&amp;lt;DL&amp;gt; &amp;lt;DT&amp;gt;Term&amp;lt;DD&amp;gt;definition pagagraph 
+&amp;lt;DT&amp;gt;Term2&amp;lt;DD&amp;gt;Definition of term2 
+&amp;lt;/DL&amp;gt;</P>
+<H2>Lists</H2>
+<P>A list is a sequence of paragraphs, each of which is preceded by a special 
+mark or sequence number. The format is: &amp;lt;UL&amp;gt; &amp;lt;LI&amp;gt; 
+list element &amp;lt;LI&amp;gt; another list element … &amp;lt;/UL&amp;gt; The 
+opening list tag must be immediately followed by the first list element. The 
+representation of the list is not defined here, but a bulleted list for 
+unordered lists, and a sequence of numbered paragraphs for an ordered list would 
+be quite appropriate. Other possibilities for interactive display include 
+embedded scrollable browse panels.</P>
+<P>Opening list tags are:</P>
+<DL>
+  <DT>UL 
+  <DD>A list multi-line paragraphs, typically separated by some white space. 
+  <DT>MENU 
+  <DD>A list of smaller paragraphs. Typically one line per item, with a style 
+  more compact than UL. 
+  <DT>DIR 
+  <DD>A list of short elements, less than one line. Typical style is to arrange 
+  in four columns or provide a browser, etc. </DD></DL>
+<P>the closing tag must obviously match the opening tag.</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 6:10 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-97><A href="http://173.234.53.177/?p=97" 
+rel=bookmark>IE9网络性能改进及策略</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=97#comments">without 
+comments</A></P>
+<DIV class=main>
+<P>IE9 RTM发布了，筒子们可以下载下来尝尝鲜。业界这次给了IE9比较大的期望值，祝愿微软可以籍此摆脱IE声名狼藉的现状。</P>
+<P>IE9的目标是“更快，更安全和更好的用户体验”，在性能方面这次IE9下了很大功夫，IE的官方blog也不遗余力地进行这方面的宣传，今天发布了一篇关于IE9&nbsp;网络性能改进的文章，从这篇文章我们可以看出IE在网络性能方面的优化策略和思路。</P>
+<P>地瓜曾经设计过轻量级浏览器的内核，在网络方面有过一定的研究，这篇文章里面讲到了很多问题，地瓜都曾经经历过，因此看到这篇文章，很有感触，仿佛回到了几年前。总体来说，浏览器发展到现在，网络优化的空间已经不大，现在的很多优化的手段，其实都是一种投机行为（说好听点，就是人工智能）。</P>
+<P>当浏览器load一个网页的时候，一般包括几个步骤：1）如果电脑没有使用Web proxy，浏览器首先要进行DNS查询，也就是将<A 
+href="http://www.microsoft.xn--com65-108h91unyw5wcm7qvk2beq3dmfb.55.12.xn--249ip-yb4kv04fi48b/">http://www.microsoft.xn--com65-108h91unyw5wcm7qvk2beq3dmfb.55.12.xn--249ip-yb4kv04fi48b/</A>地址，然后再同这个ip地址建立tcp连接。2）如果电脑使用Web 
+proxy，浏览器首先找到proxy（有可能直接在设置中指定了，或者通过&nbsp;WPAD指定），如果proxy使用域名，先进行DNS查询，然后建立tcp连接。3）如果是安全连接（HTTPS），还需要进行SSL或者TLS的握手。握手中可能产生一次或者多次额外的用于证书鉴权的网络请求。4）连接建立后，浏览器发送HTTP请求给服务器。5）服务器收到请求后，产生响应数据，传回给浏览器。6）如果响应是HTML文件，通常这个HTML会包含其它资源（如图片，脚本，css）的引用，为了完全显示网页，浏览器重复执行之前的步骤来下载所需的资源。</P>
+<P>从上面这几个步骤来看，优化的思路无非如下几个1）有多个资源下载的话，是否可以将一些串行操作改变成并行操作2）是否可以减少HTTP请求3）减少DNS查询的时间4）减少建立TCP连接的时间。</P>
+<P>HTTP协议中对减少TCP连接的时间有自己的策略，比如说永久连接和pipeline，但是地瓜通过对IE抓包来看，ie并没有采用永久连接和pipeline。对于减少HTTP请求，HTTP协议中有Cache的机制。</P>
+<P>IE9主要的提高在于1，2，3点。</P>
+<P>首先是从DNS查询时间做起，IE9有了些投机起巧的策略。</P>
+<P>1）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当用户通过地址栏输入网址的时候，输完3个字符，&nbsp;IE9会马上发起下拉框中前五个备选网站的dns&nbsp;查询，并将其存到本地操作系统缓存中备用。这样的话，如果用户之后访问到这些域名，浏览器可以减少等待dns查询结果的时间。</P>
+<P>2）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对访问过的网站进行猜测性DNS预查询。当用户访问过一个网页的时候，IE9会在网页的历史记录中记录下使用那个网页需要访问的域名。比如，在loading 
+IEBlog的时候，HTML引用了五个其它的站点（i.msdn.miscrosoft.com,<BR>cdn-smooth.ms-studiosmedia.com,go.miscrosoft.com,ieblog.members.winisp.net和silverlight.dlservice.microsoft.com），所以当用户访问IEBlog，创建到blogs.msdn.com的tcp连接的时候，IE9会并行发起这几个域名的dns解析请求。</P>
+<P>对于并行操作，一般一个网页对每个域名会创建超过一个的HTTP 
+connection。IE9在创建第一个连接的时候并行打开了一个后台连接（background 
+connection）。这样下一个HTTP请求就不用等待连接建立的过程了。一个host只允许建立一个后台连接。（地瓜：这种方式其实加重了服务器的负担）。</P>
+<P>另外，IE9之前的版本已经提出了lookahead 
+downloader的下载策略，也就是下载完HTML之后，立即对它进行扫描，寻找之后可能需要下载的资源（毫无疑问，javascript文件具有最高优先级），这个扫描开始于页面解析之前。然后在页面解析的同时，就可以并行发起这些投机性的下载，为什么说它是投机性下载呢，因为页面解析之后，可能javascript就会remove掉这些需要发起下载的标签。但是，这种情况毕竟不经常发生，即使发生，除了损失一点性能之外没有其它的害处。</P>
+<P>在缓存方面，IE9在缓存实现算法上有所改进，之前的版本，IE缺省地将Web内容缓存大小限制为硬盘大小的1/32，IE7,IE8缺省的是50M。限制这么小的一个坏处是如果达到这个容量，经常需要进行缓存淘汰。之前的版本通过测试，设置大了并不能显著提高缓存命中比率。而且需要更长时间的枚举和清理。但是，IE9重新审视了这个测试结论，并改进了一些算法，解决了一些相关问题以后，更大的缓存大小设置就可以带来更好的命中率。所以IE9将缺省的缓存大小设置为硬盘大小的1/32（考虑到硬盘容量变大）以及250M。从这里，我们可以发现，缓存大小的设置，影响网页加载速度，筒子们可以Tools-&gt;Internet 
+Options-&gt;GeneralàBrowsing History Settings dialog 
+box修改。当然，缓存大小设置也有限制，因为缓存条目有６０００条的限制，如果设置太大了，就会先达到条目的限制，没有意义。</P>
+<P>缓存清理工作。很久以前，地瓜在手机上实现ＨＴＴＰ协议，当时一直在考虑如何指定合理的缓存淘汰算法。通过这篇博客，我们看到了IE9的缓存淘汰算法。</P>
+<P>首先，缓存淘汰算法的目标是当缓存到达它的大小或者条目限制的时候，清理掉至少１０%的缓存。</P>
+<P>IE9对缓存对象维护一个打分系统，对所有缓存对象进行打分，分值最低的10%条目会被清理掉。计算分值的时候，总分是66000，器重40000是由指定资源最近一次访问的时间确定（最近访问的条目分值高），2000分由资源访问的频率决定(经常访问的条目分高)，6000分来自于缓存校验信息(validator 
+information，像Last-Modified和Etag这样的响应头部)是否存在，这些校验信息允许对资源在到期后进行条件请求和校验。资源的ＭＩＭＥ类型也会在分值计算中得到反应，script,CSS和HTML/XHTML资源获取全部分数，而images,audio等获取指定分数的一半（其实是根据不同资源对页面下载时间的影响作出的决策）。那些使用超过一词的缓存条目得到增加的重用分。为了获取10000重用分，资源必须在超过12个小时的时间段被重复使用(这避免了资源在一个很短时间频繁访问，比如那些从长期看你很少上的网站)。有validator的条目可以获取validator分数，当然，最大的影响是资源是否还新鲜。那些过期且没有validators的条目会得０分，有validator的可以获取70%的分数。</P>
+<P>另外，IE9中包含了新的Tracking 
+Protectiong和ActiveX过滤功能，这两个功能通过阻止下载和执行未要求的内容，也可以提高总的浏览器性能。</P>
+<P>&nbsp;</P>
+<P>参考</P>
+<P>1）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx">Internet 
+Explorer 9 Network Performance Improvements</A> ，<BR><A 
+href="http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx">http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx</A></P>
+<P>2）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bugs in IE8′s 
+Lookahead Downloader，</P>
+<P><A 
+href="http://blogs.msdn.com/b/ieinternals/archive/2009/07/27/bugs-in-the-ie8-lookahead-downloader.aspx">http://blogs.msdn.com/b/ieinternals/archive/2009/07/27/bugs-in-the-ie8-lookahead-downloader.aspx</A></P>
+<P>3）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://blog.chromium.org/2008/09/dns-prefetching-or-pre-resolving.html">DNS 
+Prefetching (or Pre-Resolving)</A> ,<BR><A 
+href="http://blog.chromium.org/2008/09/dns-prefetching-or-pre-resolving.html">http://blog.chromium.org/2008/09/dns-prefetching-or-pre-resolving.html</A></P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 6:09 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-94><A href="http://173.234.53.177/?p=94" 
+rel=bookmark>WebKit内核源代码分析（三）</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=94#comments">without 
+comments</A></P>
+<DIV class=main>
+<P>摘要：浏览器的请求一般是以页面请求为单位，当用户通过网址栏输入一个url，浏览器就开始一个页面请求。而一个页面请求可能包含有一到多个页面子帧，以及图片、CSS和插件等派生子资源。Page类就是用来对应这样的页面请求。Page类是WebKit中非常重要的一个类，它就像内核对外的一个聚合器。</P>
+<P>关键词:WebKit内核源代码,WebCore,Page,Frame，WebKit架构</P>
+<H2>1.&nbsp;&nbsp;&nbsp;&nbsp;概述</H2>
+<P>浏览器的请求一般是以页面请求为单位，当用户通过网址栏输入一个url，浏览器就开始一个页面请求。而一个页面请求可能包含有一到多个页面子帧，以及图片、CSS和插件等派生子资源。Page类就是用来对应这样的页面请求。前进后退，导航，编辑，右键菜单，设置，Inspector等这些用户参与的动作，大部分是同Page相关的。而标记语言解析、排版、加载则更多地同Frame相关。</P>
+<P>我们通过几个图来看下Qt移植中Page类同应用之间的关系。</P>
+<P>&nbsp;</P>
+<P><IMG alt="" src="浏览器是怎么工作的 at AZI.files/0_1299648672b0K9.gif"></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>QWebPage通过QWebPagePrivate维护Page类的指针，并在QWebPagePrivate的构造函数中实例化Page对象。QWebPage类通过之后的createMainFrame调用实例化QwebFrame，而在QwebFrameData的构造函数中，以Page指针为参数调用了Frame::create&nbsp;创建出Frame对象。</P>
+<P>&nbsp;</P>
+<P><IMG height=207 alt="" src="浏览器是怎么工作的 at AZI.files/0_1299648680RXJs.gif" 
+width=698></P>
+<P>&nbsp;</P>
+<P>Page类通过组合其它类的方式，实现了很多功能，Page类本身并没有多少代码。</P>
+<H2>2.&nbsp;&nbsp;&nbsp;&nbsp;类关系</H2>
+<H2><IMG height=764 alt="" src="浏览器是怎么工作的 at AZI.files/0_1299648661Mm8q.gif" 
+width=743></H2>
+<H2>2.1&nbsp;&nbsp;PageGroup</H2>
+<P>PageGroup并不是用来对Page进行管理的，而是设计用来将一些具有共同的属性或者设置的Page编成组的，以方便对这些属性进行管理。目前这样的属性包括localStorage的属性，IndexDB，User 
+Script，User 
+StyleSheet等。最常见的同PageGroup相关的操作是维护已访问链接（如addVisitedLink等接口）。根据地瓜的理解，假设WebKit内核之上架设多个应用（浏览器是一个应用），比较可能的是，一个应用独立一个PageGroup。这里同多tab页没有关系，多tab页属于同一个PageGroup。地瓜曾在mailing 
+group上就这个问题咨询过，一位RIM的同学给我举了一个例子，比如一个基于WebKit的邮件程序，一方面他可能调用基于webkit的browser来显示网页，另外他本身也基于webkit来显示一些邮件，这两个之间的setting有很大可能不一样，他们就使用不同的PageGroup。</P>
+<P>PageGroup中有这个Group已经安装并且使用的User Script和User StyleSheet的集合，一般在网页解析完毕后，这些User 
+Script和User StyleSheet会插入到Document中。</P>
+<P>PageGroup中还维护了Local Storage和Index 
+DB相关的设置，比如它们的Path，上限等，通过GroupSettings类实现。</P>
+<P>PageGroup创建以后，每次创建一个新的Page对象，会通过addPage接口加入到这个PageGroup的m_pages中。</P>
+<P>每次有导航行为发生的时候，会调用addVisitedLink来将url加入到已访问链接中。如果浏览器要跟踪已访问的接口，则在初始化的时候必须调用PageGroup::setShouldTrackVisitedLinks，且参数为true。此处shouldTrackVisitedLinks是一个静态的全局变量，也就是说，所有应用维护一样的行为（一个应用将其设置为false会影响到其它同样基于此核的应用）？</P>
+<P>Page类中维护了PageGroup的指针，并提供了group接口，这是个lazy接口，如果m_group不存在，会调用InitGroup来创建一个。对于Page类来说，如果没有设置GroupName，则在初始化的时候会生成一个空GroupName的PageGroup，由m_singlePageGroup维护，并把指针赋给m_group，如果以非空的名字调用了setGroupName，则会重新创建PageGroup，此时这个PageGroup由m_group来维护。</P>
+<H3>2.2&nbsp;&nbsp;Setting</H3>
+<P>WebCore中的设置相关的类，浏览器应用的不少配置、选项同该类相关，Qt移植中，应用在创建Page对象后，会根据Page::settings来实例化QwebSetting。</P>
+<H3>2.3&nbsp;&nbsp;Chrome</H3>
+<P>原生窗口接口类，参考地瓜写的”WebKit中的Chrome和ChromeClient”。</P>
+<H3>2.4&nbsp;&nbsp;其它</H3>
+<P>SelectionController 
+:负责管理Page中的选取操作，绝大部分选取操作是基于Frame的，只在Frame的Selection为空的时候，对焦点游标的绘制工作才会使用到Page类的SelectionController。</P>
+<P>SharedGraphicsContext3D:共享3D图形上下文，为了优化2D显示而加入。在加速的2D 
+canvas中，引入的DrawingBuffer的概念，SharedGraphicsContext3D提供了createDrawingBuffer来创建DrawingBuffer。</P>
+<P>DragController:拖拽控制器。Chrome的超级拖拽功能同这个有关？地瓜会在以后对此进行求证。</P>
+<P>FocusController:焦点控制器。考虑到焦点会在各个frame之间切换，所以由Page类维护焦点控制器最合适不过。</P>
+<P>ContextMenuController:右键下拉菜单控制器。</P>
+<P>InspectorController:Inspector控制器，浏览器中的很多开发工具都同这个类相关。</P>
+<P>GeolocationController:定位定位服务控制器。</P>
+<P>DeviceMotionController:设备移动控制器</P>
+<P>DeviceOrientationController:设备方向控制器</P>
+<P>SpeechInputClient:语音输入Client。</P>
+<P>ProgressTracker:进度跟踪。</P>
+<P>BackForwardController:前进后退操作控制。</P>
+<P>Frame:一个Page由至少一个主帧和若干个其它子帧构成。</P>
+<P>HistoryItem:历史记录。</P>
+<P>PluginData:插件相关，未来可能同PluginDatabase类合并。主要是初始化Plugin的信息。</P>
+<P>PluginHalter:用来控制Plugin的停止和重新开始。</P>
+<P>RenderTheme:这个类提供了控件的渲染和绘制接口。Qt移植中，RenderThemeQt是RenderTheme接口的具体实现。</P>
+<P>EditorClient:同编辑功能相关，比如拷贝、剪切、删除等操作。</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 6:04 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-91><A href="http://173.234.53.177/?p=91" 
+rel=bookmark>现代浏览器揭秘</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=91#comments">without 
+comments</A></P>
+<DIV class=main>
+<H4>要讨论的浏览器</H4>
+<P>今天，人们主要使用5种浏览器：Internet 
+Explorer、Firefox、Safari、Chrome和Opera。这篇文章的分析源自开源浏览器——Firefox、Chrome和Safari，Safari是部分开源的。根据W3C对浏览器使用情况的统计信息，当前（2009年10）Firefox、Safari和Chrome共同的市场占有率已接近60%。因此，可以说开源浏览器已经占据了浏览器市场的半壁江山。</P>
+<H4>浏览器的主要功能</H4>
+<P>浏览器的主要功能就是呈现你选择的网络资源，换句话说，就是你向服务器请求资源，然后浏览器把这些浏览器显示在浏览器的窗口中。资源的格式通常是HTML，当然也有PDF、图像等等。资源的位置是使用URI（Uniform 
+Resource Indentifier，统一资源标识符）来指定的。与此相关的内容在后面讨论网络的时候还会详细介绍。</P>
+<P>浏览器如何解释HTML文件是由HTML和CSS规范规定的。这些规范由W3C（World Wide Web 
+Consortium，万维网联盟）维护的，W3C是负责制定Web标准的组件。</P>
+<P>HTML当前的版本号是4（<A 
+href="http://www.w3.org/TR/html401/ï¼ï¼HTML5è¿å¨å¶å®ä¸&shy;ãCSSå½åççæ¬å·æ¯2ï¼http://www.w3.org/TR/CSS2/ï¼ï¼CSS3ä¹æ&shy;£å¨å¶å®è¿ç¨ä¸&shy;ã">http://www.w3.org/TR/html401/ï¼ï¼HTML5è¿å¨å¶å®ä¸&shy;ãCSSå½åççæ¬å·æ¯2ï¼http://www.w3.org/TR/CSS2/ï¼ï¼CSS3ä¹æ&shy;£å¨å¶å®è¿ç¨ä¸&shy;ã</A></P>
+<P>多少年来，浏览器厂商各自为战，纷纷埋头开发自己的扩展，对规范的支持始终不给力。结果就给Web开发人员带来了生死攸关的兼容性问题。而今天，大多数浏览器对规范的支持程度仍然参差不齐。</P>
+<P>浏览器的用户界面大同小异，其中相同的界面元素包括：</P>
+<UL>
+  <LI>用于输入URI的地址栏 
+  <LI>后退和前进按钮 
+  <LI>书签选项 
+  <LI>用于刷新和停止加载当前文档的刷新及停止按钮 
+  <LI>返回主页的主页按钮 </LI></UL>
+<P>说来也怪，并没有哪个正式公布的规范对浏览器的用户界面作出规定，浏览器目前的外观是多年来浏览器厂商之间互相模仿和不断改进的结果。HTML5规范中没有定义浏览器必须具备的UI元素，但列出了一些公共元素，其中就包括地址栏、状态栏和工具栏。当然，有些浏览器还有自己专有的一些功能，如Firefox的下载管理器。相关的更多内容将在后面讨论用户界面时介绍。</P>
+<H4>浏览器的主要构成</H4>
+<P>以下是构成浏览器的主要组件（见图1.1）。<BR>1、用户界面——包括地址栏、后退/前进按钮、书签菜单等等，也就是除了显示所请求页面的主窗口之外的其他所有部分。<BR>2、浏览器引擎——用于查询和操作呈现（rendering）引擎的接口。<BR>3、呈现引擎——负责显示请求的内容，例如请求的内容是HTML，它就负责解析HTML和CSS并将解析后的内容显示到屏幕上。<BR>4、网络模块——用户完成网络调用，如HTTP请求。具有平台中立的接口和针对不同平台的底层实现。<BR>5、UI后端——用于绘制基本的组合选择框及对话框之类的基本部件。具有不特定于某个平台的界面样式，在底层使用的是操作系统的用户界面方法。<BR>6、JavaScript解释器——用户解释和执行JavaScript代码。<BR>7、数据存储模块——属于持久层；浏览器需要在硬盘中保存各种数据，如Cookie。HTML5还为客户端存储定义了新的技术。</P>
+<P><IMG alt="" src="浏览器是怎么工作的 at AZI.files/layers.png"><BR>图1 浏览器的主要组件</P>
+<P>需要特别指出的是，Chrome会为每个新建的标签页创建一个新的呈现引擎的实例，并且每个标签页也运行在独立的进程当中，这一点与其他浏览器不一样。<BR>对构成浏览器的这些组件，我们会逐一详细讨论。</P>
+<H4>组件之间的通信</H4>
+<P>Firefox和Chroem都具有联系各个组件的组件。后面也将讨论这些组件。</P>
+<H2>呈现引擎</H2>
+<P>呈现引擎主要负责……呈现，也就是把请求的内容显示到浏览器屏幕上。</P>
+<P>默认情况下，呈现引擎可以显示HTML和XML文档以及图像。而借助插件（一种浏览器扩展）它还可以显示其他类型的内容，比如使用PDF阅读器插件可以显示PDF。后面我们还会专门讨论插件和扩展，但这里我们只讨论呈现引擎的主要用途——显示使用CSS格式化之后的HTML及图像。</P>
+<H4>呈现引擎</H4>
+<P>前面提到的浏览器（Firefox、Chrome和Safari）是构建在两个呈现引擎之上的。Firefox使用Gecko——Mozilla自己开发的一个呈现引擎；Safari和Chrome都使用Webkit。<BR>Webkit是一个开源的呈现引擎，最早是为Linux平台开发的，后来由苹果公司移植到Mac和Windows平台。有关内容请参考<A 
+href="http://webkit.org./">http://webkit.org./</A></P>
+<H4>主流程</H4>
+<P>呈现引擎首先通过网络层取得被请求文档的内容。通常是以8K分块的方式完成。</P>
+<P>取得内容之后，呈现引擎的基本工作流如下图所示：</P>
+<P><IMG alt="" src="浏览器是怎么工作的 at AZI.files/flow.png"><BR>图2 呈现引擎的基本工作流</P>
+<P>呈现引擎会开始解析HTML文档，并将HTML标签转换成“内容树”中的<A 
+href="http://www.cn-cuckoo.com/2011/02/18/how-broswers-work-2257.html#dom">DOM</A>节点。然后，它开始解析样式数据，包括外部CSS文件和style元素中的样式。解析后的样式信息，再加上HTML中的视觉指令，将被用于创建另一个树——<A 
+href="http://www.cn-cuckoo.com/2011/02/18/render_tree">呈现器树</A>。</P>
+<P>呈现器树中包含着各种矩形，每个矩形都有颜色和大小等属性。这些矩形都按照显示在屏幕上的顺序排列好了。</P>
+<P>在构建完呈现器树之后，呈现引擎要完成一个“<A 
+href="http://www.cn-cuckoo.com/2011/02/18/layout">布局</A>”过程。在这个过程中，它会精确地确定每个节点在屏幕上出现时的坐标。紧接着的一个阶段就是<A 
+href="http://www.cn-cuckoo.com/2011/02/18/painting">绘制</A>——遍历呈现器树，并使用UI后端层将所有节点逐个绘制出来。</P>
+<P>上述过程是逐步完成的，认识到这一点很重要。为了获得更好的用户体验，呈现引擎会尽可能早地将内容呈示到屏幕上。换句话说，它不会等到把所有HTML标签都解析完毕之后再去构建和布局呈现器树，而是解析完一部分内容，就显示一部分内容；与此同时，剩余内容可能还在通过网络不断下载的过程中。</P>
+<H6>主流程示例</H6>
+<P><IMG alt="" src="浏览器是怎么工作的 at AZI.files/webkitflow.png"><BR>图3　Webkit的主流程</P>
+<P><IMG alt="" 
+src="浏览器是怎么工作的 at AZI.files/image008.jpg"><BR>图4　Mozilla的Gecko呈现引擎的主流程</P>
+<P>从图3和图4可以看出，Webkit和Gecko使用的术语稍有不同，但整个流程基本上是相同的。</P>
+<P>Gecko把可见的格式化元素的树叫做“框架树”（Frame tree），每个元素都是一个框架。而Webkit使用的则是“呈现器树”（Render 
+tree），这个树由“呈现器对象”构成。Webkit把排列元素叫做“布局”，而Gecko则称该过程为“重排”（Reflow）。同样，“附加”（Attachment）则是Webkit对连接DOM节点与样式信息以创建呈现器树的称呼。Gecko还有一个与语义无关的小差别，它在HTML与DOM树之间加了一层，叫做“内容渗入”（Content 
+Sink），相当于一个制造DOM元素的工厂。下面我们就来解释流程中的每个阶段。</P>
+<H6>基本解析</H6>
+<P>由于解析是呈现引擎的一项非常重要的工作，因此我们会讨论得比较深入一些。首先来简单地介绍一下解析。</P>
+<P>所谓的解析文档，就是把文档转换成具有某种意义的结构，以便代码能够被理解和使用。解析之后的结果通常是一个节点树，与文档的结构对应。这个节点树叫做解析树或语法树。</P>
+<P>举个例子，解析表达式“2+3-1”会返回下面这个树：</P>
+<P><IMG alt=""><BR>图5 算术表达式的节点树</P>
+<H6>文法</H6>
+<P>解析是依据文档所遵循的语法规则进行的，取决于编写文档的语言和格式。每一个要解析的格式都必须具有由词汇表和语法规则构成的文法。这种文法称为<A 
+href="http://www.cn-cuckoo.com/2011/02/18/how-broswers-work-2257.html#context_free_grammer">上下文无关的文法</A>。人类语言不具备上下文无关的文法，因此无法使用通常的解析技术来解析。</P>
+<H6>解析器——加上词法分析器</H6>
+<P>解析可以分为两个步骤：词法分析（lexical analysis）和语法分析（syntax analysis）。</P>
+<P>词法分析指的是把输入分解成符号。符号来自语言的词汇表——基本有效单元的集合。对人类语言来说，符号就相当于我们字典中的那些单词。</P>
+<P>语法分析就是使用语言的语法规则进行分析。</P>
+<P>解析器通常把这两项工作交给两个组件来完成：词法分析器（有时也叫分词器）负责把输入分解成符号，而解析器则负责依据语言的语法规则来分析文档结构，然后构建起解析树。词法分析器知道如何剥离空格、换行等无关字符。</P>
+<P><IMG alt="" src="浏览器是怎么工作的 at AZI.files/image011.png"><BR>图6 从源文档到解析树</P>
+<P>解析过程是迭代进行的。解析器通常会要求词法分析器给出一个新的符号，然后使用该符号去匹配某种语法规则。如果匹配成功，则将与该符号对应的节点添加到解析树中，然后继续要求词法分析器再提供另一个符号。</P>
+<P>如果匹配不成功，解析器会在内部保存当前符号，然后继续从词法分析器那里获取符号，直到所有内部保存的符号能够匹配一项语法规则为止。如果最终都没有找到匹配的规则，解析器就会抛出异常。这就意味着文档无效，或者说包含语法错误。</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 5:49 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-89><A href="http://173.234.53.177/?p=89" 
+rel=bookmark>WebKit内核源代码分析（二）</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=89#comments">without 
+comments</A></P>
+<DIV class=main>
+<P>摘要：本系列通过分析WebKit的源代码，试图分析WebKit的内核设计架构，模块之间的关系，分析的时候以Qt的移植为参考，涉及移植的东西不多，主要还是以内核为主。FrameLoader类负责一个Frame的加载，在Frame的流程中起到非常重要的重要，同很多组件都有交互，本文将分析FrameLoader类的代码。</P>
+<H2>1.&nbsp;概述</H2>
+<P>顾名思义，FrameLoader是一个Frame的loader，它的作用就是为客户提供一个下载一个Frame的一系列接口。这里的客户指的是类的客户，比如Frame类,间接客户是上层应用，比如qwebframe。<BR>从它的定义看，最容易想到的是一个load接口，用来将一个frame 
+load下来。任何一个页面至少都需要一个mainframe，因此一个页面的下载一般就是从load一个mainframe开始。<BR>在load 
+frame的过程中，通过FrameLoaderClient接口将load过程的不同阶段告知客户。<BR>FrameLoader通过setDocumentLoader相当于把load的工作委托给了DocumentLoader类。<BR>FrameLoader同DocumentLoader是has-a的关系。一般在load的时候创建DocumentLoader。Frame调用DocumentLoader的startLoadingMainResource开始load 
+frame。<STRONG> </STRONG></P>
+<H2>2.&nbsp;类关系</H2>
+<P>&nbsp;</P>
+<P>1）Frame和FrameLoader是contain-a的关系，在Frame的构造函数中调用FrameLoader的构造函数，调用时传入参数Frame指针和FrameLoaderClient指针。<BR>2）Frame有可能有子Frame，所以维护SubFrameLoader对象m_subframeLoader来管理子Frame的load。Frame可以对应xml 
+document，也可对应html 
+document，等等。跟Document相关的子resource的load不在FrameLoader的职责范围内。<BR>3）包含一个DocumentWriter类对象m_writer，当Frame的数据load 
+finish的时候，将数据传给DocumentWriter类，进行下一步的处理（比如解码）<BR>4）FrameLoader维护了三个DocumentLoader对象，分别对应于不同的阶段，m_policyDocumentLoader对应于收到用户load调用，进行policy 
+check阶段，m_provisionalDocumentLoader对应于policy 
+check通过以后，Frame数据还没有到来之前，它会负责startLoadingMainResource的调用。m_documentLoader则是Frame第一个数据到来以后使用的DocumentLoader，这个时候，前一个主Frame的DocumentLoader已经不能再用(user 
+agent开始白屏，刷掉前一个页面的显示)。<BR>5）包含一个HistoryController对象，用于操作历史记录相关的接口，保存或者恢复Document和View相关的状态，维护前进后退队列，以实现前进后退功能，前进后退本质上是同Page对象关联的，FrameLoader通过HistoryController操作m_backFowardController对象<BR>6）包含一个ResourceLoadNotifier对象，主要用于同ResourceLoader及FrameLoaderClient打交道，可以理解为ResourceLoader有事件变化或者发生的时候，通知FrameLoader的一个手段<BR>7）包含一个SubframeLoader对象，当FrameLoader下载的Document有子帧需要请求的时候（比如HTMLDocument中解析到iframe&nbsp;元素），用来处理子帧请求<BR>8）将FrameLoader的状态封装到FrameLoaderStateMachine中，这个状态同FrameState不同，FrameState倾向于判断Frame涉及的Document的下载状态，是出于发起状态（Provisional），还是出于已经收到响应但不全（CommittedPage）,还是响应收全的状态，倾向于同http相关。而FramLoaderStateMachine倾向于同DocumentLoader相关，用来描述FrameLoader处理DocumentLoader的节点，是处于已经创建，还是显示的状态。<BR>9）PolicyChecker主要用来对FrameLoader进行一些校验。包括三种校验：NewWindow,Navigation和Content。NewWindow对应于浏览器需要新开一个tab页或窗口的时候，Navigation对应于一个页面请求发起的时候，Content校验对应于收到数据以后（判断Mime 
+type等），PolicyChecker通过提供对应的接口，由FrameLoaderClient来对这些请求进行校验，以确定是否允许继续，或者需要其它的动作。</P>
+<P>&nbsp;</P>
+<H2>3.&nbsp;&nbsp;&nbsp;主要接口</H2>
+<H3>Frame::init</H3>
+<P>功能：FrameLoader的初始化</P>
+<P>函数调用系列<BR>àQWebFrame::QWebFrame(QwebPage* parent,QWebFrameData 
+*frameData)<BR>àQWebFramePrivate::init(QWebFrame* qwebframe,QWebFrameData* 
+frameData)<BR>àFrame::init()<BR>àFrameLoader::init()</P>
+<P>说明：主要做一些自身的初始化工作，比如初始化状态机，Sandbox Flags，创建DocumentLoader被设置为Policy 
+DocumentLoader和Provisional 
+DocumentLoader，调用DocumentLoader和documentWriter等的接口进行初始化操作</P>
+<H3>FrameLoader::commitProvisionalLoad</H3>
+<P>功能：提交Provisional阶段下载的数据</P>
+<P>函数调用系列：<BR>àDocumentLoader::finishLoading<BR>àDocumentLoader::commitIfReady<BR>àFrameLoader::commitProvisionalLoad</P>
+<P>或者<BR>àResourceLoader::didReceiveData<BR>àMainResourceLoader::addData<BR>àDocumentLoader::receiveData<BR>àDocumentLoader::commitLoad<BR>àDocumentLoader::commitIfReady<BR>àDocumentLoader::commitProvisionalLoad</P>
+<P>说明：这个接口主要的操作是将Provisional 
+DocumentLoader设置成DocumentLoader，因为已经收到数据，所以FrameState也会跃迁到FrameStateCommittedPage。还有历史记录，PageCache相关的操作。另外，这个接口会间接调用FrameLoaderClientQt::transitionToCommittedForNewPage，通过Frame::createView创建出FrameView来。</P>
+<H3>Frame::finishedLoading</H3>
+<P>功能：frame请求网络加载完成的时候调用此接口</P>
+<P>函数调用系列<BR>àResourceLoader::didFinishLoading<BR>àMainResourceLoader::didFinishLoading<BR>àFrameLoader::finishedLoading<BR>àFrameLoader::init()</P>
+<P>说明：检查是否有网络错误，告诉DocumentLoader和DocumentWriter下载完成，以便进行后续操作（提交数据，解析）。</P>
+<H3>FrameLoader::finishedParsing</H3>
+<P>功能：解析完成调用此接口</P>
+<P>函数调用系列<BR>àDocumentWritter::end<BR>à….<BR>àDocument::finishParsing<BR>à….<BR>àDocument::finishedParsing<BR>àFrameLoader::finishedParsing</P>
+<H3>FrameLoader::load(const ResourceRequest&amp; request,bool lockHistory)</H3>
+<P>功能：加载一个frame请求，Frame请求相关的数据，封装成ResourceRequest传入。</P>
+<P>函数调用系列：一般由应用触发调用</P>
+<P>说明：这个接口调用FrameLoaderClientQt::createDocumentLoader创建出DocumentLoader，并以此DocumentLoader为Policy 
+Document Loader，进入Policy check流程。</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 5:48 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-87><A href="http://173.234.53.177/?p=87" 
+rel=bookmark>WebKit内核源码分析（一）</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=87#comments">without 
+comments</A></P>
+<DIV class=main>
+<P>摘要：本系列通过分析WebKit的源代码，试图分析WebKit的内核设计架构，模块之间的关系，分析的时候以Qt的移植为参考，涉及移植的东西不多，主要还是以内核为主。在分析内核的时候，Frame是首当其冲的一个类，本文将分析Frame类的代码。</P>
+<H2>1.&nbsp;&nbsp;&nbsp;&nbsp;描述</H2>
+<P>Frame类是WebCore内核同应用之间联系的一个重要的类。它有点像设计模式中的Façade，将内核的各个不同的零配件组装在了一起，但又不是Façade，因为用户很多时候还是要直接去操作里面的组件。除了设计上的考虑，Frame还有语法上的意义，它对应于Page里面的帧。</P>
+<H2>2.&nbsp;&nbsp;&nbsp;&nbsp;类结构</H2>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>1）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrameTree对象用来协助管理父帧和子帧的关系，常见的比如main 
+frame之中有iframe元素，就会调用FrameLoaderClientQt::createFrame来产生子帧，产生的子帧会通过appendChild添加到主帧的树状结构中。Frame通过FrameTree对象，可以方便地访问它的父帧，子帧，兄弟帧。</P>
+<P>2）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;维护FrameLoader对象用来完成frame的加载，FrameLoader是一个非常重要的类，后续进行进一步的分析。</P>
+<P>3）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;维护NavigationScheduler对象用来管理页面跳转调度（比如重定向，meta 
+refresh等）。</P>
+<P>4）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOMWindow用来管理同DOM相关的事件、属性和消息。</P>
+<P>5）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrameViwe类用于Frame的排版。</P>
+<P>6）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frame文档解析后，对每一个tag或者attr，会有对应的dom节点关联，Document类用来管理这些dom节点。不同的文档类型继承出不同的子类，比如HTML文档对应子类HTMLDocument,XML文档对应于XMLDocument。</P>
+<P>7）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SciptController对象，脚本控制器，用来管理脚本的执行和操作。</P>
+<P>8）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Editor对象用来处理页面的编辑相关的操作，比如拷贝，粘贴，输入等，Editor对象，它同Page类的EditorClient对象紧密合作。和EditorClient的关系就如同Page同Frame的关系。</P>
+<P>9）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SelectionController用来管理Frame中的选取操作。</P>
+<P>10）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AnimationControlle,动画控制，控制动画的播放，暂停，继续（同HTML 
+video标签是否有关系？）</P>
+<P>11）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EventHandler，事件处理对象，这里的对象主要是同上层应用也就是用户参与的事件，比如鼠标事件，按键事件（快捷键等），滚动事件，resize事件等。这是一个浏览器外壳经常需要打交道的类。</P>
+<H3>3.&nbsp;&nbsp;&nbsp;&nbsp;主要接口</H3>
+<H3>3.1&nbsp;&nbsp;&nbsp;Create</H3>
+<P>static PassRefPtr&lt;Frame&gt; 
+create(Page*,HTMLFrameOwnerElement*,FrameLoaderClient*)<BR>描述：&nbsp;调用Frame构造函数，创建出Frame对象。有两个地方会创建Frame对象，一是要加载一个新的页面请求，这个时候会创建main 
+frame，一是在加载子帧的时候，通过FrameLoaderClientQt的createFrame接口，创建子帧对应的Frame对象，在第一种情况中，HTMLFrameOwnerElement参数为NULL，第二种情况传子帧的父元素。在一个tab页内，main 
+frame会重用。</P>
+<P>调用系列：</P>
+<P>àQwebPage::setView</P>
+<P>àQwebPage::setViewportSize</P>
+<P>àQwebPage::mainFrame</P>
+<P>àQwebPagePrivate::createMainFrame</P>
+<P>àQwebFrameData::QwebFrameData</P>
+<P>àFrame::create<BR>àFrameLoader::finishedLoading<BR>à……</P>
+<P>àHTMLDocumentParser::append</P>
+<P>à……</P>
+<P>àHTMLTreeBuilder::processToken</P>
+<P>à……</P>
+<P>àHTMLElementBase::openURL</P>
+<P>àSubFrameLoader::requestFrame</P>
+<P>à……</P>
+<P>àFrameLoaderClientQt::creatFrame</P>
+<P>àQwebFrameData::QwebFrameData</P>
+<P>àFrame::create</P>
+<H3>3.2&nbsp;&nbsp;createView</H3>
+<P>void createView(const IntSize&amp;, const Color&amp;, bool, const 
+IntSize&amp;, bool,</P>
+<P>ScrollbarMode = ScrollbarAuto, bool horizontalLock = false,</P>
+<P>ScrollbarMode = ScrollbarAuto, bool verticalLock = false)</P>
+<P>描述：创建出FrameView对象，以用于之后的排版。应用调用这个函数的时候需要传入同排版有关的一些信息，如初始视窗大小，背景色，滚动条模式等。创建出FrameView以后，即调用Frame::setView设置成当前的FrameView。<BR>函数调用系列：<BR>àFrameLoader::commitProvisionalLoad</P>
+<P>àFrameLoader::transitionToCommitted</P>
+<P>àFrameLoaderClientQt::transitionToCommittedForNewPage</P>
+<P>àFrame::createView</P>
+<H3>3.3&nbsp;&nbsp;setDocument</H3>
+<P>void setDocument(PassRefPtr&lt;Document&gt;)</P>
+<P>描述：设置同Frame关联的Document对象(一般是DocumentWriter创建的)。</P>
+<P>函数调用系列：</P>
+<P>àQWebFrame::QwebFrame</P>
+<P>àQwebFramePrivate::init</P>
+<P>àFrame::init</P>
+<P>àFrameLoader::init</P>
+<P>àDocumentWriter：：begin</P>
+<P>àFrame::setDocument<BR>àDocumentLoader::receivedData<BR>àDocumentLoader::commitLoad</P>
+<P>àFrameLoaderClientQt::committedLoad</P>
+<P>àDocumentLoader::commitData</P>
+<P>àDocumentWriter::setEncoding</P>
+<P>àDocumentWriter::willSetEncoding</P>
+<P>àFrameLoader::receivedFirstData</P>
+<P>àDocumentWriter::begin</P>
+<P>àFrameLoader::clear</P>
+<P>àFrame::setDocument</P>
+<H3>3.4&nbsp;&nbsp;init</H3>
+<P>void Frame::init</P>
+<P>描述：Frame对象初始化，会调用FrameLoader::init初始化FrameLoader对象。</P>
+<P>调用系列：<BR>àQWebFrame::QWebFrame</P>
+<P>àQwebFramePrivate::init</P>
+<P>àFrame::init</P>
+<H3>3.5&nbsp;&nbsp;setPageAndTextZoomFactors</H3>
+<P>void setPageAndTextZoomFactors(float pageZoomFactor, float 
+textZoomFactor)</P>
+<P>描述：设置页面放大因子和文字放大因子。在网页缩放或者改变网页字体大小的时候调用。</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 5:47 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-85><A href="http://173.234.53.177/?p=85" 
+rel=bookmark>浏览器的内核介绍和对比</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=85#comments">with one 
+comment</A></P>
+<DIV class=main>
+<P>要搞清楚浏览器内核是什么，首先应该先搞清楚浏览器的构成。简单来说浏览器可以分为两部分，shell+内核。其中shell的种类相对比较多，内核则比较少。Shell是指浏览器的外壳：例如菜单，工具栏等。主要是提供给用户界面操作，参数设置等等。它是调用内核来实现各种功能的。内核才是浏览器的核心。内核是基于标记语言显示内容的程序或模块。也有一些浏览器并不区分外壳和内核。从Mozilla将Gecko独立出来后，才有了外壳和内核的明确划分。目前主流的浏览器有IE6、<A 
+href="http://www.iefans.net/">IE8</A>、Mozilla、FireFox、Opera、Safari、Chrome、Netscape等。</P>
+<P>&nbsp;</P>
+<P><STRONG>什么是浏览器内核</STRONG></P>
+<P>浏览器内核又可以分成两部分：渲染引擎(layout engineer或者Rendering 
+Engine)和JS引擎。它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。（参见维基百科）JS引擎则是解析Javascript语言，执行javascript语言来实现网页的动态效果。最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。有一个网页标准计划小组制作了一个ACID来测试引擎的兼容性和性能。内核的种类很多，如加上没什么人使用的非商业的免费内核，可能会有10多种，但是常见的浏览器内核可以分这四种：Trident、Gecko、Presto、Webkit。</P>
+<P>Trident又称MSHTML，是微软开发的渲染引擎（包含了Javascript引擎JScript），他已经深入了Windows操作系统的骨髓，例如Windows 
+Media Play，Windows Explorer，Outlook 
+Express等都使用了。目前很多浏览器都使用这个引擎，例如IE，Maxthon(最新版已经不使用)等。</P>
+<P>Gecko是C++开发的，Open Source的渲染引擎，包括了SpiderMonkey(Rhino)。主要的使用者有Firefox。</P>
+<P>Webkit是苹果公司基于KHTML开发的。他包括Webcore和JavaScriptCore（SquirrelFish,V8）两个引擎。主要的使用者有Safari，Chrome。</P>
+<P>Presto由Opera Software公司开始的，用于Opera的渲染引擎。Macromedia Dreamweaver 
+（MX版本及以上）和Adobe Creative Suite 2也使用了Presto的内核。</P>
+<P><STRONG>主流浏览器所使用的内核分类</STRONG></P>
+<P>Trident内核：IE,MaxThon,TT,The 
+World,360,搜狗浏览器等<BR>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等<BR>Presto内核：Opera7及以上<BR>Webkit内核：Safari,Chrome等</P>
+<P>&nbsp;</P>
+<TABLE cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD><STRONG>Engine</STRONG><STRONG> </STRONG><STRONG></STRONG></TD>
+    <TD><STRONG>Creator</STRONG><STRONG> </STRONG><STRONG></STRONG></TD>
+    <TD width="25%"><STRONG>Software license</STRONG><STRONG> 
+      </STRONG><STRONG></STRONG></TD>
+    <TD width="29%"><STRONG>Leading application</STRONG><STRONG> 
+      </STRONG><STRONG></STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>Gecko</STRONG></TD>
+    <TD><STRONG>Netscape</STRONG>/<STRONG>Mozilla Foundation</STRONG></TD>
+    <TD width="25%"><STRONG>MPL</STRONG>/<STRONG>GNU GPL</STRONG>/<STRONG>GNU 
+      LGPL</STRONG> tri-license</TD>
+    <TD width="29%"><STRONG>Mozilla Firefox</STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>KHTML</STRONG></TD>
+    <TD><STRONG>KDE</STRONG></TD>
+    <TD width="25%"><STRONG>GNU LGPL</STRONG></TD>
+    <TD width="29%"><STRONG>Konqueror</STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>Presto</STRONG></TD>
+    <TD><STRONG>Opera Software</STRONG></TD>
+    <TD width="25%"><STRONG>Proprietary</STRONG></TD>
+    <TD width="29%"><STRONG>Opera</STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>Tasman</STRONG></TD>
+    <TD><STRONG>Microsoft</STRONG></TD>
+    <TD width="25%"><STRONG>Proprietary</STRONG></TD>
+    <TD width="29%"><STRONG>Microsoft Entourage</STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>Trident</STRONG></TD>
+    <TD><STRONG>Microsoft</STRONG></TD>
+    <TD width="25%"><STRONG>Proprietary</STRONG></TD>
+    <TD width="29%"><STRONG>Internet Explorer</STRONG></TD></TR>
+  <TR>
+    <TD><STRONG>WebKit</STRONG><STRONG> (Based on KHTML)</STRONG></TD>
+    <TD><STRONG>WebKit Foundation</STRONG></TD>
+    <TD width="25%"><STRONG>GNU 
+    LGPL</STRONG>,&nbsp;<STRONG>BSD-style</STRONG></TD>
+    <TD width="29%"><STRONG>Safari</STRONG>,&nbsp;<STRONG>Google 
+      Chrome</STRONG></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><STRONG>JS引擎</STRONG></P>
+<P>JavaScript最初由<STRONG>网景公司</STRONG>的Brendan 
+Eich设计，是一种动态、弱类型、基于原型的语言，内置支持类。以它为基础，制定了<STRONG>ECMAScript</STRONG>标准。他的起源并不是如《Javascript高级程序设计》书中所述，是Brendan 
+Eich自主发明的。（参考aimingoo的考证文章）JavaScript在浏览器的实现中还必须含有DOM和BOM。Web浏览器一般使用公共API来创建主机对象来负责将DOM对象反射进JavaScript。</P>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD width=150 colSpan=2></TD>
+    <TD width=58><STRONG>Trident</STRONG></TD>
+    <TD width=104><STRONG>Gecko</STRONG></TD>
+    <TD width=104><STRONG>WebKit</STRONG></TD>
+    <TD width=47><STRONG>KHTML</STRONG></TD>
+    <TD width=113><STRONG>Presto</STRONG></TD></TR>
+  <TR>
+    <TD width=150 colSpan=2><STRONG>Name of ECMAScript Engine</STRONG></TD>
+    <TD width=58><STRONG>JScript</STRONG></TD>
+    <TD width=104><STRONG>Spidermonkey</STRONG></TD>
+    <TD width=104><STRONG>JavaScriptCore</STRONG></TD>
+    <TD width=47><STRONG>KJS</STRONG></TD>
+    <TD width=113><STRONG>linear b/futhark</STRONG></TD></TR>
+  <TR>
+    <TD width=69 rowSpan=4><STRONG>ECMAScript Version</STRONG></TD>
+    <TD width=82>Edition 3</TD>
+    <TD width=58>Yes</TD>
+    <TD width=104>0.6</TD>
+    <TD width=104>Yes</TD>
+    <TD width=47>Yes</TD>
+    <TD width=113>7.0</TD></TR>
+  <TR>
+    <TD width=82>JavaScript 1.5 extensions</TD>
+    <TD width=58>No</TD>
+    <TD width=104>0.6</TD>
+    <TD width=104>Yes</TD>
+    <TD width=47>Yes</TD>
+    <TD width=113>7.0</TD></TR>
+  <TR>
+    <TD width=82>JavaScript 1.7 extensions</TD>
+    <TD width=58>No</TD>
+    <TD width=104>1.8.1</TD>
+    <TD width=104>No</TD>
+    <TD width=47>No</TD>
+    <TD width=113>No</TD></TR>
+  <TR>
+    <TD width=82>JavaScript 1.8 extensions</TD>
+    <TD width=58>No</TD>
+    <TD width=104>1.9</TD>
+    <TD width=104>No</TD>
+    <TD width=47>No</TD>
+    <TD width=113>No</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<P><STRONG>浏览器内核实现原理</STRONG></P>
+<P>渲染流程如下所示：</P>
+<P><IMG height=200 alt=渲染引擎运作流程 src="浏览器是怎么工作的 at AZI.files/df6a_c.jpg" 
+width=514></P>
+<P>Mozilla架构设计：界面和实现分离。采用标记语言，JavaScript，C++来开发。JSEngine就是指SpideMonkey，Layout就是指Gecko。Mozilla的一个关键部分是XPCOM和NSPR。</P>
+<P><IMG height=352 alt=Mozilla架构设计 src="浏览器是怎么工作的 at AZI.files/4077_b.jpg" 
+width=492></P>
+<P>Webkit的处理流程：</P>
+<P><IMG height=412 alt=Webkit的处理流程 src="浏览器是怎么工作的 at AZI.files/419d_a.jpg" 
+width=558><BR><STRONG>浏览器内核的优缺点</STRONG></P>
+<P>Trident：这种浏览器内核是<A 
+href="http://www.iefans.net/">IE浏览器</A>用的内核，因为在早期IE占有大量的市场份额，所以这种内核比较流行，以前有很多网页也是根据这个内核的标准来编写的，但是实际上这个内核对真正的网页标准支持不是很好，甚至在2005年，与网页标准制定组织(W3C理事会)所制定的标准发生了脱节，同时 
+Trident 内核本身的BUG比较多，对一些符合W3C标准的网页代码支持不是很好，这在早期的IE版本中比较明显，比如IE5.5以前(包括IE5.5)，其实<A 
+href="http://www.iefans.net/ie6-liulanqi-xiazai/">IE6</A>对W3C标准的支持也不是很好，而我们现在很多人都在使用IE6，事实上它也属于一个比较早的版本。</P>
+<P>但是由于IE的高市场占有率，微软也很长时间没有更新Trident内核，这导致了二个结果<BR>1，Trident内核和W3C标准脱节。<BR>2，Trident内核的大量Bug等安全问题没有得到解决，加上一些专家学者公开自己认为IE浏览器不安全的观点，使很多用户开始转向其他浏览器，FF,Opera就是这时期兴起的。<BR>Gecko：这是Firefox 
+和 Flock 
+所采用内核，这个内核的优点就是功能强大、丰富，可以支持很多复杂网页效果和浏览器扩展接口，但是代价是也显而易见就是要消耗很多的资源，比如内存。<BR>Presto：Opera 
+采用的是 
+Presto内核，Presto内核被称为公认的浏览网页速度最快的内核，这得益于它在开发时的天生优势，在处理JS脚本等脚本语言时，会比其他的内核快3倍左右，缺点就是为了达到很快的速度而丢掉了一部分网页兼容性。</P>
+<P>Webkit：Webkit 是 Safari 采用的内核，不过 Safari 
+是苹果系统下的浏览器(虽然也有windows版，但是比较少)，所以只简单介绍一下这个内核的优点和缺点，优点就是网页浏览速度较快，虽然不及 Presto 
+但是也胜于 Gecko 和 Trident，缺点是对于网页代码的容错性不高，也就是说对网页代码的兼容性较低，会使一些编写不标准的网页无法正确显示。</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 5:45 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<H2 id=post-83><A href="http://173.234.53.177/?p=83" 
+rel=bookmark>浏览器背景知识</A></H2>
+<P class=comments><A href="http://173.234.53.177/?p=83#comments">without 
+comments</A></P>
+<DIV class=main>
+<H3>1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络接入</H3>
+<P>浏览器是用来上网的，这个很好理解，除了离线浏览，大部分的行为就是用来跟各种服务器做交互，而交互的第一个前提就是网络接入。一个简单的例子就是PC通过modem拨号上网，当你拨号成功以后，你就会获得一个ip地址，可以同网络上的其它ip进行通讯，这就是接入了，当你不上网的时候，你会挂断。</P>
+<P>因为用户需要接入，就诞生了ISP（Internet Service 
+Provider），来为用户提供互联网接入服务，在上面的例子中，拨号我们可能拨163，或者263，这就是一个ISP。大部分用户通过以太网网卡和网线和PC连接在一起，可能用的是电信、网通、铁通，他们都是ISP。</P>
+<P>中国移动通过GPRS和EDGE为用户提供互联网接入，他也是ISP。</P>
+<P>在大陆，大的ISP有：中国电信，中国网通、中国铁通、中国移动、中国联通。</P>
+<P>在手机等无线终端里面，我们更多的听到的是“承载方式”这个词，主要是根据终端接入ISP的网络方式来区分的，常见的承载方式有GSM，GPRS、EDGE、CDMA,WIFI等等，不通的承载方式网络速度的差别比较大。</P>
+<H3>1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据传输</H3>
+<P>接入互联网仅仅相当于我们的物理链路打通了，我们需要找到我们要通讯的对象，以及要确保在不可靠的物理链路上实现可靠地传输，需要流量控制来提高我们的链路传输性能，这就需要IP，TCP，UDP等协议来协助我们。</P>
+<P>简单地说，IP是互联网协议，主要负责的是寻址和选路，同时适应我们的承载，做一些简单的分片工作。TCP协议则帮助我们实现的可靠传输、流量控制和多路复用等功能。UDP则主要是多路复用和不可靠的数据传输。如果采用UDP，一般应用层要自己保证数据的可靠性。</P>
+<P>在无线网络中，wdp+wtp用来实现同tcp类似的功能。</P>
+<P>在系统级别上，比较常见的是将TCP/IP,UDP封装成套接字的接口，供浏览器内核调用。</P>
+<P>因此，我们从浏览器的角度看，接触到的主要是如下几个过程：</P>
+<P>1）&nbsp;&nbsp;解析dns，由于访问的时候，键入的大部分是域名，而套接字的通讯是以ip地址为标识之一的。有的系统会在本地有域名表供查询，如果查不到，再给dns 
+server发送dns query数据包。有的系统，则将dns查询和套接字的连接（connect）封装在一起。</P>
+<P>2）&nbsp;&nbsp;连接服务器，这就是我们经常提到的tcp的三次握手</P>
+<P>3）&nbsp;&nbsp;查询套接字，如bsd socket的select，就是要检测套接字的可读，可写，关闭等消息。</P>
+<P>4）&nbsp;&nbsp;发送数据</P>
+<P>5）&nbsp;&nbsp;接收数据</P>
+<P>6）&nbsp;&nbsp;关闭连接</P>
+<H3>1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超文本传输协议（HTTP）</H3>
+<P>HTTP协议建立了请求—响应模型，用来帮助服务器和终端之间传输超文本。一个简单的HTTP过程如下：</P>
+<P>1）&nbsp;&nbsp;客户端向服务器发送一个请求</P>
+<P>GET&nbsp;<A 
+href="http://www.google.cn/somedata.exe">http://www.google.cn/somedata.exe</A></P>
+<P>Host:&nbsp;<A href="http://www.google.cn/">http://www.google.cn/</A></P>
+<P>Accept: */*</P>
+<P>Cache-Control: no-cache</P>
+<P>User-Agent: dillo</P>
+<P>2）&nbsp;&nbsp;服务器响应以资源内容</P>
+<P>HTTP/1.0200OK</P>
+<P>Date:Mon,31Dec200104:25:57GMT</P>
+<P>Server:Apache/1.3.14(Unix)</P>
+<P>Content-type:text/html</P>
+<P>Last-modified:Tue,17Apr200106:46:28GMT</P>
+<P>Etag:”a030f020ac7c01:1e9f”</P>
+<P>Content-length:397</P>
+<P>&nbsp;</P>
+<P>&lt;html&gt;……………………..&lt;/html&gt;</P>
+<P>&nbsp;</P>
+<P>由于是一个简单的request—response响应，所以http会话本身是没有状态的，后来为了实现有状态，提出了cookie的概念，现在cookie在网络上很经常用来携带账号相关的信息，因此cookie的使用时有一定风险的，大部分浏览器都提供禁用cookie的开关。</P>
+<P>另外，为了避免同服务器之间反复的交互，减小网络负载，http还引入了cache的机制。对于像baidu首页这样的页面，是很少做改变的，因此客户端访问过一次以后，可以将它缓存下来，下次再访问，只要缓存没有过期，就可以直接从本地取，不需要再从baidu的服务器取到页面数据。</P>
+<P>在无线网络中，收到带宽的限制，还经常对http的体部做内容编码，常见的编码方式就是gzip，这样客户端在受到数据以后，必须对数据进行解码。</P>
+<P>http协议对浏览器的理解非常重要，有兴趣的同志建议看rfc2616。</P>
+<H3>1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的安全传输（SSL/TLS）</H3>
+<P>由于http协议是以明文传送的，因此用来传递账号相关的信息是不合适的。</P>
+<P>Netscape公司设计了SSL，用来实现数据在网络上的安全传输。ietf将SSL标准化后叫TLS，两者并没有特别大的区别。</P>
+<P>SSL在协议架构上的位置如下：</P>
+<P>－－－－－－－－－<BR>|&nbsp;&nbsp;&nbsp;&nbsp;HTTP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>－－－－－－－－－<BR>|&nbsp;&nbsp;&nbsp;&nbsp;SSL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>－－－－－－－－－<BR>|&nbsp;&nbsp;&nbsp;&nbsp;TCP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>－－－－－－－－－<BR>|&nbsp;&nbsp;&nbsp;&nbsp;IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>－－－－－－－－－</P>
+<P>在tcp连接成功后，用户代理首先同服务器进行安全协商，也就是ssl的handshake，在握手成功后，才发起HTTP请求，所发的HTTP请求会由商定的加密算法进行加密，所以看到的不再是GET&nbsp;<A 
+href="http://www.baidu.com/">http://www.baidu.com/</A> 
+/HTTP1.1这样的明文，而是SSL里面的applicationdata，服务器收到请求后进行解密，将响应加密后传给用户代理，用户代理调用解密算法对ssl的applicationdata解密得到HTTP的响应，协议比较简单，关键在于加密算法上。</P>
+<P>有兴趣的同志可以参阅<A 
+href="http://www.ietf.org/rfc/rfc2246.txt">http://www.ietf.org/rfc/rfc2246.txt</A>，另外，绿盟的文章SSL/TLS/WTLS原理（<A 
+href="http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841">http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841</A>）讲解非常通俗易懂，可以学习下。</P>
+<H3>1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标记语言解析</H3>
+<P>html/xhtml/wml是网页常用的标记语言。也是用户代理通过HTTP获得的网页的内容，通过标记语言，网页编写者将网站的内容有效地组织在一起，并为用户提供导航。为了方便地操作网页中的个体元素以及数据，实现与浏览器、平台、语言的无关性，W3C提出了文档对象模型的概念（DOM：Document 
+Object Model）。</P>
+<P>一般来说，浏览器的解析工作就是解析标记语言，分析出标记语言的结构，用于后面要进行的网页排版和渲染工作中。支持DOM的浏览器还会在这个过程形成DOM树状结构。</P>
+<P>另外，网页中还会嵌入图片资源，背景音，外部CSS和其他对象资源，解析过程还要将这些嵌入资源找出来，以便对嵌入资源进行HTTP请求。</P>
+<H3>1.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网页排版和渲染</H3>
+<P>在标记语言解析完毕以后，浏览器需要对页面的各个组件进行排版，计算他们在页面中的位置坐标和大小，然后在显示设备上将对应的组件渲染出来。网页排版和渲染是浏览器的核心技术，好的浏览器会有很好的显示效果和渲染性能。渲染的时候，会调用到平台上的图形库。比如GTK，QT之类的。浏览器的移植工作很大部分就在于图形库的移植。</P>
+<H3>1.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSS（层叠样式表）</H3>
+<P>CSS用来对页面的布局、字体、颜色、背景等进行控制，它会引起网页的重新排版，让网页看起来像一个个容器的概念。CSS让页面的内容和表现分离开来，而且能够让网站保持风格的一致性，是当前页面设计的主流。</P>
+<P>一个简单的例子，可能你也遇到过，访问一个网页的时候，有时候网速比较慢，会发现网页下来以后，页面排版乱七八糟的，跟平时表现不一样，这时候，很有可能就是CSS还没有下载下来。</P>
+<H3>1.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JAVASCRIPT</H3>
+<P>JAVASCIPT是一个面向对象的客户端脚本。由于能够调用客户端的CPU来做事情，所以JAVASCIPT的潜力是巨大的。他的设计初衷是让客户端自己来进行一些数据的验证，做一些交互，减少客户端同服务器的交互，现在得到了大量的运用，主流网站都会在自己的网页上嵌入javascript。当然，javascript对浏览器的性能的挑战也是巨大的，恶意的递归可能让浏览器crash。</P>
+<P>Google为什么要开发chrome？就是想在服务器上提供更多的类似在线office这样的软件，即时髦的云计算，这些又是怎么做到了呢?在客户端来说，就是强大的javascript处理能力。Chrome用的是webkit的内核，最大的改进就在于Javascript 
+V8引擎。Google专门请了天才拉斯巴克来写V8引擎，还允许拉斯巴克在自己的农舍上班，而不是到google的办公室。</P>
+<P>在嵌入式终端中，还有wmlscript脚本，他是一个轻量级的javascript，主要用来验证用户输入，生成消息框,简单计算。同javascript不同的是，他不嵌入网页，要通过url访问，由于功能非常有限，现在已经很少得到使用。下面是javascript和wmlscript的例子：</P><PRE>&lt;html&gt;</PRE><PRE>&lt;head&gt;</PRE><PRE>&nbsp; &lt;script language="LiveScript"&gt;</PRE><PRE>&nbsp;&nbsp;&nbsp;&nbsp; function pushbutton() {</PRE><PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("嗨! 你好");</PRE><PRE>&nbsp; }</PRE><PRE> &lt;/script&gt;</PRE><PRE>&lt;/head&gt;</PRE><PRE>&lt;body&gt;</PRE><PRE>&lt;form&gt;</PRE><PRE>&nbsp; &lt;input type="button" name="Button1" value="Push me" onclick="pushbutton()"&gt;</PRE><PRE>&nbsp; &lt;/form&gt;</PRE><PRE>&lt;/body&gt;</PRE><PRE>&lt;/html&gt;</PRE>
+<P>&nbsp;</P>
+<DIV>
+<P>wml script例子</P>
+<P>wml文件中</P>
+<P>&lt;card id=”no1″ title=”Go to URL”&gt;</P>
+<P>&lt;do type=”options” label=”Go”&gt;</P>
+<P>&lt;go href=”check.wmls#go_url(‘W3School’)”/&gt;</P>
+<P>&lt;/do&gt;</P>
+<P>&lt;/card&gt;</P>
+<P>check.wmls文件中，定义了go_url</P>
+<P>extern function go_url(the_url)</P>
+<P>{</P>
+<P>if (the_url==”W3School”)</P>
+<P>{</P>
+<P>WMLBrowser.go(“<A 
+href="http://www.w3school.com.cn/wmlscript/wap.wml">http://www.w3school.com.cn/wmlscript/wap.wml</A>“)</P>
+<P>}</P>
+<P>}</P></DIV>
+<H3>1.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览器简单流程</H3>
+<P>下面以tcp连接为例简单介绍浏览器的流程。</P>
+<P>1）&nbsp;&nbsp;接入互联网，很多情况下，终端都是一直在线了，所以这部可以省略。但是像GPRS这样的承载，都是在进入浏览器的时候才打开gprs通道。</P>
+<P>2）&nbsp;&nbsp;用户输入url</P>
+<P>3）&nbsp;&nbsp;浏览器对url进行dns解析，由于dns解析可能涉及到网络或者文件操作，所以dns解析式异步的。</P>
+<P>4）&nbsp;&nbsp;dns解析到ip地址后，浏览器调用socket去连接远端服务器（如果是使用了HTTP 
+Proxy，则这个时候连接的是Proxy地址），因为是tcp连接，需要做三次握手，所以也是异步的。</P>
+<P>5）&nbsp;&nbsp;浏览器在调用连接的接口后，会轮询套接字，如果套接字收到了连接成功的消息（或者，在某些套接字设计中，是可写消息），就调用套接字的发送接口来发送HTTP请求数据。</P>
+<P>6）&nbsp;&nbsp;发送请求的过程也是一个异步的过程，而且非常有可能不能一次性发完，这个时候会不停地轮询套接字，检测可写消息。</P>
+<P>7）&nbsp;&nbsp;发送完请求数据后，就等待响应。知道套接字有了可读消息，HTTP就去收数据，数据一般多次才能收齐。HTTP1.1通过content-length头部或者chunked机制来判断什么时候收起数据，而1.0则通过对端关闭来判断。</P>
+<P>8）&nbsp;&nbsp;收齐数据后，HTTP解析响应，有选择性地对体部数据进行解码（如果存在编码），将解码后的数据传给解析模块进行解析。当然，好的浏览器，能够做到边收数据边解析。</P>
+<P>9）&nbsp;&nbsp;解析标记语言，形成解析数据结构和DOM树。如果页面中含有嵌入子媒体对象（如图片，外部CSS，背景音，其它对象），则发起HTTP请求，请求对应数据。</P>
+<P>10）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对网页进行排版（如果有CSS，要根据CSS规则进行排版）</P>
+<P>11）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;渲染网页</P>
+<P>&nbsp;</P></DIV>
+<DIV class="meta group">
+<DIV class=signature>
+<P>Written by admin <SPAN class=edit></SPAN></P>
+<P>三月 26th, 2011 at 5:44 上午</P></DIV>
+<DIV class=tags>
+<P>Posted in <A title="查看 浏览器 的全部文章" href="http://173.234.53.177/?cat=8" 
+rel=category>浏览器</A></P></DIV></DIV>
+<DIV class="navigation group">
+<DIV class=alignleft></DIV>
+<DIV class=alignright></DIV></DIV></DIV>
+<DIV id=sidebar>
+<DIV id=pages>
+<H3>Pages</H3>
+<UL>
+  <LI class="page_item page-item-2"><A title=关于 
+  href="http://173.234.53.177/?page_id=2">关于</A> </LI></UL></DIV>
+<H3>Search</H3>
+<P class=searchinfo>search site archives</P>
+<DIV id=search>
+<DIV id=search_area>
+<FORM id=searchform action=/index.php method=get>
+<DIV><INPUT class=searchfield id=s title="Enter keyword to search" name=s> <INPUT class=submit title="Click to search archives" type=submit value=search> 
+</DIV></FORM></DIV></DIV>
+<H3>Blogroll</H3>
+<UL>
+  <LI><A href="http://codex.wordpress.org/">Documentation</A> 
+  <LI><A href="http://wordpress.org/extend/plugins/">Plugins</A> 
+  <LI><A href="http://wordpress.org/extend/ideas/">Suggest Ideas</A> 
+  <LI><A href="http://wordpress.org/support/">Support Forum</A> 
+  <LI><A href="http://wordpress.org/extend/themes/">Themes</A> 
+  <LI><A href="http://wordpress.org/news/">WordPress Blog</A> 
+  <LI><A href="http://planet.wordpress.org/">WordPress Planet</A> </LI></UL>
+<H3>Archives</H3>
+<UL>
+  <LI><A title="2011 年十月" href="http://173.234.53.177/?m=201110">2011 年十月</A> 
+  <LI><A title="2011 年八月" href="http://173.234.53.177/?m=201108">2011 年八月</A> 
+  <LI><A title="2011 年七月" href="http://173.234.53.177/?m=201107">2011 年七月</A> 
+  <LI><A title="2011 年六月" href="http://173.234.53.177/?m=201106">2011 年六月</A> 
+  <LI><A title="2011 年四月" href="http://173.234.53.177/?m=201104">2011 年四月</A> 
+  <LI><A title="2011 年三月" href="http://173.234.53.177/?m=201103">2011 年三月</A> 
+  </LI></UL>
+<H3>Categories</H3>
+<UL>
+  <LI class="cat-item cat-item-5"><A title="查看 CSS样式 下的所有文章" 
+  href="http://173.234.53.177/?cat=5">CSS样式</A> 
+  <LI class="cat-item cat-item-7"><A title="查看 JVM指令 下的所有文章" 
+  href="http://173.234.53.177/?cat=7">JVM指令</A> 
+  <LI class="cat-item cat-item-4"><A title="查看 技术专家介绍 下的所有文章" 
+  href="http://173.234.53.177/?cat=4">技术专家介绍</A> 
+  <LI class="cat-item cat-item-3"><A title="查看 杂记 下的所有文章" 
+  href="http://173.234.53.177/?cat=3">杂记</A> 
+  <LI class="cat-item cat-item-8 current-cat"><A title="查看 浏览器 下的所有文章" 
+  href="http://173.234.53.177/?cat=8">浏览器</A> 
+  <LI class="cat-item cat-item-1"><A title="查看 解读Android 下的所有文章" 
+  href="http://173.234.53.177/?cat=1">解读Android</A> </LI></UL>
+<H3>Meta</H3>
+<UL>
+  <LI>
+  <LI><A href="http://173.234.53.177/wp-login.php">登录</A> 
+  <LI><A title="Syndicate this site using RSS" 
+  href="feed:http://173.234.53.177/?feed=rss2">Site Feed</A> 
+  <LI><A title="使用 RSS 同步站点的近期评论" 
+  href="feed:http://173.234.53.177/?feed=comments-rss2">Comments Feed</A> 
+  <LI><A title="back to top" href="http://173.234.53.177/?cat=8#content">Back to 
+  top</A> </LI></UL></DIV>
+<DIV></DIV>
+<DIV id=footer>
+<P>The Journalist template by <A href="http://lucianmarin.com/" 
+rel=designer>Lucian E. Marin</A> — Built for <A 
+href="http://wordpress.org/">WordPress</A></P></DIV></BODY></HTML>

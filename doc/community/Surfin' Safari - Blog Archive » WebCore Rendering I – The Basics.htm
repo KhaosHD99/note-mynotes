@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="robots" content="noodp">
+
+    <title>Surfin' Safari - Blog Archive  » WebCore Rendering I – The Basics</title>
+
+    <meta name="application-name" content="SurfinSafari">
+
+    <meta name="generator" content="WordPress 2.8.5">
+
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/main.css">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/style.css">
+
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/blue.css" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/yellow.css" title="yellow">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/pink.css" title="pink">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/purple.css" title="purple">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/gray.css" title="gray">
+
+<!--[if gte IE 5]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.webkit.org/blog/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.webkit.org/blog/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.webkit.org/blog/feed/atom/">
+    <link rel="pingback" href="http://www.webkit.org/blog/xmlrpc.php">
+
+    <link rel="icon" sizes="32x32 128x128 256x256" href="http://www.webkit.org/images/surfin-safari.icns">
+    <link rel="SHORTCUT ICON" sizes="16x16" type="image/x-icon" href="http://www.webkit.org/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="Surfin&#39; Safari &raquo; WebCore Rendering I &ndash; The Basics Comments Feed" href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/feed/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.webkit.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.webkit.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Surfin&#39; Safari" href="http://www.webkit.org/blog">
+<link rel="start" title="Welcome to the WebKit Blog" href="http://www.webkit.org/blog/4/welcome-to-the-webkit-blog/">
+<link rel="prev" title="Safari Beta 3.0.3 Update" href="http://www.webkit.org/blog/113/safari-beta-303-update/">
+<link rel="next" title="WebCore Rendering II &ndash; Blocks and Inlines" href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/">
+<meta name="generator" content="WordPress 2.8.5">
+</head><body>
+
+<div id="title">
+<h1>Surfin' Safari</h1>
+</div>
+
+<div id="icon"></div>
+
+<div id="content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&lt;&lt; <a href="http://www.webkit.org/blog/113/safari-beta-303-update/">Safari Beta 3.0.3 Update</a></div>
+			<div class="alignright"><a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/">WebCore Rendering II – Blocks and Inlines</a> &gt;&gt;</div>
+			&nbsp;
+		</div>
+
+		<div class="post" id="post-114">
+			<h2><a href="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics.htm" rel="bookmark" title="Permanent Link: WebCore Rendering I &ndash; The Basics">WebCore Rendering I – The Basics</a></h2>
+                        <small>Posted by <strong>Dave Hyatt</strong> on Wednesday, August 8th, 2007 at 5:34 pm</small>
+
+			<div class="entrytext">
+				<p>This is the first of a series of posts designed to help people interested in hacking on WebCore’s rendering system.  I’ll be posting these articles as I finish them on this blog, and they will also be available in the documentation section of the Web site.</p>
+<h4>The DOM Tree</h4>
+<p>A Web page is parsed into a tree of nodes called the Document Object Model (DOM for short).  The base class for all nodes in the tree is <code>Node</code>.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/dom/Node.h">Node.h</a></code></p>
+<p>Nodes break down into several categories.  The node types that are relevant to the rendering code are:</p>
+<ul>
+<li>Document – The root of the tree is always the document.  There are three document classes, <code>Document</code>, <code>HTMLDocument</code> and <code>SVGDocument</code>.  The first is used for all XML documents other than SVG documents.  The second applies only to HTML documents and inherits from <code>Document</code>.<br>
+The third applies to SVG documents and also inherits from <code>Document</code>.<p></p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/dom/Document.h">Document.h</a></code><br>
+<code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/html/HTMLDocument.h">HTMLDocument.h</a></code></p>
+</li>
+<li>Elements – All of the tags that occur in HTML or XML source turn into elements.  From a rendering perspective, an element is a node with a tag name that can be used to cast to a specific subclass that can be queried for data that the renderer needs.
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/dom/Element.h">Element.h</a></code></p>
+</li>
+<li>Text – Raw text that occurs in between elements gets turned into text nodes.  Text nodes store this raw text, and the render tree can query the node for its character data.
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/dom/Text.h">Text.h</a></code>
+</p></li>
+</ul>
+<h4>The Render Tree</h4>
+<p>At the heart of rendering is the render tree.  The render tree is very similar to the DOM in that it is a tree of objects, where each object can correspond to the document, elements or text nodes.  The render tree can also contain additional objects that have no corresponding DOM node.</p>
+<p>The base class of all render tree nodes is <code>RenderObject</code>.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderObject.h">RenderObject.h<br>
+</a></code></p>
+<p>The <code>RenderObject</code> for a DOM node can be obtained using the <code>renderer()</code> method on <code>Node</code>.</p>
+<p><code>RenderObject* renderer() const</code></p>
+<p>The following methods are most commonly used to walk the render tree.</p>
+<pre>RenderObject* firstChild() const;
+RenderObject* lastChild() const;
+RenderObject* previousSibling() const;
+RenderObject* nextSibling() const;
+</pre>
+<p>Here is an example of a loop that walks a renderer’s immediate children.  This is the most common walk that occurs in the render tree code.</p>
+<pre>for (RenderObject* child = firstChild(); child; child = child-&gt;nextSibling()) {
+    ...
+}
+</pre>
+<h4>Creating the Render Tree</h4>
+<p>Renderers are created through a process on the DOM called <i>attachment</i>.  As a document is parsed and DOM nodes are added, a method called <tt>attach</tt> gets called on the DOM nodes to create the renderers.</p>
+<p><code>void attach()</code></p>
+<p>The attach method computes style information for the DOM node.  If the <i>display</i> CSS property for the element is set to <i>none</i> or if the node is a descendant of an element with <i>display: none</i> set, then no renderer will be created.  The subclass of the node and the CSS display property value are used together to determine what kind of renderer to make for the node.</p>
+<p>Attach is a top down recursive operation.  A parent node will always have its renderer created before any of its descendants will have their renderers created.</p>
+<h4>Destroying the Render Tree</h4>
+<p>Renderers are destroyed when DOM nodes are removed from the document or when the document gets torn down (e.g., because the tab/window it was in got closed).  A method called <tt>detach</tt> gets called on the DOM nodes to disconnect and destroy the renderers.</p>
+<p><code>void detach()</code></p>
+<p>Detachment is a bottom up recursive operation.  Descendant nodes will always have their renderers destroyed before a parent destroys its renderer.</p>
+<h4>Accessing Style Information</h4>
+<p>During attachment the DOM queries CSS to obtain style information for an element.  The resultant information is stored in an object called a <tt>RenderStyle</tt>.</p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderStyle.h">RenderStyle.h</a></code></p>
+<p>Every single CSS property that WebKit supports can be queried via this object.  RenderStyles are reference counted objects.  If a DOM node creates a renderer, then it connects the style information to that renderer using the <tt>setStyle</tt> method on the renderer.</p>
+<p><code>void setStyle(RenderStyle*)</code></p>
+<p>The renderer adds a reference to the style that it will maintain until it either gets a new style or gets destroyed.</p>
+<p>The <code>RenderStyle</code> can be accessed from a <code>RenderObject</code> using the <code>style()</code> method.</p>
+<p><code>RenderStyle* style() const</code></p>
+<h4>The CSS Box Model</h4>
+<p>One of the principal workhorse subclasses of <code>RenderObject</code> is <code>RenderBox</code>.  This subclass represents objects that obey the CSS box model.  These include any objects that have borders, padding, margins, width and height.  Right now some objects that do not follow the CSS box model (e.g., SVG objects) still subclass from <code>RenderBox</code>.  This is actually a mistake that will be fixed in the future through refactoring of the render tree.</p>
+<p><a href="http://www.w3.org/TR/CSS21/box.html#box-dimensions">This diagram</a> from the CSS2.1 spec illustrates the parts of a CSS box.  The following methods can be used to obtain the border/margin/padding widths.  The <code>RenderStyle</code> should not be used unless the intent is to look at the original raw style information, since what is actually computed for the <code>RenderObject</code> could be very different (especially for tables, which can override cell padding and have collapsed borders between cells).</p>
+<pre>int marginTop() const;
+int marginBottom() const;
+int marginLeft() const;
+int marginRight() const;
+
+int paddingTop() const;
+int paddingBottom() const;
+int paddingLeft() const;
+int paddingRight() const;
+
+int borderTop() const;
+int borderBottom() const;
+int borderLeft() const;
+int borderRight() const;
+</pre>
+<p>The <code>width()</code> and <code>height()</code> methods give the width and height of the box including its borders.</p>
+<pre>int width() const;
+int height() const;
+</pre>
+<p>The <i>client box</i> is the area of the box excluding borders and scrollbars.  Padding is included.</p>
+<pre>int clientLeft() const { return borderLeft(); }
+int clientTop() const { return borderTop(); }
+int clientWidth() const;
+int clientHeight() const;
+</pre>
+<p>The term <i>content box</i> is used to describe the area of the CSS box that excludes the borders and padding.</p>
+<pre>IntRect contentBox() const;
+int contentWidth() const { return clientWidth() - paddingLeft() - paddingRight(); }
+int contentHeight() const { return clientHeight() - paddingTop() - paddingBottom(); }
+</pre>
+<p>When a box has a horizontal or vertical scrollbar, it is placed in between the border and the padding.  A scrollbar’s size is included in the client width and client height.  Scrollbars are not part of the content box.  The size of the scrollable area and the current scroll position can both be obtained from the <code>RenderObject</code>.  I will cover this in more detail in a separate section on scrolling.</p>
+<pre>int scrollLeft() const;
+int scrollTop() const;
+int scrollWidth() const;
+int scrollHeight() const;
+</pre>
+<p>Boxes also have x and y positions.  These positions are relative to the ancestor that is responsible for deciding where this box should be placed.  There are numerous exceptions to this rule, however, and this is one of the most confusing areas of the render tree.</p>
+<pre>int xPos() const;
+int yPos() const;
+</pre>
+
+				
+				<p class="postmetadata alt">
+					You can follow any responses to this entry through the <a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/feed/">RSS 2.0</a> feed. 
+
+											Both comments and pings are currently closed.			
+
+									</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+    <h3 id="comments">4 Responses to “WebCore Rendering I – The Basics”</h3> 
+
+    <ol class="commentlist">
+    
+        <li class="alt" id="comment-22781">
+                                    <cite>Sam Weinig</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/#comment-22781" title="">August 8th, 2007 at 6:16 pm</a> </small>
+
+            <p>Awesome post Princess.  You’re the bees knees.</p>
+
+        </li>
+
+    
+    
+        <li class="" id="comment-22783">
+                                    <cite>bartocc</cite> Says:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/#comment-22783" title="">August 9th, 2007 at 10:54 am</a> </small>
+
+            <p>This kind of documentation is very important and very helpful!<br>
+Thx for the post, I am looking forward for the coming ones.</p>
+
+        </li>
+
+    
+    
+        <li class="alt" id="comment-22823">
+                                    Pingback from <cite><a href="http://browsersphere.com/2007/09/05/around-the-browsersphere-2/" rel="external nofollow" class="url">Around the Browsersphere #2</a></cite>:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/#comment-22823" title="">September 5th, 2007 at 2:08 am</a> </small>
+
+            <p>[...] Hyatt has posted five detailed articles on WebCore [...]</p>
+
+        </li>
+
+    
+    
+        <li class="" id="comment-23451">
+                                    Pingback from <cite><a href="http://webkit.org/blog/147/welcome-to-planet-webkit/" rel="external nofollow" class="url">Surfin’ Safari - Blog Archive » Welcome to Planet WebKit</a></cite>:
+                                    <br>
+
+            <small class="commentmetadata"><a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/#comment-23451" title="">December 3rd, 2007 at 11:19 pm</a> </small>
+
+            <p>[...] WebKit, from descriptions of the many new features being added to technical discussions of engine internals to announcements of WebKit being used in entirely new places. But the web is a big place, and we [...]</p>
+
+        </li>
+
+    
+    
+    </ol>
+
+ 
+
+
+	
+</div>
+
+<div id="nav">
+    <ul id="navlist">
+        <li><a href="http://www.webkit.org/">Home</a></li>
+        <li><a href="http://www.webkit.org/blog/">Surfin’ Safari Blog</a></li>
+        <li><a href="http://planet.webkit.org/">Planet WebKit</a></li>
+        <li><a href="http://www.webkit.org/projects/goals.html">Project Goals</a></li>
+        <li><a href="http://www.webkit.org/contact.html">Keeping in Touch</a></li>
+        <li><a href="http://trac.webkit.org/">Trac</a></li>
+        <li><a href="http://www.webkit.org/meeting/">Contributors Meeting</a></li>
+
+        <li class="subtitle">Working with the Code</li>
+
+        <li><a href="http://www.webkit.org/building/tools.html">Installing Developer Tools</a></li>
+        <li><a href="http://www.webkit.org/building/checkout.html">Getting the Code</a></li>
+        <li><a href="http://www.webkit.org/building/build.html">Building WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/run.html">Running WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/debug.html">Debugging WebKit</a></li>
+        <li><a href="http://www.webkit.org/coding/contributing.html">Contributing Code</a></li>
+        <li><a href="http://www.webkit.org/coding/commit-review-policy.html">Commit and Review Policy</a></li>
+        <li><a href="http://www.webkit.org/coding/adding-features.html">Adding Features</a></li>
+        <li><a href="http://www.webkit.org/security/">Security Policy</a></li>
+
+        <li class="subtitle">Documentation</li>
+
+        <li><a href="http://trac.webkit.org/wiki">Wiki</a></li>
+        <li><a href="http://www.webkit.org/projects/">Projects</a></li>
+        <li><a href="http://www.webkit.org/coding/coding-style.html">Code Style Guidelines</a></li>
+        <li><a href="http://www.webkit.org/coding/technical-articles.html">Technical Articles</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebDevelopers">Web Developer Resources</a></li>
+        <li><a href="http://www.webkit.org/demos/">Demos</a></li>
+
+        <li class="subtitle">Testing</li>
+
+        <li><a href="http://www.webkit.org/quality/testing.html">Regression Testing</a></li>
+        <li><a href="http://www.webkit.org/quality/leakhunting.html">Leak Hunting</a></li>
+        <li><a href="http://www.webkit.org/quality/testwriting.html">Writing New Tests</a></li>
+        <li><a href="http://www.webkit.org/quality/crashlogs.html">Getting a Crash Log</a></li>
+
+        <li class="subtitle">Bugs</li>
+
+        <li><a href="http://www.webkit.org/quality/reporting.html">Reporting Bugs</a></li>
+        <li><a href="http://www.webkit.org/quality/bugwriting.html">Bug Report Guidelines</a></li>
+        <li><a href="http://www.webkit.org/quality/bugpriorities.html">Bug Prioritization</a></li>
+        <li><a href="http://www.webkit.org/quality/reduction.html">Test Case Reduction</a></li>
+        <li><a href="http://www.webkit.org/quality/lifecycle.html">Bug Life Cycle</a></li>
+<li class="subtitle">Archives</li>
+	<li><a href="http://www.webkit.org/blog/date/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/04/" title="April 2011">April 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/02/" title="February 2011">February 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/09/" title="September 2010">September 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/08/" title="August 2010">August 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/07/" title="July 2010">July 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/06/" title="June 2010">June 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/05/" title="May 2010">May 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/04/" title="April 2010">April 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/03/" title="March 2010">March 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/02/" title="February 2010">February 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/01/" title="January 2010">January 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/12/" title="December 2009">December 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/11/" title="November 2009">November 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/10/" title="October 2009">October 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/07/" title="July 2009">July 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/06/" title="June 2009">June 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/09/" title="September 2007">September 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/10/" title="October 2006">October 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/09/" title="September 2006">September 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/09/" title="September 2005">September 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/08/" title="August 2005">August 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/07/" title="July 2005">July 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/06/" title="June 2005">June 2005</a></li>
+    </ul>
+    <div id="notice">
+        WebKit is open source software with portions licensed under the
+        <a href="http://www.webkit.org/coding/lgpl-license.html">LGPL</a> and
+        <a href="http://www.webkit.org/coding/bsd-license.html">BSD licenses</a>.
+        Complete license and copyright information can be found within the code.
+    </div>
+
+    <div id="terms">
+        Hosting provided by <a href="http://www.macosforge.org/">Mac OS Forge</a>.
+        Use of this site is subject to the
+        <a href="http://www.macosforge.org/terms/">Mac OS Forge Terms of Use</a>.
+    </div>
+</div>
+
+<div id="footer">
+    Surfin' Safari site is powered by 
+    <a href="http://wordpress.org/">WordPress</a>
+    <br><a href="http://www.webkit.org/blog/feed/">Entries (RSS)</a>
+    and <a href="http://www.webkit.org/blog/comments/feed/">Comments (RSS)</a>.
+    <br> <a href="http://www.webkit.org/blog/wp-login.php?action=register">Register</a> <strong>|</strong> <a href="http://www.webkit.org/blog/wp-login.php">Log in</a>    <!-- 25 queries. 0.148 seconds. -->
+</div>
+
+<script src="./Surfin' Safari - Blog Archive » WebCore Rendering I – The Basics_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-336489-2";
+urchinTracker();
+</script>
+
+
+</body></html>
