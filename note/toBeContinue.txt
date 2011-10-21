@@ -6105,3 +6105,7 @@ Error accessing memory address 0x2c7267e3: Input/output error.
      
      Smart pointers can facilitate intentional programming by expressing the use of a pointer in the type      itself. For example, if a C++ function returns a pointer, there is no way to know whether the caller      should delete the memory pointed to when the caller is finished with the information.
      
+1021 UPnP												**
+     No IGD UPnP Device found on the network
+     本地IO多路复用
+     make -f     
