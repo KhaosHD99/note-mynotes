@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://www.webkit.org/blog/116/webcore-rendering-iii-layout-basics/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="robots" content="noodp">
+
+    <title>Surfin' Safari - Blog Archive  » WebCore Rendering III – Layout Basics</title>
+
+    <meta name="application-name" content="SurfinSafari">
+
+    <meta name="generator" content="WordPress 2.8.5">
+
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/main.css">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/style.css">
+
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/blue.css" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/yellow.css" title="yellow">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/pink.css" title="pink">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/purple.css" title="purple">
+    <link rel="alternate stylesheet" type="text/css" href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/gray.css" title="gray">
+
+<!--[if gte IE 5]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.webkit.org/blog/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.webkit.org/blog/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.webkit.org/blog/feed/atom/">
+    <link rel="pingback" href="http://www.webkit.org/blog/xmlrpc.php">
+
+    <link rel="icon" sizes="32x32 128x128 256x256" href="http://www.webkit.org/images/surfin-safari.icns">
+    <link rel="SHORTCUT ICON" sizes="16x16" type="image/x-icon" href="http://www.webkit.org/favicon.ico">
+
+
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.webkit.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.webkit.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Surfin&#39; Safari" href="http://www.webkit.org/blog">
+<link rel="start" title="Welcome to the WebKit Blog" href="http://www.webkit.org/blog/4/welcome-to-the-webkit-blog/">
+<link rel="prev" title="WebCore Rendering II &ndash; Blocks and Inlines" href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/">
+<link rel="next" title="WebCore Rendering IV &ndash; Absolute/Fixed and Relative Positioning" href="http://www.webkit.org/blog/117/webcore-rendering-iv-absolutefixed-and-relative-positioning/">
+<meta name="generator" content="WordPress 2.8.5">
+</head><body>
+
+<div id="title">
+<h1>Surfin' Safari</h1>
+</div>
+
+<div id="icon"></div>
+
+<div id="content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&lt;&lt; <a href="http://www.webkit.org/blog/115/webcore-rendering-ii-blocks-and-inlines/">WebCore Rendering II – Blocks and Inlines</a></div>
+			<div class="alignright"><a href="http://www.webkit.org/blog/117/webcore-rendering-iv-absolutefixed-and-relative-positioning/">WebCore Rendering IV – Absolute/Fixed and Relative Positioning</a> &gt;&gt;</div>
+			&nbsp;
+		</div>
+
+		<div class="post" id="post-116">
+			<h2><a href="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics.htm" rel="bookmark" title="Permanent Link: WebCore Rendering III &ndash; Layout Basics">WebCore Rendering III – Layout Basics</a></h2>
+                        <small>Posted by <strong>Dave Hyatt</strong> on Friday, August 10th, 2007 at 2:01 pm</small>
+
+			<div class="entrytext">
+				<p>When renderers are first created and added to the tree, they have no position or size yet.  The process by which all of the boxes have their positions and sizes determined is called <i>layout</i>.  All renderers have a <code>layout</code> method.</p>
+<p><code>void layout()</code></p>
+<p>Layout is a recursive operation.  A class called <code>FrameView</code> represents the containing view for the document, and it also has a <code>layout</code> method.  The frame view is responsible for managing the layout of the render tree.</p>
+<p>There are two types of layout that the <code>FrameView</code> can perform.  The first (and by far the most common) is a layout of the entire render tree.  In this case the root of the render tree has its layout method called and then the entire render tree gets updated.   The second type of layout is constrained to a specific subtree of the render tree.  It is used in situations where the layout of some small subtree can’t possibly affect its surroundings.  Right now the subtree layout is only used by text fields (but may be used by overflow:auto blocks and other similar constructs in the future).</p>
+<h4>The Dirty Bits</h4>
+<p>Layout uses a dirty bit system to determine whether an object actually needs a layout.  Whenever new renderers are inserted into the tree, they dirty themselves and the relevant links in their ancestor chain.  There are three unique bits that are used by the render tree.</p>
+<pre>bool needsLayout() const { return m_needsLayout || m_normalChildNeedsLayout ||
+                                  m_posChildNeedsLayout; }
+bool selfNeedsLayout() const { return m_needsLayout; }
+bool posChildNeedsLayout() const { return m_posChildNeedsLayout; }
+bool normalChildNeedsLayout() const { return m_normalChildNeedsLayout; }
+</pre>
+<p>The first bit is used when the renderer itself is dirty, and it can be queried using the method <code>selfNeedsLayout</code>.  Whenever this bit is set to <code>true</code>, relevant ancestor renderers have bits set indicating that they have a dirty child.  The type of bit set depends on the positioned status of the previous link in the chain being dirtied.  <code>posChildNeedsLayout</code> is used to indicate that a positioned child got dirtied.  <code>normalChildNeedsLayout</code> is used to indicate that an in-flow child got dirtied.  By distinguishing between these two types of children, layout can be optimized for the case where only positioned elements moved.</p>
+<h4>The Containing Block</h4>
+<p>What exactly did I mean by “the relevant ancestor chain”?  When an object is marked as needing layout, the ancestor chain that is dirtied is based on a CSS concept called <i>the containing block</i>.  The <i>containing block</i> is also used to establish the coordinate space of children.  Renderers have <code>xPos</code> and <code>yPos</code> coordinates, and these are relative to their containing blocks.  So what exactly is a containing block?</p>
+<p><a href="http://www.w3.org/TR/CSS21/visuren.html#containing-block">Here is the CSS 2.1 spec’s introduction to the concept.</a>  </p>
+<p>My own way of introducing the concept in terms of the WebCore render tree would be as follows: </p>
+<p><i>A renderer’s containing block is an ancestor block of the renderer that is responsible for determining that renderer’s position.</i></p>
+<p>In other words when layout recurs down the render tree, it is a block’s responsibility to position all of the renderers that have it as their containing block.</p>
+<p>The root of the render tree is called the <tt>RenderView</tt>, and this class corresponds to the <i>initial containing block</i> according to CSS2.1.  It is also the renderer that will be returned if the <code>renderer()</code> method is called on the <code>Document</code>.  </p>
+<p><code><a href="http://trac.webkit.org/projects/webkit/browser/trunk/WebCore/rendering/RenderView.h">RenderView.h</a></code></p>
+<p>The initial containing block is always sized to the viewport.  In desktop browsers, this is the visible area in the browser window.  It is also always at position (0,0) relative to the entire document.  Here’s a picture illustrating where the initial containing block is positioned for a document.  The black bordered box represents the <code>RenderView</code>, and the grey box represents the entire document.</p>
+<p></p><center><p></p>
+<div style="width:100px;height:300px; background-color:#dddddd">
+<div style="border:3px solid black;width:94px;height:94px">
+</div>
+</div>
+<p></p></center><p></p>
+<p>If the document is scrolled, then the initial containing block will be moved offscreen.  It is always at the top of the document and sized to the viewport.  One area of confusion that people often have with the initial containing block is that they expect it to somehow be outside the document and part of the viewport.</p>
+<p><a href="http://www.w3.org/TR/CSS21/visudet.html#containing-block-details">Here is the detailed containing block specification in CSS2.1.</a></p>
+<p>The rules can be summarized as follows:</p>
+<ul>
+<li>The root element’s renderer (i.e., the &lt;html&gt; element) will always have the RenderView as its containing block.</li>
+<li>If a renderer has a CSS position of relative or static, then the containing block will be the nearest block-level ancestor in the render tree.
+</li>
+<li>If a renderer has a CSS position of fixed, then the containing block will be the RenderView.  Technically the RenderView does not act as a viewport, so the RenderView has to adjust the coordinates of fixed positioned objects to account for the document scroll position.  It is simpler to just let the RenderView act like a viewport containing block for this one case rather than having a separate renderer just for the viewport.
+</li>
+<li>If a renderer has a CSS position of absolute, then the containing block is the nearest block-level ancestor with a position other than static.  If no such ancestor exists, then the containing block will be the RenderView.
+</li>
+</ul>
+<p>The render tree has two convenience methods for asking if an object has a position of absolute, fixed or relative.  They are:</p>
+<pre>bool isPositioned() const;   // absolute or fixed positioning
+bool isRelPositioned() const;  // relative positioning
+</pre>
+<p>Throughout most of the code the term <i>positioned</i> refers to both absolute and fixed positioned objects in CSS.  The term <i>relPositioned</i> refers to relative positioned objects in CSS.</p>
+<p>The render tree has a method for obtaining the containing block of a renderer.</p>
+<p><code>RenderBlock* containingBlock() const</code></p>
+<p>When an object is marked as needing layout, it walks up a <i>container chain</i> setting either the <code>normalChildNeedsLayout</code> bit or the <code>posChildNeedsLayout</code> bit.  The <tt>isPositioned</tt> status of the previous link in the chain determines what bit gets set.  The container chain roughly corresponds to the containing block chain, although intermediate inlines are still dirtied as well.  A different method called <code>container</code> is used instead of <code>containingBlock</code> to determine the chain for dirtying because of this distinction.</p>
+<p><code>RenderObject* container() const</code></p>
+<h4>layoutIfNeeded and setNeedsLayout(false)</h4>
+<p>The <code>layoutIfNeeded</code> method (similar in terminology to AppKit’s displayIfNeeded method) is a convenient shorthand for telling a renderer to only do a layout if it has a dirty bit set.</p>
+<pre>void layoutIfNeeded()
+</pre>
+<p>All layout methods typically end with <code>setNeedsLayout(false)</code>.  It is important to clear dirty bits on the renderer before leaving the layout method, so that future layout calls won’t mistakenly think that the object is still dirty.</p>
+<h4>Anatomy of a Layout Method</h4>
+<p>At a high level layout methods usually look something like this:</p>
+<pre>void layout()
+{
+    ASSERT(needsLayout());
+
+    // Determine the width and horizontal margins of this object.
+    ...
+
+    for (RenderObject* child = firstChild(); child; child = child-&gt;nextSibling()) {
+        // Determine if the child needs to get a relayout despite the dirty bit not being set.
+        ...
+
+        // Place the child.
+        ...
+
+        // Lay out the child
+        child-&gt;layoutIfNeeded();
+
+       ...
+    }
+
+    // Now the intrinsic height of the object is known because the children are placed
+    // Determine the final height
+    ...
+
+    setNeedsLayout(false);
+}
+</pre>
+<p>We will drill into specific layout methods in future articles.</p>
+
+				
+				<p class="postmetadata alt">
+					You can follow any responses to this entry through the <a href="http://www.webkit.org/blog/116/webcore-rendering-iii-layout-basics/feed/">RSS 2.0</a> feed. 
+
+											Both comments and pings are currently closed.			
+
+									</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+          <!-- If comments are closed. -->
+        <p class="nocomments">Comments are closed.</p>
+        
+    
+
+
+	
+</div>
+
+<div id="nav">
+    <ul id="navlist">
+        <li><a href="http://www.webkit.org/">Home</a></li>
+        <li><a href="http://www.webkit.org/blog/">Surfin’ Safari Blog</a></li>
+        <li><a href="http://planet.webkit.org/">Planet WebKit</a></li>
+        <li><a href="http://www.webkit.org/projects/goals.html">Project Goals</a></li>
+        <li><a href="http://www.webkit.org/contact.html">Keeping in Touch</a></li>
+        <li><a href="http://trac.webkit.org/">Trac</a></li>
+        <li><a href="http://www.webkit.org/meeting/">Contributors Meeting</a></li>
+
+        <li class="subtitle">Working with the Code</li>
+
+        <li><a href="http://www.webkit.org/building/tools.html">Installing Developer Tools</a></li>
+        <li><a href="http://www.webkit.org/building/checkout.html">Getting the Code</a></li>
+        <li><a href="http://www.webkit.org/building/build.html">Building WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/run.html">Running WebKit</a></li>
+        <li><a href="http://www.webkit.org/building/debug.html">Debugging WebKit</a></li>
+        <li><a href="http://www.webkit.org/coding/contributing.html">Contributing Code</a></li>
+        <li><a href="http://www.webkit.org/coding/commit-review-policy.html">Commit and Review Policy</a></li>
+        <li><a href="http://www.webkit.org/coding/adding-features.html">Adding Features</a></li>
+        <li><a href="http://www.webkit.org/security/">Security Policy</a></li>
+
+        <li class="subtitle">Documentation</li>
+
+        <li><a href="http://trac.webkit.org/wiki">Wiki</a></li>
+        <li><a href="http://www.webkit.org/projects/">Projects</a></li>
+        <li><a href="http://www.webkit.org/coding/coding-style.html">Code Style Guidelines</a></li>
+        <li><a href="http://www.webkit.org/coding/technical-articles.html">Technical Articles</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector</a></li>
+        <li><a href="http://trac.webkit.org/wiki/WebDevelopers">Web Developer Resources</a></li>
+        <li><a href="http://www.webkit.org/demos/">Demos</a></li>
+
+        <li class="subtitle">Testing</li>
+
+        <li><a href="http://www.webkit.org/quality/testing.html">Regression Testing</a></li>
+        <li><a href="http://www.webkit.org/quality/leakhunting.html">Leak Hunting</a></li>
+        <li><a href="http://www.webkit.org/quality/testwriting.html">Writing New Tests</a></li>
+        <li><a href="http://www.webkit.org/quality/crashlogs.html">Getting a Crash Log</a></li>
+
+        <li class="subtitle">Bugs</li>
+
+        <li><a href="http://www.webkit.org/quality/reporting.html">Reporting Bugs</a></li>
+        <li><a href="http://www.webkit.org/quality/bugwriting.html">Bug Report Guidelines</a></li>
+        <li><a href="http://www.webkit.org/quality/bugpriorities.html">Bug Prioritization</a></li>
+        <li><a href="http://www.webkit.org/quality/reduction.html">Test Case Reduction</a></li>
+        <li><a href="http://www.webkit.org/quality/lifecycle.html">Bug Life Cycle</a></li>
+<li class="subtitle">Archives</li>
+	<li><a href="http://www.webkit.org/blog/date/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/04/" title="April 2011">April 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/02/" title="February 2011">February 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/09/" title="September 2010">September 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/08/" title="August 2010">August 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/07/" title="July 2010">July 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/06/" title="June 2010">June 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/05/" title="May 2010">May 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/04/" title="April 2010">April 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/03/" title="March 2010">March 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/02/" title="February 2010">February 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2010/01/" title="January 2010">January 2010</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/12/" title="December 2009">December 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/11/" title="November 2009">November 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/10/" title="October 2009">October 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/07/" title="July 2009">July 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/06/" title="June 2009">June 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/09/" title="September 2007">September 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/10/" title="October 2006">October 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/09/" title="September 2006">September 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/09/" title="September 2005">September 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/08/" title="August 2005">August 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/07/" title="July 2005">July 2005</a></li>
+	<li><a href="http://www.webkit.org/blog/date/2005/06/" title="June 2005">June 2005</a></li>
+    </ul>
+    <div id="notice">
+        WebKit is open source software with portions licensed under the
+        <a href="http://www.webkit.org/coding/lgpl-license.html">LGPL</a> and
+        <a href="http://www.webkit.org/coding/bsd-license.html">BSD licenses</a>.
+        Complete license and copyright information can be found within the code.
+    </div>
+
+    <div id="terms">
+        Hosting provided by <a href="http://www.macosforge.org/">Mac OS Forge</a>.
+        Use of this site is subject to the
+        <a href="http://www.macosforge.org/terms/">Mac OS Forge Terms of Use</a>.
+    </div>
+</div>
+
+<div id="footer">
+    Surfin' Safari site is powered by 
+    <a href="http://wordpress.org/">WordPress</a>
+    <br><a href="http://www.webkit.org/blog/feed/">Entries (RSS)</a>
+    and <a href="http://www.webkit.org/blog/comments/feed/">Comments (RSS)</a>.
+    <br> <a href="http://www.webkit.org/blog/wp-login.php?action=register">Register</a> <strong>|</strong> <a href="http://www.webkit.org/blog/wp-login.php">Log in</a>    <!-- 25 queries. 0.149 seconds. -->
+</div>
+
+<script src="./Surfin' Safari - Blog Archive » WebCore Rendering III – Layout Basics_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-336489-2";
+urchinTracker();
+</script>
+
+
+</body></html>
