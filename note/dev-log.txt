@@ -856,5 +856,10 @@ over time
 1020 sw 1000m, no rest. i need earlier because they so slow
      webkit: drawFocusRing
      
-1021 sw 1000m(if there is no specified, it mean "no rest"); when i began, meigu is done
+1021 sw 1000m(if there is no specified, it means "no rest"); when i began, meigu is done
            
+1022 boss, give me some money for my necessities, please
+     
+     
+     
+     
