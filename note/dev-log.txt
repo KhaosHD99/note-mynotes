@@ -859,7 +859,16 @@ over time
 1021 sw 1000m(if there is no specified, it means "no rest"); when i began, meigu is done
            
 1022 boss, give me some money for my necessities, please
+     bring dinner to mum
+
+1023 pay 2000(br from grandma)
+     bring dinner to mum
+     br 3000 from uncle
      
      
+1024 win <2000 game point when play big talk dice
+     aunt(mei) and uncle visited mum
+     bring dinner to mum
      
+1024 sw 1050m+-, somebd quit slow, so exceed it, but it crash to me amd Chafed my skin      
      
