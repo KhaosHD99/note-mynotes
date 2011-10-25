@@ -29259,56 +29259,609 @@ vt. 调整；使一致；为…调音
 vi. 调谐；协调]]></trans>
 		<phonetic><![CDATA[[tju:n, tu:n]]]></phonetic>
 		<tags></tags>
-	</item><item>    <word>vitality</word>
-    <trans><![CDATA[]]></trans>
-    <phonetic><![CDATA[ ]]></phonetic>
-    <tags></tags>
-</item><item>    <word>ampersand</word>
-    <trans><![CDATA[n. &的记号名称（＆等于and） 
+	</item><item>
+		<word>vitality</word>
+		<trans><![CDATA[]]></trans>
+		<phonetic><![CDATA[ ]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>ampersand</word>
+		<trans><![CDATA[n. &的记号名称（＆等于and） 
 ]]></trans>
-    <phonetic><![CDATA[['æmpəsænd]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>indent</word>
-    <trans><![CDATA[vt. 定货；缩排；印凹痕 
+		<phonetic><![CDATA[['æmpəsænd]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>indent</word>
+		<trans><![CDATA[vt. 定货；缩排；印凹痕 
 vi. 切割成锯齿状 
 n. 缩进；订货单；凹痕；契约 
 ]]></trans>
-    <phonetic><![CDATA[[in'dent, 'indent]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>triple</word>
-    <trans><![CDATA[]]></trans>
-    <phonetic><![CDATA[ ]]></phonetic>
-    <tags></tags>
-</item><item>    <word>bypass</word>
-    <trans><![CDATA[vt. 绕开；忽视；设旁路；迂回 
+		<phonetic><![CDATA[[in'dent, 'indent]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>triple</word>
+		<trans><![CDATA[]]></trans>
+		<phonetic><![CDATA[ ]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>bypass</word>
+		<trans><![CDATA[vt. 绕开；忽视；设旁路；迂回 
 n. 旁路；[公路] 支路 
 ]]></trans>
-    <phonetic><![CDATA[['baipɑ:s,-pæs]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>intense</word>
-    <trans><![CDATA[ adj. 强烈的；紧张的；热情的；非常的
+		<phonetic><![CDATA[['baipɑ:s,-pæs]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>intense</word>
+		<trans><![CDATA[ adj. 强烈的；紧张的；热情的；非常的
  
 ]]></trans>
-    <phonetic><![CDATA[[in'tens]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>Cipher</word>
-    <trans><![CDATA[ n. 密码；暗号；零
+		<phonetic><![CDATA[[in'tens]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>Cipher</word>
+		<trans><![CDATA[ n. 密码；暗号；零
  
  vi. 做算术；计算；使用密码
  
  vt. 做算术；计算；将…译成密码
  
 ]]></trans>
-    <phonetic><![CDATA[['saifə]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>utilization</word>
-    <trans><![CDATA[n. 利用，使用 
+		<phonetic><![CDATA[['saifə]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>utilization</word>
+		<trans><![CDATA[n. 利用，使用 
 ]]></trans>
-    <phonetic><![CDATA[[,ju:tilai'zeiʃən, -li'z-]]]></phonetic>
-    <tags></tags>
-</item><item>    <word>utilize</word>
-    <trans><![CDATA[vt. 利用 
+		<phonetic><![CDATA[[,ju:tilai'zeiʃən, -li'z-]]]></phonetic>
+		<tags></tags>
+	</item><item>
+		<word>utilize</word>
+		<trans><![CDATA[vt. 利用 
 ]]></trans>
-    <phonetic><![CDATA[['ju:tilaiz]]]></phonetic>
+		<phonetic><![CDATA[['ju:tilaiz]]]></phonetic>
+		<tags></tags>
+	</item><item>    <word>cone</word>
+    <trans><![CDATA[n. 圆锥体，圆锥形；球果 
+vt. 使成锥形 
+]]></trans>
+    <phonetic><![CDATA[[kəun]]]></phonetic>
     <tags></tags>
+    <progress>-1</progress>
+</item><item>    <word>relevance</word>
+    <trans><![CDATA[n. 关联；适当；中肯]]></trans>
+    <phonetic><![CDATA[['relivəns]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>misc</word>
+    <trans><![CDATA[abbr. 混杂的；各色各样混在一起；多才多艺的（miscellaneous）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>generic</word>
+    <trans><![CDATA[adj. 类的；一般的；属的；非商标的]]></trans>
+    <phonetic><![CDATA[[dʒi'nerik]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>semantics</word>
+    <trans><![CDATA[n. [语] 语义学；语义论]]></trans>
+    <phonetic><![CDATA[[si'mæntiks]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>Gecko</word>
+    <trans><![CDATA[n. 壁虎]]></trans>
+    <phonetic><![CDATA[['ɡekəu]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>trident</word>
+    <trans><![CDATA[n. 三叉戟；[数] 三叉线；三齿鱼叉]]></trans>
+    <phonetic><![CDATA[['traidənt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>migrate</word>
+    <trans><![CDATA[vi. 移动；随季节而移居；移往 
+vt. 使移居；使移植]]></trans>
+    <phonetic><![CDATA[[mai'ɡreit, 'maiɡ-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>infrastructure</word>
+    <trans><![CDATA[n. 基础设施；公共建设；下部构造]]></trans>
+    <phonetic><![CDATA[['infrə,strʌktʃə]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>assume</word>
+    <trans><![CDATA[vt. 承担；假定；采取；呈现 
+vi. 装腔作势；多管闲事]]></trans>
+    <phonetic><![CDATA[[ə'sju:m, ə'su:m]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>exploits</word>
+    <trans><![CDATA[n. 功绩，业绩；壮举（exploit的复数） 
+v. 利用；开发（exploit的第三人称单数）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>substantial</word>
+    <trans><![CDATA[adj. 大量的；实质的；内容充实的 
+n. 本质；重要材料]]></trans>
+    <phonetic><![CDATA[[səb'stænʃəl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>impressive</word>
+    <trans><![CDATA[adj. 感人的；令人钦佩的；给人以深刻印象的]]></trans>
+    <phonetic><![CDATA[[im'presiv]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>sufficiently</word>
+    <trans><![CDATA[adv. 充分地；足够地]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>pine</word>
+    <trans><![CDATA[vi. 渴望，痛苦；憔悴 
+n. [林] 松树；凤梨，菠萝 
+vt. 为…悲哀；哀悼 
+adj. 松木的；似松的]]></trans>
+    <phonetic><![CDATA[[pain]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>reversal</word>
+    <trans><![CDATA[n. 逆转；[摄] 反转；[法] 撤销]]></trans>
+    <phonetic><![CDATA[[ri'və:səl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>symmetric</word>
+    <trans><![CDATA[adj. 对称的；匀称的]]></trans>
+    <phonetic><![CDATA[[si'metrik]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>involved</word>
+    <trans><![CDATA[adj. 有关的；卷入的；复杂的 
+v. 涉及；使参与；包含（involve的过去式和过去分词）]]></trans>
+    <phonetic><![CDATA[[in'vɔlvd]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>constrain</word>
+    <trans><![CDATA[vt. 驱使；强迫；束缚]]></trans>
+    <phonetic><![CDATA[[kən'strein]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>embarrassing</word>
+    <trans><![CDATA[adj. 使人尴尬的；令人为难的]]></trans>
+    <phonetic><![CDATA[[im'bærəsiŋ]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>stumped</word>
+    <trans><![CDATA[n. 树桩；残余部分；假肢
+ 
+ vt. 砍伐；使为难；在…作巡回政治演说
+ 
+ vi. 笨重地行走；发表竞选演说]]></trans>
+    <phonetic><![CDATA[[stʌmp]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>spatial</word>
+    <trans><![CDATA[adj. 空间的；存在于空间的；受空间条件限制的]]></trans>
+    <phonetic><![CDATA[['speiʃəl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>提高效率</word>
+    <trans><![CDATA[]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>truncated</word>
+    <trans><![CDATA[adj. 缩短了的；被删节的；切去顶端的 
+v. 缩短（truncate的过去分词）；截去…的顶端]]></trans>
+    <phonetic><![CDATA[[trʌŋ'keitid, 'trʌŋk-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>notation</word>
+    <trans><![CDATA[n. 符号；乐谱；注释；记号法]]></trans>
+    <phonetic><![CDATA[[nəu'teiʃən]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>Stray</word>
+    <trans><![CDATA[vi. 迷路；偏离；流浪
+ 
+ adj. 迷路的；离群的；偶遇的
+ 
+ n. 走失的家畜；流浪者]]></trans>
+    <phonetic><![CDATA[[strei]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>reentrant</word>
+    <trans><![CDATA[n. 凹角；再进入 
+adj. 再进去的；凹角的]]></trans>
+    <phonetic><![CDATA[[ri:'entrənt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>glue</word>
+    <trans><![CDATA[vt. 粘合；似胶般固着于 
+n. 胶；各种胶合物]]></trans>
+    <phonetic><![CDATA[[ɡlu:]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>presto</word>
+    <trans><![CDATA[adj. 迅速的 
+adv. 赶快 
+n. 急板；急板之乐曲或乐章 
+int. 转眼间]]></trans>
+    <phonetic><![CDATA[['prestəu]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>dispatch</word>
+    <trans><![CDATA[n. 派遣；急件 
+vt. 派遣；分派]]></trans>
+    <phonetic><![CDATA[[dis'pætʃ]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>slots</word>
+    <trans><![CDATA[n. 插槽；老虎机（slot的复数）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>gesture</word>
+    <trans><![CDATA[n. 姿态；手势 
+vi. 作手势；用动作示意 
+vt. 用动作表示]]></trans>
+    <phonetic><![CDATA[['dʒestʃə]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>erase</word>
+    <trans><![CDATA[vt. 抹去；擦除 
+vi. 被擦去，被抹掉]]></trans>
+    <phonetic><![CDATA[[i'reiz, i'reis]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>necessary</word>
+    <trans><![CDATA[adj. 必要的；必需的；必然的 
+n. 必需品]]></trans>
+    <phonetic><![CDATA[['nesisəri]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>boundary</word>
+    <trans><![CDATA[n. 边界；范围；分界线]]></trans>
+    <phonetic><![CDATA[['baundəri]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>invocation</word>
+    <trans><![CDATA[n. 祈祷；符咒]]></trans>
+    <phonetic><![CDATA[[,invəu'keiʃən]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>inferior</word>
+    <trans><![CDATA[adj. 下级的，下等的；差的；自卑的 
+n. 次品；下级]]></trans>
+    <phonetic><![CDATA[[in'fiəriə]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>contiguous</word>
+    <trans><![CDATA[adj. 接触的；邻近的；连续的]]></trans>
+    <phonetic><![CDATA[[kən'tiɡjuəs]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>eliminated</word>
+    <trans><![CDATA[v. 被淘汰；消除；排除（eliminate的过去分词）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>innermost</word>
+    <trans><![CDATA[adj. 内心的；最里面的，最深处的；秘密的]]></trans>
+    <phonetic><![CDATA[['inəməust]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>consists</word>
+    <trans><![CDATA[v. 由…构成；由…组成（consist的三单形式）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>occasionally</word>
+    <trans><![CDATA[adv. 偶而，间或]]></trans>
+    <phonetic><![CDATA[[ə'keiʒənəli, əu-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>provision</word>
+    <trans><![CDATA[n. 供应品；准备；条款；规定 
+vt. 供给…食物及必需品]]></trans>
+    <phonetic><![CDATA[[prəu'viʒən]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>caveats</word>
+    <trans><![CDATA[n. 警告；说明（caveat的复数）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>estimate</word>
+    <trans><![CDATA[vi. 估计，估价 
+n. 估计，估价；判断，看法 
+vt. 估计，估量；判断，评价]]></trans>
+    <phonetic><![CDATA[['estimeit]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>provisional</word>
+    <trans><![CDATA[adj. 临时的，暂时的；暂定的 
+n. 临时邮票]]></trans>
+    <phonetic><![CDATA[[prəu'viʒənəl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>mutable</word>
+    <trans><![CDATA[adj. 易变的，不定的；性情不定的]]></trans>
+    <phonetic><![CDATA[['mju:təbl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>Defers</word>
+    <trans><![CDATA[defers: 顺从]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>tuple</word>
+    <trans><![CDATA[n. 元组，重数]]></trans>
+    <phonetic><![CDATA[['tʌpl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>tradeoff</word>
+    <trans><![CDATA[n. （公平）交易（等于trade-off）；权衡；折衷]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>enclose</word>
+    <trans><![CDATA[vt. 围绕；装入；放入封套]]></trans>
+    <phonetic><![CDATA[[in'kləuz]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>angle brackets</word>
+    <trans><![CDATA[尖角括号（即＜＞）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>bracket</word>
+    <trans><![CDATA[n. 支架；括号；墙上凸出的托架 
+vt. 括在一起；把…归入同一类；排除]]></trans>
+    <phonetic><![CDATA[['brækit]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>impose</word>
+    <trans><![CDATA[vi. 欺骗；利用；施加影响 
+vt. 强加；以…欺骗；征税]]></trans>
+    <phonetic><![CDATA[[im'pəuz]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>insulates</word>
+    <trans><![CDATA[vt. 隔离，使孤立；[物]使绝缘，使隔热]]></trans>
+    <phonetic><![CDATA[['insjuleit, 'insə-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>decoupled</word>
+    <trans><![CDATA[adj. 不挂钩的 
+v. 解耦，退耦（decouple的过去式和过去分词）]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>coupled</word>
+    <trans><![CDATA[v. 耦合的；联接的；成对的；共轭的（couple的过去分词形式）]]></trans>
+    <phonetic><![CDATA[['kʌpld]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>sufficient</word>
+    <trans><![CDATA[adj. 足够的；充分的]]></trans>
+    <phonetic><![CDATA[[sə'fiʃənt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>comprise</word>
+    <trans><![CDATA[vt. 包含；由…组成]]></trans>
+    <phonetic><![CDATA[[kəm'praiz]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>contribute</word>
+    <trans><![CDATA[vt. 贡献，出力；投稿；捐献 
+vt. 贡献，出力；投稿；捐献]]></trans>
+    <phonetic><![CDATA[[kən'tribju:t]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>quirk</word>
+    <trans><![CDATA[n. 怪癖；急转；借口]]></trans>
+    <phonetic><![CDATA[[kwə:k]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>literally</word>
+    <trans><![CDATA[adv. 照字面地；逐字地]]></trans>
+    <phonetic><![CDATA[['litərəli]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>tolerance</word>
+    <trans><![CDATA[n. 公差；宽容；容忍；公差]]></trans>
+    <phonetic><![CDATA[['tɔlərəns]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>predict</word>
+    <trans><![CDATA[vt. 预报，预言；预知 
+vi. 作出预言；作预料，作预报]]></trans>
+    <phonetic><![CDATA[[pri'dikt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>parallelize</word>
+    <trans><![CDATA[vt. 平行放置；使……平行于……]]></trans>
+    <phonetic><![CDATA[['pærəlelaiz]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>obscure</word>
+    <trans><![CDATA[adj. 模糊的；晦涩的；昏暗的 
+vt. 遮掩；使变暗；使难理解]]></trans>
+    <phonetic><![CDATA[[əb'skjuə, ɔb-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>canva</word>
+    <trans><![CDATA[n. 帆布；画布]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>emphasis</word>
+    <trans><![CDATA[n. 重点；强调；加强语气]]></trans>
+    <phonetic><![CDATA[['emfəsis]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>candidate</word>
+    <trans><![CDATA[n. 候选人，候补者；应试者]]></trans>
+    <phonetic><![CDATA[['kændideit, -dət]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>stripped</word>
+    <trans><![CDATA[adj. 剥去的 
+v. 脱衣；把…剪成条状；剥夺（strip的过去分词形式）]]></trans>
+    <phonetic><![CDATA[[stript]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>not stripped</word>
+    <trans><![CDATA[not stripped: 并且包含着符号表]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>mature</word>
+    <trans><![CDATA[adj. 成熟的；充分考虑的；到期的；成年人的 
+vi. 成熟；到期 
+vt. 使…成熟；使…长成；慎重作出]]></trans>
+    <phonetic><![CDATA[[mə'tjuə]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>brief</word>
+    <trans><![CDATA[adj. 简短的，简洁的；短暂的，草率的 
+n. 概要，诉书；摘要，简报 
+vt. 作…的提要；简报，摘要]]></trans>
+    <phonetic><![CDATA[[bri:f]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>invert</word>
+    <trans><![CDATA[vt. 使…转化；使…颠倒；使…反转；使…前后倒置 
+n. 颠倒的事物；倒置物；倒悬者 
+adj. 转化的]]></trans>
+    <phonetic><![CDATA[[in'və:t, 'invə:t]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>intimidate</word>
+    <trans><![CDATA[vt. 恐吓，威胁；胁迫]]></trans>
+    <phonetic><![CDATA[[in'timideit]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>subsequent</word>
+    <trans><![CDATA[adj. 后来的，随后的]]></trans>
+    <phonetic><![CDATA[['sʌbsikwənt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>sequent</word>
+    <trans><![CDATA[adj. 连续的；其次的；作为结果而产生的 
+n. 结果；相继发生的事]]></trans>
+    <phonetic><![CDATA[['si:kwənt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>vice</word>
+    <trans><![CDATA[n. 恶习；缺点；[机] 老虎钳；卖淫 
+prep. 代替 
+vt. 钳住 
+adj. 副的；代替的]]></trans>
+    <phonetic><![CDATA[[vais]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>versa</word>
+    <trans><![CDATA[adj. 反的]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>compasses</word>
+    <trans><![CDATA[n. [测] 圆规；罗盘（compass的复数） 
+v. 围绕；环行（compass的三单形式）]]></trans>
+    <phonetic><![CDATA[['kʌmpəsis]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>unify</word>
+    <trans><![CDATA[vt. 统一；使相同，使一致]]></trans>
+    <phonetic><![CDATA[['ju:nifai]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>over time</word>
+    <trans><![CDATA[随着时间的过去；超时]]></trans>
+    <phonetic><![CDATA[]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>typically</word>
+    <trans><![CDATA[adv. 代表性地；作为特色地]]></trans>
+    <phonetic><![CDATA[['tipikəli]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>insulate</word>
+    <trans><![CDATA[vt. 隔离，使孤立；使绝缘，使隔热]]></trans>
+    <phonetic><![CDATA[['insjuleit, 'insə-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>delight</word>
+    <trans><![CDATA[n. 高兴 
+vi. 高兴 
+vt. 使高兴]]></trans>
+    <phonetic><![CDATA[[di'lait]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>respective</word>
+    <trans><![CDATA[adj. 分别的，各自的]]></trans>
+    <phonetic><![CDATA[[ri'spektiv]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>respect</word>
+    <trans><![CDATA[n. 尊敬，尊重；方面；敬意 
+vt. 尊敬，尊重；遵守]]></trans>
+    <phonetic><![CDATA[[ri'spekt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>traverse</word>
+    <trans><![CDATA[n. 横木；横贯；穿过 
+vt. 反对；穿过；详细研究；在…来回移动 
+vi. 横越；旋转；来回移动 
+adj. 横贯的]]></trans>
+    <phonetic><![CDATA[['trævəs, -və:s, trə'və:s, træ-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>misuse</word>
+    <trans><![CDATA[vt. 误用；滥用；虐待 
+n. 误用；滥用；虐待]]></trans>
+    <phonetic><![CDATA[[,mis'ju:z, ,mis'ju:s]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>mitigate</word>
+    <trans><![CDATA[vt. 使缓和，使减轻 
+vi. 减轻，缓和下来]]></trans>
+    <phonetic><![CDATA[['mitiɡeit]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>inspiration</word>
+    <trans><![CDATA[n. 灵感；鼓舞；吸气；妙计]]></trans>
+    <phonetic><![CDATA[[,inspə'reiʃən]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>canonical</word>
+    <trans><![CDATA[adj. 依教规的；权威的；牧师的 
+n. 牧师礼服]]></trans>
+    <phonetic><![CDATA[[kə'nɔnikəl]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>pollen</word>
+    <trans><![CDATA[vt. 传授花粉给 
+n. [植] 花粉]]></trans>
+    <phonetic><![CDATA[['pɔlin]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>tempt</word>
+    <trans><![CDATA[vt. 诱惑；引起；冒…的风险；使感兴趣]]></trans>
+    <phonetic><![CDATA[[tempt]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>ordinary</word>
+    <trans><![CDATA[adj. 普通的；平凡的；平常的 
+n. 普通；平常的人（或事）]]></trans>
+    <phonetic><![CDATA[['ɔ:dinəri, -neri-]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
+</item><item>    <word>common</word>
+    <trans><![CDATA[adj. 共同的；普通的；一般的；通常的 
+n. 普通；平民；公有地]]></trans>
+    <phonetic><![CDATA[['kɔmən]]]></phonetic>
+    <tags></tags>
+    <progress>1</progress>
 </item></wordbook>
