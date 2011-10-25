@@ -1306,3 +1306,41 @@ fstab:
 
 
 freopen("/var/log/syslog","a", stderr);
+
+1024 
+  struct ifconf
+  {
+    int ifc_len;                        /* Size of buffer.  */
+    union
+    {
+        __caddr_t ifcu_buf;
+        struct ifreq *ifcu_req;
+    } ifc_ifcu;
+  };
+
+
+   struct ifreq
+  {
+# define IFHWADDRLEN    6
+# define IFNAMSIZ       IF_NAMESIZE
+    union
+    {
+        char ifrn_name[IFNAMSIZ];       /* Interface name, e.g. "en0".  */
+    } ifr_ifrn;
+
+    union
+    {
+        struct sockaddr ifru_addr;
+        struct sockaddr ifru_dstaddr;
+        struct sockaddr ifru_broadaddr;
+        struct sockaddr ifru_netmask;
+        struct sockaddr ifru_hwaddr;
+        short int ifru_flags;
+        int ifru_ivalue;
+        int ifru_mtu;
+        struct ifmap ifru_map;
+        char ifru_slave[IFNAMSIZ];      /* Just fits the size */
+--
+        struct ifreq *ifcu_req;
+    } ifc_ifcu;
+  };

@@ -6110,3 +6110,16 @@ Error accessing memory address 0x2c7267e3: Input/output error.
      本地IO多路复用
      make -f     
 
+1024 libupnp
+     
+     DHCPDISCOVERY，DHCPOFFER，DHCPREQUEST，DHCPACK
+     not in executable format: File format not recognized
+      
+     ifaddrs, ifreq, ifconf
+   
+     ioctl
+     can not detect no aviable interface??								**
+     121.11.43.43
+
+1025 "not a dynamic executable", but"error while loading shared libraries"
+     
