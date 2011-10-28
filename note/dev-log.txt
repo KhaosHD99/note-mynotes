@@ -858,12 +858,13 @@ over time
      
 1021 sw 1000m(if there is no specified, it means "no rest"); when i began, meigu is done
            
-1022 boss, give me some money for my necessities, please
+1022 no sw(if there is no specified, no swin when it is saturday)
+     boss, give me some money for my necessities, please
      bring dinner to mum
 
 1023 pay 2000(br from grandma)
      bring dinner to mum
-     br 3000 from uncle
+     borrow 3000 from uncle
      
      
 1024 win <2000 game point when play big talk dice
@@ -880,4 +881,23 @@ over time
      
      sw 1000m, no body obstruct me and my status is not good, so i feel quit tired
      
+     mum leave hospital, used 9000+- totally, i wish make fewer times to go there
+     
+1026 sw 1000=-, sbd so slow and i need earlier
+     xunmeng q me and dating initiativly
+     
+     register igd device to upnp supported router(assign a port to igd device)
+     brw 200 from cai     
+     xunmeng call me out and drank org juice that take me 150, fuck
+     dad take me 400 that i brw from biao uncle, so i really have no money for necessaries
+     dad had trouble with mum because the yun uncle lend dad money and dad did not pay for the dinner, so dad had not eat the dinner that mum cooked
+          
+     
+1027 sw 1000(if there is no specified, it means "sw 1000m")
+     
+     can send to the route port that assigned previously via diff port and addr if you want communicate to that      igd device
+     
+     dad was not at home when i go home and 
+               
+1028 i need earlier
      

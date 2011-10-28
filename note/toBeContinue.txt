@@ -6121,5 +6121,72 @@ Error accessing memory address 0x2c7267e3: Input/output error.
      can not detect no aviable interface??								**
      121.11.43.43
 
-1025 "not a dynamic executable", but"error while loading shared libraries"
+1025 use a dhcp lib(dhcpcd) instead of run shell							**
+     
+     "not a dynamic executable", but"error while loading shared libraries"
+     upstart-udev-bridge 
+     端口映射 虚拟服务器; 静态端口映射, 公网主动访问内网的一个电脑
+     端口扫描
+      
+     why can the web server find the pc 
+     principle route switch
+           
+     时空罪恶 恐怖游轮 致命ID 微博有鬼 
+     
+     
+1026 ubuntu: no gdm											**
+    
+     why executable need cd:
+    ./tv_ctrlpt: line 118: cd: /home/xuzhenjie/prj/tmp/libupnp-1.6.13/upnp/sample: No such file or directory
+    ./tv_ctrlpt: line 118: gcc: command not found????????????
+  
+     list linux using port 
+     
+     how to unpack jre.bin										over     
+libnatpmp
+     rm gw 												over
+   
+     /* UPNP_AddPortMapping()
+upnpcommands.h- * if desc is NULL, it will be defaulted to "libminiupnpc"
+upnpcommands.h- * remoteHost is usually NULL because IGD don't support it.
+upnpcommands.h- *
+upnpcommands.h- * Return values :
+upnpcommands.h- * 0 : SUCCESS
+upnpcommands.h- * NON ZERO : ERROR. Either an UPnP error code or an unknown error.
+upnpcommands.h- * 
+upnpcommands.h- * List of possible UPnP errors for AddPortMapping :
+upnpcommands.h- * errorCode errorDescription (short) - Description (long)
+upnpcommands.h- * 402 Invalid Args - See UPnP Device Architecture section on Control.
+upnpcommands.h- * 501 Action Failed - See UPnP Device Architecture section on Control.
+upnpcommands.h- * 715 WildCardNotPermittedInSrcIP - The source IP address cannot be
+upnpcommands.h- *                                   wild-carded
+upnpcommands.h- * 716 WildCardNotPermittedInExtPort - The external port cannot be wild-carded
+upnpcommands.h- * 718 ConflictInMappingEntry - The port mapping entry specified conflicts
+upnpcommands.h- *                     with a mapping assigned previously to another client
+upnpcommands.h- * 724 SamePortValuesRequired - Internal and External port values
+upnpcommands.h- *                              must be the same 
+upnpcommands.h- * 725 OnlyPermanentLeasesSupported - The NAT implementation only supports
+upnpcommands.h- *                  permanent lease times on port mappings
+
+
+
+     黑暗乡村 黑色地板 12只猴子 记忆裂痕 记忆碎片 亡命感应 万能钥匙 寂静岭 黑天鹅
+     看见恶魔
+
+------------------------------------
+type: upnpc -a 10.10.188.87 8080 8080 UDP 2
+
+output:
+Found valid IGD : http://10.10.188.1:1900/ipc
+Local LAN ip address : 10.10.188.87
+ExternalIPAddress = 121.32.11.202
+InternalIP:Port = 10.10.188.87:8080
+external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (duration=2)
+----------------------------------------
+
+
+1027 socket get the send ip?
+     scp with pwd										*
+     
+1028      
      
