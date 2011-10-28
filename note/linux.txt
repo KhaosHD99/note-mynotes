@@ -1344,3 +1344,6 @@ freopen("/var/log/syslog","a", stderr);
         struct ifreq *ifcu_req;
     } ifc_ifcu;
   };
+
+1025 one reason of the wire lan block intermittently: loop back
+     
