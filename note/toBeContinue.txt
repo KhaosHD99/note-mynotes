@@ -6188,5 +6188,7 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 1027 socket get the send ip?
      scp with pwd										*
      
-1028      
+1028 shell exec
+     operator overloading
      
+1031 ¢ø         
