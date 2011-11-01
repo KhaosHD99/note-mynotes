@@ -608,5 +608,23 @@ Each of the containers is a class template
   const not only used by var, but also func(input arg, ouput arg, func itseft)
    
 1021 
-   
+     
+1031 friend ship: can not be inherit
+                  unidirectional
+                  no transitivity
  
+1031 #define MAX(a, b)       (a) > (b) ? (a) : (b)
+     #define MAX(a, b)       ((a) > (b) ? (a) : (b))  is so dangerous(edge effect)
+     use inline instead macro(efficient, safe and can access private member)
+     must be together with the func define body
+     声明与定义不可混为一谈，用户没有必要、也不应该知道函数是否需要内联
+     
+     assert is not a func 
+     
+     Use const whenever you need; convert data type explicitly as you can
+     
+     value, ref, pointer pass
+     
+     Bjarne Stroustrup
+     
+     不要将正常值和错误标志混在一起返回

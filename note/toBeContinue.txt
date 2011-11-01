@@ -6191,4 +6191,17 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 1028 shell exec
      operator overloading
      
-1031 ¢ø         
+1031 ¢ø
+     c++ basic; data structure(algorithm)							***
+     no suitable ¡®operator delete¡¯ 
+10:28 2011-10-3116
+     
+     pass value via cp(default) 								*		
+     constructed function£¬ no init arg							over
+     smart poiter			           
+      
+     prj conding style
+     
+1101 from womb to tomb          
+     
+     
