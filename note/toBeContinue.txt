@@ -6203,5 +6203,16 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      prj conding style
      
 1101 from womb to tomb          
+     why can't web access via upnp: because the protocol?					over
+     ERROR: server.c(107) **** GetGenericPortMappingEntry() returned 402 (Invalid Args)		over
+     give return val spec mean									*		
+     shell basics										***
      
+     register to multi route?									**
+          
+     brw bookmark same title									**
+     
+     when a lan have mulit upnp route??
+          								
+1102 
      
