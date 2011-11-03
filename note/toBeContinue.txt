@@ -6214,5 +6214,21 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
      when a lan have mulit upnp route??
           								
-1102 
+1102 ---------------------------------
+     mapping link list
+     is using check
+     specific the route? who give me ip, set redirect to who
+
+     UPNP_GetExternalIPAddress: how to handle when multi route
+     add delete
+     port reuse by UDP and TCP
      
+     why allocate: char intClient[40];
+     xml file is empty										**
+     --------------------------------
+     
+     constructor can not be virtual
+     if(x>0.000001&&x<-0.000001)
+      
+1103 adver: xml empty
+       
