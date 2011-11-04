@@ -8,3 +8,10 @@ source list: deb ftp://ftp.tw.debian.org/debian/ lenny main
              deb http://mirrors.cn99.com/debian lenny main
 
 061762
+
+
+Username: git-xujiekoo.gmail.com
+Password: 1/3e0csjN0bTBoBOtx83Xei3gRjKkk8YYEabzL7U1Rmcw
+
+
+http://note-mynotes.googlecode.com/svn/trunk/
