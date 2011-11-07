@@ -6231,11 +6231,12 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      if(x>0.000001&&x<-0.000001)
       
 1103 adver: xml empty
-<<<<<<< .mine
      
 1104 i need to find a route of retreat
-
-     =======
        
-1104 stream media										**
-     >>>>>>> .r716
+1104 stream media										***
+     database											***     
+     
+1107 apt prefix											*
+     
+     
