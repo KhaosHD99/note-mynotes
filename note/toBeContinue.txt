@@ -6234,6 +6234,10 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1104 i need to find a route of retreat
        
+<<<<<<< .mine
+1104 stream media									    ***
+     data base										    ***
+=======
 1104 stream media										***
      database											***     
      
@@ -6246,4 +6250,5 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
      en: diary tense										***
      
+>>>>>>> .r722
      
