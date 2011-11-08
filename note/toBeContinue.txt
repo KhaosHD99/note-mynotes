@@ -6238,5 +6238,12 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      database											***     
      
 1107 apt prefix											*
+     shell include envirament
+     cmake											**
+
+1108 dhcp flag; use libdhcp									**
+     phoneconfig										**
+     
+     en: diary tense										***
      
      
