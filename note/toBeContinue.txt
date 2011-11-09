@@ -6249,6 +6249,14 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      phoneconfig										**
      
      en: diary tense										***
+<<<<<<< .mine
+     union											**
+     Win32DiskImager
+     phoneconfigure: crash									**
+          
+1109 
+         
+    =======
      
 >>>>>>> .r722
-     
+     >>>>>>> .r724
