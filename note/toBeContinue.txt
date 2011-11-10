@@ -6268,5 +6268,16 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
       
       one interface with multiple ip addr
       
+      errno == 0 ???
 
-
+1110 
+     12.PPPOE - WIFI配置好WIFI信息后，信号状态一直在勾与X间跳转，连接不上WIFI
+     
+     --------------------------------------------
+     wpa_supplicant: no process found
+     Error for wireless request "Set ESSID" (8B1A) :
+     SET failed on device wlan0 ; Operation not permitted.
+    
+     188.1 mac: B0:48:7A:59:D4:0C
+      
+     multi 
