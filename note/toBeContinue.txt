@@ -6234,10 +6234,6 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1104 i need to find a route of retreat
        
-<<<<<<< .mine
-1104 stream media									    ***
-     data base										    ***
-=======
 1104 stream media										***
      database											***     
      
@@ -6249,14 +6245,28 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      phoneconfig										**
      
      en: diary tense										***
-<<<<<<< .mine
      union											**
      Win32DiskImager
      phoneconfigure: crash									**
           
-1109 
+1109 the rest tuition?
+     program performance
          
-    =======
-     
->>>>>>> .r722
-     >>>>>>> .r724
+     eth0      Link encap:Ethernet  HWaddr 00:01:25:74:50:44  
+          inet addr:10.10.100.159  Bcast:10.10.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:22644 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8458 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2924958 (2.9 MB)  TX bytes:818959 (818.9 KB)
+          Base address:0x2000 
+
+      eth0:1    Link encap:Ethernet  HWaddr 00:01:25:74:50:44  
+          inet addr:10.10.151.183  Bcast:10.10.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          Base address:0x2000 
+      
+      one interface with multiple ip addr
+      
+
+
