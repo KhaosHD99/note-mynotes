@@ -1,3 +1,5 @@
 1 subnet nest?
 2 网关限定子掩码
 3 网关上级网段 
+
+Each gateway will need to keep track of which way to deliver various packages of data, and for this it uses a Routing Table. A routing table is a database which keeps track of paths, like a map, and allows the gateway to provide this information to the node requesting the information.
