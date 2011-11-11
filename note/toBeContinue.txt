@@ -6277,7 +6277,16 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      wpa_supplicant: no process found
      Error for wireless request "Set ESSID" (8B1A) :
      SET failed on device wlan0 ; Operation not permitted.
-    
+     
      188.1 mac: B0:48:7A:59:D4:0C
       
-     multi 
+     multi key???
+     dhcp 											**
+     mask; route table										***
+     
+1111  
+          
+
+     
+      
+     
