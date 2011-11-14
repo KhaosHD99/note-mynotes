@@ -6286,8 +6286,9 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1111 init_update_config_flags
      keep dhcp status when switch network type          				 
-          
-
-     
-      
+              
+1114 no device detect after reboot								**
+     is "route -net"
+     wifi network setting: no connect								*
+     SIGHUP SIGALRM
      
