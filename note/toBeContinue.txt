@@ -6292,3 +6292,15 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      wifi network setting: no connect								*
      SIGHUP SIGALRM
      
+     dhcp route table
+     
+     Failed to read scan data: Invalid argument
+    
+     struct 
+     {
+         unsigned on  			:1;
+         unsigned time  		:15;
+     }
+     
+     wireless: why can not recover network when first switch network type???			**
+     
