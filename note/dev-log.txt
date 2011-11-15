@@ -1,4 +1,4 @@
-2010
+
 09.26  1)c++ call gtk;could not find the signal handler
 
 09.27: 1)early peep pkg-config; executable load share lib by absolute path, not appoint a             lib file
@@ -1016,6 +1016,18 @@ request 700 to meigu
      pes 2012
 
 2011-11-14
-     dreamed liangpeijun
+     i feel so tired. dreamed liangpeijun
      600m only because the power cut
-          
+         
+2011-11-15
+     i feel tired. dream yanyongxin(primary school) and dad was dead, e...!!!
+     
+     处理时间  处理单位 邮件状态 
+2011-11-10 11:34:36  黄石市万达邮政所  交寄 寄达地----广东省广州市  
+2011-11-10 12:23:00  黄石市  到达处理中心  
+2011-11-11 16:28:00  武汉中心局  到达处理中心  
+2011-11-12 04:48:00  广州  到达处理中心  
+2011-11-12 14:46:32  机场西投  到达投递邮局  
+2011-11-13 03:34:00  广州邮政投递局  到达处理中心  
+2011-11-13 09:50:53  机场西投  正在安排投递   
+2011-11-14 13:28:11  三元里  到达投递邮局  
