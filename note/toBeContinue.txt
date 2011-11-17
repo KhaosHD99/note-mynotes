@@ -6255,7 +6255,7 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      eth0      Link encap:Ethernet  HWaddr 00:01:25:74:50:44  
           inet addr:10.10.100.159  Bcast:10.10.255.255  Mask:255.255.0.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:22644 errors:0 dropped:0 overruns:0 frame:0
+          RX packets:24 errors:0 dropped:0 overruns:0 frame:0
           TX packets:8458 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
           RX bytes:2924958 (2.9 MB)  TX bytes:818959 (818.9 KB)
@@ -6306,5 +6306,5 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1115 chrysanthemum, medlar
      
-     
-     
+2011-11-17
+     fnphoneconfig
