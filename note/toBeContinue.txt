@@ -6314,3 +6314,7 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 2011-11-18
      if wireless connect info not match, the dhclient block; async???				**
      
+     shell: display color
+     
+     c++: virtual func;polymorphic
+          
