@@ -19,4 +19,6 @@ http://note-mynotes.googlecode.com/svn/trunk/
 cmb: 6225 8820 1314 2259 
 
 medical insurance bankbook£º085364
- 
+
+social insurance peronal num: 25164308
+               web query pwd: 041982
