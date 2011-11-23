@@ -6262,7 +6262,8 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
           Base address:0x2000 
 
       eth0:1    Link encap:Ethernet  HWaddr 00:01:25:74:50:44  
-          inet addr:10.10.151.183  Bcast:10.10.255.255  Mask:255.255.0.0
+          inet addr:
+     10.10.151.183  Bcast:10.10.255.255  Mask:255.255.0.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           Base address:0x2000 
       
@@ -6318,3 +6319,9 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
      c++: virtual func;polymorphic
           
+2011-11-21
+    call back func										***
+    
+2011-11-22
+    
+     
