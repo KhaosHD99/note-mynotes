@@ -16,8 +16,9 @@ Password: 1/3e0csjN0bTBoBOtx83Xei3gRjKkk8YYEabzL7U1Rmcw
 
 http://note-mynotes.googlecode.com/svn/trunk/
 
-cmb: 6225 8820 1314 2259 
-
+cmb debit:  6225 8820 1314 2259 
+    credit: 5187 1083 0325 6924
+    
 medical insurance bankbook£º085364
 
 social insurance peronal num: 25164308
