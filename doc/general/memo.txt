@@ -19,7 +19,18 @@ http://note-mynotes.googlecode.com/svn/trunk/
 cmb debit:  6225 8820 1314 2259 
     credit: 5187 1083 0325 6924
     
+ccb debit: 6227 0033 2152 0130 162
+    
+boc:       6013 8219 0005 9957 634
+    
 medical insurance bankbook£º085364
 
 social insurance peronal num: 25164308
                web query pwd: 041982
+
+
+
+
+
+zhifubao: Ò¶·ã 440184198901010689
+  
