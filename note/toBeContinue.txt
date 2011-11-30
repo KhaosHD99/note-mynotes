@@ -6264,10 +6264,12 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
       eth0:1    Link encap:Ethernet  HWaddr 00:01:25:74:50:44  
           inet addr:
      10.10.151.183  Bcast:10.10.255.255  Mask:255.255.0.0
+
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           Base address:0x2000 
       
-      one interface with multiple ip addr
+     
+ one interface with multiple ip addr
       
       errno == 0 ???
 
@@ -6324,4 +6326,13 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
     
 2011-11-22
     
-     
+
+2011-11-28 
+    sem_timedwait gtk thread; g_cond_timed_wait 						***
+    select
+    
+    gtk timer, run dialog    
+
+
+11:09 2011-11-29
+    const
