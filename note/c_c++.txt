@@ -623,8 +623,12 @@ Each of the containers is a class template
      
      Use const whenever you need; convert data type explicitly as you can
      
-     value, ref, pointer pass
+ 
+    value, ref, pointer pass
      
      Bjarne Stroustrup
      
      不要将正常值和错误标志混在一起返回
+
+
+11:02 2011-11-29 use const whereever you want
