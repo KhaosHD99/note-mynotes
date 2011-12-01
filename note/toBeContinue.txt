@@ -6336,3 +6336,8 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 
 11:09 2011-11-29
     const
+
+13:57 2011-12-1
+    c++ base: polymorphism
+    database
+    
