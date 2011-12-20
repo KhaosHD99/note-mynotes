@@ -6343,3 +6343,12 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
     
 2011-12-19
     date -s
+
+2011-12-20
+    registered permanent residence
+    job
+    guangfa credit card, alipay real name auth
+    
+    edu    
+    
+    
