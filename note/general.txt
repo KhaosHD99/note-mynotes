@@ -390,3 +390,18 @@ IT民工：年入10万（经理级别，基本无房，学会装波一，生活压力大）
 
 
 鹿茸，蛤蚧，海马，九香虫，牛膝，淫羊藿，杜仲，仙茅，寸云，炙甘草，炒白芍，丹皮，巴戟天，川断
+
+
+
+Job Duties:
+Develop IT solutions including requirement gathering, technical design, coding and testing according to established standards and best practices;
+Participate in system testing, UAT, implementation and rollout to sites;
+Provide post-release support;
+Some after-hours production support is required but is rotated equally amongst the team.
+ 
+Candidate Specifications:
+At least one year of Mainframe development and support experience;
+Familiar with COBOL programming would be preferred;
+Strong analytical, interpersonal and problem-solving skills;
+Effective communication skills in spoken and written English;
+Ability to work under pressure on tight schedule.
