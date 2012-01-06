@@ -6364,4 +6364,11 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 
 14:01 2011-12-30
     own dc photo e-backup										***
+
+
+13:30 2012-1-5
+    地址运算符算术递增单位											done
+    c strlen sizeof											**
+    	
     
+                 
