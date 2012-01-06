@@ -6370,5 +6370,6 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
     地址运算符算术递增单位											done
     c strlen sizeof											**
     	
-    
-                 
+15:33 2012-1-6
+    sql syntax												**
+                         
