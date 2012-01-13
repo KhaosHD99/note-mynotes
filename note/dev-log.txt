@@ -1325,7 +1325,7 @@ xiaohan resigned
      -----------------------------------------------------------------------------------------
      2011-12-30       1,000.00      1,516.88(510 from alipay from credit card)   柜台存现
 
-     that is the record of CMB saving card(corp)          
+     that is the record of CMB saving card(corp), company pay 1000          
      -----------------------------------------------------------------------------------------
      pay back 510 to CMB credit card from CMB saving card, but still have debt about 4500+
      pes 2012(stupid,  can not carry out "control the match")
@@ -1382,6 +1382,7 @@ xiaohan resigned
 15:12 2012-1-13
      信用卡充值服务将于2012年2月8日关闭，您在网购时可直接使用信用卡付款给卖家（无需事先充值到支付宝账户），给您带来的不便敬请谅解。fuck!!! but it will be happen certainly
      
+     company pay 1000          
 
 
 
