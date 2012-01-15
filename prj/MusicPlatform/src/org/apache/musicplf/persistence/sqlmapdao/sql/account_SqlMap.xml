@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Account">
+
+
+
+  <resultMap id="accountResult" class="org.apache.musicplf.domain.Account">
+    <result property="id" column="ID"/>
+    <result property="password" column="PASSWORD"/>
+    <result property="username" column="ACCOUNT_NAME"/>
+    <result property="state" column="STATE"/>
+    <result property="email" column="EMAIL"/>
+    <result property="regdate" column="REG_DATE"/>
+    <result property="remark" column="REMARK"/>
+    
+  </resultMap>
+
+  <select id="getAccountByUsername" resultMap="accountResult" parameterClass="string">
+    select
+      ACCOUNT.ID,
+      ACCOUNT.ACCOUNT_NAME,
+      ACCOUNT.PASSWORD,
+      ACCOUNT.STATE,
+      ACCOUNT.EMAIL,
+      ACCOUNT.REG_DATE,
+      ACCOUNT.REMARK
+          
+    from ACCOUNT
+    where ACCOUNT.ACCOUNT_NAME = #value#
+      
+  </select>
+
+  <select id="getAccountByUsernameAndPassword" resultMap="accountResult" parameterClass="org.apache.musicplf.domain.Account">
+    select
+      ACCOUNT.ID,
+      ACCOUNT.ACCOUNT_NAME,
+      ACCOUNT.PASSWORD,
+      ACCOUNT.STATE,
+      ACCOUNT.EMAIL,
+      ACCOUNT.REG_DATE,
+      ACCOUNT.REMARK
+    from ACCOUNT
+    where ACCOUNT.ACCOUNT_NAME = #username#
+      and ACCOUNT.PASSWORD = #password#
+     
+  </select>
+
+  <insert id="insertAccount" parameterClass="org.apache.musicplf.domain.Account">
+    insert into ACCOUNT (EMAIL,ACCOUNT_NAME ,PASSWORD,STATE,REG_DATE,REMARK)
+    values (#email#,#username#, #password#, #state#,#regdate#, #remark#)
+  </insert>
+
+  <update id="updateAccount" parameterClass="org.apache.musicplf.domain.Account">
+    update ACCOUNT set EMAIL = #email#, ACCOUNT_NAME = #username#,PASSWORD=#password#,STATE = #state# where ACCOUNT_NAME = #username#
+  </update>
+
+</sqlMap>
