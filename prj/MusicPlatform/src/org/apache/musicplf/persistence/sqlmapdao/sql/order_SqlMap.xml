@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Order">
+
+ <resultMap id="orderResult" class="org.apache.musicplf.domain.Order">
+    <result property="orderDate" column="orders.order_date"/>
+    <result property="id" column="orders.id"/>
+    <result property="totalPrice" column="orders.totalPrice"/>
+    <result property="username" column="account.account_name"/>
+ </resultMap>
+
+ 
+ <insert id="insertOrder" parameterClass="org.apache.musicplf.domain.Order">
+    insert into orders(orders.account_id,orders.totalPrice,orders.order_date)
+    values ((select account.id from account where account.account_name=#username#),#totalPrice#,#orderDate#)
+  </insert>
+ 
+</sqlMap>
