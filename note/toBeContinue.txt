@@ -6376,3 +6376,10 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
 
 15:51 2012-1-11
 Robynn and Kendy
+
+21:09 2012-2-2
+     位/值拷贝
+     拷贝构造函数
+     多态
+     sizeof(数组)
+     unsigned char s2:3;
