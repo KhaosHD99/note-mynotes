@@ -6386,9 +6386,17 @@ Robynn and Kendy
 
      operator
      сят╙
-     int 1.4
+     int 1.4												done
      en
           
 16:29 2012-2-14
      database, android
+     union
+     short 
+     
+     little/big endian
+     
+     signed unsign
+
+     struct align
      
