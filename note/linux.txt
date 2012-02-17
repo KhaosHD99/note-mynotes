@@ -1347,3 +1347,5 @@ freopen("/var/log/syslog","a", stderr);
 
 1025 one reason of the wire lan block intermittently: loop back
      
+
+     mount -t cifs -o username="administrator",password="elon" //10.10.188.188/tmp /opt/mypc/
