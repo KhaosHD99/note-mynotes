@@ -6383,11 +6383,34 @@ Robynn and Kendy
      多态
      sizeof(数组)
      unsigned char s2:3;
+<<<<<<< .mine
+
+
+
+
+有关位域的面试题（为什么输出的是一个奇怪的字符）
+
+a.t = 'b';效果相当于 a.t= 'b' & 0xf;
+
+'b' --> 01100010
+'b' & 0xf -->>00000010
+所以输出Ascii码为2的特殊字符
+
+
+char t:4;就是4bit的字符变量，同样
+unsigned short i:8;就是8bit的无符号短整形变量
+
+
+
+=======
 
      operator
      友元
      int 1.4												done
      en
+<<<<<<< .mine
+          >>>>>>> .r866
+=======
           
 16:29 2012-2-14
      database, android
@@ -6399,4 +6422,4 @@ Robynn and Kendy
      signed unsign
 
      struct align
-     
+     >>>>>>> .r870

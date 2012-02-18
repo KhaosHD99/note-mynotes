@@ -1513,6 +1513,19 @@ xiaohan resigned
     swim 800, woke up late    
     sms liujinger(valentine, what is her plan, but she said no plan temporary, no plan to go where or no any plan? i said
     i will have dinner with her, haha)
+<<<<<<< .mine
+
+16:36 2012-2-18
+
+------------------------------ power rate bankbook -------------------------
+查询结果如下：  查询时间： 2012-02-18 16:36:30 
+
+当前余额：    221.65元 
+可用余额：    221.65元 
+币 种：     人民币 
+---------------------------------------------------------------------------- 
+
+=======
      
 10:21 2012-2-14
     got up return to normal
@@ -1560,3 +1573,4 @@ xiaohan resigned
 
 
 
+>>>>>>> .r870
