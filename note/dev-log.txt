@@ -1513,19 +1513,6 @@ xiaohan resigned
     swim 800, woke up late    
     sms liujinger(valentine, what is her plan, but she said no plan temporary, no plan to go where or no any plan? i said
     i will have dinner with her, haha)
-<<<<<<< .mine
-
-16:36 2012-2-18
-
------------------------------- power rate bankbook -------------------------
-查询结果如下：  查询时间： 2012-02-18 16:36:30 
-
-当前余额：    221.65元 
-可用余额：    221.65元 
-币 种：     人民币 
----------------------------------------------------------------------------- 
-
-=======
      
 10:21 2012-2-14
     got up return to normal
@@ -1563,6 +1550,27 @@ xiaohan resigned
      sister go to hangzhou
      
 
+2012-2-18
+     go to play football with net friend at caofangwei costed me 15+
+
+2012-2-19
+
+10:35 2012-2-20
+     景峰 call me to reinterview for the salary
+     
+----------------------------------------------------------------
+个人缴费历史查询 
+缴费年月 个人缴费基数(元) 本月个人应缴金额(元) 本月个人实际缴费金额(元) 
+201110   2018             161.44               161.44 
+201109   2800             224                  224 
+201108   2800             224                  224 
+
+
+建立个人帐户日期: 2011年08月    
+个人帐户中单位划入部分累计本息(元): null  
+个人帐户中个人缴费部分累计本息(元): 833.44  
+----------------------------------------------------------------------- 
+    
 
 
 
@@ -1572,5 +1580,3 @@ xiaohan resigned
 
 
 
-
->>>>>>> .r870
