@@ -1588,7 +1588,7 @@ Medical		   10%					    2%
 
 own expense ***************************************************************
 Endowment        				    	    20%
-Medical		   					    4%/7%
+Medical		   					    4%/7%                               !!!(no diagnosis subsidy)
 ...												??
 
 no housing fund							
@@ -1597,8 +1597,8 @@ working age											??
 
 attention(12:06 2012-2-21):
      1) both the solution above, endowment only 8% in your individual acount 
-     2) Medical do not store money, it just a insurance(统筹300？？？清零)			**
-     3) web query										**
+     2) Medical do not store money, it just a insurance(统筹300？？？清零), and how the ratio 		***
+     3) web query											**
 ---------------------------------------------------------------------------
      
 12:06 2012-2-21
