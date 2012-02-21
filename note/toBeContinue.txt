@@ -6425,4 +6425,11 @@ unsigned short i:8;就是8bit的无符号短整形变量
      面向对象 加减乘除 plus subtract multiply divise
      vector list 随机访问  连续内存
      
+     ------------- the problem of own expense ------------
+     how many type 
+     how to pay
+     housing fund
+     working age											**
+     working age relation with public expense social insurance???
+     
      
