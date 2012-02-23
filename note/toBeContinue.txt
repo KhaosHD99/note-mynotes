@@ -6433,3 +6433,5 @@ unsigned short i:8;就是8bit的无符号短整形变量
      working age relation with public expense social insurance???
      
      
+11:08 2012-2-22
+     
