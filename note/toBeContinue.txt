@@ -6383,10 +6383,6 @@ Robynn and Kendy
      多态
      sizeof(数组)
      unsigned char s2:3;
-<<<<<<< .mine
-
-
-
 
 有关位域的面试题（为什么输出的是一个奇怪的字符）
 
@@ -6400,9 +6396,6 @@ a.t = 'b';效果相当于 a.t= 'b' & 0xf;
 char t:4;就是4bit的字符变量，同样
 unsigned short i:8;就是8bit的无符号短整形变量
 
-
-
-=======
 
      operator
      友元
@@ -6431,8 +6424,7 @@ unsigned short i:8;就是8bit的无符号短整形变量
      housing fund
      working age											**
      working age relation with public expense social insurance???
-     
-<<<<<<< .mine
+
      
 
 
@@ -6441,15 +6433,27 @@ unsigned short i:8;就是8bit的无符号短整形变量
 
 
 
-
-
-
-=======
      
 11:08 2012-2-22
-     >>>>>>> .r884
 
 
 
 天安科技园旁
 番禺龙美新村11巷5号3楼(迎宾大道旁),
+
+10:55 2012-2-29
+     opengl directx											**
+     android												**
+     
+     设计模式
+     
+     岗位要求：
+1.团队合作精神
+2.c++两年以上编程经验。
+3.熟悉ICE,ACE等通信框架
+4.熟悉TCP/IP socket编程
+5.熟悉linux下C++ mysql,mssql,orcale等数据库编程
+工作职责：
+1.负责编写Ice中间件，分布式服务程序
+2.负责编写c++ mysql服务程序 
+   
