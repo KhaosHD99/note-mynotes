@@ -1857,6 +1857,9 @@ mark: 30 mobile phone fee
     no siwn because i pick up mum from hospital
     yangu came back
 
+<<<<<<< .mine
+2012-3-23
+=======
 2012-3-24   Saturday
     sw; right side slide is good
     play football; fuck, the ball hit my testis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1865,13 +1868,31 @@ mark: 30 mobile phone fee
 10:07 2012-3-25  Sunday
     sw; back stroke is better; left side slide is worse
     dengzhimin q me and ask what present i want(she is at hongkong)    
+>>>>>>> .r910
 
+<<<<<<< .mine
+2012-3-24
+     testis was hitted, fuck
 
+2012-3-25
+     
+     
+=======
+
+>>>>>>> .r910
 9:25 2012-3-26
      done the back stroke frame, haha; i need learn free style next
      dengzhimin q me and said have a dinner with me for the feedback
 
+14:59 2012-3-27
+     learn under swith
+     deliver the resume
+     
+     fuck. i need pay back the credit card debt!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     
 
+<<<<<<< .mine
+=======
 
 
 
@@ -1918,3 +1939,4 @@ void Foo3(char *str) {…}
 
 12.    请写一个shell脚本来监测Linux服务器的运行状态，该脚本每天定时自动运行，采集该服务器的cpu负荷、内存或磁盘等信息，并将这些信息分别格式化输出到不同的日志文件中。
 13. 用lex/yacc（或类似工具）实现一个四则（加减乘除）运算的计算器，能够支持类似“234-(56+26)/(23+23*5)”的计算。
+>>>>>>> .r910

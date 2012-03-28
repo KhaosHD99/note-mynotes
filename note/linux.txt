@@ -1349,3 +1349,8 @@ freopen("/var/log/syslog","a", stderr);
      
 
      mount -t cifs -o username="administrator",password="elon" //10.10.188.188/tmp /opt/mypc/
+
+
+13:47 2012-3-28
+     "C++ compiler cannot create executables" when configure at cifs file system, why??????????
+     
