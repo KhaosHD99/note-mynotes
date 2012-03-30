@@ -1857,7 +1857,6 @@ mark: 30 mobile phone fee
     no siwn because i pick up mum from hospital
     yangu came back
 
-<<<<<<< .mine
 2012-3-23
 =======
 2012-3-24   Saturday
@@ -1868,75 +1867,28 @@ mark: 30 mobile phone fee
 10:07 2012-3-25  Sunday
     sw; back stroke is better; left side slide is worse
     dengzhimin q me and ask what present i want(she is at hongkong)    
->>>>>>> .r910
 
-<<<<<<< .mine
-2012-3-24
-     testis was hitted, fuck
-
-2012-3-25
-     
-     
-=======
-
->>>>>>> .r910
 9:25 2012-3-26
      done the back stroke frame, haha; i need learn free style next
      dengzhimin q me and said have a dinner with me for the feedback
-
+     deliver the resume     
+     i need find a job as soom as i can!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!and i want to work at shenzhen(salary is high)
+     
 14:59 2012-3-27
      learn under swith
      deliver the resume
      
      fuck. i need pay back the credit card debt!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      
-
-<<<<<<< .mine
-=======
-
-
-
-
-22:29 2012-3-27
-
-1.        简述C++中class和struct的区别？
-
-2.        请问如下代码中A的构造函数和析构函数分别被执行了多少次？
-
-A* ptr = new A[10];
-
-delete []ptr; 
-
-3.        有一个C++工程，里面有10个头文件（名字分别为1.h, 2.h, 3.h, 4.h…）和6个源文件(名为a.cpp, b.cpp, c.cpp…)。
-
-a)        在Linux下，请写一个makefile文件，用于编译该工程
-
-b)        如果要分别生成Release和Debug版本，该makefile如何编写
-
-c)        如果该工程需要跨平台（Linux/windows），但是该工程使用了一些不同环境的API（例如多线程函数），你应该如何处理？
-
-4.        简述下面三个函数声明有何差别。
-
-void Foo1(char str[10]) {…}      
-
-void Foo2(char str[100]) {…}
-
-void Foo3(char *str) {…}
-
-5.        某应用程序使用TCP协议与服务器进行通信。现在该程序出现了问题，不再往服务器发送/接受数据，你需要检查其与服务器的TCP连接状况。你应该使用什么工具/命令？常用的TCP连接状态有哪些？
-
-6.        有一个待优化的服务端程序，每当一个tcp连接建立后，就创建一个线程进行业务处理，一般情况下，业务处理占用较少的系统资源，并能快速完成，之后销毁该线程。但在实际运行中，该程序的执行效率低于预期（why?），而且当业务符合达到一定水平后，系统性能急剧下滑。你认为应如何优化该服务端程序？
-
-7.        请画出一个你熟悉的、至少包括4个状态的状态机图（最好是之前的项目或现实生活中的模型），并进行简要说明。
-
-8.        现需要在跨平台环境中开发一个需访问数据库的网页应用，如何避免中文乱码的问题？有什么好方法及原则来杜绝你的项目中出现乱码呢？
-
-9.        淘宝网上每个商品都有最近的销售记录，现需要跟踪并分析某个产品的各商家的历史销售记录，能否由程序来抓取淘宝网上的这些数据？你打算如何做？（描述出你计划使用的语言或工具、思路及想法，不必写出完整的源代码）
-
-10.    用XPATH（http://www.w3.org/TR/xpath/）实现一个跟踪Apple Online Store上某款iPhone 4S（如黑色16G）的“预计发货时间”变化的伪代码。
-
-11.    你对SQL语句的性能优化有何经验？有哪些优化方法和手段？
-
-12.    请写一个shell脚本来监测Linux服务器的运行状态，该脚本每天定时自动运行，采集该服务器的cpu负荷、内存或磁盘等信息，并将这些信息分别格式化输出到不同的日志文件中。
-13. 用lex/yacc（或类似工具）实现一个四则（加减乘除）运算的计算器，能够支持类似“234-(56+26)/(23+23*5)”的计算。
->>>>>>> .r910
+2012-3-28
+     slide sidely
+     deliver the resume
+     
+17:14 2012-3-29
+     learn free style: triple switch
+     modify the resume and deliver the resume
+     q hegui for help(tag: job, shenzhen, salary)
+     why there is no call for interview!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     
+     
+     
