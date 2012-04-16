@@ -6587,6 +6587,8 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
 10:37 2012-4-1
     python
         
+17:57 2012-4-16
+    the implement of decimal to binary							**
+    parameter passed: array, length     						**
     
-    
-    
+            
