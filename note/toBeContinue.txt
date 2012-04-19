@@ -6591,4 +6591,6 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
     the implement of decimal to binary							**
     parameter passed: array, length     						**
     
-            
+21:50 2012-4-19 
+    precompile										**
+    
