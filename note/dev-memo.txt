@@ -1,0 +1,7 @@
+/***************************** build qt sourse ****************
+    
+    window cmd: set QMAKESPEC=win32-msvc2005
+    configure -no-stl -no-dsp -vcproj
+***************************************************************/
+
+

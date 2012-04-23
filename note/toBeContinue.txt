@@ -6591,6 +6591,63 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
     the implement of decimal to binary							**
     parameter passed: array, length     						**
     
+<<<<<<< .mine
+    
+
+
+
+
+
+11:44 2012-4-19
+   how to output to *.lib(in fact, lib is a director(windows))				done
+   
+   xfs 
+   ¾²Ì¬/¶¯Ì¬ ¼ÓÔØ dll
+   lpAddFun  HINSTANCE  
+   MFC ¶¯Ì¬Á´½Ó¿â
+
+   why just there is *.lib file, but no implement dll can exe link suc?????????????	***
+
+
+14:36 2012-4-20
+   vs2005
+   
+   1. Visual C++´ò¿ªÏîÄ¿,DEBUGÄ£Ê½¡£  
+   2. ÔÚ ÏîÄ¿ ²Ëµ¥, ÉèÖÃ , µ¥»÷£¬ È»ºóµ¥»÷ Á´½Ó Ñ¡Ïî¿¨¡£   
+   3. ÔÚ ·ÖÀà ÁĞ±í, µ¥»÷ µ÷ÊÔ ¡£  
+   4. Çå³ı, ·ÖÀëÀàĞÍ ¸´Ñ¡¿ò£¬ È»ºóµ¥»÷ È·¶¨ ¡£  
+   5. ÔÚ Éú³É ²Ëµ¥ÉÏ, µ¥»÷ RebuildAll¡£  
+      Ê¹ÓÃ´Ë·½·¨¿ÉÒÔÉú³É .exe »ò .dll ÎÄ¼ş, ÎÄ¼ş²»ÒÀÀµÓÚ .pdb ÎÄ¼ş£¬ ±àÒëÆ÷Éú³É·ûºÅµ÷ÊÔĞÅÏ¢¡£ 
+   
+   vc debug, release
+   vc release dll to bin								**
+   
+   
+   ½»Í¨ÒøĞĞ°×ÔÆÖ§ĞĞ×Ô¶¯·¢¿¨»úÎÊÌâ»ã×Ü
+   1 MonitorSystem¿ª»ú×Ô¶¯Æô¶¯Ê§°Ü
+   2 µ±½»Ò×ÃÜÂëÉèÖÃÇ°ºó²»Ò»ÖÂÊ±»Øµ½³õÊ¼½çÃæ£¬´Å¿¨×÷·Ï
+   3 µ±¹´Ñ¡ÊÖ»úÒøĞĞ¿ªÍ¨Ñ¡Ïî£¬´Å¿¨ÉêÇëÊ§°Ü
+   4 ¹´Ñ¡¿ªÍ¨ÍøÉÏÒøĞĞÑ¡ÏîºóÒøĞĞ¿¨ÕËºÅ²»ÄÜÍøÉÏ¸¶¿î£¬×ªÕË
+   5 ¿ª»úºóÓÃ»§ÃÜÂëĞ¡¼üÅÌĞèÈË¹¤´¦Àíºó²ÅÄÜÕı³£Ê¹ÓÃ
+   6 ´ı»ú×´Ì¬ÏÂÆÁÄ»¼äĞªĞÔ°×ÆÁ
+   7 ´ı»ú×´Ì¬ÏÂÓÃ»§ÃÜÂëĞ¡¼üÅÌÊ§Áé
+   
+   
+     
+   
+°ÑÏÈÆô¶¯µÄHKEY_LOCAL_MACHINEÏÂµÄRUNÀï  ºóÆô¶¯µÄ·ÅÔÚHKEY_CURRENT_USERÏÂµÄRUNÀïÊÔÒ»ÏÂ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices ÊÇ×îÓÅÏÈÆô¶¯µÄ  [×ª]Windows×ÔÆô¶¯³ÌĞòÊ®´ó²ØÉíÖ®Ëù  WindowsÆô¶¯Ê±Í¨³£»áÓĞÒ»´ó¶Ñ³ÌĞò×Ô¶¯Æô¶¯  ²»ÒªÒÔÎª¹ÜºÃÁË¡°¿ªÊ¼¡ú³ÌĞò¡úÆô¶¯¡±²Ëµ¥¾ÍÍòÊÂ´ó¼ª£¬Êµ¼ÊÉÏ£¬ÔÚWindows XP/2KÖĞ£¬ÈÃWindows×Ô¶¯Æô¶¯³ÌĞòµÄ°ì·¨ºÜ¶à£¬ÏÂÎÄ¸æËßÄã×îÖØÒªµÄÁ½¸öÎÄ¼ş¼ĞºÍ°Ë¸ö×¢²á¼ü¡£  
+Ò»¡¢µ±Ç°ÓÃ»§×¨ÓĞµÄÆô¶¯ÎÄ¼ş¼Ğ  ÕâÊÇĞí¶àÓ¦ÓÃÈí¼ş×Ô¶¯Æô¶¯µÄ³£ÓÃÎ»ÖÃ£¬Windows×Ô¶¯Æô¶¯·ÅÈë¸ÃÎÄ¼ş¼ĞµÄËùÓĞ¿ì½İ·½Ê½¡£ÓÃ»§Æô¶¯ÎÄ¼ş¼ĞÒ»°ãÔÚ£ºDocuments and Settings<ÓÃ»§Ãû×Ö>¡¸¿ªÊ¼¡¹²Ëµ¥³ÌĞòÆô¶¯£¬ÆäÖĞ¡°<ÓÃ»§Ãû×Ö>¡±ÊÇµ±Ç°µÇÂ¼µÄÓÃ»§ÕÊ»§Ãû³Æ¡£  
+
+¶ş¡¢¶ÔËùÓĞÓÃ»§ÓĞĞ§µÄÆô¶¯ÎÄ¼ş¼Ğ  ÕâÊÇÑ°ÕÒ×Ô¶¯Æô¶¯³ÌĞòµÄµÚ¶ş¸öÖØÒªÎ»ÖÃ£¬²»¹ÜÓÃ»§ÓÃÊ²Ã´Éí·İµÇÂ¼ÏµÍ³£¬·ÅÈë¸ÃÎÄ¼ş¼ĞµÄ¿ì½İ·½Ê½×ÜÊÇ×Ô¶¯Æô¶¯¡ª¡ªÕâÊÇËüÓëÓÃ»§×¨ÓĞµÄÆô¶¯ÎÄ¼ş¼ĞµÄÇø±ğËùÔÚ¡£¸ÃÎÄ¼ş¼ĞÒ»°ãÔÚ£ºDocuments and SettingsAll Users¡¸¿ªÊ¼¡¹²Ëµ¥³ÌĞòÆô¶¯¡£  
+
+Èı¡¢Load×¢²á¼ü  ½éÉÜ¸Ã×¢²á¼üµÄ×ÊÁÏ²»¶à£¬Êµ¼ÊÉÏËüÒ²ÄÜ¹»×Ô¶¯Æô¶¯³ÌĞò¡£Î»ÖÃ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsNT CurrentVersionWindowsload¡£  
+ËÄ¡¢Userinit×¢²á¼ü  Î»ÖÃ£º HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsNTCurrentVersion WinlogonUserinit¡£ÕâÀïÒ²ÄÜ¹»Ê¹ÏµÍ³Æô¶¯Ê±×Ô¶¯³õÊ¼»¯³ÌĞò¡£Í¨³£¸Ã×¢²á¼üÏÂÃæÓĞÒ»¸öuserinit.exe£¬ÈçÍ¼Ò»£¬µ«Õâ¸ö¼üÔÊĞíÖ¸¶¨ÓÃ¶ººÅ·Ö¸ôµÄ¶à¸ö³ÌĞò£¬ÀıÈç¡°userinit.exe,OSA.exe¡±£¨²»º¬ÒıºÅ£©¡£     Îå¡¢ExplorerRun×¢²á¼ü  ºÍload¡¢Userinit²»Í¬£¬ExplorerRun¼üÔÚHKEY_CURRENT_USERºÍ HKEY_LOCAL_MACHINEÏÂ¶¼ÓĞ£¬¾ßÌåÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPolicies ExplorerRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionPoliciesExplorerRun¡£  Áù¡¢RunServicesOnce×¢²á¼ü  RunServicesOnce×¢²á¼üÓÃÀ´Æô¶¯·şÎñ³ÌĞò£¬Æô¶¯Ê±¼äÔÚÓÃ»§µÇÂ¼Ö®Ç°£¬¶øÇÒÏÈÓÚÆäËûÍ¨¹ı×¢²á¼üÆô¶¯µÄ³ÌĞò¡£RunServicesOnce×¢²á¼üµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindows CurrentVersionRunServicesOnce£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServicesOnce¡£  Æß¡¢RunServices×¢²á¼ü  RunServices×¢²á¼üÖ¸¶¨µÄ³ÌĞò½ô½ÓRunServicesOnceÖ¸¶¨µÄ³ÌĞòÖ®ºóÔËĞĞ£¬µ«Á½Õß¶¼ÔÚÓÃ»§µÇÂ¼Ö®Ç°¡£RunServicesµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunServices£¬ºÍ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServices¡£  °Ë¡¢RunOnceSetup×¢²á¼ü  RunOnceSetupÖ¸¶¨ÁËÓÃ»§µÇÂ¼Ö®ºóÔËĞĞµÄ³ÌĞò£¬ËüµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersion RunOnceSetup£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceSetup¡£  ¾Å¡¢RunOnce×¢²á¼ü  °²×°³ÌĞòÍ¨³£ÓÃRunOnce¼ü×Ô¶¯ÔËĞĞ³ÌĞò£¬ËüµÄÎ»ÖÃÔÚ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRunOnceºÍ HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunOnce¡£ HKEY_LOCAL_MACHINEÏÂÃæµÄRunOnce¼ü»áÔÚÓÃ»§µÇÂ¼Ö®ºóÁ¢¼´ÔËĞĞ³ÌĞò£¬ÔËĞĞÊ±»úÔÚÆäËûRun¼üÖ¸¶¨µÄ³ÌĞòÖ®Ç°¡£HKEY_CURRENT_USERÏÂÃæµÄRunOnce¼üÔÚ²Ù×÷ÏµÍ³´¦ÀíÆäËûRun¼üÒÔ¼°¡°Æô¶¯¡±ÎÄ¼ş¼ĞµÄÄÚÈİÖ®ºóÔËĞĞ¡£Èç¹ûÊÇXP£¬Äã»¹ĞèÒª¼ì²éÒ»ÏÂ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceEx¡£  Ê®¡¢Run×¢²á¼ü  RunÊÇ×Ô¶¯ÔËĞĞ³ÌĞò×î³£ÓÃµÄ×¢²á¼ü£¬Î»ÖÃÔÚ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRun¡£ HKEY_CURRENT_USERÏÂÃæµÄRun¼ü½ô½ÓHKEY_LOCAL_MACHINEÏÂÃæµÄRun¼üÔËĞĞ£¬µ«Á½Õß¶¼ÔÚ´¦Àí¡°Æô¶¯¡±ÎÄ¼ş¼ĞÖ®Ç°¡£
+
+
+
+   
+   
+   =======
 21:50 2012-4-19 
     precompile										**
-    
+    >>>>>>> .r936

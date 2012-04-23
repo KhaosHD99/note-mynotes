@@ -632,3 +632,10 @@ Each of the containers is a class template
 
 
 11:02 2011-11-29 use const whereever you want
+      
+
+14:55 2012-4-19
+    extern "C" void __declspec(dllexport) extenal_call();
+
+
+

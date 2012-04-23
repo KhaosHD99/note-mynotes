@@ -1977,6 +1977,11 @@ mark: 30 mobile phone fee
      i made a order of portable harddisk(tag: 360buy.com, Toshiba, 500G)
      i want to go for physical checking 
      
+<<<<<<< .mine
+     i want to go for physical checking 
+
+
+=======
      i want to go for physical checking
      
      manager caizhaoxi came back to office
@@ -2052,6 +2057,9 @@ mark: 30 mobile phone fee
      
      
 
+<<<<<<< .mine
+>>>>>>> .r921
+=======
      01,07,08,17,19,28|08
      
 10:36 2012-4-17
@@ -2067,7 +2075,10 @@ mark: 30 mobile phone fee
      
      mark: 50 traffic fee£¬30 phone fee
 
+<<<<<<< .mine
+>>>>>>> .r935
+=======
 20:42 2012-4-19
     swam only 300m, because it is little time 
     began work at saintray
-     
+     >>>>>>> .r936
