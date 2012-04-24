@@ -1,4 +1,6 @@
-svn:xv6cx5Qn3cC4
+svn:
+     usrname: xujiekoo@qq.com
+     passwd: xv6cx5Qn3cC4
 
 peanut: elonjie 
         7AIUHWK4

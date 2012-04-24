@@ -2056,12 +2056,10 @@ mark: 30 mobile phone fee
      i refuse ±¶¶ùÔÃ...
      
      
-
-<<<<<<< .mine
->>>>>>> .r921
-=======
+------------------------------
      01,07,08,17,19,28|08
-     
+------------------------------
+
 10:36 2012-4-17
      double switth drill£¬400m
      call ÐÀÈðµç×Ó for can i go to work
@@ -2075,10 +2073,15 @@ mark: 30 mobile phone fee
      
      mark: 50 traffic fee£¬30 phone fee
 
-<<<<<<< .mine
->>>>>>> .r935
-=======
+
 20:42 2012-4-19
     swam only 300m, because it is little time 
     began work at saintray
-     >>>>>>> .r936
+     
+11:41 2012-4-23
+    swam only 200m because no time 
+      
+9:40 2012-4-24
+    got up at 5:50, and swam 500m only
+  
+    
