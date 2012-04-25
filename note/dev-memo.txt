@@ -5,3 +5,9 @@
 ***************************************************************/
 
 
+vm: disk error while paging
+ delete .vmss file
+
+
+sync is so important						***
+  

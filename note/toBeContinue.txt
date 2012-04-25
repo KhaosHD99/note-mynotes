@@ -6638,7 +6638,7 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
 °ÑÏÈÆô¶¯µÄHKEY_LOCAL_MACHINEÏÂµÄRUNÀï  ºóÆô¶¯µÄ·ÅÔÚHKEY_CURRENT_USERÏÂµÄRUNÀïÊÔÒ»ÏÂ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices ÊÇ×îÓÅÏÈÆô¶¯µÄ  [×ª]Windows×ÔÆô¶¯³ÌÐòÊ®´ó²ØÉíÖ®Ëù  WindowsÆô¶¯Ê±Í¨³£»áÓÐÒ»´ó¶Ñ³ÌÐò×Ô¶¯Æô¶¯  ²»ÒªÒÔÎª¹ÜºÃÁË¡°¿ªÊ¼¡ú³ÌÐò¡úÆô¶¯¡±²Ëµ¥¾ÍÍòÊÂ´ó¼ª£¬Êµ¼ÊÉÏ£¬ÔÚWindows XP/2KÖÐ£¬ÈÃWindows×Ô¶¯Æô¶¯³ÌÐòµÄ°ì·¨ºÜ¶à£¬ÏÂÎÄ¸æËßÄã×îÖØÒªµÄÁ½¸öÎÄ¼þ¼ÐºÍ°Ë¸ö×¢²á¼ü¡£  
 Ò»¡¢µ±Ç°ÓÃ»§×¨ÓÐµÄÆô¶¯ÎÄ¼þ¼Ð  ÕâÊÇÐí¶àÓ¦ÓÃÈí¼þ×Ô¶¯Æô¶¯µÄ³£ÓÃÎ»ÖÃ£¬Windows×Ô¶¯Æô¶¯·ÅÈë¸ÃÎÄ¼þ¼ÐµÄËùÓÐ¿ì½Ý·½Ê½¡£ÓÃ»§Æô¶¯ÎÄ¼þ¼ÐÒ»°ãÔÚ£ºDocuments and Settings<ÓÃ»§Ãû×Ö>¡¸¿ªÊ¼¡¹²Ëµ¥³ÌÐòÆô¶¯£¬ÆäÖÐ¡°<ÓÃ»§Ãû×Ö>¡±ÊÇµ±Ç°µÇÂ¼µÄÓÃ»§ÕÊ»§Ãû³Æ¡£  
 
-¶þ¡¢¶ÔËùÓÐÓÃ»§ÓÐÐ§µÄÆô¶¯ÎÄ¼þ¼Ð  ÕâÊÇÑ°ÕÒ×Ô¶¯Æô¶¯³ÌÐòµÄµÚ¶þ¸öÖØÒªÎ»ÖÃ£¬²»¹ÜÓÃ»§ÓÃÊ²Ã´Éí·ÝµÇÂ¼ÏµÍ³£¬·ÅÈë¸ÃÎÄ¼þ¼ÐµÄ¿ì½Ý·½Ê½×ÜÊÇ×Ô¶¯Æô¶¯¡ª¡ªÕâÊÇËüÓëÓÃ»§×¨ÓÐµÄÆô¶¯ÎÄ¼þ¼ÐµÄÇø±ðËùÔÚ¡£¸ÃÎÄ¼þ¼ÐÒ»°ãÔÚ£ºDocuments and SettingsAll Users¡¸¿ªÊ¼¡¹²Ëµ¥³ÌÐòÆô¶¯¡£  
+¶þ¡¢¶ÔËùÓÐÓÃ»§ÓÐÐ§µÄÆô¶¯ÎÄ¼þ¼Ð  ÕâÊÇÑ°ÕÒ×Ô¶¯Æô¶¯³ÌÐòµÄµÚ¶þ¸öÖØÒªÎ»ÖÃ£¬²»¹ÜÓÃ»§ÓÃÊ²Ã´Éí·ÝµÇÂ¼ÏµÍ³£¬·ÅÈë¸ÃÎÄ¼þ¼ÐµÄ¿ì½Ý·½Ê½×ÜÊÇ×Ô¶¯Æô¶¯¡ª¡ªÕâÊÇËüÓëÓÃ»§×¨ÓÐµÄÆô¶¯ÎÄ¼þ¼ÐµÄÇø±ðËùÔÚ¡£¸ÃÎÄ¼þ¼ÐÒ»°ãÔÚ£ºDocuments andi SettingsAll Users¡¸¿ªÊ¼¡¹²Ëµ¥³ÌÐòÆô¶¯¡£  
 
 Èý¡¢Load×¢²á¼ü  ½éÉÜ¸Ã×¢²á¼üµÄ×ÊÁÏ²»¶à£¬Êµ¼ÊÉÏËüÒ²ÄÜ¹»×Ô¶¯Æô¶¯³ÌÐò¡£Î»ÖÃ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsNT CurrentVersionWindowsload¡£  
 ËÄ¡¢Userinit×¢²á¼ü  Î»ÖÃ£º HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsNTCurrentVersion WinlogonUserinit¡£ÕâÀïÒ²ÄÜ¹»Ê¹ÏµÍ³Æô¶¯Ê±×Ô¶¯³õÊ¼»¯³ÌÐò¡£Í¨³£¸Ã×¢²á¼üÏÂÃæÓÐÒ»¸öuserinit.exe£¬ÈçÍ¼Ò»£¬µ«Õâ¸ö¼üÔÊÐíÖ¸¶¨ÓÃ¶ººÅ·Ö¸ôµÄ¶à¸ö³ÌÐò£¬ÀýÈç¡°userinit.exe,OSA.exe¡±£¨²»º¬ÒýºÅ£©¡£     Îå¡¢ExplorerRun×¢²á¼ü  ºÍload¡¢Userinit²»Í¬£¬ExplorerRun¼üÔÚHKEY_CURRENT_USERºÍ HKEY_LOCAL_MACHINEÏÂ¶¼ÓÐ£¬¾ßÌåÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPolicies ExplorerRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionPoliciesExplorerRun¡£  Áù¡¢RunServicesOnce×¢²á¼ü  RunServicesOnce×¢²á¼üÓÃÀ´Æô¶¯·þÎñ³ÌÐò£¬Æô¶¯Ê±¼äÔÚÓÃ»§µÇÂ¼Ö®Ç°£¬¶øÇÒÏÈÓÚÆäËûÍ¨¹ý×¢²á¼üÆô¶¯µÄ³ÌÐò¡£RunServicesOnce×¢²á¼üµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindows CurrentVersionRunServicesOnce£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServicesOnce¡£  Æß¡¢RunServices×¢²á¼ü  RunServices×¢²á¼üÖ¸¶¨µÄ³ÌÐò½ô½ÓRunServicesOnceÖ¸¶¨µÄ³ÌÐòÖ®ºóÔËÐÐ£¬µ«Á½Õß¶¼ÔÚÓÃ»§µÇÂ¼Ö®Ç°¡£RunServicesµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunServices£¬ºÍ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServices¡£  °Ë¡¢RunOnceSetup×¢²á¼ü  RunOnceSetupÖ¸¶¨ÁËÓÃ»§µÇÂ¼Ö®ºóÔËÐÐµÄ³ÌÐò£¬ËüµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersion RunOnceSetup£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceSetup¡£  ¾Å¡¢RunOnce×¢²á¼ü  °²×°³ÌÐòÍ¨³£ÓÃRunOnce¼ü×Ô¶¯ÔËÐÐ³ÌÐò£¬ËüµÄÎ»ÖÃÔÚ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRunOnceºÍ HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunOnce¡£ HKEY_LOCAL_MACHINEÏÂÃæµÄRunOnce¼ü»áÔÚÓÃ»§µÇÂ¼Ö®ºóÁ¢¼´ÔËÐÐ³ÌÐò£¬ÔËÐÐÊ±»úÔÚÆäËûRun¼üÖ¸¶¨µÄ³ÌÐòÖ®Ç°¡£HKEY_CURRENT_USERÏÂÃæµÄRunOnce¼üÔÚ²Ù×÷ÏµÍ³´¦ÀíÆäËûRun¼üÒÔ¼°¡°Æô¶¯¡±ÎÄ¼þ¼ÐµÄÄÚÈÝÖ®ºóÔËÐÐ¡£Èç¹ûÊÇXP£¬Äã»¹ÐèÒª¼ì²éÒ»ÏÂ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceEx¡£  Ê®¡¢Run×¢²á¼ü  RunÊÇ×Ô¶¯ÔËÐÐ³ÌÐò×î³£ÓÃµÄ×¢²á¼ü£¬Î»ÖÃÔÚ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRun¡£ HKEY_CURRENT_USERÏÂÃæµÄRun¼ü½ô½ÓHKEY_LOCAL_MACHINEÏÂÃæµÄRun¼üÔËÐÐ£¬µ«Á½Õß¶¼ÔÚ´¦Àí¡°Æô¶¯¡±ÎÄ¼þ¼ÐÖ®Ç°¡£
@@ -6661,7 +6661,8 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
 9:56 2012-4-24
     cp  -r; -dpr
 
-
-
-
+11:09 2012-4-25
+    ifconfig auto get ip    
+    fuck, why i need use sudo when i am root????
     
+    __stdcall
