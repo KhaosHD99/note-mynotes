@@ -6666,3 +6666,20 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
     fuck, why i need use sudo when i am root????
     
     __stdcall
+
+
+8:35 2012-4-26
+    inno setup
+    precomplile
+    ¸ß/µÍµçÆ½
+    
+    GetProcAddress LoadLibrary(access violation)
+    dll nest
+    printf log
+    
+    auto update
+    
+    coding standar						**
+    
+    svn server
+    
