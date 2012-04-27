@@ -10,4 +10,17 @@ vm: disk error while paging
 
 
 sync is so important						***
-  
+
+
+
+
+
+
+******** in vs2005 ***********
+not only need
+	extern "C" int __declspec(dllimport) Prt_Init(int i);
+but also
+	#pragma comment(lib, "Print.lib")
+
+
+"无法定位xxx于xxx.dll" is not that "can not search the dll"
