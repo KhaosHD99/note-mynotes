@@ -6647,26 +6647,29 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
 
    
    
-   =======
+   
 21:50 2012-4-19 
-    precompile										**
-    >>>>>>> .r936
-
+    precompile								**
+    laser printing 										***   
 
 10:31 2012-4-23
-    c# application call c++ DLL									**
+    the test of auto run Automatically issuing card app 					***
+    c# application call c++ DLL						**
     cifs ·ûºÅÁ´½Ó    
     ·ûºÅÁ´½Ó¡¢Ó²Á´½Ó
-    
+        
 9:56 2012-4-24
     cp  -r; -dpr
-
+    bank of communication install and debbuging service						***
+    
+    
 11:09 2012-4-25
     ifconfig auto get ip    
     fuck, why i need use sudo when i am root????
-    
+        
     __stdcall
-
+    
+    done the arm/2440  soft/sys repair								***/done
 
 8:35 2012-4-26
     inno setup
@@ -6679,7 +6682,21 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
     
     auto update
     
-    coding standar						**
-    
+    coding standar								**
+        
     svn server
+    
+    done the Guangdong Development Bank's printer(Ñ¸ÆÕ) problem with a trick but it's not a long-term solution    
+    												***/done
+    	
+    
+    ÐÂ±±Ñó printer guangdong boc								***
+			
+9:30 2012-4-27
+    
+    package the the app and the lib load and place solution					***
+    &												**
+    MessageBox Variable parameters								*
+
+     								
     
