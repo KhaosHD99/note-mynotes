@@ -6690,13 +6690,34 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
     												***/done
     	
     
-    ÐÂ±±Ñó printer guangdong boc								***
+    ÐÂ±±Ñó printer guangdong boc, intstall and setting						***
 			
 9:30 2012-4-27
-    
-    package the the app and the lib load and place solution					***
-    &												**
-    MessageBox Variable parameters								*
-
+    package the the app and the lib load and place solution			**
+    &										**
+    MessageBox Variable parameters						*
      								
-    
+8:01 2012-4-28
+   __imp__show_time
+   vc system("pause");
+   
+   serial port programming
+   
+   return val meaning define is important
+   
+      
+14:42 2012-5-2
+   i need a notebook for work							***
+   a specification version control and ·¢²¼					***
+   packaging 									***
+   printf format setting					      **
+   no logo.bmp will err??					      **
+   optional cmd test app					      *
+   
+   trimmed
+   printf %s duck face???
+   digitValue
+   QString indexOf
+   
+   
+   
