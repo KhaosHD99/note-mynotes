@@ -6581,22 +6581,12 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
 10:41 2012-3-30
     ·ÇÈº¼¯Ë÷Òı
     
-    
-     
-
 10:37 2012-4-1
     python
         
 17:57 2012-4-16
     the implement of decimal to binary							**
     parameter passed: array, length     						**
-    
-<<<<<<< .mine
-    
-
-
-
-
 
 11:44 2012-4-19
    how to output to *.lib(in fact, lib is a director(windows))				done
@@ -6606,7 +6596,7 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
    lpAddFun  HINSTANCE  
    MFC ¶¯Ì¬Á´½Ó¿â
 
-   why just there is *.lib file, but no implement dll can exe link suc?????????????	***
+   why just there is *.lib file, but no implement dll can exe link suc?????????????	**
 
 
 14:36 2012-4-20
@@ -6641,7 +6631,7 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
 ¶ş¡¢¶ÔËùÓĞÓÃ»§ÓĞĞ§µÄÆô¶¯ÎÄ¼ş¼Ğ  ÕâÊÇÑ°ÕÒ×Ô¶¯Æô¶¯³ÌĞòµÄµÚ¶ş¸öÖØÒªÎ»ÖÃ£¬²»¹ÜÓÃ»§ÓÃÊ²Ã´Éí·İµÇÂ¼ÏµÍ³£¬·ÅÈë¸ÃÎÄ¼ş¼ĞµÄ¿ì½İ·½Ê½×ÜÊÇ×Ô¶¯Æô¶¯¡ª¡ªÕâÊÇËüÓëÓÃ»§×¨ÓĞµÄÆô¶¯ÎÄ¼ş¼ĞµÄÇø±ğËùÔÚ¡£¸ÃÎÄ¼ş¼ĞÒ»°ãÔÚ£ºDocuments andi SettingsAll Users¡¸¿ªÊ¼¡¹²Ëµ¥³ÌĞòÆô¶¯¡£  
 
 Èı¡¢Load×¢²á¼ü  ½éÉÜ¸Ã×¢²á¼üµÄ×ÊÁÏ²»¶à£¬Êµ¼ÊÉÏËüÒ²ÄÜ¹»×Ô¶¯Æô¶¯³ÌĞò¡£Î»ÖÃ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsNT CurrentVersionWindowsload¡£  
-ËÄ¡¢Userinit×¢²á¼ü  Î»ÖÃ£º HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsNTCurrentVersion WinlogonUserinit¡£ÕâÀïÒ²ÄÜ¹»Ê¹ÏµÍ³Æô¶¯Ê±×Ô¶¯³õÊ¼»¯³ÌĞò¡£Í¨³£¸Ã×¢²á¼üÏÂÃæÓĞÒ»¸öuserinit.exe£¬ÈçÍ¼Ò»£¬µ«Õâ¸ö¼üÔÊĞíÖ¸¶¨ÓÃ¶ººÅ·Ö¸ôµÄ¶à¸ö³ÌĞò£¬ÀıÈç¡°userinit.exe,OSA.exe¡±£¨²»º¬ÒıºÅ£©¡£     Îå¡¢ExplorerRun×¢²á¼ü  ºÍload¡¢Userinit²»Í¬£¬ExplorerRun¼üÔÚHKEY_CURRENT_USERºÍ HKEY_LOCAL_MACHINEÏÂ¶¼ÓĞ£¬¾ßÌåÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPolicies ExplorerRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionPoliciesExplorerRun¡£  Áù¡¢RunServicesOnce×¢²á¼ü  RunServicesOnce×¢²á¼üÓÃÀ´Æô¶¯·şÎñ³ÌĞò£¬Æô¶¯Ê±¼äÔÚÓÃ»§µÇÂ¼Ö®Ç°£¬¶øÇÒÏÈÓÚÆäËûÍ¨¹ı×¢²á¼üÆô¶¯µÄ³ÌĞò¡£RunServicesOnce×¢²á¼üµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindows CurrentVersionRunServicesOnce£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServicesOnce¡£  Æß¡¢RunServices×¢²á¼ü  RunServices×¢²á¼üÖ¸¶¨µÄ³ÌĞò½ô½ÓRunServicesOnceÖ¸¶¨µÄ³ÌĞòÖ®ºóÔËĞĞ£¬µ«Á½Õß¶¼ÔÚÓÃ»§µÇÂ¼Ö®Ç°¡£RunServicesµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunServices£¬ºÍ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServices¡£  °Ë¡¢RunOnceSetup×¢²á¼ü  RunOnceSetupÖ¸¶¨ÁËÓÃ»§µÇÂ¼Ö®ºóÔËĞĞµÄ³ÌĞò£¬ËüµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersion RunOnceSetup£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceSetup¡£  ¾Å¡¢RunOnce×¢²á¼ü  °²×°³ÌĞòÍ¨³£ÓÃRunOnce¼ü×Ô¶¯ÔËĞĞ³ÌĞò£¬ËüµÄÎ»ÖÃÔÚ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRunOnceºÍ HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunOnce¡£ HKEY_LOCAL_MACHINEÏÂÃæµÄRunOnce¼ü»áÔÚÓÃ»§µÇÂ¼Ö®ºóÁ¢¼´ÔËĞĞ³ÌĞò£¬ÔËĞĞÊ±»úÔÚÆäËûRun¼üÖ¸¶¨µÄ³ÌĞòÖ®Ç°¡£HKEY_CURRENT_USERÏÂÃæµÄRunOnce¼üÔÚ²Ù×÷ÏµÍ³´¦ÀíÆäËûRun¼üÒÔ¼°¡°Æô¶¯¡±ÎÄ¼ş¼ĞµÄÄÚÈİÖ®ºóÔËĞĞ¡£Èç¹ûÊÇXP£¬Äã»¹ĞèÒª¼ì²éÒ»ÏÂ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceEx¡£  Ê®¡¢Run×¢²á¼ü  RunÊÇ×Ô¶¯ÔËĞĞ³ÌĞò×î³£ÓÃµÄ×¢²á¼ü£¬Î»ÖÃÔÚ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRun¡£ HKEY_CURRENT_USERÏÂÃæµÄRun¼ü½ô½ÓHKEY_LOCAL_MACHINEÏÂÃæµÄRun¼üÔËĞĞ£¬µ«Á½Õß¶¼ÔÚ´¦Àí¡°Æô¶¯¡±ÎÄ¼ş¼ĞÖ®Ç°¡£
+ËÄ¡¢Userinit×¢²á¼ü  Î»ÖÃ£º HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsNTCurrentVersion WinlogonUserinit¡£ÕâÀïÒ²ÄÜ¹»Ê¹ÏµÍ³Æô¶¯Ê±×Ô¶¯³õÊ¼»¯³ÌĞò¡£Í¨³£¸Ã×¢²á¼üÏÂÃæÓĞÒ»¸öuserinit.exe£¬ÈçÍ¼Ò»£¬µ«Õâ¸ö¼üÔÊĞíÖ¸¶¨ÓÃ¶ººÅ·Ö¸ôµÄ¶à¸ö³ÌĞò£¬ÀıÈç¡°userinit.exe,OSA.exe¡±£¨²»º¬ÒıºÅ£©¡£     Îå¡¢ExplorerRun×¢²á¼ü  ºÍload¡¢Userinit²»Í¬£¬ExplorerRun¼üÔÚHKEY_CURRENT_USERºÍ HKEY_LOCAL_MACHINEÏÂ¶¼ÓĞ£¬¾ßÌåÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPolicies ExplorerRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionPoliciesExplorerRun¡£  Áù¡¢RunServicesOnce×¢²á¼ü  RunServicesOnce×¢²á¼üÓÃÀ´Æô¶¯·şÎñ³ÌĞò£¬Æô¶¯Ê±¼äÔÚÓÃ»§µÇÂ¼Ö®Ç°£¬¶øÇÒÏÈÓÚÆäËûÍ¨¹ı×¢²á¼üÆô¶¯µÄ³ÌĞò¡£RunServicesOnce×¢²á¼üµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindows CurrentVersionRunServicesOnce£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServicesOnce¡£  Æß¡¢RunServices×¢²á¼ü  RunServices×¢²á¼üÖ¸¶¨µÄ³ÌĞò½ô½ÓRunServicesOnceÖ¸¶¨µÄ³ÌĞòÖ®ºóÔËĞĞ£¬µ«Á½Õß¶¼ÔÚÓÃ»§µÇÂ¼Ö®Ç°¡£RunServicesµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunServices£¬ºÍ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunServices¡£  °Ë¡¢RunOnceSetup×¢²á¼ü  RunOnceSetupÖ¸¶¨ÁËÓÃ»§µÇÂ¼Ö®ºóÔËĞĞµÄ³ÌĞò£¬ËüµÄÎ»ÖÃÊÇ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersion RunOnceSetup£¬ ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceSetup¡£  ¾Å¡¢RunOnce×¢²á¼ü  °²×°³ÌĞòÍ¨³£ÓÃRunOnce¼ü×Ô¶¯ÔËĞĞ³ÌĞò£¬ËüµÄÎ»ÖÃÔÚ HKEY_LOCAL_MACHI ESOFTWAREMicrosoftWindowsCurrentVersionRunOnceºÍ HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunOnce¡£ HKEY_LOCAL_MACHINEÏÂÃæµÄRunOnce¼ü»áÔÚÓÃ»§µÇÂ¼Ö®ºóÁ¢¼´ÔËĞĞ³ÌĞò£¬ÔËĞĞÊ±»úÔÚÆäËûRun¼üÖ¸¶¨µÄ³ÌĞòÖ®Ç°¡£HKEY_CURRENT_USERÏÂÃæµÄRunOnce¼üÔÚ²Ù×÷ÏµÍ³´¦ÀíÆäËûRun¼üÒÔ¼°¡°Æô¶¯¡±ÎÄ¼ş¼ĞµÄÄÚÈİÖ®ºóÔËĞĞ¡£Èç¹ûÊÇXP£¬Äã»¹ĞèÒª¼ì²éÒ»ÏÂ HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows CurrentVersionRunOnceEx¡£  Ê®¡¢Run×¢²á¼ü  RunÊÇ×Ô¶¯ÔËĞĞ³ÌĞò×î³£ÓÃµÄ×¢²á¼ü£¬Î»ÖÃÔÚ£º HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRun£¬ºÍHKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionRun¡£ HKEY_CURRENT_USERÏÂÃæµÄRun¼ü½ô½ÓHKEY_LOCAL_MACHINEÏÂÃæµÄRun¼üÔËĞĞ£¬µ«Á½Õß¶¼ÔÚ´¦Àí¡°Æô¶¯¡±ÎÄ¼ş¼ĞÖ®Ç°¡£
 
 
 
@@ -6649,8 +6639,8 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
    
    
 21:50 2012-4-19 
-    precompile								**
-    laser printing 										***   
+    precompile											***
+    laser printing 										
 
 10:31 2012-4-23
     the test of auto run Automatically issuing card app 					***
@@ -6660,19 +6650,19 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
         
 9:56 2012-4-24
     cp  -r; -dpr
-    bank of communication install and debbuging service						***
+    bank of communication install and debbuging service at xi'an(remote, just qq or phone call)	 ***/done
     
     
 11:09 2012-4-25
-    ifconfig auto get ip    
+    ifconfig auto get ip
     fuck, why i need use sudo when i am root????
         
     __stdcall
     
-    done the arm/2440  soft/sys repair								***/done
-
+    done the arm/2440  soft/sys repair							        ***/done
+        
 8:35 2012-4-26
-    inno setup
+    inno setup intaller maker
     precomplile
     ¸ß/µÍµçÆ½
     
@@ -6682,7 +6672,7 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
     
     auto update
     
-    coding standar								**
+    coding standard								**
         
     svn server
     
@@ -6690,11 +6680,11 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
     												***/done
     	
     
-    ĞÂ±±Ñó printer guangdong boc, intstall and setting						***
+    ĞÂ±±Ñó printer guangdong bochina, intstall and setting					***/done
 			
 9:30 2012-4-27
     package the the app and the lib load and place solution			**
-    &										**
+    &										*
     MessageBox Variable parameters						*
      								
 8:01 2012-4-28
@@ -6707,17 +6697,26 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
    
       
 14:42 2012-5-2
-   i need a notebook for work							***
-   a specification version control and ·¢²¼					***
-   packaging 									***
-   printf format setting					      **
-   no logo.bmp will err??					      **
-   optional cmd test app					      *
+   i need a notebook for work								***
+   a specification version control and publish						***
+   packaging 										***
+   printf format setting					      		**
+   no logo.bmp will err??					      		**
+   optional cmd test app					      		*
    
-   trimmed
-   printf %s duck face???
-   digitValue
+   trimmed							      		done
+   printf %s duck face???					      		done	        
+   digitValue							     
    QString indexOf
+   q-dir      									done
+
+9:41 2012-5-3 
+   go to shanghai for conference							***
+   ps/2 car reader								**
    
+   compatibility test: dll export func symbol test(static/dynamic load)		**
    
+     
    
+
+    
