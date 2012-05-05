@@ -6643,7 +6643,7 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
     laser printing 										
 
 10:31 2012-4-23
-    the test of auto run Automatically issuing card app 					***
+    the test of auto run g card app 					***
     c# application call c++ DLL						**
     cifs ·ûºÅÁ´½Ó    
     ·ûºÅÁ´½Ó¡¢Ó²Á´½Ó
@@ -6712,11 +6712,28 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
 
 9:41 2012-5-3 
    go to shanghai for conference							***
-   ps/2 car reader								**
+   ps/2 car reader									***
    
-   compatibility test: dll export func symbol test(static/dynamic load)		**
+   compatibility test: dll export func symbol test(static/dynamic load)(__stdcall)	**
    
      
+8:04 2012-5-4
+   ask wuyaoquan and caizhaoxi for account(pay back him money)				**
+   pick up the company card, notebook						**
+   Reimbursement form									***
    
-
+   .def file									**
+   
+   QtGuid4.lib QtCored4.lib QtSqld4.lib QtXmld4.lib qextserialport.lib
+   
+   2005 build hot key 								*
+   
+   export func with .def							**
+   
+   
+   
+   
+      
+   
     
+   
