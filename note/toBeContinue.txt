@@ -6639,9 +6639,8 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
    
    
 21:50 2012-4-19 
-    precompile											***
-    laser printing 										
-
+    precompile										**
+    laser printing 										***		    							
 10:31 2012-4-23
     the test of auto run g card app 					***
     c# application call c++ DLL						**
@@ -6695,9 +6694,8 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
    
    return val meaning define is important
    
-      
 14:42 2012-5-2
-   i need a notebook for work								***
+   i need a notebook for work							done
    a specification version control and publish						***
    packaging 										***
    printf format setting					      		**
@@ -6709,9 +6707,9 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
    digitValue							     
    QString indexOf
    q-dir      									done
-
-9:41 2012-5-3 
-   go to shanghai for conference							***
+   
+9:41 2012-5-3
+   go to shanghai for conference							***/done
    ps/2 car reader									***
    
    compatibility test: dll export func symbol test(static/dynamic load)(__stdcall)	**
@@ -6719,7 +6717,7 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
      
 8:04 2012-5-4
    ask wuyaoquan and caizhaoxi for account(pay back him money)				**
-   pick up the company card, notebook						**
+   pick up the company card, notebook						done
    Reimbursement form									***
    
    .def file									**
@@ -6730,10 +6728,44 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
    
    export func with .def							**
    
+8:12 2012-5-10
+   publish, blanch, version num								***
+   HRESULT extern WINAPI WFPOpen(...);						**
    
+   dynamic load dynamic lib or not
    
-   
-      
-   
+   HRESULT WINAPI WFPOpen ( HSERVICE hService, LPSTR lpszLogicalName, HAPP hApp, LPSTR lpszAppID, DWORD dwTraceLevel, DWORD dwTimeOut, HWND hWnd, REQUESTID ReqID, HPROVIDER hProvider, DWORD dwSPIVersionsRequired, LPWFSVERSION lpSPIVersion, DWORD dwSrvcVersionsRequired, LPWFSVERSION lpSrvcVe
+rsion)
     
+-------------------------------------------------------
+   WFS_ERR_INVALID_SERVPROV
+   WFS_ERR_INTERNAL_ERROR
+   
+   windows how to print  log at ui
+   
+   
+   guangdong boc printer type config file / format					***
+   
+   LPTSTR    LPWSTR	
+   
+10:04 2012-5-11
+   =============================== guangdong boc ==============================================
+   remove the none config file return(bochina)					**
+   output log									**
+   
+   GcRealtimeGetStatus(4); if((prt_status & 0x40) == 0x40)// ? 1 : 0; 		
+   status_switch; get status							**
+      	
+   when exit, begin print							
+   case sensitive								
+   
+   if no config file, what will happen						**
+   
+   auto detect printer type, no config file					**
+   
+   invalid addr type(com, lpt)
+   ========================================================================================== 
+   
+   local svn 										***
+     
    
