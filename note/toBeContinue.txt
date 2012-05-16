@@ -6759,13 +6759,96 @@ rsion)
    when exit, begin print							
    case sensitive								
    
-   if no config file, what will happen						**
+   if no config file, what will happen						over
    
-   auto detect printer type, no config file					**
+   auto detect printer type, no config file					over
    
    invalid addr type(com, lpt)
    ========================================================================================== 
    
-   local svn 										***
-     
+   local svn 										***/done
    
+10:06 2012-5-14
+   柳州 bank new project 								***
+   why it will collapse when print logo??? (msvcr80d.dll) 处未处理的异常)	**
+   load dll fail at the other machine???????????(why pre version can?????????)	**
+        
+   qstring len inclue '\0'???
+   
+   STRPTR c_str
+ 
+   why create log file err??(in fact, the code tar is wrong???)			**
+   
+   no install code editor							*
+     
+     
+9:47 2012-5-15
+   system path: %SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+   
+   comoact the xp login ui							*
+   
+   windows theme color setting
+   
+   --------------------------------------- print format maybe...
+   1 exceed ? line it will happen
+   2 movepaper
+   3 print ""
+   
+   GcSelectCharacterSize <--> SetWidthHeight(0,0);
+   
+   /****************QueueICBC************************/		***
+   1 collapse
+   2 swiping bank book
+   3 screen display num
+      
+   /**************** bochina **************/
+   Boc Caller										***
+   
+   what is Monitor server's job							
+   
+   BYTE
+   
+   all change to vc but not vs???
+   
+   msvcr80D.dll!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+10:54 2012-5-16
+   is it the debug/release mode lead the load dll err?????????????????
+   
+   the culprit is debug/release???							
+      
+   fuck! no invoice, 500 gone!!!
+   
+   what is polling board?								   
+   
+
+   ------ Build started: Project: VSTest, Configuration: Debug Win32 ------
+Compiling...
+VSTest.cpp
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(36) : warning C4996: 'localtime' was declared deprecated
+        c:\program files\microsoft visual studio 8\vc\include\time.inl(114) : see declaration of 'localtime'
+        Message: 'This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(41) : error C2664: 'CreateDirectoryW' : cannot convert parameter 1 from 'const char [13]' to 'LPCWSTR'
+        Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(42) : error C2664: 'CreateDirectoryW' : cannot convert parameter 1 from 'const char [31]' to 'LPCWSTR'
+        Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(44) : error C2664: 'void ATL::CStringT<BaseType,StringTraits>::Format(const wchar_t *,...)' : cannot convert parameter 1 from 'const char [63]' to 'const wchar_t *'
+        with
+        [
+            BaseType=wchar_t,
+            StringTraits=ATL::StrTraitATL<wchar_t,ATL::ChTraitsCRT<wchar_t>>
+        ]
+        Types 						pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(47) : error C2065: 'g_fslog' : undeclared identifier
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(47) : error C2664: 'fopen' : cannot convert parameter 1 from 'LPCTSTR' to 'const char *'
+        Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(58) : error C2065: 'CUR_TIME_STR' : undeclared identifier
+f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(67) : error C2664: 'vprintf' : cannot convert parameter 1 from 'ATL::CString' to 'const char *'
+        No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+Build log was saved at "file://f:\develop\saintray_pc\prj\test\LogOutputTest\VSTest\Debug\BuildLog.htm"
+VSTest - 7 error(s), 1 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
+   
+      
