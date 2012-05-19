@@ -6847,8 +6847,60 @@ f:\develop\saintray_pc\prj\test\logoutputtest\vstest\vstest.cpp(67) : error C266
         No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
 Build log was saved at "file://f:\develop\saintray_pc\prj\test\LogOutputTest\VSTest\Debug\BuildLog.htm"
 VSTest - 7 error(s), 1 warning(s)
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ======
+
+
+
+11:30 2012-5-17
+
+*********************************************************************************
+1>------ Build started: Project: dev_rsandrj, Configuration: Release Win32 ------
+1>Linking...
+1>MSVCRTD.lib(ti_inst.obj) : error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_info@@AAE@ABV0@@Z) already defined in LIBCMT.lib(typinfo.obj)
+1>MSVCRTD.lib(ti_inst.obj) : error LNK2005: "private: class type_info & __thiscall type_info::operator=(class type_info const &)" (??4type_info@@AAEAAV0@ABV0@@Z) already defined in LIBCMT.lib(typinfo.obj)
+1>   Creating library H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.lib and object H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.exp
+1>LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+1>LINK : warning LNK4199: /DELAYLOAD:OleAcc.dll ignored; no imports found from OleAcc.dll
+1>H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.dll : fatal error LNK1169: one or more multiply defined symbols found
+1>Project : warning PRJ0018 : The following environment variables were not found:
+1>$(QTDIR)
+1>Build log was saved at "file://h:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\dev_rsandrj\Release\BuildLog.htm"
+1>dev_rsandrj - 3 error(s), 2 warning(s)
 ========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
 
 
+
+
+ignore lib
+**********************************************************************************
    
+   only four moudle????
+
+   
+    lib on lib or all compile into lib
+    
+    无法找到入口 qtcore4
+
+
+
+
+
+
+
+
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib ThLPrinterDLL.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmaind.lib QtCored4.lib QtGuid4.lib QtSqld4.lib QtXmld4.lib
+
+
+
+--------------- bochina release config bak
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore.lib QtGui.lib QtSql.lib QtXml.lib ThLPrinterDLL.lib
+-----------------   
       
+
+
+     attempt to load a c runtime library without  a manifest!!!!!!!!!!!!!!!!!!!
+     
+
+8:12 2012-5-18
+     
+     
