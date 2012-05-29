@@ -6806,7 +6806,7 @@ rsion)
    
    what is Monitor server's job							
    
-   BYTE
+   BYTE											over
    
    all change to vc but not vs???
    
@@ -6896,11 +6896,27 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib ThLPrinterDLL.lib winspo
 gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore.lib QtGui.lib QtSql.lib QtXml.lib ThLPrinterDLL.lib
 -----------------   
       
-
+   
 
      attempt to load a c runtime library without  a manifest!!!!!!!!!!!!!!!!!!!
      
 
 8:12 2012-5-18
      
-     
+
+14:16 2012-5-21
+    cstring include what???!!!!!!!!!!!!!!!     
+    4 screen
+    why the other bank card can
+
+
+10:07 2012-5-25
+******************************************
+    1 qt version								
+    2 bochina printer format
+    3 caller refresh time
+    4 boc call me for some caller login show problem at my version. but i haven't modify any thing  
+      at the other module except printer, the unique possibility is the src is not match with the   
+      running version
+******************************************    
+ 
