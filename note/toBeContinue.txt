@@ -6640,7 +6640,8 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
    
 21:50 2012-4-19 
     precompile										**
-    laser printing 										***		    							
+    laser printing 										***
+    	    							
 10:31 2012-4-23
     the test of auto run g card app 					***
     c# application call c++ DLL						**
@@ -6749,15 +6750,15 @@ rsion)
    LPTSTR    LPWSTR	
    
 10:04 2012-5-11
-   =============================== guangdong boc ==============================================
+   =============================== guangdong bochina ==============================================
    remove the none config file return(bochina)					**
    output log									**
    
    GcRealtimeGetStatus(4); if((prt_status & 0x40) == 0x40)// ? 1 : 0; 		
    status_switch; get status							**
       	
-   when exit, begin print							
-   case sensitive								
+   when exit, begin print							maybe a hardware err							
+   case sensitive								over								
    
    if no config file, what will happen						over
    
@@ -6769,7 +6770,7 @@ rsion)
    local svn 										***/done
    
 10:06 2012-5-14
-   ÁøÖÝ bank new project 								***
+   ÁøÖÝ bank new project							***
    why it will collapse when print logo??? (msvcr80d.dll) ´¦Î´´¦ÀíµÄÒì³£)	**
    load dll fail at the other machine???????????(why pre version can?????????)	**
         
@@ -6797,9 +6798,9 @@ rsion)
    GcSelectCharacterSize <--> SetWidthHeight(0,0);
    
    /****************QueueICBC************************/		***
-   1 collapse
-   2 swiping bank book
-   3 screen display num
+   1 collapse					
+   2 swiping bank book				
+   3 screen display num				do
       
    /**************** bochina **************/
    Boc Caller										***
@@ -6813,11 +6814,10 @@ rsion)
    msvcr80D.dll!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    
 10:54 2012-5-16
-   is it the debug/release mode lead the load dll err?????????????????
-   
+   is it the debug/release mode lead the load dll err?????????????????   
    the culprit is debug/release???							
       
-   fuck! no invoice, 500 gone!!!
+   fuck! no invoice, 500 gone???
    
    what is polling board?								   
    
@@ -6868,37 +6868,22 @@ VSTest - 7 error(s), 1 warning(s)
 1>dev_rsandrj - 3 error(s), 2 warning(s)
 ========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
 
-
-
-
 ignore lib
 **********************************************************************************
    
    only four moudle????
-
    
-    lib on lib or all compile into lib
+   lib on lib or all compile into lib
     
     ÎÞ·¨ÕÒµ½Èë¿Ú qtcore4
 
-
-
-
-
-
-
-
 gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib ThLPrinterDLL.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmaind.lib QtCored4.lib QtGuid4.lib QtSqld4.lib QtXmld4.lib
-
-
 
 --------------- bochina release config bak
 gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore.lib QtGui.lib QtSql.lib QtXml.lib ThLPrinterDLL.lib
 -----------------   
-      
-   
-
-     attempt to load a c runtime library without  a manifest!!!!!!!!!!!!!!!!!!!
+     
+     attempt to load a c runtime library without  a manifest!!!!!!!!!!!!!!!!!!!				**
      
 
 8:12 2012-5-18
@@ -6911,12 +6896,54 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib 
 
 
 10:07 2012-5-25
-******************************************
-    1 qt version								
-    2 bochina printer format
-    3 caller refresh time
-    4 boc call me for some caller login show problem at my version. but i haven't modify any thing  
-      at the other module except printer, the unique possibility is the src is not match with the   
-      running version
+******************************************								
+    1 qt version											
+    2 bochina printer format										
+    3 caller refresh time										
+    4 boc call me for some caller login show problem at my version. but i haven't modify any thing  	      at the other module except printer, the unique possibility is the src is not match with the   	      running version											
 ******************************************    
- 
+
+14:23 2012-5-29
+    i need build a clean windows vm
+    
+12:09 2012-5-30
+     
+     bochina have monitor server???
+     linker manifest file
+     
+     gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib QtGui4.lib QtCore4.lib QtSql4.lib QtXml4.lib qextserialport.lib
+
+     ignore MSVCRTD.lib
+     
+9:07 2012-5-31
+     sw 350+-
+     i need a doc bag
+     
+     update qdir!
+
+    
+QtSql4.lib
+MSVCRTD.lib
+
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib QtGui4.lib QtCore4.lib QtXml4.lib QtSql4.lib qextserialport.lib
+
+
+
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore4.lib QtGui4.lib QtSql4.lib QtXml4.lib ThLPrinterDLL.lib 
+
+
+
+
+H:\develop\saintray_pc\prj\QueueBochina\QueueDevLib20120308\QueueDevLib20120308(ÓÐusb´òÓ¡»ú)\Debug
+
+
+
+bounderschecker
+
+
+thinkpad mouse type!!!!
+
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore4.lib QtGui4.lib QtXml4.lib QtSql4.lib qextserialport.lib
+
+
+dev_rsandrj.dll
