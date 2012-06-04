@@ -10,3 +10,7 @@
    breakfast: 5.5
    fruit(pear): 4
    phone: 30
+   dinner: 13.5
+   
+   
+   
