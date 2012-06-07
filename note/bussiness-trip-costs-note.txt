@@ -1,4 +1,9 @@
+------------------- exclude the items which have invoice -----------------------
 
+before 2012-6-2
+   huangshudong owe me 30+
+   
+   
 2012-6-2
    meal for on train: 30+
    
@@ -11,6 +16,19 @@
    fruit(pear): 4
    phone: 30
    dinner: 13.5
+   
+19:40 2012-6-5   
+   breakfast:19(beef noodle near train stop, so it's so expensive)   
+   dinner: 18
+   fruit(pear): 4
+   
+2012-6-6
+   lunch: 11
+   dinner: 11
+   massage: 100(fuck, it's so rude) + 20(regular)
+   
+10:00 2012-6-7
+   
    
    
    
