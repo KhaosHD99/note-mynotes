@@ -28,7 +28,19 @@ before 2012-6-2
    massage: 100(fuck, it's so rude) + 20(regular)
    
 10:00 2012-6-7
+   fruit(pear): 5
+   massage: 35
+   
+19:30 2012-6-8
+   dinner: 10
+   
+9:10 2012-6-9
+   phone: 30
+         
    
    
+   
+   
+      
    
    
