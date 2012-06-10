@@ -6858,7 +6858,7 @@ VSTest - 7 error(s), 1 warning(s)
 1>Linking...
 1>MSVCRTD.lib(ti_inst.obj) : error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_info@@AAE@ABV0@@Z) already defined in LIBCMT.lib(typinfo.obj)
 1>MSVCRTD.lib(ti_inst.obj) : error LNK2005: "private: class type_info & __thiscall type_info::operator=(class type_info const &)" (??4type_info@@AAEAAV0@ABV0@@Z) already defined in LIBCMT.lib(typinfo.obj)
-1>   Creating library H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.lib and object H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.exp
+1>   Creating library H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.lib and object H:\develop\saintray_pc\prj\QueueBochina\\Bochina\trunk\Release\dev_rsandrj.exp
 1>LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
 1>LINK : warning LNK4199: /DELAYLOAD:OleAcc.dll ignored; no imports found from OleAcc.dll
 1>H:\develop\saintray_pc\prj\QueueBochina\QueueBochina\trunk\Release\dev_rsandrj.dll : fatal error LNK1169: one or more multiply defined symbols found
@@ -6947,3 +6947,42 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib 
 
 
 dev_rsandrj.dll
+
+
+0:02 2012-6-10
+    异或
+    ultra edit can folder compare???
+    0xffff
+    汉字区位码
+    fromLocal8Bit
+    
+    全双工
+    
+    sound_file_clean
+    
+    fromLocal8Bit   toLocal8Bit().count()
+    
+    where the sound file bochina is using
+
+    is the board have audio file???						**
+        
+    how can i know is the wirelessBox online???    				**   
+
+    Buffer[1]=0xFF&Addr;							*
+    
+    i have no wireless box comm protocol what version is the WirelessBox	*
+    
+    channel									**
+        
+    trimmed().toUpper()
+    
+    M1 M2 M5 M7									*
+        
+    multi language play								**
+    modify cfg file module???							**
+    
+    Qstring len?? QByteArray.size()/length()					*
+     
+
+
+    
