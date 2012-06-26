@@ -6932,8 +6932,6 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib 
 gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore4.lib QtGui4.lib QtSql4.lib QtXml4.lib ThLPrinterDLL.lib 
 
 
-
-
 H:\develop\saintray_pc\prj\QueueBochina\QueueDevLib20120308\QueueDevLib20120308(有usb打印机)\Debug
 
 
@@ -6964,15 +6962,15 @@ dev_rsandrj.dll
     
     where the sound file bochina is using
 
-    is the board have audio file???						**
+    is the board have audio file???						over
         
-    how can i know is the wirelessBox online???    				**   
+    how can i know is the wirelessBox online???    				over
 
     Buffer[1]=0xFF&Addr;							*
     
-    i have no wireless box comm protocol what version is the WirelessBox	*
+    i have no wireless box comm protocol what version is the WirelessBox	over
     
-    channel									**
+    channel									over
         
     trimmed().toUpper()
     
@@ -6982,7 +6980,126 @@ dev_rsandrj.dll
     modify cfg file module???							**
     
     Qstring len?? QByteArray.size()/length()					*
-     
-
-
     
+    init com 1001  								*
+    
+    idcardreader								**
+    
+    
+9:29 2012-6-13
+    xunpu printer(mei zhou)							**
+    wireless sound box								**
+    learn abchina install
+
+9:44 2012-6-14
+ ------taiwan-------------							***
+1 自定义显示内容
+2 轮播
+3 文档
+--------------------------
+    
+    prt_status & 0x40
+    
+    berry@weshine.com.tw
+     
+    package
+    
+8:33 2012-6-15
+    set ip bat									*
+    ------------------ abchina -----------------
+    
+    #pragma comment(linker, "/export:dev_oper=_dev_oper@8")     2 args???	**    
+         
+    where are my phone usb cable??
+    
+
+
+
+10:41 2012-6-17
+    ------ abchina ----------
+    package								**
+    collapse
+    ------------------------------    
+   
+    bocommuniti(hefei) sound error					**
+    
+    ->regular worker							**
+    
+     gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib QtCore4.lib QtXml4.lib QtSql4.lib
+
+
+    LPCTSTR STRPTR
+
+
+
+			
+9:24 2012-6-20
+    wireless box no en!!!!!						**
+    
+    i need a lunxun board
+    
+    i need a vm xp sys
+
+    i need package							***
+    
+    taiwan interface doc
+    
+
+
+16:15 2012-6-22
+    ShowRawInfo
+    wchar_t TCHAR
+    
+    rj45 can supply power??
+    i need a wubi training
+    
+    format unsign int
+        
+    
+10:44 2012-6-25
+******************************* taiwan *******************************************
+    TRACE("%s %d %d %d %d %d\n", U(info.toLocal8Bit().data()), InWay, CycNum, OutWay);
+    do not flash(in fact, it do no flash when exceed one screen...)		** 
+    version num embed in dll or exe						*
+    
+    const wchar_t, printf %s chinese??
+    
+    taiwan: encry dog								**
+    
+    pkg script
+    
+    wchar_t is a wide char???why i can't print it?				**
+    
+    how can i know the input data is chinese or en???????????????????
+    
+    why can not scroll???							over
+    why between the scroll there is a blank screen				**
+    why there is a blank char at the first when the info is exceed two screen?? over    
+    Info=U(Info.toAscii().data());						over
+    
+    why i haven't cmd the screen flash, it do it????				*	
+    remove the append config file to display info module			**/done
+    
+    messy code, fuck								**/done
+       
+    what char set do the window screen use					*
+    
+    the mixing of chinese and en char will effect the display pos		**
+        
+    sprintf wchar_t *								**
+    
+    why the "stop time" do not got effect???
+    
+    
+    
+****************************************************************************************
+     
+     pakage									***
+     
+     how to spell 越界 in en    
+
+    sprintf snprintf will it auto add '\0'					*
+    
+    18 + 1 + 28 * 3
+                 84
+              103
