@@ -7098,8 +7098,133 @@ dev_rsandrj.dll
      
      how to spell 越界 in en    
 
-    sprintf snprintf will it auto add '\0'					*
-    
+    sprintf snprintf will it auto add '\0'				*
+        
     18 + 1 + 28 * 3
                  84
               103
+
+18:52 2012-6-26
+    windows command line set ip dns...
+    
+    n == SOCKET_ERROR break!!							***
+    
+    不能加载 .ocx
+    regsvr32 XXX.OCX 
+    
+--------------------------- shenzhen develop ----------------------
+    不能加载 TABCTL32.ocx
+             MSCOMM32.ocx
+
+    加载错误 frmMain.log
+             frmHide.log
+
+    i need a wireless access to internet
+    
+    
+    i need a use phone2pc cable
+    
+21:34 2012-6-27
+    swprintf
+    LPCWSTR
+    LPCSTR
+    LPSTR
+    wcslen
+    
+------------------------------taiwan windis
+    tempArray   overlap		**
+    recover the seq								**
+    
+    
+
+
+打开记录上传 源码 
+记录上传.vbp
+梦断代码  0:19:42
+然后呢
+颜延  0:21:51
+
+右边双击这个窗体
+梦断代码  0:22:49
+哦
+颜延  0:23:21
+双击之后就是这个窗体 
+
+梦断代码  0:23:41
+嗯
+颜延  0:23:43
+
+选中这个
+在右边的属性中，修改他的端口
+
+梦断代码  0:24:39
+哦
+梦断代码  0:25:52
+好的
+谢了
+你那边怎么样了
+颜延  0:26:43
+  然后双击窗体进入代码页面
+进了么
+0:28:19
+颜延给您发送了一个窗口抖动。
+颜延  0:28:33
+双击窗体 ， 进入代码页面
+梦断代码  0:28:53
+进了
+颜延  0:29:17
+把 form_load 方法里面的设置端口那行注释掉
+
+在那句代码前打个单引号
+颜延  0:31:04
+好了么  
+梦断代码  0:31:09
+VIP服务器端口 是变量么
+颜延  0:31:14
+ 恩  
+梦断代码  0:31:22
+中文变量？
+颜延  0:31:26
+ 恩  
+梦断代码  0:31:42
+在哪声明的？
+颜延  0:31:52
+不用管
+梦断代码  0:32:03
+那怎么来的
+颜延  0:32:04
+注释了么 
+梦断代码  0:32:14
+注了
+颜延  0:32:26
+  恩 ， 好， 再找到 Cmd_Send_Click 方法 
+梦断代码  0:33:08
+找到
+颜延  0:33:40
+
+  找到这个地方
+梦断代码  0:33:58
+找到
+梦断代码  0:35:41
+加个参数么
+颜延  0:36:16
+把 VIP服务器IP 改成 WEB通信服务器IP
+
+
+
+
+
+22:04 2012-6-28
+    fromLocal8Bit
+    ascii chinese
+    
+    toAscii
+    toLocal8Bit
+----------------------------- taiwan led ---------------------------------
+    remove the winid handle at ShowRawInfo interface					done
+    如果有静止区域需要把静止区的数据复制到每屏中
+    
+    if have chinese at arg pNumber, ShowCallInfo will counter some char handle err      **
+    
+    if it exceed one line, will it add blank at the end in MainWindowDisplay led???	**
+        
