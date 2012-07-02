@@ -6224,7 +6224,7 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      port reuse by UDP and TCP
      
      why allocate: char intClient[40];
-     xml file is empty										**
+     xml file is empty								**
      --------------------------------
      
      constructor can not be virtual
@@ -6234,20 +6234,20 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1104 i need to find a route of retreat
        
-1104 stream media										***
+1104 stream media								***
      database											***     
      
-1107 apt prefix											*
+1107 apt prefix									*
      shell include envirament
      cmake											**
 
-1108 dhcp flag; use libdhcp									**
-     phoneconfig										**
+1108 dhcp flag; use libdhcp							**
+     phoneconfig								**
      
-     en: diary tense										***
-     union											**
+     en: diary tense								***
+     union									**
      Win32DiskImager
-     phoneconfigure: crash									**
+     phoneconfigure: crash							**
           
 1109 the rest tuition?
      program performance
@@ -6659,7 +6659,7 @@ c) Èç¹û¸Ã¹¤³ÌÐèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ð©²»Í¬»·¾³µÄAPI£¨ÀýÈ
         
     __stdcall
     
-    done the arm/2440  soft/sys repair							        ***/done
+    done the arm/2440  soft/sys repair						***/done
         
 8:35 2012-4-26
     inno setup intaller maker
@@ -7034,7 +7034,7 @@ dev_rsandrj.dll
 
 			
 9:24 2012-6-20
-    wireless box no en!!!!!						**
+    wireless box no en!!!!!						**/done
     
     i need a lunxun board
     
@@ -7072,23 +7072,23 @@ dev_rsandrj.dll
     
     how can i know the input data is chinese or en???????????????????
     
-    why can not scroll???							over
-    why between the scroll there is a blank screen				**
-    why there is a blank char at the first when the info is exceed two screen?? over    
-    Info=U(Info.toAscii().data());						over
+    why can not scroll???							  over
+    why between the scroll there is a blank screen				  **
+    why there is a blank char at the first when the info is exceed two screen??   over    
+    Info=U(Info.toAscii().data());						  over
     
-    why i haven't cmd the screen flash, it do it????				*	
-    remove the append config file to display info module			**/done
+    why i haven't cmd the screen flash, it do it????				  *	
+    remove the append config file to display info module at ShowRawInfo interface **/done
     
-    messy code, fuck								**/done
+    messy code, fuck								  **/done
        
-    what char set do the window screen use					*
+    what char set do the window screen use					  *
     
-    the mixing of chinese and en char will effect the display pos		**
-        
-    sprintf wchar_t *								**
+    the mixing of chinese and en char will effect the display pos		  **
     
-    why the "stop time" do not got effect???
+    sprintf wchar_t *(swprintf)							  **/done
+    
+    why the "stop time" do not got effect???					  **
     
     
     
@@ -7132,7 +7132,7 @@ dev_rsandrj.dll
     wcslen
     
 ------------------------------taiwan windis
-    tempArray   overlap		**
+    tempArray   overlap								**
     recover the seq								**
     
     
@@ -7228,3 +7228,13 @@ VIP·þÎñÆ÷¶Ë¿Ú ÊÇ±äÁ¿Ã´
     
     if it exceed one line, will it add blank at the end in MainWindowDisplay led???	**
         
+
+
+8:29 2012-7-2
+    package(abc, guangdong bochina£¬ bocommu			      			**
+    °æ±¾ºÅ¹æ·¶ and can i embed version num into file				
+    
+    
+    vb  begin sub
+    
+    
