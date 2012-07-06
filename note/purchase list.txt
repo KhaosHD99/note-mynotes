@@ -1,0 +1,4 @@
+1 draw-bar box
+2 polo cloths
+3 swimming trunks
+4 video card

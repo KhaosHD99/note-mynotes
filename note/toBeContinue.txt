@@ -7227,6 +7227,11 @@ VIP服务器端口 是变量么
     if have chinese at arg pNumber, ShowCallInfo will counter some char handle err      **
     
     if it exceed one line, will it add blank at the end in MainWindowDisplay led???	**
+<<<<<<< .mine
+
+22:08 2012-6-30
+    i need a draw-bar box
+        =======
         
 
 
@@ -7237,4 +7242,4 @@ VIP服务器端口 是变量么
     
     vb  begin sub
     
-    
+    >>>>>>> .r969

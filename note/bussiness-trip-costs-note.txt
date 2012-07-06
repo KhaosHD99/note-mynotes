@@ -41,6 +41,11 @@ before 2012-6-2
    
 19:49 2012-6-10
    
+
+
+
+8:12 2012-6-25
+   pay lunch 30(three colleage)
    
 10:27 2012-6-11
     phone: 31
@@ -98,6 +103,10 @@ myself: 283
    
    
 2:16 2012-6-29
+<<<<<<< .mine
+   pay back the business trip fee 800 to huangshudong(saintray)      
+   
+=======
 
 
 10:23 2012-7-2
@@ -105,4 +114,5 @@ myself: 283
    
    
    
+>>>>>>> .r969
    
