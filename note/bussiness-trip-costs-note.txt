@@ -103,16 +103,22 @@ myself: 283
    
    
 2:16 2012-6-29
-<<<<<<< .mine
-   pay back the business trip fee 800 to huangshudong(saintray)      
+   pay back the business trip fee 800 to huangshudong(saintray)
    
-=======
-
 
 10:23 2012-7-2
    commit a bussiness trip sheet (994), public goods sheet(109)
+      
+2012-7-5
+   phone card: 60
+   batterry: 80(2)
+   removable harddisk cover: 40-
+
+2012-7-6
+   shopping(breakfast, regular meal, drink, snacks, cloths): 150-
    
    
-   
->>>>>>> .r969
-   
+11:04 2012-7-7
+    mum: 300
+    grandma: 300   
+ 
