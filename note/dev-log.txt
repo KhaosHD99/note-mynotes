@@ -2573,12 +2573,12 @@ mark: 30 mobile phone fee
    no sw
    (shenzhen)
    
-<<<<<<< .mine
 22:05 2012-6-30
    ejaculation
 
 14:47 2012-7-1
-  ejaculation=======
+  ejaculation
+
 2:16 2012-6-29
    
    
@@ -2587,8 +2587,10 @@ mark: 30 mobile phone fee
    manager said delay the salary 
    commit a bussiness trip sheet (994), public goods sheet(109)
    mark: work outside
+  
+11:35 2012-7-5
+   play zhuoyou with zhouju(senior school)
    
+11:34 2012-7-7 saturday
+   eja
    
-      
-   
-   >>>>>>> .r969
