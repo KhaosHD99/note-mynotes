@@ -2189,8 +2189,6 @@ mark: 30 mobile phone fee
     
 10:28 2012-5-5    
     i want to buy a notebook
-<<<<<<< .mine
-   
 
 14:27 2012-5-13
 查询结果如下：  查询时间： 2012-05-13 14:26:11 
@@ -2220,9 +2218,7 @@ mark: 30 mobile phone fee
 2012-5-7
     arrived shanghai at 7:00+-, fuck, i was so tired because no sleeping
     see wangjinjun(saintray) at HomeLnn
-    
-<<<<<<< .mine
-    goto bocom that it is strict at access at shangfeng road, and see zuoyi(a outsourcing company leadership; tall; haughty; busy)
+        goto bocom that it is strict at access at shangfeng road, and see zuoyi(a outsourcing company leadership; tall; haughty; busy)
     
     
     change a double-guy room
@@ -2516,16 +2512,17 @@ mark: 30 mobile phone fee
    
 
 2012-6-17
-   go to fuzhou with zhanhuangyuan and maofeng by air
+  go to fuzhou with zhanhuangyuan and maofeng by air
    i felt zhanhuangyuan is a good man, pure, no seftness
    
    
 2012-6-18
-   
+   outwork, fuzhou
    
 15:00 2012-6-19
+   outwork, fuzhou
+   came back from fuzhou afternoon by air
    xujiru(college) call me for pay back the money to her and i only pay back her 500, e...
-   
    
 12:57 2012-6-20
    no sw, i did not hear any ring voice!!! the fuck pes 2012 made me sleep lately
@@ -2539,8 +2536,9 @@ mark: 30 mobile phone fee
    zhanhuangyuan plan let me go to hefei(anhui), but i have fix the problem(bocommunication)
    zhanhuangyuan call me go to shenzhen for the test(shenzhen develop bank)
    zhuaimei(summer workmate) q me and i said have a dinner with me
-      
-2012-6-22
+   
+2012-6-22 Friday
+   no sw, holiday
    pes2012
    
 12:48 2012-6-23 Saturday 
@@ -2549,30 +2547,60 @@ mark: 30 mobile phone fee
    where is my power apapter invoice   
    
 2012-6-24
+<<<<<<< .mine
+         
+=======
    ejaculation
+>>>>>>> .r972
    
 21:36 2012-6-25
-   no sw
+   no sw because i thought i will go shenzhen 
    debug icbc queue window screen program                                     
    
 19:05 2012-6-26
+<<<<<<< .mine
+   outwork, shenzhen develop bank(queue machine, old version queue soft app)
+=======
    no sw
    shenzhen develop bank(queue machine, old version queue soft app)
+>>>>>>> .r972
    huangshudong's sheet(150) not received!!!!!!!!!!!!
+<<<<<<< .mine
+      
+2012-6-27
+   outwork, shenzhen
+   debug code(taiwan, LED display screen), till the second day 2:00+
+=======
    ejaculation
+>>>>>>> .r972
    
 2012-6-27
    (shenzhen)       
    
 9:03 2012-6-28
+<<<<<<< .mine
+   outwork, shenzhen
+   zhanhuangyuan call me for the job (turn to regurlar worker)
+   debug code(taiwan, LED display screen), till the second day 2:00+   
+=======
    no sw
    zhanhuangyuan call me for the job (turn to a regular worker)
    (shenzhen)
+>>>>>>> .r972
    
 2:16 2012-6-29
+<<<<<<< .mine
+   outwork, shenzhen
+   my families said that i thinner than before the business trip...
+=======
    no sw
    (shenzhen)
+>>>>>>> .r972
    
+<<<<<<< .mine
+2012-6-30   
+   play pes2012 with two sisters
+=======
 22:05 2012-6-30
    ejaculation
 
@@ -2580,8 +2608,19 @@ mark: 30 mobile phone fee
   ejaculation
 
 2:16 2012-6-29
+>>>>>>> .r972
    
+<<<<<<< .mine
+   eja
    
+2012-7-1
+   play pes2012 with two sisters
+   eja
+   hengda 3:2 beijing
+   
+=======
+   
+>>>>>>> .r972
 9:14 2012-7-2
    sw, i found some feel of butterfly stroke, i need learn butterfly stroke!!!
    manager said delay the salary 
@@ -2591,6 +2630,54 @@ mark: 30 mobile phone fee
 11:35 2012-7-5
    play zhuoyou with zhouju(senior school)
    
+<<<<<<< .mine
+10:12 2012-7-3
+   no sw
+   outwork, shenzhen, with out any task, e...
+   
+   dad said mum need some money for cure and medicine, i haven't go salary yet
+   
+   got salary(3300), but why no phone fee ????????????????????????????????????????????
+   
+   the little hotel is so bad, fuck(tag: yanyan(saintray), no internet)
+   
+   eja again, e..., i can't do that frequencily
+   
+11:34 2012-7-4      
+   no sw
+   outwork, shenzhen
+
+2012-7-5
+   outwork, abc(guangdong branch)	
+   
+2012-7-6
+   out for a while for some device(customer service apartment)
+   
+2012-7-7
+   
+   
+2012-7-8
+   played pes2012 with two sister
+
+2012-7-9
+   outwork(wuhan)
+      
+2012-7-10
+   outwork(wuhan)
+   
+=======
 11:34 2012-7-7 saturday
    eja
+>>>>>>> .r972
+2012-7-11
+   outwork(wuhan)
+   
+9:01 2012-7-12   
+   
+   
+   
+   
+   
+     
+   
    

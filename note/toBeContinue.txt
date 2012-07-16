@@ -7025,7 +7025,8 @@ dev_rsandrj.dll
     
     ->regular worker							**
     
-     gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib QtCore4.lib QtXml4.lib QtSql4.lib
+     gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib
+   QtCore4.lib QtXml4.lib QtSql4.lib
 
 
     LPCTSTR STRPTR
@@ -7242,6 +7243,61 @@ VIP服务器端口 是变量么
     
     vb  begin sub
     
+<<<<<<< .mine
+    why no phone costs subsidy
+    
+    
+    
+9:10 2012-7-5
+    QueueBocomm hubei branch								**
+    
+    gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib QtCore4.lib QtXml4.lib QtSql4.lib
+
+gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib 
+QtGui4.lib QtCore4.lib QtSql4.lib QtXml4.lib qextserialport.lib
+
+
+MSVCRTD.lib
+winmm.lib
+
+8:44 2012-7-6
+   6.18 fuzhou sheet, 7.3 shenzhen sheet, city-inside sheet				**
+   folder compare
+   
+   set a default brightness to notebook							*
+   how can i export some text or image of the code files difference???
+   			
+********************** queue bochina head & zhongxin ************************
+   optimize the log output efficiency at rs(boc)					**
+   log level										**
+   add workstation name to reg								
+   magcardreader correspond what xfs class						**
+       
+   obey return value pre define								**
+
+
+   black gold politics
+      							   
+   apply for phone rate subsidy								**   
+      
+
+9:39 2012-7-12
+   taiwan										**
+   swcardreader										**
+   
+   idcardreader										**
+   
+   dirty data?   
+   
+   sound_interval
+   
+
+11:08 2012-7-16
+   ****** boc head **********
+   argv invalidate           								**
+   can i add some custom args(language)??						**
+   
+   =======
 
 
 
@@ -7249,3 +7305,4 @@ VIP服务器端口 是变量么
 
 11:17 2012-7-7
 专科起点本科理工类、经管类的考试科目：政治、外语、高等数学（二）
+>>>>>>> .r972
