@@ -56,11 +56,11 @@ food: 210+-
 phone: 127
 myself: 283
 
-------------------------------- xian -----------------------------------/  
+------------------------------- xian -----------------------------------/
 9:14 2012-6-13
    lose 100???
    pay back zhanhuangyuan 100(tag: beijing, changcheng)
-   commit a sheet(2561), huangshudong(150)
+   commit a sheet(2561, xian), huangshudong(150)
    
    bought a polo shirt(60+), a slippers(40+), and some food and chrysanthemum(23+), totally 180+-
    order a 3g phone card used me 68(tag: taobao, tmall, unicom)
@@ -101,13 +101,21 @@ myself: 283
 2012-6-28   
    lunch: 14
    
-   
 2:16 2012-6-29
+   lunch: 17
+   
+2012-6-30
    pay back the business trip fee 800 to huangshudong(saintray)
    
 
+<<<<<<< .mine
+2012-7-1
+   public manage fee: 90
+   
+=======
+>>>>>>> .r972
 10:23 2012-7-2
-   commit a bussiness trip sheet (994), public goods sheet(109)
+   commit a bussiness trip sheet (994, shenzhen), public goods sheet(109)
       
 2012-7-5
    phone card: 60
@@ -117,8 +125,41 @@ myself: 283
 2012-7-6
    shopping(breakfast, regular meal, drink, snacks, cloths): 150-
    
+10:57 2012-7-3   
+   lunch: 21
+   dinner: i own yanyan
+   got salary(3300), but why no phone fee 
    
+<<<<<<< .mine
+11:39 2012-7-4   
+   breakfast: 8(2)
+   lunch: 18.5
+      
+2012-7-9
+   lunch: 7 + 20
+   dinner: 7 
+   fruit:10
+             
+2012-7-10
+   lunch: 15
+   
+   glasses: 521
+   dinner: 16
+      
+2012-7-11
+   breakfast: 9
+   drink: 4
+   lunch: 31
+   
+9:01 2012-7-12
+   commit:
+   sheet(guangzhou)(5.2, 5.11, 5.14, 5.16, 5.17, 5.18): 51 + 52
+   sheet(fuzhou): 60
+   sheet(shenzhen): 234
+   sheet(wuhan): 1463.4
+   
+    =======
 11:04 2012-7-7
     mum: 300
     grandma: 300   
- 
+ >>>>>>> .r972
