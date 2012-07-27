@@ -7002,6 +7002,12 @@ dev_rsandrj.dll
     
     berry@weshine.com.tw
      
+<<<<<<< .mine
+20:56 2012-07-27
+    QString().sprintf("%02x ", ((int)ba[i]) & 0xff);
+    
+    
+=======
     package
     
 8:33 2012-6-15
@@ -7014,6 +7020,7 @@ dev_rsandrj.dll
     
 
 
+>>>>>>> .r975
 
 10:41 2012-6-17
     ------ abchina ----------
