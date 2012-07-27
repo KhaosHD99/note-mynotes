@@ -76,11 +76,20 @@ myself: 283
 2012-6-18
    manage: 170+-(luo pao and me)
    phone: 30 + 30(unicom and china mobile)
-      
+
+   2012-6-11      
+8:58 2012-7-12   
    
+<<<<<<< .mine
+
+2012-07-18
+    lunch: 25
+    
+=======
 14:21 2012-6-19
    pay back 500 to xujiru
    
+>>>>>>> .r975
 2012-6-19
 
 
@@ -116,13 +125,24 @@ myself: 283
 10:23 2012-7-2
    commit a bussiness trip sheet (994, shenzhen), public goods sheet(109)
       
+<<<<<<< .mine
+2012-07-25
+    phone fee: 30
+    
 
+20:57 2012-07-27   
+    dinner: 30.5
+=======
+
+>>>>>>> .r975
    
 10:57 2012-7-3   
    lunch: 21
    dinner: i own yanyan
    got salary(3300), but why no phone fee 
    
+<<<<<<< .mine
+=======
 11:39 2012-7-4   
    breakfast: 8(2)
    lunch: 18.5
@@ -146,6 +166,7 @@ myself: 283
    dinner: 7 
    fruit:10
    
+>>>>>>> .r975
    sister: 200
              
 2012-7-10
