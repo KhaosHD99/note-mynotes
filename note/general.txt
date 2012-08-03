@@ -799,3 +799,18 @@ big endian
  257
  00000000 00000000 00000001 00000001
  
+
+
+
+
+
+
+
+09:22 2012-07-21
+------------- some reason of the app or dll run err at the target machine---------------------
+1 no dependence dll
+2 have dependence dll, but interface symbol do not match
+3 have dependence dll, interface symbol do match, but no manifest(vs2005+)
+
+
+
