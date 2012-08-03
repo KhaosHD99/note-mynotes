@@ -1,3 +1,6 @@
+2012-5-31 
+   transfer 500 to power fee acount
+   
 ------------------- exclude the items which have invoice -----------------------
 
 before 2012-6-2
@@ -174,7 +177,7 @@ myself: 283
    
    glasses: 521
    dinner: 16
-      
+   
 2012-7-11
    breakfast: 9
    drink: 4
@@ -204,6 +207,19 @@ myself: 283
 20:13 2012-7-16
    got 2012-7-2 sheet(1103)
    
+<<<<<<< .mine
+18:22 2012-07-19
+   got 2012-7-12 sheet(1860)
+   
+   
+09:59 2012-07-21
+   transfer 300 to power fee acount
+   
+
+10:00 2012-07-25
+   got 5000 pre-costs
+   phone fee: 30
+    =======
 18:15 2012-07-28
    got salary 3300, why no phone fee subsidy???
    
@@ -228,4 +244,4 @@ myself: 283
     
 
 20:12 2012-08-03
-   
+   >>>>>>> .r977
