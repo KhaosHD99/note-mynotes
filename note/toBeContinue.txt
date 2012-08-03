@@ -6224,7 +6224,7 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      port reuse by UDP and TCP
      
      why allocate: char intClient[40];
-     xml file is empty								**
+     xml file is empty										**
      --------------------------------
      
      constructor can not be virtual
@@ -6234,20 +6234,20 @@ external 121.32.11.202:8080 UDP is redirected to internal 10.10.188.87:8080 (dur
      
 1104 i need to find a route of retreat
        
-1104 stream media								***
+1104 stream media										***
      database											***     
      
-1107 apt prefix									*
+1107 apt prefix											*
      shell include envirament
      cmake											**
 
-1108 dhcp flag; use libdhcp							**
-     phoneconfig								**
+1108 dhcp flag; use libdhcp									**
+     phoneconfig										**
      
-     en: diary tense								***
-     union									**
+     en: diary tense										***
+     union											**
      Win32DiskImager
-     phoneconfigure: crash							**
+     phoneconfigure: crash									**
           
 1109 the rest tuition?
      program performance
@@ -6659,7 +6659,7 @@ c) Èç¹û¸Ã¹¤³ÌĞèÒª¿çÆ½Ì¨£¨Linux/windows£©£¬µ«ÊÇ¸Ã¹¤³ÌÊ¹ÓÃÁËÒ»Ğ©²»Í¬»·¾³µÄAPI£¨ÀıÈ
         
     __stdcall
     
-    done the arm/2440  soft/sys repair						***/done
+    done the arm/2440  soft/sys repair							        ***/done
         
 8:35 2012-4-26
     inno setup intaller maker
@@ -6932,6 +6932,8 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib 
 gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtCore4.lib QtGui4.lib QtSql4.lib QtXml4.lib ThLPrinterDLL.lib 
 
 
+
+
 H:\develop\saintray_pc\prj\QueueBochina\QueueDevLib20120308\QueueDevLib20120308(ÓĞusb´òÓ¡»ú)\Debug
 
 
@@ -6962,15 +6964,15 @@ dev_rsandrj.dll
     
     where the sound file bochina is using
 
-    is the board have audio file???						over
+    is the board have audio file???						**
         
-    how can i know is the wirelessBox online???    				over
+    how can i know is the wirelessBox online???    				**   
 
     Buffer[1]=0xFF&Addr;							*
     
-    i have no wireless box comm protocol what version is the WirelessBox	over
+    i have no wireless box comm protocol what version is the WirelessBox	*
     
-    channel									over
+    channel									**
         
     trimmed().toUpper()
     
@@ -6980,336 +6982,156 @@ dev_rsandrj.dll
     modify cfg file module???							**
     
     Qstring len?? QByteArray.size()/length()					*
-    
-    init com 1001  								*
-    
-    idcardreader								**
-    
-    
-9:29 2012-6-13
-    xunpu printer(mei zhou)							**
-    wireless sound box								**
-    learn abchina install
-
-9:44 2012-6-14
- ------taiwan-------------							***
-1 ×Ô¶¨ÒåÏÔÊ¾ÄÚÈİ
-2 ÂÖ²¥
-3 ÎÄµµ
---------------------------
-    
-    prt_status & 0x40
-    
-    berry@weshine.com.tw
      
-<<<<<<< .mine
 20:56 2012-07-27
     QString().sprintf("%02x ", ((int)ba[i]) & 0xff);
+    strncpy sprintf    can dynamic char use sizeof: no, xzj you just a sb	done
     
+    what will strncpy do when the specific size is more than the reality, will fill 0?	*
     
-=======
-    package
-    
-8:33 2012-6-15
-    set ip bat									*
-    ------------------ abchina -----------------
-    
-    #pragma comment(linker, "/export:dev_oper=_dev_oper@8")     2 args???	**    
-         
-    where are my phone usb cable??
-    
+    FD_ISSET; accept; recv
 
 
->>>>>>> .r975
+    Windows ÒÑÔÚ MonitorServer.exe ÖĞ´¥·¢Ò»¸ö¶Ïµã¡£ÆäÔ­Òò¿ÉÄÜÊÇ¶Ñ±»Ëğ»µ£¬ÕâÒ²ËµÃ÷     MonitorServer.exe ÖĞ»òËüËù¼ÓÔØµÄÈÎºÎ DLL ÖĞÓĞ bug¡£
 
-10:41 2012-6-17
-    ------ abchina ----------
-    package								**
-    collapse
-    ------------------------------    
-   
-    bocommuniti(hefei) sound error					**
+
+14:31 2012-07-29
+    data = new char(buffer.size() + CMD_LEN + DATALEN_LEN); what the fuck err!!!!
+    strncpy only can copy ascii char??? can snprintf??					*
     
-    ->regular worker							**
     
-     gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib
-   QtCore4.lib QtXml4.lib QtSql4.lib
-
-
-    LPCTSTR STRPTR
-
-
-
-			
-9:24 2012-6-20
-    wireless box no en!!!!!						**/done
     
-    i need a lunxun board
-    
-    i need a vm xp sys
+    C:\Program Files\xfs_test\XFS_ReceiptPrinter.dll
 
-    i need package							***
+11:59 2012-07-30
+    shanghai abc/printer?/can not cut paper?    
     
-    taiwan interface doc
+---------------------- boc head ------------------------------
+    if the service process down and restart, after the client process reconnect, it will close     fail,  but a new client process will not!!!						**
     
+    .form file need validate the field's position 					done
+    
+    demand: if the service process exist, "open"success, event success			done
 
+    --------------------------
+    1 "read raw data"
+    2 get info
+    step 2 will wait complete event of step 1, any problem???				**
+    
+    ---------------------------
 
-16:15 2012-6-22
-    ShowRawInfo
-    wchar_t TCHAR
+    swcardreader unstalble								**         swcardreader catch any stander input event and send them...				done
     
-    rj45 can supply power??
-    i need a wubi training
-    
-    format unsign int
+    print form so slow: write log so frequently						done
+    swing car so slow									**
         
+    multi process use device(read data) without a lock;                                 done
+    why the server knew the call sequece?: in fact, server do not know		        over
     
-10:44 2012-6-25
-******************************* taiwan *******************************************
-    TRACE("%s %d %d %d %d %d\n", U(info.toLocal8Bit().data()), InWay, CycNum, OutWay);
-    do not flash(in fact, it do no flash when exceed one screen...)		** 
-    version num embed in dll or exe						*
+    cancel reset & cancel all requese						        done
     
-    const wchar_t, printf %s chinese??
+
+    how is xfs manager do ???
+
+    will "CXFS_CardReaderApp theApp;" share inter-process?				**
     
-    taiwan: encry dog								**
-    
-    pkg script
-    
-    wchar_t is a wide char???why i can't print it?				**
-    
-    how can i know the input data is chinese or en???????????????????
-    
-    why can not scroll???							  over
-    why between the scroll there is a blank screen				  **
-    why there is a blank char at the first when the info is exceed two screen??   over    
-    Info=U(Info.toAscii().data());						  over
-    
-    why i haven't cmd the screen flash, it do it????				  *	
-    remove the append config file to display info module at ShowRawInfo interface **/done
-    
-    messy code, fuck								  **/done
-       
-    what char set do the window screen use					  *
-    
-    the mixing of chinese and en char will effect the display pos		  **
-    
-    sprintf wchar_t *(swprintf)							  **/done
-    
-    why the "stop time" do not got effect???					  **
-    
-    
-    
-****************************************************************************************
+-------------------------------------------------------------------------        
+     windows command of "reboot"							*
      
-     pakage									***
-     
-     how to spell Ô½½ç in en    
-
-    sprintf snprintf will it auto add '\0'				*
+    
+11:46 2012-07-31
+------------------------------- bochina head ---------------
+    the modify of yesterday trigger the next problem: 
+    1 while it extend to outside scope, do not forget unlock it if some unregular break   *
+    
         
-    18 + 1 + 28 * 3
-                 84
-              103
-
-18:52 2012-6-26
-    windows command line set ip dns...
+    if machine power off, get status							**
+    unstable: id card reader can not read data sometimes				**
     
-    n == SOCKET_ERROR break!!							***
+    err log is very necessary
     
-    ²»ÄÜ¼ÓÔØ .ocx
-    regsvr32 XXX.OCX 
+    add configurable to monitorserver
     
---------------------------- shenzhen develop ----------------------
-    ²»ÄÜ¼ÓÔØ TABCTL32.ocx
-             MSCOMM32.ocx
-
-    ¼ÓÔØ´íÎó frmMain.log
-             frmHide.log
-
-    i need a wireless access to internet
+    monitorserver collapse								***
     
+    eva: 
+      1 show star									**
+      2 "thanks"									**
+      3 logout										**
+      4 event
+    -----------------------------------
     
-    i need a use phone2pc cable
+10:16 2012-08-01
+    ------------------------------- bochina head ---------------
+    compshow: if str len is odd, then
+    ComPort::Instance()->m_comport->bytesAvailable()
     
-21:34 2012-6-27
-    swprintf
-    LPCWSTR
-    LPCSTR
-    LPSTR
-    wcslen
+    config.xml is occupied								*
     
-------------------------------taiwan windis
-    tempArray   overlap								**
-    recover the seq								**
-    
-    
-
-
-´ò¿ª¼ÇÂ¼ÉÏ´« Ô´Âë 
-¼ÇÂ¼ÉÏ´«.vbp
-ÃÎ¶Ï´úÂë  0:19:42
-È»ºóÄØ
-ÑÕÑÓ  0:21:51
-
-ÓÒ±ßË«»÷Õâ¸ö´°Ìå
-ÃÎ¶Ï´úÂë  0:22:49
-Å¶
-ÑÕÑÓ  0:23:21
-Ë«»÷Ö®ºó¾ÍÊÇÕâ¸ö´°Ìå 
-
-ÃÎ¶Ï´úÂë  0:23:41
-àÅ
-ÑÕÑÓ  0:23:43
-
-Ñ¡ÖĞÕâ¸ö
-ÔÚÓÒ±ßµÄÊôĞÔÖĞ£¬ĞŞ¸ÄËûµÄ¶Ë¿Ú
-
-ÃÎ¶Ï´úÂë  0:24:39
-Å¶
-ÃÎ¶Ï´úÂë  0:25:52
-ºÃµÄ
-Ğ»ÁË
-ÄãÄÇ±ßÔõÃ´ÑùÁË
-ÑÕÑÓ  0:26:43
-  È»ºóË«»÷´°Ìå½øÈë´úÂëÒ³Ãæ
-½øÁËÃ´
-0:28:19
-ÑÕÑÓ¸øÄú·¢ËÍÁËÒ»¸ö´°¿Ú¶¶¶¯¡£
-ÑÕÑÓ  0:28:33
-Ë«»÷´°Ìå £¬ ½øÈë´úÂëÒ³Ãæ
-ÃÎ¶Ï´úÂë  0:28:53
-½øÁË
-ÑÕÑÓ  0:29:17
-°Ñ form_load ·½·¨ÀïÃæµÄÉèÖÃ¶Ë¿ÚÄÇĞĞ×¢ÊÍµô
-
-ÔÚÄÇ¾ä´úÂëÇ°´ò¸öµ¥ÒıºÅ
-ÑÕÑÓ  0:31:04
-ºÃÁËÃ´  
-ÃÎ¶Ï´úÂë  0:31:09
-VIP·şÎñÆ÷¶Ë¿Ú ÊÇ±äÁ¿Ã´
-ÑÕÑÓ  0:31:14
- ¶÷  
-ÃÎ¶Ï´úÂë  0:31:22
-ÖĞÎÄ±äÁ¿£¿
-ÑÕÑÓ  0:31:26
- ¶÷  
-ÃÎ¶Ï´úÂë  0:31:42
-ÔÚÄÄÉùÃ÷µÄ£¿
-ÑÕÑÓ  0:31:52
-²»ÓÃ¹Ü
-ÃÎ¶Ï´úÂë  0:32:03
-ÄÇÔõÃ´À´µÄ
-ÑÕÑÓ  0:32:04
-×¢ÊÍÁËÃ´ 
-ÃÎ¶Ï´úÂë  0:32:14
-×¢ÁË
-ÑÕÑÓ  0:32:26
-  ¶÷ £¬ ºÃ£¬ ÔÙÕÒµ½ Cmd_Send_Click ·½·¨ 
-ÃÎ¶Ï´úÂë  0:33:08
-ÕÒµ½
-ÑÕÑÓ  0:33:40
-
-  ÕÒµ½Õâ¸öµØ·½
-ÃÎ¶Ï´úÂë  0:33:58
-ÕÒµ½
-ÃÎ¶Ï´úÂë  0:35:41
-¼Ó¸ö²ÎÊıÃ´
-ÑÕÑÓ  0:36:16
-°Ñ VIP·şÎñÆ÷IP ¸Ä³É WEBÍ¨ĞÅ·şÎñÆ÷IP
-
-
-
-
-
-22:04 2012-6-28
-    fromLocal8Bit
-    ascii chinese
-    
-    toAscii
-    toLocal8Bit
------------------------------ taiwan led ---------------------------------
-    remove the winid handle at ShowRawInfo interface					done
-    Èç¹ûÓĞ¾²Ö¹ÇøÓòĞèÒª°Ñ¾²Ö¹ÇøµÄÊı¾İ¸´ÖÆµ½Ã¿ÆÁÖĞ
-    
-    if have chinese at arg pNumber, ShowCallInfo will counter some char handle err      **
-    
-    if it exceed one line, will it add blank at the end in MainWindowDisplay led???	**
-<<<<<<< .mine
-
-22:08 2012-6-30
-    i need a draw-bar box
-        =======
-        
-
-
-8:29 2012-7-2
-    package(abc, guangdong bochina£¬ bocommu			      			**
-    °æ±¾ºÅ¹æ·¶ and can i embed version num into file				
-    
-    
-    vb  begin sub
-    
-<<<<<<< .mine
-    why no phone costs subsidy
-    
-    
-    
-9:10 2012-7-5
-    QueueBocomm hubei branch								**
-    
-    gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib qtmain.lib QtGui4.lib QtCore4.lib QtXml4.lib QtSql4.lib
-
-gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib ole32.lib user32.lib msimg32.lib shell32.lib kernel32.lib uuid.lib advapi32.lib 
-QtGui4.lib QtCore4.lib QtSql4.lib QtXml4.lib qextserialport.lib
-
-
-MSVCRTD.lib
-winmm.lib
-
-8:44 2012-7-6
-   6.18 fuzhou sheet, 7.3 shenzhen sheet, city-inside sheet				**
-   folder compare
+   fuck microsoft, what the fuck header include "sleep"!!!!!!!!!
    
-   set a default brightness to notebook							*
-   how can i export some text or image of the code files difference???
-   			
-********************** queue bochina head & zhongxin ************************
-   optimize the log output efficiency at rs(boc)					**
-   log level										**
-   add workstation name to reg								
-   magcardreader correspond what xfs class						**
+    judge timeout?
+    itoa				
+
+    caller: 
+       1 enter
+       2 caller_transfer2
+       3 one key: login and logout 							**
+       4 show pause									over
+       5 show resume									over
+       6 show msg									over
        
-   obey return value pre define								**
+    return value specification								*
+    
 
-
-   black gold politics
-      							   
-   apply for phone rate subsidy								**   
+    wirelessbox:
+        1 "5"(yue and cn) soundfile							**
+        
+    
+    
+-----------------------------------------------
+       
+    
+    
+   
+12:35 2012-08-02
+   window screen show style is so good, why icbc version can not? 
+   
+   eva:
+      what is µÇÂ¼ÇëÇó??
+      how to logout?
+           
+   if caller got login/logout event, operate the eva					**
       
-
-9:39 2012-7-12
-   taiwan										**
-   swcardreader										**
-   
-   idcardreader										**
-   
-   dirty data?   
-   
-   sound_interval
-   
-
-11:08 2012-7-16
-   ****** boc head **********
-   argv invalidate           								**
-   can i add some custom args(language)??						**
-   
-   =======
+   monitor server die at pressure test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+16:13 2012-08-03
+    how to set default display content							**
+    how to set evalator addr 
+    printer slow: write log is so frequently						done
+    
+---------------------------------
+    because the hardware design defect, i add some login to the caller dll, so i made a     mistake of roundlyless
+    
+    no logic on caller, it is so dangurous(pause, login/logout)				*
+-----------------------------------------------
+    
+    what is walignment???						
+        
+    why idcardreader offline								**
+    
+<--------------------------------
+    cancel request(IDC)									**
+    if execute "cancel request" first, it will cancel the later request
+    
+    ---------------------------->
+
+    why id card reader return suc while can not read any data
+    
+    the print format can optimize(the first time will be wrong position)
+    
 
 
-
-11:17 2012-7-7
-×¨¿ÆÆğµã±¾¿ÆÀí¹¤Àà¡¢¾­¹ÜÀàµÄ¿¼ÊÔ¿ÆÄ¿£ºÕşÖÎ¡¢ÍâÓï¡¢¸ßµÈÊıÑ§£¨¶ş£©
->>>>>>> .r972
+    
+        
