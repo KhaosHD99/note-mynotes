@@ -244,4 +244,21 @@ myself: 283
     
 
 20:12 2012-08-03
+<<<<<<< .mine
+   Extension Socket: 65
+   
+   
+10:08 2012-08-04
+   pay back(hegui): 500
+   pay back(xujiru): 500
+   
+   
+12:54 2012-08-05
+   breakfast(fruit): 20
+   
+21:03 2012-08-07
+   got 5000 bussiness trip pre-pay
+   
+   =======
    >>>>>>> .r977
+>>>>>>> .r979
