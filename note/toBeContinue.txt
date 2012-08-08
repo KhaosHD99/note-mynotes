@@ -7084,6 +7084,8 @@ dev_rsandrj.dll
     return value specification								*
 
       
+
+      
     
 <<<<<<< .mine
     
@@ -7198,6 +7200,156 @@ winmm.lib
 
 11:17 2012-7-7
 专科起点本科理工类、经管类的考试科目：政治、外语、高等数学（二）
+<<<<<<< .mine
+
+10:46 2012-7-17
+   wosa, remote call									**
+      
+   
+17:32 2012-07-18
+   kill 360 f										*
+   qextserialport.lib
+   msvcrtd.lib
+   
+   QtCore4.lib
+   QtGui4.lib
+   QtXml4.lib
+  
+
+15:56 2012-07-19
+    select
+    FD_SET
+    accept
+     	
+    taiwan log										**
+    power fee										**
+    
+ 
+    $(OutDir)\$(ProjectName).exe
+    Microsoft.VC80.DebugCRT.manifest
+    
+    conig.xml										**
+    log efficiency									**
+ 		
+    QtGui4.lib QtCore4.lib QtSql4.lib QtXml4.lib
+    
+2012-07-20
+------------------------------- bochina head ------------------------------------    
+    LoadLibrary w lptwstr
+    why no depend qextserialport.dll??????????????					**
+    
+    
+    rsandrj: messy code
+    
+    args test(more or less arg)								**
+    
+    cancel bg vol									
+    
+09:26 2012-07-21
+    add log to xfs dll/auto create dir if not exist					**
+    modify app window title								done
+    
+-------------------- ofstream --------------- ------------
+        ofstream file;
+	file.open("C:\\XinRui_log\\CardReader_log.txt", ios::app);
+	file<<QDate::currentDate().toString("[yyyy-MM-dd").toStdString().c_str()<<" ";
+	file<<QTime::currentTime().toString("hh:mm:ss]").toStdString().c_str()<<" |                 "<<msg<<endl;
+	file.close();   
+------------------------------------
+    
+    get port from config file								
+    why timeout do not take effect							**
+    
+    why process b can not lock after process a unlock		over(i mix understand)
+    
+    swcardreader unstable								
+    
+    what is the "reset" use for???							over	
+    what is the cancelrequest use for							done							
+    if A lose connect, after A reconnect suc, then close err				**
+    WFPCancelAsyncRequest								done
+    
+11:10 2012-07-22
+    why it will got problem when i make more than one connect, such as lock and unlock and         read raw data									**
+  
+    why there is no event when lock sucess after cancelrequest fail			done
+    唯一的一个 CXFS_CardReaderApp 对象
+    globalhwnd
+    
+    why can't i specicfic a request id for cancelrequest???				*
+    
+    rt&8										
+    
+    why xfs can not load the dependence dll at the same dir of the dll			**
+    
+
+--------------------
+    
+    WFS_SUCCESS = WFS_GETINFO_COMPLETE [WFS_INF_PTR_STATUS]
+	WFS_GETINFO_COMPLETE [WFS_INF_PTR_STATUS] (1, 4, 22 Jul 2012 22:16:31 921)
+	Output Param:
+	WFSPTRSTATUS
+		fwDevice = WFS_PTR_DEVONLINE
+		fwMedia = WFS_PTR_MEDIAPRESENT
+		fwPaper = {WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL,WFS_PTR_PAPERFULL}
+		fwToner = WFS_PTR_TONERNOTSUPP
+		fwInk = WFS_PTR_INKNOTSUPP
+		fwLamp = WFS_PTR_LAMPNOTSUPP
+		lppRetractBins =  null 
+		usMediaOnStacker = 0
+		lpszExtra = (null)
+
+
+    how to parse the .form file
+
+    printf form: alignment, x, y, field
+    
+    printer: why reset suc when no paper						**
+    
+    
+    why no err when queue field which have no position					**
+    
+    why no event when printer from running->down(no power) or down->running		**
+    
+    there are some problem after reconnect or how to reconnect???			**
+    
+
+16:48 2012-07-23(tag: bochina head)
+    how to test printer raw data
+    when printer a large raw data, it will got disconnect event!!!(server collapse)	**
+    
+    window can remenber what you doing itself(such as "win->my doc")
+    
+    vsnprintf(buf, sizeof(buf), pszFormat, arglist);vsnprintf				**
+        
+    why just receive a part of data via tcp???						over
+    
+    雪花飘飘
+
+
+00:03 2012-07-24(tag: bochina head)
+    why GcPrintString(para.toAscii().data() collapse
+    rtn status &									*
+    
+    ws2_32.lib
+
+
+
+19:36 2012-07-25  tag: bochina head
+    if char[] no '\0' then use QString, what it will happen???				**
+
+---------------------------------
+    there are  potencial dangourous in the part of receive data at xfs printer server    **
+    so, attention the convertion in some char class like String, CString, QString to char	
+
+    1 how about the pre-specific len is wrong, if longer, will it timeout?		**
+    
+----------------
+
+
+17:25 2012-07-26
+    i need working at nobook harddisk							**
+    =======
 
 10:46 2012-7-17
    wosa, remote call									**
@@ -7426,4 +7578,3 @@ Test2.exe - 3 error(s), 2 warning(s)
 
     multi thread test
     
-    >>>>>>> .r979
