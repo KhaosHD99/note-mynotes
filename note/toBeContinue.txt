@@ -7134,16 +7134,20 @@ dev_rsandrj.dll
     
 <--------------------------------
     cancel request(IDC)									**
-    if execute "cancel request" first, it will cancel the later request
+    if execute "cancel request" first, it will cancel the later request			**
     
     ---------------------------->
-
+    
     why id card reader return suc while can not read any data
     
     the print format can optimize(the first time will be wrong position)
-    
 
 
+<<<<<<< .mine
+12:49 2012-08-04
+    cancel the timeoutness-lock???							done
+    what data need idcardreader output, and how to build them?				**
+=======
 <<<<<<< .mine
 
 MSVCRTD.lib
@@ -7216,7 +7220,14 @@ winmm.lib
      	
     taiwan log										**
     power fee										**
+>>>>>>> .r979
     
+<<<<<<< .mine
+    if use one socket for work and status detection, that will conflict!!: use two conn.												done
+    can different socket use the same port in one process??: yes ofcourse		done
+
+    make the port 
+    =======
  
     $(OutDir)\$(ProjectName).exe
     Microsoft.VC80.DebugCRT.manifest
@@ -7415,4 +7426,4 @@ Test2.exe - 3 error(s), 2 warning(s)
 
     multi thread test
     
-    
+    >>>>>>> .r979
