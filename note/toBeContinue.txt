@@ -7345,3 +7345,74 @@ winmm.lib
     =======
     
         >>>>>>> .r977
+
+
+
+
+
+19:31 2012-08-06
+
+--------------------Configuration: CRDR - Win32 Release--------------------
+Compiling...
+Serial.cpp
+Linking...
+nafxcw.lib(afxmem.obj) : error LNK2005: "void __cdecl operator delete(void *)" (??3@YAXPAX@Z) already defined in libcpmt.lib(delop.obj)
+nafxcw.lib(afxmem.obj) : warning LNK4006: "void __cdecl operator delete(void *)" (??3@YAXPAX@Z) already defined in libcpmt.lib(delop.obj); second definition ignored
+   Creating library Release/CRDR.lib and object Release/CRDR.exp
+Release/CRDR.dll : fatal error LNK1169: one or more multiply defined symbols found
+Error executing link.exe.
+
+CRDR.dll - 2 error(s), 1 warning(s)
+
+
+
+    send a abc-head app to maofeng
+
+
+
+09:47 2012-08-07
+    how to del client session of wins
+    how to enable/disable the file share wins
+
+     
+--------------------Configuration: Test2 - Win32 Release--------------------
+Compiling...
+main.cpp
+D:\elon\prj\QueueCITIC-Head\QueueCITIC-Head\trunk\ComCardOperate\main.cpp(66) : warning C4101: 'p' : unreferenced local variable
+D:\elon\prj\QueueCITIC-Head\QueueCITIC-Head\trunk\ComCardOperate\main.cpp(124) : warning C4508: 'main' : function should return a value; 'void' return type assumed
+Linking...
+nafxcw.lib(thrdcore.obj) : error LNK2001: unresolved external symbol __endthreadex
+nafxcw.lib(thrdcore.obj) : error LNK2001: unresolved external symbol __beginthreadex
+Release/Test2.exe : fatal error LNK1120: 2 unresolved externals
+Error executing link.exe.
+
+Test2.exe - 3 error(s), 2 warning(s)
+--------------------------------------------- over: enable "use mfc" option
+
+
+	mfc afx										*
+    sleep include
+    
+    how to destroy thread regularly
+    
+    CString ,GetLength or size, while utf8, the unit of GetLength will be two bytes???	 *
+    
+
+    just read only, need lock???							**
+
+    add '\0'? necessary?								
+    
+    typedef void far            *LPVOID;  
+    
+/**********************************
+    is the specification made a mistake: 
+    PB_RESULT PB_API CRDR_ReadData(OUT LPVOID *lpBuffer, IN DWORD dwBufferSize, OUT DWORD *lpNumberOfBytesRead)
+    
+***********************************/
+    
+    
+    why the stdcall symbol will change???
+
+    multi thread test
+    
+    
