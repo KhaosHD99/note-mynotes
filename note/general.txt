@@ -814,3 +814,9 @@ big endian
 
 
 
+12:11 2012-08-08
+    LoadLibrary("sdtapi.dll") if no any path, it will search system path, like "system32", and     the last, will found the dir where the process start!!!
+  
+
+
+
