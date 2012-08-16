@@ -6949,6 +6949,31 @@ gdi32.lib comdlg32.lib oleaut32.lib imm32.lib winmm.lib winspool.lib ws2_32.lib 
 dev_rsandrj.dll
 
 
+8:44 2012-7-6
+   6.18 fuzhou sheet, 7.3 shenzhen sheet, city-inside sheet				**
+   folder compare
+   
+   set a default brightness to notebook							*
+   how can i export some text or image of the code files difference???
+   			
+********************** queue bochina head & zhongxin ************************
+   optimize the log output efficiency at rs(boc)					**
+   log level										**
+   add workstation name to reg								
+   magcardreader correspond what xfs class						**
+       
+   obey return value pre define								**
+
+
+   black gold politics
+      							   
+   apply for phone rate subsidy								**   
+      
+
+11:17 2012-7-7
+专科起点本科理工类、经管类的考试科目：政治、外语、高等数学（二）
+
+
 0:02 2012-6-10
     异或
     ultra edit can folder compare???
@@ -6982,16 +7007,10 @@ dev_rsandrj.dll
     modify cfg file module???							**
     
     Qstring len?? QByteArray.size()/length()					*
-     
-20:56 2012-07-27
-    QString().sprintf("%02x ", ((int)ba[i]) & 0xff);
-    strncpy sprintf    can dynamic char use sizeof: no, xzj you just a sb	done
-    
-    what will strncpy do when the specific size is more than the reality, will fill 0?	*
-    
-    FD_ISSET; accept; recv
 
 
+<<<<<<< .mine
+=======
     Windows 已在 MonitorServer.exe 中触发一个断点。其原因可能是堆被损坏，这也说明     MonitorServer.exe 中或它所加载的任何 DLL 中有 bug。
 
 
@@ -7176,6 +7195,7 @@ winmm.lib
    apply for phone rate subsidy								**   
       
 
+>>>>>>> .r981
 9:39 2012-7-12
    taiwan										**
    swcardreader										**
@@ -7191,10 +7211,10 @@ winmm.lib
    ****** boc head **********
    argv invalidate           								**
    can i add some custom args(language)??						**
-   
-   =======
 
 
+<<<<<<< .mine
+=======
 
 
 
@@ -7202,6 +7222,7 @@ winmm.lib
 专科起点本科理工类、经管类的考试科目：政治、外语、高等数学（二）
 <<<<<<< .mine
 
+>>>>>>> .r981
 10:46 2012-7-17
    wosa, remote call									**
       
@@ -7223,6 +7244,8 @@ winmm.lib
      	
     taiwan log										**
     power fee										**
+<<<<<<< .mine
+=======
     
  
     $(OutDir)\$(ProjectName).exe
@@ -7373,13 +7396,8 @@ winmm.lib
     taiwan log										**
     power fee										**
 >>>>>>> .r979
+>>>>>>> .r981
     
-<<<<<<< .mine
-    if use one socket for work and status detection, that will conflict!!: use two conn.												done
-    can different socket use the same port in one process??: yes ofcourse		done
-
-    make the port 
-    =======
  
     $(OutDir)\$(ProjectName).exe
     Microsoft.VC80.DebugCRT.manifest
@@ -7504,12 +7522,167 @@ winmm.lib
 
 
 17:25 2012-07-26
-    i need working at nobook harddisk							**
-    =======
+    i need working at nobook harddisk							*
+
+
+20:56 2012-07-27
+    QString().sprintf("%02x ", ((int)ba[i]) & 0xff);
+    strncpy sprintf    can dynamic char use sizeof: no, xzj you just a sb	done
     
-        >>>>>>> .r977
+    what will strncpy do when the specific size is more than the reality, will fill 0?	*
+    
+    FD_ISSET; accept; recv
 
 
+    Windows 已在 MonitorServer.exe 中触发一个断点。其原因可能是堆被损坏，这也说明     MonitorServer.exe 中或它所加载的任何 DLL 中有 bug。
+
+
+14:31 2012-07-29
+    data = new char(buffer.size() + CMD_LEN + DATALEN_LEN); what the fuck err!!!!
+    strncpy only can copy ascii char??? can snprintf??					*
+    
+    
+    
+    C:\Program Files\xfs_test\XFS_ReceiptPrinter.dll
+
+11:59 2012-07-30
+    shanghai abc/printer?/can not cut paper?    
+    
+---------------------- boc head ------------------------------
+    if the service process down and restart, after the client process reconnect, it will close     fail,  but a new client process will not!!!						**
+    
+    .form file need validate the field's position 					done
+    
+    demand: if the service process exist, "open"success, event success			done
+
+    --------------------------
+    1 "read raw data"
+    2 get info
+    step 2 will wait complete event of step 1, any problem???				over
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    this is problem!!!!!! the get info is sync call
+    
+    ---------------------------
+
+    swcardreader unstalble								**         swcardreader catch any stander input event and send them...				done
+    
+    print form so slow: write log so frequently						done
+    swing car so slow									**
+        
+    multi process use device(read data) without a lock;                                 done
+    why the server knew the call sequece?: in fact, server do not know		        over
+    
+    cancel reset & cancel all requese						        done
+    
+
+    how is xfs manager do ???
+
+    will "CXFS_CardReaderApp theApp;" share inter-process?				**
+    
+-------------------------------------------------------------------------        
+     windows command of "reboot"							*
+     
+    
+11:46 2012-07-31
+------------------------------- bochina head ---------------
+    the modify of yesterday trigger the next problem: 
+    1 while it extend to outside scope, do not forget unlock it if some unregular break   *
+    
+        
+    if machine power off, get status							**
+    unstable: id card reader can not read data sometimes				**
+    
+    err log is very necessary
+    
+    add configurable to monitorserver
+    
+    monitorserver collapse								***
+    
+    eva: 
+      1 show star									**
+      2 "thanks"									**
+      3 logout										**
+      4 event
+    -----------------------------------
+    
+10:16 2012-08-01
+    ------------------------------- bochina head ---------------
+    compshow: if str len is odd, then
+    ComPort::Instance()->m_comport->bytesAvailable()
+    config.xml is occupied								**
+    
+   fuck microsoft, what the fuck header include "sleep"!!!!!!!!!
+   
+    judge timeout?
+    itoa				
+
+    caller: 
+       1 enter
+       2 caller_transfer2
+       3 one key: login and logout 							**
+       4 show pause									over
+       5 show resume									over
+       6 show msg									over
+       
+    return value specification								*
+    
+****************************************************************************************
+     
+     pakage									***
+     
+     how to spell 越界 in en    
+
+    wirelessbox:
+        1 "5"(yue and cn) soundfile							**
+        
+    
+    
+-----------------------------------------------
+       
+    
+    
+   
+12:35 2012-08-02
+   window screen show style is so good, why icbc version can not? 
+   
+   eva:
+      what is 登录请求??
+      how to logout?
+           
+   if caller got login/logout event, operate the eva					**
+      
+   monitor server die at pressure test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+16:13 2012-08-03
+    how to set default display content							**
+    how to set evalator addr 
+    printer slow: write log is so frequently						done
+    
+---------------------------------
+    because the hardware design defect, i add some login to the caller dll, so i made a     mistake of roundlyless
+    
+    no logic on caller, it is so dangurous(pause, login/logout)				*
+-----------------------------------------------
+    
+    what is walignment???						
+        
+    why idcardreader offline								done
+    
+<--------------------------------
+    cancel request(IDC)									done
+    if execute "cancel request" first, it will cancel the later request
+    
+    ---------------------------->
+
+    why id card reader return suc while can not read any data
+    
+    the print format can optimize(the first time will be wrong position)
+    
+
+    MSVCRTD.lib
+    winmm.lib
 
 
 
@@ -7531,10 +7704,8 @@ CRDR.dll - 2 error(s), 1 warning(s)
 
     send a abc-head app to maofeng
 
-
-
 09:47 2012-08-07
-    how to del client session of wins
+    how to del client session of wins							*
     how to enable/disable the file share wins
 
      
@@ -7571,10 +7742,90 @@ Test2.exe - 3 error(s), 2 warning(s)
     is the specification made a mistake: 
     PB_RESULT PB_API CRDR_ReadData(OUT LPVOID *lpBuffer, IN DWORD dwBufferSize, OUT DWORD *lpNumberOfBytesRead)
     
+    no fault, is that use at return multi result!!!					**
+    
 ***********************************/
     
     
     why the stdcall symbol will change???
 
-    multi thread test
+    multi thread test									**
+    
+    e..., the format of building id card info char is wrong!!!
+    
+    
+12:09 2012-08-08
+---------------------------------- boc head ------------------------------------
+    LoadLibrary("sdtapi.dll") if no any path, it will search system path, like "system32", and     the last, will found the dir where the process start!!!
+    
+    vc how to get current dir: GetCurrentDirectory					*
+     
+    optimize the id card data building						       **
+    
+    what is activex control
+    
+
+-----------------------------------------------------------
+    typedef struct _wfs_result
+{
+    REQUESTID       RequestID;
+    HSERVICE        hService;
+    SYSTEMTIME      tsTimestamp;
+    HRESULT         hResult;
+    union {
+        DWORD       dwCommandCode;
+        DWORD       dwEventID;
+    } u;
+    LPVOID          lpBuffer;
+} WFSRESULT, * LPWFSRESULT;
+    
+    how about the purpose to use "* LPWFSRESULT" ??????????????????????????????????
+-------------------------------------------------
+
+    wosa: disconnect, cmd_close								**
+    
+    why the activex tools will deadlock if i click "capturestatus" quickly??		**
+        
+    no insert event when in indefinite wait						*
+    
+    why will activex call "readrawdata" in swcardreader twice?
+
+    why will the process die when status change in the "capturestatus"			@@
+    
+
+10:01 2012-08-09
+*************************** boc head ******************
+    need a not asyn "GetInfo" type(status and capability) method			**
+    sometimes, get info(printer) will deadlock						done
+    why nantian do not call the cut paper method???					@@    
+    thread safe!!!									**
+    
+    if(status & 8)//脱机
+    
+    the print speed is a little slow
+    
+    use the nantian form
+    
+--------------------
+    printer: format, ticket header, end, cut, feedline					done           i use a solution: the usage of position x and y match the reality, then i
+        resort them 
+---------------------------------------
+    i need a printer instruction manual        
+    
+    
+
+
+
+
+14:58 2012-08-16
+    human readable interpretation
+================================ citic ===========================
+    what is barcode mode								**    
+    page 	
+     
+    detect paper out
+    打印机清空所有模式？？？
+    input xml chinese messy code
+    
+    
     
