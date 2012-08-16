@@ -7373,6 +7373,8 @@ winmm.lib
 17:25 2012-07-26
     i need working at nobook harddisk							**
     =======
+<<<<<<< .mine
+=======
 
 10:46 2012-7-17
    wosa, remote call									**
@@ -7456,7 +7458,10 @@ winmm.lib
     
     why xfs can not load the dependence dll at the same dir of the dll			**
     
+>>>>>>> .r982
 
+<<<<<<< .mine
+=======
 --------------------
     
     WFS_SUCCESS = WFS_GETINFO_COMPLETE [WFS_INF_PTR_STATUS]
@@ -7488,6 +7493,7 @@ winmm.lib
     there are some problem after reconnect or how to reconnect???			**
     
 
+>>>>>>> .r982
 16:48 2012-07-23(tag: bochina head)
     how to test printer raw data
     when printer a large raw data, it will got disconnect event!!!(server collapse)	**
@@ -7746,11 +7752,118 @@ Test2.exe - 3 error(s), 2 warning(s)
     
 ***********************************/
     
+========================================
+    why the stdcall symbol will change???						over
     
-    why the stdcall symbol will change???
-
+====================================
+   
     multi thread test									**
     
+<<<<<<< .mine
+11:03 2012-08-10
+    QString::fromStdString
+    why do not need the qt serialportlib when running!!!				**
+        
+    test idcardreader vendor dll							**
+    
+    itoa, will auto add "\0"?
+    
+    CList(T, &T)???
+    
+======================== bochina-head =========================
+    after a few hours:
+    swcardreader got some problem							**
+    nantian will reconnect the printer
+    will not reprint activex log after i delete them
+    after swing card, the app page do not switch					**
+    
+        
+==================================================================    
+    
+    stdcall
+    
+    how to use reference deliver							*
+     
+    if (!file.open(QFile::ReadOnly | QFile::Text)) 
+    
+    enum: use big case or small case?
+    
+ofstream open
+
+    how to embed "__FILE__, __FUNCTION__" to log funcion??
+
+    i forgot the two purpose of static
+    
+    if i want to release a thread, how could i do, use a flag or kill it???
+    
+    bochina-head: i should add a log level(why the config file be occupy????)   	**
+    
+10:25 2012-08-11
+   -------------------------------- bochina-head
+   sometimes, the swcardreader device got data, but after the process, turn to no data or        invalid 
+   
+   because there are a timer which clear the buf...
+   ----------------------------------
+    
+-------------------------------------
+   fromLocal8Bit, fromAscii, 
+	QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
+	QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GBK"));
+	QTextCodec::setCodecForTr(QTextCodec::codecForName("GBK"));
+-----------------------------
+
+   why can not do operation to the pointer to the array pointer				**
+   
+   GetModuleHandle
+
+
+
+    mainwindow offset
+    
+    printer so slow(get status, print complete event					**    
+
+13:40 2012-08-12
+    do not use lock when a thread write and the other read, do it safe???		*
+    
+    do not load xml file again after first load(use static member)
+    
+    add log level
+    modify the log func(only write file when the tmp buf is full)
+    
+10:41 2012-08-13
+    if appr , i need peek apprinfo
+    the led star light can not match
+        
+    
+===================================== citic =========================
+    what specification about output the callinfo mode					**
+    auto delete log									**
+    
+    
+    what did QLibrary happen???
+    
+10:45 2012-08-14
+    caller init										**
+    lpsz; coding style
+    tolocal8bit
+    
+    xml '\n'
+    QMap
+        
+================================ citic =====================================
+    compshow window, make sure the one row word count					**
+    write err to xml									
+    can it get the file size???								
+    i need unify the player.xml to config.xml						
+    why some sound dispear at voic							**
+    add log level									**
+    
+    i want to go panjiayuan
+    can i do not use the precompile header??
+    vsnprintf
+    vc6.0 cstring
+    
+    =======
     e..., the format of building id card info char is wrong!!!
     
     
@@ -7828,4 +7941,4 @@ Test2.exe - 3 error(s), 2 warning(s)
     input xml chinese messy code
     
     
-    
+    >>>>>>> .r982

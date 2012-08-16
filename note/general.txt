@@ -813,10 +813,16 @@ big endian
 3 have dependence dll, interface symbol do match, but no manifest(vs2005+)
 
 
+23:43 2012-08-10
+ net use /delete
 
+<<<<<<< .mine
+16:18 2012-08-11
+GetCurrentDirectoryA=======
 12:11 2012-08-08
     LoadLibrary("sdtapi.dll") if no any path, it will search system path, like "system32", and     the last, will found the dir where the process start!!!
   
 
 
 
+>>>>>>> .r982

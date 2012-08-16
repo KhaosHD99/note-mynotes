@@ -2745,6 +2745,28 @@ mark: 30 mobile phone fee
     
 
 01:03 2012-08-03
+<<<<<<< .mine
+   eja
+
+2012-08-08
+   eja
+
+2012-08-11 
+   coding(citic-head, boc-head)   
+
+2012-08-12
+   coding(citic-head, boc-head)   
+   
+15:42 2012-08-13
+   eja, why i do that again and again...
+   coding(citic-head)   
+
+2012-08-14
+   coding(citic-head)
+   
+21:12 2012-08-15
+   coding(citic-head)
+   i want to buy a mobile phone=======
     eja
 
 2012-08-07
@@ -2767,4 +2789,4 @@ mark: 30 mobile phone fee
 00:16 2012-08-09
     
     
-    
+    >>>>>>> .r982
