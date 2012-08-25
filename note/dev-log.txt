@@ -2731,7 +2731,7 @@ mark: 30 mobile phone fee
     eja
     
 2012-07-30
-    test bochina-head wosa device(printer, idcardreader, swcardreader) with liximei(南天)
+    interface test bochina-head wosa device(printer, idcardreader, swcardreader) with liximei(南天)
     
     thanks god for i solved the problem smoothly
     
@@ -2743,31 +2743,19 @@ mark: 30 mobile phone fee
     zhanhuangyuan said i should done the test of bochina head more quickly, can i done it in two day, e...(tag: dingyong(南天), maofeng(saintray))
     i forgot have lunch...
     
+2012-08-01
+    know the caller and evalator transaction flow and program process
 
+2012-08-02
+    know the caller and evalator transaction flow and program process
+    call dingyong(nantian) for second part(caller, evalator, ledshow, radiobox) interface test
+    
 01:03 2012-08-03
-<<<<<<< .mine
+   access test, bochina-head
    eja
-
-2012-08-08
-   eja
-
-2012-08-11 
-   coding(citic-head, boc-head)   
-
-2012-08-12
-   coding(citic-head, boc-head)   
    
-15:42 2012-08-13
-   eja, why i do that again and again...
-   coding(citic-head)   
-
-2012-08-14
-   coding(citic-head)
-   
-21:12 2012-08-15
-   coding(citic-head)
-   i want to buy a mobile phone=======
-    eja
+2012-08-04
+   outwork, beijing.xieshaokun(saintray) came
 
 2012-08-07
     dream chengjianyi(junior school), and she go to my bed and i refuse...
@@ -2784,9 +2772,51 @@ mark: 30 mobile phone fee
     dengzhimin q me
     eja, e...
     
-    i have a break through at the test of boc-head(nantian)
+    --- i have a break through at the test of boc-head(nantian)
+    the interface test can not cover all the situation of the reality access run
+    1 data format specification
+    2 interface call seq and strength
+    --------------------
+
+2012-08-09
+             
+        
+2012-08-11 
+   coding(citic-head, boc-head)   
+
+2012-08-12
+   coding(citic-head, boc-head)   
+   coding(tag: citic-head, evalator, caller)
+   
+15:42 2012-08-13
+   eja, why i do that again and again...
+   coding(tag: citic-head, evalator, caller)
+
+2012-08-14
+   coding(tag: citic-head, berrshow)
+   boc-head test review(efficiency of callnum)
+      
+21:12 2012-08-15
+   coding(tag: citic-head, audio, compshow, idcardreader)
+   i want to buy a mobile phone=======
+   zhanhuangyuan said i have to go to citic office tomorrow
+   
+   
+   
+21:46 2012-08-16
+   coding at citic office, it is little time???(tag: printdata format parse, xml parse,    swcardreader)
     
-00:16 2012-08-09
     
+
+
+22:17 2012-08-20
+    eja
     
-    >>>>>>> .r982
+2012-08-21
+    eja
+
+2012-08-22
+    eja
+
+09:58 2011-08-25
+    eja, i swear, two week

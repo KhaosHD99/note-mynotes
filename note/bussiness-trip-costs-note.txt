@@ -207,7 +207,6 @@ myself: 283
 20:13 2012-7-16
    got 2012-7-2 sheet(1103)
    
-<<<<<<< .mine
 18:22 2012-07-19
    got 2012-7-12 sheet(1860)
    
@@ -219,8 +218,7 @@ myself: 283
 10:00 2012-07-25
    got 5000 pre-costs
    phone fee: 30
-    =======
-<<<<<<< .mine
+   
 18:22 2012-07-19
    got 2012-7-12 sheet(1860)
    
@@ -271,7 +269,6 @@ myself: 283
 21:03 2012-08-07
    got 5000 bussiness trip pre-pay
    
-<<<<<<< .mine
 2012-08-08
    fruit: 10+
 
@@ -282,9 +279,48 @@ myself: 283
    dinner: 25
 
 18:47 2012-08-12
-    =======
-   =======
-   >>>>>>> .r977
->>>>>>> .r979
->>>>>>> .r980
->>>>>>> .r982
+
+2012-08-13
+    
+2012-08-16
+    lunch: 75+(pay for two tester(zhantong) and colleague)
+    
+2012-08-17
+
+2012-08-18
+   lunch: 40+(pay for tester, zhantong)
+    
+21:50 2012-08-19
+   lunch&dinner: 50+
+   fruit: 20+
+ 
+22:15 2012-08-20
+   lunch: 22
+   
+   
+2011-08-22
+   lunch: 28
+   dinner: 40+
+
+2011-08-23
+   lunch: 22
+   dinner: 40+-
+   fruit: 30
+
+2011-08-24
+   lunch: 24
+   dinner: 46
+   fruit: 10 
+
+
+
+
+
+
+
+
+
+
+   
+   
+    
