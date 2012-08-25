@@ -7859,7 +7859,8 @@ ofstream open
     add log level									**
     
     i want to go panjiayuan
-    can i do not use the precompile header??
+    can i d
+o not use the precompile header??
     vsnprintf
     vc6.0 cstring
     
@@ -7869,7 +7870,8 @@ ofstream open
     
 12:09 2012-08-08
 ---------------------------------- boc head ------------------------------------
-    LoadLibrary("sdtapi.dll") if no any path, it will search system path, like "system32", and     the last, will found the dir where the process start!!!
+    LoadL
+ibrary("sdtapi.dll") if no any path, it will search system path, like "system32", and     the last, will found the dir where the process start!!!
     
     vc how to get current dir: GetCurrentDirectory					*
      
@@ -7901,7 +7903,7 @@ ofstream open
         
     no insert event when in indefinite wait						*
     
-    why will activex call "readrawdata" in swcardreader twice?
+    09:55 2012-08-1709:55 2012-08-17why will activex call "readrawdata" in swcardreader twice?
 
     why will the process die when status change in the "capturestatus"			@@
     
@@ -7940,5 +7942,143 @@ ofstream open
     打印机清空所有模式？？？
     input xml chinese messy code
     
+09:56 2012-08-17
+    lpBuffer[len] = 0;(LPVOID *lpBuffer), the compiler do not know the sizeof lpvoid	*
     
-    >>>>>>> .r982
+    need i make sure the text char len is even number?					**
+    max screen content count: 3???
+    0 is infinite
+    if i send nothing, will it turn to idle show???
+    align center									
+    win7										**
+    compshow multi record offset							
+    compshow collapse!!!								**
+    slide around and around								*				
+    
+10:10 2012-08-18									
+    can not find the qtlib in current dll dir???					
+    separate the log									**
+    broadcast										done
+    i % 0										
+    ifstream do not support chinese file!!						
+    configable comport									
+    yue sound file									
+    their "swichtime" is mean swich to adv's time					**
+            
+    inserficant file buf
+    compshow: feedline
+
+10:01 2012-08-19
+---------------------- citic-head
+    swcardreader collapse								DONE
+    appr login show star
+    
+    value &= 0x7;
+    
+    the buf len is the real len , no '\0'
+        
+    the appr return val									done
+    show star when login								done
+    
+    narrow the print bill row space; head space						done
+    
+    their "swich time" is the time swich to adv   					done
+    double bytes charset and single bytes charset handle(half of chinese)		done
+    compshow adv: one line one 								done
+    sound: "01" num window
+    justify the caller show format							*
+    at "NUMBER" mode, if no separator, it will collapse					over
+    berr: flash, slide again and again; comp: slide again and again
+    ledshow: if cycle count is max, will it infinite???
+    
+    n / 0 will collapse???
+
+    why use "text" for callnum								**    
+    appr lose power, then auto login???						
+    
+    
+11:32 2012-08-20
+    if the data is nothing, need i clear the screen					
+    atom d425, 1.8GHZ									
+    align center									done
+    
+    can it show &
+    
+    printer top, bottom, left, right space						done
+    
+    audio path configable								done
+    specification the xml config file							**
+    
+09:36 2012-08-21
+   track 2 and track 3 separator							over
+   3 track len										
+   serial port configable								done
+   fixed a printer bug(memory)
+   show some special char???
+   
+   resource ocuppy									**
+      
+   if receive a login request, then, login it
+   printer port open fail								*
+   swcardreader: memory leak???								**
+   
+   slide again and again style								**
+   
+   
+10:44 2012-08-22
+   add log header									**
+   
+   if no the specific xml element, it wiil dead loop???					**
+   
+   
+10:28 2011-08-23
+   printer feedline
+   why no voice?? 									over
+   
+   when init call , then the appr							over 
+   
+   led screen stay time
+   
+   img?how to write the bmp data to buffer						**
+   
+   what fuck bug of vc and vs2005!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+   memcpy, what the unit of size
+   
+   when i should delete the idcard data???
+   why comp will deadlock???!!!!!!!!!!!!!!!!!!!!!!!!!!!!				*
+   
+   compshow text align center								done
+   
+   special char										**
+   
+   print format wrong again!!!!!!!!!!!							
+   
+   while can not load the depence lib, but later, it can!!!! 				*
+   
+   install xp										**
+   
+   compshow: if swichtime is 0, no 255, because it alreay infinite, 
+   and it won't swich page							        over
+   
+   how to name char array								*
+     
+   why at win7, the printer print more a line???
+   
+14:13 2011-08-24
+   printer: the last row at head							**
+   
+   "text"
+   
+   set setadvitise no show!!!!!!!!!!!!!!!!!!!!!!					**
+   why time is not 5 second								**
+   
+   log level										**
+   
+   
+   
+   
+   
+   
+   
+   
