@@ -8027,8 +8027,7 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
 10:44 2012-08-22
    add log header									**
-   
-   if no the specific xml element, it wiil dead loop???					**
+   if no the specific xml element, it wiil dead loop???					done
    
    
 10:28 2011-08-23
@@ -8070,15 +8069,43 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
    "text"
    
-   set setadvitise no show!!!!!!!!!!!!!!!!!!!!!!					**
+   demand: set setadvitise but do not show!!!!!!!!!!!!!!!!!!!!!!			**
    why time is not 5 second								**
-   
+      
    log level										**
+
+19:41 2012-08-26
+   auto del log???
    
+09:47 2012-08-27
+   the procedure of zhantong call comp: send "" to clear, send "set adv", send infinite text
    
+   LOG_BUF_SIZE configiable 
+  
+   cycle num										**
    
+   clear screen???									**
+   why the wrong seq???
+   xml comment										done							   
+   they said 0 is no log								done
    
+   log delete day
    
+09:41 2012-08-28
+   printer init port err???
+   callnum pattern									**
    
+   the open printer err is not my wrong!!!
+   the hight cpu occupy rate is not my wrong
+   print port and baud and cardreader configiable 
+   
+
+
+00:15 2012-08-29
+   can inno setup create a auto run 
+   inno setup uninstall
+   inno setup create a custom var
+   
+
    
    
