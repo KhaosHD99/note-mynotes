@@ -816,7 +816,6 @@ big endian
 23:43 2012-08-10
  net use /delete
 
-<<<<<<< .mine
 16:18 2012-08-11
 GetCurrentDirectoryA=======
 12:11 2012-08-08
@@ -824,5 +823,3 @@ GetCurrentDirectoryA=======
   
 
 
-
->>>>>>> .r982

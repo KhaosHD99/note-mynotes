@@ -315,7 +315,7 @@ myself: 283
 2012-08-25
    chinese painting(54)
 
-
+0
 19:36 2012-08-26
    shopping: post car(56), some thing to eat(150+-)
       
@@ -328,9 +328,28 @@ myself: 283
 12:47 2012-08-29   
    got 3000 bussiness trip pre-pay
    
-   
+2012-08-30
+   beijing roast duck: 274
       
+2012-08-31
+   the cost of change a later flight: 340
+   
+   
+2012-09-02
+   give 200 to sister
+   
+10:16 2012-09-03
+   
 
+
+
+
+--------------------
+commit a sheet(17049, pre-pay: 13000)
+   ----------------------
+   
+       
+   
 
 
 
