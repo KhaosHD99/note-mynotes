@@ -334,22 +334,30 @@ myself: 283
 2012-08-31
    the cost of change a later flight: 340
    
-   
 2012-09-02
    give 200 to sister
    
 10:16 2012-09-03
-   
-
-
-
-
---------------------
-commit a sheet(17049, pre-pay: 13000)
+   --------------------
+   commit a sheet(17049, pre-pay: 13000)
    ----------------------
    
-       
+13:32 2012-09-05    
+   got salary: 3888(why no insure???)							**
+   see a movie and dinner(260-)      
+
+2012-09-06
+   mum: 300
    
+17:12 2012-09-07
+   sw: 20
+   train ticket: 395 + 80
+   phone fee: 30
+      
+   
+   
+
+      
 
 
 
