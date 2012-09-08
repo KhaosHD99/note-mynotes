@@ -2846,7 +2846,7 @@ out work(beijing, citic, ot)
    out work(beijing, citic)
        
 2012-08-28
-   the interface reform and test of citic-head is done!!!
+   the inface reform and test of citic-head is done!!!
    zhanhuangyuan said can i bough a train ticket?
   ---------------------------- 
   i need keep a clear mind when encounter some problem, do not scare, find what reason, do not   care who's(inter-company) wrong, otherwise, it will mix you
@@ -2859,7 +2859,24 @@ out work(beijing, citic, ot)
       
 12:48 2012-08-29
    the return journey at 0831 morning by air
+      
    
+2012-09-03
+   
+   
+2012-09-04
+      
+   
+2012-09-05
+   
+    
+2012-09-06
+   eja
+      
+   
+09:25 2012-09-07
+   sw
+   the teller show discontent to me when i need pre-pay for bussiness trip... what's wrong
    
    
    

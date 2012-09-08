@@ -7914,7 +7914,7 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     sometimes, get info(printer) will deadlock						done
     why nantian do not call the cut paper method???					@@    
     thread safe!!!									**
-    
+        
     if(status & 8)//мя╩З
     
     the print speed is a little slow
@@ -7927,15 +7927,10 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
 ---------------------------------------
     i need a printer instruction manual        
     
-    
-
-
-
-
 14:58 2012-08-16
     human readable interpretation
 ================================ citic ===========================
-    what is barcode mode								**    
+    what is barcode mode								**    
     page 	
      
     detect paper out
@@ -7944,26 +7939,25 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     
 09:56 2012-08-17
     lpBuffer[len] = 0;(LPVOID *lpBuffer), the compiler do not know the sizeof lpvoid	*
-    
-    need i make sure the text char len is even number?					**
+    need i make sure the text char len is even number?					done
     max screen content count: 3???
     0 is infinite
     if i send nothing, will it turn to idle show???
     align center									
-    win7										**
+    win7										done
     compshow multi record offset							
     compshow collapse!!!								**
     slide around and around								*				
     
 10:10 2012-08-18									
     can not find the qtlib in current dll dir???					
-    separate the log									**
+    separate the log									done
     broadcast										done
     i % 0										
     ifstream do not support chinese file!!						
     configable comport									
     yue sound file									
-    their "swichtime" is mean swich to adv's time					**
+    their "swichtime" is mean swich to adv's time					done
             
     inserficant file buf
     compshow: feedline
@@ -8016,63 +8010,53 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    fixed a printer bug(memory)
    show some special char???
    
-   resource ocuppy									**
-      
-   if receive a login request, then, login it
-   printer port open fail								*
+   resource ocuppy									over
+   if receive a login request, then, login it						done
+   printer port open fail								over
    swcardreader: memory leak???								**
-   
    slide again and again style								**
-   
    
 10:44 2012-08-22
    add log header									**
    if no the specific xml element, it wiil dead loop???					done
    
-   
 10:28 2011-08-23
-   printer feedline
+   printer feedline									over
    why no voice?? 									over
-   
    when init call , then the appr							over 
    
-   led screen stay time
+   led screen stay time									
    
-   img?how to write the bmp data to buffer						**
+   img?how to write the bmp data to buffer						done
    
-   what fuck bug of vc and vs2005!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   what fuck bug of vc and vs2005!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!		
    
-   memcpy, what the unit of size
+   memcpy, what the unit of size							
    
-   when i should delete the idcard data???
+   when i should delete the idcard data???						done
    why comp will deadlock???!!!!!!!!!!!!!!!!!!!!!!!!!!!!				*
    
    compshow text align center								done
    
-   special char										**
-   
+   special char										done
    print format wrong again!!!!!!!!!!!							
-   
    while can not load the depence lib, but later, it can!!!! 				*
-   
-   install xp										**
+   install xp										done
    
    compshow: if swichtime is 0, no 255, because it alreay infinite, 
    and it won't swich page							        over
    
    how to name char array								*
      
-   why at win7, the printer print more a line???
+   why at win7, the printer print more a line???: 
    
 14:13 2011-08-24
-   printer: the last row at head							**
-   
-   "text"
-   
-   demand: set setadvitise but do not show!!!!!!!!!!!!!!!!!!!!!!			**
-   why time is not 5 second								**
-      
-   log level										**
+   ------------------------- citic head ----------------------------------
+   printer: the last row at head							ov
+   "text"		
+   demand: set setadvitise but do not show!!!!!!!!!!!!!!!!!!!!!!			done
+   why time is not 5 second								over
+   log level										done
 
 19:41 2012-08-26
    auto del log???
@@ -8080,32 +8064,48 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
 09:47 2012-08-27
    the procedure of zhantong call comp: send "" to clear, send "set adv", send infinite text
    
-   LOG_BUF_SIZE configiable 
-  
+   LOG_BUF_SIZE configiable 								**
    cycle num										**
-   
-   clear screen???									**
-   why the wrong seq???
-   xml comment										done							   
+   clear screen???									
+   why the wrong seq???									over
+   xml comment										done	
    they said 0 is no log								done
-   
-   log delete day
-   
+   log delete day									**
+      
 09:41 2012-08-28
-   printer init port err???
-   callnum pattern									**
+   printer init port err???								over
+   callnum pattern									done
+   the open printer err is not my wrong!!!						over
+   the hight cpu occupy rate is not my wrong						over
+   print port and baud and cardreader configiable 					done
    
-   the open printer err is not my wrong!!!
-   the hight cpu occupy rate is not my wrong
-   print port and baud and cardreader configiable 
-   
-
-
 00:15 2012-08-29
-   can inno setup create a auto run 
-   inno setup uninstall
-   inno setup create a custom var
+   can inno setup create a auto run: use register					done   
+   inno setup uninstall									done
+   inno setup create a custom var							
    
-
+14:42 2012-09-04
+   how to rename the svn folder
+  
+16:28 2012-09-04
+   what is ace
+   i need a doc template
+     
+09:10 2012-09-05
+   doc: ---------------------------------------
+   title indentation; 
+   main body text auto indentation; 
+   how to add "title 4" 
+   why the chinese chars space will increase?
+   
+15:57 2012-09-06
+   while (!xml.atEnd())
+   read file: buffer scalablly
+   
+11:00 2012-09-07
+   nantian test tool run err(tag: can not find c:\document)			 	over
+   svn modify commit log								**
+          
    
    
+    
