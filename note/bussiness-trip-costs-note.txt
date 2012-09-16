@@ -344,8 +344,9 @@ myself: 283
    
 13:32 2012-09-05    
    got salary: 3888(why no insure???)							**
-   see a movie and dinner(260-)      
-
+   see a movie and dinner(260-)   
+   traffic cost: 100   
+   
 2012-09-06
    mum: 300
    
@@ -354,15 +355,18 @@ myself: 283
    train ticket: 395 + 80
    phone fee: 30
       
-   
-<<<<<<< .mine
 14:12 2012-9-5
-    traffic cost: 100
-           
-=======
+ 
    
->>>>>>> .r988
-
+2012-9-15
+   nutrition cost for mum: 500
+   
+18:39 2012-9-16           
+   broad band: 860
+   
+   
+   
+   
       
 
 
