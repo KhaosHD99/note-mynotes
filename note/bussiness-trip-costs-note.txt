@@ -365,7 +365,13 @@ myself: 283
    broad band: 860
    
    
+2012-9-26
+   balance: 70-
+         
    
+2012-9-28
+   got 3888 salary   
+   grandma: 200
    
       
 
