@@ -2884,7 +2884,7 @@ out work(beijing, citic, ot)
       
 11:24 2012-9-26    
    mk: weight 61.2, 63.3kg, 61.8kg
-    
+       
     
 
    
