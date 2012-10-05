@@ -339,7 +339,7 @@ myself: 283
    
 10:16 2012-09-03
    --------------------
-   commit a sheet(17049, pre-pay: 13000)
+   commit a sheet(17049, pre-pay: 13000), other cost sheet(500-)
    ----------------------
    
 13:32 2012-09-05    
@@ -354,32 +354,77 @@ myself: 283
    sw: 20
    train ticket: 395 + 80
    phone fee: 30
-      
+   
+2012-09-08
+   HBV vaccine: 120+-
+   
 14:12 2012-9-5
- 
+   
+2012-09-9
+   train meal: 30-
    
 2012-9-15
    nutrition cost for mum: 500
    
-18:39 2012-9-16           
+2012-09-10
+   dinner: 27
+   
+18:15 2012-09-11
+   breakfast: 5.5
+   lunch: 29
+   water: 2
+   
+   got 3000 pre-pay
+   
+18:39 2012-9-16
    broad band: 860
    
+2012-09-19 
+   breakfast: 6
+   lunch: 8
+   shopping(polo shirt, soap, breakfast, snack): 200-
    
+<<<<<<< .mine
+10:39 2012-09-20
+   got a shopping card(200)
+=======
 2012-9-26
    balance: 70-
          
+>>>>>>> .r992
    
+<<<<<<< .mine
+10:35 2012-09-21
+   sheet 2062, 42(city-inside)
+   got 6484 sheet(10:16 2012-09-03), reserve 2000 pre-pay to me
+=======
 2012-9-28
    got 3888 salary   
    grandma: 200
+>>>>>>> .r992
    
+<<<<<<< .mine
+12:03 2012-09-25
+            
+=======
 2012-10-3
    gathering(junior classmate): 166
    
+>>>>>>> .r992
       
+<<<<<<< .mine
+
+   
+      
+      
+      
+
+=======
 13:47 2012-10-4
    phone fee: 50
    transfer 3000 to credit account
+>>>>>>> .r992
+
    
 snapshot:
 20121002,22:15:46,44030000020131008广州市越秀区三,1000.00,,7207.78,,,人民币,网络ATM取款

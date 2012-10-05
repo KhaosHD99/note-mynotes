@@ -7971,7 +7971,7 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     
     the buf len is the real len , no '\0'
         
-    the appr return val									done
+    the appr return val								done
     show star when login								done
     
     narrow the print bill row space; head space						done
@@ -7992,7 +7992,8 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     
     
 11:32 2012-08-20
-    if the data is nothing, need i clear the screen					
+    i
+ f the data is nothing, need i clear the screen					
     atom d425, 1.8GHZ									
     align center									done
     
@@ -8100,12 +8101,60 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
 15:57 2012-09-06
    while (!xml.atEnd())
-   read file: buffer scalablly
+   read file: buffer scalablly 
    
 11:00 2012-09-07
    nantian test tool run err(tag: can not find c:\document)			 	over
    svn modify commit log								**
           
+15:03 2012-09-12   
+   rfic; mifare
+   
+12:50 2012-09-13
+   上位机
+   MessageBox
+
+18:12 2012-09-18
+   标准/页模式
    
    
+16:42 2012-09-19
+   -------------------- rural commercial bank ------------------------
+   printer speed
+   led screen
+   printing area
+   line space, line space config file
+   
+   get statues
+   print logo
+   
+09:35 2012-09-20   
+   没有权限使用网络资源
+   mfc: show the console msg
+   
+   bocom swcard reader will do not work after some time
+   耦合率
+   
+10:36 2012-09-21
+   bocm: idcard deadlock
+   abc-head: idcard reader wrong data format
+   
+   icbc: wireless box
     
+   kill proc force   
+      
+10:43 2012-09-27
+   idcardreader: 1001  usb
+   mfc: console msg
+   
+11:55 2012-09-28
+   nafxcw.lib libcmt.lib
+   
+   the win32 api "writefile" can use at lpt?						***
+   can i embed some desc info to dll
+   
+   
+   
+   
+   
+
