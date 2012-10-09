@@ -823,3 +823,13 @@ GetCurrentDirectoryA=======
   
 
 
+vc 6.0:
+   nafxcw.lib libcmt.lib
+   
+   DWORD GetPrivateProfileString(LPCTSTR	lpAppName,
+			         LPCTSTR	lpKeyName,
+			         LPCTSTR	lpDefaut,
+			         LPSTR	lpReturnedString,
+			         DWORD	nSize,
+			         LPCTSTR	lpFileName);
+   

@@ -8140,9 +8140,9 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    abc-head: idcard reader wrong data format
    
    icbc: wireless box
-    
+   
    kill proc force   
-      
+         
 10:43 2012-09-27
    idcardreader: 1001  usb
    mfc: console msg
@@ -8152,9 +8152,24 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
    the win32 api "writefile" can use at lpt?						***
    can i embed some desc info to dll
+      
+   
+14:55 2012-10-08
+   bocomm: print font size
+    
+16:55 2012-10-09
+   jiangshu ABC-------------------------------------------
+   1 press caller ok resume the ""
+   2 show num stay time
+   3 idcard reader can not read data after a while
+   4 test ps/2 swcardreader
+   5 make a install app
+   
+   
+   why will 255.255.255.192 not work?
+   embed some info to a binary file(like exe)						**
    
    
    
+      
    
-   
-
