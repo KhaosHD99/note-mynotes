@@ -7999,7 +7999,7 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     
     can it show &
     
-    printer top, bottom, left, right space						done
+    printer top, bottom,  left, right space						done
     
     audio path configable								done
     specification the xml config file							**
@@ -8152,10 +8152,9 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
    the win32 api "writefile" can use at lpt?						***
    can i embed some desc info to dll
-      
    
 14:55 2012-10-08
-   bocomm: print font size
+   bocomm: print font size								**
     
 16:55 2012-10-09
    jiangshu ABC-------------------------------------------
@@ -8169,7 +8168,129 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    why will 255.255.255.192 not work?
    embed some info to a binary file(like exe)						**
    
+15:37 2012-10-10   
+   it is quite different of the same charater size in chinese and en			**
    
+        
+09:34 2012-10-11
+   the dup2 or fopen or vfprintf will block						**
    
+   i need my write log spec								***
       
+   fuck, the sound of 5 click shift key scare me!!!!!!!!!
+   snprintf include what ??								**
    
+   why it does not work about a mch ping my pc an old ip, but the other			**
+      
+   can i telnet to a mch for shutdown???
+   
+   is the "safe strategy" can constrain the logon of the file share service????		**
+   
+   GcSetPrintMode
+   
+15:17 2012-10-16
+------------------------------- QueueABC head
+    innosetup: set env var
+    
+    how to multifilee file name compare???
+    what is regsvr32  why ???????????????????????????????				**
+    
+    embed some info to a binary file(like exe)		!!!!!!!!!!!!!!!!!!!!		**
+    
+    why can not cover the file(inno setup)
+    
+    need i create a destop icon
+    
+    why no sound
+    
+14:03 2012-10-17
+    ----------------------------- QueueABC head
+    i need a window lib load seq memo							**
+
+*****************************
+    why ThLPrinterDLL.dll did not need locate at system32??? and if it only locate at     system32\, the process will die ?????
+*************************
+
+    resumed service									*
+    
+    doc: 1 add en
+    winio_nt.h
+    
+09:44 2012-10-18
+    winio.dll sys vxd
+        
+    
+********************************* Printer Base DLL ***********************************
+    the problem of Use Instructions
+1 physical port: can lpt use the win32 api like "createfile", "writefile", or must use the     winio.dll?
+2 continuous or not									
+3 add switch of get status(& 0x40)							**
+  if i get status, it will collapse							over
+4 print logo(quality, how to print logo via instruction???)				
+5 what is the instructions of close printer						**
+6 add log level  
+7 the use of cut papar args
+8 th open printer func args(less one)
+9 if my module name change how can i get my current path??????????????????????????????
+  
+  
+  
+10:07 2012-10-19  
+    ----------------------------- QueueABC head
+    doc: add mainwinscreen desc
+    
+    
+    ------------------------------- QueueBocomm head
+    1 add print logo									done
+    2 they only use the double func, no call the set font size func...(why the GcSetPrintMode can not work)
+    
+    why can not use "snprintf" at vc!!!!!!!!!!!						*
+    what the instruction of close printer???
+    
+    what is shlwapi.dll
+    
+    i need know the dll load seq and mechanism explicitly
+    
+    ------------------------ leave down 
+    embed version info to biniry file(exe,dll)
+        
+10:37 2012-10-24
+    ----------------------------- printer
+    how to print bitmap use instruction
+        
+
+
+    there is some problem at bochina-head print log    
+    
+    
+------------------------------- QueueRCB
+    can not show the word beyond solidify word						**
+    
+
+    ---------------------------------QueueCCB printer
+    use constructions
+        
+
+    --------------------------------------QueueCE
+    
+10:13 2012-10-25
+    
+------------------------------ Printer
+    can i simulate the serial num of symbol table???
+    status										**
+    
+------------------------------QueueBocomm
+    the swcarder is not robust enough							**
+    
+    
+------------------------------ GuangDong Develop printer
+    use my printer base dll?
+        
+    
+
+    msb lsb										**
+    
+    
+14:25 2012-10-30
+    i need 
+    

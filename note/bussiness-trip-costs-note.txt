@@ -426,8 +426,59 @@ snapshot:
    
 2012-10-07
    grandma(mum-side): 300
-   visit stuff: 30+-
+   visit present: 30+-
    lunch: 70+
    transport costs: 40
    
-11:53 2012-10-08    
+11:53 2012-10-08
+   
+2012-18-09
+   lunch(mcdn): 16
+           
+   
+   
+10:23 2012-10-10
+   breakfast(mcdn): 7
+   
+21:58 2012-10-11
+   lunch: 20- 
+   train food: 2 + 15
+   
+2012-10-15
+   30 train food
+
+2012-10-16
+   lunch: 19-
+   dinner: 25
+   
+22:57 2012-10-17
+   breakfast: 13
+   dinner: 25+
+   it cost me 12 handing charge for 1000 withdraw
+   
+   memo: 2000-(deposit), 2300+(credit)
+   
+2012-10-19
+   
+
+2012-10-20
+   breakfast and lunch: 20+
+   dinner: 20+
+
+2012-10-21
+   breakfast and lunch: 15-
+   fruit: 20+
+   dinner: 10 + 11
+
+2012-10-22
+   breakfast: 3
+   lunch: 20
+   train food: 20+-
+   
+2012-10-23
+   snacks: 6
+      
+   
+11:19 2012-10-24
+      
+   
