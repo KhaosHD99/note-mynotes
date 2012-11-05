@@ -8292,5 +8292,43 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
     
     
 14:25 2012-10-30
-    i need 
+   no sw, i was so tired and it rained, so... 
+   i need carry out my insurance							***
+   
+   carry out my first joining on opensource prj(goagent)				***
+   《python 网络编程》
+   wsgi
+   
+   how does "struct“ store and mark in memory??? is it has not any feature but just one       byte by one byte???
+   
+   非常感谢，社区有你更美好
+   
+   
+10:15 2012-10-31
+   倒向DIB
+   
+   int iLineByteCnt = (((m_iImageWidth*m_iBitsPerPixel) + 3) >> 2) << 2; 
+   
+   (((width*biBitCount)+31)>>5)<<2
+
+   rtn = fread((unsigned char*)bitmapData, 1, 16, fp);  //bitmapdata is unsigned short
+
+11:53 2012-11-01
+   fread has a bug???: if the input buffer is so big, it will collapse
+   
+************************************* Printer
+   will the print bitmap will confuse the linespace pre-set value
+      
+   
+08:57 2012-11-02   
+   
+   
+10:55 2012-11-05   
+   
+   
+   
+   
     
+     
+     
+        
