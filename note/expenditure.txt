@@ -455,7 +455,8 @@ snapshot:
    breakfast: 13
    dinner: 25+
    it cost me 12 handing charge for 1000 withdraw
-   
+   order a mobile phone and a battery: 1700 + 150
+      
    memo: 2000-(deposit), 2300+(credit)
    
 2012-10-19
@@ -464,7 +465,8 @@ snapshot:
 2012-10-20
    breakfast and lunch: 20+
    dinner: 20+
-
+   cloth(2): 700+-
+   
 2012-10-21
    breakfast and lunch: 15-
    fruit: 20+
@@ -477,25 +479,23 @@ snapshot:
    
 2012-10-23
    snacks: 6
-   
-
-
-   
+      
 11:19 2012-10-24
 
 
 2012-10-25
-
-
-
+------------------------------
+   commit sheet  3000+-
+------------------------------
+   
 2012-10-26
    micro sd card£º90+-
    
 2012-10-27
-    
+       
 2012-10-28
    phone/broadband/mobilephone fee: 400
-   
+      
 2012-10-29
    ¡¶c++ Primer¡·: 80+-
       
@@ -503,10 +503,53 @@ snapshot:
    mphone eps: 100
    
 17:36 2012-10-30
-    
-    
    
 10:59 2012-11-04
+   traffic eps: 50
    water and eletricity eps: 500
+   
+11:16 2012-11-05
+   got salary: 3657, what the reason of skimping
+   
+      
+11:25 2012-11-08
+   swin eps: 360   
+   
+2012-11-21
+   lunch: 26
+   dinner: 14
+   night snack: 18
+   
+2012-11-22
+   lunch: 18
+   dinner: 25
+   
+      
+2012-11-23
+   fruit: 6+-
+   lunch: 16
+   dinner: 16
+   night snack: 18
+   massage: 40
+   order a glove: 23
+   
+01:16 2012-11-24
+   
+2012-11-25
+   
+   
+17:24 2012-11-26
+   got 1316 sheet(2012-10-25, divede 2000 pre-pay, remain 3000)
+   order a shoes: 250
+   
+   
+2012-11-27
+   traffic costs: 50
+   
+2012-11-28
+
+14:38 2012-11-29
+   salary: 3657
+   refund for train ticket: 228
       
    
