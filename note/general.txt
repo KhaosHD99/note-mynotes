@@ -1,9 +1,11 @@
 
 /********************************** Coding motto ***********************************
-       有准备，高效(精神状态好, 一心一意，直奔要害, 满溢法，多线程法)，严谨
-************************************************************************************/
-1 通常自己觉得很诡异，很不可思议的问题，都是自己的问题------无论如何自己先做到最好
+有准备，高效(精神状态好, 一心一意，直奔要害, 不要纠缠，交流，满溢法，适当多线程法)，严谨
 
+1 通常自己觉得很诡异，很不可思议的问题，都是自己的问题------无论如何自己先做到最好
+************************************************************************************/
+
+/********************************** Coding motto ***********************************
 
 
 
@@ -839,8 +841,8 @@ GetCurrentDirectoryA=======
 
 
 vc 6.0:
-   nafxcw.lib libcmt.lib
-   
+   first ignore nafxcw.lib libcmt.lib, then import it again. no no no, only input nafxcw.lib to "input", it works
+      
    DWORD GetPrivateProfileString(LPCTSTR	lpAppName,
 			         LPCTSTR	lpKeyName,
 			         LPCTSTR	lpDefaut,
@@ -865,3 +867,95 @@ dynamic: {sys} >
 
 
 ***********************************************************************************/
+
+
+configure -platform win32-msvc2005 -xplatform wince60standard-armv4i-msvc2005
+
+----------- set env
+C:\Program Files\Microsoft Visual Studio 8\VC\ce\bin\x86_arm
+
+C:\Program Files\Microsoft Visual Studio 8\VC\ce\include
+C:\Program Files\Windows CE Tools\wce600\Mini210-CE6-SDK\Include\Armv4i
+
+C:\Program Files\Microsoft Visual Studio 8\VC\ce\lib\Armv4i;C:\Program Files\Windows CE Tools\wce600\Mini210-CE6-SDK\Lib\ARMV4I
+
+
+C:/Program Files/Microsoft Visual Studio 8/VC/ce
+C:\Program Files\Windows CE Tools\wce600\Mini210-CE6-SDK
+
+
+
+vs ide console app entry point: mainWCRTStartup  
+
+_wfopen
+
+
+
+
+
+
+
+
+Configures a communications device according to the specifications in a device-control block (a DCB structure). The function reinitializes all hardware and control settings, but it does not empty output or input queues.
+Syntax
+C++
+
+BOOL WINAPI SetCommState(
+  _In_  HANDLE hFile,
+  _In_  LPDCB lpDCB
+);
+
+Parameters
+hFile [in]
+A handle to the communications device. The CreateFile function returns this handle.
+lpDCB [in]
+A pointer to a DCB structure that contains the configuration information for the specified communications device.
+Return value
+If the function succeeds, the return value is nonzero.
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+Remarks
+The SetCommState function uses a DCB structure to specify the desired configuration. The GetCommState function returns the current configuration.
+To set only a few members of the DCB structure, you should modify a DCB structure that has been filled in by a call to GetCommState. This ensures that the other members of the DCB structure have appropriate values.
+The SetCommState function fails if the XonChar member of the DCB structure is equal to the XoffChar member.
+When SetCommState is used to configure the 8250, the following restrictions apply to the values for the DCB structure's ByteSize and StopBits members:
+The number of data bits must be 5 to 8 bits.
+
+
+
+
+
+Initializes the communications parameters for a specified communications device.
+Syntax
+C++
+
+BOOL WINAPI SetupComm(
+  _In_  HANDLE hFile,
+  _In_  DWORD dwInQueue,
+  _In_  DWORD dwOutQueue
+);
+
+Parameters
+hFile [in]
+A handle to the communications device. The CreateFile function returns this handle.
+dwInQueue [in]
+The recommended size of the device's internal input buffer, in bytes.
+dwOutQueue [in]
+The recommended size of the device's internal output buffer, in bytes.
+Return value
+If the function succeeds, the return value is nonzero.
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+Remarks
+After a process uses the CreateFile function to open a handle to a communications device, but before doing any I/O with the device, it can call SetupComm to set the communications parameters for the device. If it does not set them, the device uses the default parameters when the first call to another communications function occurs.
+The dwInQueue and dwOutQueue parameters specify the recommended sizes for the internal buffers used by the driver for the specified device. For example, YMODEM protocol packets are slightly larger than 1024 bytes. Therefore, a recommended buffer size might be 1200 bytes for YMODEM communications. For Ethernet-based communications, a recommended buffer size might be 1600 bytes, which is slightly larger than a single Ethernet frame.
+The device driver receives the recommended buffer sizes, but is free to use any input and output (I/O) buffering scheme, as long as it provides reasonable performance and data is not lost due to overrun (except under extreme circumstances). For example, the function can succeed even though the driver does not allocate a buffer, as long as some other portion of the system provides equivalent functionality.
+
+
+
+
+
+
+
+auto eth0
+iface eth0 inet dhcp
+
+

@@ -8228,7 +8228,8 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
   if i get status, it will collapse							over
 4 print logo(quality, how to print logo via instruction???)				
 5 what is the instructions of close printer						**
-6 add log level  
+6 add
+   log level  
 7 the use of cut papar args
 8 th open printer func args(less one)
 9 if my module name change how can i get my current path??????????????????????????????
@@ -8325,10 +8326,126 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
    
 10:55 2012-11-05   
    
+
+10:24 2012-11-06   
+-------------------------------------- bocomm
+   there is some unexpect result in window display because the logical leak
    
    
+16:11 2012-11-07
+   what is the "computer manager" app name
+   
+09:12 2012-11-09   
+------------------------------------- idcardreader
+   test the new idcardreaer
+   
+
+11:52 2012-11-12   
+   ----------------------------------- QueueCE 
+   VS2005 show window and console							**
+   no CreateDirectoryA at ce???
+   fopen can not work
+   
+   telnet
+   
+09:37 2012-11-13
+
+11:41 2012-11-14
+#if 1
+   int main(int argc, char *argv[])
+#else
+   int WINAPI WinMain(HINSTANCE hInstance,
+                      HINSTANCE hPrevInstance,
+                      LPTSTR    lpCmdLine,
+                      int       nCmdShow)
+   
+   vs ide ce console app entry point: ""
+   			     mfc app: WinMainCRTStartup
+    mainWCRTStartup
+   
+   
+--------------------------- bocomm
+   promote the swcardreader robustness							***
+   
+      
+
+
+
+
+NDEBUG
+_WIN32_WCE=$(CEVER)
+UNDER_CE
+WINCE
+$(ARCHFAM)
+$(_ARCHFAM_)
+STANDARDSHELL_UI_MODEL
+
+
+_DEBUG
+_WIN32_WCE=$(CEVER)
+UNDER_CE
+$(PLATFORMDEFINES)
+WINCE
+DEBUG
+$(ARCHFAM)
+$(_ARCHFAM_)
+POCKETPC2003_UI_MODEL   
+   
+   
+what is precompiler(预处理器)
+
+/MACHINE:THUMB
+
+CString -> char*
+  
+
+09:20 2012-11-15
+   错误	1	error LNK2005: "void __cdecl operator delete(void *)" (??3@YAXPAX@Z) 已经在       LIBCMT.lib(delete.obj) 中定义	uafxcw.lib	
+   
+   ignore libcmt.lib???
+   
+   how ce show console???
+   
+   configure -platform win32-msvc2005 -xplatform wince60standard-armv4i-msvc2005 -qt-sql-sqlite
+   
+
+15:18 2012-11-21
+   add date desc to log file name							**
+   
+
+10:28 2012-11-22
+   set ip at console at win32								**
+------------------------ bocomm swcardreader   
+   make the readdata timeout is configurable						**
+   avoid create more than one read thread
+   why after parse, the port args is wrong???
+   the thirth track   
+
+   GetData CString
+    
+   错误	15	error LNK2005: "void * __cdecl operator new(unsigned int)" (??2@YAPAXI@Z) 已经在 LIBCMT.lib(new.obj) 中定义	nafxcw.lib	fuck!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+   what nafxcw.lib, libcmt.lib and MSVCRT.lib is exactly
+   
+
+10:09 2012-11-27
+    atoi
+
+09:44 2012-11-28
+    use "LoadLibrary" to load a dll, how could the dll find it's dependence		**
+    
+
+17:00 2012-11-29
    
     
-     
-     
-        
+10:04 2012-11-30
+    debian: dhcp, telnet
+    why my securecrt cracker can not work?					
+    busybox in windows???								***
+    can not apt-install the "telnetd"
+    
+09:37 2012-12-03
+    why the "qt integration" will enable when it has not any qt ui information file???
+    
+    
+    

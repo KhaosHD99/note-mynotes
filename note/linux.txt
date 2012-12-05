@@ -1354,3 +1354,8 @@ freopen("/var/log/syslog","a", stderr);
 13:47 2012-3-28
      "C++ compiler cannot create executables" when configure at cifs file system, why??????????
      
+
+
+10:54 2012-11-30
+    grep -r -i -l "xxx" *
+    
