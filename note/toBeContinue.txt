@@ -8359,9 +8359,9 @@ ibrary("sdtapi.dll") if no any path, it will search system path, like "system32"
                       LPTSTR    lpCmdLine,
                       int       nCmdShow)
    
-   vs ide ce console app entry point: ""
+   vs ide ce console app entry point: "" or mainWCRTStartup
    			     mfc app: WinMainCRTStartup
-    mainWCRTStartup
+    
    
    
 --------------------------- bocomm
@@ -8392,7 +8392,7 @@ $(_ARCHFAM_)
 POCKETPC2003_UI_MODEL   
    
    
-what is precompiler(预处理器)
+what is precompiler(预处理器) and preprocessor
 
 /MACHINE:THUMB
 
@@ -8434,7 +8434,7 @@ CString -> char*
 09:44 2012-11-28
     use "LoadLibrary" to load a dll, how could the dll find it's dependence		**
     
-
+    
 17:00 2012-11-29
    
     
@@ -8448,4 +8448,172 @@ CString -> char*
     why the "qt integration" will enable when it has not any qt ui information file???
     
     
+11:12 2012-12-05,12:34 2012-12-06, 09:42 2012-12-07
+-----bitmap--------------------------------------------
+   why the 8 bit and 16 bit bmp will dip						**
+   the lose 8 line
+   compatible to 8, 16, 24, 32(how about < 8)bitcount bitmap
+   scale
+   can it aglin certer? 
+   memory leak
+   set line space???
+   单点密度，双密度??? 
+     
+12:34 2012-12-06
+   bitmap: ddb, dib
+   
+09:42 2012-12-07
+   what function of the .moc file?
+   why vs can not find the header files when i have attath them to project???
+   
+mainWCRTStartup
+
+//int main(int argc, char *argv[])
+int _tmain(int argc, _TCHAR* argv[])
+
+
+NDEBUG
+_WIN32_WCE=$(CEVER)
+UNDER_CE
+WINCE
+_WINDOWS
+$(ARCHFAM)
+$(_ARCHFAM_)
+_UNICODE
+UNICODE
+STANDARDSHELL_UI_MODEL
+
+what is qtmain.lib???
+  
+how can it generate .moc file automaticly?
+
+
+09:34 2012-12-11
+   how to add a qt ui event?								done
+
+--------------------   
+   class
+   {		
+      public slots:
+   }   
+   -------------
+   what is 元对象，元数据
+       
+-------------- what is that
+   class CQueueCEMFCDlg : public CDialog
+   {	
+	enum { IDD = IDD_QUEUECEMFC_DIALOG }; 
+   }
+----------------------------
+   
+   mfc DoModal
+   why the group box will cover the other control 
+   
+09:53 2012-12-12
+   the mechanism of goagent								***
+   
+   mfc, ce, encoding detect and code handling
+   #define __TEXT(x)       L ## x
+   
+   write log
+   
+   do not support GetPrivateProfileInt (ce)
+
+   LPCTSTR
     
+   ------------------- queue rcb
+   is they mixup the chanel of signal board						**
+   
+   why no dll dependence after compile, i have import qextserialport.lib before
+   
+09:29 2012-12-13, 2012-12-14
+   why i install vs2005, the qextsearl can work???("win32 platform sdk 工具"		**
+         
+   
+   "new" "delete" in crt and mfc
+   
+----------------- QueueABC head
+    add more xml field desc 								**
+    
+    
+09:46 2012-12-14
+    why i can clear my mind    
+    a pressure queuecemfc(20 or 30 days)						***    
+--------------------------- queueabc-head 
+    add the entire line handling 
+        
+    qstring mid
+    
+    
+
+
+
+13:03 2012-12-17, 2012-12-18
+    ------------------- queueabc-head
+    windowscreen multi
+    unexpect show dialog
+    
+    it lose some data?? why can not received any thing??? 				***
+    why can not receive any thing when it is the first time
+    
+    
+10:27 2012-12-18
+    "应用程序配置不正确": it will work after i install the 				**
+    Caller Display 013 无##1
+    what encoding does the led screen use
+    
+    why not the special seqeunt char
+        
+    ------------------- QueueCitic 
+    formally 
+    
+    why can not show the ticket num???
+
+15:47 2012-12-19
+    set call num sound times								*
+    440184198901284217
+登陆密码说明因系统安全升级，密码规则已发生变更。
+一.个人用户：
+对于修改过原初始密码8888的，请在原密码前加88；若未修改则初始密码为个人社保编号（八位，不足八位在前面用0补足），登陆后请修改密码。
+如果忘记个人密码，请带齐证件到各社保经办机构业务前台进行密码初始化办理。
+
+二.单位用户：
+单位用户获取密码请拨打12333热线或咨询各社保经办机构业务前台工作人员
+　　请登陆后立即更改初始密码，如因没有及时修改初始密码的用户（单位或个人），所造成信息泄漏，后果将由用户自行承担。
+
+
+08:54 2012-12-20    
+   can i uniform the prj encoding on win32 to utf???					***
+      
+   错误	1	fatal error C1189: #error :  Building MFC application with /MD[d] (CRT dll    version) requires MFC shared dll version. Please #define _AFXDLL or do not use /MD[d]	   C:\Program Files\Microsoft Visual Studio 8\VC\ce\atlmfc\include\afx.h	24	
+
+  'initializing' : cannot convert 'const char [7]' to ATL::CStringT<BaseType,StringTraits>
+
+   fuck stdafx.h  
+   g_db.execDML
+
+   大脑影像处理与传输		
+   sipapi.h			
+   
+   configure -platform win32-msvc2005 -qt-sql-sqlite
+   
+10:29 2012-12-21
+   我于今年4月份入职，在这几个月的时间里，和公司共同成长，个人的能力得到提升，感谢公司和身边帮    助我同事们。经过慎重的考虑，现提出加薪请求，望领导给予批准
+   
+-----------------------------------------------------------   
+   错误	1	fatal error C1189: #error :  WINDOWS.H already included.  MFC apps must not    #include <windows.h>	C:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include\afxv_w32.h	16	
+
+if i change the seq like this, it can work...
+#include			"afx.h"
+#include			"windows.h"	
+-----------------------------------------------------------------------
+   
+   what is qchar???
+   
+   错误	1	error C2664: “QString::QString(QChar)”: 不能将参数 1 从“wchar_t [512]”转换为“QChar”	d:\elon\prj\QueueCE\QueueWin32\src\DatabaseComSerial.cpp
+   
+   #pragma once
+   
+   LPCTSTR
+   
+   
