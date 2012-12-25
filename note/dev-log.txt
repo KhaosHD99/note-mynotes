@@ -3007,6 +3007,14 @@ out work(beijing, citic, ot)
    order a mobile phone and a portable power
    dengzhimin q me for have i choised the mobile phone
    
+<<<<<<< .mine
+2012-10-27
+   sw 1000 use 40+ min
+   
+
+11:43 2012-10-28
+   
+=======
       
 2012-10-18
    work outside(nkg)
@@ -3068,6 +3076,9 @@ out work(beijing, citic, ot)
    sw 750+-. i was pursuited again and again...
    why always me??? i pray it is just delay few days
    
+<<<<<<< .mine
+22:42 2012-11-9
+   eja...=======
    in the end of this month, i should express my opinion!!! in this time, i should work hard
    eja...
    
@@ -3200,6 +3211,13 @@ i need plan my life more, i am not a child already
 2012-12-06
    eja
    
+<<<<<<< .mine
+2012-12-15
+   chime-long with dzm. hand-shoulder, hand in hand
+   have i made a mistake??? i can not and mustn't delay any others if i...
+   
+18:58 2012-12-16
+=======
 10:39 2012-12-07
    sw 800m-
    i am not efficient enough!!!!!!!!!!!!!!!!!!!!!!
@@ -3219,6 +3237,7 @@ i need plan my life more, i am not a child already
 09:29 2012-12-11
    sw 700, i got up so late. i should not stay in bed when i was awake
    queuece: explore the mfc<->ui markup file's mechanism
+   eja
    
 09:29 2012-12-12
    queuece: explore the mfc<->ui markup file's mechanism
@@ -3247,7 +3266,7 @@ i need plan my life more, i am not a child already
    
 16:46 2012-12-17
    dzm q me again, have i made a mistake already???
-
+   eja
    
 2012-12-18
 
@@ -3276,4 +3295,11 @@ i need plan my life more, i am not a child already
    i am so disappointed that zhy said i should delay the petition(someone had been refused)       i need job-hopping!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    
    
+>>>>>>> .r1006
    
+
+2012-12-22
+    eja
+
+21:47 2012-12-25
+    eja
