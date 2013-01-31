@@ -1,8 +1,38 @@
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ WorldView @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+1 more rumination
+2 more communication
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Life arch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+1 i feel idle, i can
+1) reading, writing(diary or handwriting practise) or listening(english)
+2) (opensource prj)
+3) [communication], just outdoor activities, network communities(specially the foreign    webside)
+
+2 regular sport, sleep and get up early
+
+4 train my interest(swim, high quality music, camping)
+
+
+
+
+Alternative Option:
+i need favor fews 'en' website instead domestic's					***
+   high quality music ???
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 /********************************** Coding motto ***********************************
 1) 有准备
 2) 高效(精神状态好, [一心一意]，直奔要害, [不要纠缠]，良好的编码习惯，[交流]，满溢法，适当        多线程法)
-3) 严谨
+3) 【严谨】不要侥幸!!!
+4) 【灵活】扩展和维护
+5) 注析，【日志】
 ************************************************************************************/
 
 1 通常自己觉得很诡异，很不可思议的问题，都是自己的问题------无论如何自己先做到最好
@@ -2093,12 +2123,296 @@ Windows Phone Dev Center
 wcslen
 _wfopen
 
-
-
-
-
 swcard data sample:
 ;6225882013142259=49121202531300105614?+996225882013142259=1561560500050000001015105614214000049120=2013142259=000000000=04000000020000000000000?
   
 
+vs ide ce console app entry point: "" or mainWCRTStartup
+mfc app: WinMainCRTStartup; wWinMainCRTStartup
+
+
+09:51 2012-12-25
+   _Out_opt_
+   
+
+这两天抽时间又总结/整理了一下各种编码的实际编码方式，和在Java应用中的使用情况，在这里记录下来以便日后参考。
+为了构成一个完整的对文字编码的认识和深入把握，以便处理在Java开发过程中遇到的各种问题，特别是乱码问题，我觉得组成一个系列来描述和分析更好一些，包括三篇文章：
+第一篇：JAVA字符编码系列一：Unicode,GBK,GB2312,UTF-8概念基础
+第二篇：JAVA字符编码系列二：Unicode,ISO-8859,GBK,UTF-8编码及相互转换
+第三篇：JAVA字符编码系列三：Java应用中的编码问题
  
+第一篇：JAVA字符编码系列一：Unicode,GBK,GB2312,UTF-8概念基础
+本部分采用重用，转载一篇文章来完成这部分的目标。
+来源：holen'blog   对字符编码与Unicode,ISO 10646,UCS,UTF8,UTF16,GBK,GB2312的理解
+地址：http://blog.donews.com/holen/archive/2004/11/30/188182.aspx
+ 
+Unicode: 
+
+unicode.org制定的编码机制, 要将全世界常用文字都函括进去.
+在1.0中是16位编码, 由U+0000到U+FFFF. 每个2byte码对应一个字符; 在2.0开始抛弃了16位限制, 原来的16位作为基本位平面, 另外增加了16个位平面, 相当于20位编码, 编码范围0到0x10FFFF.
+
+UCS: 
+
+ISO制定的ISO10646标准所定义的 Universal Character Set, 采用4byte编码.
+
+Unicode与UCS的关系:
+
+ISO与unicode.org是两个不同的组织, 因此最初制定了不同的标准; 但自从unicode2.0开始, unicode采用了与ISO 10646-1相同的字库和字码, ISO也承诺ISO10646将不会给超出0x10FFFF的UCS-4编码赋值, 使得两者保持一致.
+
+UCS的编码方式:
+
+
+UCS-2, 与unicode的2byte编码基本一样. 
+
+UCS-4, 4byte编码, 目前是在UCS-2前加上2个全零的byte.
+
+UTF: Unicode/UCS Transformation Format
+
+UTF-8, 8bit编码, ASCII不作变换, 其他字符做变长编码, 每个字符1-3 byte. 通常作为外码. 有以下优点:
+* 与CPU字节顺序无关, 可以在不同平台之间交流
+* 容错能力高, 任何一个字节损坏后, 最多只会导致一个编码码位损失, 不会链锁错误(如GB码错一个字节就会整行乱码) 
+
+UTF-16, 16bit编码, 是变长码, 大致相当于20位编码, 值在0到0x10FFFF之间, 基本上就是unicode编码的实现. 它是变长码, 与CPU字序有关, 但因为最省空间, 常作为网络传输的外码.
+UTF-16是unicode的preferred encoding. 
+
+UTF-32, 仅使用了unicode范围(0到0x10FFFF)的32位编码, 相当于UCS-4的子集.
+
+UTF与unicode的关系:
+
+Unicode是一个字符集, 可以看作为内码.
+而UTF是一种编码方式, 它的出现是因为unicode不适宜在某些场合直接传输和处理. UTF-16直接就是unicode编码, 没有变换, 但它包含了0x00在编码内, 头256字节码的第一个byte都是0x00, 在操作系统(C语言)中有特殊意义, 会引起问题. 采用UTF-8编码对unicode的直接编码作些变换可以避免这问题, 并带来一些优点.
+
+中国国标编码:
+
+GB 13000: 完全等同于ISO 10646-1/Unicode 2.1, 今后也将随ISO 10646/Unicode的标准更改而同步更改.
+
+GBK: 对GB2312的扩充, 以容纳GB2312字符集范围以外的Unicode 2.1的统一汉字部分, 并且增加了部分unicode中没有的字符. 
+
+GB 18030-2000: 基于GB 13000, 作为Unicode 3.0的GBK扩展版本, 覆盖了所有unicode编码, 地位等同于UTF-8, UTF-16, 是一种unicode编码形式. 变长编码, 用单字节/双字节/4字节对字符编码. GB18030向下兼容GB2312/GBK. 
+GB 18030是中国所有非手持/嵌入式计算机系统的强制实施标准. 
+
+
+
+QByteArray QString::toLocal8Bit () const
+Returns the local 8-bit representation of the string as a QByteArray. The returned byte array is undefined if the string contains characters not supported by the local 8-bit encoding.
+QTextCodec::codecForLocale() is used to perform the conversion from Unicode. If the locale encoding could not be determined, this function does the same as toLatin1().
+If this string contains any characters that cannot be encoded in the locale, the returned byte array is undefined. Those characters may be suppressed or replaced by another.
+
+
+
+
+
+
+
+
+
+
+15:23 2013-01-02
+   schroot -c mx515
+   scp [file] root@10.10.151.183:/usr/tmp
+   rz sz
+
+   export DISPLAY=:0.0
+   
+
+
+22:20 2013-01-06
+   killall wpa_supplicant
+  iwconfig wlan0 essid off
+   wpa_supplicant -B -iwlan0 -c /usr/Fn/data/user.data/libwireless_manager/wpa_supplicant.conf
+
+
+
+
+
+ifconfig wlan0 up 192.168.0.222
+ifconfig wlan0 netmask 255.255.255.0
+sleep 1
+route add default gw 192.168.0.1 wlan0
+
+
+dhclient
+   
+
+
+
+
+
+21:55 2013-01-07
+   Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+   192.168.11.0    0.0.0.0         255.255.255.0   U     0      0        0 eth0
+   0.0.0.0         192.168.11.1    0.0.0.0         UG    100    0        0 eth0
+
+
+
+14:53 2013-01-08
+   the window wins dependence on "workstation" and "server" service
+   
+
+
+When the user connects to a remote VisualSVN Server using the management console, the server uses the current credentials to authenticate the user. All administrative actions on the remote server are performed on the user's behalf. In other words, VisualSVN Server impersonates the user. This requires that user account should have appropriate permissions on the remote computer where VisualSVN Server is installed. This article describes how to configure these permissions properly. 
+
+Incorrect user access rights settings are usually identified by receiving the "Access is denied" error message when trying to connect to VisualSVN Server remotely: 
+
+Cannot connect to WMI namespace '\\server-2008\root\VisualSVN': Access is denied. (0x80070005) 
+Configuration steps described in this article apply to domain and non-domain environments. However, the server may require you to perform additional configuration steps in a non-domain environment. 
+
+The following permissions are required to administer VisualSVN Server remotely: 
+
+Permissions to access DCOM and WMI remotely, 
+Special permissions to manage resources related to VisualSVN Server. 
+
+Users who are local administrators on the computer where VisualSVN Server is installed automatically obtain all required permissions to administer the server remotely. 
+
+To grant all the required permission to a non-administrative user, you should include the user in the following local groups on the computer where VisualSVN Server is installed: 
+
+VisualSVN Server Admins, 
+Distributed COM Users. 
+
+
+
+
+
+
+Please note that there is just one download for both versions of VisualSVN Server (Enterprise and Standard). The license key unlocks the additional features offered in the Enterprise Edition.
+
+Step 2: Enter evaluation key
+After downloading and installing VisualSVN Server, you need to input the evaluation key (see below), which will temporarily unlock the Enterprise Edition features.
+
+Entering the evaluation key:
+
+Here is your evaluation license key. After the 45-day trial period, VisualSVN Server Enterprise Edition will revert to Standard Edition.
+
+11:39 2013-01-09
+netsh interface ip set address name="本地连接" static 10.20.30.202 255.255.255.0  10.20.30.1 1
+
+
+
+
+
+
+23:55 2013-01-12
+   1:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02ODEuYXZpfDE1Mjc1ODY5NzJ8OUZDRkZDRjJBNjkwRTU3RkJGNDk5Rjc4Q0IzQzE3NDR8L1pa
+
+
+2:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02NjEuYXZpfDEyOTAxNDgzNTJ8NzVCQjFDOTRCNUVDQ0U1N0M0RDdFMThEMzc1OURCNUN8L1pa
+
+
+3:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02MzUuYXZpfDE1NDI0NjQ0MTJ8RDUyRjM3NUI2ODAzMzA0NjAzMTNEMzk2OUVGNUIwRUF8L1pa
+
+
+4:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02MjUuYXZpfDEyODgyMTA0Mjl8QjdBQ0EwODY3QjZGQzNFNEQ3RjFEQjUyRTFGOUY1REN8L1pa
+
+
+5:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02MDkuYXZpfDIwMzE2ODQ5MTZ8RTYxREVCOUQzNDVBODkxNDdDODU0RTMwRjRFNjAwQkV8L1pa
+
+
+6:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC02MDEuYXZpfDE5MDQ3NTEyMDB8QjlCRUY0MThBNTJDQUQzQjQzMDg0QUY3MzVEQUFGMUJ8L1pa
+
+
+7:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01NzYuYXZpfDE1MDg2Mzg3MzR8MDE3MkNGRkEyQUNFOTMyMUQwMTAyMUExREYzNUJEMjF8L1pa
+
+
+8:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01NzAuYXZpfDE1MTQ2NjI5OTB8OTBFREExNzJCMEJCODFBQTlBNTYzN0I0QTRDRkM3RTR8L1pa
+
+
+9:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01NTMuYXZpfDE0NDc2ODQwOTZ8NENDM0UxMDAyOURGRkY4Q0MzNjUwMDRCRjc2NjJDQzh8L1pa
+
+
+10:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01NDAuYXZpfDE4OTAzNzEwNzJ8RkVEQjYwQjUzM0M0QjVBMTI3MDc2RjlFQTA0MTYwNUR8L1pa
+
+
+11:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01MzAuYXZpfDE4NzcwOTAxOTV8MEJBMUNDOTFCRDQxRDJCMkU3REU4RkU5QUQ4NDU0OTR8L1pa
+
+
+12:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01MjMuYXZpfDEzMjUyNDc1NzF8QkQ4Q0Q1RDM5NjU2MzVFMzhCMTAxN0ZCRUI3RDYxODN8L1pa
+
+
+13:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC01MDguYXZpfDE3NzI5NjEyODB8RkU2NkEyNDREMzdDRkFCODI0RjYxQkUwNUNEMDA4RUJ8L1pa
+
+
+14:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00OTYuYXZpfDEzNDk5NjMyNzh8MkRBQkQ0NzgzRjdGQjI1QjA3NzYyNUNCMTcwMUU3NDB8L1pa
+
+
+15:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00ODkuYXZpfDE3MDMwMzU5MDR8MzNCOTU1NTE5NjNDM0U1RkI4ODQ3RTc3NkQxNkExQzh8L1pa
+
+
+16:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00NzYuYXZpfDE4ODAwOTMxODR8RUFGRDY2NEFEMkNFRTI5MDc5QjdFRjU1Mjg2NDZBQkJ8L1pa
+
+
+17:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00NjYuYXZpfDE3NDc2MDYwMTZ8OTRBODMwQTJDRUUyMENEN0Q3MDUzMDBDMzhCQUMzRjl8L1pa
+
+
+18:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00NjAuYXZpfDEyNzY3ODkyNDh8RTc1MTFGMUMwRTU4REFDNDgwNzZFQkM1NDkwNjBDRkZ8L1pa
+
+
+19:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00NDYuYXZpfDE3MjQwNzg1OTJ8RkYyQjUzRkY1MjFGRDVCNEFFNzQ2NUZBODQyRDYzMkN8L1pa
+
+
+20:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00NDIuYXZpfDE4MDI4NTQ0MDB8OThEM0ZBOTE0QTNFMjVCNDE1QjE1QTRFMjE3REI0NDR8L1pa
+
+
+21:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00MzMuYXZpfDEyNzcxODE5NTJ8N0U0MzI3MEVDNzY2MENCQTQyMzkyQUJBRjQ4MjZBMUR8L1pa
+
+
+22:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00MjcuYXZpfDE3OTExMDc1ODR8NUI5Q0JCMTE2OTQwQzBBOUM0QTk2M0E3NzgxMUUzMzd8L1pa
+
+
+23:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00MTQuYXZpfDEyNzc2NDQ4MDB8OENBRjFBNTFCMjFCMkNBMkFCQ0U1N0NFQTYyQjQzOEV8L1pa
+
+
+24:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC00MDUuYXZpfDE3ODQzMjMwNzJ8MDdGNjYyMzlEODIyRUJDQTAzQzMzRDNFMzMxMEVEQTl8L1pa
+
+
+25:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC0zOTMuYXZpfDEyOTY4MjUzNDR8RUM2MTg2RkZERDMzODE4NUVBN0M0OTM1MzNFNDQ4MkR8L1pa
+
+
+26:thunder://QUFlZDJrOi8vfGZpbGV8SVBURC0zODUuYXZpfDEyNDgwOTIxNjB8OUEyMTFFMTk0NUJCQjFBRTRDQjVEMkQ0OUQ4Mjk5Rjd8L1pa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+错误	1	error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_info@@AAE@ABV0@@Z) 已经在 LIBCMT.lib(typinfo.obj) 中定义	MSVCRTD.lib
+
+ignore msvcrtd.lib
+
+
+
+
+
+
+有无线电波、微波、红外线、可见光、紫外线、X射线和伽马射线
+
+从波长长到短,分为:无线电波,红外线,可见光,紫外线,x射线和r射线
+ 
+
+
+
+
+
+
+
+
+
+字符 说明 示例 输出
+C 货币 string.Format("{0:C3}", 2) ＄2.000 
+D 十进制 string.Format("{0:D3}", 2) 002 
+E 科学计数法 1.20E+001 1.20E+001 
+G 常规 string.Format("{0:G}", 2) 2 
+N 用分号隔开的数字 string.Format("{0:N}", 250000) 250,000.00 
+X 十六进制 string.Format("{0:X000}", 12) C 
+
+ 
+ string.Format("{0:000.000}", 12.2) 012.200 

@@ -1,1 +1,33 @@
 1 their efforts is clear for all to see
+
+
+Manipulate
+handle
+process
+
+
+costs
+expenses
+fee
+bill
+
+Electrical: 电学的，电器的
+
+performance optimization: 性能优化
+
+This overview assumes that you have at least a basic knowledge of SQL
+
+
+GitHub blocked in China - Update
+ 
+The project hosting site GitHub is currently inaccessible from China, cutting off the country's developers from the valuable resource. A ViewDNS.info check shows that the service cannot be looked up throughout China. The blocking is frustrating many Chinese developers who cannot access one of the world's major repositories of open source software. As the country's firewall controllers rarely give any information on why sites are blocked, it is suggested by some that github.com is being blocked because of a dispute over a train ticket booking plugin. 
+
+With the Chinese New Year and Spring Festival approaching, getting train tickets to visit family is a high priority for many Chinese residents, with newly released tickets being sold in minutes. Many have turned to web apps and plugins in browsers to navigate the "12306" ticket purchase site which often exhibits problems under high traffic load. Unfortunately, according to TechInAsia, those plugins often work by constantly refreshing the web site and making it perform even more badly; so badly that the Chinese Ministry of Industry and Information Technology (MIIT) stepped in and ordered browser makers to stop making the plugins available. According to a thread on Hacker News, one particular plugin also used GitHub as a source for downloading its JavaScript files. It appears that the block on GitHub is an attempt to disable that particular plugin, even though it is only one of "dozens" of plugins and scripts used to get train tickets.
+
+The blocking appears currently to be at a DNS lookup level; IP connections are not blocked but GitHub makes extensive use of host naming. GitHub released a statement to the media saying it was still investigating, "but it does appear that we’re at least being partly blocked by the Great Firewall of China. We’re looking into it, and will update with more information when we have it."
+
+Update (23/01/13) - It appears that service has been restored in China. After a number of hours of intermittent connectivity, ViewDNS.info now shows that GitHub's DNS is resolving correctly. According to a comment on Hacker News, Chinese developers protested and it appears the government relented.
+
+
+Effective and Slim code
+

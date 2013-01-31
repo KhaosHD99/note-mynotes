@@ -8365,7 +8365,7 @@ goagent=======
                       int       nCmdShow)
    
    vs ide ce console app entry point: "" or mainWCRTStartup
-   			     mfc app: WinMainCRTStartup
+   			     mfc app: WinMainCRTStartup; wWinMainCRTStartup
     
    
    
@@ -8554,7 +8554,8 @@ how can it generate .moc file automaticly?
     a pressure queuecemfc(20 or 30 days)						***    
 --------------------------- queueabc-head 
     add the entire line handling 
-        
+   
+     
     qstring mid
     
     
@@ -8571,7 +8572,8 @@ how can it generate .moc file automaticly?
     
     
 10:27 2012-12-18
-    "应用程序配置不正确": it will work after i install the 				**
+    "应用程序配置不正确": it will work after i install the vs				***
+    
     Caller Display 013 无##1
     what encoding does the led screen use
     
@@ -8618,7 +8620,7 @@ how can it generate .moc file automaticly?
 
 if i change the seq like this, it can work...
 #include			"afx.h"
-#include			"windows.h"	
+#include			"windows.h"
 -----------------------------------------------------------------------
    
    what is qchar???
@@ -8629,4 +8631,290 @@ if i change the seq like this, it can work...
    
    LPCTSTR
    
-   >>>>>>> .r1006
+10:32 2012-12-24, 2012-12-25
+--------------------- QueueCITIC
+   can not load the dll
+-------------------------------------   
+
+------------------------ queueCE
+   library routine called out of sequence unable to execute statement
+   
+   Error Code SQLITE_MISUSE (21) "Library routine called out of sequence" 
+The SQLITE_MISUSE error code is returned when you misuse the SQLite library in some way. SQLite does not guarantee that it will detect misuse, so you should not depend on this behavior in any way. The SQLITE_MISUSE error code is intended to help you find the bugs in your code. 
+
+Here are some possible causes of SQLITE_MISUSE: 
+
+Calling any API routine with an sqlite3* pointer that was not obtained from sqlite3_open() or sqlite3_open16() or which has already been closed by sqlite3_close(). 
+
+Trying to use the same database connection at the same instant in time from two or more threads. 
+
+Calling sqlite3_step() with a sqlite3_stmt* statement pointer that was not obtained from sqlite3_prepare() or sqlite3_prepare16() or that has already been destroyed by sqlite3_finalize(). 
+
+Trying to bind values to a statement (using sqlite3_bind_...()) while that statement is running.
+
+
+   how do they throw an exception							***
+   
+   why it can not show the background if it show once
+   
+   why will crash ???
+   
+   why "SystemSetting" can not modify the  database???					over
+   
+-------------------------------
+   
+11:16 2012-12-25    
+        -  printf   -   wprintf    
+   ---------------------------------------
+   - %s -	    -	
+   - %S -	    -
+   ---------------------------------------
+      
+   QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
+   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GBK"));
+   QTextCodec::setCodecForTr(QTextCodec::codecForName("GBK"));
+   
+   QString::fromLocal8Bit
+   toLocal8Bit().data()
+   toLatin1().data()
+
+08:52 2012-12-26
+   execQuery, execDML
+
+//////////////////////////////
+   how can QString made a use like _T("C:\\Temp\\queue5")				***
+
+
+   错误	1	fatal error C1189: #error :  WINDOWS.H already included.  MFC apps must not #include <windows.h>	C:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include\afxv_w32.h	16	
+
+
+   
+09:39 2012-12-27
+   the earlier, it can not compile pass until i use "wWinMainCRTStartup", but now, if i use it, the app will crash...								***
+    
+   what is atl???
+      
+   ------------------------ QueueABC
+   the receipt waste too much paper?
+   
+   use win32 command to set ip
+   
+   is there an bug at QtSql???
+   
+   can static func use static var???
+   
+   why the createConnection is static???
+   
+
+
+09:43 2012-12-28
+   cd ape wav
+   
+   qt: internal processing the sql statement encoding?
+   
+   can not resolved 'fromWCharArray' and 'toWCharArray'!!!!!!!!!!!!!!!
+   
+   does cstring has any methods about string to int???
+   
+13:41 2013-01-02
+   cmd line: set ftp dir
+   
+
+11:14 2013-01-04, 21:12 2013-01-05, 21:25 2013-01-07, 10:21 2013-01-08
+   did it need \
+   11.189
+
+----------------------------- finephone -----------------------------------------
+   1 dhcp
+   2 show the saved wifi profile
+   3 set wifi ip err??
+   4 the browser will die???
+   5 why the locale will change
+   6 why the phoneconfig will clear??? 
+   7 why the app is running, but i can delete the app file???
+11 why the file system will rollback to the old???
+      
+10 why the route table have nothing							**
+      
+   9 why the "dhclient" can not work in my code???					**
+   11 why the can not save the ip setting???
+   how to add a default route table   
+   
+   "nohup" command
+   
+   how about the wireless network has not security password but the webpage auth	**
+---------------------------------------------------------------------------------
+   
+   
+11:50 2013-01-05   
+------------------------------------ queuewin32
+   exception catch: do not catch the irrelevant
+   modiWkMode
+
+11:25 2013-01-06
+   try, catch can avoid crash!!!
+   abandon QSqlTableModel
+   
+
+2013-01-07
+   got the print port data of queueicbc      
+
+10:20 2013-01-08
+   queueabc--------------------------------------------
+   multiple led display length in one device family
+   -----------------------------------------------------------
+   
+   queueicbc-------------------------------------------------
+   the spell err in ticket logo 							over
+   response the customer-service before noon						over
+   -------------------------------------------
+   build a svn server   								over
+   what is wmi
+   
+09:30 2013-01-09
+   svnadmin deltify — 修订版本范围的路径的增量变化。
+   
+   
+
+
+
+16:12 2013-01-14, 13:30 2013-01-15, 13:51 2013-01-16, 11:10 2013-01-17, 10:24 2013-01-18,
+09:41 2013-01-19, 11:25 2013-01-21
+
+
+   ------------------------------- QueueBochina
+   1 window screen display full screen handling						done
+   2 swipe bankbook									done
+   3 ReadBaseInfos err???								done      
+   xfs dependence? qt??									**
+   why no sound, no device??? but the third party sound manager can work; why can not    reinstall the os, ...: because that is the accurate img					over
+   
+   install pakeage lack: jre
+   
+   why can not write log; add log level							done
+      
+   the window screen stay time is too short, i need make it configurable			   why the wireless box can not work in the app ???why the interface of wireless box and evaluater in rsandry.dll??? the input args has no language type??
+       
+   swcardreader got the data always????????????????????????????
+   			
+错误	1	error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_info@@AAE@ABV0@@Z) 已经在 LIBCMT.lib(typinfo.obj) 中定义	MSVCRTD.lib	
+   
+   get devstatus???can not get the idcardreader status???				***
+   
+   if the function is static, the function which be called by it can do not implement???
+   
+   why the app will die: 优化，最大优化速度？？？!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	over
+   
+   vsnprintf(buf, sizeof(buf) - 1, pszFormat, arglist);
+   
+   add log level
+   
+   update the ThLPrinterDLL???
+   
+   !!!!!!!!!!!!!!!! the format err("%s %d") will be happened when manipulating!!!!!!!!!!!!
+   
+   no snprintf???
+   
+   the swcardreader so slow???,promote the swcardreader swipe card speed
+   
+   printer status: device status, connection status, paper status
+      
+   if the evaluator power off, then power on, it unvarable				done
+   
+   LOGIN AND LOGOUT??
+      
+   ************** swcardreader add analysis rule******
+   bankbook only 3 track only								done
+   the end separate is '<'								done
+   ***************************************************
+         
+   why i can not open the config file???!!!!!!!!!!
+         
+   ******************** dev status ***********************
+   add the handling of the caller and led screen response,non-wosa device status: modify the      led screen online checking command 							done
+   *******************************************************
+
+   
+   
+----------------------------------------
+
+Set Auth Err: sh /usr/Fn/data/user.data/libwireless_manager/set_auth.sh
+
+
+
+14:19 2013-01-21
+------------------------------------ ThlPrinterdll -------------------------------
+   printer GcSetUnderLine
+   GcSelectCutPaper(int mNum, int nNum)
+   
+   #pragma once
+   
+   
+      
+11:08 2013-01-24
+   optional intaller(install file defference)
+ 
+   db.transaction
+   
+   ret = sqlite3_exec ( db , "begin transaction" , 0 , 0 , & zErrorMsg ); // 开始一个事务 
+   ret = sqlite3_exec ( db , "commit transaction" , 0 , 0 , & zErrorMsg ); // 提交事务 
+   ret = sqlite3_exec ( db , "rollback transaction" , 0 , 0 , & zErrorMsg ); 
+  
+10:23 2013-01-25
+   there is no vsnprintf in vc???
+
+D:\elon\prj\QueueABC_Head\QueueABC_Head\trunk\test\Caller\testCaller1\testCaller1Dlg.cpp(428) : error C2065: '__FUNCTION__' : undeclared identifier
+
+
+
+
+
+is the login and logout the same key value???						**
+   
+   
+   
+09:16 2013-01-28 
+   GetPrivateProfileInt("", "LogLevel", 0, configFilePath);
+   write the struct to file directly
+   
+the operator prior
+   if((0 != nResumeAdvFlag) &&
+      (Command == "Call"))				//mk
+   
+   can ini file have only one layer???
+    
+   cstring getbuffer releasebuf
+   
+   ---------------- received data handling ---------------------
+   multiple cmd together 
+   imperfect cmd
+--------------------------------------
+   
+09:26 2013-01-29
+   prior: if(NULL != InBuffer && 0 != strlen(InBuffer))
+   how to find the dir of process on win32						**
+   
+   
+09:52 2013-01-30
+   c# call wosa, do i need use activex for bridge???
+   java how to call c/c++ library
+   
+  
+  
+    
+其实是wosa的一个附属品,他的意义在于那些上层不是直接用C/C++编写,无法直接调用XFS MANAGER提供地API,无法处理特定的内存信息的上层开发
+   
+   S端子
+      
+
+--------------------------- finephone ---------------------------------
+crash again???
+it is hard to get ip or connect err???
+
+why there is not any route table after boot???
+
+
+
+
+
+

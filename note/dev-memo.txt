@@ -13,9 +13,6 @@ sync is so important						***
 
 
 
-
-
-
 ******** in vs2005 ***********
 not only need
 	extern "C" int __declspec(dllimport) Prt_Init(int i);
@@ -24,3 +21,17 @@ but also
 
 
 "无法定位xxx于xxx.dll" is not that "can not search the dll"
+
+2012-12-27
+    the encoding option of vs ide only works on the microsoft's, such as win32 app, mfc, but     not the other, such as the qt. Qt just according what it actually got, 
+    
+    eg.
+    
+    
+
+    Qt, MFC encoding 
+    sqlite    
+
+08:42 2012-12-28
+    
+

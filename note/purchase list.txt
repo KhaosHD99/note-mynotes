@@ -1,4 +1,4 @@
-1 draw-bar box
-2 polo cloths
-3 swimming trunks
+1 draw-bar box				done
+2 polo cloths				
+3 swimming trunks			done
 4 video card
