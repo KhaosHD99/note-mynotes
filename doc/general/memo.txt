@@ -39,7 +39,7 @@ medical insurance bankbook：085364
 
 social insurance peronal num: 25164308
                web query pwd: 041982			(广东省社会保险基金管理局)
-
+                              123750
 
 dad's social insurance peronal num: 11781517
 id card num: 440122 1963 0218 4216
@@ -81,3 +81,10 @@ broad band account: ADSLD2063005541
 pzrafonnymzrkbua
 无需记住此密码。 
 您只需要输入一次密码即可。密码不计空格。
+
+
+
+
+
+adult college entrance examination registration num: 010402111
+ 
