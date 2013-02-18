@@ -8885,9 +8885,11 @@ the operator prior
     
    cstring getbuffer releasebuf
    
-   ---------------- received data handling ---------------------
-   multiple cmd together 
-   imperfect cmd
+   ---------------- shanghai QueueABC ---------------------
+received data handling 
+   1) multiple cmd together 
+   2) imperfect cmd
+
 --------------------------------------
    
 09:26 2013-01-29
@@ -8899,22 +8901,64 @@ the operator prior
    c# call wosa, do i need use activex for bridge???
    java how to call c/c++ library
    
-  
-  
-    
 其实是wosa的一个附属品,他的意义在于那些上层不是直接用C/C++编写,无法直接调用XFS MANAGER提供地API,无法处理特定的内存信息的上层开发
    
    S端子
       
-
 --------------------------- finephone ---------------------------------
 crash again???
 it is hard to get ip or connect err???
 
-why there is not any route table after boot???
+why it will crash when i set the network type					**
+ 
+
+why no route table in the network type swich 					***
+why there is not any route table after boot???					**
+how to set default destination
+
+
+why the combobox will out position??						done
+
+locale										**
+
+-------------------------------------------------
+
+
+16:44 2013-01-31
+   optional install package 
+   
+   ---------------- shanghai QueueABC ---------------------
+   wireless sound
+   -----------------------
+   
+14:38 2013-02-01
+   no sw
+   somebody
+      
+10:08 2013-02-04
+   write a bat to set auto shutdown
+   
+   
 
 
 
 
 
 
+
+
+
+21:45 2013-02-16
+
+   why tomcat do not run on jre?
+
+
+
+
+
+17:52 2013-02-17
+    ISO-8859-1
+    GB2312
+    GBK
+    UTF-8
+    

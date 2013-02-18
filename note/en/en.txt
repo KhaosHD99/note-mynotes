@@ -31,3 +31,14 @@ Update (23/01/13) - It appears that service has been restored in China. After a 
 
 Effective and Slim code
 
+
+All files for this application reside in this directory.
+
+You can leave the web server running while you develop your application. The web server knows to watch for changes in your source files and reload them if necessary.
+
+
+The CGI standard is simple, but it would be cumbersome to write all of the code that uses it by hand
+
+This module is provided in the SDK, as well as in the production runtime environment.
+
+
