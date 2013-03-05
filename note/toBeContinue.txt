@@ -8797,7 +8797,7 @@ Trying to bind values to a statement (using sqlite3_bind_...()) while that state
        
    swcardreader got the data always????????????????????????????
    			
-错误	1	error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_info@@AAE@ABV0@@Z) 已经在 LIBCMT.lib(typinfo.obj) 中定义	MSVCRTD.lib	
+错误	1	error LNK2005: "private: __thiscall type_info::type_info(class type_info const &)" (??0type_ifo@@AAE@ABV0@@Z) 已经在 LIBCMT.lib(typinfo.obj) 中定义	MSVCRTD.lib	
    
    get devstatus???can not get the idcardreader status???				***
    
@@ -8905,7 +8905,7 @@ received data handling
    
    S端子
       
---------------------------- finephone ---------------------------------
+ddddddddd--------------------------- finephone ---------------------------------
 crash again???
 it is hard to get ip or connect err???
 
@@ -8920,7 +8920,6 @@ how to set default destination
 why the combobox will out position??						done
 
 locale										**
-
 -------------------------------------------------
 
 
@@ -8934,31 +8933,68 @@ locale										**
 14:38 2013-02-01
    no sw
    somebody
-      
+         
 10:08 2013-02-04
    write a bat to set auto shutdown
-   
-   
-
-
-
-
-
-
-
-
 
 21:45 2013-02-16
-
-   why tomcat do not run on jre?
-
-
-
-
-
+   why tomcat can not run only on jre?
+   
 17:52 2013-02-17
     ISO-8859-1
     GB2312
     GBK
     UTF-8
+    
+14:51 2013-02-18
+   vt_bstr
+   [id(1), helpstring("method SPConnect")] HRESULT SPConnect(LogicName);
+   [id(1), helpstring("method SPConnect")] HRESULT SPConnect(LogicName);
+
+14:58 2013-02-19
+   HRESULT
+
+09:18 2013-02-20
+   win32 wins share privilege setting
+   CR/LF/EOF
+   奇偶校验
+   
+09:04 2013-02-22
+   点句(bullet point)			
+   Guangzhou WangShi functional) technology co., LTD
+   Guangzhou hin rui electronics co., LTD
+
+16:42 2013-02-24
+   ---------------------- QueueABC
+   why "initdisplay" do not work
+   
+09:23 2013-03-01
+   mmc
+   i need a not-mfc, not qt, win32-base write log code
+   
+----------------------------------
+   LIBCMT.lib(crt0.obj) : error LNK2001: unresolved external symbol _main
+   if i use "debug" setting, it can pass
+------------------------------
+   Libcmt.lib
+   
+   vsnprintf undeclare???
+   
+11:51 2013-03-04
+    vc macro __FUNCTION__
+    optimize the log name, just like "ReceiptPrinter_201334.txt"
+    
+-----------------------  QueueBocomm ------------------------------------------------
+    led main screen    
+    why can not received any thing
+    why the first msg can not be received
+    
+        
+-------------------------------------------------------------------
+    
+    what is TRACE??
+    
+
+报名序号：233022
+
     
