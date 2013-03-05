@@ -42,3 +42,131 @@ The CGI standard is simple, but it would be cumbersome to write all of the code 
 This module is provided in the SDK, as well as in the production runtime environment.
 
 
+
+Problems with the API to get the TLS certificate
+
+
+工作经历常用词汇
+
+　　work experience工作经历occupational history工作经历
+
+　　professional history职业经历specific experience具体经历
+
+　　responsibilities职责second job第二职业
+
+　　achievements工作成就，业绩administer管理
+
+　　assist辅助adapted to适应于
+
+　　accomplish完成(任务等) appointed被认命的
+
+　　adept in善于analyze分析
+
+　　authorized委任的；核准的behave表现
+
+　　break the record打破纪录breakthrough关键问题的解决
+
+　　control控制conduct经营，处理
+
+　　cost成本；费用create创造
+
+　　demonstrate证明，示范decrease减少
+
+　　design设计develop开发，发挥
+
+　　devise设计，发明direct指导
+
+　　double加倍，翻一番earn获得，赚取
+
+　　effect效果，作用eliminate消除
+
+　　enlarge扩大enrich使丰富
+
+　　exploit开发(资源，产品) enliven搞活
+
+　　establish设立(公司等)；使开业evaluation估价，评价
+
+　　execute实行，实施expedite加快；促进
+
+　　generate产生good at擅长于
+
+　　guide指导；操纵improve改进，提高
+
+　　initiate创始，开创innovate改革，革新
+
+　　invest投资integrate使结合；使一体化
+
+　　justified经证明的；合法化的launch开办(新企业)
+
+　　maintain保持；维修modernize使现代化
+
+ 　negotiate谈判							被提名；被认命的
+
+　　overcome克服perfect使完善；改善
+    
+　　perform执行，履行profit利润
+    
+　　be promoted to被提升为be proposed as被提名(推荐)为
+    
+　　realize实现(目标)获得(利润) reconstruct重建
+    
+　　recorded记载的refine精练，精制
+    
+　　registered已注册的regenerate更新，使再生
+    
+　　replace接替，替换retrieve挽回
+    
+　　revenue收益，收入scientific科学的，系统的
+    
+　　self-dependence自力更生serve服务，供职
+    
+　　settle解决(问题等) shorten减低……效能
+
+　　simplify简化，精简spread传播，扩大
+
+　　standard标准，规格supervises监督，管理
+
+　　supply供给，满足systematize使系统化
+
+　　test试验，检验well-trained训练有素的
+
+　　valuable有价值的target目标，指标
+
+　　working model劳动模范advanced worker先进工作者
+
+
+
+
+
+Robert T. Smith
+195 Braxton Street
+Mendota, IL 61342
+Phone: 815-539-9083
+Email ID: robert_smith@mail.com
+
+OBJECTIVE
+
+To further my career with a growth-oriented firm that will allow me to utilize my experience and knowledge as a technology manager.
+
+KEYWORDS
+
+Perl, Linux, Apache, Mason, HTML, XML, XSL ,JavaScript, Java, MS C++, ASP, 8086 Assembly, Fortran, COBOL, network firewall and hack-proof server installation and configuration, and automatic mass website building.
+
+EXPERIENCE
+
+XYZ Technologies, Dallas, TX
+Manager, 1998 - Present
+Organized and managed various computer-related projects. Supervised a research and development team of twelve employees. Designed and implemented fresh employee training programs.
+
+ABC Systems, Dallas, TX
+Lead Programmer, 1993 - 1998
+Developed part of the core of the product TowerWorks: an administration platform for ASP (Application Service Provider). Developed hi-end tools for integration and customization with third party products. Programmed and designed the Unix provisioning system.
+
+EDUCATION
+
+University of Richmond
+B.S., Computer Science, 1993
+
+REFERENCES
+
+Available upon request.
