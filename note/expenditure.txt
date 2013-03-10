@@ -606,6 +606,48 @@ snapshot:
    201109 2800 224 224
    201108 2800 224 224
 
+<<<<<<< .mine
+19:33 2012-12-28
+   phone eps: 100
+
+
+2013-2-3
+   dinner(yubolin, xiejingyu): 200+
+   
+2013-2-6
+
+
+2013-2-7
+   new year shopping: 200
+   pay back to xiejingyu(college): 500
+      
+2013-2-8
+   new year shopping: 200
+   grandma(father): 200
+   grandma(mother): 500
+   
+   
+   
+   
+
+2013-2-9
+
+
+2013-2-11
+
+0:45 2013-2-12
+
+
+2013-3-8
+   sw: 35
+   traffic exp: 100
+
+2013-3-9
+   sw: 35
+
+21:46 2013-3-10
+   fixed-line telephone; broadband; mobile phone: 477
+   =======
 09:09 2012-12-25
    
    
@@ -693,3 +735,4 @@ traffic payment: 100
 
 
 
+>>>>>>> .r1011

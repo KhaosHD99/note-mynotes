@@ -3530,6 +3530,21 @@ i need plan my life more, i am not a child already
     sw
     eja
 
+<<<<<<< .mine
+21:47 2012-12-25
+    eja
+
+
+2013-3-6
+    eja
+
+
+21:49 2013-3-10
+   
+
+
+
+   =======
 2013-02-8
     sacrifice
     
@@ -3637,4 +3652,4 @@ i need plan my life more, i am not a child already
 09:13 2013-03-05
    i dreamed i strangled a dog, is it "youyou"(my aunt's dog)? i can not forget myself
    
-   
+   >>>>>>> .r1011

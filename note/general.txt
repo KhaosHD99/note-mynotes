@@ -2397,6 +2397,48 @@ ignore msvcrtd.lib
 
 从波长长到短,分为:无线电波,红外线,可见光,紫外线,x射线和r射线
  
+<<<<<<< .mine
+
+
+sukisunyoyo(2013-01-27 12:28:59):
+
+最新多看：http://bbs.duokan.com/forum/thread-77213-1-1.html
+无法确认链接的安全性，请只打开来源可靠的网址
+
+打开链接    
+sukisunyoyo(2013-01-27 12:28:59):
+
+最新多看：http://bbs.duokan.com/forum/thread-77213-1-1.html
+sukisunyoyo(2013-01-27 12:29:01):
+
+下载地址：
+内容一：http://pan.baidu.com/share/link?shareid=158144&uk=402879370
+
+内容二：http://pan.baidu.com/share/link?shareid=181408&uk=402879370
+
+内容三：http://pan.baidu.com/share/link?shareid=181409&uk=402879370
+
+内容四：http://pan.baidu.com/share/link?shareid=158147&uk=402879370
+
+
+
+
+
+多看 for Kindle Paperwhite (系统版本号 5.2.0, 5.3.0, 5.3.1）
+Kindle Paperwhite 简称 KP， 是内置光源的新一代触摸屏版本Kindle。
+[两步安装法] 
+1. 在Kindle原系统下，连接USB线到PC，拷贝1个文件夹和2个文件到Kindle磁盘。如下：
+   DK_System 到 Kindle磁盘根目录
+   MOBI8_DEBUG 到 Kindle磁盘根目录
+   duokan.mobi 到 Kindle磁盘 的 documents 目录。
+   然后弹出Kindle磁盘，断开USB线。直到在原系统能看见一本新书 《duokan 安装文档》。
+
+2. 在原系统下打开 《duokan 安装文档》。
+   在文档的中间看到Install按钮， 点击该按钮，按照屏幕上的提示进行安装。
+说明：必须严格按照前面描述的步骤，先弹出Kindle磁盘，再拔USB线。
+
+
+=======
 
 
 
@@ -2459,3 +2501,4 @@ mount -o remount,rw rootfs /
 
 
 
+>>>>>>> .r1011
