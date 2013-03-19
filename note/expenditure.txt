@@ -379,12 +379,11 @@ myself: 283
 18:39 2012-9-16
    broad band: 860
    
-2012-09-19 
+2012-09-19
    breakfast: 6
    lunch: 8
    shopping(polo shirt, soap, breakfast, snack): 200-
    
-<<<<<<< .mine
 10:39 2012-09-20
    got a shopping card(200)
 
@@ -581,8 +580,9 @@ snapshot:
    
 09:56 2012-12-10
    parents payment: 300
-   
-   
+
+
+      
 2012-12-15
    chime-long: 180 * 2 + x * 2 
    lunch: 100-
@@ -606,9 +606,42 @@ snapshot:
    201109 2800 224 224
    201108 2800 224 224
 
-<<<<<<< .mine
+09:09 2012-12-25
+/////////////////////////////////////////
+traffic payment: 100
+////////////////////////////////////////
+
+
 19:33 2012-12-28
    phone eps: 100
+
+14:46 2013-01-04
+   beef ball: 70  
+
+2013-1-13
+   kindle: 1200-
+
+
+2013-01-25
+   traffic eps: 100
+   
+     
+2013-01-26
+   sw eps: 360
+   glasses: 260
+      
+2013-01-27
+   mum: 200 for lucky money
+     
+   
+09:05 2013-01-28
+   phone exp: 100
+
+15:30 2013-01-30
+  commit sheet 2418(shanghai), 224.5(shenzhen), 105(dongguan)
+  freight cost: 200 still not now
+  
+  phone exp: 50
 
 
 2013-2-3
@@ -624,69 +657,15 @@ snapshot:
 2013-2-8
    new year shopping: 200
    grandma(father): 200
-   grandma(mother): 500
-   
-   
-   
-   
+   grandma(mother): 500   
 
 2013-2-9
-
 
 2013-2-11
 
 0:45 2013-2-12
 
-
-2013-3-8
-   sw: 35
-   traffic exp: 100
-
-2013-3-9
-   sw: 35
-
-21:46 2013-3-10
-   fixed-line telephone; broadband; mobile phone: 477
-   =======
-09:09 2012-12-25
    
-   
-
-/////////////////////////////////////////
-traffic payment: 100
-    
-////////////////////////////////////////
-
-
-
-14:46 2013-01-04
-   beef ball: 70  
-
-2012-12-13
-   kindle: 1200-
-             
-2013-01-25
-   traffic eps: 100
-   
-     
-2013-01-26
-   sw eps: 360 
-   glasses: 260
-   
-   
-2013-01-27
-   mum: 200 for lucky money
-
-
-09:05 2013-01-28
-   phone exp: 100
-
-15:30 2013-01-30
-  commit sheet 2418(shanghai), 224.5(shenzhen), 105(dongguan)
-  freight cost: 200 still not now
-  
-  phone exp: 50
- 
 2013-02-03
   dinner(Áù±¾Ä¾, Japanese style): 200+(yubolin, xiejingyu)
       
@@ -700,8 +679,6 @@ traffic payment: 100
 
 
 14:44 2013-02-18
-
-
 
 2013-02-23
    sport cloths and trousers: 160 + 70
@@ -724,15 +701,23 @@ traffic payment: 100
 2013-02-27
    lunch(me and Áõ½¨Î°): 25+-
    
-2013-02-28 
+2013-02-28
    lunch(sandwich): 6.5
    dinner(dzm and me, mcdn): 37
-
-
+   
 11:21 2013-03-01
 
 
+2013-3-8
+   sw: 35
+   traffic exp: 100
 
+2013-3-9
+   sw: 35
 
-
->>>>>>> .r1011
+21:46 2013-3-10
+   fixed-line telephone; broadband; mobile phone: 477
+   
+  
+11:16 2013-03-11
+    business trip: 1494 + 200

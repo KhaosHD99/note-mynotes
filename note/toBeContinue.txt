@@ -8968,7 +8968,7 @@ locale										**
    ---------------------- QueueABC
    why "initdisplay" do not work
    
-09:23 2013-03-01
+09:						23 2013-03-01
    mmc
    i need a not-mfc, not qt, win32-base write log code
    
@@ -8985,16 +8985,92 @@ locale										**
     optimize the log name, just like "ReceiptPrinter_201334.txt"
     
 -----------------------  QueueBocomm ------------------------------------------------
-    led main screen    
+    led main screen
     why can not received any thing
     why the first msg can not be received
     
-        
 -------------------------------------------------------------------
-    
-    what is TRACE??
-    
+       
+   what is TRACE??
+   报名序号：233022
+          
+10:27 2013-03-07
+   WFS_OPEN_COMPLETE                 
+   
+11:41 2013-03-11
+---------------------------- interview prepare
+   stl, design pattern
+   the difficult of c and c++
+   database(the basic command)
+   class, operator(assignment , xxx), polymorphism, 纯虚函数, 运行时多态性and编译时多态性, 友元
+   
+   protect and 友元
+      
+   relation
+-------------------------------------------- 
+   
+   《Extreme programming》
+      
+15:41 2013-03-12
+   i want to buy a notebook screen film
+   寸头?
+      
+16:39 2013-03-13
+   1、TMS320C54系列DSP和51单片机的串口通信是如何实现的？请画出它们的引脚连接图，阐述其工作原理并用汇编语言写出DSP          和单片机的串口初始化程序。
+   2、 如何实现两个网络设备的语音实时通信，如果使用DSP进行数据处理，它的多级缓存机制是怎样的？请详述如何实现小延时       的实时语音通信，用C语言写出多级缓存的处理程序。
+   3、 MP3解码芯片STA013是如何工作的，单片机（DSP）如何控制STA013进行解码工作？请写出单片机对解码芯片的操作程序。      
+   block key "win"
+               
+10:18 2013-03-14
+   Why the printerserver will crash!!!
+      
+---------------------------------- wosa active
+   WFS_ERR_INVALID_SERVPROV
+   if the dependent
+   
+   use WFSAsyncOpen instead  WFSOpen
+   
+   qdir remain the env
+   d:\elon\soft\dev\qt-win-opensource-src-4.3.2\qt-win-opensource-src-4.3.2\bin\
+        
+09:03 2013-03-15
+   CRC16
+   
+   vc function parameter name specification
+   short    VT_I2
+               
+-------------   1, 3 -------------
+   0102020005BB79
+   
+   010402000030B9
+        
+----------------- 1 ----------------
+   01020200017878
+   
+   010402000030B9
+      
+1,2----------------------------
+0102020003B9F9
+   
+   WriteFile
+   ERROR_IO_PENDING
+   FILE_FLAG_OVERLAPPED
+   
+   
 
-报名序号：233022
 
-    
+14:29 2013-03-18
+   ----------------------------- interview
+   vector, list, map的应用场景
+   thread management？thread pool(c/c++ have thread pool)
+   overload, override, hide: func name, return type and parametre 
+   自身优势与不足？
+---------------------------------------------
+   
+   
+   add a compile
+   
+
+10:09 2013-03-19
+   why i receive a WFS_SYSTEM_EVENT: 1367392???
+   
