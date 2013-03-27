@@ -718,6 +718,24 @@ traffic payment: 100
 21:46 2013-3-10
    fixed-line telephone; broadband; mobile phone: 477
    
-  
+        
 11:16 2013-03-11
-    business trip: 1494 + 200
+   business trip: 1494 + 200
+            
+2013-03-22
+   dinner(colleagues): 800+
+   
+2013-03-23
+   vaccination: 120-
+   dinner(me and xiejingyu): 50+-
+   
+   
+2013-03-24
+   
+       
+11:25 2013-03-25
+   physical examination: 130+
+   
+   
+   
+   

@@ -9060,17 +9060,104 @@ locale										**
 
 
 14:29 2013-03-18
-   ----------------------------- interview
-   vector, list, map的应用场景
+----------------------------- interview	
+   vector, list, map的应用场景			
    thread management？thread pool(c/c++ have thread pool)
    overload, override, hide: func name, return type and parametre 
    自身优势与不足？
 ---------------------------------------------
-   
-   
    add a compile
    
-
+      
 10:09 2013-03-19
-   why i receive a WFS_SYSTEM_EVENT: 1367392???
+   why i receive a WFS_SYSTEM_EVENT: 1367392???								over
+   WFS_INTERNAL_ERROR: 1360704										over
+   
+   if WFMAllocateBuffer, should i free it
+   
+   else if(lpwReadData == WFS_IDC_TRACK2|WFS_IDC_TRACK3)
+   
+   how to close xfs after i call "WFSStartUp"?
+      
+   why "GetCurrentModuleDir(GetModuleHandleA(MODULE_NAME), moduleDir, sizeof(moduleDir));" can not get the current module path???
+   
+   how can i deliver the window handle to WFSAsyncOpen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      
+14:27 2013-03-20
+            
+   
+11:00 2013-03-21
+   else if(lpwReadData == WFS_IDC_TRACK2|WFS_IDC_TRACK3)
+   
+   二维指针？？？
+         
+   int **a[2][3];   =>  sizeof(a)
+   int (*b)[4];     =>  sizeof(b)
+   
+   ---------------------------------------- track
+   unit.lpwReadData = (WORD)(*(WORD*)lpCmdData);
+   
+   ---------------------
+      
+11:42 2013-03-22
+   ------------------how to call mfc activex on .net???
+   when i call the member func in the object, it throw a exception!!!					over
+      
+   if i add some event to ocx then "无法加载一个活多个的请求类型":  it may be a ui designed bug of vs	over
+   ---------------------------------------------------------------------
+   
+10:45 2013-03-25
+------------------------------ ActiveX
+   how to deliver the data the xfs manager								over
+   how to use property
+   if the data string is separate by '\0', how can i distinguish the sys string and the data string!!!!!!!!!!!!!
+   
+   why the property can be modify?
+      
+   the property: use digit or string???
+   
+   why there no event when no device ?????								**
+-----------------------------------------------------
+   
+   
+                        
+10:37 2013-03-26, 11:05 2013-03-27
+   use the two device in one dll at the same time							done
+   
+   "InitXFS" is necessary???
+         
+   .net richtextbox: auto scroll									done
+   .net combobox: can not be modify									done
+   
+   init XFS one time only
+   
+   no maximization											done
+   
+   memory leak
+   
+-----------------------------------------------------QueueABC
+   add a addr-winnum map
+   WindowScreen and MainWinScreen???: MainWinScreen is not necessary
+   
+   optimize the test tools
+   	
+   ①
+-----------------------------------------------------
+      
+   MFC "TRACE()"											**
+   #define TRACE              __noop
+   
+10:55 2013-03-27					
+-------------------------- "MonitorServer"
+   why can not receive any thing at the first time???								
+   the deadlock is serious!!!										**
+   
+   show the compile date
+   
+-------------------------------------------------				
+
+   why the print process can not auto run???								**
+  
+     
+
    
