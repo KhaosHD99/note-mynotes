@@ -1,3 +1,5 @@
+	
+======================================== 2010 ===========================================
 
 09.26  1)c++ call gtk;could not find the signal handler
 
@@ -3728,6 +3730,14 @@ i need plan my life more, i am not a child already
    i need more precisely
    
       
+
+=========================== unknow
+   zhuangyuansi gave me a plum
+   
+   
+===========================
+
+
 15:36 2013-03-15
    got a interview invite from embedsky
    i need made a plan
@@ -3735,14 +3745,11 @@ i need plan my life more, i am not a child already
 15:31 2013-03-17
    eja
    
-   
+      
 15:31 2013-03-18
    had a interview at shipai,tianhe(Ô´µä)
    network programming, capture, decode and analysis package?
    the interviewer implied i only orient to a programmer???
-   
-   s
-   
    
 10:10 2013-03-19
    Ô´µä said i need register in next week. i must hurry up
@@ -3762,6 +3769,7 @@ i need plan my life more, i am not a child already
    
    talked with hegui and dengzhimin at qq, and it waste my a lot time
    
+   got zhangyuansi's qq num
    planed to have a dinner with the colleagues
    zhangyuansi said she should go back school for exam, so...
    
@@ -3815,25 +3823,122 @@ i need plan my life more, i am not a child already
    
    i found that my colleague(gongjunbo, saintray) is not like me. At least, i will practice when i am confused
    
+   zhangyuansi talked about my aunt's dog, and touched me in my arm. she is active
+   zhangyuansi said i should  accompany my cat after work...
    
 09:14 2013-03-27
    refused embedsky, evil or not!
-   
-   ----------------------- my weakness
+         
+----------------------- my weakness
    1) undervalue myself
-   2) won't find a solution when i encounter a barrier, do nothing, and the time is elapsing...
-   ------------------------------------
+   2) won't find a solution when i encounter a barrier, do nothing, and the time is elapsing...   
+--------------------------------------------------------
+
+it's sad and but i should always keep moving  forward
+   i told zhangyuansi that i will not work for the current corp after tomorrow, and i said she should pay me a    dinner
+   zhangyuansi said she will give me a chance to have a dinner with her
+   zhangyuansi and me exchange the phonenum
+
+
+
+-------------------------------------------now, my WorldView is
+   1 learn more!!!
+     1) communication
+     2) start it currently, not later
+       
+   2 ponder more!!!
+     1) draw lessons from past
+     2) no plan no action(race with time)
+---------------------------------------------------------
+               
+11:41 2013-03-28
+   i was between awake and asleep, feeling so tired.
    
+   ------------------------ my hand writting in the past: the shortage of me at the past year(2011.9~2012.4)
+   1) less communication
+   2) so idealized
+   3) i am dull
+   4) it just a deal, there is not any emotion
+   5) experience-less
+   6)       
+   ---------------------------   
+      
+   after today, i won't work for saintray
+   sent zhangyuansi to haizhu station. no response after i send a sms to her
+   am i serious???
    
-   
-2013-3-30
+         
+2013-3-30, endless rain
    called to zhuangyuansi, and i was incoherently!!!
    swam with xiejingyu at liwan gymnasium
-   
       
-21:40 2013-3-31, rainy
+      
+21:40 2013-3-31, endless rain
    swan alone at tianhe gymnasium
    
+2013-4-1
+   this is the first day i work for the u&d
+                               
+13:59 2013-4-2, endless rain
+   APM(application performance management)
+   KFP(KPI -> Flow -> Packet)
+         
+-----------------------------
+   1) demand analysis
+   2) outline design 
+   3) details design
+               
+------------------------------
+   
+   u&d's hr are native mostly
+   "dirty words" is all around(u&d)
+   they(u&d hr) always talk about the cloths shopping
+   
+   i miss zhangyuansi
+   
+   my salary in saintray is not arrived
+   
+   q and called to zhangyuansi for activity, and she said maybe ...
+   
+   
+         
+10:05 2013-4-3, endless rain
+   a struggle start from now
+   now, i hate this weather extremely
       
+   now, the rain is stop
+   zhangyuansi is so busy???
+   
+   LAN IP prefix----------------------------------
+   finephone: 10.10.10.x
+   saintray : 10.20.30.x
+   u&d:       192.168.1.x
+   ---------------------------------------
+   
+   why someone move her personal affairs to office?	
+      
+   zhangyuansi said she was tired, so...
+   18:24: now, i do not care about the weather
+   
+2013-4-4, holiday,
+   played pes2012
+   
+2013-4-5
+   swam at liwan gymnasium
+   played mini-snooker with xiejingyu at ÑþÌ¨
+   
+   
+2013-4-6
+   swam at liwan gymnasium with xiejingyu
+      
+   
+10:04 2013-4-7
+             
+   
+    
+   
+   
+   
+   
 
 

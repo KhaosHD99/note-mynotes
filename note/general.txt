@@ -1,7 +1,8 @@
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@ WorldView(Strategy guiding thoughts) @@@@@@@@@@@@@@@@@@@@@@@@@@
-1 more rumination, more communication(internet, tradition), sum up experience
-2 perpetual learning, always be ready
+1 more rumination, more communication(internet, tradition), sum up experience --------- ponder more
+2 perpetual learning, always be ready					      ----------learn more
+   
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -2537,6 +2538,17 @@ the result is:
 
 <<<<<<< .mine
 
+
+
+find /etc -name source*
+
+
+
+
+
+baidu: 119.75.218.70=======
+<<<<<<< .mine
+
 >>>>>>> .r1011
 
 
@@ -2557,7 +2569,9 @@ the result is:
    
 另外需要注意的是
      1）、信号量锁保护的临界区可包含可能引起阻塞的代码，而自旋锁则绝对要避免用来保护包含这样代码的临界区，因为阻塞意味着要进行进程的切换，如果进程被切换出去后，另一进程企图获取本自旋锁，死锁就会发生。
-     2）、在你占用信号量的同时不能占用自旋锁，因为在你等待信号量时可能会睡眠，而在持有自旋锁时是不允许睡眠的。
+     2）、在你占用信号量的同时不能占用自旋锁，因为在你等待信号量时可能会睡眠，而
+
+在持有自旋锁时是不允许睡眠的。
 
  
 
@@ -2572,18 +2586,47 @@ the result is:
      互斥锁：是线程间互斥用的，一个线程占用了某一个共享资源，那么别的线程就无法访问，直到这个线程离开，其他的线程才开始可以使用这个共享资源。可以把互斥锁看成二值信号量。   
 
  
-
 上锁时：
 
      信号量: 只要信号量的value大于0，其他线程就可以sem_wait成功，成功后信号量的value减一。若value值不大于0，则sem_wait阻塞，直到sem_post释放后value值加一。一句话，信号量的value>=0。
 
      互斥锁: 只要被锁住，其他任何线程都不可以访问被保护的资源。如果没有锁，获得资源成功，否则进行阻塞等待资源可用。一句话，线程互斥锁的vlaue可以为负数。   
-
  
 
 使用场所：
-
      信号量主要适用于进程间通信，当然，也可用于线程间通信。而互斥锁只能用于线程间通信。
 
-=======
->>>>>>> .r1017
+
+---------------------------------------------------------------------
+svn: OPTIONS of 'https://server.domain.local/svn/repo': SSL handshake failed: SSL error:
+Key usage violation in certificate has been detected. (https://server.domain.local) 
+
+
+1.Add the following registry value to the Windows registry: 
+for 32-bit system:
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VisualSVN\VisualSVN Server]
+"CreateGnuTLSCompatibleCertificate"=dword:00000001
+      for 64-bit system:
+    
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\VisualSVN\VisualSVN Server]
+"CreateGnuTLSCompatibleCertificate"=dword:00000001
+      2.Start VisualSVN Server Manager. 
+3.Go to Action | Properties | Certificate. 
+4.Click Change certificate... and follow the wizard instructions to generate a new self-signed certificate. 
+   
+--------------------------------------------------------------------------------------------------
+   
+         
+kill gdm
+   
+   
+vi jump to top: gg
+   jump to bottom: G
+      
+   
+   
+      
+
+   
+  

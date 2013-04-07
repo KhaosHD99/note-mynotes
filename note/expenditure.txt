@@ -726,9 +726,6 @@ traffic payment: 100
 2013-02-17
    bought a bag for sister: 120
 
-<<<<<<< .mine
-=======
-
 14:44 2013-02-18
 
 >>>>>>> .r1017
@@ -747,7 +744,7 @@ traffic payment: 100
    »Æº×Â¥ ticket: 80
    massage: 200-
    fruit: 6
-   
+      
    dinner(mcdn):   40-
    
 2013-02-27
@@ -763,48 +760,66 @@ traffic payment: 100
 2013-3-8
    sw: 35
    traffic exp: 100
-
-<<<<<<< .mine
-2013-3-8
-   sw: 35
-   traffic exp: 100
-=======
-2013-3-9
-   sw: 35
->>>>>>> .r1017
-
-<<<<<<< .mine
+   
 2013-3-9
    sw: 35
 
 21:46 2013-3-10
    fixed-line telephone; broadband; mobile phone: 477
 
-
-
-
-=======
 21:46 2013-3-10
    fixed-line telephone; broadband; mobile phone: 477
    
-        
+           
 11:16 2013-03-11
    business trip: 1494 + 200
-            
+               
 2013-03-22
    dinner(colleagues): 800+
-   
+         
 2013-03-23
    vaccination: 120-
    dinner(me and xiejingyu): 50+-
    
-   
 2013-03-24
    
-       
+                
 11:25 2013-03-25
    physical examination: 130+
    
+         
+2013-03-27
+   traffic eps: 100
+   
+      
+17:45 2013-03-28
+   be reimbursed 1694
+      
+      
+2013-3-31
+   phone exp: 100
    
    
-   >>>>>>> .r1017
+20:30 2013-4-3
+   award: 	2533
+   salary: 	3657
+      
+   gas: 120
+   ancestor worship relevance: 100
+   
+      
+20:29 2013-4-4
+   
+           
+        
+2013-4-5
+   swim: 25
+   mini-snooker: 16
+   
+2013-4-6
+   swim: 25
+   contact lens relevance: 150+
+         
+   
+10:19 2013-4-7
+   
