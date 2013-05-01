@@ -9304,7 +9304,1572 @@ sys     8m43.509s
    
 10:04 2013-4-7
    pipe
+   使用Tk/perl来提供一个图形化的MIB浏览器(tkmib)
+      
+      
+               Net-SNMP configuration summary:
+---------------------------------------------------------
+  
+  SNMP Versions Supported:    1 2c 3
+  Building for:               linux
+  Net-SNMP Version:           5.7.1
+  Network transport support:  Callback Unix Alias TCP UDP IPv4Base SocketBase TCPBase UDPIPv4Base UDPBase
+  SNMPv3 Security Modules:     usm
+  Agent MIB code:             default_modules =>  snmpv3mibs mibII ucd_snmp notification notification-log-mib target agent_mibs agentx disman/event disman/schedule utilities host
+  MYSQL Trap Logging:         unavailable
+  Embedded Perl support:      disabled
+  SNMP Perl modules:          building -- not embeddable
+  SNMP Python modules:        disabled
+  Crypto support from:        crypto
+  Authentication support:     MD5 SHA1
+  Encryption support:         DES AES
+  Local DNSSEC validation:    disabled
+---------------------------------------------------------
+  
+   ln -s
+   
+   isl
+   
+
+---------------------------------------------------------
+            Net-SNMP configuration summary:
+---------------------------------------------------------
+   
+   SNMP Versions Supported:    1 2c 3
+   Net-SNMP Version:           5.4.1
+   Building for:               linux
+   Network transport support:  Callback Unix TCP UDP
+   SNMPv3 Security Modules:     usm
+   Agent MIB code:             default_modules =>  snmpv3mibs mibII ucd_snmp notification notification-log-mib target    agent_mibs agentx disman/event disman/schedule utilities host
+   Embedded Perl support:      enabled
+   SNMP Perl modules:          building -- embeddable
+   SNMP Python modules:        disabled
+   Authentication support:     MD5 SHA1
+   Encryption support:         DES AES
+---------------------------------------------------------
+      
+   secure-crt: jump to line-header or line-tail
+      
+   multithread-compile will affect the link!!!								*
+   netscout
+   
+   网络分接器(Tap)
+   端口镜像
+   
+   how myeclipse open an existing prj???
+   
+   JAVA: ProcessBuilder, Process
    
       
+09:50 2013-4-8
+   favor composition over inheritance
+   公共继承，超类，纯接口
+   what is 白皮书
+   overload: the same return type???	
+   		
+   Makefile
+   use autotools or not
+   
+   linux c/c++ directory structrue
+   
+   can not "configure" on cifs file sys?
+   
+   how to output line count of a text file; 		
+   
+   overload on c ???
+   
+   if no implement in class member func, the compile can pass???					
+   
+   使用static_cast<>()等C++的类型转换，不要使用int y = (int)x 或int y = int(x);
+   
+   where do the "UDBackTrack" run on???
+   
+   what is the UDAPM architecture, where is the entry point
+
+
+      
+09:23 2013-4-9
+    root@elon-desktop:/home/elon# file /sbin/init
+/sbin/init: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+   
+
+32bit or 64bit sys
     
+---------------------------workpc    
+无线        Physical Address. . . . . . . . . : 00-FF-EB-BD-25-08
+
+有线        Physical Address. . . . . . . . . : 04-7D-7B-A9-50-E8
+------------------
+   
+how to uninstall myeclipse which is install by a "installer"
+      
+   su root, /etc/profile, set env
+   how to run mysql via source package ...
+   
+      
+      
+09:48 2013-4-10
+   how to modify the mysql user password?								over
+   how to deliver arg to eclipse-run									over
+      
+   java, __FUNCTION__?
+      
+   expand the swap
+   /etc/fstab
+      
+   mkswap: /opt/image/swap: warning: don't erase bootbits sectors
+        on whole disk. Use -f to force.
+Setting up swapspace version 1, size = 1023996 KiB
+no label, UUID=9093bb91-9ac8-45ba-9385-3c1d8dc41127
+   
+   vim: jump to line tail
+      
+   java.lang.NullPointerException
+        at com.yuandian.apm.backtrack.diagnostics.TcpSYNStorm.analyze(TcpSYNStorm.java:97)
+        at com.yuandian.apm.backtrack.analyzer.Diagnosis.analyze(Diagnosis.java:46)
+        at com.yuandian.apm.backtrack.analyzer.AnalyzerBase$AnalyzeThread.run(AnalyzerBase.java:75)
+        at java.lang.Thread.run(Unknown Source)
+   
+   java, cloneable
+   
+   consumer-productor											**
+   
+   allow being initialized in the class declaration???
+   	
+14:22 2013-4-11
+   why "tshark" is a shell, but after install, it turn to binary file???
+         
+   
+   
+   
+   
+10:30 2013-4-12
+   cc is not a sourceinsight default file type								over
+   char buf[xxx]: sizeof, int buf[xxx]: sizeof???  							over 
+   remove the brace auto matching in source insight
+   vim: undo
+   
+libtoolize: putting auxiliary files in `.'.
+libtoolize: copying file `./ltmain.sh'
+libtoolize: Consider adding `AC_CONFIG_MACRO_DIR([m4])' to configure.in and
+libtoolize: rerunning libtoolize, to keep the correct libtool macros in-tree
+libtoolize: Consider adding `-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+   
+   Makefile: deep dir
+   
+   i need a log module
+   
+   autotools: "core" is a key word dir??? ".deps" is a bug, it will affect to the name changing of source file
+   
+   strcat?
+         
+11:01 2013-4-15
+   can i use the libwireshark directly
+   
+   use c style string or stl "string" ???
+   
+   what is "interface" in java???
+   
+   c++ pure virtual function, abstract class
+   
+   AnalyzerBase’ is an inaccessible base of 'IPSession'
+   
+   check for thread life
+         
+09:51 2013-4-16
+   why the samba do not run automaticly
+   
+   how about the virtual func is private???
+   
+   infinite loop when parse comment xml??? 
+   
+   why the log class will crash: Multithread!!!
+   
+   c++: ##, typeid(), RTTI, get the class name dynamicly,
+   
+   can not use a abstract class???
+   
+   is "single instance" necessary for the annlyzer!!!
+   
+   decode in main thread or not??
+   
+   can i create thread without using "pthread_create"(soo, i need make a wrapper, this problem affect the safety of the data       and make my code is so ugly!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
+   
+   "hide" is a Macroscopic "overload"???
+   
+   is it necessary to release the resource of the exited thread???
+   
+   threads synchronicity, progress control
+          
+10:29 2013-4-17
+   release the resource
+   pthread_cond_wait
+   
+   inherit a func without symbol "virtual", and then what will happen
+   
+   inherit a private func?
+   
+   semaphore with timeout
+   
+   sem_timedwait, sem_wait
+   
+   use "const" as more as i can???
+   
+   invalid cast from type ‘std::_List_iterator<_EpanDissection>’ to type ‘EpanDissection*’
+   
+   create a class instance dynamicly: factory, macro, rtti(mfc?), reflator   
+   i need a factory mode???
+   
+   destructor do not inherit???
+      
+---------------------
+   is it in use???
+   how about the database name, table name and field name 
+   
+   one analyzer one table???
+               
+10:10 2013-4-18
+   update user set host=’%’ where user=’root’ and host=’localhost
+   
+   show all user 
+   
+   how to change the font color of secure crt
+   
+------------------------------backtrack
+   the frame is done
+------------------------------      
+                  
+11:17 2013-4-19
+   mysql_library_init
+   
+   scalar query
+   
+   virtual ~MySQLQuery();
+   
+   nm
+      
+10:26 2013-4-22
+   the interaction with the analysis moudle!!! library or a process??? //deliver parametres
+   get progress
+   return value specification
+   
+   struct initial sequence
+   
+   No executable file now.
+   
+   the manner of mailing list
+   
+   how can i debug tshark
+   
+   time_delta, time_rela, 
+      
+10:03 2013-4-23
+   virtual destructor
+   
+   pthread_join: 143738064, -1251996496
+   
+   stl map<char *, char *> or stl map<string, string>. how to release the "key" memory
+   
+   Illegal instruction
+   
+   ghashtable
+      
+11:09 2013-4-24
+   "frame.number"
+   "frame.time"
+   "frame.protocols"
+   "frame.len"
+   "frame.cap_len"
+   "frame.time_delta"
+   "frame.time_relative"
+   
+   ip.src
+   ip.dst
+   ip.len
+   ip.hdr_len
+      
+   "tcp.srcport"
+   "tcp.dstport"
+   tcp.flags
+   tcp.hdr_len
+   tcp.ack
+   tcp.seq
+   tcp.window_size
+   tcp.nxtseq
+   "udp.srcport"
+   "udp.dstport"
+   
+   http.request.method
+   http.request.url
+   http.request.version
+        
+   http.response.code
+   http.response.phrase
+   
+      
+   红黑树
+         
+   mapStudent.insert(pair<int, string>(1, “student_one”));
+   mapStudent.insert(map<int, string>::value_type (1, “student_one”));
+   
+   struct in class or class in class or struct out of class
+   
+   "long" size: 4, "long long" size: 8(gnu compiler 4.4.3)
+   
+   what is the memory store difference between positive integer and negative integer????????				**
+    
+   transfer, transport
+   
+   stringstream
+   	
+   what is the "len" in mysql "int"											**
+   
+   what is "summary" in "BackTrack"
+      
+   
+   
+      
+10:10 2013-4-25
+   lucida console font, arial
+   what font should i choose in the software development doc in word?
+   
+   what is the "time pattern" should i use in c/c++
+   <<
+   atoi
+    
+
+
+
+[INFO][20160427 22:48:57]on Packet::Analyze, data->frame_number: frame.number.value, frame_timedelta: 0
+[INFO][20160427 22:48:57]on GetDecoderOutputField
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on TCPSession::Analyze, ed index: 69
+[INFO][20160427 22:48:57]on Packet::Analyze, ed index: 69
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on IPSession::Analyze, ed index: 69
+[INFO][20160427 22:48:57]on Packet::Analyze, data->frame_number: frame.number.value, frame_timedelta: 0
+[INFO][20160427 22:48:57]on GetDecoderOutputField
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on Diagnosis::Analyze, ed index: 69
+[INFO][20160427 22:48:57]on IPSession::Analyze, ed index: 69, frame.number.value, frame.protocols.value, frame.len.value
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on TCPSession::Analyze, ed index: 70
+[INFO][20160427 22:48:57]on IPSession::Analyze, ed index: 70
+[INFO][20160427 22:48:57]on IPSession::Analyze, ed index: 70, frame.number.value, frame.protocols.value, frame.len.value
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on AnalyzerBase::ProcessDissection
+[INFO][20160427 22:48:57]on Packet::Analyze, ed index: 70
+[INFO][20160427 22:48:57]on ARPStorm::Diagnose, ed index: 70
+[INFO][20160427 22:48:57]on Packet::Analyze, data->frame_number: frame.number.value, frame_timedelta: 0
+[INFO][20160427 22:48:57]on TCPSyncStorm::Diagnose, ed index: -1259269120
+[INFO][20160427 22:48:57]on GetDecoderOutputField
+[INFO][20160427 22:48:57]on Diagnosis::Analyze, ed index: 70
+Segmentation fault
+    
+    stop the Fingerprint Detector
+    
+    single instance
+    
+    ./UDBackTrack  | grep -E "err|arp" -i
+    
+    where is the  best log writing place
+    
+    i pop the list before i use the iterator!!!
+    
+    getValue("ip.src").split(",")???
+    
+    authorize the network interface permission to normal user
+    
+    0x123
+    
+    change decimal, hex string to int
+    
+    autocheck autochk *
+    
+10:07 2013-4-26, 15:25 2013-4-27
+/------------------------------------------------- UDBackTrack ----------------------------------------------
+    how about the float
+    abs_time
+    why the id is "varchar"???
+    
+    time type: varchar???
+    
+    jni 
+    
+    
+------------------------------------------------------------------------------------------------------------/
+    
+    timedelta: 0.000206000
+    
+    tcp_payloadsize = iplen-iphdrlen-tcphdrlen
+    framelen - iplen = 14
+    
+    
+        
+    6131    eth:ip:tcp:nbss:smb     158     0.000170000     04:7d:7b:a9:50:e8       f0:de:f1:bd:81:7d       192.168.1.64    192.168.1.93    144     0x0018
+6132    eth:ip:tcp:nbss:smb     176     0.000485000     f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8       192.168.1.93    192.168.1.64    162     0x0018
+6133    eth:ip:tcp:nbss:smb     142     0.000149000     04:7d:7b:a9:50:e8       f0:de:f1:bd:81:7d       192.168.1.64    192.168.1.93    128     0x0018
+6134    eth:ip:tcp:nbss:smb     186     0.000473000     f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8       192.168.1.93    192.168.1.64    172     0x0018
+        
+    "029 "        
+    
+/------------------------------------------------------------------------
+    + touch README NEWS AUTHORS ChangeLog
+    + aclocal
+    + libtoolize --force -f -c
+    libtoolize: putting auxiliary files in `.'.
+libtoolize: copying file `./ltmain.sh'
+libtoolize: Consider adding `AC_CONFIG_MACRO_DIR([m4])' to configure.in and
+libtoolize: rerunning libtoolize, to keep the correct libtool macros in-tree.
+libtoolize: Consider adding `-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ autoheader
++ autoconf
++ automake --foreign --add-missing --copy
+      
+   DPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /home/elon/prj/wireshark/trunk/missing --run aclocal-1.11 `./aclocal-flags`
+   /bin/bash: ./aclocal-flags: 权限不够
+   /bin/bash: /home/elon/prj/wireshark/trunk/missing: 没有那个文件或目录
+   make: *** [aclocal.m4] 错误 127
+------------------------------------------------------------------------------------/   
+      
+
+
+
+/------------------------------------------------------------------------
+    e/pixman-1 -I/usr/include/freetype2 -I/usr/include/directfb -I/usr/include/libpng12 -MT ascend.lo -MD -MP -MF .deps/ascend.Tpo -c ascend.c  -fPIC -DPIC -o .libs/ascend.o
+mv -f .deps/ascend.Tpo .deps/ascend.Plo
+../tools/runlex.sh "/usr/bin/flex" -oascend_scanner.c ascend_scanner.l
+/bin/bash: ../tools/runlex.sh: Permission denied
+make[2]: *** [ascend_scanner.c] Error 126
+make[2]: Leaving directory `/home/elon/prj/wireshark/trunk/wiretap'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/home/elon/prj/wireshark/trunk'
+make: *** [all] Error 2
+
+:::::::::::::::::::::::
+the shell can not be execute
+    
+    
+------------------------------------------------------------------------------------/                    
+    ./configure: line 24703: syntax error near unexpected token `3.0.0,'
+    ./configure: line 24703: `                      AM_PATH_GTK_3_0(3.0.0,'   
+                   
+    chmod 4755???
+    sudo: must be setuid root
+    
+    a timestring  parser
+    
+    how to verify a iterator????
+    
+    int2string
+         
+11:22 2013-4-27
+    jni sample: deliver data struct
+                
+/---------------------------------------wireshark 1.8.6
+time make -j8
+
+real    8m6.339s
+user    20m38.348s
+sys     1m38.148s
+----------------------------------------------------------/
+    
+    $(LIBWIRESHARK_SRC)
+        
+undefined reference to `sync_pipe_start'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_print_if_capabilities'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_trim_snaplen'
+epan/.libs/libwireshark.so: undefined reference to `funnel_dump_all_text_windows'
+epan/.libs/libwireshark.so: undefined reference to `sync_pipe_stop'
+epan/.libs/libwireshark.so: undefined reference to `capture_get_if_capabilities'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_init'
+epan/.libs/libwireshark.so: undefined reference to `register_all_tap_listeners'
+epan/.libs/libwireshark.so: undefined reference to `capture_interface_list'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_print_interfaces'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_add_opt'
+epan/.libs/libwireshark.so: undefined reference to `initialize_funnel_ops'
+epan/.libs/libwireshark.so: undefined reference to `get_if_name'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_trim_ring_num_files'
+epan/.libs/libwireshark.so: undefined reference to `capture_opts_trim_iface'
+epan/.libs/libwireshark.so: undefined reference to `get_interface_descriptive_name'
+   
+   vim copy the specific char
+   
+   hashtable
+   
+   i success in extract the tshark interface???
+   
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `set_disabled_protos_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `sync_pipe_start'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_print_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_only_tables'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `proto_tree_write_psml'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_close'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `read_disabled_protos_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `new_frame_data_sequence'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_new'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_snaplen'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `funnel_dump_all_text_windows'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `sync_pipe_stop'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_get_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_compiled_version_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_compile'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `proto_tree_write_pdml'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_init'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_hex_data'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `register_all_tap_listeners'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `frame_data_sequence_find'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_num_fields'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_free'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_interface_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `frame_data_sequence_add'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_finale'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_set_option'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `wireshark_svnversion'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_frame_data_sequence'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_pdml_preamble'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `proto_tree_write_fields'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_preamble'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_fields_finale'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_psml_finale'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_print_interfaces'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_pdml_finale'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_open_dead'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_fields_preamble'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_stream_text_stdio_new'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `cap_file_init'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_add_opt'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_list_options'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `initialize_funnel_ops'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `proto_tree_print'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_if_name'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_line'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_stream_ps_stdio_new'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_interface_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `output_fields_add'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `write_psml_preamble'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_ring_num_files'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_iface'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_runtime_version_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_copyright_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_interface_descriptive_name'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_args_as_string'
+   
+
+/***************************************************************
+   jni test
+   get data package
+        
+        
+****************************************************************/
+
+CFLAGS
+LDFLAGS
+
+LDADD
+
+09:07 2013-4-28
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `set_disabled_protos_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `sync_pipe_start'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_ps_preamble'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_print_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_close'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `read_disabled_protos_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `new_frame_data_sequence'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_snaplen'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `print_ps_finale'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `funnel_dump_all_text_windows'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `sync_pipe_stop'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_get_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_compiled_version_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_compile'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_init'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `register_all_tap_listeners'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `frame_data_sequence_find'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_interface_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `frame_data_sequence_add'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `wireshark_svnversion'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_if_capabilities'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_frame_data_sequence'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_print_interfaces'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `pcap_open_dead'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `cap_file_init'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_add_opt'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `initialize_funnel_ops'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_if_name'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `free_interface_list'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_ring_num_files'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `capture_opts_trim_iface'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_runtime_version_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_copyright_info'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_interface_descriptive_name'
+/home/xuzhenjie/prj/wireshark/trunk/.libs//libtshark.so: undefined reference to `get_args_as_string'
+
+
+
+tshark_cp.c disabled_protos.c capture.c capture_sync.c capture_opts.c print.c file.c capture-pcap-util-unix.c    \
+                       capture-wpcap.c dumpcap.c disabled_protos.c frame_data_sequence.c capture_opts.c capture_ifinfo.c
+
+
+
+
+    U EBCDIC_to_ASCII1
+0000000000220980 a _DYNAMIC
+0000000000220c48 a _GLOBAL_OFFSET_TABLE_
+                 U _IO_getc@@GLIBC_2.2.5
+                 U _IO_putc@@GLIBC_2.2.5
+                 w _Jv_RegisterClasses
+0000000000220320 d __CTOR_END__
+0000000000220318 d __CTOR_LIST__
+0000000000220330 d __DTOR_END__
+0000000000220328 d __DTOR_LIST__
+0000000000020310 r __FRAME_END__
+0000000000220338 d __JCR_END__
+0000000000220338 d __JCR_LIST__
+000000000001b920 r __PRETTY_FUNCTION__.13285
+000000000001b900 r __PRETTY_FUNCTION__.13437
+000000000001b7d4 r __PRETTY_FUNCTION__.13827
+000000000001b8d0 r __PRETTY_FUNCTION__.14297
+000000000001b8b0 r __PRETTY_FUNCTION__.14316
+000000000001b890 r __PRETTY_FUNCTION__.14349
+000000000001b870 r __PRETTY_FUNCTION__.14381
+000000000001b850 r __PRETTY_FUNCTION__.14734
+000000000001b820 r __PRETTY_FUNCTION__.14781
+000000000001b7f0 r __PRETTY_FUNCTION__.14837
+000000000001c880 r __PRETTY_FUNCTION__.15780
+000000000001ad80 r __PRETTY_FUNCTION__.16184
+000000000001ada0 r __PRETTY_FUNCTION__.16226
+000000000001c090 r __PRETTY_FUNCTION__.16267
+000000000001ad6e r __PRETTY_FUNCTION__.16288
+000000000001c070 r __PRETTY_FUNCTION__.16312
+000000000001acc0 r __PRETTY_FUNCTION__.16908
+000000000001ac80 r __PRETTY_FUNCTION__.18762
+000000000001ac60 r __PRETTY_FUNCTION__.18794
+000000000001adb8 r __PRETTY_FUNCTION__.19327
+000000000001ac44 r __PRETTY_FUNCTION__.19520
+000000000001ade0 r __PRETTY_FUNCTION__.19573
+000000000001e010 r __PRETTY_FUNCTION__.8712
+000000000001dfd7 r __PRETTY_FUNCTION__.8872
+000000000001dfcc r __PRETTY_FUNCTION__.8889
+000000000001dfbe r __PRETTY_FUNCTION__.8910
+000000000001dfb0 r __PRETTY_FUNCTION__.8928
+000000000001dfa2 r __PRETTY_FUNCTION__.8946
+000000000001df90 r __PRETTY_FUNCTION__.8965
+000000000001df7d r __PRETTY_FUNCTION__.8984
+000000000001df71 r __PRETTY_FUNCTION__.9002
+000000000001df64 r __PRETTY_FUNCTION__.9024
+000000000001df50 r __PRETTY_FUNCTION__.9047
+000000000001df39 r __PRETTY_FUNCTION__.9068
+000000000001df2f r __PRETTY_FUNCTION__.9122
+000000000001df21 r __PRETTY_FUNCTION__.9140
+000000000001df10 r __PRETTY_FUNCTION__.9159
+000000000001def0 r __PRETTY_FUNCTION__.9178
+000000000001ded0 r __PRETTY_FUNCTION__.9201
+000000000001deb0 r __PRETTY_FUNCTION__.9231
+000000000001de90 r __PRETTY_FUNCTION__.9249
+000000000001de70 r __PRETTY_FUNCTION__.9268
+000000000001de40 r __PRETTY_FUNCTION__.9297
+000000000001de2d r __PRETTY_FUNCTION__.9330
+000000000001de20 r __PRETTY_FUNCTION__.9350
+0000000000221668 A __bss_start
+                 U __ctype_b_loc@@GLIBC_2.3
+                 w __cxa_finalize@@GLIBC_2.2.5
+0000000000017330 t __do_global_ctors_aux
+0000000000008c70 t __do_global_dtors_aux
+0000000000220978 d __dso_handle
+                 U __errno_location@@GLIBC_2.2.5
+                 U __fprintf_chk@@GLIBC_2.3.4
+                 U __fxstat@@GLIBC_2.2.5
+                 w __gmon_start__
+                 U __isoc99_sscanf@@GLIBC_2.7
+                 U __printf_chk@@GLIBC_2.3.4
+                 U __strdup@@GLIBC_2.2.5
+                 U __vfprintf_chk@@GLIBC_2.3.4
+                 U __xstat@@GLIBC_2.2.5
+0000000000221668 A _edata
+0000000000231f70 A _end
+                 U _exit@@GLIBC_2.2.5
+0000000000017368 T _fini
+0000000000007838 T _init
+                 U _setjmp@@GLIBC_2.2.5
+                 U abs_time_to_str
+                 U add_ipv4_name
+                 U add_ipv6_name
+                 U asctime@@GLIBC_2.2.5
+000000000001b8f0 r binhex.13952
+0000000000015e80 T bpf_image
+                 U build_column_format_array
+0000000000008c50 t call_gmon_start
+0000000000016080 T cant_get_if_list_error_message
+00000000000160e0 T cant_load_winpcap_err
+                 U cap_file_init
+000000000000a750 t capture
+00000000000093f0 t capture_cleanup
+                 U capture_get_if_capabilities
+000000000000a050 T capture_input_cfilter_error_message
+0000000000009330 T capture_input_closed
+0000000000009020 T capture_input_drops
+0000000000008ff0 T capture_input_error_message
+000000000000aea0 T capture_input_new_file
+0000000000009e80 T capture_input_new_packets
+                 U capture_interface_list
+0000000000013c80 T capture_opts_add_opt
+0000000000014bc0 T capture_opts_init
+0000000000014730 T capture_opts_log
+0000000000013bd0 T capture_opts_print_if_capabilities
+0000000000013b60 T capture_opts_print_interfaces
+0000000000013a10 T capture_opts_trim_iface
+00000000000139c0 T capture_opts_trim_ring_num_files
+00000000000138e0 T capture_opts_trim_snaplen
+000000000001acb0 r catch_spec.16919
+000000000001add0 r catch_spec.18659
+000000000000ab90 T cf_open
+0000000000221d60 B cfile
+                 U cleanup_dissection
+                 U close@@GLIBC_2.2.5
+000000000000f6b0 t close_print_dest
+0000000000008f50 T cmdarg_err
+0000000000008e10 T cmdarg_err_cont
+                 U col_custom_prime_edt
+00000000000136a0 T collect_ifaces
+0000000000221680 b completed.6347
+000000000000fcc0 t csv_write_str
+0000000000221adc b cum_bytes
+000000000001ad40 r decode_as_arg_template
+000000000000e530 T destroy_print_stream
+000000000000f6f0 t destroy_ps
+000000000000f740 t destroy_text
+                 U dfilter_apply_edt
+                 U dfilter_compile
+                 U dfilter_error_msg
+                 U dfilter_free
+0000000000221c60 b disabled_protos
+0000000000013170 t discard_existing_list
+000000000000a200 t display_dissector_names
+0000000000009250 t display_dissector_table_names
+                 U dissector_all_tables_foreach_table
+                 U dissector_change_string
+                 U dissector_change_uint
+                 U dissector_dump_decodes
+                 U dissector_dump_heur_decodes
+                 U dissector_handle_get_protocol_index
+                 U dissector_table_foreach_handle
+00000000002203c0 d dlt_choices
+0000000000221b1c b do_dissection
+                 U draw_tap_listeners
+0000000000221688 b dtor_idx.6349
+                 U dup2@@GLIBC_2.2.5
+                 U ep_alloc
+                 U ep_alloc0
+                 U ep_strbuf_append_printf
+                 U ep_strbuf_new
+                 U ep_strbuf_printf
+                 U epan_cleanup
+                 U epan_dissect_cleanup
+                 U epan_dissect_fill_in_columns
+                 U epan_dissect_init
+                 U epan_dissect_prime_dfilter
+                 U epan_dissect_run
+                 U epan_get_compiled_version_info
+                 U epan_init
+00000000002216c0 b errmsg_errno.19650
+                 U ex_opt_add
+                 U except_free
+                 U except_pop
+                 U except_rethrow
+                 U except_setup_try
+                 U execv@@GLIBC_2.2.5
+                 U exit@@GLIBC_2.2.5
+0000000000008ed0 t failure_message
+                 U fclose@@GLIBC_2.2.5
+                 U ferror@@GLIBC_2.2.5
+                 U fflush@@GLIBC_2.2.5
+                 U file_open_error_message
+                 U find_dissector_table
+                 U find_protocol_by_id
+000000000000a140 t find_protocol_name_func
+0000000000221ae0 b first_ts
+                 U fopen@@GLIBC_2.2.5
+                 U fork@@GLIBC_2.2.5
+0000000000008d70 T fprintf_stderr
+                 U fputc@@GLIBC_2.2.5
+                 U fputs@@GLIBC_2.2.5
+                 U frame_data_cleanup
+                 U frame_data_init
+0000000000016e30 T frame_data_sequence_add
+0000000000016be0 T frame_data_sequence_find
+                 U frame_data_set_after_dissect
+                 U frame_data_set_before_dissect
+0000000000008cf0 t frame_dummy
+0000000000016c90 T free_frame_data_sequence
+0000000000015b90 T free_if_capabilities
+0000000000015bf0 t free_if_cb
+0000000000015be0 t free_if_info_addr_cb
+0000000000015b70 T free_interface_list
+0000000000015bc0 t free_linktype_cb
+                 U funnel_dump_all_text_windows
+                 U fvalue_get
+                 U fvalue_get_uinteger
+                 U fwrite@@GLIBC_2.2.5
+                 U g_array_append_vals
+                 U g_array_insert_vals
+                 U g_array_new
+                 U g_array_remove_index
+                 U g_ascii_strcasecmp
+                 U g_ascii_table
+                 U g_assertion_message
+                 U g_assertion_message_expr
+                 U g_free
+                 U g_hash_table_destroy
+                 U g_hash_table_insert
+                 U g_hash_table_lookup
+                 U g_hash_table_new
+                 U g_list_append
+                 U g_list_first
+                 U g_list_foreach
+                 U g_list_free
+                 U g_list_nth_data
+                 U g_log
+                 U g_log_default_handler
+                 U g_log_set_handler
+                 U g_malloc
+                 U g_module_close
+                 U g_module_symbol
+                 U g_ptr_array_add
+                 U g_ptr_array_free
+                 U g_ptr_array_new
+                 U g_realloc
+                 U g_slist_append
+                 U g_slist_foreach
+                 U g_slist_free
+                 U g_slist_insert_sorted
+                 U g_snprintf
+                 U g_str_equal
+                 U g_str_hash
+                 U g_strdup
+                 U g_strdup_printf
+                 U g_strerror
+                 U g_strescape
+                 U g_string_append
+                 U g_string_append_printf
+                 U g_string_free
+                 U g_string_new
+                 U g_strlcat
+                 U gbl_resolv_flags
+                 U get_addrinfo_list
+                 U get_args_as_string
+                 U get_column_visible
+0000000000016070 T get_compiled_pcap_version
+                 U get_compiled_version_info
+                 U get_copyright_info
+                 U get_cur_groupname
+                 U get_cur_username
+                 U get_data_source_name
+                 U get_datafile_dir
+                 U get_datafile_path
+                 U get_dissector_table_selector_type
+000000000000e580 t get_field_data
+000000000000e600 t get_field_hex_value
+                 U get_if_name
+                 U get_interface_descriptive_name
+0000000000016100 T get_interface_list
+0000000000015d50 T get_interface_list_findalldevs
+0000000000009400 t get_line_buf
+                 U get_natural_int
+000000000000e6f0 T get_node_field_value
+                 U get_persconffile_path
+                 U get_positive_int
+                 U get_progfile_dir
+0000000000015f30 T get_runtime_pcap_version
+                 U get_runtime_version_info
+                 U getenv@@GLIBC_2.2.5
+                 U getgid@@GLIBC_2.2.5
+                 U getopt@@GLIBC_2.2.5
+                 U getuid@@GLIBC_2.2.5
+0000000000221b40 b global_capture_opts
+0000000000221c68 b global_disabled_protos
+00000000000090a0 t glossary_option_help
+0000000000221c70 B has_wpcap
+                 U have_custom_cols
+                 U have_filtering_tap_listeners
+                 U hf_frame_arrival_time
+                 U hf_frame_capture_len
+                 U hf_frame_len
+                 U hf_frame_number
+                 U hf_text_only
+                 U host_name_lookup_process
+0000000000015c30 T if_info_add_address
+0000000000015cd0 T if_info_new
+                 U init_dissection
+0000000000011600 t init_pipe_args
+                 U init_process_policies
+                 U init_progfile_dir
+                 U initialize_funnel_ops
+                 U kill@@GLIBC_2.2.5
+0000000000221658 d line_buf_len.19352
+0000000000221b28 b line_buffered
+0000000000221ad0 b line_bufp.19351
+0000000000015b50 T linktype_name_to_val
+0000000000015b60 T linktype_val_to_name
+000000000000a2e0 t list_capture_types
+                 U list_stat_cmd_args
+0000000000015eb0 T load_wpcap
+                 U localtime@@GLIBC_2.2.5
+00000000002216a0 B loop_running
+0000000000008d40 T main_window_update
+0000000000016e00 T new_frame_data_sequence
+000000000000e510 T new_page
+000000000000f7c0 t new_page_ps
+000000000000f800 t new_page_text
+                 U nstime_set_unset
+                 U nstime_set_zero
+                 U num_tree_types
+00000000000092a0 t open_failure_message
+000000000000f830 t open_print_dest
+                 U optarg@@GLIBC_2.2.5
+                 U opterr@@GLIBC_2.2.5
+                 U optind@@GLIBC_2.2.5
+                 U optopt@@GLIBC_2.2.5
+000000000001ace0 r optstring.16545
+0000000000221b18 b output_action
+0000000000221ac8 b output_fields
+000000000000f450 T output_fields_add
+000000000000f4f0 T output_fields_free
+000000000000ee90 T output_fields_list_options
+000000000000f660 T output_fields_new
+000000000000e7e0 T output_fields_num_fields
+000000000000f1b0 T output_fields_set_option
+000000000000a460 t output_file_description
+0000000000221c48 B output_only_tables
+0000000000221d58 b p_bpf_image
+0000000000221d20 b p_pcap_breakloop
+0000000000221c88 b p_pcap_close
+0000000000221cc0 b p_pcap_compile
+0000000000221cc8 b p_pcap_compile_nopcap
+0000000000221ca8 b p_pcap_datalink
+0000000000221d08 b p_pcap_datalink_name_to_val
+0000000000221d18 b p_pcap_datalink_val_to_description
+0000000000221d10 b p_pcap_datalink_val_to_name
+0000000000221c98 b p_pcap_dispatch
+0000000000221cf8 b p_pcap_findalldevs
+0000000000221d50 b p_pcap_free_datalinks
+0000000000221d00 b p_pcap_freealldevs
+0000000000221cf0 b p_pcap_freecode
+0000000000221cb8 b p_pcap_geterr
+0000000000221d28 b p_pcap_lib_version
+0000000000221d40 b p_pcap_list_datalinks
+0000000000221c80 b p_pcap_lookupdev
+0000000000221cd0 b p_pcap_lookupnet
+0000000000221ce0 b p_pcap_loop
+0000000000221d38 b p_pcap_next_ex
+0000000000221ce8 b p_pcap_open_dead
+0000000000221cd8 b p_pcap_open_live
+0000000000221d48 b p_pcap_set_datalink
+0000000000221d30 b p_pcap_setbuff
+0000000000221cb0 b p_pcap_setfilter
+0000000000221ca0 b p_pcap_snapshot
+0000000000221c90 b p_pcap_stats
+0000000000221c78 b packetVer.9472
+00000000002216a4 B packet_count
+0000000000015ea0 T pcap_breakloop
+0000000000016a70 T pcap_close
+00000000000167f0 T pcap_compile
+00000000000167a0 T pcap_compile_nopcap
+0000000000016930 T pcap_datalink
+0000000000016ac0 T pcap_datalink_name_to_val
+0000000000016400 T pcap_datalink_val_to_description
+00000000000164b0 T pcap_datalink_val_to_name
+00000000000169d0 T pcap_dispatch
+0000000000016650 T pcap_findalldevs
+0000000000016550 T pcap_free_datalinks
+0000000000016600 T pcap_freealldevs
+00000000000166a0 T pcap_freecode
+0000000000016840 T pcap_geterr
+00000000000165b0 T pcap_list_datalinks
+0000000000015e40 T pcap_lookupdev
+0000000000016750 T pcap_lookupnet
+0000000000016700 T pcap_loop
+0000000000016360 T pcap_next_ex
+0000000000015e60 T pcap_open_dead
+0000000000016ba0 T pcap_open_live
+00000000000168e0 T pcap_set_datalink
+00000000000163b0 T pcap_setbuff
+0000000000016890 T pcap_setfilter
+0000000000016980 T pcap_snapshot
+0000000000016a20 T pcap_stats
+                 U pclose@@GLIBC_2.2.5
+0000000000221b14 b perform_two_pass_analysis
+                 U pipe@@GLIBC_2.2.5
+0000000000012170 t pipe_convert_header.clone.1
+0000000000221c20 b pipe_input
+0000000000008d20 T pipe_input_set_handler
+0000000000012190 t pipe_read_block.clone.0
+00000000000111b0 t pipe_read_bytes
+0000000000017220 T pipe_write_block
+00000000000171b0 T pipe_write_header
+                 U plugins_dump_all
+                 U popen@@GLIBC_2.2.5
+                 U postseq_cleanup_all_protocols
+                 U prefs
+                 U prefs_apply_all
+                 U prefs_register_modules
+                 U prefs_set_pref
+0000000000221b00 b prev_cap_ts
+0000000000221af0 b prev_dis_ts
+000000000000e500 T print_bookmark
+0000000000010ef0 t print_bookmark_ps
+000000000000e550 t print_bookmark_text
+000000000000a3a0 t print_current_user
+000000000000ed00 t print_escaped_xml
+000000000000e520 T print_finale
+000000000000f790 t print_finale_ps
+000000000000e560 t print_finale_text
+0000000000221ad8 b print_format
+0000000000221b24 b print_hex
+000000000000fbf0 T print_hex_data
+000000000000f960 t print_hex_data_buffer
+000000000000e4f0 T print_line
+0000000000010e70 t print_line_ps
+000000000000f8c0 t print_line_text
+0000000000009470 t print_packet
+0000000000221b38 b print_packet_counts
+0000000000221b10 b print_packet_info
+000000000000e4e0 T print_preamble
+0000000000010dc0 t print_preamble_ps
+000000000000e540 t print_preamble_text
+0000000000014d30 T print_ps_finale
+0000000000220340 d print_ps_ops
+0000000000014dc0 T print_ps_preamble
+0000000000221b30 b print_stream
+000000000000f580 t print_stream_ps_alloc
+000000000000f860 T print_stream_ps_new
+000000000000f5e0 T print_stream_ps_stdio_new
+000000000000f5f0 t print_stream_text_alloc
+000000000000f890 T print_stream_text_new
+000000000000f650 T print_stream_text_stdio_new
+0000000000220380 d print_text_ops
+000000000000afe0 t print_usage.clone.1
+0000000000009bb0 t process_packet
+                 U process_stat_cmd_arg
+                 U profile_exists
+                 U proto_can_toggle_protocol
+                 U proto_construct_match_selected_string
+                 U proto_data
+                 U proto_expert
+                 U proto_find_finfo
+                 U proto_frame
+                 U proto_get_first_protocol
+                 U proto_get_id_by_filter_name
+                 U proto_get_next_protocol
+                 U proto_get_protocol_filter_name
+                 U proto_get_protocol_name
+                 U proto_initialize_all_prefixes
+                 U proto_is_protocol_enabled
+                 U proto_item_fill_label
+                 U proto_registrar_dump_fields
+                 U proto_registrar_dump_ftypes
+                 U proto_registrar_dump_protocols
+                 U proto_registrar_dump_values
+                 U proto_set_cant_toggle
+                 U proto_set_decoding
+                 U proto_tree_children_foreach
+000000000000eb80 t proto_tree_get_node_field_values
+000000000000e830 T proto_tree_print
+00000000000107c0 t proto_tree_print_node
+0000000000010b20 T proto_tree_write_carrays
+000000000000fd20 T proto_tree_write_csv
+000000000000e8a0 T proto_tree_write_fields
+0000000000010120 t proto_tree_write_node_pdml
+000000000000fe10 T proto_tree_write_pdml
+000000000000ef30 T proto_tree_write_psml
+0000000000010d50 t ps_clean_string.clone.0
+                 U read@@GLIBC_2.2.5
+0000000000013480 T read_disabled_protos_list
+00000000000131d0 t read_disabled_protos_list_file
+000000000000a030 t read_failure_message
+                 U read_hosts_file
+                 U read_keytab_file
+                 U read_prefs
+                 U register_all_plugin_tap_listeners
+                 U register_all_protocol_handoffs
+                 U register_all_protocols
+                 U register_all_tap_listeners
+                 U relinquish_special_privs_perm
+                 U rename@@GLIBC_2.2.5
+                 U report_failure
+                 U running_with_special_privs
+0000000000012f10 T save_disabled_protos_list
+                 U select@@GLIBC_2.2.5
+0000000000221660 d separator
+00000000000130a0 T set_disabled_protos_list
+                 U set_profile_name
+                 U setlocale@@GLIBC_2.2.5
+000000000000a4a0 t show_capture_file_io_error
+0000000000009b50 t show_print_file_io_error
+                 U sigaction@@GLIBC_2.2.5
+                 U sigemptyset@@GLIBC_2.2.5
+0000000000221c54 b sigmsg_buf.16400
+                 U start_requested_stats
+                 U started_with_special_privs
+                 U stderr@@GLIBC_2.2.5
+                 U stdout@@GLIBC_2.2.5
+                 U strchr@@GLIBC_2.2.5
+                 U strcmp@@GLIBC_2.2.5
+000000000000a130 t string_compare
+0000000000009270 t string_elem_print
+                 U string_to_name_resolve
+                 U strlen@@GLIBC_2.2.5
+                 U strstr@@GLIBC_2.2.5
+                 U strtok@@GLIBC_2.2.5
+                 U strtol@@GLIBC_2.2.5
+                 U strtoul@@GLIBC_2.2.5
+00000000002206c0 d symbols.8832
+0000000000012a30 T sync_if_capabilities_open
+0000000000012b60 T sync_interface_list_open
+0000000000011570 T sync_interface_stats_close
+0000000000012c40 T sync_interface_stats_open
+0000000000011580 t sync_pipe_add_arg
+0000000000011520 t sync_pipe_close_command
+00000000000172b0 T sync_pipe_errmsg_to_parent
+0000000000011050 T sync_pipe_gets_nonblock
+00000000000123b0 t sync_pipe_input_cb
+0000000000010fa0 T sync_pipe_kill
+0000000000011690 t sync_pipe_open_command
+00000000000126c0 t sync_pipe_run_command
+0000000000011290 t sync_pipe_signame
+0000000000011980 T sync_pipe_start
+0000000000010ff0 T sync_pipe_stop
+00000000000113c0 t sync_pipe_wait_for_child
+                 U tap_listeners_require_dissection
+                 U tap_push_tapped_queue
+                 U tap_queue_init
+                 U time@@GLIBC_2.2.5
+                 U timestamp_set_precision
+                 U timestamp_set_seconds_type
+                 U timestamp_set_type
+                 U tree_is_expanded
+000000000000b6a0 T tshark_entrance
+000000000000a720 t tshark_log_handler
+                 U tvb_get_ptr
+                 U tvb_length
+                 U tvb_length_remaining
+                 U ungetc@@GLIBC_2.2.5
+                 U union_of_tap_listener_flags
+                 U unlink@@GLIBC_2.2.5
+0000000000221b20 b verbose
+0000000000008d50 T vfprintf_stderr
+                 U waitpid@@GLIBC_2.2.5
+                 U wireshark_svnversion
+                 U write@@GLIBC_2.2.5
+000000000000e4d0 T write_carrays_finale
+000000000000e4c0 T write_carrays_preamble
+000000000000e4b0 T write_csv_finale
+000000000000e4a0 T write_csv_preamble
+000000000000a010 t write_failure_message
+000000000000e570 T write_fields_finale
+000000000000ea90 T write_fields_preamble
+000000000000a670 t write_finale
+0000000000221c50 b write_headers
+000000000000f100 t write_pdml_field_hex_value
+000000000000ee70 T write_pdml_finale
+0000000000010a30 T write_pdml_preamble
+000000000000a5a0 t write_preamble
+                 U write_prefs
+000000000000ece0 T write_psml_finale
+000000000000f090 T write_psml_preamble
+                 U ws_module_open
+                 U wtap_buf_ptr
+                 U wtap_cleareof
+                 U wtap_close
+                 U wtap_dump
+                 U wtap_dump_can_open
+                 U wtap_dump_close
+                 U wtap_dump_open_ng
+                 U wtap_dump_set_addrinfo_list
+                 U wtap_file_encap
+                 U wtap_file_get_idb_info
+                 U wtap_file_get_shb_info
+                 U wtap_file_tsprecision
+                 U wtap_file_type
+                 U wtap_file_type_short_string
+                 U wtap_file_type_string
+                 U wtap_get_num_file_types
+                 U wtap_open_offline
+                 U wtap_phdr
+                 U wtap_pseudoheader
+                 U wtap_read
+                 U wtap_seek_read
+                 U wtap_sequential_close
+                 U wtap_set_cb_new_ipv4
+                 U wtap_set_cb_new_ipv6
+                 U wtap_short_string_to_file_typehyon
+                 U wtap_snapshot_length
+                 U wtap_strerror
+hyo
+
+vim search: not case sensitive
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+configure statement: #LIBS="$LIBS -L/opt/mysql/lib/ -lmysqlclient"
+then:
+libmysqlclient.so.18 => not found
+
+not a dynamic executable???
+
+32bit or 64 bit  
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+hyonghua
+
+linux account: group, 
+  
+if the group is changed, it will be affected in the new shell
+
+
+
+
+
+
+
+
+
+
+
+11:43 2013-5-1
+
+		add_ipv4_name
+         U add_ipv6_name
+         U build_column_format_array
+         U cap_file_init
+00006020 t capture
+00004950 t capture_cleanup
+         U capture_get_if_capabilities
+000057a0 T capture_input_cfilter_error_message
+00004880 T capture_input_closed
+000044b0 T capture_input_drops
+00004460 T capture_input_error_message
+00006850 T capture_input_new_file
+00005590 T capture_input_new_packets
+         U capture_interface_list
+         U capture_opts_add_opt
+         U capture_opts_init
+         U capture_opts_print_if_capabilities
+         U capture_opts_print_interfaces
+         U capture_opts_trim_iface
+         U capture_opts_trim_ring_num_files
+         U capture_opts_trim_snaplen
+0000dc44 r catch_spec.17070
+0000dd3c r catch_spec.18808
+00006510 T cf_open
+0000f8c0 B cfile
+         U cleanup_dissection
+00004440 T cmdarg_err
+00004350 T cmdarg_err_cont
+         U col_custom_prime_edt
+0000f360 b completed.7021
+0000f7b0 b cum_bytes
+0000dcc0 r decode_as_arg_template
+         U dfilter_apply_edt
+         U dfilter_compile
+         U dfilter_error_msg
+         U dfilter_free
+000059a0 t display_dissector_names
+00004750 t display_dissector_table_names
+         U dissector_all_tables_foreach_table
+         U dissector_change_string
+         U dissector_change_uint
+         U dissector_dump_decodes
+         U dissector_dump_heur_decodes
+         U dissector_handle_get_protocol_index
+         U dissector_table_foreach_handle
+0000f7d8 b do_dissection
+         U draw_tap_listeners
+0000f364 b dtor_idx.7023
+         U epan_cleanup
+         U epan_dissect_cleanup
+         U epan_dissect_fill_in_columns
+         U epan_dissect_init
+         U epan_dissect_prime_dfilter
+         U epan_dissect_run
+         U epan_get_compiled_version_info
+         U epan_init
+0000f3a0 b errmsg_errno.19795
+         U ex_opt_add
+         U except_free
+         U except_pop
+         U except_rethrow
+         U except_setup_try
+         U exit@@GLIBC_2.0
+000043c0 t failure_message
+         U ferror@@GLIBC_2.0
+         U fflush@@GLIBC_2.0
+         U file_open_error_message
+         U find_dissector_table
+000058c0 t find_protocol_name_func
+0000f7b4 b first_ts
+00004320 T fprintf_stderr
+         U frame_data_cleanup
+         U frame_data_init
+         U frame_data_sequence_add
+         U frame_data_sequence_find
+         U frame_data_set_after_dissect
+         U frame_data_set_before_dissect
+00004250 t frame_dummy
+         U free_frame_data_sequence
+         U free_if_capabilities
+         U free_interface_list
+         U funnel_dump_all_text_windows
+         U g_array_insert_vals
+         U g_array_remove_index
+         U g_assertion_message
+         U g_assertion_message_expr
+         U g_free
+         U g_hash_table_insert
+         U g_hash_table_new
+         U g_log
+         U g_log_default_handler
+         U g_log_set_handler
+         U g_malloc
+         U g_realloc
+         U g_slist_foreach
+         U g_slist_free
+         U g_slist_insert_sorted
+         U g_snprintf
+         U g_str_equal
+         U g_str_hash
+         U g_strdup
+         U g_strdup_printf
+         U g_strerror
+         U g_string_append_printf
+         U g_string_free
+         U g_string_new
+         U g_strlcat
+         U gbl_resolv_flags
+         U get_addrinfo_list
+         U get_args_as_string
+         U get_column_visible
+         U get_compiled_version_info
+         U get_copyright_info
+         U get_cur_groupname
+         U get_cur_username
+         U get_dissector_table_selector_type
+         U get_if_name
+         U get_interface_descriptive_name
+00004980 t get_line_buf
+         U get_runtime_version_info
+         U getopt@@GLIBC_2.0
+0000f800 b global_capture_opts
+00004550 t glossary_option_help
+         U have_custom_cols
+         U have_filtering_tap_listeners
+         U host_name_lookup_process
+         U init_dissection
+         U init_process_policies
+         U init_progfile_dir
+         U initialize_funnel_ops
+0000f34c d line_buf_len.19497
+0000f7e4 b line_buffered
+0000f7a8 b line_bufp.19496
+00005a90 t list_capture_types
+         U list_stat_cmd_args
+0000f380 B loop_running
+000071a0 T main
+000042d0 T main_window_update
+         U new_frame_data_sequence
+         U nstime_set_unset
+         U nstime_set_zero
+000047f0 t open_failure_message
+         U optarg@@GLIBC_2.0
+         U opterr@@GLIBC_2.0
+         U optind@@GLIBC_2.0
+         U optopt@@GLIBC_2.0
+0000dc60 r optstring.16696
+0000f7d4 b output_action
+0000f7a4 b output_fields
+         U output_fields_add
+         U output_fields_free
+         U output_fields_list_options
+         U output_fields_new
+         U output_fields_num_fields
+         U output_fields_set_option
+00005c50 t output_file_description
+         U output_only_tables
+0000f384 B packet_count
+         U pcap_close
+         U pcap_compile
+         U pcap_open_dead
+0000f7d0 b perform_two_pass_analysis
+0000f8a0 b pipe_input
+00004290 T pipe_input_set_handler
+         U plugins_dump_all
+         U postseq_cleanup_all_protocols
+         U prefs
+         U prefs_apply_all
+         U prefs_register_modules
+         U prefs_set_pref
+0000f7c4 b prev_cap_ts
+0000f7bc b prev_dis_ts
+00005b80 t print_current_user
+         U print_finale
+0000f7ac b print_format
+0000f7e0 b print_hex
+         U print_hex_data
+         U print_line
+000049f0 t print_packet
+0000f7ec b print_packet_counts
+0000f7cc b print_packet_info
+         U print_preamble
+0000f7e8 b print_stream
+         U print_stream_ps_stdio_new
+         U print_stream_text_stdio_new
+00005240 t process_packet
+         U process_stat_cmd_arg
+         U profile_exists
+         U proto_get_id_by_filter_name
+         U proto_get_protocol_filter_name
+         U proto_get_protocol_name
+         U proto_initialize_all_prefixes
+         U proto_registrar_dump_fields
+         U proto_registrar_dump_ftypes
+         U proto_registrar_dump_protocols
+         U proto_registrar_dump_values
+         U proto_tree_print
+         U proto_tree_write_fields
+         U proto_tree_write_pdml
+         U proto_tree_write_psml
+         U read_disabled_protos_list
+00005760 t read_failure_message
+         U read_hosts_file
+         U read_keytab_file
+         U read_prefs
+         U register_all_plugin_tap_listeners
+         U register_all_protocol_handoffs
+         U register_all_protocols
+         U register_all_tap_listeners
+         U relinquish_special_privs_perm
+         U running_with_special_privs
+0000f350 d separator
+         U set_disabled_protos_list
+         U set_profile_name
+         U setlocale@@GLIBC_2.0
+00005cb0 t show_capture_file_io_error
+000051d0 t show_print_file_io_error
+         U sigaction@@GLIBC_2.0
+         U sigemptyset@@GLIBC_2.0
+         U start_requested_stats
+         U started_with_special_privs
+         U stderr@@GLIBC_2.0
+         U stdout@@GLIBC_2.0
+         U strchr@@GLIBC_2.0
+         U strcmp@@GLIBC_2.0
+00005890 t string_compare
+000047a0 t string_elem_print
+         U string_to_name_resolve
+         U strlen@@GLIBC_2.0
+         U strtok@@GLIBC_2.0
+         U sync_pipe_start
+         U sync_pipe_stop
+         U tap_listeners_require_dissection
+         U tap_push_tapped_queue
+         U tap_queue_init
+         U timestamp_set_precision
+         U timestamp_set_seconds_type
+         U timestamp_set_type
+00005fc0 t tshark_log_handler
+         U union_of_tap_listener_flags
+         U unlink@@GLIBC_2.0
+0000f7dc b verbose
+000042e0 T vfprintf_stderr
+         U wireshark_svnversion
+00005720 t write_failure_message
+         U write_fields_finale
+         U write_fields_preamble
+00005ed0 t write_finale
+         U write_pdml_finale
+         U write_pdml_preamble
+00005dc0 t write_preamble
+         U write_prefs
+         U write_psml_finale
+         U write_psml_preamble
+         U wtap_buf_ptr
+         U wtap_cleareof
+         U wtap_close
+         U wtap_dump
+         U wtap_dump_can_open
+         U wtap_dump_close
+       
+  U wtap_dump_open_ng
+         U wtap_dump_set_addrinfo_list
+         U wtap_file_encap
+         U wtap_file_get_idb_info
+         U wtap_file_get_shb_info
+         U wtap_file_tsprecision
+         U wtap_file_type
+         U wtap_file_type_short_string
+         U wtap_file_type_string
+         U wtap_get_num_file_types
+         U wtap_open_offline
+         U wtap_phdr
+         U wtap_pseudoheader
+         U wtap_read
+         U wtap_seek_read
+         U wtap_sequential_close
+         U wtap_set_cb_new_ipv4
+         U wtap_set_cb_new_ipv6
+         U wtap_short_string_to_file_type
+         U wtap_snapshot_length
+         U wtap_strerror
+
+
+
+
+
+AUTOMAKE_OPTIONS=foreign
+
+
+
+
+
+       capture-wpcap.c:        wh = ws_module_open("wpcap.dll", 0);
+capture-wpcap.c:        GModule *handle;                /* handle returned by ws_module_open */
+capture-wpcap.c:                                handle = ws_module_open("packet.dll", 0);
+capture_wpcap_packet.c:    wh = ws_module_open("packet.dll", 0);
+doc/.svn/text-base/README.capture.svn-base:On Win32, in capture-wpcap.c the function ws_module_open("wpcap.dll") is called 
+doc/README.capture:On Win32, in capture-wpcap.c the function ws_module_open("wpcap.dll") is called 
+
+^C
+elon@elon-desktop:~/prj/wireshark/trunk$ ^C
+elon@elon-desktop:~/prj/wireshark/trunk$ grep ws_module_open * -r -i
+
+capture-wpcap.c:        wh = ws_module_open("wpcap.dll", 0);
+capture-wpcap.c:        GModule *handle;                /* handle returned by ws_module_open */
+capture-wpcap.c:                                handle = ws_module_open("packet.dll", 0);
+capture_wpcap_packet.c:    wh = ws_module_open("packet.dll", 0);
+doc/.svn/text-base/README.capture.svn-base:On Win32, in capture-wpcap.c the function ws_module_open("wpcap.dll") is called 
+doc/README.capture:On Win32, in capture-wpcap.c the function ws_module_open("wpcap.dll") is called 
+
+Binary file prj/wireshark.PS matches
+Binary file prj/104/wireshark.PS matches
+Binary file prj/46/wireshark.PS matches
+Binary file prj/88/wireshark.PS matches
+wsutil/.svn/text-base/Makefile.in.svn-base:     /^ws_module_open/ || /^utf_[168]*to[168]/ || \
+wsutil/.svn/text-base/libwsutil.def.svn-base:ws_module_open
+wsutil/.svn/text-base/file_util.h.svn-base:GModule *ws_module_open(gchar *module_name, GModuleFlags flags);
+wsutil/.svn/text-base/file_util.c.svn-base:ws_module_open(gchar *module_name, GModuleFlags flags)
+wsutil/.svn/text-base/Makefile.am.svn-base:def_sym_filter_symbols = /^getenv_utf8/ || /^ws_stdio/ || /^ws_init_dll_search_path/ || /^ws_load_library/ || /^ws_module_open/ || /^utf_[168]*to[168]/ || /^arg_list_utf_16to8/ || /^npf_sys_is_running/
+wsutil/libwsutil.def:ws_module_open
+wsutil/Makefile.am:def_sym_filter_symbols = /^getenv_utf8/ || /^ws_stdio/ || /^ws_init_dll_search_path/ || /^ws_load_library/ || /^ws_module_open/ || /^utf_[168]*to[168]/ || /^arg_list_utf_16to8/ || /^npf_sys_is_running/
+wsutil/file_util.c:ws_module_open(gchar *module_name, GModuleFlags flags)
+wsutil/file_util.h:GModule *ws_module_open(gchar *module_name, GModuleFlags flags);
+wsutil/Makefile:        /^ws_module_open/ || /^utf_[168]*to[168]/ || \
+wsutil/Makefile.in:     /^ws_module_open/ || /^utf_[168]*to[168]/ || \
+
+
+
+
+
 

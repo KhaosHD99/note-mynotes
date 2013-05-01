@@ -3725,22 +3725,24 @@ i need plan my life more, i am not a child already
                
    acl: beijin 2:1 Hiroshima
    acl: guizhou 0:0 Hiroshima
-               
+                  
 14:16 2013-03-14
    i need more precisely
    
       
 
 =========================== unknow
-   zhuangyuansi gave me a plum
-   
-   
+   zhuangyuansi gave me a plum   
 ===========================
-
-
+   
+         
 15:36 2013-03-15
    got a interview invite from embedsky
    i need made a plan
+      
+2013-03-16
+   change a short-hair style
+   
    
 15:31 2013-03-17
    eja
@@ -3845,7 +3847,7 @@ it's sad and but i should always keep moving  forward
    1 learn more!!!
      1) communication
      2) start it currently, not later
-       
+            
    2 ponder more!!!
      1) draw lessons from past
      2) no plan no action(race with time)
@@ -3860,19 +3862,23 @@ it's sad and but i should always keep moving  forward
    3) i am dull
    4) it just a deal, there is not any emotion
    5) experience-less
-   6)       
+   6) 
    ---------------------------   
-      
+            
    after today, i won't work for saintray
    sent zhangyuansi to haizhu station. no response after i send a sms to her
    am i serious???
    
-         
+09:34 2013-3-29
+   my htc t320e had been repaired
+   got the physical examination. i am a thalassemia carrier???
+   
+   
+            
 2013-3-30, endless rain
    called to zhuangyuansi, and i was incoherently!!!
    swam with xiejingyu at liwan gymnasium
-      
-      
+         
 21:40 2013-3-31, endless rain
    swan alone at tianhe gymnasium
    
@@ -3885,9 +3891,10 @@ it's sad and but i should always keep moving  forward
          
 -----------------------------
    1) demand analysis
-   2) outline design 
+   2) outline/general design 
    3) details design
                
+   
 ------------------------------
    
    u&d's hr are native mostly
@@ -3910,35 +3917,269 @@ it's sad and but i should always keep moving  forward
    zhangyuansi is so busy???
    
    LAN IP prefix----------------------------------
-   finephone: 10.10.10.x
+   finephone: 10.10.10.x 
    saintray : 10.20.30.x
    u&d:       192.168.1.x
    ---------------------------------------
    
    why someone move her personal affairs to office?	
-      
+         
    zhangyuansi said she was tired, so...
    18:24: now, i do not care about the weather
    
-2013-4-4, holiday,
-   played pes2012
+   eja
    
-2013-4-5
+ 
+2013-4-4, holiday
+   played pes2012
+         
+2013-4-5, rainy
    swam at liwan gymnasium
    played mini-snooker with xiejingyu at 瑶台
    
    
-2013-4-6
+   
+2013-4-6, sunny
+   eja or not?
    swam at liwan gymnasium with xiejingyu
+   
       
-   
 10:04 2013-4-7
-             
+   fuck the great wall, i can not reach "www.net-snmp.org"
    
+   
+09:12 2013-4-8
+   i need a "daily schedule"										***
+   i need a no-myopia glass
+   build the more compatible kindle pdf 		
+   
+   i need a more safe way to acess web server
+                     
+09:22 2013-4-9
+   zys is not online(qq) now
+   12:50: zys is not online yet
+   13:50: zys is online
+   
+   i should use qq on linux(can it all-commandline???)
+         
+   i need a sms blocker
+   before i fell asleep, i thought about the tactics for pursuing amor
+   
+                     
+09:16 2013-4-10
+   i was between awake and asleep at dawn, arounding zys
+   capture the qq packet and make a qq monitor for get the message and online info without the qq ui!!!
+   
+   11:36: be compiling wireshark
+   
+   i should consider more in amor
+   
+   expand the linux swap
+   
+   how stupid the eclipse search is!!!
+   
+   acquaint with the "UDBackTrack" java code
+   
+   zys was still on line about 20:30...
+   
+09:16 2013-4-11, endlessly rainy
+   got two no-zys's responsive call after zys missed my call in dream...
+            
+   《Never eat alone》
+    acquaint myself with the advance purse brand
+    
+----------------------------------- communicative skill
+    * good behaviour, more confident, be polite
+    ) try to talk to stranger
+    * acquaint myself with sb's basic info, such as name(deeply remenber), job, hobby, graduate college, recent            situation...
+     
+        
+    * "cater to sb's pleasure", be eager to know something which be proud or be interest by sb, such as more listen,     more obsession, more praise
+        
+    * "create opportunity out of nothing", such as help others initiatively, offer sb useful info, organize                 activities
+    ) keep in touch, such as qq, phone call, have dinner together, have sports
+        
+-----------------------------------------------------------------
+         
+    i should make a "amor" plan										***
+    
+    debug tshark
+    
+    learn how to use gdb
+    
+    acquaint with the "UDBackTrack" java code
+    
+    help xiangchong(u&d) write the doc
+    
+    called to zys. she was still at office. she is making the graduate thesis recently. i was incoherent... she said 
+    she had no time this week(weekend)
+    
+    
+09:42 2013-4-12
+    "one touch done" on wearing contact lens!
+    multithread: "productor and consumer"
+    eja
+    
+               
+2013-4-13
+    ancestor worship.
+    my driving is so bad
+                               
+2013-4-14
+    had lesson
+    swan with xiejingyu at tianhe gymnasium
+    ordered a kettle and a mobile phone(lenovo a798t)
+    
+             
+09:11 2013-4-15
+    i need a football cloth???
+    maybe i can not do any thing at this weekend
+    
+    zys is not online
+                    
+09:32 2013-4-16
+    todaoy is the thesis oral defence day of zys
+        
+---------------------------------------------------- schedual
+    2013-4-19) class design, workflow, work thread synchronicity, data analysis, log module optimization
+    
+        
+    2013-4-23) insert data to database
+    2013-4)    integrate the packet analysis module(tshark), basically complete the backbone
+    
+***  efficiency, coupling reducing
+----------------------------------------------------
+    
+    ...i made a mistake: "=" to "=="
+    
+    my multithread  is bad
+    
+--------------------------------------------------------
+    prepare more and make multithread instead of waiting something which is not arrived now
+-------------------------------------------------------    
+    i need a email template
+    
+    
+09:29 2013-4-17
+    dad's snore waked me up
+    zys is not online
+    
+    i need some software development standardized management doc for reference
+        
+/****************************************************
+    standardized management(anything you want to do): 
+    ) master plan, overall design
+    ) detail design, schedule
+    ) summary report     
+****************************************************/
+   
+   09:53: zys is online
+   
+   the order(a phone, a kettle) was not arrived yet
+   
+   call to hezhilu(finephone). he said he, wang and zhongyuan is still stay at finephone. i was shocked
+   
+   eja... i swear i can do what i want
+   
+      
+10:10 2013-4-18
+   the fucking mysql
+   i need make a mms blocker!!!
+   
+   the setting of remote connection permission
+   
+   web spider
+   
+   bought two football math tickets
+   
+         
+09:30 2013-4-19
+   i said to zys that she can come for the activity and s siad maybe 
+   
+   i should learn more sql statement
+             
+2013-4-20, rainy
+   diploma lessons
+   zys was on ot, so...
+   watched football match(恒大 6:1 长春)with dzm
+               
+2013-4-21
+   diploma lessons
+   swan at tianhe gymnasium. my butterfly is stagnant!!!
+   i should find a master??? such as the primary school classmate, 冯文洋，刘婉媚，林建湖
+         
+09:28 2013-4-22
+   dreamed zys. implied me i have one or more rival!!!
+   16:08 zys is not online    
+         
+09:18 2013-4-23
+   had a messy dreame. including xuweibin(brother), uncle liang, primary school and junior school classmate, zengduhang(outer        cousin)
+   suzhiwei(ud) appeared
+   i ought to be daring
+   999 rose
+   
+   "5.1" plan
+   
+   software epiboly is a good second job!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+   莫国军 resigned!!!
+   
+   suzhiwei is a prj progress manager/monitor?
+                  
+09:09 2013-4-24
+   why i always dreamed recently. i was so tired
+   
+   zys remove the qq signature
+      
+   i should practice the singing?
+   my butterfly!!!
+   
+   i should be more quickly(this week)
+   a performance testing report!!!
+   
+   amor pursuing: infomationization!!!
+   
+   liuyanshuang(u&d)?
+         
+09:27 2013-4-25
+   maybe today is the school day of zys
+   my "5.1" plan!!!
+   
+   "the matrix" screen protection and font
+   
+   be improved the credit line to 10000 by the cmbc
+   
+   suzhiwei said i should give him a performance report before 10th,May
+   
+   my football cloth was arrived
+   
+   eja... i swear i can do what i want
+                  
+09:12 2013-4-26
+   took a leave just one day???zys is online
+         
+-------------------------------------------------
+   there is a very serious virgation; 
+   the design and work division had not settled down in the beginning
+   
+   got it!!! my arch was be used!!! hahaha
+   
+   i should improve the efficiency
+   
+   should not modify the permission in
+   
+   ot, 21:00, forgot sign out 
+            
+09:12 2013-4-27
+   dreamed the coding
+   
+   
+   
+    
+15:18 2013-4-28
+    15:18: zys is not online
     
    
    
    
    
-
-

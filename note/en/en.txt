@@ -4,10 +4,12 @@
 Manipulate  handle  process  compute  calculate
 
 
+------------------------------------------------- 花费
 costs
 expenses
 fee
 bill
+-------------------------------------------------
 
 Electrical: 电学的，电器的
 
@@ -172,26 +174,37 @@ Available upon request.
 Why is God referred as He ? - Yahoo! Answers India
 
 
-
 start from now, not later
-
-
-
-
-
 
 vacation
 holiday
 
-
-
-
-
+--------------------------- 普通，公共，一般
 common
 ordinary
 general 
 universal
 usual
+------------------------------------------------
 
 
-  
+RTTI-like workaround
+
+
+------------------------------------------------
+know:           知道(与understand相近)
+acknowledge:    承认
+understand:     明白(已经懂的)
+realize：       认识到
+familiar：      熟悉的，相似的，常见的
+
+acquaint：      使熟悉，使认知
+
+------------------------------------------------
+
+
+
+
+
+【每日英语】My dear roommate, thank you for sparing my life.亲爱的室友，感谢你当年的不杀之恩。Even the most boring times in life are limited.?生命中再无聊的时光也是限量版。 As long as you are still alive, you will definitely encounter the good things in life.?只要活着就一定会遇上好事。
+
