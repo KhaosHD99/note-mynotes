@@ -803,7 +803,7 @@ traffic payment: 100
 20:30 2013-4-3
    award: 	2533
    salary: 	3657
-      
+         
    gas: 120
    ancestor worship relevance: 100
    
@@ -811,15 +811,29 @@ traffic payment: 100
 20:29 2013-4-4
    
            
-        
+              
 2013-4-5
    swim: 25
    mini-snooker: 16
-   
+      
 2013-4-6
    swim: 25
    contact lens relevance: 150+
          
    
 10:19 2013-4-7
+      
+   
+            
+2013-4-13
+   ancestor worship: 100
+   aunt visiting:    100
+            
+2013-4-14
+   traffic eps: 100
+         
+   
+09:15 2013-4-15
+   
+      
    

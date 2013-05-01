@@ -411,10 +411,6 @@ typedef enum {
 } WebKitCacheModel;
 
 
-
-
-
-
 Resizes the window as if the user had done so, obeying geometry constraints. The default geometry constraint is that windows may not be smaller than their size request; to override this constraint, call gtk_widget_set_size_request() to set the window's request to a smaller value.
 
 If gtk_window_resize() is called before showing a window for the first time, it overrides any default size set with gtk_window_set_default_size().

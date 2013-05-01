@@ -1352,10 +1352,23 @@ freopen("/var/log/syslog","a", stderr);
 
 
 13:47 2012-3-28
-     "C++ compiler cannot create executables" when configure at cifs file system, why??????????
+    "C++ compiler cannot create executables" when configure at cifs file system, why??????????
      
 
 
 10:54 2012-11-30
     grep -r -i -l "xxx" *
+        
+    
+14:13 2013-4-8
+    if you want to change the return type of your overload func, the parametres must be different(be proved in     gnu g++)
+    
+    我们强烈建议你在任何可以使用的情况下都要使用const
+    尽可能用sizeof(varname)代替sizeof(type)
+    
+    above all, the consistency is paramount in coding style
+    
+    
+     
+       
     
