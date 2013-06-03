@@ -10824,15 +10824,7 @@ if the group is changed, it will be affected in the new shell
          U wtap_snapshot_length
          U wtap_strerror
 
-
-
-
-
 AUTOMAKE_OPTIONS=foreign
-
-
-
-
 
        capture-wpcap.c:        wh = ws_module_open("wpcap.dll", 0);
 capture-wpcap.c:        GModule *handle;                /* handle returned by ws_module_open */
@@ -10867,9 +10859,272 @@ wsutil/file_util.c:ws_module_open(gchar *module_name, GModuleFlags flags)
 wsutil/file_util.h:GModule *ws_module_open(gchar *module_name, GModuleFlags flags);
 wsutil/Makefile:        /^ws_module_open/ || /^utf_[168]*to[168]/ || \
 wsutil/Makefile.in:     /^ws_module_open/ || /^utf_[168]*to[168]/ || \
+      
+   
+            
+10:15 2013-5-2
+   find, case sensitive
+   single instance???
+   
+   log module undefined!!!: the source file can not reduplicate???
+   
+   Java "Date" parse
+   
+   jstring?
+      
+   jobject (JNICALL *CallObjectMethod)
+     (JNIEnv *env, jobject obj, jmethodID methodID, ...);
+    jobject (JNICALL *CallObjectMethodV)
+      (JNIEnv *env, jobject obj, jmethodID methodID, va_list args);
+    jobject (JNICALL *CallObjectMethodA)
+      (JNIEnv *env, jobject obj, jmethodID methodID, const jvalue * args);
+    
+    GetStringUTFChars, release it???
+    
+    modified the work thread arch
+    
+    validate the "iter"!!!
+    
+    not a dynamic executable!!!
+    
+    
+10:15 2013-5-3
+/////////////////////////////////////////////////////////// dead loop    
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+I/O warning : failed to load external entity "config.xml"
+////////////////////////////////////////////////////////////
 
 
 
+#mk
+PKG_CHECK_MODULES(LIBXML2, libxml-2.0)
+CFLAGS="$CFLAGS $LIBXML2_CFLAGS"
+LIBS="$LIBS $LIBXML2_LIBS"
+
+AC_MSG_NOTICE([FOUND CFLAGS DEFINES : "$CFLAGS"])
+AC_MSG_NOTICE([FOUND CPPFLAGS DEFINES : "$CPPFLAGS"])
+AC_MSG_NOTICE([FOUND LIBS DEFINES : "$LIBS"])
+	
 
 
+int main(int argc, char *argv[]) or int main(int argc, char **argv)
 
+-export-dynamic
+        
+not a dynamic executable
+    
+             
+16:28 2013-5-4
+   judge the thread is still aliving???
+                   
+16:07 2013-5-5
+   remove the ubuntu disk check
+   
+   g_ptr_array_index: resource release
+                     
+09:50 2013-5-6
+   expected specifier-qualifier-list before ‘_EpanDissection’
+   
+   weird undefine reference!!!
+   
+   mahjong!!!
+   
+   /etc/ld.so.conf.d
+   /etc/ld.so.cache
+   ldconfig
+      
+09:39 2013-5-7
+   one decode thread
+   one decode thread restriction
+   default args
+   
+   linux ftp
+                        
+   grep
+   LIBS="$LIBS -lpthread"
+   
+   how about the decoding is over, but there is queueing dissection yet!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+   analyzer max dissection count
+   
+   JNIEXPORT JNICALL
+   
+   c_str is dangourous
+                  
+10:07 2013-5-8
+   on IPSession::Analyze, field: ff:ff:f, field value: ff:ff:ff:ff:ff:ff
+   
+   why ipsession include tcpsession and udpsession???
+   
+   stl container nest
+   
+   GetStringUTFChars: life cycle
+   
+   how about the capture file is not exist
+   
+   6132    eth:ip:tcp:nbss:smb     176     f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8
+   6133    eth:ip:tcp:nbss:smb     142     04:7d:7b:a9:50:e8       f0:de:f1:bd:81:7d
+   6134    eth:ip:tcp:nbss:smb     186     f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8
+   
+   1048652
+      
+10:38 2013-5-9
+   do not abuse "memset", such as the struct which is contain a the advance container
+   class can not be init by "malloc"！！！
+   
+   (*count)++ and count++
+   
+   the progress getting: decoding is over, but the analyze is not
+   release the dissection list
+   AnalyzerBase::ProcessDissection, insert dissection err, the queue size: 1000
+   why the queue is full
+       
+09:28 2013-5-10
+   "lock" the running space as small as you can
+   pay more attention to sem_timedwait
+   if use semaphore for resource schedule, "lock" is a important assistance
+   
+   add a "write file" switch to log module
+   
+   i should return time string 
+   
+   if there is field“ip.src", it will crash
+               
+09:15 2013-5-13
+   strlen
+   i can not assign "NULL" to a stl string
+               
+14:18 2013-5-14
+   List? ArrayList?
+   
+   the relative analysis!!!
+   
+   it is not dynamic load???
+   
+   g++ main.cpp -L. -rdynamic -ltest -o main
+               
+11:13 2013-5-15
+   how to retrive the current driver???
+   
+   autocheck autochk *
+                  
+9:20 2013-5-16
+   3275    eth:ip:icmp:ip:udp:data 88      f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8       1,17    192.168.1.93,192.168.1.64       192.168.1.64,192.168.1.93
+   3287    eth:ip:icmp:ip:udp:data 88      f0:de:f1:bd:81:7d       04:7d:7b:a9:50:e8       1,17    192.168.1.93,192.168.1.64       192.168.1.64,192.168.1.93
+   
+   ctrl shift
+   
+   why after "make install", it turn to a dynamic executable file
+   
+   release
+   
+   diagnosis
+   
+   arp.opcode
+   
+   time string convert
+                 
+9:48 2013-5-17
+   arp.src.proto_ipv4, arp.dst.proto_ipv4
+                                 
+   time stamp
+   1365493080	  2013-04-09 15:38:00
+   
+   Apr  9, 2013 15:37:50.923103000
+   
+   if no start, then "get_progress", it will crash
+      
+   i need a network traffic emulator
+   grep: && ||
+   
+                     
+14:43 2013-5-18
+   gint	*const *ptr = indices;
+   g_hash_table_lookup
+                           
+14:21 2013-5-19
+   grep *.c
+   regular expression
+   grep hf_register_info * -r | grep .*[.]c: 
+      
+      
+2013-5-20
+   can not traverse at the excavation
+   OLTP, OLAP
+               
+   联机分析处理
+   1 关系型联机分析处理
+   2 多维联机分析处理
+   3 前端展示联机分析处理      
+   what is the "index" implementation principle
+   and security mechanism
+   roll up, drill down, slice, dice, pivot
+      
+13:44 2013-5-21
+    use jdk to compile a runable jar file
+    
+    fuck the java "unreachable code"
+   
+    233022
+         															
+13:52 2013-5-22
+    ip endpoint:组内字节， 组内数据包
+    
+    starttime: Apr  9, 2013 15:37:17.619260000, endtime: Apr  9, 2013 15:38:30.476806000, totalpacket: 4188
+                   
+14:03 2013-5-23
+    ieee 802.3, Ethernet II, ISL
+    word: line space
+    why the words space will increase
+                  
+16:34 2013-5-24
+    database: self propagation
+    auto increatement id data type: int???
+    
+    throw exception err???
+                                    
+    output line color
+    execScalar
+            
+    if the dir is not exist, create it
+                    
+11:23 2013-5-28
+    sqlite3_finalize
+    
+    SQLITE_SCHEMA
+    
+    insert 1000,000 record, time used: 20+- sec
+                
+10:05 2013-5-30
+    if the file is not exist, make sure the result set is empty
+    
+    single mac -> multiple ip address???
+    
+    there is only udp port but no ip addr???
+          
+9:34 2013-5-31
+    statistics
+    
+    eth:ip:tcp:nbss:smb      net bios
+        
+10:01 2013-6-3
+    https://note-mynotes.googlecode.com/svn/note
+    
+    modify the detail design
+    
+    --------------
+    ethernet ii
+    IEEE 802.3
+    ISL
+    --------------
+    
+    

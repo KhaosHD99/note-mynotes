@@ -30,8 +30,19 @@ but also
     
 
     Qt, MFC encoding 
-    sqlite    
-
+    sqlite
+    
 08:42 2012-12-28
     
+
+
+
+
+s
+
+
+
+
+
+
 

@@ -824,16 +824,49 @@ traffic payment: 100
 10:19 2013-4-7
       
    
-            
+               
 2013-4-13
    ancestor worship: 100
    aunt visiting:    100
-            
+               
 2013-4-14
    traffic eps: 100
          
    
 09:15 2013-4-15
-   
+      
+2013-4-20
+   football match: 90 * 2 + 40 * 2 + 10 + 10 + 10
       
    
+2013-4-24
+   football cloths: 110+-
+   swim board:      40+-
+   clamp:           40+-
+    
+
+2013-4-30
+   excursion: 100+-
+   
+2013-5-1
+   traffic eps: 100
+   washing machine: 600(totally 1200) 
+         
+2013-5-2
+      
+         
+09:16 2013-5-3
+      
+            
+2013-5-10
+   beef ball: 150
+      
+2013-5-11
+   traffic eps: 100
+   excursion(dafu mountain): 70+
+         
+    
+2013-5-12
+   sister: 600
+   
+09:08 2013-5-13
