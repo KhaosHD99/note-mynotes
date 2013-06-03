@@ -2653,7 +2653,6 @@ mount /dev/cdrom xxx(custom dir)
 mysqladmin -uroot password root
    
 create database test;
-   
       
 -------------------------
 dd if=/dev/zero of=/opt/image/swap bs=1024 count=1024000
@@ -2669,7 +2668,7 @@ add the following statement for auto mounting:
        
 tshark -i eth4 -T fields -e frame.number -e frame.time
 
-tshark -r captrue_00001_20130409153717_cy -T fields -e frame.number -e frame.protocols -e frame.len -e eth.src -e eth.dst -e ip.proto -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport
+				 -e tcp.srcport -e tcp.dstport
              
 eclipse line num: ctr + F10 => “show line num"
    
@@ -3012,14 +3011,12 @@ Java类型     符号
 boolean  	Z  
 byte		B  
 char 		C   
-short  S  
-int  I  
-long  L   
-float  F   
-double 
- D   
-void 
- V  
+short  		S  
+int  		I  
+long  		J   
+float  		F   
+double 		D   
+														
 objects对象  Lfully-qualified-class-name;        L类名; 
 Arrays数组  [array-type [数组类型  
 methods方法                   (argument-types)return-type(参数类型)返回类型  
@@ -3028,5 +3025,43 @@ methods方法                   (argument-types)return-type(参数类型)返回类型
 usermod -g group username
    
 
+-E
+--export-dynamic
+           When  creating  a  dynamically  linked  executable, add all symbols to the dynamic symbol table.  The
+           dynamic symbol table is the set of symbols which are visible from dynamic objects at run time.
+           
+           If you do not use this option, the dynamic symbol table will  normally  contain  only  those  symbols
+           which are referenced by some dynamic object mentioned in the link.
+           
+	           If  you use "dlo
+pen" to load a dynamic object which needs to refer back to the symbols defined by the
+           program, rather than some other dynamic object, then you will probably need to use this  option  when
+           linking the program itself.
+   
+15:23 2013-5-4
+   auto eth0
+   iface eth0 inet dhcp
+      
+   ifconfig ethx xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx up
+   
+ed->fields = (char **)malloc(sizeof(char *) * fields->fields->len);	
+   
+               
+   time_t lt;
+   lt = time(NULL);
+   
+   implementation principle and security mechanism
+   
+    
+22:37 2013-5-24
+    传输层：     数据段(segment)或报文
+    网络层:      分组(数据包（packet))
+    数据链路层:  数据帧(Frame)
+    物理层:	 bit
+    
+    
+/home/xuzhenjie/opt/wireshark/bin/tshark -r /home/tmp/capture_00001_20130522102224.cap -T fields -e frame.number -e frame.protocols
 
+
+   
 
