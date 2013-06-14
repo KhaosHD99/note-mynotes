@@ -11110,21 +11110,106 @@ not a dynamic executable
     single mac -> multiple ip address???
     
     there is only udp port but no ip addr???
-          
+                  
 9:34 2013-5-31
     statistics
     
     eth:ip:tcp:nbss:smb      net bios
-        
+          
 10:01 2013-6-3
     https://note-mynotes.googlecode.com/svn/note
     
     modify the detail design
-    
+                                    
     --------------
     ethernet ii
     IEEE 802.3
     ISL
     --------------
+                                                  
+11:24 2013-6-4
+    if no a real file, the decoder initialization will report err
+    "rolap，一个事实表，多个维度表"
     
+    元数据, 属性， 度量
+                    
+    sql server: analysis services
+    关系数据库(二维数据库)：操作型数据库
+    多维数据库: 查询型数据库(面向分析与查询)
+        
+    “数据仓库(Data Warehouse, DW)”
+                            
+    星型，雪花型
+    ETL
     
+    唯一索引、非唯一索引、主键索引和聚集索引
+    
+    https://192.168.1.31:8443/svn/project/源典分析系统
+               
+9:30 2013-6-5
+    protocol
+    directive
+    aggregation!!!
+               
+    聚合 分组
+    
+    AVG, group by
+    
+    how about i push the same query id!!!
+        
+    n ::compile, statement: select * from UDPSession, err msg: no such table: UDPSession
+    [ERROR][20130605 18:23:18]on ::execQuery, err msg: no such table: UDPSession
+    [ERROR][20130605 18:23:18]on ::checkVM, Null Virtual Machine pointer
+       
+10:08 2013-6-6
+    release the decoder resource
+    why the decoder performance is so bad
+    段错误 (core dumped)
+        
+    Triger
+    Procedure
+    priority: >, =
+    e2fsprogs
+                                    
+11:51 2013-6-7
+    compile, install "util-linux"
+                    
+    it will collapse if no "config.xml"???
+    what the jni baffling issue??????????????????????????    
+    
+    i just only change the name of the var, the crash issue is fixed...
+    
+    try, catch
+                                
+10:43 2013-6-8
+    multithread: fopen
+    
+    db class, single instance???
+    
+    varchar, char
+        
+13:05 2013-6-9
+    
+14:12 2013-6-11
+    202.38.201.85
+               254
+           193.33
+        
+    
+E:\elon\soft\dev\VMWare\VMWare>vmware-vdiskmanager.exe -x 30Gb e:\elon\vmsys\ubu
+ntu\Ubuntu.vmdk
+  Grow: 100% done.
+Disk expansion completed successfully.
+    
+WARNING: If the virtual disk is partitioned, you must use a third-party
+         utility in the virtual machine to expand the size of the
+         partitions. For more information, see:
+         http://www.vmware.com/support/kb/enduser/std_adp.php?p_faqid=1647
+     
+               
+13:58 2013-6-13
+   事业单位，编制？
+         
+    
+
+
