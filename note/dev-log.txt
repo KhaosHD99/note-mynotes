@@ -3340,14 +3340,14 @@ i need plan my life more, i am not a child already
 08:44 2012-12-27
    sw, 800, fs: 450
    i missed the qq call of dzm
-   
+      
    the CString and QString encoding
    learn the database Manipulation and the usage of CppSQLite3U
    replace the qtsql to  CppSQLite3U
-
+   
 08:39 2012-12-28
    sw, 800, fs: 400
-   
+      
    the CString and QString encoding
    learn the database Manipulation and the usage of CppSQLite3U
    replace the qtsql to  CppSQLite3U
@@ -3363,7 +3363,7 @@ i need plan my life more, i am not a child already
 2012-12-31
    outworking at shenzhen
    i felt so hungry at noon
-
+   
 2013-01-01
    outworking at shenzhen
    i felt so hungry at noon
@@ -3373,13 +3373,12 @@ i need plan my life more, i am not a child already
    repair the phoneconfig(finephone) at chenjianguo's home, and it is not done
    have dinner with chenjianguo
    
-   
 2013-01-03
    if i sw at noon, not only i can not eat fully, but also i can not sw so intensely
-   
-   riding, take a walk(alma college, tianhe)with dzm
+      
+   riding, take a walk(alma college, tianhe, haixinsha)with dzm
    i know dzm is single parent, how can i do. i i i do not going to hurt anybody!!!!!!!!!!!!
-   
+      
    
 08:50 2013-01-04
    sw 700m, my breath is perfect!!!!!!! why??? the others is so slow? i rest fews day? i ate so full last night? or    i eat mutton, beef, chocolate???
@@ -4306,35 +4305,35 @@ it's sad and but i should always keep moving  forward
    "拖延症，自讨苦吃", is that focused to me???
    zys expressed her desire to have the job on the recruit notice
    installed the web account usb key driver at aunt hua's home
-   
+      
 9:26 2013-5-28
    the transaction is excellent
    wangxinxin(group master) asked for the prj progress
-   
+         
 9:39 2013-5-29
    zys said can i check up the job entry form
    zys said to me it was time to get off work
-               
+                     
 11:04 2013-5-30
    11:04 zys is not online
-            
+         
 2013-5-31
    zys felt flurried when the apply was blocked?
    she said she was unhappy because the salary was less than before because the insurance.
    asked me for the football match???
+   said the graduation ceremony will be hold at 6.18
    called zys that the sign up procedure was done
    
    flied a kite with huangwanlong(u&d) at tianhe gymnasium square
-   
    in these more than two months, everything was zhangyuansi!!!
-                           
+                                 
 23:26 2013-6-1
    swam at xijiao, zhoongshanba road
    zys replied my festival greeting!!!
    
    dzm sms a festival greeting to me, how could i confront her???
    
-   bought a glasses frame and a contact lens
+   bought a glasses frame and a contact lens at the eighth zhongshan road
                         
 2013-6-2
    swam and had sun shine shower at xijiao, zhoongshanba road with xiejingyu
@@ -4369,7 +4368,7 @@ it's sad and but i should always keep moving  forward
    today is CEE day
    
    is there a bug in jni??? it waste my much time!!!
-   
+         
 9:09 2013-6-8, saturday
    dreamed zouxiaozhen(u&d)
    examination day!!! i pray for everyone
@@ -4378,13 +4377,15 @@ it's sad and but i should always keep moving  forward
    optimize the detail design doc
    15:43, zys is online
    called to zys for the examination, it's fine. she will go home at dragon boat festival
-         
+               
 14:03 2013-6-9, storm rain
    高手就是一面镜子
-         
+   
+   mum-side grandfather had a heavy disease. mum and dad went for it         
    zys's signature was "confused", emotion fluctuation?
    18:07, zys is not online
-   
+      
+   my aggregation is wrong, it's not a cube anymore!!!
    swam at yuexiu park with my sister(xuxinyi)
    
 2013-6-10, storm rain
@@ -4398,34 +4399,152 @@ it's sad and but i should always keep moving  forward
          
 2013-6-12
    my life is in messy
-   
-                     
+                        
 9:14 2013-6-13
    had some messy dream
-                        
+   
+   i should mix all the dimension to process but not only one, it is not a cube yet!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                    
    i felt heat on my body from the bad breath smell
    9:14, zys is online on WeChat?have bought a new phone?
-   
    should i learn dancing and singing?
-   
    how about my movie tickets, they will expire after 6.31
-   
    i am lost, how could i do???
-   
    14:26, zys is nnline
-   
    how fragrant the tea is(the manager office)
-   
    haoshili??
-   
-   "helpless or hopeless"
-   
+   "helpless or hopeless"
    how could i promote the analysis performance???
-            
-   zys asked me why i was lost and said she got the third prize in graduation thesis(got the scholarship before)
+   i asked that when does the interview(if can pass) hold. zys asked me why i was lost and said she got the third prize in graduation thesis(got the scholarship before)
    you are so excellent, i scare...
+   i send “hopeless? helpless? don't worry, kid, i got your back!”, i implied something. felt it? sometimes, i hate "thank you"
+      
+   who bought lan for building house, who have fews shop, who bought the nice car, who get married at this year!!!
+                        
+9:39 2013-6-14
+   dreamed zys
+   9:42, zys is not online
+   10:35, zys is online
+   the signature update to "commencement"
    
-   i send “hopeless? helpless? don't worry, kid, i got your back!”, i implied something
+   how to aggregate???
+   
+   i hate weekend
+   18:10, zys is not online
+                        
+2013-6-15, saturday
+   found the data aggregate algorithm
+   had a dinner with luopao, sunxianjian and xiejingyu at open air stall. luopao and sunxianjian sleeped at my family dormitory
+               
+19:38 2013-6-16
+   eja. you are a joke
+   the data aggregate algorithm(the separation by time GRANULARITY) is wrong
+   
+9:11 2013-6-17
+   9:22, zys is not online
+   it said the interview does not begin yet,
+   pick up the baggage???
+   forward a job recruit notice to zys from yan aunt. zys said("webchat") she is at school for commencement and will come back on wednesday 
+   18:33, zys is webchat online
+   i wanted to call zys, but at the end no!!!
+   
+   had lunch with furishao, liuyanshuang, zhongpeili
+   
+   prj: make the frame before the end of this month!!!
+   no dimension table???...!!!
+      
+9:23 2013-6-18
+   i need prepare for the examination
+         
+   dzm showed me to much ioi and DLV?
+   18:20, zys is not online at any social contact app
+   commencement day of zys
+   <<the mystery method>>, <<Pick-up Artist>>
+      
+9:12 2013-6-19
+   i need sleep more early
+                                    
+   9:13, zys is online
+   the signature update to "new journey"
+   
+   i need prepare for the examination tonight
+      
+   technical director said i need make a schedule!!!
+   18:29, zys is not online
+   i hate that i can not outguess something(sb's life track)
+         
+9:22 2013-6-20
+   should i take a action at this weekend???
+   how about my ticket...
+   chatted(abount going where(find some soup), the commencement, scholarship, the trivial matters of the school) with zys by phone
+   i said i will go for a doctor with her if i have time(examination)
+   zys said she is haggard recently, should i do something(i said i can make some soup for her)?
+            
+9:30 2013-6-21
+   zys go for a doctor today or tomorrow? the network is not stable? online->offline->online
+                                          
+23:03 2013-6-22, typhon?
+   23:04, zys qq online, and then the webchat online and till now(23:33) nothing
+                  
+10:36 2013-6-23, rainy
+   played pingpang with huangwanlong only...(no, furishao(ud),liuyanshuang(ud), zengguangzheng(ud), xiejingyu)
+          
+9:19 2013-6-24, shower
+   dreamed liuqianxin(saintray)
+      
+   zys signature update to "................"
+   zys signature update to "很慌很慌"...
+   17:57, zys signature update to nothing
+   
+   zys have no chance to interview... i did not have the heart to tell her. it is not essential to flustered
+   zys show me a photo, i do not know the mean. her bf?(no) at that moment, i was shocked!!! gloomy monday???
+   zys said she has no bf and said has not been occupy?
+   zys shared the commencement photo, fortunately it's her female schoolmate
+                     
+   should i learn play guitar
+   learn chinese medicine
+                     
+9:16 2013-6-25
+   had a bad sleep, turned around and around, my brain is occupyed. i am so tired now
+               
+   many guys expressed their desire
+   insufficient qualifications to apply the other gov job... my significant straw
+   zys said will pay me a dinner and call me when she is idle. i felt happy but i do not like this. fall into friendship?
+   zys signature update to "。。。。。。"
+                                          
+   drive to grandfather home???
+   "润物细无声"
+                                 
+   19:48, zys being online
+   what's wrong? 21:54, zys being online
+   
+   i q luwanlin(senior middle school), chenpeiyao(junior middle school)but no response...
+          
+9:16 2013-6-26
+   update my signature, "if u say 'yes', my soul will be covered in gloomy for quite a long time"
+   zys signature update to nothing
+   19:23, zys being online
+      
+19:11 2013-6-27
+   Unfortunately, i losed a significant topic...
+   19:12, zys being online
+   
+   her cameramen?
+            
+   i want to buy a SLR camera
+   anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.anxiety.
+   
+   my aggregation is not suitable???...
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
    
    
    
@@ -4438,6 +4557,5 @@ it's sad and but i should always keep moving  forward
    
    
    
-   
-   
+         
    

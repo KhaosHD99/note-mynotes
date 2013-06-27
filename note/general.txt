@@ -3045,13 +3045,11 @@ pen" to load a dynamic object which needs to refer back to the symbols defined b
    ifconfig ethx xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx up
    
 ed->fields = (char **)malloc(sizeof(char *) * fields->fields->len);	
-   
-               
+                  
    time_t lt;
    lt = time(NULL);
    
    implementation principle and security mechanism
-   
     
 22:37 2013-5-24
     传输层：     数据段(segment)或报文
@@ -3064,19 +3062,18 @@ ed->fields = (char **)malloc(sizeof(char *) * fields->fields->len);
 
 ll -tr
 
-
-
-
 由操作型数据创建而来的 OLAP 结构被称之为 OLAP 数据集（OLAP cube）。OLAP 数据集中可能包含每个查询的所有答复。OLAP 数据集采用的星型模式指：事实表列出关键事实，然后由中心进行查询的一种方式。大量的维度表与事实表相链接。为避免计算所有可能的数集，所以只对预先确定的数进行完全的计算，其它的作为备用。
 
-
-
 星型架构是一种非正规化的结构，多维数据集的每一个维度都直接与事实表相连接，不存在渐变维度，所以数据有一定的冗余
-
+      
 15:49 2013-6-11
+   vmware-vdiskmanager.exe -x 30Gb e:\elon\vmsys\ubuntu\Ubuntu.vmdk
    
-   vmware-vdiskmanager.exe -x 30Gb 									e:\elon\vmsys\ubu
-ntu\Ubuntu.vmdk
-
-
-
+      
+13:57 2013-6-17
+   select protocol from aggregationdata2 where protocol like 'eth:ip:udp%'
+   
+      
+   
+   
+   
