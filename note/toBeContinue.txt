@@ -11173,23 +11173,21 @@ not a dynamic executable
                                     
 11:51 2013-6-7
     compile, install "util-linux"
-                    
+                       
     it will collapse if no "config.xml"???
     what the jni baffling issue??????????????????????????    
     
     i just only change the name of the var, the crash issue is fixed...
     
     try, catch
-                                
+                                    
 10:43 2013-6-8
     multithread: fopen
-    
     db class, single instance???
-    
     varchar, char
-        
+                
 13:05 2013-6-9
-    
+            
 14:12 2013-6-11
     202.38.201.85
                254
@@ -11198,18 +11196,119 @@ not a dynamic executable
     
 E:\elon\soft\dev\VMWare\VMWare>vmware-vdiskmanager.exe -x 30Gb e:\elon\vmsys\ubu
 ntu\Ubuntu.vmdk
-  Grow: 100% done.
+    Grow: 100% done.
 Disk expansion completed successfully.
-    
+       
 WARNING: If the virtual disk is partitioned, you must use a third-party
          utility in the virtual machine to expand the size of the
          partitions. For more information, see:
          http://www.vmware.com/support/kb/enduser/std_adp.php?p_faqid=1647
-     
-               
+                         
 13:58 2013-6-13
    事业单位，编制？
+                           
+10:42 2013-6-14
+   端口 0?
+                  
+14:06 2013-6-17
+   [ERROR][20130618 10:45:16]on ::execDML, err msg: SQL logic error or missing database, nRet: 1
+   database: union
+   total_packet!!!
+   
+9:49 2013-6-19
+   how to calculate the total packet
+   how to compile a runnable jar file use javac
+      
+10:34 2013-6-20
+   print log with color
+               
+   attention to the memory size when insert the packet to memory
+   release the memory after insert all data to db
+   
+   insert to db only one time!!!
+   
+   should i use the interface + timespan to identify the datafile???
+      
+9:34 2013-6-21
+   char *str = new char[8]; delete []str or delete str
+   union 
+            
+   typedef struct Packet_req{
+ 	   								
+   }__attribute__((packed)) Packet_req;
+   
+   where can i know the probe ip
          
-    
+   ------------------------------------------------------
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/mate.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/mate.so: undefined symbol: g_free
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/wimaxasncp.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/wimaxasncp.so: undefined symbol: sminmpec_values_ext
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/irda.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/irda.so: undefined symbol: g_free
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/m2m.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/m2m.so: undefined symbol: proto_tree_add_protocol_format
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/unistim.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/unistim.so: undefined symbol: register_tap
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/opcua.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/opcua.so: undefined symbol: g_free
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/docsis.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/docsis.so: undefined symbol: proto_tree_add_protocol_format
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/profinet.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/profinet.so: undefined symbol: dcom_hresult_vals
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/gryphon.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/gryphon.so: undefined symbol: proto_tree_add_item
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/wimax.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/wimax.so: undefined symbol: g_free
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/stats_tree.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/stats_tree.so: undefined symbol: stats_tree_manip_node
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/ethercat.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/ethercat.so: undefined symbol: proto_tree_add_item
+tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/asn1.so: /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6/asn1.so: undefined symbol: g_free      
+-------------------------------------------------------------
+   declare "static" will auto init to 0?
+      
+10:27 2013-6-24
+   add a time span printf
+   
+---------------------------------------- 
+   1) add filter on analyzer!!!
+   2)
+                                                
+--------------------------------------- 
+   what is ip group
+   VLAN ID
+   can i know the network app proto after wireshark decoding
+            
+12:58 2013-6-25
+   direction field
+   the performance between "switch" and "if"
+   refresh the database
+   is it essential to maintain the relation of ipendpoint and physicalendpoint
+   combine the packet to a file after filter???
+   
+   modify the model
+   ip range "192.168.1.0-192.168.1.255"
+               
+   why ip session 10.15.106.147<->10.15.107.255 will be passed by rule "192.168.1.0-192.168.1.255"
+   //big endian!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   
+   
+   network segment, judge rule:
+   1 192.168.1.0/24
+     192.168.1.0/255.255.255.0
+   2 192.168.1.1-192.168.1.100
+   3 192.168.1.1
+   
+   CIDR
+   
+16:12 2013-6-27
+   440184199106244229
+   
+   http is base on tcp or udp, or both?
 
-
+   private long threeShareHandTime;  //三次握手时间
+	private long serviceSandTime;  //服务器传输时间
+	private long serviceResponseTime; //服务器响应时间
+	private long clientSandTime;  //客户端传输时间
+	private long clientFreeTime;  //客户端空闲时间
+	private long linkFinTime; //关闭连接时间
+         
+   how about the data file dir is not existed
+   what is ip group
+   组播地址? A, B, C类地址
+   
+   data model: two direction?
+   
+   08:10:75:2B:26:91
+   
+   sql: do not case sensitive
+   
+   
