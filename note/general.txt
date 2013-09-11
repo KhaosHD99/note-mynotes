@@ -3012,19 +3012,20 @@ boolean  	Z
 byte		B  
 char 		C   
 short  		S  
-int  		I  
+int  		I 					 
 long  		J   
 float  		F   
 double 		D   
-														
+			
+											
 objects对象  Lfully-qualified-class-name;        L类名; 
 Arrays数组  [array-type [数组类型  
 methods方法                   (argument-types)return-type(参数类型)返回类型  
 
 
 usermod -g group username
-   
-
+"groups": check the current account group
+				
 -E
 --export-dynamic
            When  creating  a  dynamically  linked  executable, add all symbols to the dynamic symbol table.  The
@@ -3065,15 +3066,1134 @@ ll -tr
 由操作型数据创建而来的 OLAP 结构被称之为 OLAP 数据集（OLAP cube）。OLAP 数据集中可能包含每个查询的所有答复。OLAP 数据集采用的星型模式指：事实表列出关键事实，然后由中心进行查询的一种方式。大量的维度表与事实表相链接。为避免计算所有可能的数集，所以只对预先确定的数进行完全的计算，其它的作为备用。
 
 星型架构是一种非正规化的结构，多维数据集的每一个维度都直接与事实表相连接，不存在渐变维度，所以数据有一定的冗余
-      
+                  
 15:49 2013-6-11
    vmware-vdiskmanager.exe -x 30Gb e:\elon\vmsys\ubuntu\Ubuntu.vmdk
-   
       
 13:57 2013-6-17
    select protocol from aggregationdata2 where protocol like 'eth:ip:udp%'
+               
+9:43 2013-6-28
+   在IP地址3种主要类型里，各保留了3个区域作为私有地址，其地址范围如下： 
    
+   A类地址：10.0.0.0～10.255.255.255 
+   
+   B类地址：172.16.0.0～172.31.255.255 
+   
+   C类地址：192.168.0.0～192.168.255.255
+   	
+   Start	End	No. of addresses
+   24-bit block (/8 prefix, 1 × A)	10.0.0.0	10.255.255.255	16777216
+   20-bit block (/12 prefix, 16 × B)	172.16.0.0	172.31.255.255	1048576
+   16-bit block (/16 prefix, 256 × C)	192.168.0.0	192.168.255.255	65536
       
    
+------------------------------------------------
+   组播报文的目的地址使用D类IP地址， 范围是从224.0.0.0到239.255.255.255
+   224.0.0.0～224.0.0.255为预留的组播地址（永久组地址），地址224.0.0.0保留不做分配，其它地址供路由协议使用；	Local subnetwork
+   224.0.1.0～224.0.1.255是公用组播地址，可以用于Internet；							Internetwork control block
+   224.0.2.0～238.255.255.255为用户可用的组播地址（临时组地址），全网范围内有效；				AD-HOC block？？？
+   239.0.0.0～239.255.255.255为本地管理组播地址，仅在特定的本地范围内有效。		Administratively Scoped IPv4 Multicast addresses
+    
+     
+    
+   在一个校园网里，分配到一个B类网络地址172.16.0.0 
+检举|2011-04-23 21:12 a530452901 | 分类：网站使用 | 浏览554次在一个校园网里，分配到一个B类网络地址172.16.0.0，要将该校园规划成30个子网，每个子网最大的主机数目是1000台，请制定一个子网规划方案！我要一个方案!高手帮帮我！ 
+检举|2011-04-23 22:41 提问者采纳
+1.这个问题很简单，我是网络工程师，在这里给你解答，满意的话就采纳我。 2.172.16.0.0是B类地址，也就是说子网掩码是255.255.0.0，即为172.16.0.0/16。 3.划分为30个子网：最少需要2的5次方=32个子网，除去全0和全1的不能用，所以刚好剩下30个子网可以用。所以需要借用5位主机数划分为子网。那么子网规划方案就是：172.16.0.0/21，每个子网剩下2的11次方主机数，也就是2048台。 4.但是题目要求每个子网最大的主机数是1000台，也就是大概2的10次方，只需要10位主机数就够了。那么子网规划就是：172.16.0.0/22 ，借了6位主机号划分子网，就是说划分为2的6次方=64-2=62个子网（题目要求只需划分30个，那么剩下的32个作为以后升级的备用），每个子网的主机数目是：2的10次方=1024，可用的主机数=1024-2=1022。 5.以上文字均为本人亲手敲出，均无复制。真心希望能帮助到你。  不明白的继续追加提问。
    
    
+
+
+已知172.31.128.255/18，试计算：   1、子网数目,   2、网络号，   3、主机号，   4、广播地址，   5、可分配IP的起止范围   解：   
+1、算子网数目   首先将/18换成为我们习惯的表示法    11111111.11111111.11000000.000000转为十进制就是255.255.192.0，可以看到这个掩码的左边两节和 B类默认掩码是一致的，所以这个掩码是在B类默认掩码的范围内，意味着我们将对B类大网进行子网划分。B类 掩码默类是用16位(16个0)来表示可分配的IP地址，本题中的掩码在B类默认掩码的基础上多出了两个表示网络 号的1，这就是说是将B类大网划分为(11)2进制个子网，将(11)2进制转换为十进制就是4，所以本题中是将B类 大网划分为4个子网。      
+
+2、算网络号   用公式：将IP地址的二进制和子网掩码的二进制进行“与”（and）运算，得到的结果就是网络号。“与运算 ”的规则是1和1得1，0和1得0，1和0得0。   172.31.128.255转为二进制是10101100.00011111.10000000.11111111，掩码是  ：11111111.11111111.11000000.00000000   所以：   10101100.00011111.10000000.11111111   11111111.11111111.11000000.00000000   10101100.00011111.10000000.00000000   将10101100.00011111.10000000.00000000   转换为十进制就是172.31.128.0，所以网络号是172.31.128.0   
+
+3、算主机号   也用公式：用IP地址的二进制和（子网掩码的二进制的反码）进行“与”运算，得到的结果就是主机号。反码 就是将原本是0的变为1，原本是1的变为0。由于掩码是11111111.11111111.11000000.00000000   所以其反码表示为00000000.00000000.00111111.11111111，再将IP地址的二进制和掩码的反码表示法进行  “与”运算：   10101100.00011111.10000000.11111111   00000000.00000000.00111111.11111111   00000000.00000000.00000000.11111111   将00000000.00000000.00000000.11111111   转换为十进制是0.0.0.255，我们将左边的0去掉，只留右边的数字，所以我们说这个IP的主机号是255。主机 号是表示网络号再加上255就是这个IP地址了。   
+
+4、算广播地址   也用公式：在得到网络号的基础上，将网络号右边的表示IP地址的主机部分的二进制位全部填上1，再将得到 的二进制数转换为十进制数就可以得到广播地址。因为本题中子网掩码是 11111111.11111111.11000000.00000000，网络号占了18位，所以本题中表示IP地址的主机部分的二进制位 是14位，我们将网络号172.31.128.0，转换为二进制是10101100.00011111.10000000.00000000，然后从右 边数起，将14个0全部替换为1，即：10101100.00011111.10111111.11111111，这就是这个子网的广播地 址的二进制表示法。将这个二进制广播地址转换为十进制就是172.31.191.255      
+
+5、算可用IP地址范围   因为网络号是172.31.128.0，广播地址是172.31.191.255，所以子网中可用的IP地址范围就是从网络号+1 到 广播地址-1，所以子网中的可用IP地址范围就是从172.31.128.1-172.31.191.254。
+
+
+16:30 2013-6-29
+    bigint-2^63 (-9,223,372,036,854,775,808) 至 2^63-1 (9,223,372,036,854,775,807). 存储大小为8个字节.int-2^31 (-2,147,483,648) 到2^31 - 1         (2,147,483,647). 存储大小为4个字节. 
+   
+
+
+smbpasswd -a
+
+
+
+
+
+
+
+优先级
+ 运算符
+ 名称或含义
+ 使用形式
+ 结合方向
+ 说明
+ 
+1
+ []
+ 数组下标
+ 数组名[常量表达式]
+ 左到右
+  
+()
+ 圆括号
+ （表达式）/函数名(形参表)
+  
+.
+ 成员选择（对象）
+ 对象.成员名
+  
+->
+ 成员选择（指针）
+ 对象指针->成员名
+  
+2
+ -
+ 负号运算符
+ -表达式
+ 右到左
+ 单目运算符
+ 
+(类型)
+ 强制类型转换
+ (数据类型)表达式
+  
+++
+ 自增运算符
+ ++变量名/变量名++
+ 单目运算符
+ 
+--
+ 自减运算符
+ --变量名/变量名--
+ 单目运算符
+ 
+*
+ 取值运算符
+ *指针变量
+ 单目运算符
+ 
+&
+ 取地址运算符
+ &变量名
+ 单目运算符
+ 
+!
+ 逻辑非运算符
+ !表达式
+ 单目运算符
+ 
+~
+ 按位取反运算符
+ ~表达式
+ 单目运算符
+ 
+sizeof
+ 长度运算符
+ sizeof(表达式)
+  
+3
+ /
+ 除
+ 表达式/表达式
+ 左到右
+ 双目运算符
+ 
+*
+ 乘
+ 表达式*表达式
+ 双目运算符
+ 
+%
+ 余数（取模）
+ 整型表达式/整型表达式
+ 双目运算符
+ 
+4
+ +
+ 加
+ 表达式+表达式
+ 左到右
+ 双目运算符
+ 
+-
+ 减
+ 表达式-表达式
+ 双目运算符
+ 
+5
+ <<
+ 左移
+ 变量<<表达式
+ 左到右
+ 双目运算符
+ 
+>>
+ 右移
+ 变量>>表达式
+ 双目运算符
+ 
+6
+ >
+ 大于
+ 表达式>表达式
+ 左到右
+ 双目运算符
+ 
+>=
+ 大于等于
+ 表达式>=表达式
+ 双目运算符
+ 
+<
+ 小于
+ 表达式<表达式
+ 双目运算符
+ 
+<=
+ 小于等于
+ 表达式<=表达式
+ 双目运算符
+ 
+7
+ ==
+ 等于
+ 表达式==表达式
+ 左到右
+ 双目运算符
+ 
+!=
+ 不等于
+ 表达式!= 表达式
+ 双目运算符
+ 
+8
+ &
+ 按位与
+ 表达式&表达式
+ 左到右
+ 双目运算符
+ 
+9
+ ^
+ 按位异或
+ 表达式^表达式
+ 左到右
+ 双目运算符
+ 
+10
+ |
+ 按位或
+ 表达式|表达式
+ 左到右
+ 双目运算符
+ 
+11
+ &&
+ 逻辑与
+ 表达式&&表达式
+ 左到右
+ 双目运算符
+ 
+12
+ ||
+ 逻辑或
+ 表达式||表达式
+ 左到右
+ 双目运算符
+ 
+13
+ ?:
+ 条件运算符
+ 表达式1? 表达式2: 表达式3
+ 右到左
+ 三目运算符
+ 
+14
+ =
+ 赋值运算符
+ 变量=表达式
+ 右到左
+  
+/=
+ 除后赋值
+ 变量/=表达式
+  
+*=
+ 乘后赋值
+ 变量*=表达式
+  
+%=
+ 取模后赋值
+ 变量%=表达式
+  
++=
+ 加后赋值
+ 变量+=表达式
+  
+-=
+ 减后赋值
+ 变量-=表达式
+  
+<<=
+ 左移后赋值
+ 变量<<=表达式
+  
+>>=
+ 右移后赋值
+ 变量>>=表达式
+  
+&=
+ 按位与后赋值
+ 变量&=表达式	
+  
+^=
+ 按位异或后赋值
+ 变量^=表达式
+  
+|=
+ 按位或后赋值
+ 变量|=表达式
+  
+15
+ ,
+ 逗号运算符
+ 表达式,表达式,…
+ 左到右
+ 从左向右顺序运算
+ 
+
+
+
+tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/capture_00001_20130522102224.cap -e frame.number -e frame.len -e tcp.flags -e tcp.ack -e tcp.seq -e tcp.nxtseq
+netstat -tlnp | grep smb
+
+32bit sys:
+sizeof(time_t): 4, sizeof(jint): 4, sizeof(jlong): 8, sizeof(int): 4, sizeof(long): 4,
+sizeof(long long): 8, sizeof(time_t): 4, sizeof(float): 4, sizeof(double): 8
+
+64bit sys:
+sizeof(time_t): 8, sizeof(jint): 4, sizeof(jlong): 8, sizeof(int): 4, sizeof(long): 8,
+sizeof(long long): 8, sizeof(time_t): 8, sizeof(float): 4, sizeof(double): 8
+
+
+grep [.].c
+
+
+
+------------------------------------------------------------------------------
+unsigned int i2 = 3000000000;
+  		
+	printf ("(long long)i2 * 10: %lld\n", (long long)i2 * 10);
+	printf ("(long long)(i2 * 10): %lld\n", (long long)(i2 * 10));
+	printf ("i2 * 10: %lld\n", i2 * 10);
+
+output:
+(long long)i2 * 10: 30000000000
+(long long)(i2 * 10): 4230196224
+i2 * 10: 4230196224
+--------------------------------------------------------------------------------
+
+"iptables -F" flush the firewall rules, then, the samba work!!!
+
+/-------------------------------------------- pcap file struct specification ----------------------------
+			   file size: 10487255
+    total packet: 19638, total bytes: 10173023,
+     file header + all packet header:   314232
+                   all packet header:   314208
+                         file header:       24
+		       packet header:       16
+---------------------------------------------------------------------------------------------------------/
+  
+
+
+
+
+
+
+#include <unistd.h>
+int access(const char *pathname, int mode);
+Description
+
+
+ access() checks whether the calling process can access the file pathname. If pathname is a symbolic link, it is dereferenced.
+The mode specifies the accessibility check(s) to be performed, and is either the value F_OK, or a mask consisting of the bitwise OR of one or more of R_OK, W_OK, and X_OK. F_OK tests for the existence of the file. R_OK, W_OK, and X_OK test whether the file exists and grants read, write, and execute permissions, respectively.
+
+The check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file. This allows set-user-ID programs to easily determine the invoking user's authority.
+
+If the calling process is privileged (i.e., its real UID is zero), then an X_OK check is successful for a regular file if execute permission is enabled for any of the file owner, group, or other.
+
+Return Value
+On success (all requested permissions granted), zero is returned. On error (at least one bit in mode asked for a permission that is denied, or some other error occurred), -1 is returned, and errno is set appropriately.
+
+
+
+
+<: &lt;
+>: &gt;
+
+
+
+
+
+time tshark -r /home/xuzhenjie/prj/libbacktrack_jnitest/100M.pcap -T fields -e frame.time -e frame.number -e frame.protocols -e frame.len -e eth.src -e eth.dst -e ip.hdr_len -e ip.len -e ip.src -e ip.dst -e tcp.hdr_len -e tcp.flags -e tcp.ack -e tcp.seq -e tcp.nxtseq -e tcp.window_size -e udp.srcport -e udp.dstport -e tcp.srcport -e tcp.dstport -e http.request.method -e http.request.url -e http.response.code -e http.response.phrase -e http.request.version
+
+time tshark -r /home/xuzhenjie/prj/libbacktrack_jnitest/100M.pcap -T fields -e frame.time -e frame.number -e frame.protocols
+
+
+wireshark filter expression:
+
+(eth.dst[0]&1) && !eth.dst==ff:ff:ff:ff:ff:ff
+frame.time_relative >= 267 && frame.time_relative <  268
+frame.time >= "2013-05-22 10:26:52" && frame.time <  "2013-05-22 10:26:53" && frame.len >= 65 && frame.len <= 127
+
+
+eth.src == 08:10:75:2b:26:91 && frame.protocols contains "arp" && frame.time >= "2013-05-22 10:22:30" && frame.time < "2013-05-22 10:22:31"
+
+
+
+http.request.method == "GET"
+
+
+
+The times of TCP turns. TCP turn means the number of paired ACKnowledgement packet and packet with data portion, plus1 when there is a packet with data portion at the tail of a transaction. TCP turn will be 1 when there is only one pair of adjacent ACKnowledgement packets. There are at least one TCP turn in one transaction.
+
+
+
+
+会话层协议[编辑]
+ADSP：AppleTalk的数据流协议
+ASP：AppleTalk的动态会话协议
+H.245, Call Control Protocol for Multimedia Communication
+ISO-SP, OSI Session Layer Protocol (X.225, ISO 8327)
+iSNS, Internet Storage Name Service
+L2F, Layer 2 Forwarding Protocol
+L2TP, Layer 2 Tunneling Protocol
+NetBIOS, Network Basic Input Output System
+PAP, Password Authentication Protocol
+PPTP, Point-to-Point Tunneling Protocol
+RPC, 远程过程调用
+RTCP, 实时传输控制协议
+SMPP, Short Message Peer-to-Peer
+SCP, Secure Copy Protocol
+SSH, Secure Shell
+ZIP, Zone Information Protocol
+SDP, Sockets Direct Protocol
+
+具有表示层功能的协议[编辑]
+
+HTTP/HTML
+FTP
+Telnet
+ASN.1
+
+
+应用层协议例子[编辑]
+AFP
+AIM
+APPC
+BitTorrent
+CFDP
+DHCP
+DNS
+FTAM
+FTP
+Gopher
+HTTP
+IMAP
+iTMS
+IRC
+LDAP
+Modbus
+NFS
+NNTP
+NTP
+POP3
+SIP
+SMB
+SMTP
+SNMP
+SNTP
+SSH
+Telnet
+TFTP
+TSP
+Whois
+X.400
+X.500
+XMPP
+
+
+应用层
+DHCP (DHCP · DHCPv6) · DNS · FTP · Gopher · HTTP · IMAP4 · IRC · NNTP · XMPP · POP3 · SIP · SMTP · SNMP · SSH · TELNET · RPC · RTCP · RTP ·RTSP · SDP · SOAP · GTP · STUN · NTP · SSDP · 更多
+传输层
+TCP · UDP · TLS/SSL · DCCP · SCTP
+RSVP · PPTP · 更多
+网络层
+IP (IPv4 · IPv6) · ICMP · ICMPv6 · IGMP ·
+IS-IS · IPsec · BGP · RIP · OSPF ·ARP · RARP · 更多
+数据链路层
+Wi-Fi(IEEE 802.11) · WiMAX(IEEE 802.16) ·
+ATM · DTM · 令牌环 · 以太网 · FDDI · 帧中继 · GPRS · EVDO · HSPA · HDLC · PPP · L2TP · ISDN ·STP · 更多
+物理层
+以太网 · 调制解调器 · 电力线通信(PLC) · SONET/SDH · G.709 · 光导纤维 · 同轴电缆 · 双绞线 · 更多
+
+
+/--------------------------------------tcp turns:
+The times of TCP turns. TCP turn means the number of paired ACKnowledgement packet and packet with data portion, 
+
+1, plus1 when there is a packet with data portion at the tail of a transaction. TCP turn will be 1 when there is only one pair of adjacent ACKnowledgement packets. 
+2, There are at least one TCP turn in one transaction.
+3, if there is fews continued ack packet, it only be 1(cola)
+4  exclude the retransmission!!!  
+
+------------------------------------------------------------/
+
+/home/xuzhenjie/opt/bin/tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/lishi.pcap -e frame.number -e http.request | grep 1 -w  > /home/tshark_http_request
+
+
+
+
+
+
+
+
+
+
+A马克思主义、列宁主义、毛泽东思想、邓小平理论
+A1马克思、恩格斯著作
+A2列宁著作
+A3斯大林著作
+A4毛泽东著作
+A49邓小平著作
+A5马克思、恩格斯、列宁、斯大林、毛泽东、邓小平著作汇编
+A7马克思、恩格斯、列宁、斯大林、毛泽东、邓小平生平和传记
+A8马克思主义、列宁主义、毛泽东思想、邓小平理论的学习和研究
+B哲学、宗教
+B0哲学理论
+B1世界哲学
+B2中国哲学
+B3亚洲哲学
+B4非洲哲学
+B5欧洲哲学
+B6大洋洲哲学
+B7美洲哲学
+B80思维哲学
+B81逻辑学（论理学）
+B82伦理学（道德哲学）
+B83美学
+B84心理学
+B9宗教
+C社会科学总论
+C0社会科学理论与方法论
+C1社会科学现状与发展
+C2社会科学机构、团体、会议
+C3社会科学研究方法
+C4社会科学教育与普及
+C5社会科学丛书、文集、连续性出版物
+C6社会科学参考工具书
+[C7]社会科学文献检索工具书
+C8统计学
+C91社会学
+C92人口学
+C93管理学
+[C94]系统科学
+C95民族学
+C96人才学
+C97劳动科学
+D政治、法律
+D0政治理论
+D1国际共产主义运动
+D2中国共产党
+D33/37各国共产党
+D4工人、农民、青年、妇女运动与组织
+D5世界政治
+D6中国政治
+D73/77各国政治
+D8外交、国际关系
+D9法律
+E军事
+E0军事理论
+E1世界军事
+E2中国军事
+E3/7各国军事
+E8战略学、战役学、战术学
+E9军事技术
+E99军事地形学、军事地理学
+F经济
+F0经济学
+F1世界各国经济概况、经济史、经济地理
+F2经济计划与管理
+F3农业经济
+F4工业经济
+F49信息产业经济（总论）
+F5交通运输经济
+F59邮电经济
+F7贸易经济
+F8财政、金融
+G文化、科学、教育、体育
+G0文化理论
+G1世界各国文化与文化事业
+G2信息与知识传播
+G3科学、科学研究
+G4教育
+G8体育
+H语言、文字
+H0语言学
+H1汉语
+H2中国少数民族语言
+H3常用外国语
+H4汉藏语系
+H5阿尔泰语系（突厥-蒙古-通古斯语系 ）
+H61南亚语系（澳斯特罗-亚西亚语系）
+H62南印语系（达罗毗荼语系）
+H63南岛语系（马来亚-玻里尼西亚语系）
+H64东北亚诸语言
+H65高加索语系（伊比利亚-高加索语系）
+H66乌拉尔语系（芬兰-乌戈尔语系）
+H67闪-含语系（阿非罗-亚西亚语系）
+H7印欧语系
+H81非洲诸语言
+H83美洲诸语言
+H84大洋洲诸语言
+H9国际辅助语
+I文学
+I0文学理论
+I1世界文学
+I2中国文学
+I3/7各国文学
+J艺术
+J0艺术理论
+J1世界各国艺术概况
+J2绘画
+J29书法、篆刻
+J3雕塑
+J4摄影艺术
+J5工艺美术
+J59建筑艺术
+J6音乐
+J7舞蹈
+J8戏剧艺术
+J9电影、电视艺术
+K历史、地理
+K0史学理论
+K1世界史
+K2中国史
+K3亚洲史
+K4非洲史
+K5欧洲史
+K6大洋洲史
+K7美洲史
+K81传记
+K85文物考古
+K89风俗习惯
+K9地理
+N自然科学总论
+N0自然科学理论与方法论
+N1自然科学现状与发展
+N2自然科学机构、团体、会议
+N3自然科学研究方法
+N4自然科学教育与普及
+N5自然科学丛书、文集、连续性出版物
+N6自然科学参考工具书
+[N7]自然科学文献检索工具
+N8自然科学调查、考察
+N91自然研究、自然历史
+N93非线性科学
+N94系统科学
+[N99]情报学、情报工作
+O数理科学和化学
+O1数学
+O3力学
+O4物理学
+O6化学
+O7晶体学
+P天文学、地球科学
+P1天文学
+P2测绘学
+P3地球物理学
+P4大气科学（气象学）
+P5地质学
+P7海洋学
+P9自然地理学
+Q生物科学
+Q1普通生物学
+Q2细胞生物学
+Q3遗传学
+Q4生理学
+Q5生物化学
+Q6生物物理学
+Q7分子生物学
+Q81生物工程学（生物技术）
+[Q89]环境生物学
+Q91古生物学
+Q93微生物学
+Q94植物学
+Q95动物学
+Q96昆虫学
+Q98人类学
+R医药、卫生
+R1预防医学、卫生学
+R2中国医学
+R3基础医学
+R4临床医学
+R5内科学
+R6外科学
+R71妇产科学
+R72儿科学
+R73肿瘤学
+R74神经病学与精神病学
+R75皮肤病学与性病学
+R76耳鼻咽喉科学
+R77眼科学
+R78口腔科学
+R79外国民族医学
+R8特种医学
+R9药学
+S农业科学
+S1农业基础科学
+S2农业工程
+S3农学（农艺学）
+S4植物保护
+S5农作物
+S6园艺
+S7林业
+S8畜牧、动物医学、狩猎、蚕、蜂
+S9水产、渔业
+T工业技术
+TB一般工业技术
+TD矿业工程
+TE石油、天然气工业
+TF冶金工业
+TG金属学与金属工艺
+TH机械、仪表工业
+TJ武器工业
+TK能源与动力工程
+TL原子能技术
+TM电工技术
+TN无线电电子学、电信技术
+TP自动化技术、计算机技术
+TQ化学工业
+TS轻工业、手工业
+TU建筑科学
+TV水利工程
+U交通运输
+U1综合运输
+U2铁路运输
+U4公路运输
+U6水路运输
+[U8]航空运输
+V航空、航天
+V1航空、航天技术的研究与探索
+V2航空
+V4航天（宇宙航行）
+V7航空、航天医学
+X环境科学、安全科学
+X1环境科学基础理论
+X2社会与环境
+X3环境保护管理
+X4灾害及其防治
+X5环境污染及其防治
+X7废物处理与综合利用
+X8环境质量评价与环境监测
+x9安全科学
+Z综合性图书
+Z1丛书
+Z2百科全书、类书
+Z3辞典
+Z4论文集、全集、选集、杂著
+Z5年鉴、年刊
+Z6期刊、连续性出版物
+Z8图书目录、文摘、索引
+
+
+ARP
+Appletalk Protocol
+AT_AEP
+AT_ATP
+AT_DSP
+AT_NBP
+AT_RTMP
+AT_RTREQ
+AT_ZIP
+Compressed RTP
+DECLAT
+DECNET
+All Layer 2 Traffic
+IP
+IPPING
+CNT-Fibre
+Exterior Gateway Protocol
+GGP
+Generic Route Encapsulation
+Internet Control Message Prot
+IGMP
+Interior Gateway Routing Prot
+Undefined IP Traffic
+IPIP
+IPIP4
+IPSec-AH
+IPSec-ESP
+Open Shortest Path First
+PGM
+Stream Control Transmission Protocol
+DIAMETER-SCTP
+IP Flow Info Export
+IPFIX protocol over DTLS
+ITU-T Q.1902.1/Q.2150.3
+IUA
+M2PA
+M2UA
+M3UA
+MEGACO
+Megaco-H.248 binary
+S1-AP
+SUA
+V5UA application port
+TCP
+America Online
+Citrix (Generic)
+DIAMETER
+Data Link Switch (Read)
+Data Link Switch (Write)
+Domain Name Service (TCP)
+DNSIX
+DOOM
+File Transfer Protocol-Data
+H245
+World Wide Web HTTP
+Secure HTTP
+iFCP
+IMAP3
+INGRESQL
+IS 801 Position Determining Data
+iSCSI
+ISO 8583
+ISO_8583_0100
+ISO_8583_0110
+ISO_8583_0200
+ISO_8583_0210
+ISO_8583_04XX
+ISO_8583_BASE1
+ISO_8583_OTHER
+Lightweight Directory Access 2
+Microsoft DNS (TCP)
+Microsoft SQL Monitor
+Microsoft SQL Server
+NETBIOS Datagram Service (TCP)
+NETBIOS Name Service (TCP)
+NETBIOS Session Service (TCP)
+NETSHOW
+Network File System (TCP)
+Network News Transfer Protocol
+Lotus Notes (TCP)
+ORACLE_SRV
+Oracle SQL Server
+Post Office Protocol - Ver 3
+PRINT (TCP)
+Q931
+Real Audio
+Remote Process Execution
+Remote Login
+Remote Printing (TCP)
+Skinny Client Control Protocol
+Session Initiation Protocol(TCP)
+SMPP
+Simple Mail Transfer Protocol
+SOCKS
+SQL Service
+SQLNET
+Oracle SQL (Listener)
+SSH Remote Login Protocol
+TACACS Authentication
+Undefined TCP Traffic
+Telnet Application
+TSX_STAMP
+X-Window Applications
+UDP
+ATIP_AEP
+ATIP_NBP
+ATIP_RTP
+ATIP_ZIP
+Audio
+Border Gateway Protocol
+CCMAIL
+CDMA2K
+CDP
+Cisco Gateway Discovery Protocol
+DHCP
+GTP_V0
+GTP_V1
+GTPU_V1
+H323-GAT
+Hot Standby Router Protocol
+IPX1_UDP
+IPX2_UDP
+IRC
+KERBEROS
+L2F
+Lightweight Directory Access (U)
+Media Gateway Control Protocol
+MOBILE IP
+Microsoft DNS (UDP)
+Windows Internet Name Service
+NETBIOS Datagram Service (UDP)
+NETBIOS Name Service (UDP)
+NETBIOS Session Service (UDP)
+NETV_RCV
+NETV_SND
+NETVIEW
+NEWS_UDP
+Network File System (UDP)
+NOTESUDP
+NSIP
+Network Time Protocol
+NW-CS_U
+NW-LU62U
+POP3_U
+PRINT_U
+Radius-Accounting
+RadiusAuthentication
+RFE_UDP
+RIP
+Remote Printing(UDP)
+RSP_ALT_U
+RSVP2
+RSVP3
+RTP Control protocol (VOIP)
+Real-Time Transport(VOIP)
+RTSP_U
+RWHO
+Session Initiation Protocol
+SKYPE
+Simple Network Management Prot
+SNMP Traps
+SUNRPC
+SYSLOG
+Trivial File Transfer Protocol
+Undefined UDP Applications
+Video
+XDMCP
+XWIN_UDP
+VIP
+IPV6
+Netware IPX Protocol
+NCP
+NOVRIP
+NOVSAP
+L2TP
+NET_OTHER
+NETB
+OSI
+RARP
+SNA
+VINES
+VoFR
+XNS
+XNS_ECHO
+XNS_ERR
+XNS_PEP
+XNS_RIP
+XNS_SPP
+
+caution pthread_cancel
+
+ Signal     Value     Action   Comment
+       ----------------------------------------------------------------------
+       SIGHUP        1       Term    Hangup detected on controlling terminal
+                                     or death of controlling process
+       SIGINT        2       Term    Interrupt from keyboard
+       SIGQUIT       3       Core    Quit from keyboard
+       SIGILL        4       Core    Illegal Instruction
+       SIGABRT       6       Core    Abort signal from abort(3)
+       SIGFPE        8       Core    Floating point exception
+       SIGKILL       9       Term    Kill signal
+       SIGSEGV      11       Core    Invalid memory reference
+       SIGPIPE      13       Term    Broken pipe: write to pipe with no
+                                     readers
+       SIGALRM      14       Term    Timer signal from alarm(2)
+       SIGTERM      15       Term    Termination signal
+       SIGUSR1   30,10,16    Term    User-defined signal 1
+       SIGUSR2   31,12,17    Term    User-defined signal 2
+       SIGCHLD   20,17,18    Ign     Child stopped or terminated
+       SIGCONT   19,18,25    Cont    Continue if stopped
+       SIGSTOP   17,19,23    Stop    Stop process
+       SIGTSTP   18,20,24    Stop    Stop typed at terminal
+       SIGTTIN   21,21,26    Stop    Terminal input for background process
+       SIGTTOU   22,22,27    Stop    Terminal output for background process
+
+
+
+		/*
+					 * If we didn't get an error indication, we read
+		 * the last packet.  See if there's any deferred
+		 * error, as might, for example, occur if we're
+		 * reading a compressed file, and we got an error
+		 * reading compressed data from the file, but
+		 * got enough compressed data to decompress the
+		 * last packet of the file.
+		 */
+
+
+
+
+
+
+
+
+以太类型值(16进制) 对应协议 备注 
+0x0000 - 0x05DC   IEEE 802.3 长度   
+0x0101 – 0x01FF 实验   
+0x0600 XEROX NS IDP   
+0x0660     
+0x0661 DLOG   
+0x0800 网际协议（IP）   
+0x0801 X.75 Internet   
+0x0802 NBS Internet   
+0x0803 ECMA Internet   
+0x0804  Chaosnet   
+0x0805 X.25 Level 3   
+0x0806 地址解析协议（ARP ： Address Resolution Protocol）   
+0x0808 帧中继 ARP （Frame Relay ARP） [RFC1701]   
+0x6559 原始帧中继（Raw Frame Relay） [RFC1701]   
+0x8035 动态 DARP （DRARP：Dynamic RARP）反向地址解析协议（RARP：Reverse Address Resolution Protocol）   
+0x8037 Novell Netware IPX   
+0x809B EtherTalk   
+0x80D5 IBM SNA Services over Ethernet   
+0x80F3 AppleTalk 地址解析协议（AARP：AppleTalk Address Resolution Protocol）   
+0x8100 以太网自动保护开关（EAPS：Ethernet Automatic Protection Switching）   
+0x8137 因特网包交换（IPX：Internet Packet Exchange）   
+0x814C  简单网络管理协议（SNMP：Simple Network Management Protocol）   
+0x86DD 网际协议v6（IPv6，Internet Protocol version 6）   
+0x8809 OAM 几个重要字段的含义如下：
+l Dest addr：以太网OAM报文的目的MAC地址，为组播MAC地址0180c2000002。
+l Source addr：以太网OAM报文的源MAC地址，为发送端的桥MAC地址，该地址是一个单播MAC地址。
+l Type：以太网OAM报文的协议类型，为0x8809。
+l Subtype：以太网OAM报文的协议子类型，为0x03。
+lFlags：Flags域，包含了以太网OAM实体的状态信息。
+l Code：本字段指明了OAMPDU的报文类型。0x00表示Information OAMPDU、0x01表示Event Notification OAMPDU、0x04表示Loopback Control OAMPDU。
+以下是几种常用的OAMPDU报文的作用：
+l Information OAMPDU
+Information OAMPDU报文用于将以太网OAM实体的状态信息（包括本地信息、远端信息和自定义信息）发给远端的以太网OAM实体，保持以太网OAM连接。
+l Event Notification OAMPDU
+Event Notification OAMPDU（事件通知OAMPDU）报文一般用于链路监控，是用于对连接本端和远端以太网OAM实体的链路发生的故障进行告警。
+l Loopback Control OAMPDU
+Loopback Control OAMPDU（环路控制OAMPDU）报文主要用于远端环回控制，环回控制OAMPDU报文用来控制远端设备的OAM环回状态，该报文中带有使能或去使能环回功能的信息，根据该信息开启或关闭远端环回功能。 
+0x880B 点对点协议（PPP：Point-to-Point Protocol）   
+0x880C 通用交换管理协议（GSMP：General Switch Management Protocol）   
+0x8847 多协议标签交换（单播） MPLS：Multi-Protocol Label Switching <unicast>）   
+0x8848 多协议标签交换（组播）（MPLS, Multi-Protocol Label Switching <multicast>）   
+0x8863 以太网上的 PPP（发现阶段）（PPPoE：PPP Over Ethernet <Discovery Stage>）   
+0x8864 以太网上的 PPP（PPP 会话阶段） （PPPoE，PPP Over Ethernet<PPP Session Stage>）   
+0x88BB 轻量级访问点协议（LWAPP：Light Weight Access Point Protocol）   
+0x88CC  链接层发现协议（LLDP：Link Layer Discovery Protocol）   
+0x8E88 局域网上的 EAP（EAPOL：EAP over LAN）   
+0x9000 配置测试协议（Loopback)
+0x9100 VLAN 标签协议标识符（VLAN Tag Protocol Identifier）   
+0x9200 VLAN 标签协议标识符（VLAN Tag Protocol Identifier）   
+0xFFFF 保留
+
+
+  0                   1                   2                   3   
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Version|  IHL  |Type of Service|          Total Length         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |         Identification        |Flags|      Fragment Offset    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Time to Live |    Protocol   |         Header Checksum       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                       Source Address                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Destination Address                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Options                    |    Padding    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                    Example Internet Datagram Header
+
+/*
+  Protocol Family                     PTYPE
+       ---------------                     -----
+       Reserved                            0000
+       SNA                                 0004
+       OSI network layer                   00FE
+       PUP                                 0200
+       XNS                                 0600
+       IP                                  0800
+       Chaos                               0804
+       RFC 826 ARP                         0806
+       Frame Relay ARP                     0808
+       VINES                               0BAD
+       VINES Echo                          0BAE
+       VINES Loopback                      0BAF
+       DECnet (Phase IV)                   6003
+       Transparent Ethernet Bridging       6558
+       Raw Frame Relay                     6559
+       Apollo Domain                       8019
+       Ethertalk (Appletalk)               809B
+       Novell IPX                          8137
+       RFC 1144 TCP/IP compression         876B
+       IP Autonomous Systems               876C
+       Secure Data                         876D
+       Reserved                            FFFF
+*/
+
+
+/*
+Internet Protocol Numbers
+                   ASSIGNED INTERNET PROTOCOL NUMBERS
+
+   In the Internet Protocol (IP) [33] there is a field, called Protocol,
+   to identify the the next level protocol.  This is an 8 bit field.
+
+   Assigned Internet Protocol Numbers
+
+      Decimal    Octal      Protocol Numbers                  References
+      -------    -----      ----------------                  ----------
+           0       0         Reserved                              [JBP]
+           1       1         ICMP                               [53,JBP]
+           2       2         Unassigned                            [JBP]
+           3       3         Gateway-to-Gateway              [48,49,VMS]
+           4       4         CMCC Gateway Monitoring Message [18,19,DFP]
+           5       5         ST                                 [20,JWF]
+           6       6         TCP                                [34,JBP]
+           7       7         UCL                                    [PK]
+           8      10         Unassigned                            [JBP]
+           9      11         Secure                                [VGC]
+          10      12         BBN RCC Monitoring                    [VMS]
+          11      13         NVP                                 [12,DC]
+          12      14         PUP                                [4,EAT3]
+          13      15         Pluribus                             [RDB2]
+          14      16         Telenet                              [RDB2]
+          15      17         XNET                              [25,JFH2]
+          16      20         Chaos                                [MOON]
+          17      21         User Datagram                      [42,JBP]
+          18      22         Multiplexing                       [13,JBP]
+          19      23         DCN                                  [DLM1]
+          20      24         TAC Monitoring                     [55,RH6]
+       21-62   25-76         Unassigned                            [JBP]
+          63      77         any local network                     [JBP]
+          64     100         SATNET and Backroom EXPAK            [DM11]
+          65     101         MIT Subnet Support                    [NC3]
+       66-68 102-104         Unassigned                            [JBP]
+          69     105         SATNET Monitoring                    [DM11]
+          70     106         Unassigned                            [JBP]
+          71     107         Internet Packet Core Utility         [DM11]
+       72-75 110-113         Unassigned                            [JBP]
+          76     114         Backroom SATNET Monitoring           [DM11]
+          77     115         Unassigned                            [JBP]
+          78     116         WIDEBAND Monitoring                  [DM11]
+          79     117         WIDEBAND EXPAK                       [DM11]
+      80-254 120-376         Unassigned                            [JBP]
+         255     377         Reserved                              [JBP]
+*/
+

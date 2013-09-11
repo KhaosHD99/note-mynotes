@@ -11291,24 +11291,1093 @@ tshark: Couldn't load module /home/xuzhenjie/opt/dev/lib/wireshark/plugins/1.8.6
    
 16:12 2013-6-27
    440184199106244229
-   
+      
    http is base on tcp or udp, or both?
-
+   
    private long threeShareHandTime;  //三次握手时间
 	private long serviceSandTime;  //服务器传输时间
 	private long serviceResponseTime; //服务器响应时间
 	private long clientSandTime;  //客户端传输时间
 	private long clientFreeTime;  //客户端空闲时间
 	private long linkFinTime; //关闭连接时间
-         
+   
    how about the data file dir is not existed
    what is ip group
    组播地址? A, B, C类地址
-   
    data model: two direction?
-   
    08:10:75:2B:26:91
    
    sql: do not case sensitive
+      
+   rm the aggrdata default port value
+   add more field to data model
+   
+   分组种类：网段，组播，地域
+   
+9:39 2013-6-28
+   组内字节
+   私有网络
+   convert int to unsigned or long in db???   how to calculate the broadcast address by a ip? no, it can not!!! only by mac
+   tcp pie, sequence chart, data flow
+   
+15:27 2013-6-29
+   mac 多播?
+   ip mac 映射？
+   mac point: src, dst ip?????????????
+   frame time need to be nano second
+   optimize the funtion of datetimestring to timestamp
+   how about after 千万亿
+   how about the protocol tree
+   ipendpoint: start time, end time???
+      
+   public native DataPackInfo decodingPackInfo(String operateFlag,
+						long packNumb);???
+   how to release the jobject
+   notebook save power solution
+                              
+14:38 2013-6-30
+   why the performance is so bad???
+   
+/--------------------------------------------------------------------      
+   the continuation decoding cost time:
+   7 -> 25 -> 36 -> 52
+   
+   why the first decoding cost so much time???   				over
+--------------------------------------------------------------------/
+   select distinct(ip1), id from aggregationdata where mac1 = '04:7d:7b:a9:50:e8'
+   does "CppSQLite3Query" need to be release???
+      
+16:04 2013-7-1
+   the level block comment
+   /var/tmp is memory???
+                  
+9:47 2013-7-2
+   will it carsh if i return NULL in jni interface???
+   time_t size???
+         
+   strlen will crash if the input para is NULL!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   should xmlNodePtr be free???
+         
+   jbyteArray
+   
+   IEEE 802.3, Ethernet ii, ISL
+   
+10:05 2013-7-3
+   return code specification
+   
+   eth:eth:llc:dtp:vssmonitoring???
+   
+scp  /home/xuzhenjie/opt/dev/lib/*.so* root@192.168.1.205:/home/
+    
+libPath:/home/tools/jdk1.6.0_41/jre/lib/amd64/server:/home/tools/jdk1.6.0_41/jre/lib/amd64:/home/tools/jdk1.6.0_41/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Exception in thread "main" java.lang.UnsatisfiedLinkError: /usr/lib/libbacktrack.so.0.0.0: libtshark.so.0: cannot open shared object file: No such file or directory
+        at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+        at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1807)
+        at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1732)
+        at java.lang.Runtime.loadLibrary0(Runtime.java:823)
+        at java.lang.System.loadLibrary(System.java:1028)
+        at com.yuandian.apm.backtrack.jni.DataPacketAnalysis.<clinit>(DataPacketAnalysis.java:397)
+        at com.yuandian.apm.backtrack.test.Test.main(Test.java:51)
+  
+   use integer timestamp instead the time string
+   
+   long long print format: %lld, %ld, %d. will it crash when the real size exceeds the format size
+   http.response.phrase
+   HTTP method: M-SEARCH, NOTIFY, GET
+                
+10:33 2013-7-4
+   syn攻击
+   ldconfig
+   is the little, big endian use the same bit sequence??? 
+   
+   standardize the log output
+   check cpuinfo
+      
+   										database data type numernic
+   the necessity of using unsigned integer
+   stl map: the key can not be same!!!
+         
+10:30 2013-7-5
+   how to calculate each layer protocol count
+   流量统计 利用率？
+   the multicast statistics is different with kola
+         
+   import data package file with a time span												**
+   
+   time stamp convert to human readable string
+                       
+   %lld
+   tcp 数据包 分组序号. ISN(initial sequence number)
+            
+16:41 2013-7-6
+   timestamp to str algorithm
+      
+11:02 2013-7-8
+   how can i know the absolute tcp seq, nxt seq, ack!
+   if get package data file err(connect, received...), how can i handle it
+   the relative sequence number?
+   
+14:07 2013-7-9
+   strlen(NULL);
+   how about there is no such a directory			done
+   how to modify the "java.library.path"
+   
+   ldconfig: /usr/lib/libwiretap.so.2 不是符号连接
+   ldconfig: /usr/lib/libtshark.so.0 不是符号连接
+   ldconfig: /usr/lib/libwireshark.so.2 不是符号连接
+   ldconfig: /usr/lib/libwsutil.so.2 不是符号连接
+     eth:ip:tcp:http:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data:data-text-lines
+   
+   how to read "core" file???
+   why no opcode in wireshark???
+   
+   database unsigned integer
+   
+   public String TcpWindowSize = "0"; ???
+   
+   java integer data type is unsigned???
+   
+   TcpPayloadSize???
+   
+   string_to_64int???
+   
+10:24 2013-7-10
+   
+ --------------------------- packet ------------------------   
+/**
+	 * 源端口
+	 */
+	private int src_port;
+	/**
+	 * 目标端口
+	 */
+	private int dest_port;
+------------------------------------------------------------   
+   数据包长度???
+   数据包实际长度???   
+   packet summary???
+   public void setTcpWindowSize(String tcpWindowSize)???
+   udp/tcp pay load size???
+   if the analysis start occur err, then show the progress is done
+   how about the http response code is 0
+   how about the xml is messy???
+   
+   crash?????????????????
+   
+   study read the “hs_err"/"core" file
+   
+14:33 2013-7-11
+   #
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f881e0c0779, pid=9347, tid=140222588688128
+#
+# JRE version: 6.0_24-b24
+# Java VM: OpenJDK 64-Bit Server VM (20.0-b12 mixed mode linux-amd64 compressed oops)
+# Derivative: IcedTea6 1.11.1
+# Distribution: CentOS release 6.2 (Final), package rhel-1.45.1.11.1.el6-x86_64
+# Problematic frame:
+# V  [libjvm.so+0x4d2779]  JNI_CreateJavaVM+0xf4d9
+#
+# An error report file with more information is saved as:
+# /home/xuzhenjie/prj/libbacktrack_jnitest/hs_err_pid9347.log
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   http://icedtea.classpath.org/bugzilla
+#
+./run.sh: line 1:  9347 Aborted                 (core dumped) java com/yuandian/apm/backtrack/test/Test
+      
+   crash on idle???
+   
+   May 22, 2013 10:22:24.500004000
+   May 22, 2013 10:26:53.033012000
+                    4:31
+   240 + 29 = 268
+   
+   what the sqlite bigint size in 32bit sys???
+   scp with the passwd!!!
+   
+   total size: 10131302
+         
+   summary excavation!!!
+   packet count/sec: average or real time???
+                  
+9:40 2013-7-12
+   why the multicast statistics is wrong?
+            
+   sum(b127_bytes)	sum(p127_bytes)
+   733683		9439340
+         
+   PF_Ring
+   import file time filter
+      
+15:42 2013-7-13
+   is http a interact protocol(tcp interaction data flow)		**
+   payload size 载荷长度？???						over
+   
+   SYN, FIN, RST, PSH usually only one will be setted
+   
+15:45 2013-7-14
+   can i build a packet sender for test
+      
+   if payload=0, the RST or PSH is set, should the sequence +1???
+               
+   why the RST will show in the tcp close???				**
+   how can i know what is the request and what is the response???
+   
+   is the FIN must pick up the ACK???
+   
+   is RST only use for close the connection???
+      
+   ------------------
+   use PSH for close acknowledgement???					**
+   should i handling the ack as the highest priority???			
+   ---------------------------
+   
+12:01 2013-7-15
+   RST does not pick up the ack???
+   "tcp 交易" translate to "tcp transaction" is accurate
+   
+   10M capture file, 20000+- packets???
+      
+-------------------------------
+   complete the base data
+   complete the filter, add the time filter
+------------------------------
+   
+9:50 2013-7-16
+   ipendpoint: 组内数据包
+      
+   use nsec in aggregation data???
+   
+   #if 0
+        while(1){
+                void* handle = dlopen ("/home/xuzhenjie/prj/wireshark/trunk/.libs/libtshark.so", RTLD_LAZY);
+                //void* handle = dlopen ("/home/xuzhenjie/prj/wireshark/trunk/.libs/libtshark.so", RTLD_NOW);
+                //void* handle = dlopen ("/home/xuzhenjie/prj/wireshark/trunk/.libs/libtshark.so", RTLD_GLOBAL);
+                //void* handle = dlopen ("/home/xuzhenjie/prj/wireshark/trunk/.libs/libtshark.so", RTLD_LOCAL);
+                typedef int (*Func)(int argc, char **argv);
+
+                if(NULL != handle){
+                        Func func;
+                        func = (Func)dlsym (handle, "tshark_entrance");
+
+                        (*func)(OPTION_COUNT, decoder_option);
+                        dlclose(handle);
+                }
+                else{
+                        printf("***** load so err\n");
+                }
+                getchar();
+
+
+                void* handle2 = dlopen ("/home/xuzhenjie/prj/wireshark/trunk/.libs/libtshark.so", RTLD_LAZY);
+                if(NULL != handle2){
+                        Func func2;
+                        func2 = (Func)dlsym (handle2, "tshark_entrance");
+
+                        (*func2)(OPTION_COUNT, decoder_option);
+                        dlclose(handle2);
+                }
+                else{
+                        printf("***** load so err\n");
+                }
+        }
+        #else
+        #endif
+    
+    mac multicast???
+        
+9:43 2013-7-17
+    judge what for a multicast packet???
+    
+    how can i calculate the mac multicast???
+    
+    id	ip	mac	ipaddr_count	session_count	start_time	end_time	total_packet	total_packet_bytes	packet_send	packet_received	packet_send_bytes	packet_received_bytes	broadcast_packet	broadcast_packet_bytes	multicast_packet	multicast_packet_bytes
+4		00:21:cc:42:0b:26	0	0	1369189344	1369189611	151	16280	151	0	16280	0	35	3336	45	6339
+
+id	ip	mac	ipaddr_count	session_count	start_time	end_time	realtime_sec_packet_count	realtime_sec_bytes	total_packet	total_packet_bytes	packet_send	packet_received	packet_send_bytes	packet_received_bytes	broadcast_packet	broadcast_packet_bytes	multicast_packet	multicast_packet_bytes
+7		00:0b:5f:73:a5:99	0	0	1369189345	1369189611	0	0	156	10874	156	0	10874	0	0	0	156	10874
+
+id	ip	mac	ipaddr_count	session_count	start_time	end_time	realtime_sec_packet_count	realtime_sec_bytes	total_packet	total_packet_bytes	packet_send	packet_received	packet_send_bytes	packet_received_bytes	broadcast_packet	broadcast_packet_bytes	multicast_packet	multicast_packet_bytes
+1		08:10:75:2b:26:91	0	0	1369189344	1369189612	17	1020	5764	432354	5650	114	413571	18783	5496	375664	55	20800
+
+id	ip	mac	ipaddr_count	session_count	start_time	end_time	realtime_sec_packet_count	realtime_sec_bytes	total_packet	total_packet_bytes	packet_send	packet_received	packet_send_bytes	packet_received_bytes	broadcast_packet	broadcast_packet_bytes	multicast_packet	multicast_packet_bytes
+3		1c:65:9d:9d:6a:c2	0	0	1369189344	1369189420	0	0	2	120	2	0	120	0	2	120	0	0
+    
+    
+    queuing task test, how can i handling???
+    
+    public native byte[] getUdpFlowData(String operateFlag, String udpsessionId);
+    the ip count found by proto is not the same with cola
+    physical point: Parentname??? max time? mini time
+    
+
+setMacaddress(String 
+		setNetproname(String 
+		setUpproname(String 
+		setPronamestr(String
+		setPackNumber(String
+		setOneproname(String
+		setTwoproname(String
+		setThreeproname(String 
+		setFourproname(String 
+    
+/************************************************************** connotation **************************************************
+ *   
+ *   self-kite
+ *   self-projector
+ *   throat exercise
+ *   beer etiquette!
+     i have a bad temper?
+/******************************************************************************************************************************
+
+
+/************************************************ knowledgemet foundation ******************************************************
+12:23 2013-7-21,
+       
+ * "iptables"
+ *
+ * (long long)dissection->delta_time / 1000);
+ * udp包伪首部
+ * __attribute__
+ * systme base func: access?
+ * how can i edit a remote(internet) file in
+ * group by algorithm
+   how did "configure" find "pcap.h", and link dynamicly or ...
+   序列化
+            
+   show prompt before execute a special cmd???
+   how to clean the current shell history cmd?
+         
+   "bit currency???"
+   交换机级联,堆叠
+   
+   反转片，负片，扫底
+   
+*******************************************************************************************************************************/
+         
+/************************************************************** amor pursuing **************************************************
+ *  
+ *  a bottle is necessary?
+ *  tasty site
+ *  topic collection
+ *  
+/******************************************************************************************************************************
+   
+/************************************************************** libbacktrack **************************************************
+   suspend test
+   decoder
+   decoder: no lock at data in-out!!!
+   decode a large capture file occur err!!
+
+   will "ip proto" field has value while the frame type is ipx/XNS/OSI/...?
+      
+   *decoder reform(structure, interface, expansibility)
+   
+   block??? add a receiving timeout, the task deliver must be seamless!!!
+      
+   release resource
+   cancel mechanism
+   
+   dead lock!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      
+   if has payload, do not regard as "close" transaction
+   
+   release disk resource
+   
+   collapse
+   dead loop!!!!!!!!!!!!!!!!!!!!!!!!
+            
+   the server is always busy???
+   
+   get the execute result desc
+   db is not close
+            
+   there is a bug when the capture file is too small
+   
+   "library routine called out of sequence"
+      
+   crash???
+   the handshake time will be error at some caputure file???
+            
+   tcp transaction count??? one transaction should be two-sides(request and response) combination
+      
+   http request: GET, POST, PUT, CONNECT
+   the work thread is block!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(key: can not find query id???)
+            
+   tcp retransmission, truns(package: "shishi.pcap", xxxxx.101:1526
+   
+   data flow, calculate unit
+   
+   retransmission...done
+      
+   tcp session, icmp...done
+   
+   why the tcp byte flow is gone???
+    
+   dns
+   uri
+   http protocol...over
+   
+   if the log dir does not exist, how can i do...done
+   
+   packet offset is wrong???
+   
+   error code: 0???????
+   
+   icmp???
+   
+   udp duration
+   
+   ipxsap???
+   
+   diagnosis
+   
+   a fatal logic err(key: two storage???)
+      
+   add a max package constrain
+      
+   the byte flow will hide and show
+   
+   realtime packet count per sec
+   http packet count
+      
+   package paging config...done
+   export file messy code!!!...done
+            
+   real time packet count per sec...done
+   negative count in udp session...done
+         
+   the get progress will block by the work thread...over
+   
+   ipendpoint tcp count
+            
+   why there is the same query id???
+   why the start-qureyid different from get-queryid???
+               
+   the work thread logic will be messy if the packege is big???
+   turns
+      
+   70M+ captrue file, used 3min+ for decoding???
+   add decoding cost time
+   add entrance mechanism: only one task occupy		...over
+   
+   physical session filter(list, range)
+   offset overlying
+   narrow the lock scope when processing and storage...over
+      
+   protocols fields
+   
+   unknow death loop
+   block???
+   tcp transaction
+   tcp dissesion and session mapping
+   
+   add query begin and endtime
+   
+   tcp direction packet count, bytes
+      
+   physical session, ip session detail window
+   
+   no url
+         
+   physical addr filter(case sensitive)
+   protocol filter
+   how about commit transaction repeatly???
+   
+   how the performace of sqlite multithread???
+   
+   add progress index:over
+   add decoded size
+      
+   tcp dissection
+   
+   udp send and received packet
+   
+   protocols showing
+   no byte flow????
+   packet list, no port???
+   packet list show fields can not match
+   
+   change the log dir
+                     
+   if i do nothing in a loop, it will waste the cpu???
+   filter, will the udp/tcp port value be 0 ?
+      
+   bound the thread to specific cpu core???
+   packlist time, delta time, rela time
+   packet nsec
+   
+   check the anylysis timeout
+   
+   the export file code arch
+   real time traffic
+   packet distribution
+   getStringField, memory leak?
+   decoder, decoding stroe memory size restriction???
+   decoder, memory leak!!!
+   decoder, crash!
+   
+   datestring2timestamp crash???
+    
+   resource(disk) release
+     
+   import package: time filter
+   packets paging
+      
+   total_packet_bytes use long long
+   600M, 60+-s; 300+-M, 60+-s!!! the file format is different???
+            
+   aggregate at the last?
+   use database to aggregation?
+   export packet file
+   udp payload?
+   transaction delta time
+   the judgemet of tcp connect suc???
+   commit to svn
+   tcp statistics
+   session directional time
+   packet list, packet flow, packet raw data
+   each side start and send time
+   get result(it should be only one record) by id!!!
+   pakcet offset
+   statistics fields
+   there is a bug in single instance!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! does it will effect the LOG class???
+   showIpPointFromPhysicspoint: sql statement
+   the fields dismatch or empty or transporsation
+   fields "time",
+   get ipsession by physical session???
+   should "id" use long long for storage???
+   the difference beween the 32bit and 64bit: pass int to jlong
+   if there is more than one tcp close, that algorithm does not work
+   
+   summary
+   add my brand to the code
+   
+over: 
+   a timestamp to string
+   
+bug: 
+   use a NULL addr in socket
+   xml reader NULL point
+      
+   pay more cation to stl list container get size mothod
+   found a packet dispatch bug 
+   
+   confused the operator prior
+               
+   the app layer request must has payload
+   the ack packet does not effect the app layer request, response status
+   
+   conversion from int to double manually
+   
+   border issue
+   condition offset
+   
+   initialization is important
+         
+[WARNING][20130724 18:16:45]on BackTrack::WorkThread, query 474d7e61-4752-4b78-8631-beb86d0e1f3f on analyzer: PhysicalEndPoint lose packet or still on analyzing, decoded_packet_size: 30602, analyzed packet: 19638
+[INFO][20130724 18:16:45]on TCPSession::DoStorage
+[INFO][20130724 18:16:45]on TCPSession::DoStorage
+
+*** glibc detected *** java: munmap_chunk(): invalid pointer: 0x00007ffbac0aec50 ***
+*** glibc detected *** java: malloc(): memory corruption: 0x00007ffbad017250 ***
+   
+      
+   capture file size: 10M, decoding time consuming: 3+-sec
+      
+@@@@@@@@@@@@@@@@@@@@ raw code, 600+-M
+   [INFO][20130727 15:30:52]on start_decoding
+[INFO][20130727 15:30:52]on start_decoding, decoder is standby, rtn: 0
+[INFO][20130727 15:30:52]on start_decoding, pthread_create suc, rtn: 0
+[INFO][20130727 15:30:52]on DecodingThread
+[INFO][20130727 15:31:46]end decode
+[WARNING][20130727 15:31:46]-------------------------- the decoding is over
+
+@@@@@@@@@@@@@@@@@@@@@@ with push queue, 600+-M
+[INFO][20130727 15:33:40]on start_decoding
+[INFO][20130727 15:33:40]on start_decoding, decoder is standby, rtn: 0
+[INFO][20130727 15:33:40]on start_decoding, pthread_create suc, rtn: 0
+[INFO][20130727 15:33:40]on DecodingThread
+[INFO][20130727 15:34:37]end decode
+[WARNING][20130727 15:34:37]-------------------------- the decoding is over
+
+@@@@@@@@@@@@@@@@@@@@@@ with push queue, 100+-M, 9+-s
+[INFO][20130727 16:25:52]on start_decoding
+[INFO][20130727 16:25:52]on start_decoding, decoder is standby, rtn: 0
+[INFO][20130727 16:25:52]on start_decoding, pthread_create suc, rtn: 0
+[INFO][20130727 16:25:52]on DecodingThread
+[INFO][20130727 16:26:01]end decode
+[WARNING][20130727 16:26:01]-------------------------- the decoding is over
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 100M...
+[INFO][20130727 17:23:26]on Java_com_yuandian_apm_backtrack_jni_DataPacketAnalysis_importPackageDataStart
+[WARNING][20130727 17:23:40]-------------------------- the decoding is over
+[INFO][20130727 17:27:57]---------- on BackTrack::WorkThread, waiting for task...
+                    4:31
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 17:54 2013-7-28, 100M
+[INFO][20130728 17:53:19]start decoding...
+INFO][20130728 17:53:45]the decoding has completed
+[INFO][20130728 17:54:09]---------- on BackTrack::WorkThread, waiting for task...
+                      50 sec
+
+
+
+缓存限制导致相关数据包丢弃
+
+** (process:11831): WARNING **: Dissector bug, protocol R3, in packet 32322: proto.c:1757: failed assertion "(guint)hfindex < gpa_hfinfo.len"
+
+** (process:11831): WARNING **: Dissector bug, protocol R3, in packet 32323: proto.c:1757: failed assertion "(guint)hfindex < gpa_hfinfo.len"
+
+** (process:11831): WARNING **: Dissector bug, protocol GTPv2, in packet 141851: Incompatible use of proto_tree_add_bits_ret_val with field 'gtpv2.mm_context_used_cipher' (Used Cipher) with bitmask != 0
+
+** (process:11831): WARNING **: Dissector bug, protocol R3, in packet 1686230: proto.c:1757: failed assertion "(guint)hfindex < gpa_hfinfo.len"
+         
+   bound to a processer or one core???
+   
+   check out "glib"
+      
+   physical session duration: e0:06:e6:c5:00:8a, ff:ff:ff:ff:ff:ff
+   192.168.1.104:2270<->156:80, tcp transaction
+                 2098<->                       , req 142
+
+
+
+INFO][20130812 14:18:31]on Java_com_yuandian_apm_backtrack_jni_DataPacketAnalysis_exportPackageData
+[INFO][20130812 14:18:31]on BackTrack::StartBackTrack, query_id: 36e45415-5572-4c42-8bbf-af617265190d, filepath: (null), probeip: 192.168.1.209, iface: 2, start_time: 1376288394, end_time: 1376288469, condition: <Filter></Filter>, export_file_flag: 1, output_dir: /opt/store/, max_file_size: 0
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, probeip: 192.168.1.209, cmd: 101, probe: 2, start time: 1376288394, end time: 1376288469, cmd len: 20
+[INFO][20130812 14:18:31]on BackTrack::GetExportFilepaths, query_id: 0761bee0-5d4c-43dc-b3fa-6228b421f977
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, probeip: 192.168.1.209, cmd: 101, probe: 2, start time: 1376288394, end time: 1376288469, cmd len: 20
+[INFO][20130812 14:18:31]on BackTrack::GetExportFilepaths, find query: 0761bee0-5d4c-43dc-b3fa-6228b421f977, export_file_count: 1
+[INFO][20130812 14:18:31]on Java_com_yuandian_apm_backtrack_jni_DataPacketAnalysis_exportPackageData, filepath[0]: /opt/store//0761bee0-5d4c-43dc-b3fa-6228b421f977_01.pcap
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, waiting for response...
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, waiting for response...
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, response code: 100, total packets size: 74648247(byte)
+[INFO][20130812 14:18:31]on getpackets/getpackets.cc::get_history_packet, receiving packets...
+[INFO][20130812 14:18:31]on set_cpu, bound current thread to cpu core id: 1 suc
+[INFO][20130812 14:18:31]start decoding...
+[INFO][20130812 14:18:38]------- on getpackets/getpackets.cc::get_history_packet, have received 74648247 bytes and write to file: data/36e45415-5572-4c42-8bbf-af617265190d.pcap suc
+[INFO][20130812 14:18:38]on BackTrack::StartBackTrack, get packets suc, rtn: 0
+[INFO][20130812 14:18:38]on BackTrack::StartBackTrack, current task size: 1
+[INFO][20130812 14:21:34]the decoding has completed
+[INFO][20130812 14:21:34]on BackTrack::WorkThread, start export packets file... queryid: eaa7ca74-5894-4f75-b51a-2e42b96a813f, max file size: 0
+[INFO][20130812 14:21:34]on BackTrack::ExportPacketToFile, query_id: eaa7ca74-5894-4f75-b51a-2e42b96a813f, input_filepath: data/eaa7ca74-5894-4f75-b51a-2e42b96a813f.pcap, output_dir: /opt/store//, single_file_max_bytes: 0
+[INFO][20130812 14:21:34]on BackTrack::GetAnalyzedResultUnitList, query_id: eaa7ca74-5894-4f75-b51a-2e42b96a813f, analyzer_name: Packet
+[INFO][20130812 14:21:34]on Packet::GetAnalyzedResultUnitList, query eaa7ca74-5894-4f75-b51a-2e42b96a813f data file do not exist
+[WARNING][20130812 14:21:34]on BackTrack::ExportPacketToFile, there is not any packet in queryid: eaa7ca74-5894-4f75-b51a-2e42b96a813f, packet count: 0
+[ERROR][20130812 14:21:34]on BackTrack::WorkThread, export packets file err, queryid: eaa7ca74-5894-4f75-b51a-2e42b96a813f, max file size: 0
+[INFO][20130812 14:21:34]on BackTrack::WorkThread, query eaa7ca74-5894-4f75-b51a-2e42b96a813f has done, decoded_packet_count: 753093, filtered_packet_count: 0, file size: 506143371, file path: data/eaa7ca74-5894-4f75-b51a-2e42b96a813f.pcap
+
+
+Java_com_yuandian_apm_backtrack_jni_DataPacketAnalysis_showIpextremepoint
+[INFO][20130812 16:28:54]on BackTrack::GetAnalyzedResultUnitList, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, analyzer_name: IPEndPoint
+[INFO][20130812 16:28:54]on IPEndPoint::GetAnalyzedResultUnitList, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122
+[INFO][20130812 16:28:54]on IPEndPoint:GetAnalyzedResultUnitList, table record count: 1447
+[INFO][20130812 16:28:54]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, ip: 10.10.30.21
+[INFO][20130812 16:28:54]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, ip: 10.181.16.62
+[INFO][20130812 16:28:54]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, ip: 10.10.30.225
+[INFO][20130812 16:28:54]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, ip: 10.10.30.232
+[INFO][20130812 16:28:54]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: a1f5dc0d-dc87-44f5-9c2b-42e6883b7122, ip: 10.181.16.65
+
+/--------------------------------------------------------
+repeating...
+   
+20130812 11:34:15]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: 543b9c50-dd28-4b5f-bb42-15e979003cd8, ip: 221.238.24.18
+[INFO][20130812 11:34:15]on TCPSession::GetAnalyzedResultUnitListByIPEndPoint, query_id: 543b9c50-dd28-4b5f-bb42-15e979003cd8, ip: 220.181.163.18
+--------------------------------------------------------/
+      
+100M, tshark, 	
+2013-7-26, 
+*******************************************************************************************************************************/
+         
+23:20 2013-7-21
+   206 not a x86 arch???
+         
+select * from packet group by ip_src, ip_dst, mac_src, mac_dst,   \ 
+udp_srcport, udp_dstport, tcp_srcport, tcp_dstport, frame_protocols
+   
+
+id	frame_number	offset	frame_len	frame_time	frame_protocols	arp_opcode	mac_src	mac_dst	ip_src	ip_dst	ip_hdrlen	ip_len	tcp_hdrlen	tcp_flags	tcp_seq	tcp_ack	tcp_nxtseq	tcp_payloadsize	tcp_windowsize	tcp_srcport	tcp_dstport	udp_srcport	udp_dstport	http_request_method	http_request_uri	http_request_version	http_response_code	http_phrase
+10665	10665	1444594	54	1369189611826671000	eth:ip:tcp		04:7d:7b:a9:50:e8	00:1e:67:4d:5c:05	192.168.1.104	192.168.1.195	20	40	20	16	478	482			63893	1847	445							
+id	frame_number	offset	frame_len	frame_time	frame_protocols	arp_opcode	mac_src	mac_dst	ip_src	ip_dst	ip_hdrlen	ip_len	tcp_hdrlen	tcp_flags	tcp_seq	tcp_ack	tcp_nxtseq	tcp_payloadsize	tcp_windowsize	tcp_srcport	tcp_dstport	udp_srcport	udp_dstport	http_request_method	http_request_uri	http_request_version	http_response_code	http_phrase
+10661	10661	1444196	107	1369189611716357000	eth:ip:tcp:nbss:smb		04:7d:7b:a9:50:e8	00:1e:67:4d:5c:05	192.168.1.104	192.168.1.195	20	93	20	24	425	429	478		63906	1847	445							
+
+
+
+select count(id) as total_packet, sum(frame_len) as total_packet_bytes, min(frame_time) as start_time, max(frame_time) as end_time, * from packet \ 
+where (ip_src ='192.168.1.104' and ip_dst='192.168.1.195') or  (ip_dst ='192.168.1.104' and ip_src='192.168.1.195')\ 
+group by ip_src, ip_dst, mac_src, mac_dst,   \
+udp_srcport, udp_dstport, tcp_srcport, tcp_dstport, frame_protocols      \
+
+
+Tasks: 311 total,   2 running, 307 sleeping,   1 stopped,   1 zombie
+Cpu0  : 59.9%us,  3.3%sy,  0.0%ni, 35.5%id,  1.3%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu1  : 22.6%us,  3.6%sy,  0.0%ni, 73.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu2  : 37.8%us,  4.0%sy,  0.0%ni, 58.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu3  : 35.5%us,  2.3%sy,  0.0%ni, 62.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu4  : 26.2%us,  3.0%sy,  0.0%ni, 70.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu5  : 12.5%us,  3.1%sy,  0.0%ni, 83.7%id,  0.7%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu6  : 12.3%us,  2.3%sy,  0.0%ni, 85.3%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu7  : 28.1%us,  2.3%sy,  0.0%ni, 69.6%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+      
+   192.168.1.104:1847<->192.168.1.195:445
+   192.168.1.0/255.255.255.0
+   192.168.1.195-192.168.1.196
+     
+g++ -DHAVE_CONFIG_H -I. -I../.. -I/home/xuzhenjie/prj/libtshark_test -I/home/xuzhenjie/prj/libtshark_test/src/include
+-I/home/xuzhenjie/opt/dev/include/   -export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -g -O2 -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -I/home/xuzhenjie/opt/dev/include/
+-export-dynamic -Wall  -D_GNU_SOURCE  -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.cc
+   
+   yum -y install gcc automake autoconf libtool make
+      
+   1235
+   8
+----
+   9880
+   33:33:00:00:00:02
+   
+   6247 root      20   0 19.8g 9.9g  26m S 200.2 63.7  87:03.84 java
+   90:2b:34:95:41:72
+   
+   frame.time_relative == 130.621558
+    
+   select *, sum(total_packet) from protocol where proto like "eth:ip:tcp"
    
    
+   
+arp, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: bootp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: browser, parent_protocols: eth:ip:udp:nbdgm:smb, parent_protocols_section_list.size(): 5
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: bt-utp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: cdp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data, parent_protocols: eth:llc:cdp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data-text-lines, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dhcpv6, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:eth:llc, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: eth, parent_protocols: , parent_protocols_section_list.size(): 0
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: eth, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: gss-api, parent_protocols: eth:ip:tcp:nbss:smb, parent_protocols_section_list.size(): 5
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: gtp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: icmpv6, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: icp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ip, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipv6, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipx, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipx, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipxsap, parent_protocols: eth:ipx, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipxsap, parent_protocols: eth:llc:ipx, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: llc, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: llc, parent_protocols: eth:eth, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbdgm, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbss, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ntlmssp, parent_protocols: eth:ip:tcp:nbss:smb:gss-api, parent_protocols_section_list.size(): 6
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: oicq, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:udp:nbdgm, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:tcp:nbss, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: srvloc, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: stp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: tcp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: tpcp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: yami, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+
+
+
+
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: arp, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: bootp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: browser, parent_protocols: eth:ip:udp:nbdgm:smb, parent_protocols_section_list.size(): 5
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data-text-lines, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dhcpv6, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:eth:llc, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: eth, parent_protocols: , parent_protocols_section_list.size(): 0
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: eth, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: icmpv6, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: igmp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: image-gif, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: ip, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: ipv6, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: llc, parent_protocols: eth:eth, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: llc, parent_protocols: eth, parent_protocols_section_list.size(): 1
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: nbdgm, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: nbns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: oicq, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:udp:nbdgm, parent_protocols_section_list.size(): 4
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: srvloc, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: stp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: tcp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
+[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp, parent_protocols_section_list.size(): 4
+
+proto: arp, parent_protocols: eth
+proto: cdp, parent_protocols: eth:llc
+proto: data, parent_protocols: eth:llc:cdp
+proto: dtp, parent_protocols: eth:eth:llc
+proto: dtp, parent_protocols: eth:llc
+proto: eth, parent_protocols: 
+proto: eth, parent_protocols: eth
+proto: llc, parent_protocols: eth
+proto: llc, parent_protocols: eth:eth
+proto: stp, parent_protocols: eth:llc
+proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp
+
+
+sis, time: 2013-05-22 10:22:30, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:32, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 28
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:44, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:23, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 28
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:24, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:42, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:02, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:03, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:16, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 29
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:32, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:34, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:35, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:52, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:53, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:55, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:15, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:34, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:02, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:04, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:05, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:23, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:24, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:25, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:28, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:43, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:44, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:45, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
+
+.1.6:50877
+xxx.139:6396
+
+tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/lishi.pcap -e frame.number -e http.request | grep 1 -w | wc
+
+6163
+
+
+ proto_list[0]: AOL
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[1]: ARP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[2]: ATALK
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[3]: ATIP_AEP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[4]: ATIP_NBP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[5]: ATIP_RTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[6]: ATIP_ZIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[7]: AT_AEP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[8]: AT_ATP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[9]: AT_DSP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[10]: AT_NBP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[11]: AT_RTMP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[12]: AT_RTREQ
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[13]: AT_ZIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[14]: Audio
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[15]: BGP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[16]: CCMAIL
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[17]: CDMA2K
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[18]: CDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[19]: CISCOGDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[20]: CITRIX
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[21]: CNT-Fibre
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[22]: CRTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[23]: DECLAT
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[24]: DECNET
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[25]: DHCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[26]: DIAMETER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[27]: DIAMETER-SCTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[28]: DLC
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[29]: DLSW_RD
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[30]: DLSW_WR
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[31]: DNS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[32]: DNSIX
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[33]: DOOM
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[34]: EGP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[35]: FTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[36]: GGP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[37]: GRE
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[38]: GTPU_V1
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[39]: GTP_V0
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[40]: GTP_V1
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[41]: H245
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[42]: H323-GAT
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[43]: HSRP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[44]: HTTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[45]: HTTPS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[46]: ICMP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[47]: iFCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[48]: IGMP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[49]: IGRP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[50]: IMAP3
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[51]: INGRESQL
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[52]: IP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[53]: IP Flow Info Export
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[54]: IPFIX over DTLS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[55]: IPIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[56]: IPIP4
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[57]: IPPING
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[58]: IPSec-AH
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[59]: IPSec-ESP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[60]: IPV6
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[61]: IPX
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[62]: IPX1_UDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[63]: IPX2_UDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[64]: IP_OTHER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[65]: IRC
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[66]: IS-801
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[67]: iSCSI
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[68]: ISO 8583
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[69]: ISO_8583_0100
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[70]: ISO_8583_0110
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[71]: ISO_8583_0200
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[72]: ISO_8583_0210
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[73]: ISO_8583_04XX
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[74]: ISO_8583_BASE1
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[75]: ISO_8583_OTHER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[76]: ITU-T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[77]: IUA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[78]: KERBEROS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[79]: L2F
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[80]: L2TP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[81]: LDAP1
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[82]: LDAP2
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[83]: M2PA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[84]: M2UA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[85]: M3UA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[86]: MEGACO
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[87]: Megaco-H.248 binary
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[88]: MGCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[89]: MOBILE IP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[90]: MS-DNS_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[91]: MS-DNS_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[92]: MS-WINS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[93]: MSSQLMON
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[94]: MSSQLSRV
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[95]: NB_DGM_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[96]: NB_NS_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[97]: NB_SSN_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[98]: NCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[99]: NETB
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[100]: NETB_DGM
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[101]: NETB_NAM
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[102]: NETB_SSN
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[103]: NETSHOW
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[104]: NETVIEW
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[105]: NETV_RCV
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[106]: NETV_SND
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[107]: NET_OTHER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[108]: NEWS_UDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[109]: NFS_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[110]: NFS_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[111]: NNTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[112]: Notes
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[113]: NOTESUDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[114]: NOVRIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[115]: NOVSAP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[116]: NSIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[117]: NTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[118]: NW-CS_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[119]: NW-LU62U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[120]: ORACLE_SRV
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[121]: ORACLSQL
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[122]: OSI
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[123]: OSPF
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[124]: PGM
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[125]: POP3
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[126]: POP3_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[127]: PRINT_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[128]: PRINT_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[129]: Q931
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[130]: Radius-Accounting
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[131]: RadiusAuthentication
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[132]: RARP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[133]: REALAUD
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[134]: REXEC
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[135]: RFE_UDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[136]: RIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[137]: Rlogin
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[138]: RPRINT_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[139]: RPRINT_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[140]: RSP_ALT_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[141]: RSVP2
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[142]: RSVP3
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[143]: RTCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[144]: RTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[145]: RTSP_U
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[146]: RWHO
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[147]: S1-AP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[148]: SCCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[149]: SCTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[150]: SIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[151]: SIP_T
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[152]: SKYPE
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[153]: SMPP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[154]: SMTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[155]: SNA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[156]: SNMP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[157]: SNMPTRAP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[158]: SOCKS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[159]: SQLNET
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[160]: SQLNET_N
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[161]: SQL_SRV
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[162]: SSH
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[163]: SUA
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[164]: SUNRPC
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[165]: SYSLOG
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[166]: TACACS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[167]: TCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[168]: TCP_OTHER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[169]: TELNET
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[170]: TFTP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[171]: TSX_STAMP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[172]: UDP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[173]: UDP_OTHER
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[174]: V5UA app port
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[175]: Video
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[176]: VINES
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[177]: VIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[178]: VoFR
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[179]: XDMCP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[180]: XNS
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[181]: XNS_ECHO
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[182]: XNS_ERR
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[183]: XNS_PEP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[184]: XNS_RIP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[185]: XNS_SPP
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[186]: XWINDOW
+[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[187]: XWIN_UDP
+
+baidu: 115.239.210.27
