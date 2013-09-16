@@ -896,6 +896,17 @@ traffic payment: 100
    broadband, mobile phone, corded phone: 480
    
 
+<<<<<<< .mine
+
+
+
+
+19:33 2013-7-28
+   mum's medical insurance: 1600
+   
+
+11:51 2013-8-4
+    500-, 270 "china mobile"...=======
 <-
    medical insurance(mum): 2400-
    SLR: 4300 + 700(50mm lens) + 3500+(wide angle lens)
@@ -909,4 +920,4 @@ traffic payment: 100
 
 
 
-9:21 2013-9-6
+9:21 2013-9-6>>>>>>> .r1024

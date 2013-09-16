@@ -3940,7 +3940,13 @@ it's sad and but i should always keep moving  forward
    
       
 10:04 2013-4-7
+<<<<<<< .mine
+   maybe i have a rival. i have to pay more effort
+      
+
+=======
    fuck the great wall, i can not reach "www.net-snmp.org"
+>>>>>>> .r1023
    
    
 09:12 2013-4-8
@@ -4797,10 +4803,16 @@ it's sad and but i should always keep moving  forward
    ot
    
 10:10 2013-7-23
-   wangxu(u&d) urged me for the progress
+   wangxu(u&d) urged me for the progress<<<<<<< .mine
+<<<<<<< .mine
+
+
+=======
+=======
                
    18:09, zys being online via "web chat"
    19:51, zys is not online
+>>>>>>> .r1024
    
    tcp statistic
    ot
@@ -4870,6 +4882,9 @@ it's sad and but i should always keep moving  forward
    filter debug, summary, task suspend, output log, fixed the xml reader bug
    18:27, zys is not online but "web chat"
          
+<<<<<<< .mine
+   >>>>>>> .r1023
+=======
 11:54 2013-8-1
    packet file export
    cpu affinity
@@ -5121,4 +5136,6 @@ it's sad and but i should always keep moving  forward
 9:52 2013-9-11
    9:52, zys being online
       
-   
+11:08 2013-9-14
+   i surrender!!!
+    
