@@ -11634,7 +11634,7 @@ setMacaddress(String
 /******************************************************************************************************************************
 
 
-/************************************************ knowledgemet foundation ******************************************************
+/************************************************ foundation ******************************************************
 12:23 2013-7-21,
        
  * "iptables"
@@ -11650,48 +11650,63 @@ setMacaddress(String
             
    show prompt before execute a special cmd???
    how to clean the current shell history cmd?
-         
+   	         
    "bit currency???"
    交换机级联,堆叠
    
    反转片，负片，扫底
    
+   rtn = mkdir(dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+   
+   basket shooting
+   
+   geomancy
+   
+   union
 *******************************************************************************************************************************/
-         
-/************************************************************** amor pursuing **************************************************
+                    
+/*************************************** communication, interaction **************************************************
  *  
  *  a bottle is necessary?
  *  tasty site
  *  topic collection
- *  
+ *  hongkong, macao passport
+ *  singing
+ *  body odor???
+ *   
 /******************************************************************************************************************************
+
    
+
 /************************************************************** libbacktrack **************************************************
    suspend test
    decoder
    decoder: no lock at data in-out!!!
    decode a large capture file occur err!!
-
-   will "ip proto" field has value while the frame type is ipx/XNS/OSI/...?
       
+   before i push to the queue, get progress in next thread???
+   call "cancel analysis" after analysis?
+   
+   will "ip proto" field has value while the frame type is ipx/XNS/OSI/...but not the IP(2048)?
+   
    *decoder reform(structure, interface, expansibility)
    
    block??? add a receiving timeout, the task deliver must be seamless!!!
-      
+   
    release resource
    cancel mechanism
    
    dead lock!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      
+   
    if has payload, do not regard as "close" transaction
    
    release disk resource
-   
+      
    collapse
    dead loop!!!!!!!!!!!!!!!!!!!!!!!!
-            
-   the server is always busy???
    
+   the server is always busy???
+      
    get the execute result desc
    db is not close
             
@@ -12038,346 +12053,7 @@ g++ -DHAVE_CONFIG_H -I. -I../.. -I/home/xuzhenjie/prj/libtshark_test -I/home/xuz
 -export-dynamic -Wall  -D_GNU_SOURCE  -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.cc
    
    yum -y install gcc automake autoconf libtool make
-      
+   
    1235
    8
 ----
-   9880
-   33:33:00:00:00:02
-   
-   6247 root      20   0 19.8g 9.9g  26m S 200.2 63.7  87:03.84 java
-   90:2b:34:95:41:72
-   
-   frame.time_relative == 130.621558
-    
-   select *, sum(total_packet) from protocol where proto like "eth:ip:tcp"
-   
-   
-   
-arp, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: bootp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: browser, parent_protocols: eth:ip:udp:nbdgm:smb, parent_protocols_section_list.size(): 5
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: bt-utp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: cdp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data, parent_protocols: eth:llc:cdp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: data-text-lines, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dhcpv6, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:eth:llc, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: eth, parent_protocols: , parent_protocols_section_list.size(): 0
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: eth, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: gss-api, parent_protocols: eth:ip:tcp:nbss:smb, parent_protocols_section_list.size(): 5
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: gtp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: icmpv6, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: icp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ip, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipv6, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipx, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipx, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipxsap, parent_protocols: eth:ipx, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ipxsap, parent_protocols: eth:llc:ipx, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: llc, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: llc, parent_protocols: eth:eth, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbdgm, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: nbss, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: ntlmssp, parent_protocols: eth:ip:tcp:nbss:smb:gss-api, parent_protocols_section_list.size(): 6
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: oicq, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:udp:nbdgm, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:tcp:nbss, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: srvloc, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: stp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: tcp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: tpcp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:29:57]on Aggregation::DoStorage, proto: yami, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-
-
-
-
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: arp, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: bootp, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: browser, parent_protocols: eth:ip:udp:nbdgm:smb, parent_protocols_section_list.size(): 5
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: data-text-lines, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dhcpv6, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ipv6:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:eth:llc, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: dtp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: eth, parent_protocols: , parent_protocols_section_list.size(): 0
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: eth, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:tcp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: http, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: icmpv6, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: igmp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: image-gif, parent_protocols: eth:ip:tcp:http, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: ip, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: ipv6, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: llc, parent_protocols: eth:eth, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: llc, parent_protocols: eth, parent_protocols_section_list.size(): 1
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: nbdgm, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: nbns, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: oicq, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: smb, parent_protocols: eth:ip:udp:nbdgm, parent_protocols_section_list.size(): 4
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: srvloc, parent_protocols: eth:ip:udp, parent_protocols_section_list.size(): 3
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: stp, parent_protocols: eth:llc, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: tcp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ipv6, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: udp, parent_protocols: eth:ip, parent_protocols_section_list.size(): 2
-[INFO][20130816 14:54:37]on Aggregation::DoStorage, proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp, parent_protocols_section_list.size(): 4
-
-proto: arp, parent_protocols: eth
-proto: cdp, parent_protocols: eth:llc
-proto: data, parent_protocols: eth:llc:cdp
-proto: dtp, parent_protocols: eth:eth:llc
-proto: dtp, parent_protocols: eth:llc
-proto: eth, parent_protocols: 
-proto: eth, parent_protocols: eth
-proto: llc, parent_protocols: eth
-proto: llc, parent_protocols: eth:eth
-proto: stp, parent_protocols: eth:llc
-proto: vssmonitoring, parent_protocols: eth:eth:llc:dtp
-
-
-sis, time: 2013-05-22 10:22:30, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:32, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 28
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:22:44, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:23, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 28
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:24, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:23:42, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:02, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:03, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:16, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 29
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:32, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:34, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:35, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:52, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:53, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:24:55, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:15, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:33, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:25:34, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:02, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:04, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:05, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:22, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:23, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:24, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:25, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:28, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:43, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 27
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:44, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-[INFO][20130817 15:37:29]on DoStorage, diagnosis, time: 2013-05-22 10:26:45, mac: 08:10:75:2b:26:91, desc: Arp storm, count: 26
-
-.1.6:50877
-xxx.139:6396
-
-tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/lishi.pcap -e frame.number -e http.request | grep 1 -w | wc
-
-6163
-
-
- proto_list[0]: AOL
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[1]: ARP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[2]: ATALK
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[3]: ATIP_AEP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[4]: ATIP_NBP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[5]: ATIP_RTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[6]: ATIP_ZIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[7]: AT_AEP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[8]: AT_ATP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[9]: AT_DSP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[10]: AT_NBP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[11]: AT_RTMP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[12]: AT_RTREQ
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[13]: AT_ZIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[14]: Audio
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[15]: BGP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[16]: CCMAIL
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[17]: CDMA2K
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[18]: CDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[19]: CISCOGDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[20]: CITRIX
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[21]: CNT-Fibre
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[22]: CRTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[23]: DECLAT
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[24]: DECNET
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[25]: DHCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[26]: DIAMETER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[27]: DIAMETER-SCTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[28]: DLC
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[29]: DLSW_RD
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[30]: DLSW_WR
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[31]: DNS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[32]: DNSIX
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[33]: DOOM
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[34]: EGP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[35]: FTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[36]: GGP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[37]: GRE
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[38]: GTPU_V1
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[39]: GTP_V0
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[40]: GTP_V1
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[41]: H245
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[42]: H323-GAT
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[43]: HSRP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[44]: HTTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[45]: HTTPS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[46]: ICMP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[47]: iFCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[48]: IGMP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[49]: IGRP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[50]: IMAP3
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[51]: INGRESQL
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[52]: IP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[53]: IP Flow Info Export
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[54]: IPFIX over DTLS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[55]: IPIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[56]: IPIP4
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[57]: IPPING
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[58]: IPSec-AH
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[59]: IPSec-ESP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[60]: IPV6
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[61]: IPX
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[62]: IPX1_UDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[63]: IPX2_UDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[64]: IP_OTHER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[65]: IRC
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[66]: IS-801
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[67]: iSCSI
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[68]: ISO 8583
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[69]: ISO_8583_0100
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[70]: ISO_8583_0110
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[71]: ISO_8583_0200
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[72]: ISO_8583_0210
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[73]: ISO_8583_04XX
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[74]: ISO_8583_BASE1
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[75]: ISO_8583_OTHER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[76]: ITU-T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[77]: IUA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[78]: KERBEROS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[79]: L2F
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[80]: L2TP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[81]: LDAP1
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[82]: LDAP2
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[83]: M2PA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[84]: M2UA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[85]: M3UA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[86]: MEGACO
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[87]: Megaco-H.248 binary
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[88]: MGCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[89]: MOBILE IP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[90]: MS-DNS_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[91]: MS-DNS_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[92]: MS-WINS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[93]: MSSQLMON
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[94]: MSSQLSRV
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[95]: NB_DGM_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[96]: NB_NS_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[97]: NB_SSN_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[98]: NCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[99]: NETB
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[100]: NETB_DGM
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[101]: NETB_NAM
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[102]: NETB_SSN
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[103]: NETSHOW
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[104]: NETVIEW
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[105]: NETV_RCV
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[106]: NETV_SND
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[107]: NET_OTHER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[108]: NEWS_UDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[109]: NFS_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[110]: NFS_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[111]: NNTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[112]: Notes
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[113]: NOTESUDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[114]: NOVRIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[115]: NOVSAP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[116]: NSIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[117]: NTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[118]: NW-CS_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[119]: NW-LU62U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[120]: ORACLE_SRV
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[121]: ORACLSQL
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[122]: OSI
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[123]: OSPF
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[124]: PGM
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[125]: POP3
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[126]: POP3_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[127]: PRINT_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[128]: PRINT_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[129]: Q931
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[130]: Radius-Accounting
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[131]: RadiusAuthentication
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[132]: RARP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[133]: REALAUD
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[134]: REXEC
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[135]: RFE_UDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[136]: RIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[137]: Rlogin
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[138]: RPRINT_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[139]: RPRINT_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[140]: RSP_ALT_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[141]: RSVP2
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[142]: RSVP3
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[143]: RTCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[144]: RTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[145]: RTSP_U
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[146]: RWHO
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[147]: S1-AP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[148]: SCCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[149]: SCTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[150]: SIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[151]: SIP_T
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[152]: SKYPE
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[153]: SMPP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[154]: SMTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[155]: SNA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[156]: SNMP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[157]: SNMPTRAP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[158]: SOCKS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[159]: SQLNET
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[160]: SQLNET_N
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[161]: SQL_SRV
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[162]: SSH
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[163]: SUA
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[164]: SUNRPC
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[165]: SYSLOG
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[166]: TACACS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[167]: TCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[168]: TCP_OTHER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[169]: TELNET
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[170]: TFTP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[171]: TSX_STAMP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[172]: UDP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[173]: UDP_OTHER
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[174]: V5UA app port
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[175]: Video
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[176]: VINES
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[177]: VIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[178]: VoFR
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[179]: XDMCP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[180]: XNS
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[181]: XNS_ECHO
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[182]: XNS_ERR
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[183]: XNS_PEP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[184]: XNS_RIP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[185]: XNS_SPP
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[186]: XWINDOW
-[INFO][20130902 10:10:27]on start_backtrack_analysis, proto_list[187]: XWIN_UDP
-
-baidu: 115.239.210.27
