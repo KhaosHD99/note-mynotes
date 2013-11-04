@@ -187,9 +187,7 @@ universal
 usual
 ------------------------------------------------
 
-
 RTTI-like workaround
-
 
 ------------------------------------------------
 know:           知道(与understand相近)
@@ -203,21 +201,14 @@ acquaint：      使熟悉，使认知
 ------------------------------------------------
 
 
-
-
-
 【每日英语】My dear roommate, thank you for sparing my life.亲爱的室友，感谢你当年的不杀之恩。Even the most boring times in life are limited.?生命中再无聊的时光也是限量版。 As long as you are still alive, you will definitely encounter the good things in life.?只要活着就一定会遇上好事。
-
 
 when a software engineer get married to another software engineer then this happens.
 
 
-
-
-
 [每日英语0530]leave for  是离开去某地，for后加的地点名字是将要去的地方。而leave  to   则是离开某地，to后加的是要离开的地方。还有短语leave 加地点A   for  地点B   的短语，意为离开A去B。leave for 是出发至某处 
-如: He left for Beijing yesterday. 
-leave sth for sb 是把什么留给什么人 
+如: He left for Beijing yesterday.
+leave sth for sb 是把什么留给什么人
 如：She left these flowers for you. 
 leave sb for sb 是离开什么人去和什么人在一起 
 如：He left his wife for a young lady. 
@@ -227,3 +218,7 @@ appears to be damaged or corrupt
 
 
 【每日英语0729】You can't have a better tomorrow if you're still thinking about yesterday. 如果你还在留恋昨天，就不会拥有更美好的明天。It is not because things are difficult that we do not dare, it is because we do not dare that things are difficult. 并不是因为事情难我们才不敢做，而是因为我们不敢做事情才难。(Seneca Roman)Your heart is free. Have the courage to follow it.你的心是自由的，要有勇气追随它。Go at least once a year to a place you have never been before. 每年至少去一个你不曾去过的地方吧！------（Ben）
+
+
+The following diagram illustrates the place of the internet protocol
+in the protocol hierarchy:
