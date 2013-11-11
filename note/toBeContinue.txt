@@ -13626,3 +13626,33 @@ end packet.c:register_dissector_table, dissector_tables size: 99
 --------------------- on packet.c:register_dissector_table, name: iax2.dataformat, ui_name: IAX dataformat number
 end packet.c:register_dissector_table, dissector_tables size: 100
 on proto.c:proto_register_protocol, name: Infiniband Sockets Direct Protocol, short_name: Infiniband SDP, filter_name: ib_sdp
+
+
+
+
+/*********************************** register.c *****************************************/
+ * Do not modify this file.
+ *
+ * It is created automatically by the "register.c" target in
+ * epan/dissectors/Makefile or Makefile.nmake using information in
+ * epan/dissectors/register-cache.pkl.
+ *
+ * You can force this file to be regenerated completely by deleting
+ * it along with epan/dissectors/register-cache.pkl.
+ */
+
+Velvet -- 超大屏幕、香槟、美女构成的欢乐世界
+ 　　地址：环市东国际电子大厦首层 　　Velvet拥有可容纳三四百人的空间，和市内第一超大屏幕--3.5米×2米的清晰投影，投影仪可以360度旋转。是市内的球友聚会的首选。这里不提供啤酒，提供的是香槟，每一支还附赠烟花，帅气的侍应生举着香槟烟花穿来走去非常有气氛，每场有花衫国旗脸的足球宝贝在DJ强烈的节奏下，穿着性感球衣撑场，还会推出“万元奖金竞猜”活动，让球迷们看得紧张刺激又开心。 
+Grand house – 户外室内看球两相宜
+ 　　地址：二沙岛上广东美术馆侧面 　　Grand house拥有临江的户外大草坪，前后花园面积4000平方米，酒吧在户外草坪上设置86英寸屏幕，可以让球迷吹着惬意的江风看球。如果不巧下雨，室内有134英寸大屏幕和十多台电视，可令场内任何角落皆可看到直播，甚至在小组赛时，还可分屏同时直播不同球队赛事。
+我帮强哥找的
+地址：天河北路冰花酒店1楼 　　几个外国人和中国人合作的Hooley’s一向是中外球迷的聚集之地，每晚直播球赛的同时还提供面部彩绘，为你心爱的球队加油。除了大厅集体热络看球赛，也可选择一帮朋友在分区内看球赛。这里每个分区都设置了电视，可容纳20-30人。店主同时也会设置啤酒有奖竞猜，推高气氛。 
+DMC：足球宝贝助兴
+　 　　地址：广州沿江路183号2楼 　　有位置错纵设置的电视，悬空在堂区上方，坐在任一角落的球迷都可以同时看到精彩赛事。另外，分散在卡区各个角落的舞台上，艳丽的足球宝贝儿们可劲地表演，为你助兴。吧台里，还有酷酒师的耍帅表演。 
+136bar-热闹的看球派对
+ 　　地址：沿江中路195号 　　无尽的大扎啤酒随时伺候。除了大堂的投影屏直播球赛外，还可以包厢通宵看球。最低消费：大包￥1000，小包￥500。 
+同乐酒吧（happy hour）--品着鸡尾酒斯文地看球
+ 　　地址：天河区体育东路78号 　　如果想看球，又不想太吵，那么同乐酒吧是个不错的选择。它的空间不大，但有上好的鸡尾酒。 
+单行道：以球会友、天使传情
+ 　　地址：黄埔大道体育东路口金泽大厦3楼 　　单行道交友主题酒吧有5间VIP房，配以BMB音响，42寸等离子电视和80寸高清晰投影。并组织陌生男女以球为友，同为拥护的球队助威，男女搭配地看球，情绪更high。
+
