@@ -11666,6 +11666,7 @@ setMacaddress(String
    
    usm锐化
    超焦距
+   渐变图层
    
 *******************************************************************************************************************************/
                     
@@ -13656,3 +13657,21 @@ DMC：足球宝贝助兴
 单行道：以球会友、天使传情
  　　地址：黄埔大道体育东路口金泽大厦3楼 　　单行道交友主题酒吧有5间VIP房，配以BMB音响，42寸等离子电视和80寸高清晰投影。并组织陌生男女以球为友，同为拥护的球队助威，男女搭配地看球，情绪更high。
 
+field: ip.dst, field value: (null)
+field: ip.src, field value: 192.168.1.48
+field: ip.dst, field value: 239.255.255.250
+field: ip.src, field value: (null)
+field: ip.dst, field value: (null)
+field: ip.src, field value: (null)
+field: ip.dst, field value: (null)
+field: ip.src, field value: (null)
+field: ip.dst, field value: (null)
+field: ip.src, field value: (null)
+field: ip.dst, field value: (null)
+field: ip.src, field value: 192.168.1.4
+field: ip.dst, field value: 255.255.255.255
+
+
+
+11001377858
+4000433380
