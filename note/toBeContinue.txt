@@ -13630,6 +13630,16 @@ on proto.c:proto_register_protocol, name: Infiniband Sockets Direct Protocol, sh
 
 
 
+400M:
+
+48s
+
+():			15s
+ip:			23s
+ip, udp: 		24s
+ip, udp, tcp:  		49s
+ip, udp, tcp, http: 	67s
+
 
 /*********************************** register.c *****************************************/
  * Do not modify this file.
@@ -13739,4 +13749,31 @@ field: ip.dst, field value: 255.255.255.255
 地点：天河区文化馆（地铁三号线岗顶站A出口，天娱广场西塔9楼）
 欢迎参加！（免费的）
 
+
+镜头冲光, 渐变, 滤镜光照效果
+
 on proto.c:proto_register_protocol:4420, name: User Datagram Protocol, short_name: UDP, filter name: udp
+
+Makefile.am: object `log_interface.$(OBJEXT)' created both with libtool and without
+
+planar35/2
+distagon35/2.8（禄莱35/2.8???）
+
+珠戒
+curtagon35/2.8
+蔡戒
+contarex牛眼
+ENNA35/2.5
+
+东菜万金油???
+
+MACRO-REVUENON 35 F2.8
+
+
+
+
+
+
+
+
+

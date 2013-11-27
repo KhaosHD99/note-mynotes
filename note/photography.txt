@@ -1,0 +1,6 @@
+
+portrait: park, outdoor nature(wilderness, forest), street, ruins(train stop, wharf)
+
+
+
+
