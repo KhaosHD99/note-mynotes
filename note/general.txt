@@ -3560,7 +3560,7 @@ The times of TCP turns. TCP turn means the number of paired ACKnowledgement pack
 /home/xuzhenjie/opt/bin/tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/lishi.pcap -e frame.number -e http.request | grep 1 -w  > /home/tshark_http_request
 
 
-
+tshark -T fields -r /home/xuzhenjie/prj/libbacktrack_jnitest/100M.pcap -e frame.number -e ip.len
 
 
 
@@ -4220,7 +4220,6 @@ Internet Protocol Numbers
 地址：广州市天河区天河东路155号骏源大厦702 020-38264599
 Guangzhou U&D tech Co.,Ltd
 
-
 |----|----|------|--|-------------------|----------
      |ver |ihl | -tos | -|    tot_len        |
      |----|----|------|--|-------------------|
@@ -4241,7 +4240,6 @@ Guangzhou U&D tech Co.,Ltd
 
 
 气遇风而散,界水则止,是谓风水.所谓风水,得水为上，藏风次之
-
 
 
 

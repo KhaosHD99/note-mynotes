@@ -11685,11 +11685,18 @@ setMacaddress(String
    
 
 /************************************************************** libbacktrack **************************************************
+      
+11:58 2014-1-3   resource release mechanism
+                 configurable resource dir
+   
+   [INFO][20140103 16:26:42]on BackTrack::WorkThread, query e28ec829-7ec0-4b2c-9885-c4c2b477d458 has done, decoded_packet_count:       164264, filtered_packet_count: 164264, file size: 104858008, file path: 100M.pcap, decoding elapse-time: 19s270285ms, total elapse- time: 40s79540ms
+
+      
    suspend test
    decoder
    decoder: no lock at data in-out!!!
    decode a large capture file occur err!!
-      
+   
    before i push to the queue, get progress in next thread???
    call "cancel analysis" after analysis?
    
@@ -13767,17 +13774,6 @@ ENNA35/2.5
 MACRO-REVUENON 35 F2.8
 
 
-
-
-
-
-
-
-
-
-
-
-
 packet[24], field: eth.src, field value: 04:7d:7b:a9:50:e8
 packet[24], field: eth.dst, field value: 08:10:75:2b:26:91
 packet[24], field: ip.hdr_len, field value: 20
@@ -13793,7 +13789,6 @@ packet[24], field: tcp.dstport, field value: 80
 packet[24], field: http.request.method, field value: GET
 packet[24], field: http.request.version, field value: HTTP/1.1
 packet[24], field: http.request.full_uri, field value: http://wp.mail.qq.com/poll?r=0.016946807969361544&u=466795229&s=7&k=NWQSCUhY3brSG2zJ&t=0&i=30&r=0.3947577062062919
-
 
 
 packet[397], field: eth.src, field value: 04:7d:7b:a9:50:e8
@@ -13812,8 +13807,6 @@ packet[397], field: http.request.method, field value: GET
 packet[397], field: http.request.version, field value: HTTP/1.1
 packet[397], field: http.request.full_uri, field value: http://www.baidu.com/home/page/data/birthday?asyn=1&t=0.11664106976240873&_req_seqid=0x7752abfe7ebd7900
 
-
-
 packet[397], field: eth.src, field value: 04:7d:7b:a9:50:e8
 packet[397], field: eth.dst, field value: 08:10:75:2b:26:91
 packet[397], field: ip.hdr_len, field value: 20
@@ -13830,6 +13823,288 @@ packet[397], field: http.request.method, field value: (null)
 packet[397], field: http.request.version, field value: (null)
 packet[397], field: http.request.full_uri, field value: (null)
 
-
-
 pcap-ng???
+
+arp.src.proto_ipv4
+
+
+
+
+
+
+
+
+
+running install
+running bdist_egg
+running egg_info
+writing requests.egg-info/PKG-INFO
+writing top-level names to requests.egg-info/top_level.txt
+writing dependency_links to requests.egg-info/dependency_links.txt
+reading manifest file 'requests.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'requests.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib
+creating build/lib/requests
+copying requests/utils.py -> build/lib/requests
+copying requests/structures.py -> build/lib/requests
+copying requests/sessions.py -> build/lib/requests
+copying requests/status_codes.py -> build/lib/requests
+copying requests/exceptions.py -> build/lib/requests
+copying requests/cookies.py -> build/lib/requests
+copying requests/auth.py -> build/lib/requests
+copying requests/api.py -> build/lib/requests
+copying requests/certs.py -> build/lib/requests
+copying requests/adapters.py -> build/lib/requests
+copying requests/hooks.py -> build/lib/requests
+copying requests/compat.py -> build/lib/requests
+copying requests/models.py -> build/lib/requests
+copying requests/__init__.py -> build/lib/requests
+creating build/lib/requests/packages
+copying requests/packages/__init__.py -> build/lib/requests/packages
+creating build/lib/requests/packages/charade
+copying requests/packages/charade/jpcntx.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/sbcharsetprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/mbcharsetprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/mbcsgroupprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/mbcssm.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/big5freq.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langbulgarianmodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/euckrfreq.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/hebrewprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/escsm.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langgreekmodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/cp949prober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/universaldetector.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/charsetprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/euckrprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/gb2312freq.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langhebrewmodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/sjisprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/constants.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langcyrillicmodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langthaimodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/chardistribution.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/charsetgroupprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/sbcsgroupprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/gb2312prober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/escprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/__main__.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/latin1prober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/codingstatemachine.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/utf8prober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/langhungarianmodel.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/euctwfreq.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/jisfreq.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/compat.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/euctwprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/big5prober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/eucjpprober.py -> build/lib/requests/packages/charade
+copying requests/packages/charade/__init__.py -> build/lib/requests/packages/charade
+creating build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/response.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/filepost.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/exceptions.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/fields.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/poolmanager.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/connectionpool.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/connection.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/request.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/util.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/_collections.py -> build/lib/requests/packages/urllib3
+copying requests/packages/urllib3/__init__.py -> build/lib/requests/packages/urllib3
+creating build/lib/requests/packages/urllib3/packages
+copying requests/packages/urllib3/packages/six.py -> build/lib/requests/packages/urllib3/packages
+copying requests/packages/urllib3/packages/ordered_dict.py -> build/lib/requests/packages/urllib3/packages
+copying requests/packages/urllib3/packages/__init__.py -> build/lib/requests/packages/urllib3/packages
+creating build/lib/requests/packages/urllib3/contrib
+copying requests/packages/urllib3/contrib/ntlmpool.py -> build/lib/requests/packages/urllib3/contrib
+copying requests/packages/urllib3/contrib/__init__.py -> build/lib/requests/packages/urllib3/contrib
+copying requests/packages/urllib3/contrib/pyopenssl.py -> build/lib/requests/packages/urllib3/contrib
+creating build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+copying requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py -> build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+copying requests/packages/urllib3/packages/ssl_match_hostname/__init__.py -> build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+copying requests/cacert.pem -> build/lib/requests
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/utils.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/structures.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/sessions.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/status_codes.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/exceptions.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/cookies.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/auth.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/api.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/certs.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/adapters.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/hooks.py -> build/bdist.linux-x86_64/egg/requests
+creating build/bdist.linux-x86_64/egg/requests/packages
+creating build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/jpcntx.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/sbcharsetprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/mbcharsetprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/mbcsgroupprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/mbcssm.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/big5freq.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langbulgarianmodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/euckrfreq.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/hebrewprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/escsm.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langgreekmodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/cp949prober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/universaldetector.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/charsetprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/euckrprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/gb2312freq.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langhebrewmodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/sjisprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/constants.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langcyrillicmodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langthaimodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/chardistribution.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/charsetgroupprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/sbcsgroupprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/gb2312prober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/escprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/__main__.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/latin1prober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/codingstatemachine.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/utf8prober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/langhungarianmodel.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/euctwfreq.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/jisfreq.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/compat.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/euctwprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/big5prober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/eucjpprober.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+copying build/lib/requests/packages/charade/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages/charade
+creating build/bdist.linux-x86_64/egg/requests/packages/urllib3
+creating build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib
+copying build/lib/requests/packages/urllib3/contrib/ntlmpool.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib
+copying build/lib/requests/packages/urllib3/contrib/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib
+copying build/lib/requests/packages/urllib3/contrib/pyopenssl.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib
+copying build/lib/requests/packages/urllib3/response.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/filepost.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/exceptions.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/fields.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/poolmanager.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+creating build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages
+copying build/lib/requests/packages/urllib3/packages/six.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages
+creating build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ssl_match_hostname
+copying build/lib/requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ssl_match_hostname
+copying build/lib/requests/packages/urllib3/packages/ssl_match_hostname/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ssl_match_hostname
+copying build/lib/requests/packages/urllib3/packages/ordered_dict.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages
+copying build/lib/requests/packages/urllib3/packages/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages
+copying build/lib/requests/packages/urllib3/connectionpool.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/connection.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/request.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/util.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/_collections.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/urllib3/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages/urllib3
+copying build/lib/requests/packages/__init__.py -> build/bdist.linux-x86_64/egg/requests/packages
+copying build/lib/requests/compat.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/models.py -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/cacert.pem -> build/bdist.linux-x86_64/egg/requests
+copying build/lib/requests/__init__.py -> build/bdist.linux-x86_64/egg/requests
+byte-compiling build/bdist.linux-x86_64/egg/requests/utils.py to utils.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/structures.py to structures.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/sessions.py to sessions.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/status_codes.py to status_codes.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/exceptions.py to exceptions.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/cookies.py to cookies.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/auth.py to auth.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/api.py to api.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/certs.py to certs.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/adapters.py to adapters.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/hooks.py to hooks.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/jpcntx.py to jpcntx.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/sbcharsetprober.py to sbcharsetprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/mbcharsetprober.py to mbcharsetprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/mbcsgroupprober.py to mbcsgroupprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/mbcssm.py to mbcssm.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/big5freq.py to big5freq.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langbulgarianmodel.py to langbulgarianmodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/euckrfreq.py to euckrfreq.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/hebrewprober.py to hebrewprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/escsm.py to escsm.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langgreekmodel.py to langgreekmodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/cp949prober.py to cp949prober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/universaldetector.py to universaldetector.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/charsetprober.py to charsetprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/euckrprober.py to euckrprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/gb2312freq.py to gb2312freq.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langhebrewmodel.py to langhebrewmodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/sjisprober.py to sjisprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/constants.py to constants.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langcyrillicmodel.py to langcyrillicmodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langthaimodel.py to langthaimodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/chardistribution.py to chardistribution.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/charsetgroupprober.py to charsetgroupprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/sbcsgroupprober.py to sbcsgroupprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/gb2312prober.py to gb2312prober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/escprober.py to escprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/__main__.py to __main__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/latin1prober.py to latin1prober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/codingstatemachine.py to codingstatemachine.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/utf8prober.py to utf8prober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/langhungarianmodel.py to langhungarianmodel.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/euctwfreq.py to euctwfreq.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/jisfreq.py to jisfreq.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/compat.py to compat.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/euctwprober.py to euctwprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/big5prober.py to big5prober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/eucjpprober.py to eucjpprober.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/charade/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib/ntlmpool.py to ntlmpool.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/contrib/pyopenssl.py to pyopenssl.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/response.py to response.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/filepost.py to filepost.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/exceptions.py to exceptions.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/fields.py to fields.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/poolmanager.py to poolmanager.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/six.py to six.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py to _implementation.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ssl_match_hostname/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/ordered_dict.py to ordered_dict.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/packages/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/connectionpool.py to connectionpool.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/connection.py to connection.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/request.py to request.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/util.py to util.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/_collections.py to _collections.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/urllib3/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/packages/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/compat.py to compat.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/models.py to models.pyc
+byte-compiling build/bdist.linux-x86_64/egg/requests/__init__.py to __init__.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying requests.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying requests.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying requests.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying requests.egg-info/not-zip-safe -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying requests.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+creating dist
+creating 'dist/requests-2.1.0-py2.6.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing requests-2.1.0-py2.6.egg
+creating /usr/lib/python2.6/site-packages/requests-2.1.0-py2.6.egg
+Extracting requests-2.1.0-py2.6.egg to /usr/lib/python2.6/site-packages
+Adding requests 2.1.0 to easy-install.pth file
+
+
+Installed /usr/lib/python2.6/site-packages/requests-2.1.0-py2.6.egg
+Processing dependencies for requests==2.1.0
+Finished processing dependencies for requests==2.1.0
+
+
+what is the difference of "ifconfig ethx up/donw" and "ifup/ifdown"...
+
+
+
+LevelDB
